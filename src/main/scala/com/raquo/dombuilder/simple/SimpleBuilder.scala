@@ -1,10 +1,8 @@
 package com.raquo.dombuilder.simple
 
-import com.raquo.dombuilder.{Builder, DOMAPI}
+import com.raquo.dombuilder.Builder
 
 trait SimpleBuilder extends Builder[SimpleElement, SimpleText, SimpleComment, SimpleNode] {
-
-  val domapi: DOMAPI = new DOMAPI
 
   def element(tagName: String): SimpleElement = {
     new SimpleElement(tagName)

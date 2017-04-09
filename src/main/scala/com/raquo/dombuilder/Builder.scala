@@ -1,11 +1,13 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.nodes.{Comment, Element, Node, Text}
+import com.raquo.dombuilder.domapi.JsDomApi
+import com.raquo.dombuilder.nodes.{Comment, Element, Text}
 import org.scalajs.dom
 
 trait Builder[El <: Element[N], T <: Text[N], C <: Comment[N], N] {
 
-  val domapi: DOMAPI
+  // @TODO[API] Genericize later
+  val domapi: JsDomApi.type = JsDomApi
 
   @inline def attr[V](key: String): Attr[V, N] = {
     new Attr[V, N](key, this)
