@@ -30,8 +30,14 @@ class EventProp[E <: dom.raw.Event, N] (
   val builder: Builder[N]
 ) extends Key[E => Unit, N, EventPropSetter[E, N]] {
 
-  override def := (value: E => Unit): EventPropSetter[E, N] =
+  override def := (value: E => Unit): EventPropSetter[E, N] = {
     new EventPropSetter[E, N](this, value)
+  }
+
+  // @TODO[Performance] Check how much function wrapping is happening here (there's also "value _" in user code)
+  @inline def := (value: () => Unit): EventPropSetter[E, N] = {
+    := (_ => value())
+  }
 
   def jsName: String = {
     s"on${name.toLowerCase}"
