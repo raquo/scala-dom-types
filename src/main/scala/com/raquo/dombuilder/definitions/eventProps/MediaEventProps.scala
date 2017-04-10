@@ -8,7 +8,7 @@ import org.scalajs.dom
   * all HTML elements, but they are most common in media elements, like <audio>,
   * <embed>, <img>, <object>, and <video>.
   */
-trait MediaEventProps[N] extends SharedEventProps[N] { self: Builder[_, _, _, N] =>
+trait MediaEventProps[N] extends SharedEventProps[N] { self: Builder[N] =>
 
   /**
     * Script to be run on abort

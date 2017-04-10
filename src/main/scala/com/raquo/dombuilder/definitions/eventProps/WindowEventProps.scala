@@ -6,7 +6,7 @@ import org.scalajs.dom
 /**
   * Window Events
   */
-trait WindowEventProps[N] extends SharedEventProps[N] { self: Builder[_, _, _, N] =>
+trait WindowEventProps[N] extends SharedEventProps[N] { self: Builder[N] =>
 
   /**
     * The load event fires at the end of the document loading process. At this

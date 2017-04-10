@@ -4,7 +4,9 @@ import com.raquo.dombuilder.domapi.JsDomApi
 import com.raquo.dombuilder.nodes.{Comment, Element, Text}
 import org.scalajs.dom
 
-trait Builder[El <: Element[N], T <: Text[N], C <: Comment[N], N] {
+// @TODO[API] These two classes need a better name. DOMBuilder or soemthing?
+
+trait Builder[N] {
 
   // @TODO[API] Genericize later
   val domapi: JsDomApi.type = JsDomApi
@@ -26,17 +28,28 @@ trait Builder[El <: Element[N], T <: Text[N], C <: Comment[N], N] {
     new Style[V, N](jsKey, cssKey, this)
   }
 
-  def mount(container: dom.Element, element: El): Root[N] = {
+  def mount(container: dom.Element, element: Element[N]): Root[N] = {
     new Root[N](container, element)
   }
 
-  def unmount(container: dom.Element, element: El): Unit = {
+  def unmount(container: dom.Element, element: Element[N]): Unit = {
     container.removeChild(element.ref)
   }
+}
 
-  def element(tagName: String): El
+trait NodeBuilder[+El <: Element[N], +T <: Text[N], +C <: Comment[N], N] {
 
-  def textNode(text: String): T
+  def element(tagName: String): El with N
 
-  def commentNode(text: String): C
+  def textNode(text: String): T with N
+
+  def commentNode(text: String): C with N
+}
+
+trait HasBuilder[N] {
+  val builder: Builder[N]
+}
+
+trait HasNodeBuilder[+El <: Element[N], +T <: Text[N], +C <: Comment[N], N] {
+  val nodeBuilder: NodeBuilder[El, T, C, N]
 }

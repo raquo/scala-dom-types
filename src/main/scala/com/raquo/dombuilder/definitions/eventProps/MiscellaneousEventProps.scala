@@ -6,7 +6,7 @@ import org.scalajs.dom
 /**
   * Miscellaneous Events
   */
-trait MiscellaneousEventProps[N] extends SharedEventProps[N] { self: Builder[_, _, _, N] =>
+trait MiscellaneousEventProps[N] extends SharedEventProps[N] { self: Builder[N] =>
 
   /**
     * Fires when a <menu> element is shown as a context menu

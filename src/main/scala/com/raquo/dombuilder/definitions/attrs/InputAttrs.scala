@@ -2,7 +2,7 @@ package com.raquo.dombuilder.definitions.attrs
 
 import com.raquo.dombuilder.{Attr, Builder}
 
-trait InputAttrs[N] { self: Builder[_, _, _, N] =>
+trait InputAttrs[N] { self: Builder[N] =>
 
   /**
     * The URI of a program that processes the information submitted via the form.

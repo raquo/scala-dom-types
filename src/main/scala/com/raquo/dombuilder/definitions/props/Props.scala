@@ -2,7 +2,7 @@ package com.raquo.dombuilder.definitions.props
 
 import com.raquo.dombuilder.{Builder, Prop}
 
-trait Props[N] { self: Builder[_, _, _, N] =>
+trait Props[N] { self: Builder[N] =>
 
   /**
     * Space-separated list of CSS class names

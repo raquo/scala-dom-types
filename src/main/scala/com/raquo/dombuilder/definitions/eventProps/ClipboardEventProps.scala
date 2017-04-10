@@ -6,7 +6,7 @@ import org.scalajs.dom
 /**
   * Clipboard Events
   */
-trait ClipboardEventProps[N] { self: Builder[_, _, _, N] =>
+trait ClipboardEventProps[N] { self: Builder[N] =>
 
   /**
     * Fires when the user copies the content of an element

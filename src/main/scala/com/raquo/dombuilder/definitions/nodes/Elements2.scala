@@ -1,13 +1,13 @@
 package com.raquo.dombuilder.definitions.nodes
 
-import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.NodeBuilder
 import com.raquo.dombuilder.nodes.Element
 
 /**
   * Contains HTML tags which are used less frequently. These are generally
   * imported individually as needed.
   */
-trait Elements2[El <: Element[N], N] { self: Builder[El, _, _, N] =>
+trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, _, N] =>
 
   // Document Metadata
 

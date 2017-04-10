@@ -1,13 +1,13 @@
 package com.raquo.dombuilder.definitions.nodes
 
-import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.NodeBuilder
 import com.raquo.dombuilder.nodes.Element
 
 /**
   * Trait that contains the contents of the `Tags` object, so they can be mixed
   * in to other objects if needed.
   */
-trait Elements[El <: Element[N], N] { self: Builder[El, _, _, N] =>
+trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, _, N] =>
 
   /**
     * Represents the root of an HTML or XHTML document. All other elements must

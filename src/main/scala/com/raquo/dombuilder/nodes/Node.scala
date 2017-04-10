@@ -1,15 +1,16 @@
 package com.raquo.dombuilder.nodes
 
-import com.raquo.dombuilder.{Builder, Modifier}
+import com.raquo.dombuilder.{HasBuilder, Modifier}
 import org.scalajs.dom
 
 import scala.scalajs.js
 
 // @TODO We should consider removing the R <: dom.Node limit to allow for more flexible usage
 
-trait Node[N, +R <: dom.Node] extends Modifier[Element[N]] { self: N =>
-
-  val builder: Builder[_, _, _, N]
+trait Node[N, +R <: dom.Node]
+  extends Modifier[Element[N]]
+  with HasBuilder[N]
+{ self: N =>
 
   val ref: R = createRef()
 

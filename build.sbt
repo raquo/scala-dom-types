@@ -20,7 +20,7 @@ licenses += ("MIT", url("https://github.com/raquo/scala-dom-builder/blob/master/
 
 libraryDependencies ++= Seq(
   "org.scala-js" %%% "scalajs-dom" % "0.9.1",
-  "org.scalatest" %%% "scalatest" % "3.0.1" // % "test" @TODO[Elegance] We have reusable test helpers. Create a separate SnabbdomTestUtils package.
+  "org.scalatest" %%% "scalatest" % "3.0.1" // % "test" @TODO[API] We have reusable test helpers. Create a separate package for those.
 )
 
 persistLauncher in Test := false
@@ -29,4 +29,4 @@ useYarn := true
 
 requiresDOM in Test := true
 
-emitSourceMaps in fastOptJS := false
+emitSourceMaps in fastOptJS := false // Faster, and easier to debug, despite mangled names

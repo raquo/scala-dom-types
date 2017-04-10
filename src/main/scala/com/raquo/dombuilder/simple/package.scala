@@ -10,13 +10,15 @@ package object simple {
 
   val builder: SimpleBuilder = new SimpleBuilder {}
 
+  val nodeBuilder: SimpleNodeBuilder = new SimpleNodeBuilder {}
+
   object elements
     extends Elements[SimpleElement, SimpleNode]
-    with SimpleBuilder
+    with SimpleNodeBuilder
 
   object elements2
     extends Elements2[SimpleElement, SimpleNode]
-    with SimpleBuilder
+    with SimpleNodeBuilder
 
   object attrs
     extends Attrs[SimpleNode]
@@ -42,4 +44,8 @@ package object simple {
   object styles2
     extends Styles2[SimpleNode]
     with SimpleBuilder
+
+  implicit def textToNode(text: String): SimpleText = {
+    new SimpleText(text)
+  }
 }

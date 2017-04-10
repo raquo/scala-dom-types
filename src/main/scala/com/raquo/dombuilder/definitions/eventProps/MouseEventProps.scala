@@ -6,7 +6,7 @@ import org.scalajs.dom
 /**
   * Mouse Events: triggered by a mouse, or similar user actions.
   */
-trait MouseEventProps[N] { self: Builder[_, _, _, N] =>
+trait MouseEventProps[N] { self: Builder[N] =>
 
   /**
     * The click event is raised when the user clicks on an element. The click

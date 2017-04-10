@@ -10,7 +10,7 @@ trait Key[V, N, S <: Setter[_, V, N, S]] {
 
   val name: String
 
-  val builder: Builder[_, _, _, N]
+  val builder: Builder[N]
 
   /** Create a [[Setter]] */
   def := (value: V): S
@@ -18,7 +18,7 @@ trait Key[V, N, S <: Setter[_, V, N, S]] {
 
 class Attr[V, N] (
   val name: String,
-  val builder: Builder[_, _, _, N]
+  val builder: Builder[N]
 ) extends Key[V, N, AttrSetter[V, N]] {
 
   override def := (value: V): AttrSetter[V, N] =
@@ -27,7 +27,7 @@ class Attr[V, N] (
 
 class EventProp[E <: dom.raw.Event, N] (
   val name: String,
-  val builder: Builder[_, _, _, N]
+  val builder: Builder[N]
 ) extends Key[E => Unit, N, EventPropSetter[E, N]] {
 
   override def := (value: E => Unit): EventPropSetter[E, N] =
@@ -40,7 +40,7 @@ class EventProp[E <: dom.raw.Event, N] (
 
 class Prop[V, N] (
   val name: String,
-  val builder: Builder[_, _, _, N]
+  val builder: Builder[N]
 ) extends Key[V, N, PropSetter[V, N]] {
 
   override def := (value: V): PropSetter[V, N] =
@@ -50,7 +50,7 @@ class Prop[V, N] (
 class Style[V, N] (
   val name: String,
   val cssName: String, // @TODO[API] Will anyone need cssName, ever? Maybe let's remove it
-  val builder: Builder[_, _, _, N]
+  val builder: Builder[N]
 ) extends Key[V, N, StyleSetter[V, N]] {
 
   override def := (value: V): StyleSetter[V, N] =

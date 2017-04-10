@@ -1,18 +1,20 @@
 package com.raquo.dombuilder.simple
 
-import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.{Builder, NodeBuilder}
 
-trait SimpleBuilder extends Builder[SimpleElement, SimpleText, SimpleComment, SimpleNode] {
+trait SimpleBuilder extends Builder[SimpleNode]
 
-  def element(tagName: String): SimpleElement = {
+trait SimpleNodeBuilder extends NodeBuilder[SimpleElement, SimpleText, SimpleComment, SimpleNode] {
+
+  override def element(tagName: String): SimpleElement = {
     new SimpleElement(tagName)
   }
 
-  def textNode(text: String): SimpleText = {
+  override def textNode(text: String): SimpleText = {
     new SimpleText(text)
   }
 
-  def commentNode(text: String): SimpleComment = {
+  override def commentNode(text: String): SimpleComment = {
     new SimpleComment(text)
   }
 }

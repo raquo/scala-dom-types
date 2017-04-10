@@ -3,7 +3,7 @@ package com.raquo.dombuilder.definitions.eventProps
 import com.raquo.dombuilder.{Builder, EventProp}
 import org.scalajs.dom
 
-trait FormEventProps[N] { self: Builder[_, _, _, N] =>
+trait FormEventProps[N] { self: Builder[N] =>
 
   /**
     * The blur event is raised when an element loses focus.
