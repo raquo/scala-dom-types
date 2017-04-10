@@ -39,28 +39,32 @@ object JsDomApi extends DomApi[dom.Event, dom.html.Element, dom.Element, dom.Tex
     node.textContent = text
   }
 
-  @inline override def setAttribute[V](element: dom.Element, key: String, value: V): Unit = {
+  @inline override def setAttribute[V](element: dom.Element, attrName: String, value: V): Unit = {
     value match {
-      case true => element.setAttribute(key, "")
-      case false => removeAttribute(element, key)
-      case _ => element.setAttribute(key, value.toString)
+      case true => element.setAttribute(attrName, "")
+      case false => removeAttribute(element, attrName)
+      case _ => element.setAttribute(attrName, value.toString)
     }
   }
 
-  @inline override def removeAttribute(element: dom.Element, key: String): Unit = {
-    element.removeAttribute(key)
+  @inline override def removeAttribute(element: dom.Element, attrName: String): Unit = {
+    element.removeAttribute(attrName)
   }
 
-  @inline override def setEventProp[E <: dom.Event](element: dom.Node, key: String, eventHandler: E => Unit): Unit = {
-    val jsEventHandler: js.Function1[E, Unit] = eventHandler
-    element.asInstanceOf[js.Dynamic].updateDynamic(key.toLowerCase)(jsEventHandler)
+  @inline override def setEventProp[E <: dom.Event](
+    element: dom.Node,
+    eventName: String,
+    eventHandler: E => Unit,
+    useCapture: Boolean = false
+  ): Unit = {
+    element.addEventListener(eventName, eventHandler, useCapture)
   }
 
-  @inline override def setProp[V](element: dom.Node, key: String, value: V): Unit = {
-    element.asInstanceOf[js.Dynamic].updateDynamic(key)(value.asInstanceOf[js.Any])
+  @inline override def setProp[V](element: dom.Node, propName: String, value: V): Unit = {
+    element.asInstanceOf[js.Dynamic].updateDynamic(propName)(value.asInstanceOf[js.Any])
   }
 
-  @inline override def setStyle[V](element: dom.html.Element, key: String, value: V): Unit = {
-    element.style.asInstanceOf[js.Dynamic].updateDynamic(key)(value.asInstanceOf[js.Any])
+  @inline override def setStyle[V](element: dom.html.Element, stylePropName: String, value: V): Unit = {
+    element.style.asInstanceOf[js.Dynamic].updateDynamic(stylePropName)(value.asInstanceOf[js.Any])
   }
 }

@@ -32,6 +32,8 @@ class EventPropSetter[Ev <: dom.raw.Event, N](
   val value: Ev => Unit
 ) extends Setter[EventProp[Ev, N], Ev => Unit, N, EventPropSetter[Ev, N]] {
 
+  // @TODO[API] Provide a way to specify useCapture
+
   override def applyTo(element: Element[N]): Unit = {
     key.builder.domapi.setEventProp(element.ref, key.jsName, value)
   }

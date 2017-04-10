@@ -39,9 +39,7 @@ class EventProp[E <: dom.raw.Event, N] (
     := (_ => value())
   }
 
-  def jsName: String = {
-    s"on${name.toLowerCase}"
-  }
+  def jsName: String = name.toLowerCase
 }
 
 class Prop[V, N] (

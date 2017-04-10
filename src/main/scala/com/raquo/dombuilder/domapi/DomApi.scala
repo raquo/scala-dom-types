@@ -27,13 +27,18 @@ trait DomApi[DomEvent, DomHtmlElement, DomElement, DomText, DomComment, DomNode]
 
   @inline def setTextContent(node: DomNode, text: String)
 
-  @inline def setAttribute[V](element: DomElement, key: String, value: V): Unit
+  @inline def setAttribute[V](element: DomElement, attrName: String, value: V): Unit
 
-  @inline def removeAttribute(element: DomElement, key: String): Unit
+  @inline def removeAttribute(element: DomElement, attrName: String): Unit
 
-  @inline def setEventProp[E <: DomEvent](element: DomNode, key: String, eventHandler: E => Unit): Unit
+  @inline def setEventProp[E <: DomEvent](
+    element: DomNode,
+    eventName: String,
+    eventHandler: E => Unit,
+    useCapture: Boolean = false
+  ): Unit
 
-  @inline def setProp[V](element: DomNode, key: String, value: V): Unit
+  @inline def setProp[V](element: DomNode, propName: String, value: V): Unit
 
-  @inline def setStyle[V](element: DomHtmlElement, key: String, value: V): Unit
+  @inline def setStyle[V](element: DomHtmlElement, propName: String, value: V): Unit
 }
