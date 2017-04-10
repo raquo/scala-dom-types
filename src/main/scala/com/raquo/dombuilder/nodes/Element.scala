@@ -21,7 +21,7 @@ trait Element[N] extends Node[N, dom.Element] { self: N =>
     builder.domapi.createElement(tagName)
   }
 
-  def apply(modifiers: Modifier[N]*): this.type = {
+  def apply(modifiers: Modifier[this.type]*): this.type = {
     // @TODO[Performance] Use while loop?
     modifiers.foreach(_.applyTo(this))
     this
@@ -63,6 +63,31 @@ trait Element[N] extends Node[N, dom.Element] { self: N =>
     }
   }
 
+  def insertChild(child: ChildNode, atIndex: Int): Unit = {
+    // @TODO should we check that maybeChildren is initialized?
+    // @TODO should we check that index is not out of bounds?
+    _maybeChildren.foreach { children =>
+
+      // 1. Update this node
+      _maybeChildren = children.splice(atIndex, 0, child)
+
+      // 2. Update child
+      child.setParent(this)
+
+      // 3. Update DOM
+      if (atIndex == children.length) {
+        builder.domapi.appendChild(node = this.ref, child = child.ref)
+      } else {
+        val nextChild = children.apply(atIndex)
+        builder.domapi.insertBefore(
+          parentNode = this.ref,
+          newNode = child.ref,
+          referenceNode = nextChild.ref
+        )
+      }
+    }
+  }
+
   def replaceChild(oldChild: ChildNode, newChild: ChildNode): Unit = {
     // @TODO throw if not found?
     _maybeChildren.foreach { children =>
@@ -89,29 +114,8 @@ trait Element[N] extends Node[N, dom.Element] { self: N =>
     }
   }
 
-  def insertChild(child: ChildNode, atIndex: Int): Unit = {
-    // @TODO should we check that maybeChildren is initialized?
-    // @TODO should we check that index is not out of bounds?
-    _maybeChildren.foreach { children =>
-
-      // 1. Update this node
-      _maybeChildren = children.splice(atIndex, 0, child)
-
-      // 2. Update child
-      child.setParent(this)
-
-      // 3. Update DOM
-      if (atIndex == children.length) {
-        builder.domapi.appendChild(node = this.ref, child = child.ref)
-      } else {
-        val nextChild = children.apply(atIndex)
-        builder.domapi.insertBefore(
-          parentNode = this.ref,
-          newNode = child.ref,
-          referenceNode = nextChild.ref
-        )
-      }
-    }
+  def replaceAllChildren(newChildren: js.Array[ChildNode]): Unit = {
+    ???
   }
 
 //  @inline protected def numberOfChildren(): Int = {
