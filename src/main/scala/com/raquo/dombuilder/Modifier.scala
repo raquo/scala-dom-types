@@ -9,6 +9,7 @@ import com.raquo.dombuilder.nodes.Node
   * `children` list.
   */
 trait Modifier[-N] {
+
   /**
     * Applies this modifier to the specified [[Node]], such that when
     * rendering is complete the effect of adding this modifier can be seen.

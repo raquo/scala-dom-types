@@ -8,7 +8,7 @@ import com.raquo.dombuilder.definitions.styles.{Styles, Styles2}
 
 package object simple {
 
-  val simpleBuilder: SimpleBuilder = new SimpleBuilder {}
+  val builder: SimpleBuilder = new SimpleBuilder {}
 
   object elements
     extends Elements[SimpleElement, SimpleNode]
