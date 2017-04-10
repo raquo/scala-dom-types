@@ -1,6 +1,7 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.tags.div
+import com.raquo.dombuilder.simple.elements.div
+import com.raquo.dombuilder.simple.styles.{display, height, width}
 
 import scala.util.Random
 
@@ -27,5 +28,4 @@ class StyleSpec extends UnitSpec {
     )
     unmount()
   }
-
 }

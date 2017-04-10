@@ -1,6 +1,7 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.tags.{div, input, span, td}
+import com.raquo.dombuilder.simple.elements.{div, input, span, td}
+import com.raquo.dombuilder.simple.attrs.{colSpan, href, rowSpan, selected, title}
 
 import scala.util.Random
 
@@ -117,7 +118,7 @@ class AttrSpec extends UnitSpec {
             expectedText2
           )
         ),
-        span likeEmpty
+        span likeWhatever
       )
     )
   }

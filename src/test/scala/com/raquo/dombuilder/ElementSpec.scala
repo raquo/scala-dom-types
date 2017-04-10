@@ -1,6 +1,7 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.allTags.{article, comment, div, hr, p, span}
+import com.raquo.dombuilder.simple.elements.{div, hr, p, span}
+import com.raquo.dombuilder.simple.elements2.article
 
 class ElementSpec extends UnitSpec {
 
@@ -10,25 +11,25 @@ class ElementSpec extends UnitSpec {
 
   it("renders empty elements") {
     mount("empty <div>", div())
-    expectNode(div likeEmpty)
+    expectNode(div likeWhatever)
     unmount()
 
     mount("empty <span>", span())
-    expectNode(span likeEmpty)
+    expectNode(span likeWhatever)
     unmount()
 
     mount("empty <p>", p)
-    expectNode(p likeEmpty)
+    expectNode(p likeWhatever)
     unmount()
 
     mount("empty <hr>", hr)
-    expectNode(hr likeEmpty)
+    expectNode(hr likeWhatever)
     unmount()
   }
 
   it("renders a comment") {
-    mount(div(comment()))
-    expectNode(div like (comment likeEmpty))
+    mount(div(nodeBuilder.commentNode("yolo")))
+    expectNode(div like (nodeBuilder.commentNode("") like "yolo"))
     unmount()
   }
 
@@ -78,16 +79,8 @@ class ElementSpec extends UnitSpec {
     expectNode(div like(
       span like text1,
       p like (text2, span like text2, span like text3),
-      hr likeEmpty
+      hr likeWhatever
     ))
     unmount()
-  }
-
-  /** Node.text requires too many manipulations to deal with given the way we construct
-    * nodes by adding modifiers. It's just easier to create text nodes instead.
-    */
-  it("creates child nodes instead of populating .text") {
-    mount(div(text1))
-    mountedNode.text.isDefined shouldBe false
   }
 }

@@ -20,7 +20,8 @@ class Counter extends SimpleElement("div") {
   this(
     attrs.cls := "Counter",
     incButton,
-    captionNode
+    captionNode,
+    simple.nodeBuilder.commentNode("YOLO")
   )
 
   def increment(): Unit = {

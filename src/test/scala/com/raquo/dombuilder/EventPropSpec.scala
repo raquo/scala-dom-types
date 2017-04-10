@@ -1,45 +1,53 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.events.onClick
-import com.raquo.dombuilder.tags.{div, span}
-import org.scalajs.dom.raw.MouseEvent
+import com.raquo.dombuilder.simple.attrs.cls
+import com.raquo.dombuilder.simple.elements.{div, span}
+import com.raquo.dombuilder.simple.events.onClick
 
 class EventPropSpec extends UnitSpec {
 
   it("handles click events") {
     var callbackCount = 0
-    def testEvent(ev: MouseEvent): Unit = {
+
+    def testEvent(): Unit = {
       callbackCount += 1
     }
 
-    mount(
-      div(
-        div(
-          cls := "clickable",
-          onClick := testEvent _,
-          span("Hello"),
-          "world"
-        ),
-        div(cls := "unrelated", "Something else")
-      )
+    val childSpan = span("Hello")
+    val childTextNode = nodeBuilder.textNode("world")
+
+    val clickableDiv = div(
+      cls := "clickable",
+      onClick := testEvent _,
+      childSpan,
+      childTextNode
     )
 
-    val clickableDiv = mountedElement.querySelector(".clickable")
-    val spanInClickableDiv = clickableDiv.querySelector("span")
-    val unrelatedDiv = mountedElement.querySelector(".unrelated")
+    val unrelatedDiv = div(cls := "unrelated", "Something else")
+
+    mount(
+      div(
+        clickableDiv,
+        unrelatedDiv
+      )
+    )
 
     callbackCount shouldBe 0
 
     // Direct hit
-    simulateClick(spanInClickableDiv)
+    simulateClick(clickableDiv.ref)
     callbackCount shouldBe 1
 
     // Click event should bubble up
-    simulateClick(spanInClickableDiv)
+    simulateClick(childSpan.ref)
     callbackCount shouldBe 2
 
+    // Click event should bubble up even from a text node
+    simulateClick(childTextNode.ref)
+    callbackCount shouldBe 3
+
     // Click should not be counted on unrelated div
-    simulateClick(unrelatedDiv)
-    callbackCount shouldBe 2
+    simulateClick(unrelatedDiv.ref)
+    callbackCount shouldBe 3
   }
 }
