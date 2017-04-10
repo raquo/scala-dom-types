@@ -32,6 +32,10 @@ class EventProp[E <: dom.raw.Event, N] (
 
   override def := (value: E => Unit): EventPropSetter[E, N] =
     new EventPropSetter[E, N](this, value)
+
+  def jsName: String = {
+    s"on${name.toLowerCase}"
+  }
 }
 
 class Prop[V, N] (

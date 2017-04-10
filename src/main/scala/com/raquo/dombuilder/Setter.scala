@@ -33,7 +33,7 @@ class EventPropSetter[Ev <: dom.raw.Event, N](
 ) extends Setter[EventProp[Ev, N], Ev => Unit, N, EventPropSetter[Ev, N]] {
 
   override def applyTo(element: Element[N]): Unit = {
-    key.builder.domapi.setEventProp(element.ref, key.name, value)
+    key.builder.domapi.setEventProp(element.ref, key.jsName, value)
   }
 }
 
