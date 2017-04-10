@@ -13,17 +13,21 @@ trait Node[N, +R <: dom.Node] extends Modifier[Element[N]] { self: N =>
 
   val ref: R = createRef()
 
-  var maybeParent: js.UndefOr[N] = js.undefined
+  private[this] var _maybeParent: js.UndefOr[N] = js.undefined
 
   override def applyTo(node: Element[N]): Unit = {
     node.appendChild(this)
-//    node match {
-//      case element: Element[N] =>
-//        element.appendChild(this)
-//      case _ =>
-//        // @TODO[API] Throw? Or is there a better way?
-//    }
   }
 
-  protected def createRef(): R
+  def maybeParent: js.UndefOr[N] = _maybeParent
+
+  def setParent(newParent: N): Unit = {
+    _maybeParent = newParent
+  }
+
+  def clearParent(): Unit = {
+    _maybeParent = js.undefined
+  }
+
+  protected[this] def createRef(): R
 }

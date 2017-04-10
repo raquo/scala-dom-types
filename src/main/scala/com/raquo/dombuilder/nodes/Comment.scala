@@ -4,9 +4,9 @@ import org.scalajs.dom
 
 trait Comment[N] extends Node[N, dom.Comment] { self: N =>
 
-  protected val initialText: String
+  protected[this] val initialText: String
 
-  override def createRef(): dom.Comment = {
+  override protected[this] def createRef(): dom.Comment = {
     builder.domapi.createComment(initialText)
   }
 }

@@ -5,20 +5,21 @@ import org.scalajs.dom
 
 import scala.scalajs.js
 
-//class Element[N <: Node[N]](val tagName: String, override val builder: Builder[N]) extends Node[N] { self: N =>
 trait Element[N] extends Node[N, dom.Element] { self: N =>
 
   type ChildNode = Node[N, dom.Node]
 
   val tagName: String
 
-  var maybeChildren: js.UndefOr[js.Array[ChildNode]] = js.undefined
-
-  // @TODO[API] add privacy
+  protected[this] var _maybeChildren: js.UndefOr[js.Array[ChildNode]] = js.undefined
 
   // @TODO need special handling of events (keep track of them)
 
-  // @TODO think about memmory leaks when detaching nodes
+  // @TODO think about memory leaks when detaching nodes
+
+  override protected[this] def createRef(): dom.Element = {
+    builder.domapi.createElement(tagName)
+  }
 
   def apply(modifiers: Modifier[N]*): this.type = {
     // @TODO[Performance] Use while loop?
@@ -26,17 +27,19 @@ trait Element[N] extends Node[N, dom.Element] { self: N =>
     this
   }
 
+  @inline def maybeChildren: js.UndefOr[js.Array[ChildNode]] = _maybeChildren
+
   def appendChild(child: ChildNode): Unit = {
 
     // 1. Update this node
-    if (maybeChildren.isEmpty) {
-      maybeChildren = js.Array(child)
+    if (_maybeChildren.isEmpty) {
+      _maybeChildren = js.Array(child)
     } else {
-      maybeChildren.foreach(children => children.push(child))
+      _maybeChildren.foreach(children => children.push(child))
     }
 
     // 2. Update child
-    child.maybeParent = this
+    child.setParent(this)
 
     // 3. Update DOM
     builder.domapi.appendChild(ref, child.ref)
@@ -44,7 +47,7 @@ trait Element[N] extends Node[N, dom.Element] { self: N =>
 
   def removeChild(child: ChildNode): Unit = {
     // @TODO throw if not found?
-    maybeChildren.foreach { children =>
+    _maybeChildren.foreach { children =>
       val index = children.indexOf(child)
 
       // 1. Update this node
@@ -53,7 +56,7 @@ trait Element[N] extends Node[N, dom.Element] { self: N =>
       }
 
       // 2. Update child
-      child.maybeParent = js.undefined
+      child.clearParent()
 
       // 3. Update DOM
       builder.domapi.removeChild(node = ref, child = child.ref)
@@ -62,7 +65,7 @@ trait Element[N] extends Node[N, dom.Element] { self: N =>
 
   def replaceChild(oldChild: ChildNode, newChild: ChildNode): Unit = {
     // @TODO throw if not found?
-    maybeChildren.foreach { children =>
+    _maybeChildren.foreach { children =>
       val index = children.indexOf(oldChild)
 
       // 1. Update this node
@@ -73,8 +76,8 @@ trait Element[N] extends Node[N, dom.Element] { self: N =>
       }
 
       // 2. Update child
-      newChild.maybeParent = this
-      oldChild.maybeParent = js.undefined
+      newChild.setParent(this)
+      oldChild.clearParent()
 
       // 3. Update DOM
       builder.domapi.insertBefore(
@@ -89,13 +92,13 @@ trait Element[N] extends Node[N, dom.Element] { self: N =>
   def insertChild(child: ChildNode, atIndex: Int): Unit = {
     // @TODO should we check that maybeChildren is initialized?
     // @TODO should we check that index is not out of bounds?
-    maybeChildren.foreach { children =>
+    _maybeChildren.foreach { children =>
 
       // 1. Update this node
-      maybeChildren = children.splice(atIndex, 0, child)
+      _maybeChildren = children.splice(atIndex, 0, child)
 
       // 2. Update child
-      child.maybeParent = this
+      child.setParent(this)
 
       // 3. Update DOM
       if (atIndex == children.length) {
@@ -119,7 +122,4 @@ trait Element[N] extends Node[N, dom.Element] { self: N =>
 //    maybeChildren.map(children => children.indexOf(child)).getOrElse(-1)
 //  }
 //
-  override protected def createRef(): dom.Element = {
-    builder.domapi.createElement(tagName)
-  }
 }
