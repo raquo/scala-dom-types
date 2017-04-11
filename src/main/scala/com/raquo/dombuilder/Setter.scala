@@ -29,7 +29,7 @@ class AttrSetter[V, N](
   }
 }
 
-class EventPropSetter[Ev <: dom.raw.Event, N](
+class EventPropSetter[Ev <: dom.Event, N](
   val key: EventProp[Ev, N],
   val value: Ev => Unit
 ) extends Setter[EventProp[Ev, N], Ev => Unit, N, EventPropSetter[Ev, N]] {
@@ -48,11 +48,14 @@ class EventPropSetter[Ev <: dom.raw.Event, N](
   // @TODO[API] Provide a way to specify useCapture
 
   override def applyTo(element: Element[N]): Unit = {
-    key.builder.domapi.addEventListener(element.ref, key.jsName, jsValue)
+    element.addEventListener(this)
   }
 
-  def removeEventListener(fromElement: Element[N]): Unit = {
-    key.builder.domapi.removeEventListener(fromElement.ref, key.jsName, jsValue)
+  override def equals(that: Any): Boolean = {
+    that match {
+      case eps: EventPropSetter[_, _] if (key == eps.key) && (value == eps.value) => true
+      case _ => false
+    }
   }
 }
 

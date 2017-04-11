@@ -5,14 +5,13 @@ import com.raquo.dombuilder.simple
 import com.raquo.dombuilder.simple.SimpleElement
 import org.scalajs.dom
 import org.scalajs.dom.document
-import org.scalajs.dom.raw.Event
 
 import scala.scalajs.js
 
 object App extends js.JSApp {
 
   def main(): Unit = {
-    document.addEventListener("DOMContentLoaded", (e: Event) => {
+    document.addEventListener("DOMContentLoaded", (e: dom.Event) => {
       dom.console.log("=== DOMContentLoaded ===")
 
       val container = document.getElementById("app-container")

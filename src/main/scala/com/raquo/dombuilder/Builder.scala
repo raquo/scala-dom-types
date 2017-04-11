@@ -15,7 +15,7 @@ trait Builder[N] {
     new Attr[V, N](key, this)
   }
 
-  @inline def eventProp[Ev <: dom.raw.Event](key: String): EventProp[Ev, N] = {
+  @inline def eventProp[Ev <: dom.Event](key: String): EventProp[Ev, N] = {
     new EventProp[Ev, N](key, this)
   }
 

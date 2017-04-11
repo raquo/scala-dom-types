@@ -40,6 +40,10 @@ class EventPropSpec extends UnitSpec {
       )
     )
 
+    // @TODO[Test] Verify exact values in Node.maybeEventListeners. Can not easily do that because of "isArray__Z" Scala.js bug
+    // @TODO[Test] Split between testing Element methods and EventPropSetter methods?
+
+    clickableDiv.maybeEventListeners.get.length shouldBe 1
     clickCount1 shouldBe 0
 
     // One event listener added
@@ -49,35 +53,47 @@ class EventPropSpec extends UnitSpec {
 
     // Add a new event listener on the same event type ("click")
     clickableDiv.apply(clickSetter2)
+    clickableDiv.maybeEventListeners.get.length shouldBe 2
     clickCount1 shouldBe 1
     clickCount2 shouldBe 0
+
     simulateClick(clickableDiv.ref)
     clickCount1 shouldBe 2
     clickCount2 shouldBe 1
 
     // Remove that new event listener
-    clickSetter2.removeEventListener(fromElement = clickableDiv)
+    clickableDiv.removeEventListener(clickSetter2)
+    clickableDiv.maybeEventListeners.get.length shouldBe 1
+
     simulateClick(clickableDiv.ref)
     clickCount1 shouldBe 3
     clickCount2 shouldBe 1
 
     // Add a duplicate of the original event listener (duplicate should be ignored)
     clickableDiv.apply(clickSetter1)
+    clickableDiv.maybeEventListeners.get.length shouldBe 1
     simulateClick(clickableDiv.ref)
     clickCount1 shouldBe 4
 
     // Add a listener to an unrelated event
     clickableDiv.apply(scrollSetter2)
+    clickableDiv.maybeEventListeners.get.length shouldBe 2
+
     simulateClick(clickableDiv.ref)
     clickCount1 shouldBe 5
     scrollCount shouldBe 0
+
     simulateScroll(clickableDiv.ref)
     clickCount1 shouldBe 5
     scrollCount shouldBe 1
 
     // Remove all event listeners
-    clickSetter1.removeEventListener(fromElement = clickableDiv)
-    scrollSetter2.removeEventListener(fromElement = clickableDiv)
+    clickableDiv.removeEventListener(clickSetter1)
+    clickableDiv.maybeEventListeners.get.length shouldBe 1
+
+    clickableDiv.removeEventListener(scrollSetter2)
+    clickableDiv.maybeEventListeners.get.length shouldBe 0
+
     simulateClick(clickableDiv.ref)
     simulateScroll(clickableDiv.ref)
     clickCount1 shouldBe 5

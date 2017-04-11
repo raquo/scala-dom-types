@@ -1,6 +1,5 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.nodes.Element
 import org.scalajs.dom
 
 /**
@@ -10,6 +9,10 @@ trait Key[V, N, S <: Setter[_, V, N, S]] {
 
   val name: String
 
+  // @TODO[API] This builder reference is not used anymore. Do we still need it?
+  //            We have defined all keys and setter actions in terms of methods
+  //            called on the Node/Element they apply to, which has its own
+  //            reference to the builder.
   val builder: Builder[N]
 
   /** Create a [[Setter]] */
@@ -25,7 +28,7 @@ class Attr[V, N] (
     new AttrSetter[V, N](this, value)
 }
 
-class EventProp[E <: dom.raw.Event, N] (
+class EventProp[E <: dom.Event, N] (
   val name: String,
   val builder: Builder[N]
 ) extends Key[E => Unit, N, EventPropSetter[E, N]] {
