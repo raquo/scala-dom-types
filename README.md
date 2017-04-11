@@ -10,7 +10,8 @@ This project is primarily intended to be used from Scala.js.
 
 ## TODO
 
-* Write a better README
+* Revise the README
+* Publish to Maven Central
 
 ## Example Component
 
@@ -19,21 +20,21 @@ A very dumb example component using our low-level API:
 ```scala
 class Counter extends SimpleElement("div") { // specify this component's HTML tag name
  
-  private var count = 0    // declare this component's internal state
+  private var count = 0    // Declare this component's internal state
  
-  // create node to represent the "increment" button
+  // Create node to represent the "increment" button
   private val incButton = button(
-    events.onClick := increment _,    // add event listener to the button node
-    "[ + ]"    // add a child to the button node, which happens to be a text node
+    events.onClick := increment _,    // Add event listener to the button node
+    "[ + ]"    // Add a child to the button node, which happens to be a text node
   )
  
-  // create node to represent the caption that shows the current count
+  // Create node to represent the caption that shows the current count
   private val captionNode = simple.nodeBuilder.textNode(count.toString)
  
-  // Apply some modifiers to this noe:
+  // Apply some modifiers to this node:
   this(
-    attrs.cls := "Counter",    // add a CSS class name to this node (not used here, just an example)
-    styles.display.inlineBlock,    // set CSS display property to "inline-block" (just because)
+    attrs.cls := "Counter",    // Add a CSS class name to this node (not used here, just an example)
+    styles.display.inlineBlock,    // Set CSS display property to "inline-block" (just because)
     incButton,    // Add button as a child node
     captionNode    // Add caption as a child node
   )
