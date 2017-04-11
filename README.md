@@ -6,7 +6,9 @@ Scala DOM Builder provides three things:
 * A minimal **library** for building and manipulating DOM trees
 * A testing framework to verify real DOM nodes (and trees) against desired state
 
-##TODO
+This project is primarily intended to be used from Scala.js.
+
+## TODO
 
 * Write a better README
 
@@ -56,7 +58,7 @@ Mostly this is because we strive to be more type-safe than ScalaTags. For exampl
 
 In time I will try to add even better types, perhaps even tie "input" elements to `HTMLInputElement`.
 
-You can use Scala DOM Builder's type definitions without using the rest of the library. ~~For example, this is what Snabbdom.scala does.~~
+You can use Scala DOM Builder's type definitions without using the rest of the library. ~~For example, this is what Snabbdom.scala does.~~ (not yet)
 
 ### DOM Tree Building Library
 
@@ -146,6 +148,11 @@ Oh yes, that's exactly what Scala DOM Builder does, except that it's unaware of 
    
 @TODO Mention Laminar as an example of this.
 
+## Server Side Rendering
+
+Scala DOM Builder does not readily support server side (JVM) rendering because it assumes existence of certain types in the `org.scalajs.dom` namespace (`dom.Element`, `dom.Event`, etc.). Knowledge of these types is not fundamental to Scala DOM Builder, however we use them to provide a convenient API to Scala.js users. This convenience is a priority goal for this project, and server side rendering is a somewhat conflicting goal.
+
+That said, it is not impossible to resolve this conflict, we just need to spend the time and effort to come up with a good solution (more type params? stub types? dependent types? (somehow)). It is a bit too early right now to jump into this. I welcome any feedback and suggestions in this regard.
 
 ## Author
 
