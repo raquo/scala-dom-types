@@ -3,6 +3,8 @@ package com.raquo.dombuilder
 import com.raquo.dombuilder.nodes.{Element, Node}
 import org.scalajs.dom
 
+import scala.scalajs.js
+
 /**
   * Represents a key-value modifier that can be applied to a [[Element]]
   * to set e.g. an attribute to a particular value
@@ -32,10 +34,25 @@ class EventPropSetter[Ev <: dom.raw.Event, N](
   val value: Ev => Unit
 ) extends Setter[EventProp[Ev, N], Ev => Unit, N, EventPropSetter[Ev, N]] {
 
+  /** To make sure that you remove the event listener successfully, you need to provide
+    * a correct reference to the Javascript callback function. However, the translation
+    * from a scala function to a JS function creates a new Javascript function every time,
+    * so we need to perform that translation only once.
+    *
+    * @TODO[API] EventPropSetter is not idempotent because of this. Fix that.
+    *            We can fix this by keeping track of event listeners that are currently
+    *            active for this element.
+    */
+  val jsValue: js.Function1[Ev, Unit] = value
+
   // @TODO[API] Provide a way to specify useCapture
 
   override def applyTo(element: Element[N]): Unit = {
-    key.builder.domapi.setEventProp(element.ref, key.jsName, value)
+    key.builder.domapi.addEventListener(element.ref, key.jsName, jsValue)
+  }
+
+  def removeEventListener(fromElement: Element[N]): Unit = {
+    key.builder.domapi.removeEventListener(fromElement.ref, key.jsName, jsValue)
   }
 }
 

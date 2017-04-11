@@ -5,7 +5,7 @@ import org.scalajs.dom.document
 
 import scala.scalajs.js
 
-object JsDomApi extends DomApi[dom.Event, dom.html.Element, dom.Element, dom.Text, dom.Comment, dom.Node] {
+object JsDomApi extends DomApi[js.Function1, dom.Event, dom.html.Element, dom.Element, dom.Text, dom.Comment, dom.Node] {
 
   @inline override def parentNode(node: dom.Node): Option[dom.Node] = {
     Option(node.parentNode)
@@ -51,13 +51,22 @@ object JsDomApi extends DomApi[dom.Event, dom.html.Element, dom.Element, dom.Tex
     element.removeAttribute(attrName)
   }
 
-  @inline override def setEventProp[E <: dom.Event](
+  @inline override def addEventListener[E <: dom.Event](
     element: dom.Node,
     eventName: String,
-    eventHandler: E => Unit,
+    eventHandler: js.Function1[E, Unit],
     useCapture: Boolean = false
   ): Unit = {
     element.addEventListener(eventName, eventHandler, useCapture)
+  }
+
+  @inline override def removeEventListener[E <: dom.Event](
+    element: dom.Node,
+    eventName: String,
+    eventHandler: js.Function1[E, Unit],
+    useCapture: Boolean = false
+  ): Unit = {
+    element.removeEventListener(eventName, eventHandler, useCapture)
   }
 
   @inline override def setProp[V](element: dom.Node, propName: String, value: V): Unit = {

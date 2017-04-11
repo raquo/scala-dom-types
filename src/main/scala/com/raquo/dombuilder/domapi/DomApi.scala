@@ -7,7 +7,7 @@ package com.raquo.dombuilder.domapi
   *
   * Note: there are still a bunch of TODO-s to actually make this possible.
   */
-trait DomApi[DomEvent, DomHtmlElement, DomElement, DomText, DomComment, DomNode] {
+trait DomApi[JsFun1[_, _], DomEvent, DomHtmlElement, DomElement, DomText, DomComment, DomNode] {
 
   @inline def parentNode(node: DomNode): Option[DomNode]
 
@@ -31,10 +31,17 @@ trait DomApi[DomEvent, DomHtmlElement, DomElement, DomText, DomComment, DomNode]
 
   @inline def removeAttribute(element: DomElement, attrName: String): Unit
 
-  @inline def setEventProp[E <: DomEvent](
+  @inline def addEventListener[E <: DomEvent](
     element: DomNode,
     eventName: String,
-    eventHandler: E => Unit,
+    eventHandler: JsFun1[E, Unit],
+    useCapture: Boolean = false
+  ): Unit
+
+  @inline def removeEventListener[E <: DomEvent](
+    element: DomNode,
+    eventName: String,
+    eventHandler: JsFun1[E, Unit],
     useCapture: Boolean = false
   ): Unit
 
