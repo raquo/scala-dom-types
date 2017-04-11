@@ -4,7 +4,7 @@ Scala DOM Builder provides three things:
 
 * **Type definitions** for creating objects representing HTML DOM Nodes –– see `/definitions` directory
 * A minimal **library** for building and manipulating DOM trees
-* A testing framework to verify real DOM nodes (and trees) against desired state
+* A **testing framework** to verify real DOM nodes (and trees) against desired state
 
 This project is primarily intended to be used from Scala.js.
 
