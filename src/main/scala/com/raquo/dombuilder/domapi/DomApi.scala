@@ -17,13 +17,17 @@ trait DomApi[JsFun1[_, _], DomEvent, DomHtmlElement, DomElement, DomText, DomCom
 
   @inline def createComment(text: String): DomComment
 
-  @inline def insertBefore(parentNode: DomNode, newNode: DomNode, referenceNode: DomNode): Unit
+  @inline def insertBefore(
+    parentNode: DomElement,
+    newNode: DomNode,
+    referenceNode: DomNode
+  ): Unit
 
   // @TODO[Performance] Add removeAllChildren and implement it as .textContent = "" or something?
 
-  @inline def removeChild(node: DomNode, child: DomNode): Unit
+  @inline def removeChild(parentNode: DomNode, child: DomNode): Unit
 
-  @inline def appendChild(node: DomNode, child: DomNode): Unit
+  @inline def appendChild(parentNode: DomNode, child: DomNode): Unit
 
   @inline def setTextContent(node: DomNode, text: String)
 
@@ -45,7 +49,7 @@ trait DomApi[JsFun1[_, _], DomEvent, DomHtmlElement, DomElement, DomText, DomCom
     useCapture: Boolean = false
   ): Unit
 
-  @inline def setProp[V](element: DomNode, propName: String, value: V): Unit
+  @inline def setProperty[V](element: DomNode, propName: String, value: V): Unit
 
   @inline def setStyle[V](element: DomHtmlElement, propName: String, value: V): Unit
 }

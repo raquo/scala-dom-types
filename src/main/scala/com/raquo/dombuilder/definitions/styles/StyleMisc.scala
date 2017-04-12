@@ -1,6 +1,7 @@
 package com.raquo.dombuilder.definitions.styles
 
-import com.raquo.dombuilder.{Builder, Style}
+import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.keys.Style
 
 import scala.scalajs.js.|
 
@@ -18,31 +19,31 @@ trait StyleMisc[N] { self: Builder[N] =>
   /**
     * A Style that takes any value of type T as a parameter and has an auto value
     */
-  class AutoStyle[TValue](jsName: String, cssName: String) extends Style[TValue | String, N](jsName, cssName, this) {
+  class AutoStyle[TValue](jsName: String, cssName: String) extends Style[TValue | String, N](jsName, cssName) {
     lazy val auto = this := "auto"
   }
 
   /**
     * A Style that takes any value of type T as a parameter and has an none value
     */
-  class NoneOpenStyle[TValue](jsName: String, cssName: String) extends Style[TValue | String, N](jsName, cssName, this) {
+  class NoneOpenStyle[TValue](jsName: String, cssName: String) extends Style[TValue | String, N](jsName, cssName) {
     lazy val none = this := "none"
   }
 
   /**
     * A Style that takes any value of type T as a parameter and has an normal value
     */
-  class NormalOpenStyle[TValue](jsName: String, cssName: String) extends Style[TValue | String, N](jsName, cssName, this) {
+  class NormalOpenStyle[TValue](jsName: String, cssName: String) extends Style[TValue | String, N](jsName, cssName) {
     lazy val normal = this := "normal"
   }
 
-  class MultiImageStyle(jsName: String, cssName: String) extends Style[String, N](jsName, cssName, this)
+  class MultiImageStyle(jsName: String, cssName: String) extends Style[String, N](jsName, cssName)
 
-  class CurrentColor(jsName: String, cssName: String) extends Style[String, N](jsName, cssName, this) {
+  class CurrentColor(jsName: String, cssName: String) extends Style[String, N](jsName, cssName) {
     lazy val currentColor = this -> "currentColor"
   }
 
-  class OutlineStyle(jsName: String, cssName: String) extends Style[String, N](jsName, cssName, this) {
+  class OutlineStyle(jsName: String, cssName: String) extends Style[String, N](jsName, cssName) {
 
     /**
       * Displays a series of rounded dots. The spacing of the dots are not
@@ -138,7 +139,7 @@ trait StyleMisc[N] { self: Builder[N] =>
 
   }
 
-  class Overflow(jsName: String, cssName: String) extends Style[String, N](jsName, cssName, this) {
+  class Overflow(jsName: String, cssName: String) extends Style[String, N](jsName, cssName) {
 
     /**
       * Default value. Content is not clipped, it may be rendered outside the
@@ -174,7 +175,7 @@ trait StyleMisc[N] { self: Builder[N] =>
     lazy val auto = this := "auto"
   }
 
-  class PageBreak(jsName: String, cssName: String) extends Style[String, N](jsName, cssName, this) {
+  class PageBreak(jsName: String, cssName: String) extends Style[String, N](jsName, cssName) {
 
     /**
       * Initial value. Automatic page breaks (neither forced nor forbidden).
@@ -215,7 +216,7 @@ trait StyleMisc[N] { self: Builder[N] =>
   }
 
 
-  class BorderRadius(jsName: String, cssName: String) extends Style[String, N](jsName, cssName, this)
+  class BorderRadius(jsName: String, cssName: String) extends Style[String, N](jsName, cssName)
 
   trait MarginAuto extends Style[String, N] {
     /**
@@ -227,13 +228,13 @@ trait StyleMisc[N] { self: Builder[N] =>
     lazy val auto = this := "auto"
   }
 
-  class BorderWidth(jsName: String, cssName: String) extends Style[String, N](jsName, cssName, this) {
+  class BorderWidth(jsName: String, cssName: String) extends Style[String, N](jsName, cssName) {
     lazy val thin = this := "thin"
     lazy val medium = this := "medium"
     lazy val thick = this := "thick"
   }
 
-  class MultiTimeStyle(jsName: String, cssName: String) extends Style[String, N](jsName, cssName, this)
+  class MultiTimeStyle(jsName: String, cssName: String) extends Style[String, N](jsName, cssName)
 
   class MinLengthStyle(jsName: String, cssName: String) extends AutoStyle[String](jsName, cssName) {
 
@@ -266,7 +267,7 @@ trait StyleMisc[N] { self: Builder[N] =>
     lazy val fillAvailable = this := "fill-available"
   }
 
-  class MaxLengthStyle(jsName: String, cssName: String) extends Style[String, N](jsName, cssName, this) {
+  class MaxLengthStyle(jsName: String, cssName: String) extends Style[String, N](jsName, cssName) {
 
     /**
       * The length has no maximum value.

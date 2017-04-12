@@ -1,6 +1,7 @@
 package com.raquo.dombuilder.definitions.props
 
-import com.raquo.dombuilder.{Builder, Prop}
+import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.keys.Prop
 
 trait Props[N] { self: Builder[N] =>
 

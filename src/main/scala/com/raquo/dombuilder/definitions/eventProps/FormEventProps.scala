@@ -1,6 +1,7 @@
 package com.raquo.dombuilder.definitions.eventProps
 
-import com.raquo.dombuilder.{Builder, EventProp}
+import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.keys.EventProp
 import org.scalajs.dom
 
 trait FormEventProps[N] { self: Builder[N] =>

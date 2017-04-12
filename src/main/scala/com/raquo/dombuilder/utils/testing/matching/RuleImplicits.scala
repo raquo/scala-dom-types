@@ -1,7 +1,8 @@
 package com.raquo.dombuilder.utils.testing.matching
 
+import com.raquo.dombuilder.keys.{Attr, Prop, Style}
 import com.raquo.dombuilder.nodes.{Comment, Element, Text}
-import com.raquo.dombuilder.{Attr, HasNodeBuilder, Prop, Style}
+import com.raquo.dombuilder.HasNodeBuilder
 
 trait RuleImplicits[N] extends HasNodeBuilder[Element[N], Text[N], Comment[N], N] {
 

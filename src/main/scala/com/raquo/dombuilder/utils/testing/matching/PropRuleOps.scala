@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.utils.testing.matching
 
-import com.raquo.dombuilder.Prop
+import com.raquo.dombuilder.keys.Prop
 import com.raquo.dombuilder.utils.testing.UtilSpec.repr
 import org.scalajs.dom
 

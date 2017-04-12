@@ -1,34 +1,11 @@
 package com.raquo.dombuilder.nodes
 
-import com.raquo.dombuilder.{HasBuilder, Modifier}
-import org.scalajs.dom
+import com.raquo.dombuilder.HasBuilder
 
-import scala.scalajs.js
+trait Node[N, +R] extends HasBuilder[N] { self: N =>
 
-// @TODO We should consider removing the R <: dom.Node limit to allow for more flexible usage
-
-trait Node[N, +R <: dom.Node]
-  extends Modifier[Element[N]]
-  with HasBuilder[N]
-{ self: N =>
-
+  /** Reference to the DOM element representing this node in the DOM */
   val ref: R = createRef()
-
-  private[this] var _maybeParent: js.UndefOr[N] = js.undefined
-
-  override def applyTo(node: Element[N]): Unit = {
-    node.appendChild(this)
-  }
-
-  def maybeParent: js.UndefOr[N] = _maybeParent
-
-  def setParent(newParent: N): Unit = {
-    _maybeParent = newParent
-  }
-
-  def clearParent(): Unit = {
-    _maybeParent = js.undefined
-  }
 
   protected[this] def createRef(): R
 }

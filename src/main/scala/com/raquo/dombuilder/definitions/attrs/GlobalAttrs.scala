@@ -1,6 +1,7 @@
 package com.raquo.dombuilder.definitions.attrs
 
-import com.raquo.dombuilder.{Attr, Builder}
+import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.keys.Attr
 
 // @TODO[API][cleanup] Why is this separate from Attrs? How is it different? We're following ScalaTags on definitions
 

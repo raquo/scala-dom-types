@@ -5,7 +5,7 @@ import org.scalajs.dom.document
 
 import scala.scalajs.js
 
-object JsDomApi extends DomApi[js.Function1, dom.Event, dom.html.Element, dom.Element, dom.Text, dom.Comment, dom.Node] {
+object JsDomApi extends DomApi[js.Function1, dom.Event, dom.Element, dom.Element, dom.Text, dom.Comment, dom.Node] {
 
   @inline override def parentNode(node: dom.Node): Option[dom.Node] = {
     Option(node.parentNode)
@@ -23,16 +23,20 @@ object JsDomApi extends DomApi[js.Function1, dom.Event, dom.html.Element, dom.El
     document.createComment(text)
   }
 
-  @inline override def insertBefore(parentNode: dom.Node, newNode: dom.Node, referenceNode: dom.Node): Unit = {
+  @inline override def insertBefore(
+    parentNode: dom.Element,
+    newNode: dom.Node,
+    referenceNode: dom.Node
+  ): Unit = {
     parentNode.insertBefore(newNode, referenceNode)
   }
 
-  @inline override def removeChild(node: dom.Node, child: dom.Node): Unit = {
-    node.removeChild(child)
+  @inline override def removeChild(parentNode: dom.Node, child: dom.Node): Unit = {
+    parentNode.removeChild(child)
   }
 
-  @inline override def appendChild(node: dom.Node, child: dom.Node): Unit = {
-    node.appendChild(child)
+  @inline override def appendChild(parentNode: dom.Node, child: dom.Node): Unit = {
+    parentNode.appendChild(child)
   }
 
   @inline override def setTextContent(node: dom.Node, text: String): Unit = {
@@ -69,11 +73,12 @@ object JsDomApi extends DomApi[js.Function1, dom.Event, dom.html.Element, dom.El
     element.removeEventListener(eventName, eventHandler, useCapture)
   }
 
-  @inline override def setProp[V](element: dom.Node, propName: String, value: V): Unit = {
+  @inline override def setProperty[V](element: dom.Node, propName: String, value: V): Unit = {
     element.asInstanceOf[js.Dynamic].updateDynamic(propName)(value.asInstanceOf[js.Any])
   }
 
-  @inline override def setStyle[V](element: dom.html.Element, stylePropName: String, value: V): Unit = {
-    element.style.asInstanceOf[js.Dynamic].updateDynamic(stylePropName)(value.asInstanceOf[js.Any])
+  @inline override def setStyle[V](element: dom.Element, stylePropName: String, value: V): Unit = {
+    // @TODO[Integrity] Sort out the difference between Element and HTMLElement once and for all.
+    element.asInstanceOf[dom.html.Element].style.asInstanceOf[js.Dynamic].updateDynamic(stylePropName)(value.asInstanceOf[js.Any])
   }
 }
