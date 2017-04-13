@@ -1,9 +1,7 @@
 package com.raquo.dombuilder.builders
 
-import com.raquo.dombuilder.Root
 import com.raquo.dombuilder.domapi.JsDomApi
-import com.raquo.dombuilder.nodes.{Comment, Element, Node, Text}
-import org.scalajs.dom
+import com.raquo.dombuilder.nodes.{Comment, Element, Text}
 
 // @TODO[API] These two classes need a better name. DOMBuilder or soemthing?
 
@@ -11,14 +9,6 @@ trait Builder[N] {
 
   // @TODO[API] Genericize later
   val domapi: JsDomApi.type = JsDomApi
-
-  def mount(container: dom.Element, node: Node[N, dom.Node]): Root[N, dom.Node] = {
-    new Root[N, dom.Node](container, node, this)
-  }
-
-  def unmount(container: dom.Element, node: Node[N, dom.Node]): Unit = {
-    container.removeChild(node.ref)
-  }
 }
 
 // @TODO[API] We don't really need to know about the types Element / Text / Comment here.

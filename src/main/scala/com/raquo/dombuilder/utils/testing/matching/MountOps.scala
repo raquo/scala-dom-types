@@ -87,7 +87,7 @@ trait MountOps[El <: Element[N], N] {
         //      "ASSERT FAIL [mount]: Unexpected children in container. Call unmount() before mounting again."
         //    )
         mountedElementClue = clue
-        maybeRoot = Some(builder.mount(container, element))
+        maybeRoot = Some(Root.mount(container, element, builder))
       case None =>
         doFail("ASSERT FAIL [mount]: Container not found. resetDocument() usually does this in beforeEach().")
     }
