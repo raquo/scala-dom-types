@@ -1,7 +1,7 @@
-package com.raquo.dombuilder
+package com.raquo.dombuilder.builders
 
+import com.raquo.dombuilder.Root
 import com.raquo.dombuilder.domapi.JsDomApi
-import com.raquo.dombuilder.keys.{Attr, EventProp, Prop, Style}
 import com.raquo.dombuilder.nodes.{Comment, Element, Node, Text}
 import org.scalajs.dom
 
@@ -12,23 +12,6 @@ trait Builder[N] {
   // @TODO[API] Genericize later
   val domapi: JsDomApi.type = JsDomApi
 
-  @inline def attr[V](key: String): Attr[V, N] = {
-    new Attr[V, N](key)
-  }
-
-  @inline def eventProp[Ev <: dom.Event](key: String): EventProp[Ev, N] = {
-    new EventProp[Ev, N](key)
-  }
-
-  @inline def prop[V](key: String): Prop[V, N] = {
-    new Prop[V, N](key)
-  }
-
-  // @TODO[Integrity] we still use `new Style` in some places to support additional traits e.g. `with MarginAuto`
-  @inline def style[V](jsKey: String, cssKey: String): Style[V, N] = {
-    new Style[V, N](jsKey, cssKey)
-  }
-
   def mount(container: dom.Element, node: Node[N, dom.Node]): Root[N, dom.Node] = {
     new Root[N, dom.Node](container, node, this)
   }
@@ -37,6 +20,10 @@ trait Builder[N] {
     container.removeChild(node.ref)
   }
 }
+
+// @TODO[API] We don't really need to know about the types Element / Text / Comment here.
+// @TODO[API] Really, this trait could have just one type param and one method, node()
+// @TODO[API] And then if we need a builder that builds a node somewhere, we just require a Text type param
 
 trait NodeBuilder[+El <: Element[N], +T <: Text[N], +C <: Comment[N], N] {
 

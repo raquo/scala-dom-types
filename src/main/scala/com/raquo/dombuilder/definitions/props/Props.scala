@@ -1,9 +1,9 @@
 package com.raquo.dombuilder.definitions.props
 
-import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.builders.PropBuilder
 import com.raquo.dombuilder.keys.Prop
 
-trait Props[N] { self: Builder[N] =>
+trait Props[N] { self: PropBuilder[N] =>
 
   /**
     * Space-separated list of CSS class names

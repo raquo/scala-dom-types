@@ -1,13 +1,13 @@
 package com.raquo.dombuilder.definitions.eventProps
 
-import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.builders.EventPropBuilder
 import com.raquo.dombuilder.keys.EventProp
 import org.scalajs.dom
 
 /**
   * Miscellaneous Events
   */
-trait MiscellaneousEventProps[N] extends SharedEventProps[N] { self: Builder[N] =>
+trait MiscellaneousEventProps[N] extends SharedEventProps[N] { self: EventPropBuilder[N] =>
 
   /**
     * Fires when a <menu> element is shown as a context menu

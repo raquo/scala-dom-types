@@ -1,9 +1,9 @@
 package com.raquo.dombuilder.definitions.attrs
 
-import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.builders.AttrBuilder
 import com.raquo.dombuilder.keys.Attr
 
-trait Attrs[N] { self: Builder[N] =>
+trait Attrs[N] { self: AttrBuilder[N] =>
 
   /**
     * This is the single required attribute for anchors defining a hypertext

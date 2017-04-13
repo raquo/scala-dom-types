@@ -1,7 +1,7 @@
 package com.raquo.dombuilder.definitions.styles
 
+import com.raquo.dombuilder.builders.StyleBuilder
 import com.raquo.dombuilder.keys.Style
-import com.raquo.dombuilder.Builder
 import com.raquo.dombuilder.modifiers.StyleSetter
 
 import scala.scalajs.js.|
@@ -10,7 +10,7 @@ import scala.scalajs.js.|
   * Contains CSS styles which are used less frequently. These are not imported by
   * default to avoid namespace pollution.
   */
-trait Styles2[N] extends StyleMisc[N] { self: Builder[N] =>
+trait Styles2[N] extends StyleMisc[N] { self: StyleBuilder[N] =>
 
   /**
     * The animation-direction CSS property indicates whether the animation should

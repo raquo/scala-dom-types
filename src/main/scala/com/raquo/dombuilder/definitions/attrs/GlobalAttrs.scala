@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.definitions.attrs
 
-import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.builders.AttrBuilder
 import com.raquo.dombuilder.keys.Attr
 
 // @TODO[API][cleanup] Why is this separate from Attrs? How is it different? We're following ScalaTags on definitions
@@ -9,7 +9,7 @@ import com.raquo.dombuilder.keys.Attr
   * A trait for global attributes that are applicable to any HTML5 element. All traits that define Attrs should
   * derive from this trait since all groupings of attributes should include these global ones.
   */
-trait GlobalAttrs[N] { self: Builder[N] =>
+trait GlobalAttrs[N] { self: AttrBuilder[N] =>
 
   /**
     * Specifies a shortcut key to activate/focus an element

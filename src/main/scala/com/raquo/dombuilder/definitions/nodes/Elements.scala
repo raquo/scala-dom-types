@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.definitions.nodes
 
-import com.raquo.dombuilder.NodeBuilder
+import com.raquo.dombuilder.builders.NodeBuilder
 import com.raquo.dombuilder.nodes.Element
 
 /**

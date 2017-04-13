@@ -1,6 +1,7 @@
 package com.raquo.dombuilder.utils.testing.matching
 
-import com.raquo.dombuilder.{Builder, Root}
+import com.raquo.dombuilder.Root
+import com.raquo.dombuilder.builders.Builder
 import com.raquo.dombuilder.nodes.Element
 import org.scalajs.dom
 

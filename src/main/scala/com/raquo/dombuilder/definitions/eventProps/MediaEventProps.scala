@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.definitions.eventProps
 
-import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.builders.EventPropBuilder
 import com.raquo.dombuilder.keys.EventProp
 import org.scalajs.dom
 
@@ -9,7 +9,7 @@ import org.scalajs.dom
   * all HTML elements, but they are most common in media elements, like <audio>,
   * <embed>, <img>, <object>, and <video>.
   */
-trait MediaEventProps[N] extends SharedEventProps[N] { self: Builder[N] =>
+trait MediaEventProps[N] extends SharedEventProps[N] { self: EventPropBuilder[N] =>
 
   /**
     * Script to be run on abort

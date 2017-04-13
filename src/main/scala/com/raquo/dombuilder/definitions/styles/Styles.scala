@@ -1,7 +1,7 @@
 package com.raquo.dombuilder.definitions.styles
 
+import com.raquo.dombuilder.builders.StyleBuilder
 import com.raquo.dombuilder.keys.Style
-import com.raquo.dombuilder.Builder
 import com.raquo.dombuilder.modifiers.StyleSetter
 
 import scala.scalajs.js.|
@@ -10,7 +10,7 @@ import scala.scalajs.js.|
   * Trait that contains the contents of the `Styles` object, so they can
   * be mixed in to other objects if needed.
   */
-trait Styles[N] extends StyleMisc[N] { self: Builder[N] =>
+trait Styles[N] extends StyleMisc[N] { self: StyleBuilder[N] =>
 
   /**
     * If a background-image is specified, the background-attachment CSS

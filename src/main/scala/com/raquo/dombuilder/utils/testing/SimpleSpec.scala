@@ -1,6 +1,7 @@
 package com.raquo.dombuilder.utils.testing
 
-import com.raquo.dombuilder.{Builder, NodeBuilder, simple}
+import com.raquo.dombuilder.builders.{Builder, NodeBuilder}
+import com.raquo.dombuilder.simple
 import com.raquo.dombuilder.simple.{SimpleComment, SimpleElement, SimpleNode, SimpleText}
 import com.raquo.dombuilder.utils.testing.matching.RuleImplicits
 import org.scalatest.Suite

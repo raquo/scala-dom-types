@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.nodes
 
-import com.raquo.dombuilder.HasBuilder
+import com.raquo.dombuilder.builders.HasBuilder
 
 trait Node[N, +R] extends HasBuilder[N] { self: N =>
 

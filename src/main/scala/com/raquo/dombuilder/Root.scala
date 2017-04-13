@@ -1,5 +1,6 @@
 package com.raquo.dombuilder
 
+import com.raquo.dombuilder.builders.Builder
 import com.raquo.dombuilder.nodes.Node
 import org.scalajs.dom
 

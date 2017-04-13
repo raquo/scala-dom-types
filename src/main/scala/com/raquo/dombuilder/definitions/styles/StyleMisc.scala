@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.definitions.styles
 
-import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.builders.StyleBuilder
 import com.raquo.dombuilder.keys.Style
 
 import scala.scalajs.js.|
@@ -14,7 +14,7 @@ import scala.scalajs.js.|
   * Everything else is under the MIT License
   * http://opensource.org/licenses/MIT
   */
-trait StyleMisc[N] { self: Builder[N] =>
+trait StyleMisc[N] { self: StyleBuilder[N] =>
 
   /**
     * A Style that takes any value of type T as a parameter and has an auto value

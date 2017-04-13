@@ -1,13 +1,13 @@
 package com.raquo.dombuilder.definitions.eventProps
 
-import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.builders.EventPropBuilder
 import com.raquo.dombuilder.keys.EventProp
 import org.scalajs.dom
 
 /**
   * Clipboard Events
   */
-trait ClipboardEventProps[N] { self: Builder[N] =>
+trait ClipboardEventProps[N] { self: EventPropBuilder[N] =>
 
   /**
     * Fires when the user copies the content of an element

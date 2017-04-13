@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.simple
 
-import com.raquo.dombuilder.{Builder, NodeBuilder}
+import com.raquo.dombuilder.builders.{Builder, NodeBuilder}
 
 trait SimpleBuilder extends Builder[SimpleNode]
 

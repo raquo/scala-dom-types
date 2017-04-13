@@ -1,13 +1,13 @@
 package com.raquo.dombuilder.definitions.eventProps
 
-import com.raquo.dombuilder.Builder
+import com.raquo.dombuilder.builders.EventPropBuilder
 import com.raquo.dombuilder.keys.EventProp
 import org.scalajs.dom
 
 /**
   * Mouse Events: triggered by a mouse, or similar user actions.
   */
-trait MouseEventProps[N] { self: Builder[N] =>
+trait MouseEventProps[N] { self: EventPropBuilder[N] =>
 
   /**
     * The click event is raised when the user clicks on an element. The click
