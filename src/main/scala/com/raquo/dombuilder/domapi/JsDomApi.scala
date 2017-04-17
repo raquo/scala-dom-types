@@ -15,10 +15,6 @@ object JsDomApi extends DomApi[js.Function1, dom.Event, dom.Element, dom.Element
     document.createElement(tagName)
   }
 
-  @inline override def createTextNode(text: String): dom.Text = {
-    document.createTextNode(text)
-  }
-
   @inline override def createComment(text: String): dom.Comment = {
     document.createComment(text)
   }
@@ -37,10 +33,6 @@ object JsDomApi extends DomApi[js.Function1, dom.Event, dom.Element, dom.Element
 
   @inline override def appendChild(parentNode: dom.Node, child: dom.Node): Unit = {
     parentNode.appendChild(child)
-  }
-
-  @inline override def setTextContent(node: dom.Node, text: String): Unit = {
-    node.textContent = text
   }
 
   @inline override def setAttribute[V](element: dom.Element, attrName: String, value: V): Unit = {

@@ -1,21 +1,26 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.builders.{AttrBuilder, EventPropBuilder, PropBuilder, StyleBuilder}
+import com.raquo.dombuilder.builders.{AttrBuilder, EventPropBuilder, PropBuilder, StyleBuilder, TextNodeBuilder}
 import com.raquo.dombuilder.definitions.attrs.{Attrs, GlobalAttrs, InputAttrs}
 import com.raquo.dombuilder.definitions.eventProps.{ClipboardEventProps, FormEventProps, KeyboardEventProps, MouseEventProps}
 import com.raquo.dombuilder.definitions.nodes.{Elements, Elements2}
 import com.raquo.dombuilder.definitions.props.Props
 import com.raquo.dombuilder.definitions.styles.{Styles, Styles2}
+import com.raquo.dombuilder.domapi.TextNodeApi
+import org.scalajs.dom
 
 package object simple {
 
-//  val attrBuilder: AttrBuilder[SimpleNode] = new AttrBuilder[SimpleNode] {}
-//  val eventPropBuilder: EventPropBuilder[SimpleNode] = new EventPropBuilder[SimpleNode] {}
-//  val propBuilder: PropBuilder[SimpleNode] = new PropBuilder[SimpleNode] {}
-//  val styleBuilder: StyleBuilder[SimpleNode] = new StyleBuilder[SimpleNode] {}
-
   val builder: SimpleBuilder = new SimpleBuilder {}
 
+  val textNodeApi: TextNodeApi[SimpleNode, dom.Text] = new jsdom.domapi.TextNodeApi[SimpleNode] {}
+
+  // @TODO extract in a separate class?
+  val textNodeBuilder: TextNodeBuilder[SimpleText, SimpleNode, dom.Text] = new TextNodeBuilder[SimpleText, SimpleNode, dom.Text] {
+    override def textNode(text: String): SimpleText with SimpleNode = {
+      new SimpleText(text)
+    }
+  }
   val nodeBuilder: SimpleNodeBuilder = new SimpleNodeBuilder {}
 
   object elements

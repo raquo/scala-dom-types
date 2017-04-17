@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.utils.testing.matching
 
-import com.raquo.dombuilder.nodes.{Comment, Element, Node, Text}
+import com.raquo.dombuilder.nodes.{Comment, Element, Text}
 import com.raquo.dombuilder.utils.testing.UtilSpec.repr
 import org.scalajs.dom
 
@@ -22,7 +22,7 @@ class ExpectedNode[N](private val emptyNode: N) {
   // @TODO[API] There's gotta be a better way to expose just the type N, not val emptyNode. ClassTag? Sealed trait?
   val nodeType: String = emptyNode match {
     case el: Element[N] => "Element"
-    case t: Text[N] => "Text"
+    case t: Text[N, _] => "Text"
     case c: Comment[N] => "Comment"
   }
 
@@ -98,8 +98,8 @@ class ExpectedNode[N](private val emptyNode: N) {
     emptyNode match {
       case element: Element[N] =>
         s"ExpectedNode[Element,tag=${repr(element.tagName)}]"
-      case text: Text[N] =>
-        s"ExpectedNode[Text,text=${repr(text.ref.textContent)}]"
+      case text: Text[N, _] =>
+        s"ExpectedNode[Text,text=${repr(text.text)}]"
       case comment: Comment[N] =>
         s"ExpectedNode[Comment,text=${repr(comment.ref.textContent)}]"
     }

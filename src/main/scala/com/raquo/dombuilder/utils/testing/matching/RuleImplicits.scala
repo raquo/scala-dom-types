@@ -1,10 +1,11 @@
 package com.raquo.dombuilder.utils.testing.matching
 
-import com.raquo.dombuilder.builders.HasNodeBuilder
+import com.raquo.dombuilder.builders.TextNodeBuilder
 import com.raquo.dombuilder.keys.{Attr, Prop, Style}
-import com.raquo.dombuilder.nodes.{Comment, Element, Text}
 
-trait RuleImplicits[N] extends HasNodeBuilder[Element[N], Text[N], Comment[N], N] {
+trait RuleImplicits[N] extends {
+
+  protected val textNodeBuilder: TextNodeBuilder[_, N, _]
 
   implicit def withEmptyNodeOps(emptyNode: N): EmptyNodeOps[N] = {
     new EmptyNodeOps[N](emptyNode)
@@ -37,7 +38,7 @@ trait RuleImplicits[N] extends HasNodeBuilder[Element[N], Text[N], Comment[N], N
         if (expectedNode.nodeType == "Comment") {
           expectedNode.addCheck(ExpectedNode.checkCommentText(childText))
         } else {
-          val expectedTextChild = new ExpectedNode[N](nodeBuilder.textNode(childText))
+          val expectedTextChild = new ExpectedNode[N](textNodeBuilder.textNode(childText))
           expectedTextChild.addCheck(ExpectedNode.checkText(childText))
           expectedNode.addExpectedChild(expectedTextChild)
         }

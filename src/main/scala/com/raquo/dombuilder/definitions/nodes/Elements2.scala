@@ -7,7 +7,7 @@ import com.raquo.dombuilder.nodes.Element
   * Contains HTML tags which are used less frequently. These are generally
   * imported individually as needed.
   */
-trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, _, N] =>
+trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
 
   // Document Metadata
 

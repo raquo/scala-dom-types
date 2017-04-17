@@ -15,11 +15,9 @@ trait Builder[N] {
 // @TODO[API] Really, this trait could have just one type param and one method, node()
 // @TODO[API] And then if we need a builder that builds a node somewhere, we just require a Text type param
 
-trait NodeBuilder[+El <: Element[N], +T <: Text[N], +C <: Comment[N], N] {
+trait NodeBuilder[+El <: Element[N], +C <: Comment[N], N] {
 
   def element(tagName: String): El with N
-
-  def textNode(text: String): T with N
 
   def commentNode(text: String): C with N
 }
@@ -28,6 +26,6 @@ trait HasBuilder[N] {
   val builder: Builder[N]
 }
 
-trait HasNodeBuilder[+El <: Element[N], +T <: Text[N], +C <: Comment[N], N] {
-  val nodeBuilder: NodeBuilder[El, T, C, N]
+trait HasNodeBuilder[+El <: Element[N], +C <: Comment[N], N] {
+  val nodeBuilder: NodeBuilder[El, C, N]
 }

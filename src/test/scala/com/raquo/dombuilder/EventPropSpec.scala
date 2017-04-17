@@ -109,7 +109,7 @@ class EventPropSpec extends UnitSpec {
     }
 
     val childSpan = span("Hello")
-    val childTextNode = nodeBuilder.textNode("world")
+    val childTextNode = textNodeBuilder.textNode("world")
 
     val clickableDiv = div(
       cls := "clickable",

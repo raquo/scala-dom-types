@@ -1,9 +1,10 @@
 package com.raquo.dombuilder.utils.testing
 
-import com.raquo.dombuilder.builders.{Builder, NodeBuilder}
+import com.raquo.dombuilder.builders.{Builder, TextNodeBuilder}
 import com.raquo.dombuilder.simple
-import com.raquo.dombuilder.simple.{SimpleComment, SimpleElement, SimpleNode, SimpleText}
+import com.raquo.dombuilder.simple.{SimpleElement, SimpleNode, SimpleText}
 import com.raquo.dombuilder.utils.testing.matching.RuleImplicits
+import org.scalajs.dom
 import org.scalatest.Suite
 
 
@@ -15,5 +16,5 @@ trait SimpleSpec
 
   override val builder: Builder[SimpleNode] = simple.builder
 
-  override val nodeBuilder: NodeBuilder[SimpleElement, SimpleText, SimpleComment, SimpleNode] = simple.nodeBuilder
+  override val textNodeBuilder: TextNodeBuilder[SimpleText, SimpleNode, dom.Text] = simple.textNodeBuilder
 }

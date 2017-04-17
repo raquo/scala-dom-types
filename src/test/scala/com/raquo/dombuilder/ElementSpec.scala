@@ -28,8 +28,8 @@ class ElementSpec extends UnitSpec {
   }
 
   it("renders a comment") {
-    mount(div(nodeBuilder.commentNode("yolo")))
-    expectNode(div like (nodeBuilder.commentNode("") like "yolo"))
+    mount(div(simple.nodeBuilder.commentNode("yolo")))
+    expectNode(div like (simple.nodeBuilder.commentNode("") like "yolo"))
     unmount()
   }
 

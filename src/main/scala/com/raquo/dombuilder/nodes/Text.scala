@@ -1,16 +1,21 @@
 package com.raquo.dombuilder.nodes
 
-import org.scalajs.dom
+import com.raquo.dombuilder.domapi.TextNodeApi
 
-trait Text[N] extends Node[N, dom.Text] { self: N =>
+trait Text[N, R] extends Node[N, R] { self: N =>
 
-  protected[this] val initialText: String
+  val textNodeApi: TextNodeApi[N, R]
+
+  protected[this] var _text: String
+
+  @inline def text: String = _text
 
   def setText(newText: String): Unit = {
-    builder.domapi.setTextContent(ref, newText)
+    _text = newText
+    textNodeApi.setTextContent(ref, newText)
   }
 
-  override protected[this] def createRef(): dom.Text = {
-    builder.domapi.createTextNode(initialText)
+  override protected[this] def createRef(): R = {
+    textNodeApi.createTextNode(text)
   }
 }

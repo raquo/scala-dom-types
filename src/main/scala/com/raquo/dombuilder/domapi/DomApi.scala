@@ -13,8 +13,6 @@ trait DomApi[JsFun1[_, _], DomEvent, DomHtmlElement, DomElement, DomText, DomCom
 
   @inline def createElement(tagName: String): DomElement
 
-  @inline def createTextNode(text: String): DomText
-
   @inline def createComment(text: String): DomComment
 
   @inline def insertBefore(
@@ -28,8 +26,6 @@ trait DomApi[JsFun1[_, _], DomEvent, DomHtmlElement, DomElement, DomText, DomCom
   @inline def removeChild(parentNode: DomNode, child: DomNode): Unit
 
   @inline def appendChild(parentNode: DomNode, child: DomNode): Unit
-
-  @inline def setTextContent(node: DomNode, text: String)
 
   @inline def setAttribute[V](element: DomElement, attrName: String, value: V): Unit
 
