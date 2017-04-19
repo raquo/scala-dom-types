@@ -1,9 +1,10 @@
 package com.raquo.dombuilder.example.components
 
-import com.raquo.dombuilder.simple.{SimpleElement, SimpleText, attrs, events, styles}
-import com.raquo.dombuilder.simple.elements._
+import com.raquo.dombuilder.simple.nodes.{SimpleElement, SimpleText}
+import com.raquo.dombuilder.simple.{attrs, events, styles}
+import com.raquo.dombuilder.simple.tags._
 
-class Toggle(initialIsChecked: Boolean) extends SimpleElement("div") {
+class Toggle(initialIsChecked: Boolean) {
 
   private var _isChecked = false
 
@@ -14,7 +15,7 @@ class Toggle(initialIsChecked: Boolean) extends SimpleElement("div") {
 
   private val captionNode = new SimpleText(captionText)
 
-  this.apply(
+  val element: SimpleElement = div(
     attrs.cls := "Toggle",
     div(
       inputNode,
@@ -29,9 +30,9 @@ class Toggle(initialIsChecked: Boolean) extends SimpleElement("div") {
   def setChecked(newIsChecked: Boolean, force: Boolean = false): Unit = {
     if (force || _isChecked != newIsChecked) {
       _isChecked = !_isChecked
-      inputNode(attrs.checked := newIsChecked)
+      (attrs.checked := newIsChecked).applyTo(inputNode)
       captionNode.setText(captionText)
-      this(styles.color := color)
+      (styles.color := color).applyTo(element)
     }
   }
 

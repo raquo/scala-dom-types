@@ -26,7 +26,7 @@ trait EventfulNode[N, R <: dom.Node] { self: Node[N, R] =>
         }
       }
       // 2. Update the DOM
-      builder.domapi.addEventListener(ref, eventPropSetter.key.jsName, eventPropSetter.jsValue)
+      domapi.addEventListener(ref, eventPropSetter.key.jsName, eventPropSetter.jsValue)
     }
     shouldAddListener
   }
@@ -38,7 +38,7 @@ trait EventfulNode[N, R <: dom.Node] { self: Node[N, R] =>
       // 1. Update this node
       _maybeEventListeners.get.splice(index, deleteCount = 1)
       // 2. Update the DOM
-      builder.domapi.removeEventListener(ref, eventPropSetter.key.jsName, eventPropSetter.jsValue)
+      domapi.removeEventListener(ref, eventPropSetter.key.jsName, eventPropSetter.jsValue)
     }
     shouldRemoveListener
   }

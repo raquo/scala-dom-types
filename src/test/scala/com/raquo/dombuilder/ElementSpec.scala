@@ -1,7 +1,8 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.simple.elements.{div, hr, p, span}
-import com.raquo.dombuilder.simple.elements2.article
+import com.raquo.dombuilder.simple.nodeProps.textContent
+import com.raquo.dombuilder.simple.tags.{div, hr, p, span}
+import com.raquo.dombuilder.simple.tags2.article
 
 class ElementSpec extends UnitSpec {
 
@@ -18,18 +19,18 @@ class ElementSpec extends UnitSpec {
     expectNode(span likeWhatever)
     unmount()
 
-    mount("empty <p>", p)
+    mount("empty <p>", p())
     expectNode(p likeWhatever)
     unmount()
 
-    mount("empty <hr>", hr)
+    mount("empty <hr>", hr())
     expectNode(hr likeWhatever)
     unmount()
   }
 
   it("renders a comment") {
-    mount(div(simple.nodeBuilder.commentNode("yolo")))
-    expectNode(div like (simple.nodeBuilder.commentNode("") like "yolo"))
+    mount(div(simple.commentBuilder(textContent := "yolo")))
+    expectNode(div like (simple.commentBuilder like "yolo"))
     unmount()
   }
 
@@ -72,7 +73,7 @@ class ElementSpec extends UnitSpec {
       div(
         span(text1),
         p(text2, span(text2), span(text3)),
-        hr
+        hr()
       )
     )
 

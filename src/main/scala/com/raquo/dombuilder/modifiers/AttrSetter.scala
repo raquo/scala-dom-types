@@ -10,6 +10,6 @@ class AttrSetter[V, N](
 ) extends Modifier[Node[N, dom.Element]] {
 
   override def applyTo(node: Node[N, dom.Element]): Unit = {
-    node.builder.domapi.setAttribute(node.ref, key.name, value)
+    node.domapi.setAttribute(node.ref, key.name, value)
   }
 }

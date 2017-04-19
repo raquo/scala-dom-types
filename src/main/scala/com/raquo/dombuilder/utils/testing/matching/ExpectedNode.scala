@@ -1,5 +1,6 @@
 package com.raquo.dombuilder.utils.testing.matching
 
+import com.raquo.dombuilder.builders.nodes.NodeBuilder
 import com.raquo.dombuilder.nodes.{Comment, Element, Text}
 import com.raquo.dombuilder.utils.testing.UtilSpec.repr
 import org.scalajs.dom
@@ -8,7 +9,9 @@ import scala.collection.mutable
 
 // @TODO[API] Implement ExpectedNode as a custom Node[N] once it is generic enough
 
-class ExpectedNode[N](private val emptyNode: N) {
+class ExpectedNode[N](private val nodeBuilder: NodeBuilder[_, N, _]) {
+
+  private val emptyNode: N = nodeBuilder.createNode()
 
   import ExpectedNode._
 
@@ -21,9 +24,9 @@ class ExpectedNode[N](private val emptyNode: N) {
 
   // @TODO[API] There's gotta be a better way to expose just the type N, not val emptyNode. ClassTag? Sealed trait?
   val nodeType: String = emptyNode match {
-    case el: Element[N] => "Element"
+    case el: Element[N, _] => "Element"
     case t: Text[N, _] => "Text"
-    case c: Comment[N] => "Comment"
+    case c: Comment[N, _] => "Comment"
   }
 
   def checks: List[Check] = checksBuffer.toList
@@ -45,7 +48,7 @@ class ExpectedNode[N](private val emptyNode: N) {
 
   def checkNodeType(actualNode: dom.Node): MaybeError = {
     (actualNode, emptyNode) match {
-      case (actualElement: dom.Element, emptyElement: Element[N]) =>
+      case (actualElement: dom.Element, emptyElement: Element[N, _]) =>
         val actualTagName = actualElement.tagName.toLowerCase
         val expectedTagName = emptyElement.tagName
         if (actualTagName != expectedTagName) {
@@ -96,12 +99,12 @@ class ExpectedNode[N](private val emptyNode: N) {
 
   override def toString: String = {
     emptyNode match {
-      case element: Element[N] =>
+      case element: Element[N, _] =>
         s"ExpectedNode[Element,tag=${repr(element.tagName)}]"
       case text: Text[N, _] =>
         s"ExpectedNode[Text,text=${repr(text.text)}]"
-      case comment: Comment[N] =>
-        s"ExpectedNode[Comment,text=${repr(comment.ref.textContent)}]"
+      case comment: Comment[N, _] =>
+        s"ExpectedNode[Comment,text=${repr(comment.text)}]"
     }
   }
 }

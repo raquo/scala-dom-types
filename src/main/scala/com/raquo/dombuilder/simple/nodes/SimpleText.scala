@@ -1,6 +1,6 @@
-package com.raquo.dombuilder.simple
+package com.raquo.dombuilder.simple.nodes
 
-import com.raquo.dombuilder.domapi.TextNodeApi
+import com.raquo.dombuilder.domapi.TextApi
 import com.raquo.dombuilder.nodes.{ChildNode, Text}
 import com.raquo.dombuilder.simple
 import org.scalajs.dom
@@ -8,7 +8,7 @@ import org.scalajs.dom
 class SimpleText(override protected[this] var _text: String)
   extends SimpleNode
   with Text[SimpleNode, dom.Text]
-  with ChildNode[SimpleNode]
+  with ChildNode[SimpleNode, dom.Text, dom.Node]
 {
-  override val textNodeApi: TextNodeApi[SimpleNode, dom.Text] = simple.textNodeApi
+  override val textNodeApi: TextApi[SimpleNode, dom.Text] = simple.textNodeApi
 }

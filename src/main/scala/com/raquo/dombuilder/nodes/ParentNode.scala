@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.nodes
 
-import org.scalajs.dom
+import com.raquo.dombuilder.domapi.TreeApi
 
 import scala.scalajs.js
 
@@ -11,13 +11,15 @@ import scala.scalajs.js
   * This needs to be a RefNode for our sanity.
   * We're building a tree *mostly* matching the DOM, not an arbitrary structure.
   */
-trait ParentNode[N] { self: N with Node[N, dom.Element] =>
+trait ParentNode[N, +Ref <: TreeNodeRef, TreeNodeRef] { self: N with Node[N, Ref] =>
 
-  protected[this] var _maybeChildren: js.UndefOr[js.Array[ChildNode[N] with Node[N, dom.Node]]] = js.undefined
+  val treeApi: TreeApi[N, TreeNodeRef]
 
-  @inline def maybeChildren: js.UndefOr[js.Array[ChildNode[N] with Node[N, dom.Node]]] = _maybeChildren
+  protected[this] var _maybeChildren: js.UndefOr[js.Array[ChildNode[N, TreeNodeRef, TreeNodeRef] with Node[N, TreeNodeRef]]] = js.undefined
 
-  def appendChild(child: ChildNode[N] with Node[N, dom.Node]): Unit = {
+  @inline def maybeChildren: js.UndefOr[js.Array[ChildNode[N, TreeNodeRef, TreeNodeRef] with Node[N, TreeNodeRef]]] = _maybeChildren
+
+  def appendChild(child: ChildNode[N, TreeNodeRef, TreeNodeRef] with Node[N, TreeNodeRef]): Unit = {
 
     // 1. Update this node
     if (_maybeChildren.isEmpty) {
@@ -30,10 +32,10 @@ trait ParentNode[N] { self: N with Node[N, dom.Element] =>
     child.setParent(this)
 
     // 3. Update DOM
-    builder.domapi.appendChild(ref, child.ref)
+    treeApi.appendChild(ref, child.ref)
   }
 
-  def removeChild(child: ChildNode[N] with Node[N, dom.Node]): Unit = {
+  def removeChild(child: ChildNode[N, TreeNodeRef, TreeNodeRef] with Node[N, TreeNodeRef]): Unit = {
     // @TODO throw if not found?
     _maybeChildren.foreach { children =>
       val index = children.indexOf(child)
@@ -47,11 +49,11 @@ trait ParentNode[N] { self: N with Node[N, dom.Element] =>
       child.clearParent()
 
       // 3. Update DOM
-      builder.domapi.removeChild(parentNode = ref, child = child.ref)
+      treeApi.removeChild(parentNode = ref, child = child.ref)
     }
   }
 
-  def insertChild(child: ChildNode[N] with Node[N, dom.Node], atIndex: Int): Unit = {
+  def insertChild(child: ChildNode[N, TreeNodeRef, TreeNodeRef] with Node[N, TreeNodeRef], atIndex: Int): Unit = {
     // @TODO should we check that maybeChildren is initialized?
     // @TODO should we check that index is not out of bounds?
     _maybeChildren.foreach { children =>
@@ -64,10 +66,10 @@ trait ParentNode[N] { self: N with Node[N, dom.Element] =>
 
       // 3. Update DOM
       if (atIndex == children.length) {
-        builder.domapi.appendChild(parentNode = ref, child = child.ref)
+        treeApi.appendChild(parentNode = ref, child = child.ref)
       } else {
         val nextChild = children.apply(atIndex)
-        builder.domapi.insertBefore(
+        treeApi.insertBefore(
           parentNode = ref,
           newNode = child.ref,
           referenceNode = nextChild.ref
@@ -77,8 +79,8 @@ trait ParentNode[N] { self: N with Node[N, dom.Element] =>
   }
 
   def replaceChild(
-    oldChild: ChildNode[N] with Node[N, dom.Node],
-    newChild: ChildNode[N] with Node[N, dom.Node]
+    oldChild: ChildNode[N, TreeNodeRef, TreeNodeRef] with Node[N, TreeNodeRef],
+    newChild: ChildNode[N, TreeNodeRef, TreeNodeRef] with Node[N, TreeNodeRef]
   ): Unit = {
     // @TODO throw if not found?
     _maybeChildren.foreach { children =>
@@ -96,12 +98,12 @@ trait ParentNode[N] { self: N with Node[N, dom.Element] =>
       oldChild.clearParent()
 
       // 3. Update DOM
-      builder.domapi.insertBefore(
+      treeApi.insertBefore(
         parentNode = ref,
         newNode = newChild.ref,
         referenceNode = oldChild.ref
       )
-      builder.domapi.removeChild(parentNode = ref, child = oldChild.ref)
+      treeApi.removeChild(parentNode = ref, child = oldChild.ref)
     }
   }
 

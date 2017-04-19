@@ -1,12 +1,16 @@
 package com.raquo.dombuilder.nodes
 
-import org.scalajs.dom
+import com.raquo.dombuilder.domapi.CommentApi
 
-trait Comment[N] extends Node[N, dom.Comment] { self: N =>
+trait Comment[N, R] extends Node[N, R] { self: N =>
 
-  protected[this] val initialText: String
+  val commentApi: CommentApi[N, R]
 
-  override protected[this] def createRef(): dom.Comment = {
-    builder.domapi.createComment(initialText)
+  protected[this] var _text: String
+
+  @inline def text: String = _text
+
+  override protected[this] def createRef(): R = {
+    commentApi.createComment(_text)
   }
 }

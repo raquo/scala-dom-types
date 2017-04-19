@@ -1,13 +1,15 @@
-package com.raquo.dombuilder.definitions.nodes
+package com.raquo.dombuilder.definitions.tags
 
-import com.raquo.dombuilder.builders.NodeBuilder
+import com.raquo.dombuilder.builders.nodes.{Tag, TagBuilder}
 import com.raquo.dombuilder.nodes.Element
 
 /**
   * Trait that contains the contents of the `Tags` object, so they can be mixed
   * in to other objects if needed.
   */
-trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
+trait Tags[El <: Element[N, R], N, R] { self: TagBuilder[El, N, R] =>
+
+  type EF = Tag[El, N, R]
 
   /**
     * Represents the root of an HTML or XHTML document. All other elements must
@@ -15,7 +17,7 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def html: El = element("html")
+  lazy val html: EF = tag("html")
 
   /**
     * Represents a collection of metadata about the document, including links to,
@@ -23,28 +25,28 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def head: El = element("head")
+  lazy val head: EF = tag("head")
 
   /**
     * Defines the base URL for relative URLs in the page.
     *
     *  MDN
     */
-  def base: El = element("base")
+  lazy val base: EF = tag("base")
 
   /**
     * Used to link JavaScript and external CSS with the current HTML document.
     *
     *  MDN
     */
-  def link: El = element("link")
+  lazy val link: EF = tag("link")
 
   /**
     * Defines metadata that can't be defined using another HTML element.
     *
     *  MDN
     */
-  def meta: El = element("meta")
+  lazy val meta: EF = tag("meta")
 
   /**
     * Defines either an internal script or a link to an external script. The
@@ -52,7 +54,7 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def script: El = element("script")
+  lazy val script: EF = tag("script")
 
   /**
     * Represents the content of an HTML document. There is only one body
@@ -60,7 +62,7 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def body: El = element("body")
+  lazy val body: EF = tag("body")
 
   // Sections
 
@@ -69,42 +71,42 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def h1: El = element("h1")
+  lazy val h1: EF = tag("h1")
 
   /**
     * Heading level 2
     *
     *  MDN
     */
-  def h2: El = element("h2")
+  lazy val h2: EF = tag("h2")
 
   /**
     * Heading level 3
     *
     *  MDN
     */
-  def h3: El = element("h3")
+  lazy val h3: EF = tag("h3")
 
   /**
     * Heading level 4
     *
     *  MDN
     */
-  def h4: El = element("h4")
+  lazy val h4: EF = tag("h4")
 
   /**
     * Heading level 5
     *
     *  MDN
     */
-  def h5: El = element("h5")
+  lazy val h5: EF = tag("h5")
 
   /**
     * Heading level 6
     *
     *  MDN
     */
-  def h6: El = element("h6")
+  lazy val h6: EF = tag("h6")
 
   /**
     * Defines the header of a page or section. It often contains a logo, the
@@ -112,7 +114,7 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def header: El = element("header")
+  lazy val header: EF = tag("header")
 
   /**
     * Defines the footer for a page or section. It often contains a copyright
@@ -120,7 +122,7 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def footer: El = element("footer")
+  lazy val footer: EF = tag("footer")
 
   // Grouping content
 
@@ -129,7 +131,7 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def p: El = element("p")
+  lazy val p: EF = tag("p")
 
   /**
     * Represents a thematic break between paragraphs of a section or article or
@@ -137,7 +139,7 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def hr: El = element("hr")
+  lazy val hr: EF = tag("hr")
 
   /**
     * Indicates that its content is preformatted and that this format must be
@@ -145,77 +147,77 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def pre: El = element("pre")
+  lazy val pre: EF = tag("pre")
 
   /**
     * Represents a content that is quoted from another source.
     *
     *  MDN
     */
-  def blockQuote: El = element("blockquote")
+  lazy val blockQuote: EF = tag("blockquote")
 
   /**
     * Defines an ordered list of items.
     *
     *  MDN
     */
-  def ol: El = element("ol")
+  lazy val ol: EF = tag("ol")
 
   /**
     * Defines an unordered list of items.
     *
     *  MDN
     */
-  def ul: El = element("ul")
+  lazy val ul: EF = tag("ul")
 
   /**
     * Defines an item of an list.
     *
     *  MDN
     */
-  def li: El = element("li")
+  lazy val li: EF = tag("li")
 
   /**
     * Defines a definition list; a list of terms and their associated definitions.
     *
     *  MDN
     */
-  def dl: El = element("dl")
+  lazy val dl: EF = tag("dl")
 
   /**
     * Represents a term defined by the next dd
     *
     *  MDN
     */
-  def dt: El = element("dt")
+  lazy val dt: EF = tag("dt")
 
   /**
     * Represents the definition of the terms immediately listed before it.
     *
     *  MDN
     */
-  def dd: El = element("dd")
+  lazy val dd: EF = tag("dd")
 
   /**
     * Represents a figure illustrated as part of the document.
     *
     *  MDN
     */
-  def figure: El = element("figure")
+  lazy val figure: EF = tag("figure")
 
   /**
     * Represents the legend of a figure.
     *
     *  MDN
     */
-  def figCaption: El = element("figcaption")
+  lazy val figCaption: EF = tag("figcaption")
 
   /**
     * Represents a generic container with no special meaning.
     *
     *  MDN
     */
-  def div: El = element("div")
+  lazy val div: EF = tag("div")
 
   // Text-level semantics
 
@@ -224,21 +226,21 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def a: El = element("a")
+  lazy val a: EF = tag("a")
 
   /**
     * Represents emphasized text.
     *
     *  MDN
     */
-  def em: El = element("em")
+  lazy val em: EF = tag("em")
 
   /**
     * Represents especially important text.
     *
     *  MDN
     */
-  def strong: El = element("strong")
+  lazy val strong: EF = tag("strong")
 
   /**
     * Represents a side comment; text like a disclaimer or copyright, which is not
@@ -246,63 +248,63 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def small: El = element("small")
+  lazy val small: EF = tag("small")
 
   /**
     * Strikethrough element, used for that is no longer accurate or relevant.
     *
     *  MDN
     */
-  def s: El = element("s")
+  lazy val s: EF = tag("s")
 
   /**
     * Represents the title of a work being cited.
     *
     *  MDN
     */
-  def cite: El = element("cite")
+  lazy val cite: EF = tag("cite")
 
   /**
     * Represents computer code.
     *
     *  MDN
     */
-  def code: El = element("code")
+  lazy val code: EF = tag("code")
 
   /**
     * Subscript tag
     *
     *  MDN
     */
-  def sub: El = element("sub")
+  lazy val sub: EF = tag("sub")
 
   /**
     * Superscript tag.
     *
     *  MDN
     */
-  def sup: El = element("sup")
+  lazy val sup: EF = tag("sup")
 
   /**
     * Italicized text.
     *
     *  MDN
     */
-  def i: El = element("i")
+  lazy val i: EF = tag("i")
 
   /**
     * Bold text.
     *
     *  MDN
     */
-  def b: El = element("b")
+  lazy val b: EF = tag("b")
 
   /**
     * Underlined text.
     *
     *  MDN
     */
-  def u: El = element("u")
+  lazy val u: EF = tag("u")
 
   /**
     * Represents text with no specific meaning. This has to be used when no other
@@ -311,14 +313,14 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def span: El = element("span")
+  lazy val span: EF = tag("span")
 
   /**
     * Represents a line break.
     *
     *  MDN
     */
-  def br: El = element("br")
+  lazy val br: EF = tag("br")
 
   /**
     * Represents a line break opportunity, that is a suggested point for wrapping
@@ -326,7 +328,7 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def wbr: El = element("wbr")
+  lazy val wbr: EF = tag("wbr")
 
   // Edits
 
@@ -335,14 +337,14 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def ins: El = element("ins")
+  lazy val ins: EF = tag("ins")
 
   /**
-    * Defines a remodef from the document.
+    * Defines a remolazy val from the document.
     *
     *  MDN
     */
-  def del: El = element("del")
+  lazy val del: EF = tag("del")
 
   // Embedded content
 
@@ -351,14 +353,14 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def img: El = element("img")
+  lazy val img: EF = tag("img")
 
   /**
     * Represents a nested browsing context, that is an embedded HTML document.
     *
     *  MDN
     */
-  def iframe: El = element("iframe")
+  lazy val iframe: EF = tag("iframe")
 
   /**
     * Represents a integration point for an external, often non-HTML, application
@@ -366,7 +368,7 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def embed: El = element("embed")
+  lazy val embed: EF = tag("embed")
 
   /**
     * Represents an external resource, which is treated as an image, an HTML
@@ -374,14 +376,14 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def `object`: El = element("object")
+  lazy val `object`: EF = tag("object")
 
   /**
     * Defines parameters for use by plug-ins invoked by object elements.
     *
     *  MDN
     */
-  def param: El = element("param")
+  lazy val param: EF = tag("param")
 
   /**
     * Represents a video, and its associated audio files and captions, with the
@@ -389,14 +391,14 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def video: El = element("video")
+  lazy val video: EF = tag("video")
 
   /**
     * Represents a sound or an audio stream.
     *
     *  MDN
     */
-  def audio: El = element("audio")
+  lazy val audio: EF = tag("audio")
 
   /**
     * Allows the authors to specify alternate media resources for media elements
@@ -404,7 +406,7 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def source: El = element("source")
+  lazy val source: EF = tag("source")
 
   /**
     * Allows authors to specify timed text track for media elements like video or
@@ -412,7 +414,7 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def track: El = element("track")
+  lazy val track: EF = tag("track")
 
   /**
     * Represents a bitmap area that scripts can use to render graphics like graphs,
@@ -420,21 +422,21 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def canvas: El = element("canvas")
+  lazy val canvas: EF = tag("canvas")
 
   /**
     * In conjunction with area, defines an image map.
     *
     *  MDN
     */
-  def map: El = element("map")
+  lazy val map: EF = tag("map")
 
   /**
     * In conjunction with map, defines an image map
     *
     *  MDN
     */
-  def area: El = element("area")
+  lazy val area: EF = tag("area")
 
   // Tabular data
 
@@ -443,70 +445,70 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def table: El = element("table")
+  lazy val table: EF = tag("table")
 
   /**
     * The title of a table.
     *
     *  MDN
     */
-  def caption: El = element("caption")
+  lazy val caption: EF = tag("caption")
 
   /**
     * A set of columns.
     *
     *  MDN
     */
-  def colGroup: El = element("colgroup")
+  lazy val colGroup: EF = tag("colgroup")
 
   /**
     * A single column.
     *
     *  MDN
     */
-  def col: El = element("col")
+  lazy val col: EF = tag("col")
 
   /**
     * The table body.
     *
     *  MDN
     */
-  def tbody: El = element("tbody")
+  lazy val tbody: EF = tag("tbody")
 
   /**
     * The table headers.
     *
     *  MDN
     */
-  def thead: El = element("thead")
+  lazy val thead: EF = tag("thead")
 
   /**
     * The table footer.
     *
     *  MDN
     */
-  def tfoot: El = element("tfoot")
+  lazy val tfoot: EF = tag("tfoot")
 
   /**
     * A single row in a table.
     *
     *  MDN
     */
-  def tr: El = element("tr")
+  lazy val tr: EF = tag("tr")
 
   /**
     * A single cell in a table.
     *
     *  MDN
     */
-  def td: El = element("td")
+  lazy val td: EF = tag("td")
 
   /**
     * A header cell in a table.
     *
     *  MDN
     */
-  def th: El = element("th")
+  lazy val th: EF = tag("th")
 
   // Forms
 
@@ -516,75 +518,75 @@ trait Elements[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def form: El = element("form")
+  lazy val form: EF = tag("form")
 
   /**
     * A set of fields.
     *
     *  MDN
     */
-  def fieldSet: El = element("fieldset")
+  lazy val fieldSet: EF = tag("fieldset")
 
   /**
     * The caption for a fieldset.
     *
     *  MDN
     */
-  def legend: El = element("legend")
+  lazy val legend: EF = tag("legend")
 
   /**
     * The caption of a single field
     *
     *  MDN
     */
-  def label: El = element("label")
+  lazy val label: EF = tag("label")
 
   /**
     * A typed data field allowing the user to input data.
     *
     *  MDN
     */
-  def input: El = element("input")
+  lazy val input: EF = tag("input")
 
   /**
     * A button
     *
     *  MDN
     */
-  def button: El = element("button")
+  lazy val button: EF = tag("button")
 
   /**
     * A control that allows the user to select one of a set of options.
     *
     *  MDN
     */
-  def select: El = element("select")
+  lazy val select: EF = tag("select")
 
   /**
     * A set of predefined options for other controls.
     *
     *  MDN
     */
-  def dataList: El = element("datalist")
+  lazy val dataList: EF = tag("datalist")
 
   /**
     * A set of options, logically grouped.
     *
     *  MDN
     */
-  def optGroup: El = element("optgroup")
+  lazy val optGroup: EF = tag("optgroup")
 
   /**
     * An option in a select element.
     *
     *  MDN
     */
-  def option: El = element("option")
+  lazy val option: EF = tag("option")
 
   /**
     * A multiline text edit control.
     *
     *  MDN
     */
-  def textArea: El = element("textarea")
+  lazy val textArea: EF = tag("textarea")
 }

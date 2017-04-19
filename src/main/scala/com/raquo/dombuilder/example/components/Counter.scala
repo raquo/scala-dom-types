@@ -1,27 +1,29 @@
 package com.raquo.dombuilder.example.components
 
 import com.raquo.dombuilder.simple
-import com.raquo.dombuilder.simple.{SimpleElement, SimpleText, attrs, events}
-import com.raquo.dombuilder.simple.elements._
+import com.raquo.dombuilder.simple.{attrs, events}
+import com.raquo.dombuilder.simple.nodeProps.textContent
+import com.raquo.dombuilder.simple.nodes.{SimpleElement, SimpleText}
+import com.raquo.dombuilder.simple.tags._
 
-// @TODO[API] The "div" here is making me cringe. Think how best to extract it later. Combine with DOM types maybe.
-
-class Counter extends SimpleElement("div") {
+class Counter {
 
   private var count = 0
 
-  val incButton: SimpleElement = button(
+  private val captionNode: SimpleText = count.toString
+
+  private val incButton: SimpleElement = button(
     events.onClick := increment _,
     "[ + ]"
   )
 
-  private val captionNode: SimpleText = count.toString
+  // @TODO[Docs] update example in README
 
-  this(
+  val element: SimpleElement = div(
     attrs.cls := "Counter",
     incButton,
     captionNode,
-    simple.nodeBuilder.commentNode("YOLO")
+    simple.commentBuilder(textContent := "YOLO")
   )
 
   def increment(): Unit = {

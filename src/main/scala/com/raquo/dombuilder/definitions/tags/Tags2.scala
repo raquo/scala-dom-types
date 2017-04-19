@@ -1,13 +1,15 @@
-package com.raquo.dombuilder.definitions.nodes
+package com.raquo.dombuilder.definitions.tags
 
-import com.raquo.dombuilder.builders.NodeBuilder
+import com.raquo.dombuilder.builders.nodes.{Tag, TagBuilder}
 import com.raquo.dombuilder.nodes.Element
 
 /**
   * Contains HTML tags which are used less frequently. These are generally
   * imported individually as needed.
   */
-trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
+trait Tags2[El <: Element[N, R], N, R] { self: TagBuilder[El, N, R] =>
+
+  type T2 = Tag[El, N, R]
 
   // Document Metadata
 
@@ -18,14 +20,14 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     * MDN
     */
-  def title: El = element("title")
+  lazy val title: T2 = tag("title")
 
   /**
     * Used to write inline CSS.
     *
     *  MDN
     */
-  def style: El = element("style")
+  lazy val style: T2 = tag("style")
 
   // Scripting
 
@@ -35,7 +37,7 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def noScript: El = element("noscript")
+  lazy val noScript: T2 = tag("noscript")
 
   // Sections
 
@@ -45,7 +47,7 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def section: El = element("section")
+  lazy val section: T2 = tag("section")
 
   /**
     * Represents a section of a page that links to other pages or to parts within
@@ -53,7 +55,7 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def nav: El = element("nav")
+  lazy val nav: T2 = tag("nav")
 
   /**
     * Defines self-contained content that could exist independently of the rest
@@ -61,7 +63,7 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def article: El = element("article")
+  lazy val article: T2 = tag("article")
 
   /**
     * Defines some content loosely related to the page content. If it is removed,
@@ -69,14 +71,14 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def aside: El = element("aside")
+  lazy val aside: T2 = tag("aside")
 
   /**
     * Defines a section containing contact information.
     *
     *  MDN
     */
-  def address: El = element("address")
+  lazy val address: T2 = tag("address")
 
   /**
     * Defines the main or important content in the document. There is only one
@@ -84,7 +86,7 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def main: El = element("main")
+  lazy val main: T2 = tag("main")
 
   // Text level semantics
 
@@ -93,7 +95,7 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def q: El = element("q")
+  lazy val q: T2 = tag("q")
 
   /**
     * Represents a term whose definition is contained in its nearest ancestor
@@ -101,7 +103,7 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def dfn: El = element("dfn")
+  lazy val dfn: T2 = tag("dfn")
 
   /**
     * An abbreviation or acronym; the expansion of the abbreviation can be
@@ -109,14 +111,14 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def abbr: El = element("abbr")
+  lazy val abbr: T2 = tag("abbr")
 
   /**
     * Associates to its content a machine-readable equivalent.
     *
     *  MDN
     */
-  def data: El = element("data")
+  lazy val data: T2 = tag("data")
 
   /**
     * Represents a date and time value; the machine-readable equivalent can be
@@ -124,35 +126,35 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def time: El = element("time")
+  lazy val time: T2 = tag("time")
 
   /**
     * Represents a variable.
     *
     *  MDN
     */
-  def `var`: El = element("var")
+  lazy val `var`: T2 = tag("var")
 
   /**
     * Represents the output of a program or a computer.
     *
     *  MDN
     */
-  def samp: El = element("samp")
+  lazy val samp: T2 = tag("samp")
 
   /**
     * Represents user input, often from a keyboard, but not necessarily.
     *
     *  MDN
     */
-  def kbd: El = element("kbd")
+  lazy val kbd: T2 = tag("kbd")
 
   /**
     * Defines a mathematical formula.
     *
     *  MDN
     */
-  def math: El = element("math")
+  lazy val math: T2 = tag("math")
 
   /**
     * Represents text highlighted for reference purposes, that is for its
@@ -160,7 +162,7 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def mark: El = element("mark")
+  lazy val mark: T2 = tag("mark")
 
   /**
     * Represents content to be marked with ruby annotations, short runs of text
@@ -170,14 +172,14 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def ruby: El = element("ruby")
+  lazy val ruby: T2 = tag("ruby")
 
   /**
     * Represents the text of a ruby annotation.
     *
     *  MDN
     */
-  def rt: El = element("rt")
+  lazy val rt: T2 = tag("rt")
 
   /**
     * Represents parenthesis around a ruby annotation, used to display the
@@ -186,7 +188,7 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def rp: El = element("rp")
+  lazy val rp: T2 = tag("rp")
 
   /**
     * Represents text that must be isolated from its surrounding for bidirectional
@@ -195,7 +197,7 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def bdi: El = element("bdi")
+  lazy val bdi: T2 = tag("bdi")
 
   /**
     * Represents the directionality of its children, in order to explicitly
@@ -203,7 +205,7 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def bdo: El = element("bdo")
+  lazy val bdo: T2 = tag("bdo")
 
   // Forms
 
@@ -212,28 +214,28 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def keyGen: El = element("keygen")
+  lazy val keyGen: T2 = tag("keygen")
 
   /**
     * The result of a calculation
     *
     *  MDN
     */
-  def output: El = element("output")
+  lazy val output: T2 = tag("output")
 
   /**
     * A progress completion bar
     *
     *  MDN
     */
-  def progress: El = element("progress")
+  lazy val progress: T2 = tag("progress")
 
   /**
     * A scalar measurement within a known range.
     *
     *  MDN
     */
-  def meter: El = element("meter")
+  lazy val meter: T2 = tag("meter")
 
   // Interactive elements
 
@@ -243,26 +245,26 @@ trait Elements2[El <: Element[N], N] { self: NodeBuilder[El, _, N] =>
     *
     *  MDN
     */
-  def details: El = element("details")
+  lazy val details: T2 = tag("details")
 
   /**
     * A summary, caption, or legend for a given details.
     *
     *  MDN
     */
-  def summary: El = element("summary")
+  lazy val summary: T2 = tag("summary")
 
   /**
     * A command that the user can invoke.
     *
     *  MDN
     */
-  def command: El = element("command")
+  lazy val command: T2 = tag("command")
 
   /**
     * A list of commands
     *
     *  MDN
     */
-  def menu: El = element("menu")
+  lazy val menu: T2 = tag("menu")
 }

@@ -1,39 +1,10 @@
 package com.raquo.dombuilder.domapi
 
 import org.scalajs.dom
-import org.scalajs.dom.document
 
 import scala.scalajs.js
 
-object JsDomApi extends DomApi[js.Function1, dom.Event, dom.Element, dom.Element, dom.Text, dom.Comment, dom.Node] {
-
-  @inline override def parentNode(node: dom.Node): Option[dom.Node] = {
-    Option(node.parentNode)
-  }
-
-  @inline override def createElement(tagName: String): dom.Element = {
-    document.createElement(tagName)
-  }
-
-  @inline override def createComment(text: String): dom.Comment = {
-    document.createComment(text)
-  }
-
-  @inline override def insertBefore(
-    parentNode: dom.Element,
-    newNode: dom.Node,
-    referenceNode: dom.Node
-  ): Unit = {
-    parentNode.insertBefore(newNode, referenceNode)
-  }
-
-  @inline override def removeChild(parentNode: dom.Node, child: dom.Node): Unit = {
-    parentNode.removeChild(child)
-  }
-
-  @inline override def appendChild(parentNode: dom.Node, child: dom.Node): Unit = {
-    parentNode.appendChild(child)
-  }
+object JsDomApi extends DomApi[js.Function1, dom.Event, dom.Element, dom.Element, dom.Node] {
 
   @inline override def setAttribute[V](element: dom.Element, attrName: String, value: V): Unit = {
     value match {

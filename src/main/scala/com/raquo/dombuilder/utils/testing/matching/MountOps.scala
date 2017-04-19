@@ -1,15 +1,16 @@
 package com.raquo.dombuilder.utils.testing.matching
 
 import com.raquo.dombuilder.Root
-import com.raquo.dombuilder.builders.Builder
+import com.raquo.dombuilder.domapi.TreeApi
 import com.raquo.dombuilder.nodes.Element
 import org.scalajs.dom
 
 // @TODO[API] Should we be testing against the mounted element? We could just test against the node's ref
+// @TODO Should this ge scalajs-agnostic?
 
-trait MountOps[El <: Element[N], N] {
+trait MountOps[El <: Element[N, dom.Element], N] {
 
-  val builder: Builder[N]
+  val treeApi: TreeApi[N, dom.Node]
 
   // `maybeContainer` and `maybeRoot` are private because otherwise it would be too easy to
   // forget to handle the `None` case when mapping or foreach-ing over them. We'd rather have
@@ -87,7 +88,7 @@ trait MountOps[El <: Element[N], N] {
         //      "ASSERT FAIL [mount]: Unexpected children in container. Call unmount() before mounting again."
         //    )
         mountedElementClue = clue
-        maybeRoot = Some(Root.mount(container, element, builder))
+        maybeRoot = Some(Root.mount(container, element, treeApi))
       case None =>
         doFail("ASSERT FAIL [mount]: Container not found. resetDocument() usually does this in beforeEach().")
     }

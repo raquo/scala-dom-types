@@ -1,23 +1,24 @@
 package com.raquo.dombuilder.nodes
 
 import com.raquo.dombuilder.modifiers.Modifier
-import org.scalajs.dom
 
 import scala.scalajs.js
 
 // @TODO[API] should this extend Node instead?
 
-trait ChildNode[N] extends Modifier[ParentNode[N]] { self: N with Node[N, dom.Node] =>
+trait ChildNode[N, +Ref <: TreeNodeRef, TreeNodeRef]
+  extends Modifier[ParentNode[N, TreeNodeRef, TreeNodeRef]]
+{ self: N with Node[N, Ref] =>
 
-  private[this] var _maybeParent: js.UndefOr[ParentNode[N]] = js.undefined
+  private[this] var _maybeParent: js.UndefOr[ParentNode[N, TreeNodeRef, TreeNodeRef]] = js.undefined
 
-  override def applyTo(node: ParentNode[N]): Unit = {
+  override def applyTo(node: ParentNode[N, TreeNodeRef, TreeNodeRef]): Unit = {
     node.appendChild(this)
   }
 
-  def maybeParent: js.UndefOr[ParentNode[N]] = _maybeParent
+  def maybeParent: js.UndefOr[ParentNode[N, TreeNodeRef, TreeNodeRef]] = _maybeParent
 
-  def setParent(newParent: ParentNode[N]): Unit = {
+  def setParent(newParent: ParentNode[N, TreeNodeRef, TreeNodeRef]): Unit = {
     _maybeParent = newParent
   }
 

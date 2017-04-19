@@ -1,36 +1,35 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.builders.Builder
+import com.raquo.dombuilder.domapi.TreeApi
 import com.raquo.dombuilder.nodes.Node
-import org.scalajs.dom
 
-class Root[N, +R <: dom.Node] private (
-  val container: dom.Element,
+class Root[N, R] private (
+  val container: R,
   val node: Node[N, R],
-  val builder: Builder[N]
+  val treeApi: TreeApi[N, R]
 ) {
 
   // @TODO[API] If needed, we could add a link from the node to the root.
   // @TODO[API] This would allow nodes to register mount/unmount hooks efficiently
 
   // Mount element as a child of the container
-  builder.domapi.appendChild(parentNode = container, child = node.ref)
+  treeApi.appendChild(parentNode = container, child = node.ref)
 
   def unmount(): Unit = {
-    val maybeParentNode = builder.domapi.parentNode(node.ref)
+    val maybeParentNode = treeApi.parentNode(node.ref)
     maybeParentNode.foreach(parentNode =>
-      builder.domapi.removeChild(parentNode = parentNode, child = node.ref)
+      treeApi.removeChild(parentNode = parentNode, child = node.ref)
     )
   }
 }
 
 object Root {
 
-  def mount[N, R <: dom.Node](
-    container: dom.Element,
+  def mount[N, R](
+    container: R,
     node: Node[N, R],
-    builder: Builder[N]
+    treeApi: TreeApi[N, R]
   ): Root[N, R] = {
-    new Root[N, R](container, node, builder)
+    new Root[N, R](container, node, treeApi)
   }
 }

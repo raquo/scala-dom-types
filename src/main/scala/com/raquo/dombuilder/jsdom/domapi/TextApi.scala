@@ -3,9 +3,9 @@ package com.raquo.dombuilder.jsdom.domapi
 import com.raquo.dombuilder.domapi
 import org.scalajs.dom
 
-trait TextNodeApi[N] extends domapi.TextNodeApi[N, dom.Text] {
+trait TextApi[N] extends domapi.TextApi[N, dom.Text] {
 
-  @inline override def createTextNode(text: String): dom.Text = {
+  @inline override def createText(text: String): dom.Text = {
     dom.document.createTextNode(text)
   }
 

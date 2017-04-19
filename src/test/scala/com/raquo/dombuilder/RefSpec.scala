@@ -1,6 +1,6 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.simple.elements.div
+import com.raquo.dombuilder.simple.tags.div
 
 class RefSpec extends UnitSpec {
 

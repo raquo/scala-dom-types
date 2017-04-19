@@ -1,8 +1,9 @@
 package com.raquo.dombuilder
 
 import com.raquo.dombuilder.simple.attrs.cls
-import com.raquo.dombuilder.simple.elements.{div, span}
+import com.raquo.dombuilder.simple.tags.{div, span}
 import com.raquo.dombuilder.simple.events.{onClick, onScroll}
+import com.raquo.dombuilder.simple.nodes.SimpleText
 
 class EventPropSpec extends UnitSpec {
 
@@ -52,7 +53,7 @@ class EventPropSpec extends UnitSpec {
     clickCount2 shouldBe 0
 
     // Add a new event listener on the same event type ("click")
-    clickableDiv.apply(clickSetter2)
+    clickSetter2.applyTo(clickableDiv)
     clickableDiv.maybeEventListeners.get.length shouldBe 2
     clickCount1 shouldBe 1
     clickCount2 shouldBe 0
@@ -70,13 +71,13 @@ class EventPropSpec extends UnitSpec {
     clickCount2 shouldBe 1
 
     // Add a duplicate of the original event listener (duplicate should be ignored)
-    clickableDiv.apply(clickSetter1)
+    clickSetter1.applyTo(clickableDiv)
     clickableDiv.maybeEventListeners.get.length shouldBe 1
     simulateClick(clickableDiv.ref)
     clickCount1 shouldBe 4
 
     // Add a listener to an unrelated event
-    clickableDiv.apply(scrollSetter2)
+    scrollSetter2.applyTo(clickableDiv)
     clickableDiv.maybeEventListeners.get.length shouldBe 2
 
     simulateClick(clickableDiv.ref)
@@ -109,7 +110,7 @@ class EventPropSpec extends UnitSpec {
     }
 
     val childSpan = span("Hello")
-    val childTextNode = textNodeBuilder.textNode("world")
+    val childTextNode: SimpleText = "world"
 
     val clickableDiv = div(
       cls := "clickable",

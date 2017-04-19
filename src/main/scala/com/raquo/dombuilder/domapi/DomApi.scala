@@ -7,25 +7,7 @@ package com.raquo.dombuilder.domapi
   *
   * Note: there are still a bunch of TODO-s to actually make this possible.
   */
-trait DomApi[JsFun1[_, _], DomEvent, DomHtmlElement, DomElement, DomText, DomComment, DomNode] {
-
-  @inline def parentNode(node: DomNode): Option[DomNode]
-
-  @inline def createElement(tagName: String): DomElement
-
-  @inline def createComment(text: String): DomComment
-
-  @inline def insertBefore(
-    parentNode: DomElement,
-    newNode: DomNode,
-    referenceNode: DomNode
-  ): Unit
-
-  // @TODO[Performance] Add removeAllChildren and implement it as .textContent = "" or something?
-
-  @inline def removeChild(parentNode: DomNode, child: DomNode): Unit
-
-  @inline def appendChild(parentNode: DomNode, child: DomNode): Unit
+trait DomApi[JsFun1[_, _], DomEvent, DomHtmlElement, DomElement, DomNode] {
 
   @inline def setAttribute[V](element: DomElement, attrName: String, value: V): Unit
 

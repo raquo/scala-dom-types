@@ -3,6 +3,8 @@ package com.raquo.dombuilder.definitions.attrs
 import com.raquo.dombuilder.builders.AttrBuilder
 import com.raquo.dombuilder.keys.Attr
 
+// @TODO[Performance] Do we need those vals to be lazy? Scala.js optimizes away unused code anyway, and lazy vals produce more generated code than vals
+
 trait Attrs[N] { self: AttrBuilder[N] =>
 
   /**
