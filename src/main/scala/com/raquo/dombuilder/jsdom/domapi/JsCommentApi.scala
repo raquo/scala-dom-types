@@ -4,7 +4,7 @@ import com.raquo.dombuilder.domapi
 import org.scalajs.dom
 import org.scalajs.dom.document
 
-trait CommentApi[N] extends domapi.CommentApi[N, dom.Comment] {
+trait JsCommentApi[N] extends domapi.CommentApi[N, dom.Comment] {
 
   override def createComment(text: String): dom.Comment = {
     document.createComment(text)

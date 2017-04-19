@@ -3,7 +3,7 @@ package com.raquo.dombuilder.jsdom.domapi
 import com.raquo.dombuilder.domapi
 import org.scalajs.dom
 
-trait TreeApi[N] extends domapi.TreeApi[N, dom.Node] {
+trait JsTreeApi[N] extends domapi.TreeApi[N, dom.Node] {
 
   @inline override def parentNode(node: dom.Node): Option[dom.Node] = {
     Option(node.parentNode)

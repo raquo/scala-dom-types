@@ -14,13 +14,13 @@ import org.scalajs.dom
 
 package object simple {
 
-  val commentApi: CommentApi[SimpleNode, dom.Comment] = new jsdom.domapi.CommentApi[SimpleNode] {}
+  val commentApi: CommentApi[SimpleNode, dom.Comment] = new jsdom.domapi.JsCommentApi[SimpleNode] {}
 
-  val elementApi: ElementApi[SimpleNode, dom.Element] = new jsdom.domapi.ElementApi[SimpleNode] {}
+  val elementApi: ElementApi[SimpleNode, dom.Element] = new jsdom.domapi.JsElementApi[SimpleNode] {}
 
-  val textNodeApi: TextApi[SimpleNode, dom.Text] = new jsdom.domapi.TextApi[SimpleNode] {}
+  val textNodeApi: TextApi[SimpleNode, dom.Text] = new jsdom.domapi.JsTextApi[SimpleNode] {}
 
-  val treeApi: TreeApi[SimpleNode, dom.Node] = new jsdom.domapi.TreeApi[SimpleNode] {}
+  val treeApi: TreeApi[SimpleNode, dom.Node] = new jsdom.domapi.JsTreeApi[SimpleNode] {}
 
   val commentBuilder: NodeBuilder[SimpleComment, SimpleNode, dom.Comment] = new SimpleCommentBuilder {}
 

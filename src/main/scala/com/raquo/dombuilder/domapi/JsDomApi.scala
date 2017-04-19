@@ -4,19 +4,7 @@ import org.scalajs.dom
 
 import scala.scalajs.js
 
-object JsDomApi extends DomApi[js.Function1, dom.Event, dom.Element, dom.Element, dom.Node] {
-
-  @inline override def setAttribute[V](element: dom.Element, attrName: String, value: V): Unit = {
-    value match {
-      case true => element.setAttribute(attrName, "")
-      case false => removeAttribute(element, attrName)
-      case _ => element.setAttribute(attrName, value.toString)
-    }
-  }
-
-  @inline override def removeAttribute(element: dom.Element, attrName: String): Unit = {
-    element.removeAttribute(attrName)
-  }
+object JsDomApi extends DomApi[js.Function1, dom.Event, dom.Element, dom.Node] {
 
   @inline override def addEventListener[E <: dom.Event](
     element: dom.Node,

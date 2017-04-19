@@ -7,11 +7,7 @@ package com.raquo.dombuilder.domapi
   *
   * Note: there are still a bunch of TODO-s to actually make this possible.
   */
-trait DomApi[JsFun1[_, _], DomEvent, DomHtmlElement, DomElement, DomNode] {
-
-  @inline def setAttribute[V](element: DomElement, attrName: String, value: V): Unit
-
-  @inline def removeAttribute(element: DomElement, attrName: String): Unit
+trait DomApi[JsFun1[_, _], DomEvent, DomHtmlElement, DomNode] {
 
   @inline def addEventListener[E <: DomEvent](
     element: DomNode,

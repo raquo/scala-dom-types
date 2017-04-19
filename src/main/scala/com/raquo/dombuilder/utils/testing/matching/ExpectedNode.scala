@@ -11,6 +11,7 @@ import scala.collection.mutable
 
 class ExpectedNode[N](private val nodeBuilder: NodeBuilder[_, N, _]) {
 
+  // @TODO[API] This is a clutch
   private val emptyNode: N = nodeBuilder.createNode()
 
   import ExpectedNode._
