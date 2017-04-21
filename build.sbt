@@ -29,4 +29,7 @@ useYarn := true
 
 requiresDOM in Test := true
 
-emitSourceMaps in fastOptJS := false // Faster, and easier to debug, despite mangled names
+// Faster, and easier to debug, despite mangled names
+emitSourceMaps in fastOptJS := false
+
+emitSourceMaps in fullOptJS := false
