@@ -12,15 +12,15 @@ import scala.scalajs.js
   * This needs to be a RefNode for our sanity.
   * We're building a tree *mostly* matching the DOM, not an arbitrary structure.
   */
-trait ParentNode[N, +Ref <: DomNode, DomNode] { this: N with Node[N, Ref, DomNode] =>
+trait ParentNode[N, +Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { this: N =>
 
   val treeApi: TreeApi[N, DomNode]
 
-  protected[this] var _maybeChildren: js.UndefOr[js.Array[ChildNode[N, DomNode, DomNode] with Node[N, DomNode, DomNode]]] = js.undefined
+  protected[this] var _maybeChildren: js.UndefOr[js.Array[ChildNode[N, DomNode, DomNode]]] = js.undefined
 
-  @inline def maybeChildren: js.UndefOr[js.Array[ChildNode[N, DomNode, DomNode] with Node[N, DomNode, DomNode]]] = _maybeChildren
+  @inline def maybeChildren: js.UndefOr[js.Array[ChildNode[N, DomNode, DomNode]]] = _maybeChildren
 
-  def appendChild(child: ChildNode[N, DomNode, DomNode] with Node[N, DomNode, DomNode]): Unit = {
+  def appendChild(child: ChildNode[N, DomNode, DomNode]): Unit = {
 
     // 1. Update this node
     if (_maybeChildren.isEmpty) {
@@ -36,7 +36,7 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] { this: N with Node[N, Ref, DomNod
     treeApi.appendChild(ref, child.ref)
   }
 
-  def removeChild(child: ChildNode[N, DomNode, DomNode] with Node[N, DomNode, DomNode]): Unit = {
+  def removeChild(child: ChildNode[N, DomNode, DomNode]): Unit = {
     // @TODO throw if not found?
     _maybeChildren.foreach { children =>
       val index = children.indexOf(child)
@@ -54,7 +54,7 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] { this: N with Node[N, Ref, DomNod
     }
   }
 
-  def insertChild(child: ChildNode[N, DomNode, DomNode] with Node[N, DomNode, DomNode], atIndex: Int): Unit = {
+  def insertChild(child: ChildNode[N, DomNode, DomNode], atIndex: Int): Unit = {
     // @TODO should we check that maybeChildren is initialized?
     // @TODO should we check that index is not out of bounds?
     _maybeChildren.foreach { children =>
@@ -80,8 +80,8 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] { this: N with Node[N, Ref, DomNod
   }
 
   def replaceChild(
-    oldChild: ChildNode[N, DomNode, DomNode] with Node[N, DomNode, DomNode],
-    newChild: ChildNode[N, DomNode, DomNode] with Node[N, DomNode, DomNode]
+    oldChild: ChildNode[N, DomNode, DomNode],
+    newChild: ChildNode[N, DomNode, DomNode]
   ): Unit = {
     // @TODO throw if not found?
     _maybeChildren.foreach { children =>

@@ -8,8 +8,9 @@ import scala.scalajs.js
 // @TODO[API] should this extend Node instead?
 
 trait ChildNode[N, +Ref <: DomNode, DomNode]
-  extends Modifier[ParentNode[N, DomNode, DomNode]]
-{ this: N with Node[N, Ref, DomNode] =>
+  extends Node[N, Ref, DomNode]
+  with Modifier[ParentNode[N, DomNode, DomNode]]
+{ this: N =>
 
   private[this] var _maybeParent: js.UndefOr[ParentNode[N, DomNode, DomNode]] = js.undefined
 
