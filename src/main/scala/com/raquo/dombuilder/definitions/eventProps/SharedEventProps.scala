@@ -2,12 +2,12 @@ package com.raquo.dombuilder.definitions.eventProps
 
 import com.raquo.dombuilder.builders.EventPropBuilder
 import com.raquo.dombuilder.keys.EventProp
-import org.scalajs.dom
 
-trait SharedEventProps[N] { self: EventPropBuilder[N] =>
+trait SharedEventProps[N, DomErrorEvent <: DomEvent, DomEvent, Fun1[-_, +_]] {
+  self: EventPropBuilder[N, DomEvent, Fun1] =>
 
   /**
     * Script to be run when an error occurs when the file is being loaded
     */
-  lazy val onerror: EventProp[dom.ErrorEvent, N] = eventProp("onerror")
+  lazy val onerror: EventProp[DomErrorEvent, N, DomEvent, Fun1] = eventProp("onerror")
 }

@@ -1,20 +1,22 @@
 package com.raquo.dombuilder.nodes
 
+import com.raquo.dombuilder.domapi.EventApi
 import com.raquo.dombuilder.modifiers.EventPropSetter
-import org.scalajs.dom
 
 import scala.scalajs.js
 
 /** Represents a [[Node]] that supports event listeners */
-trait EventfulNode[N, R <: dom.Node] { self: Node[N, R] =>
+trait EventfulNode[N, +Ref <: DomNode, DomNode, DomEvent, Fun1[-_, +_]] { self: Node[N, Ref] =>
+
+  val eventApi: EventApi[N, DomNode, DomEvent, Fun1]
 
   // @TODO[Naming] We reuse EventPropSetter to represent an active event listener. Makes for a bit confusing naming.
-  protected[this] var _maybeEventListeners: js.UndefOr[js.Array[EventPropSetter[_, N]]] = js.undefined
+  protected[this] var _maybeEventListeners: js.UndefOr[js.Array[EventPropSetter[_, N, DomEvent, Fun1]]] = js.undefined
 
-  @inline def maybeEventListeners: js.UndefOr[js.Array[EventPropSetter[_, N]]] = _maybeEventListeners
+  @inline def maybeEventListeners: js.UndefOr[js.Array[EventPropSetter[_, N, DomEvent, Fun1]]] = _maybeEventListeners
 
   /** @return Whether listener was added (false if such a listener has already been present) */
-  def addEventListener[Ev <: dom.Event](eventPropSetter: EventPropSetter[Ev, N]): Boolean = {
+  def addEventListener[Ev <: DomEvent](eventPropSetter: EventPropSetter[Ev, N, DomEvent, Fun1]): Boolean = {
     val shouldAddListener = indexOfEventListener(eventPropSetter) == -1
     if (shouldAddListener) {
       // 1. Update this node
@@ -26,24 +28,24 @@ trait EventfulNode[N, R <: dom.Node] { self: Node[N, R] =>
         }
       }
       // 2. Update the DOM
-      domapi.addEventListener(ref, eventPropSetter.key.jsName, eventPropSetter.jsValue)
+      eventApi.addEventListener(ref, eventPropSetter.key.domName, eventPropSetter.domValue)
     }
     shouldAddListener
   }
 
-  def removeEventListener[Ev <: dom.Event](eventPropSetter: EventPropSetter[Ev, N]): Boolean = {
+  def removeEventListener[Ev <: DomEvent](eventPropSetter: EventPropSetter[Ev, N, DomEvent, Fun1]): Boolean = {
     val index = indexOfEventListener(eventPropSetter)
     val shouldRemoveListener = index != -1
     if (shouldRemoveListener) {
       // 1. Update this node
       _maybeEventListeners.get.splice(index, deleteCount = 1)
       // 2. Update the DOM
-      domapi.removeEventListener(ref, eventPropSetter.key.jsName, eventPropSetter.jsValue)
+      eventApi.removeEventListener(ref, eventPropSetter.key.domName, eventPropSetter.domValue)
     }
     shouldRemoveListener
   }
 
-  def indexOfEventListener[Ev <: dom.Event](eventPropSetter: EventPropSetter[Ev, N]): Int = {
+  def indexOfEventListener[Ev <: DomEvent](eventPropSetter: EventPropSetter[Ev, N, DomEvent, Fun1]): Int = {
     // Note: Ugly for performance.
     //  - We want to reduce usage of Scala's collections and anonymous functions
     //  - js.Array is unaware of Scala's `equals` method

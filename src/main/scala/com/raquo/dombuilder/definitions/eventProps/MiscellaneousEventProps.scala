@@ -7,14 +7,16 @@ import org.scalajs.dom
 /**
   * Miscellaneous Events
   */
-trait MiscellaneousEventProps[N] extends SharedEventProps[N] { self: EventPropBuilder[N] =>
+trait MiscellaneousEventProps[N, DomEvent, Fun1[-_, +_]] {
+  self: SharedEventProps[N, _, DomEvent, Fun1] with EventPropBuilder[N, DomEvent, Fun1] =>
 
   /**
     * Fires when a <menu> element is shown as a context menu
     */
-  lazy val onShow: EventProp[dom.Event, N] = eventProp("show")
+  lazy val onShow: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("show")
+
   /**
     * Fires when the user opens or closes the <details> element
     */
-  lazy val onToggle: EventProp[dom.Event, N] = eventProp("toggle")
+  lazy val onToggle: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("toggle")
 }

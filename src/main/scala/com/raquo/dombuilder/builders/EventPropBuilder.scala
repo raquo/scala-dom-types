@@ -1,11 +1,13 @@
 package com.raquo.dombuilder.builders
 
+import com.raquo.dombuilder.domapi.EventApi
 import com.raquo.dombuilder.keys.EventProp
-import org.scalajs.dom
 
-trait EventPropBuilder[N] {
+trait EventPropBuilder[N, DomEvent, Fun1[-_, +_]] {
 
-  @inline def eventProp[Ev <: dom.Event](key: String): EventProp[Ev, N] = {
-    new EventProp[Ev, N](key)
+  val eventApi: EventApi[N, _, DomEvent, Fun1]
+
+  @inline def eventProp[Ev <: DomEvent](key: String): EventProp[Ev, N, DomEvent, Fun1] = {
+    new EventProp[Ev, N, DomEvent, Fun1](key, eventApi)
   }
 }

@@ -7,21 +7,7 @@ package com.raquo.dombuilder.domapi
   *
   * Note: there are still a bunch of TODO-s to actually make this possible.
   */
-trait DomApi[JsFun1[_, _], DomEvent, DomHtmlElement, DomNode] {
-
-  @inline def addEventListener[E <: DomEvent](
-    element: DomNode,
-    eventName: String,
-    eventHandler: JsFun1[E, Unit],
-    useCapture: Boolean = false
-  ): Unit
-
-  @inline def removeEventListener[E <: DomEvent](
-    element: DomNode,
-    eventName: String,
-    eventHandler: JsFun1[E, Unit],
-    useCapture: Boolean = false
-  ): Unit
+trait DomApi[DomHtmlElement, DomNode] {
 
   @inline def setProperty[V](element: DomNode, propName: String, value: V): Unit
 

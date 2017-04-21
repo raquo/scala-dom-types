@@ -9,7 +9,7 @@ trait NodeBuilder[+SpecificNode <: Node[N, R], N, +R] {
 
   def apply(modifiers: Modifier[SpecificNode]*): SpecificNode with N = {
     val element = createNode()
-    // @TODO[Performance] Use while loop?
+    // @TODO[Performance] Use while loop? Check optimized code.
     modifiers.foreach(_.applyTo(element))
     element
   }

@@ -4,25 +4,7 @@ import org.scalajs.dom
 
 import scala.scalajs.js
 
-object JsDomApi extends DomApi[js.Function1, dom.Event, dom.Element, dom.Node] {
-
-  @inline override def addEventListener[E <: dom.Event](
-    element: dom.Node,
-    eventName: String,
-    eventHandler: js.Function1[E, Unit],
-    useCapture: Boolean = false
-  ): Unit = {
-    element.addEventListener(eventName, eventHandler, useCapture)
-  }
-
-  @inline override def removeEventListener[E <: dom.Event](
-    element: dom.Node,
-    eventName: String,
-    eventHandler: js.Function1[E, Unit],
-    useCapture: Boolean = false
-  ): Unit = {
-    element.removeEventListener(eventName, eventHandler, useCapture)
-  }
+object JsDomApi extends DomApi[dom.Element, dom.Node] {
 
   @inline override def setProperty[V](element: dom.Node, propName: String, value: V): Unit = {
     element.asInstanceOf[js.Dynamic].updateDynamic(propName)(value.asInstanceOf[js.Any])

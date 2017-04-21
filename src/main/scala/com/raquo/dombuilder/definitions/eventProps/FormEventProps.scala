@@ -2,16 +2,15 @@ package com.raquo.dombuilder.definitions.eventProps
 
 import com.raquo.dombuilder.builders.EventPropBuilder
 import com.raquo.dombuilder.keys.EventProp
-import org.scalajs.dom
 
-trait FormEventProps[N] { self: EventPropBuilder[N] =>
+trait FormEventProps[N, DomEvent, Fun1[-_, +_]] { self: EventPropBuilder[N, DomEvent, Fun1] =>
 
   /**
     * The blur event is raised when an element loses focus.
     *
     * MDN
     */
-  lazy val onBlur: EventProp[dom.Event, N] = eventProp("blur")
+  lazy val onBlur: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("blur")
 
   /**
     * The change event is fired for input, select, and textarea elements
@@ -19,14 +18,14 @@ trait FormEventProps[N] { self: EventPropBuilder[N] =>
     *
     * MDN
     */
-  lazy val onChange: EventProp[dom.Event, N] = eventProp("change")
+  lazy val onChange: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("change")
 
   /**
     * The focus event is raised when the user sets focus on the given element.
     *
     * MDN
     */
-  lazy val onFocus: EventProp[dom.Event, N] = eventProp("focus")
+  lazy val onFocus: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("focus")
 
   /**
     * The select event only fires when text inside a text input or textarea is
@@ -34,7 +33,7 @@ trait FormEventProps[N] { self: EventPropBuilder[N] =>
     *
     * MDN
     */
-  lazy val onSelect: EventProp[dom.Event, N] = eventProp("select")
+  lazy val onSelect: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("select")
 
   /**
     * The submit event is raised when the user clicks a submit button in a form
@@ -42,32 +41,32 @@ trait FormEventProps[N] { self: EventPropBuilder[N] =>
     *
     * MDN
     */
-  lazy val onSubmit: EventProp[dom.Event, N] = eventProp("submit")
+  lazy val onSubmit: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("submit")
 
   /**
     * The reset event is fired when a form is reset.
     *
     * MDN
     */
-  lazy val onReset: EventProp[dom.Event, N] = eventProp("reset")
+  lazy val onReset: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("reset")
 
   /**
     * Script to be run when a context menu is triggered
     */
-  lazy val onContextMenu: EventProp[dom.Event, N] = eventProp("contextmenu")
+  lazy val onContextMenu: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("contextmenu")
 
   /**
     * Script to be run when an element gets user input
     */
-  lazy val onInput: EventProp[dom.Event, N] = eventProp("input")
+  lazy val onInput: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("input")
 
   /**
     * Script to be run when an element is invalid
     */
-  lazy val onInvalid: EventProp[dom.Event, N] = eventProp("invalid")
+  lazy val onInvalid: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("invalid")
 
   /**
     * Fires when the user writes something in a search field (for <input="search">)
     */
-  lazy val onSearch: EventProp[dom.Event, N] = eventProp("search")
+  lazy val onSearch: EventProp[DomEvent, N, DomEvent, Fun1] = eventProp("search")
 }
