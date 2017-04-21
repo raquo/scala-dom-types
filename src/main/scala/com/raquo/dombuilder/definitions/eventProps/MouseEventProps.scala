@@ -6,7 +6,8 @@ import com.raquo.dombuilder.keys.EventProp
 /**
   * Mouse Events: triggered by a mouse, or similar user actions.
   */
-trait MouseEventProps[N, DomMouseEvent <: DomEvent, DomEvent, Fun1[-_, +_]] { self: EventPropBuilder[N, DomEvent, Fun1] =>
+trait MouseEventProps[N, DomMouseEvent <: DomEvent, DomEvent, Fun1[-_, +_]] {
+  this: EventPropBuilder[N, DomEvent, Fun1] =>
 
   /**
     * The click event is raised when the user clicks on an element. The click

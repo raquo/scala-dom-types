@@ -7,7 +7,7 @@ import com.raquo.dombuilder.modifiers.EventPropSetter
 import scala.scalajs.js
 
 /** Represents a [[Node]] that supports event listeners */
-trait EventfulNode[N, +Ref <: DomNode, DomNode, DomEvent, Fun1[-_, +_]] { self: Node[N, Ref, DomNode] =>
+trait EventfulNode[N, +Ref <: DomNode, DomNode, DomEvent, Fun1[-_, +_]] { this: Node[N, Ref, DomNode] =>
 
   val eventApi: EventApi[N, DomNode, DomEvent, Fun1]
 

@@ -9,7 +9,7 @@ import com.raquo.dombuilder.keys.EventProp
   * <embed>, <img>, <object>, and <video>.
   */
 trait MediaEventProps[N, DomEvent, Fun1[-_, +_]] {
-  self: SharedEventProps[N, _, DomEvent, Fun1] with EventPropBuilder[N, DomEvent, Fun1] =>
+  this: SharedEventProps[N, _, DomEvent, Fun1] with EventPropBuilder[N, DomEvent, Fun1] =>
 
   /**
     * Script to be run on abort

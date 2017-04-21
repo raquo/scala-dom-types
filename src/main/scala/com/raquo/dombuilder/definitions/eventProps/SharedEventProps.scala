@@ -4,7 +4,7 @@ import com.raquo.dombuilder.builders.EventPropBuilder
 import com.raquo.dombuilder.keys.EventProp
 
 trait SharedEventProps[N, DomErrorEvent <: DomEvent, DomEvent, Fun1[-_, +_]] {
-  self: EventPropBuilder[N, DomEvent, Fun1] =>
+  this: EventPropBuilder[N, DomEvent, Fun1] =>
 
   /**
     * Script to be run when an error occurs when the file is being loaded

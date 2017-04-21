@@ -2,7 +2,7 @@ package com.raquo.dombuilder.nodes
 
 import com.raquo.dombuilder.domapi.ElementApi
 
-trait Element[N, DomElement <: DomNode, DomNode] extends Node[N, DomElement, DomNode] { self: N =>
+trait Element[N, DomElement <: DomNode, DomNode] extends Node[N, DomElement, DomNode] { this: N =>
 
   val elementApi: ElementApi[N, DomElement]
 

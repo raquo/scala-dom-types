@@ -2,7 +2,7 @@ package com.raquo.dombuilder.nodes
 
 import com.raquo.dombuilder.domapi.TextApi
 
-trait Text[N, Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { self: N =>
+trait Text[N, Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { this: N =>
 
   val textNodeApi: TextApi[N, Ref]
 

@@ -6,7 +6,7 @@ import com.raquo.dombuilder.keys.EventProp
 /**
   * Clipboard Events
   */
-trait ClipboardEventProps[N, DomEvent, Fun1[-_, +_]] { self: EventPropBuilder[N, DomEvent, Fun1] =>
+trait ClipboardEventProps[N, DomEvent, Fun1[-_, +_]] { this: EventPropBuilder[N, DomEvent, Fun1] =>
 
   /**
     * Fires when the user copies the content of an element

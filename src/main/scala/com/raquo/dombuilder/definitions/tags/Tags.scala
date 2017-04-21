@@ -8,7 +8,7 @@ import com.raquo.dombuilder.nodes.Element
   * in to other objects if needed.
   */
 trait Tags[El <: Element[N, DomElement, DomNode], N, DomElement <: DomNode, DomNode] {
-  self: TagBuilder[El, N, DomElement, DomNode] =>
+  this: TagBuilder[El, N, DomElement, DomNode] =>
 
   type Tg = Tag[El, N, DomElement, DomNode]
 

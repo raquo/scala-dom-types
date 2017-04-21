@@ -3,7 +3,7 @@ package com.raquo.dombuilder.definitions.eventProps
 import com.raquo.dombuilder.builders.EventPropBuilder
 import com.raquo.dombuilder.keys.EventProp
 
-trait FormEventProps[N, DomEvent, Fun1[-_, +_]] { self: EventPropBuilder[N, DomEvent, Fun1] =>
+trait FormEventProps[N, DomEvent, Fun1[-_, +_]] { this: EventPropBuilder[N, DomEvent, Fun1] =>
 
   /**
     * The blur event is raised when an element loses focus.

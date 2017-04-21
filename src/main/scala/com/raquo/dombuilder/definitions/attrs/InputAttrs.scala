@@ -3,7 +3,7 @@ package com.raquo.dombuilder.definitions.attrs
 import com.raquo.dombuilder.builders.AttrBuilder
 import com.raquo.dombuilder.keys.Attr
 
-trait InputAttrs[N, DomElement <: DomNode, DomNode] { self: AttrBuilder[N, DomElement, DomNode] =>
+trait InputAttrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement, DomNode] =>
 
   type InputAttr[V] = Attr[V, N, DomElement, DomNode]
   
@@ -239,7 +239,7 @@ trait InputAttrs[N, DomElement <: DomNode, DomNode] { self: AttrBuilder[N, DomEl
     * (for example, tab, window, or inline frame). The following keywords have
     * special meanings:
     *
-    * - _self: Load the response into the same HTML 4 frame (or HTML5 browsing
+    * - _this: Load the response into the same HTML 4 frame (or HTML5 browsing
     *   context) as the current one. This value is the default if the attribute
     *   is not specified.
     * - _blank: Load the response into a new unnamed HTML 4 window or HTML5

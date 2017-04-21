@@ -7,7 +7,7 @@ import com.raquo.dombuilder.keys.EventProp
   * Window Events
   */
 trait WindowEventProps[N, DomEvent, Fun1[-_, +_]] {
-  self: SharedEventProps[N, _, DomEvent, Fun1] with EventPropBuilder[N, DomEvent, Fun1] =>
+  this: SharedEventProps[N, _, DomEvent, Fun1] with EventPropBuilder[N, DomEvent, Fun1] =>
 
   /**
     * The load event fires at the end of the document loading process. At this

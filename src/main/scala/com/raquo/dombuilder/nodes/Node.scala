@@ -2,7 +2,7 @@ package com.raquo.dombuilder.nodes
 
 import com.raquo.dombuilder.domapi.NodeApi
 
-trait Node[N, +R <: DomNode, DomNode] { self: N =>
+trait Node[N, +R <: DomNode, DomNode] { this: N =>
 
   val nodeApi: NodeApi[N, DomNode]
 

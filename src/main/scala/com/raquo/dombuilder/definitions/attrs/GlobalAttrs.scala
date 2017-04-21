@@ -9,7 +9,7 @@ import com.raquo.dombuilder.keys.Attr
   * A trait for global attributes that are applicable to any HTML5 element. All traits that define Attrs should
   * derive from this trait since all groupings of attributes should include these global ones.
   */
-trait GlobalAttrs[N, DomElement <: DomNode, DomNode] { self: AttrBuilder[N, DomElement, DomNode] =>
+trait GlobalAttrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement, DomNode] =>
 
   type GlobalAttr[V] = Attr[V, N, DomElement, DomNode]
   

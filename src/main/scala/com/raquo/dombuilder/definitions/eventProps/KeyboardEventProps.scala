@@ -7,7 +7,7 @@ import com.raquo.dombuilder.keys.EventProp
   * Keyboard Events - triggered by user action son the keyboard or similar user actions
   */
 trait KeyboardEventProps[N, DomKeyboardEvent <: DomEvent, DomEvent, Fun1[-_, +_]] {
-  self: EventPropBuilder[N, DomEvent, Fun1] =>
+  this: EventPropBuilder[N, DomEvent, Fun1] =>
 
   /**
     * The keydown event is raised when the user presses a keyboard key.

@@ -8,7 +8,7 @@ import com.raquo.dombuilder.nodes.Element
   * imported individually as needed.
   */
 trait Tags2[El <: Element[N, DomElement, DomNode], N, DomElement <: DomNode, DomNode] {
-  self: TagBuilder[El, N, DomElement, DomNode] =>
+  this: TagBuilder[El, N, DomElement, DomNode] =>
 
   // @TODO[API] Specify different Ref for different tags
 

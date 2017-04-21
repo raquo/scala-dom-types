@@ -7,7 +7,7 @@ import com.raquo.dombuilder.keys.EventProp
   * Miscellaneous Events
   */
 trait MiscellaneousEventProps[N, DomEvent, Fun1[-_, +_]] {
-  self: SharedEventProps[N, _, DomEvent, Fun1] with EventPropBuilder[N, DomEvent, Fun1] =>
+  this: SharedEventProps[N, _, DomEvent, Fun1] with EventPropBuilder[N, DomEvent, Fun1] =>
 
   /**
     * Fires when a <menu> element is shown as a context menu

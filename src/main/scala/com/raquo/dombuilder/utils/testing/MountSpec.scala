@@ -9,7 +9,7 @@ import org.scalajs.dom
 trait MountSpec[El <: Element[N, dom.Element, dom.Node], N]
   extends BeforeAndAfterEach
   with MountOps[El, N]
-{ self: Suite =>
+{ this: Suite =>
 
   override def doAssert(condition: Boolean, message: String): Unit = assert(condition, message)
 

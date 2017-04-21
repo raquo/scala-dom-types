@@ -12,7 +12,7 @@ import scala.scalajs.js
   * This needs to be a RefNode for our sanity.
   * We're building a tree *mostly* matching the DOM, not an arbitrary structure.
   */
-trait ParentNode[N, +Ref <: DomNode, DomNode] { self: N with Node[N, Ref, DomNode] =>
+trait ParentNode[N, +Ref <: DomNode, DomNode] { this: N with Node[N, Ref, DomNode] =>
 
   val treeApi: TreeApi[N, DomNode]
 

@@ -15,7 +15,7 @@ import scala.scalajs.js.|
   * Everything else is under the MIT License
   * http://opensource.org/licenses/MIT
   */
-trait StyleMisc[N] { self: StyleBuilder[N] =>
+trait StyleMisc[N] { this: StyleBuilder[N] =>
 
   /**
     * A Style that takes any value of type T as a parameter and has an auto value
