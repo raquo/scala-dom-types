@@ -6,19 +6,19 @@ import scala.scalajs.js
 
 // @TODO[API] should this extend Node instead?
 
-trait ChildNode[N, +Ref <: TreeNodeRef, TreeNodeRef]
-  extends Modifier[ParentNode[N, TreeNodeRef, TreeNodeRef]]
+trait ChildNode[N, +Ref <: DomNode, DomNode]
+  extends Modifier[ParentNode[N, DomNode, DomNode]]
 { self: N with Node[N, Ref] =>
 
-  private[this] var _maybeParent: js.UndefOr[ParentNode[N, TreeNodeRef, TreeNodeRef]] = js.undefined
+  private[this] var _maybeParent: js.UndefOr[ParentNode[N, DomNode, DomNode]] = js.undefined
 
-  override def applyTo(node: ParentNode[N, TreeNodeRef, TreeNodeRef]): Unit = {
+  override def applyTo(node: ParentNode[N, DomNode, DomNode]): Unit = {
     node.appendChild(this)
   }
 
-  def maybeParent: js.UndefOr[ParentNode[N, TreeNodeRef, TreeNodeRef]] = _maybeParent
+  def maybeParent: js.UndefOr[ParentNode[N, DomNode, DomNode]] = _maybeParent
 
-  def setParent(newParent: ParentNode[N, TreeNodeRef, TreeNodeRef]): Unit = {
+  def setParent(newParent: ParentNode[N, DomNode, DomNode]): Unit = {
     _maybeParent = newParent
   }
 

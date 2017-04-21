@@ -9,6 +9,19 @@ package com.raquo.dombuilder.domapi
   */
 trait DomApi[DomHtmlElement, DomNode] {
 
+  // @TODO: NEXT UP
+  // Get rid of DomApi and HasDomApi for good:
+  // - setProperty and setStyle - move into ElementApi (add a @TODO to deal with style's htmlElement later)
+  // - event listeners into eventListenerApi
+  // Move: all builder should be in one folder (no /nodes)
+  // Remove references to dom:
+  // - AttrSetter and friends
+  // - EventProp and friends
+  // - PropSetter and friends
+  // - StyleSetter and friends
+  // Move some stuff form simple into jsdom (e.g. the builders)
+  // Update docs with usage
+
   @inline def setProperty[V](element: DomNode, propName: String, value: V): Unit
 
   @inline def setStyle[V](element: DomHtmlElement, propName: String, value: V): Unit

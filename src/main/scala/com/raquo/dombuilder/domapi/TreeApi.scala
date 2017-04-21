@@ -1,18 +1,18 @@
 package com.raquo.dombuilder.domapi
 
-trait TreeApi[N, TreeNodeRef] {
+trait TreeApi[N, DomNode] {
 
-  @inline def parentNode(node: TreeNodeRef): Option[TreeNodeRef]
+  @inline def parentNode(node: DomNode): Option[DomNode]
 
   @inline def insertBefore(
-    parentNode: TreeNodeRef,
-    newNode: TreeNodeRef,
-    referenceNode: TreeNodeRef
+    parentNode: DomNode,
+    newNode: DomNode,
+    referenceNode: DomNode
   ): Unit
 
   // @TODO[Performance] Add removeAllChildren and implement it as .textContent = "" or something?
 
-  @inline def removeChild(parentNode: TreeNodeRef, child: TreeNodeRef): Unit
+  @inline def removeChild(parentNode: DomNode, child: DomNode): Unit
 
-  @inline def appendChild(parentNode: TreeNodeRef, child: TreeNodeRef): Unit
+  @inline def appendChild(parentNode: DomNode, child: DomNode): Unit
 }
