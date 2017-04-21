@@ -148,9 +148,9 @@ Oh yes, that's exactly what Scala DOM Builder does, except that it's unaware of 
 
 ## Server Side Rendering
 
-Scala DOM Builder does not readily support server side (JVM) rendering because it assumes existence of certain types in the `org.scalajs.dom` namespace (`dom.Element`, `dom.Event`, etc.). Knowledge of these types is not fundamental to Scala DOM Builder, however we use them to provide a convenient API to Scala.js users. This convenience is a priority goal for this project, and server side rendering is a somewhat conflicting goal.
+Right now Scala DOM Builder only works in Scala.js environment (not the JVM) because that's our primary use case. Parts of thsi project still depend on types provided by Scala.js.
 
-That said, it is not impossible to resolve this conflict, we just need to spend the time and effort to come up with a good solution (more type params? stub types? dependent types? (somehow)). It is a bit too early right now to jump into this. I welcome any feedback and suggestions in this regard.
+I am working on making Scala DOM Builder generic enough to support the use case of server-side rendering and HTML code generation.
 
 ## Author
 
