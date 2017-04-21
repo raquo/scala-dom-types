@@ -3,6 +3,8 @@ package com.raquo.dombuilder.jsdom.domapi
 import com.raquo.dombuilder.domapi
 import org.scalajs.dom
 
+import scala.scalajs.js
+
 trait JsElementApi[N] extends domapi.ElementApi[N, dom.Element] {
 
   @inline override def createElement(tagName: String): dom.Element = {
@@ -19,5 +21,10 @@ trait JsElementApi[N] extends domapi.ElementApi[N, dom.Element] {
 
   @inline override def removeAttribute(element: dom.Element, attrName: String): Unit = {
     element.removeAttribute(attrName)
+  }
+
+  @inline override def setStyle[V](element: dom.Element, stylePropName: String, value: V): Unit = {
+    // @TODO[Integrity] Sort out the difference between Element and HTMLElement once and for all.
+    element.asInstanceOf[dom.html.Element].style.asInstanceOf[js.Dynamic].updateDynamic(stylePropName)(value.asInstanceOf[js.Any])
   }
 }

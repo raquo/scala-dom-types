@@ -23,6 +23,4 @@ trait DomApi[DomHtmlElement, DomNode] {
   // Update docs with usage
 
   @inline def setProperty[V](element: DomNode, propName: String, value: V): Unit
-
-  @inline def setStyle[V](element: DomHtmlElement, propName: String, value: V): Unit
 }
