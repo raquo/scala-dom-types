@@ -2,6 +2,7 @@ package com.raquo.dombuilder.nodes
 
 import com.raquo.dombuilder.domapi.TreeApi
 
+// @TODO[SERVER]
 import scala.scalajs.js
 
 // @TODO[API] should this extend Node instead?

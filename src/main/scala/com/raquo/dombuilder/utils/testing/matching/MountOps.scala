@@ -3,10 +3,10 @@ package com.raquo.dombuilder.utils.testing.matching
 import com.raquo.dombuilder.Root
 import com.raquo.dombuilder.domapi.TreeApi
 import com.raquo.dombuilder.nodes.Element
+// @TODO[SERVER]
 import org.scalajs.dom
 
 // @TODO[API] Should we be testing against the mounted element? We could just test against the node's ref
-// @TODO Should this ge scalajs-agnostic?
 
 trait MountOps[El <: Element[N, dom.Element], N] {
 

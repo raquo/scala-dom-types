@@ -1,5 +1,6 @@
 package com.raquo.dombuilder.utils.testing
 
+// @TODO[SERVER]
 import org.scalajs.dom
 
 package object matching {

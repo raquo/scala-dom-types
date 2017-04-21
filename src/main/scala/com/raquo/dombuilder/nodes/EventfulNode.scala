@@ -3,6 +3,7 @@ package com.raquo.dombuilder.nodes
 import com.raquo.dombuilder.domapi.EventApi
 import com.raquo.dombuilder.modifiers.EventPropSetter
 
+// @TODO[SERVER]
 import scala.scalajs.js
 
 /** Represents a [[Node]] that supports event listeners */

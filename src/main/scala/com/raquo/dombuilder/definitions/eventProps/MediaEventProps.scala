@@ -2,7 +2,6 @@ package com.raquo.dombuilder.definitions.eventProps
 
 import com.raquo.dombuilder.builders.EventPropBuilder
 import com.raquo.dombuilder.keys.EventProp
-import org.scalajs.dom
 
 /**
   * Media Events - triggered by media like videos, images and audio. These apply to

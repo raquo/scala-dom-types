@@ -1,7 +1,8 @@
 package com.raquo.dombuilder.utils.testing
 
+// @TODO[SERVER]
 import org.scalajs.dom
-import org.scalajs.dom.raw.MouseEvent
+import org.scalajs.dom
 import org.scalatest.{FunSpec, Matchers}
 
 /**
@@ -22,7 +23,7 @@ class DomEnvSpec extends FunSpec with Matchers with DomEventSimulatorSpec with U
   it("handles click events") {
     var callbackCount = 0
 
-    def testEvent(ev: MouseEvent): Unit = {
+    def testEvent(ev: dom.MouseEvent): Unit = {
       callbackCount += 1
     }
 
@@ -30,7 +31,7 @@ class DomEnvSpec extends FunSpec with Matchers with DomEventSimulatorSpec with U
     val div2 = dom.document.createElement("div")
     val span = dom.document.createElement("span")
 
-    div.addEventListener[MouseEvent]("click", testEvent _)
+    div.addEventListener[dom.MouseEvent]("click", testEvent _)
 
     div.appendChild(span)
     dom.document.body.appendChild(div)

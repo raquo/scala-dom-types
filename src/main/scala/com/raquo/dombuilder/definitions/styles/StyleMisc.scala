@@ -3,6 +3,7 @@ package com.raquo.dombuilder.definitions.styles
 import com.raquo.dombuilder.builders.StyleBuilder
 import com.raquo.dombuilder.keys.Style
 
+// @TODO[API] How to get rid of this? Use Either? Some kind of MultiStyle trait?
 import scala.scalajs.js.|
 
 /**

@@ -3,9 +3,8 @@ package com.raquo.dombuilder.utils.testing
 import com.raquo.dombuilder.nodes.Element
 import org.scalatest.{BeforeAndAfterEach, Suite}
 import com.raquo.dombuilder.utils.testing.matching.MountOps
+// @TODO[SERVER]
 import org.scalajs.dom
-
-// @TODO remove dependency on scalajs
 
 trait MountSpec[El <: Element[N, dom.Element], N]
   extends BeforeAndAfterEach

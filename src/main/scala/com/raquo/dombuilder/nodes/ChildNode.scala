@@ -2,6 +2,7 @@ package com.raquo.dombuilder.nodes
 
 import com.raquo.dombuilder.modifiers.Modifier
 
+// @TODO[SERVER]
 import scala.scalajs.js
 
 // @TODO[API] should this extend Node instead?

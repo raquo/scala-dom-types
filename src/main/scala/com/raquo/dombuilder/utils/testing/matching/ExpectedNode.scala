@@ -3,6 +3,7 @@ package com.raquo.dombuilder.utils.testing.matching
 import com.raquo.dombuilder.builders.NodeBuilder
 import com.raquo.dombuilder.nodes.{Comment, Element, Text}
 import com.raquo.dombuilder.utils.testing.UtilSpec.repr
+// @TODO[SERVER]
 import org.scalajs.dom
 
 import scala.collection.mutable
