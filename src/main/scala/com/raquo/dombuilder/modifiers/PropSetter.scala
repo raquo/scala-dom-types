@@ -8,9 +8,9 @@ import org.scalajs.dom
 class PropSetter[V, N](
   val key: Prop[V, N],
   val value: V
-) extends Modifier[Node[N, dom.Node]] {
+) extends Modifier[Node[N, dom.Node, dom.Node]] {
 
-  override def applyTo(node: Node[N, dom.Node]): Unit = {
-    node.domapi.setProperty(node.ref, key.name, value)
+  override def applyTo(node: Node[N, dom.Node, dom.Node]): Unit = {
+    node.nodeApi.setProperty(node.ref, key.name, value)
   }
 }

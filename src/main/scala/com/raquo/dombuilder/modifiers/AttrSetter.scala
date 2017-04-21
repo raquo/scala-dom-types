@@ -1,16 +1,14 @@
 package com.raquo.dombuilder.modifiers
 
 import com.raquo.dombuilder.keys.Attr
-import com.raquo.dombuilder.nodes.{Element, Node}
+import com.raquo.dombuilder.nodes.Element
 
-// @TODO remove usages of Scala.js
-
-class AttrSetter[V, N, DomElement](
-  val key: Attr[V, N, DomElement],
+class AttrSetter[V, N, DomElement <: DomNode, DomNode](
+  val key: Attr[V, N, DomElement, DomNode],
   val value: V
-) extends Modifier[Element[N, DomElement] with Node[N, DomElement]] {
+) extends Modifier[Element[N, DomElement, DomNode]] {
 
-  override def applyTo(node: Element[N, DomElement] with Node[N, DomElement]): Unit = {
+  override def applyTo(node: Element[N, DomElement, DomNode]): Unit = {
     node.elementApi.setAttribute(node.ref, key.name, value)
   }
 }

@@ -9,7 +9,7 @@ import scala.scalajs.js
 
 trait ChildNode[N, +Ref <: DomNode, DomNode]
   extends Modifier[ParentNode[N, DomNode, DomNode]]
-{ self: N with Node[N, Ref] =>
+{ self: N with Node[N, Ref, DomNode] =>
 
   private[this] var _maybeParent: js.UndefOr[ParentNode[N, DomNode, DomNode]] = js.undefined
 

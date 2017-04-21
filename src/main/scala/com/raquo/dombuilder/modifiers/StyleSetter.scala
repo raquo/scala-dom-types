@@ -8,9 +8,9 @@ import org.scalajs.dom
 class StyleSetter[V, N](
   val key: Style[V, N],
   val value: V
-) extends Modifier[Element[N, dom.Element]] {
+) extends Modifier[Element[N, dom.Element, dom.Node]] {
 
-  override def applyTo(element: Element[N, dom.Element]): Unit = {
+  override def applyTo(element: Element[N, dom.Element, dom.Node]): Unit = {
     element.elementApi.setStyle(element.ref, key.name, value)
   }
 }

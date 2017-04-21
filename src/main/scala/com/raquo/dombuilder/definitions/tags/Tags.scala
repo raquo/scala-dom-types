@@ -7,9 +7,10 @@ import com.raquo.dombuilder.nodes.Element
   * Trait that contains the contents of the `Tags` object, so they can be mixed
   * in to other objects if needed.
   */
-trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N, DomElement] =>
+trait Tags[El <: Element[N, DomElement, DomNode], N, DomElement <: DomNode, DomNode] {
+  self: TagBuilder[El, N, DomElement, DomNode] =>
 
-  type EF = Tag[El, N, DomElement]
+  type Tg = Tag[El, N, DomElement, DomNode]
 
   /**
     * Represents the root of an HTML or XHTML document. All other elements must
@@ -17,7 +18,7 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val html: EF = tag("html")
+  lazy val html: Tg = tag("html")
 
   /**
     * Represents a collection of metadata about the document, including links to,
@@ -25,28 +26,28 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val head: EF = tag("head")
+  lazy val head: Tg = tag("head")
 
   /**
     * Defines the base URL for relative URLs in the page.
     *
     *  MDN
     */
-  lazy val base: EF = tag("base")
+  lazy val base: Tg = tag("base")
 
   /**
     * Used to link JavaScript and external CSS with the current HTML document.
     *
     *  MDN
     */
-  lazy val link: EF = tag("link")
+  lazy val link: Tg = tag("link")
 
   /**
     * Defines metadata that can't be defined using another HTML element.
     *
     *  MDN
     */
-  lazy val meta: EF = tag("meta")
+  lazy val meta: Tg = tag("meta")
 
   /**
     * Defines either an internal script or a link to an external script. The
@@ -54,7 +55,7 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val script: EF = tag("script")
+  lazy val script: Tg = tag("script")
 
   /**
     * Represents the content of an HTML document. There is only one body
@@ -62,7 +63,7 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val body: EF = tag("body")
+  lazy val body: Tg = tag("body")
 
   // Sections
 
@@ -71,42 +72,42 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val h1: EF = tag("h1")
+  lazy val h1: Tg = tag("h1")
 
   /**
     * Heading level 2
     *
     *  MDN
     */
-  lazy val h2: EF = tag("h2")
+  lazy val h2: Tg = tag("h2")
 
   /**
     * Heading level 3
     *
     *  MDN
     */
-  lazy val h3: EF = tag("h3")
+  lazy val h3: Tg = tag("h3")
 
   /**
     * Heading level 4
     *
     *  MDN
     */
-  lazy val h4: EF = tag("h4")
+  lazy val h4: Tg = tag("h4")
 
   /**
     * Heading level 5
     *
     *  MDN
     */
-  lazy val h5: EF = tag("h5")
+  lazy val h5: Tg = tag("h5")
 
   /**
     * Heading level 6
     *
     *  MDN
     */
-  lazy val h6: EF = tag("h6")
+  lazy val h6: Tg = tag("h6")
 
   /**
     * Defines the header of a page or section. It often contains a logo, the
@@ -114,7 +115,7 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val header: EF = tag("header")
+  lazy val header: Tg = tag("header")
 
   /**
     * Defines the footer for a page or section. It often contains a copyright
@@ -122,7 +123,7 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val footer: EF = tag("footer")
+  lazy val footer: Tg = tag("footer")
 
   // Grouping content
 
@@ -131,7 +132,7 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val p: EF = tag("p")
+  lazy val p: Tg = tag("p")
 
   /**
     * Represents a thematic break between paragraphs of a section or article or
@@ -139,7 +140,7 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val hr: EF = tag("hr")
+  lazy val hr: Tg = tag("hr")
 
   /**
     * Indicates that its content is preformatted and that this format must be
@@ -147,77 +148,77 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val pre: EF = tag("pre")
+  lazy val pre: Tg = tag("pre")
 
   /**
     * Represents a content that is quoted from another source.
     *
     *  MDN
     */
-  lazy val blockQuote: EF = tag("blockquote")
+  lazy val blockQuote: Tg = tag("blockquote")
 
   /**
     * Defines an ordered list of items.
     *
     *  MDN
     */
-  lazy val ol: EF = tag("ol")
+  lazy val ol: Tg = tag("ol")
 
   /**
     * Defines an unordered list of items.
     *
     *  MDN
     */
-  lazy val ul: EF = tag("ul")
+  lazy val ul: Tg = tag("ul")
 
   /**
     * Defines an item of an list.
     *
     *  MDN
     */
-  lazy val li: EF = tag("li")
+  lazy val li: Tg = tag("li")
 
   /**
     * Defines a definition list; a list of terms and their associated definitions.
     *
     *  MDN
     */
-  lazy val dl: EF = tag("dl")
+  lazy val dl: Tg = tag("dl")
 
   /**
     * Represents a term defined by the next dd
     *
     *  MDN
     */
-  lazy val dt: EF = tag("dt")
+  lazy val dt: Tg = tag("dt")
 
   /**
     * Represents the definition of the terms immediately listed before it.
     *
     *  MDN
     */
-  lazy val dd: EF = tag("dd")
+  lazy val dd: Tg = tag("dd")
 
   /**
     * Represents a figure illustrated as part of the document.
     *
     *  MDN
     */
-  lazy val figure: EF = tag("figure")
+  lazy val figure: Tg = tag("figure")
 
   /**
     * Represents the legend of a figure.
     *
     *  MDN
     */
-  lazy val figCaption: EF = tag("figcaption")
+  lazy val figCaption: Tg = tag("figcaption")
 
   /**
     * Represents a generic container with no special meaning.
     *
     *  MDN
     */
-  lazy val div: EF = tag("div")
+  lazy val div: Tg = tag("div")
 
   // Text-level semantics
 
@@ -226,21 +227,21 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val a: EF = tag("a")
+  lazy val a: Tg = tag("a")
 
   /**
     * Represents emphasized text.
     *
     *  MDN
     */
-  lazy val em: EF = tag("em")
+  lazy val em: Tg = tag("em")
 
   /**
     * Represents especially important text.
     *
     *  MDN
     */
-  lazy val strong: EF = tag("strong")
+  lazy val strong: Tg = tag("strong")
 
   /**
     * Represents a side comment; text like a disclaimer or copyright, which is not
@@ -248,63 +249,63 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val small: EF = tag("small")
+  lazy val small: Tg = tag("small")
 
   /**
     * Strikethrough element, used for that is no longer accurate or relevant.
     *
     *  MDN
     */
-  lazy val s: EF = tag("s")
+  lazy val s: Tg = tag("s")
 
   /**
     * Represents the title of a work being cited.
     *
     *  MDN
     */
-  lazy val cite: EF = tag("cite")
+  lazy val cite: Tg = tag("cite")
 
   /**
     * Represents computer code.
     *
     *  MDN
     */
-  lazy val code: EF = tag("code")
+  lazy val code: Tg = tag("code")
 
   /**
     * Subscript tag
     *
     *  MDN
     */
-  lazy val sub: EF = tag("sub")
+  lazy val sub: Tg = tag("sub")
 
   /**
     * Superscript tag.
     *
     *  MDN
     */
-  lazy val sup: EF = tag("sup")
+  lazy val sup: Tg = tag("sup")
 
   /**
     * Italicized text.
     *
     *  MDN
     */
-  lazy val i: EF = tag("i")
+  lazy val i: Tg = tag("i")
 
   /**
     * Bold text.
     *
     *  MDN
     */
-  lazy val b: EF = tag("b")
+  lazy val b: Tg = tag("b")
 
   /**
     * Underlined text.
     *
     *  MDN
     */
-  lazy val u: EF = tag("u")
+  lazy val u: Tg = tag("u")
 
   /**
     * Represents text with no specific meaning. This has to be used when no other
@@ -313,14 +314,14 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val span: EF = tag("span")
+  lazy val span: Tg = tag("span")
 
   /**
     * Represents a line break.
     *
     *  MDN
     */
-  lazy val br: EF = tag("br")
+  lazy val br: Tg = tag("br")
 
   /**
     * Represents a line break opportunity, that is a suggested point for wrapping
@@ -328,7 +329,7 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val wbr: EF = tag("wbr")
+  lazy val wbr: Tg = tag("wbr")
 
   // Edits
 
@@ -337,14 +338,14 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val ins: EF = tag("ins")
+  lazy val ins: Tg = tag("ins")
 
   /**
     * Defines a remolazy val from the document.
     *
     *  MDN
     */
-  lazy val del: EF = tag("del")
+  lazy val del: Tg = tag("del")
 
   // Embedded content
 
@@ -353,14 +354,14 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val img: EF = tag("img")
+  lazy val img: Tg = tag("img")
 
   /**
     * Represents a nested browsing context, that is an embedded HTML document.
     *
     *  MDN
     */
-  lazy val iframe: EF = tag("iframe")
+  lazy val iframe: Tg = tag("iframe")
 
   /**
     * Represents a integration point for an external, often non-HTML, application
@@ -368,7 +369,7 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val embed: EF = tag("embed")
+  lazy val embed: Tg = tag("embed")
 
   /**
     * Represents an external resource, which is treated as an image, an HTML
@@ -376,14 +377,14 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val `object`: EF = tag("object")
+  lazy val `object`: Tg = tag("object")
 
   /**
     * Defines parameters for use by plug-ins invoked by object elements.
     *
     *  MDN
     */
-  lazy val param: EF = tag("param")
+  lazy val param: Tg = tag("param")
 
   /**
     * Represents a video, and its associated audio files and captions, with the
@@ -391,14 +392,14 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val video: EF = tag("video")
+  lazy val video: Tg = tag("video")
 
   /**
     * Represents a sound or an audio stream.
     *
     *  MDN
     */
-  lazy val audio: EF = tag("audio")
+  lazy val audio: Tg = tag("audio")
 
   /**
     * Allows the authors to specify alternate media resources for media elements
@@ -406,7 +407,7 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val source: EF = tag("source")
+  lazy val source: Tg = tag("source")
 
   /**
     * Allows authors to specify timed text track for media elements like video or
@@ -414,7 +415,7 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val track: EF = tag("track")
+  lazy val track: Tg = tag("track")
 
   /**
     * Represents a bitmap area that scripts can use to render graphics like graphs,
@@ -422,21 +423,21 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val canvas: EF = tag("canvas")
+  lazy val canvas: Tg = tag("canvas")
 
   /**
     * In conjunction with area, defines an image map.
     *
     *  MDN
     */
-  lazy val map: EF = tag("map")
+  lazy val map: Tg = tag("map")
 
   /**
     * In conjunction with map, defines an image map
     *
     *  MDN
     */
-  lazy val area: EF = tag("area")
+  lazy val area: Tg = tag("area")
 
   // Tabular data
 
@@ -445,70 +446,70 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val table: EF = tag("table")
+  lazy val table: Tg = tag("table")
 
   /**
     * The title of a table.
     *
     *  MDN
     */
-  lazy val caption: EF = tag("caption")
+  lazy val caption: Tg = tag("caption")
 
   /**
     * A set of columns.
     *
     *  MDN
     */
-  lazy val colGroup: EF = tag("colgroup")
+  lazy val colGroup: Tg = tag("colgroup")
 
   /**
     * A single column.
     *
     *  MDN
     */
-  lazy val col: EF = tag("col")
+  lazy val col: Tg = tag("col")
 
   /**
     * The table body.
     *
     *  MDN
     */
-  lazy val tbody: EF = tag("tbody")
+  lazy val tbody: Tg = tag("tbody")
 
   /**
     * The table headers.
     *
     *  MDN
     */
-  lazy val thead: EF = tag("thead")
+  lazy val thead: Tg = tag("thead")
 
   /**
     * The table footer.
     *
     *  MDN
     */
-  lazy val tfoot: EF = tag("tfoot")
+  lazy val tfoot: Tg = tag("tfoot")
 
   /**
     * A single row in a table.
     *
     *  MDN
     */
-  lazy val tr: EF = tag("tr")
+  lazy val tr: Tg = tag("tr")
 
   /**
     * A single cell in a table.
     *
     *  MDN
     */
-  lazy val td: EF = tag("td")
+  lazy val td: Tg = tag("td")
 
   /**
     * A header cell in a table.
     *
     *  MDN
     */
-  lazy val th: EF = tag("th")
+  lazy val th: Tg = tag("th")
 
   // Forms
 
@@ -518,75 +519,75 @@ trait Tags[El <: Element[N, DomElement], N, DomElement] { self: TagBuilder[El, N
     *
     *  MDN
     */
-  lazy val form: EF = tag("form")
+  lazy val form: Tg = tag("form")
 
   /**
     * A set of fields.
     *
     *  MDN
     */
-  lazy val fieldSet: EF = tag("fieldset")
+  lazy val fieldSet: Tg = tag("fieldset")
 
   /**
     * The caption for a fieldset.
     *
     *  MDN
     */
-  lazy val legend: EF = tag("legend")
+  lazy val legend: Tg = tag("legend")
 
   /**
     * The caption of a single field
     *
     *  MDN
     */
-  lazy val label: EF = tag("label")
+  lazy val label: Tg = tag("label")
 
   /**
     * A typed data field allowing the user to input data.
     *
     *  MDN
     */
-  lazy val input: EF = tag("input")
+  lazy val input: Tg = tag("input")
 
   /**
     * A button
     *
     *  MDN
     */
-  lazy val button: EF = tag("button")
+  lazy val button: Tg = tag("button")
 
   /**
     * A control that allows the user to select one of a set of options.
     *
     *  MDN
     */
-  lazy val select: EF = tag("select")
+  lazy val select: Tg = tag("select")
 
   /**
     * A set of predefined options for other controls.
     *
     *  MDN
     */
-  lazy val dataList: EF = tag("datalist")
+  lazy val dataList: Tg = tag("datalist")
 
   /**
     * A set of options, logically grouped.
     *
     *  MDN
     */
-  lazy val optGroup: EF = tag("optgroup")
+  lazy val optGroup: Tg = tag("optgroup")
 
   /**
     * An option in a select element.
     *
     *  MDN
     */
-  lazy val option: EF = tag("option")
+  lazy val option: Tg = tag("option")
 
   /**
     * A multiline text edit control.
     *
     *  MDN
     */
-  lazy val textArea: EF = tag("textarea")
+  lazy val textArea: Tg = tag("textarea")
 }

@@ -10,7 +10,7 @@ import scala.collection.mutable
 
 // @TODO[API] Implement ExpectedNode as a custom Node[N] once it is generic enough
 
-class ExpectedNode[N](private val nodeBuilder: NodeBuilder[_, N, _]) {
+class ExpectedNode[N](private val nodeBuilder: NodeBuilder[_, N, _, _]) {
 
   // @TODO[API] This is a clutch
   private val emptyNode: N = nodeBuilder.createNode()
@@ -26,9 +26,9 @@ class ExpectedNode[N](private val nodeBuilder: NodeBuilder[_, N, _]) {
 
   // @TODO[API] There's gotta be a better way to expose just the type N, not val emptyNode. ClassTag? Sealed trait?
   val nodeType: String = emptyNode match {
-    case el: Element[N, _] => "Element"
-    case t: Text[N, _] => "Text"
-    case c: Comment[N, _] => "Comment"
+    case el: Element[N, _, _] => "Element"
+    case t: Text[N, _, _] => "Text"
+    case c: Comment[N, _, _] => "Comment"
   }
 
   def checks: List[Check] = checksBuffer.toList
@@ -50,7 +50,7 @@ class ExpectedNode[N](private val nodeBuilder: NodeBuilder[_, N, _]) {
 
   def checkNodeType(actualNode: dom.Node): MaybeError = {
     (actualNode, emptyNode) match {
-      case (actualElement: dom.Element, emptyElement: Element[N, _]) =>
+      case (actualElement: dom.Element, emptyElement: Element[N, _, _]) =>
         val actualTagName = actualElement.tagName.toLowerCase
         val expectedTagName = emptyElement.tagName
         if (actualTagName != expectedTagName) {
@@ -101,11 +101,11 @@ class ExpectedNode[N](private val nodeBuilder: NodeBuilder[_, N, _]) {
 
   override def toString: String = {
     emptyNode match {
-      case element: Element[N, _] =>
+      case element: Element[N, _, _] =>
         s"ExpectedNode[Element,tag=${repr(element.tagName)}]"
-      case text: Text[N, _] =>
+      case text: Text[N, _, _] =>
         s"ExpectedNode[Text,text=${repr(text.text)}]"
-      case comment: Comment[N, _] =>
+      case comment: Comment[N, _, _] =>
         s"ExpectedNode[Comment,text=${repr(comment.text)}]"
     }
   }

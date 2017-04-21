@@ -6,8 +6,8 @@ import com.raquo.dombuilder.definitions.eventProps.{ClipboardEventProps, FormEve
 import com.raquo.dombuilder.definitions.tags.{Tags, Tags2}
 import com.raquo.dombuilder.definitions.props.{NodeProps, Props}
 import com.raquo.dombuilder.definitions.styles.{Styles, Styles2}
-import com.raquo.dombuilder.domapi.{CommentApi, ElementApi, EventApi, TextApi, TreeApi}
-import com.raquo.dombuilder.jsdom.domapi.{JsCommentApi, JsElementApi, JsEventApi, JsTextApi, JsTreeApi}
+import com.raquo.dombuilder.domapi.{CommentApi, ElementApi, EventApi, NodeApi, TextApi, TreeApi}
+import com.raquo.dombuilder.jsdom.domapi.{JsCommentApi, JsElementApi, JsEventApi, JsNodeApi, JsTextApi, JsTreeApi}
 import com.raquo.dombuilder.simple.builders.{SimpleCommentBuilder, SimpleTagBuilder, SimpleTextBuilder}
 import com.raquo.dombuilder.simple.nodes.{SimpleComment, SimpleElement, SimpleNode, SimpleText}
 import org.scalajs.dom
@@ -22,29 +22,31 @@ package object simple {
 
   val eventApi: EventApi[SimpleNode, dom.Node, dom.Event, js.Function1] = new JsEventApi[SimpleNode] {}
 
+  val nodeApi: NodeApi[SimpleNode, dom.Node] = new JsNodeApi[SimpleNode] {}
+
   val textNodeApi: TextApi[SimpleNode, dom.Text] = new JsTextApi[SimpleNode] {}
 
   val treeApi: TreeApi[SimpleNode, dom.Node] = new JsTreeApi[SimpleNode] {}
 
-  val commentBuilder: NodeBuilder[SimpleComment, SimpleNode, dom.Comment] = new SimpleCommentBuilder {}
+  val commentBuilder: NodeBuilder[SimpleComment, SimpleNode, dom.Comment, dom.Node] = new SimpleCommentBuilder {}
 
-  val tagBuilder: TagBuilder[SimpleElement, SimpleNode, dom.Element] = new SimpleTagBuilder {}
+  val tagBuilder: TagBuilder[SimpleElement, SimpleNode, dom.Element, dom.Node] = new SimpleTagBuilder {}
 
-  val textBuilder: NodeBuilder[SimpleText, SimpleNode, dom.Text] = new SimpleTextBuilder {}
+  val textBuilder: NodeBuilder[SimpleText, SimpleNode, dom.Text, dom.Node] = new SimpleTextBuilder {}
 
   object tags
-    extends Tags[SimpleElement, SimpleNode, dom.Element]
+    extends Tags[SimpleElement, SimpleNode, dom.Element, dom.Node]
     with SimpleTagBuilder
 
   object tags2
-    extends Tags2[SimpleElement, SimpleNode, dom.Element]
+    extends Tags2[SimpleElement, SimpleNode, dom.Element, dom.Node]
     with SimpleTagBuilder
 
   object attrs
-    extends Attrs[SimpleNode, dom.Element]
-    with InputAttrs[SimpleNode, dom.Element]
-    with GlobalAttrs[SimpleNode, dom.Element]
-    with AttrBuilder[SimpleNode, dom.Element]
+    extends Attrs[SimpleNode, dom.Element, dom.Node]
+    with InputAttrs[SimpleNode, dom.Element, dom.Node]
+    with GlobalAttrs[SimpleNode, dom.Element, dom.Node]
+    with AttrBuilder[SimpleNode, dom.Element, dom.Node]
 
   object props
     extends Props[SimpleNode]

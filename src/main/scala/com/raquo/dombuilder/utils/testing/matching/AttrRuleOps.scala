@@ -5,7 +5,7 @@ import com.raquo.dombuilder.utils.testing.UtilSpec.repr
 // @TODO[SERVER]
 import org.scalajs.dom
 
-class AttrRuleOps[V, N](val attr: Attr[V, N, _]) extends AnyVal {
+class AttrRuleOps[V, N](val attr: Attr[V, N, _, _]) extends AnyVal {
 
   def is(expected: V): Rule[N] = new Rule[N] {
     def applyTo(testNode: ExpectedNode[N]): Unit = {
@@ -19,7 +19,7 @@ class AttrRuleOps[V, N](val attr: Attr[V, N, _]) extends AnyVal {
     }
   }
 
-  private def nodeAttrIs(attr: Attr[V, N, _], maybeExpectedValue: Option[V])(node: dom.Node): MaybeError = {
+  private def nodeAttrIs(attr: Attr[V, N, _, _], maybeExpectedValue: Option[V])(node: dom.Node): MaybeError = {
     (node, maybeExpectedValue) match {
       case (element: dom.Element, None) =>
         if (element.hasAttribute(attr.name)) {

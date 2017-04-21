@@ -8,7 +8,7 @@ import org.scalajs.dom
 
 // @TODO[API] Should we be testing against the mounted element? We could just test against the node's ref
 
-trait MountOps[El <: Element[N, dom.Element], N] {
+trait MountOps[El <: Element[N, dom.Element, dom.Node], N] {
 
   val treeApi: TreeApi[N, dom.Node]
 

@@ -2,7 +2,7 @@ package com.raquo.dombuilder.nodes
 
 import com.raquo.dombuilder.domapi.CommentApi
 
-trait Comment[N, DomComment] extends Node[N, DomComment] { self: N =>
+trait Comment[N, DomComment <: DomNode, DomNode] extends Node[N, DomComment, DomNode] { self: N =>
 
   val commentApi: CommentApi[N, DomComment]
 

@@ -3,10 +3,10 @@ package com.raquo.dombuilder
 import com.raquo.dombuilder.domapi.TreeApi
 import com.raquo.dombuilder.nodes.Node
 
-class Root[N, R] private (
-  val container: R,
-  val node: Node[N, R],
-  val treeApi: TreeApi[N, R]
+class Root[N, DomNode] private (
+  val container: DomNode,
+  val node: Node[N, DomNode, DomNode],
+  val treeApi: TreeApi[N, DomNode]
 ) {
 
   // @TODO[API] If needed, we could add a link from the node to the root.
@@ -25,11 +25,11 @@ class Root[N, R] private (
 
 object Root {
 
-  def mount[N, R](
-    container: R,
-    node: Node[N, R],
-    treeApi: TreeApi[N, R]
-  ): Root[N, R] = {
-    new Root[N, R](container, node, treeApi)
+  def mount[N, DomNode](
+    container: DomNode,
+    node: Node[N, DomNode, DomNode],
+    treeApi: TreeApi[N, DomNode]
+  ): Root[N, DomNode] = {
+    new Root[N, DomNode](container, node, treeApi)
   }
 }

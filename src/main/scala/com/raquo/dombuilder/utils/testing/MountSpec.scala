@@ -6,7 +6,7 @@ import com.raquo.dombuilder.utils.testing.matching.MountOps
 // @TODO[SERVER]
 import org.scalajs.dom
 
-trait MountSpec[El <: Element[N, dom.Element], N]
+trait MountSpec[El <: Element[N, dom.Element, dom.Node], N]
   extends BeforeAndAfterEach
   with MountOps[El, N]
 { self: Suite =>
