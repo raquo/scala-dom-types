@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.utils.testing.matching
 
-import com.raquo.dombuilder.builders.nodes.NodeBuilder
+import com.raquo.dombuilder.builders.NodeBuilder
 import com.raquo.dombuilder.keys.{Attr, Prop, Style}
 import com.raquo.dombuilder.nodes.Text
 

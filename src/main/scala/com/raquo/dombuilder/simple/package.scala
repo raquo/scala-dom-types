@@ -1,7 +1,6 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.builders.nodes.{NodeBuilder, TagBuilder}
-import com.raquo.dombuilder.builders.{AttrBuilder, EventPropBuilder, PropBuilder, StyleBuilder}
+import com.raquo.dombuilder.builders.{AttrBuilder, EventPropBuilder, NodeBuilder, PropBuilder, StyleBuilder, TagBuilder}
 import com.raquo.dombuilder.definitions.attrs.{Attrs, GlobalAttrs, InputAttrs}
 import com.raquo.dombuilder.definitions.eventProps.{ClipboardEventProps, FormEventProps, KeyboardEventProps, MouseEventProps, SharedEventProps}
 import com.raquo.dombuilder.definitions.tags.{Tags, Tags2}

@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.utils.testing
 
-import com.raquo.dombuilder.builders.nodes.NodeBuilder
+import com.raquo.dombuilder.builders.NodeBuilder
 import com.raquo.dombuilder.domapi.TreeApi
 import com.raquo.dombuilder.simple
 import com.raquo.dombuilder.simple.nodes.{SimpleElement, SimpleNode, SimpleText}

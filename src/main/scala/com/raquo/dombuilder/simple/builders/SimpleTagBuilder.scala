@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.simple.builders
 
-import com.raquo.dombuilder.builders.nodes.TagBuilder
+import com.raquo.dombuilder.builders.TagBuilder
 import com.raquo.dombuilder.simple.nodes.{SimpleElement, SimpleNode}
 import org.scalajs.dom
 

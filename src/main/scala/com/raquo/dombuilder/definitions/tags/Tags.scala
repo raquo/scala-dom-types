@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.definitions.tags
 
-import com.raquo.dombuilder.builders.nodes.{Tag, TagBuilder}
+import com.raquo.dombuilder.builders.{Tag, TagBuilder}
 import com.raquo.dombuilder.nodes.Element
 
 /**

@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.utils.testing.matching
 
-import com.raquo.dombuilder.builders.nodes.NodeBuilder
+import com.raquo.dombuilder.builders.NodeBuilder
 
 class NodeOps[N](
   val nodeBuilder: NodeBuilder[_, N, _]

@@ -1,4 +1,4 @@
-package com.raquo.dombuilder.builders.nodes
+package com.raquo.dombuilder.builders
 
 import com.raquo.dombuilder.modifiers.Modifier
 import com.raquo.dombuilder.nodes.Node
