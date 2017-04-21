@@ -12,7 +12,7 @@ trait RuleImplicits[N] extends {
     new NodeOps[N](nodeBuilder)
   }
 
-  implicit def withAttrRuleOps[V](attr: Attr[V, N]): AttrRuleOps[V, N] = {
+  implicit def withAttrRuleOps[V](attr: Attr[V, N, _]): AttrRuleOps[V, N] = {
     new AttrRuleOps(attr)
   }
 

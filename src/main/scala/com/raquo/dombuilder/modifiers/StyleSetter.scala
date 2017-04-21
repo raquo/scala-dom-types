@@ -2,6 +2,7 @@ package com.raquo.dombuilder.modifiers
 
 import com.raquo.dombuilder.keys.Style
 import com.raquo.dombuilder.nodes.Element
+// @TODO[SERVER]
 import org.scalajs.dom
 
 class StyleSetter[V, N](

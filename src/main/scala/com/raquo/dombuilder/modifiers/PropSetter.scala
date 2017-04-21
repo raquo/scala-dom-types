@@ -2,9 +2,8 @@ package com.raquo.dombuilder.modifiers
 
 import com.raquo.dombuilder.keys.Prop
 import com.raquo.dombuilder.nodes.Node
+// @TODO[SERVER]
 import org.scalajs.dom
-
-// @TODO[API] Thi shoould be generic in R
 
 class PropSetter[V, N](
   val key: Prop[V, N],
