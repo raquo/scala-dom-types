@@ -18,31 +18,28 @@ This project is primarily intended to be used from Scala.js.
 A very dumb example component using our low-level API:
 
 ```scala
-class Counter extends SimpleElement("div") { // specify this component's HTML tag name
+class Counter {    // This doesn't need to be a class, all you need is to build a `SimpleElement` somehow
  
   private var count = 0    // Declare this component's internal state
  
-  // Create node to represent the "increment" button
-  private val incButton = button(
-    events.onClick := increment _,    // Add event listener to the button node
-    "[ + ]"    // Add a child to the button node, which happens to be a text node
+  private val captionNode: SimpleText = count.toString    // Create node to represent the caption that shows the current count
+ 
+  private val incButton: SimpleElement = button(    // Create a node to represent the "increment" button
+    events.onClick := increment _,                  // Add event listener to the button node
+    "[ + ]"                                         // Add a child node (which happens to be a text node) to the button node
   )
  
-  // Create node to represent the caption that shows the current count
-  private val captionNode = simple.nodeBuilder.textNode(count.toString)
- 
-  // Apply some modifiers to this node:
-  this(
-    attrs.cls := "Counter",    // Add a CSS class name to this node (not used here, just an example)
-    styles.display.inlineBlock,    // Set CSS display property to "inline-block" (just because)
-    incButton,    // Add button as a child node
-    captionNode    // Add caption as a child node
+  val element: SimpleElement = div(    // Create a node that will be either mounted as a root node or added as a child to another node.
+    attrs.cls := "CounterClassBlah",   // Add a CSS class name to this node (not used here, just an example)
+    styles.display.inlineBlock,        // Set CSS display property to "inline-block" (just because)
+    h1("Counter"),                     // Create an h1 HTML node and add it as a child
+    incButton,                         // Add the "increment" button as a child node
+    captionNode                        // Add the caption as a child node
   )
  
-  // Callback that updates the component's state and DOM
-  def increment(): Unit = {
-    count += 1
-    captionNode.setText(count.toString)
+  def increment(): Unit = {                // Callback that will fire on every button click
+    count += 1                             // Update internal component state
+    captionNode.setText(count.toString)    // Update the DOM
   }
 }
 ```

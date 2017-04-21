@@ -9,7 +9,5 @@ package com.raquo.dombuilder.domapi
   */
 trait NodeApi[N, DomNode] {
 
-  // Update docs with usage
-
   @inline def setProperty[V](node: DomNode, propName: String, value: V): Unit
 }
