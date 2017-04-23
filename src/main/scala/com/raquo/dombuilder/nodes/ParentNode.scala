@@ -5,8 +5,6 @@ import com.raquo.dombuilder.domapi.TreeApi
 // @TODO[SERVER]
 import scala.scalajs.js
 
-// @TODO[API] should this extend Node instead?
-
 /** Represents a node that has or might have children.
   *
   * This needs to be a RefNode for our sanity.
@@ -20,101 +18,198 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { th
 
   @inline def maybeChildren: js.UndefOr[js.Array[ChildNode[N, DomNode, DomNode]]] = _maybeChildren
 
-  def appendChild(child: ChildNode[N, DomNode, DomNode]): Unit = {
+  /** @return Whether child was successfully appended */
+  def appendChild(child: ChildNode[N, DomNode, DomNode]): Boolean = {
 
-    // 1. Update this node
-    if (_maybeChildren.isEmpty) {
-      _maybeChildren = js.Array(child)
-    } else {
-      _maybeChildren.foreach(children => children.push(child))
-    }
+    // 1. Update DOM
+    val appended = treeApi.appendChild(ref, child.ref)
+    if (appended) {
 
-    // 2. Update child
-    child.setParent(this)
-
-    // 3. Update DOM
-    treeApi.appendChild(ref, child.ref)
-  }
-
-  def removeChild(child: ChildNode[N, DomNode, DomNode]): Unit = {
-    // @TODO throw if not found?
-    _maybeChildren.foreach { children =>
-      val index = children.indexOf(child)
-
-      // 1. Update this node
-      if (index != -1) {
-        children.splice(index, deleteCount = 1)
-      }
-
-      // 2. Update child
-      child.clearParent()
-
-      // 3. Update DOM
-      treeApi.removeChild(parentNode = ref, child = child.ref)
-    }
-  }
-
-  def insertChild(child: ChildNode[N, DomNode, DomNode], atIndex: Int): Unit = {
-    // @TODO should we check that maybeChildren is initialized?
-    // @TODO should we check that index is not out of bounds?
-    _maybeChildren.foreach { children =>
-
-      // 1. Update this node
-      children.splice(atIndex, 0, child)
-
-      // 2. Update child
-      child.setParent(this)
-
-      // 3. Update DOM
-      if (atIndex == children.length) {
-        treeApi.appendChild(parentNode = ref, child = child.ref)
+      // 2. Update this node
+      if (_maybeChildren.isEmpty) {
+        _maybeChildren = js.Array(child)
       } else {
-        val nextChild = children.apply(atIndex)
-        treeApi.insertBefore(
-          parentNode = ref,
-          newNode = child.ref,
-          referenceNode = nextChild.ref
-        )
+        _maybeChildren.foreach(children => children.push(child))
       }
+
+      // 3. Update child
+      child.setParent(this)
     }
+    appended
   }
 
+  /** @return Whether child was successfully removed */
+  def removeChild(child: ChildNode[N, DomNode, DomNode]): Boolean = {
+    var removed = false
+    _maybeChildren.foreach { children =>
+
+      // 0. Check precondition required for consistency of our own Tree vs real DOM
+      val indexOfChild = children.indexOf(child)
+      if (indexOfChild != -1) {
+
+        // 1. Update DOM
+        removed = treeApi.removeChild(parentNode = ref, child = child.ref)
+        if (removed) {
+
+          // 2. Update this node
+          children.splice(index = indexOfChild, deleteCount = 1)
+
+          // 3. Update child
+          child.clearParent()
+        }
+      }
+    }
+    removed
+  }
+
+  /** @return Whether child was successfully inserted */
+  def insertChild(child: ChildNode[N, DomNode, DomNode], atIndex: Int): Boolean = {
+    var inserted = false
+
+    // 0. Prep this node
+    if (_maybeChildren.isEmpty) {
+      _maybeChildren = js.defined(js.Array())
+    }
+
+    _maybeChildren.foreach { children =>
+      // 1. Update DOM
+      if (atIndex < children.length) {
+        val nextChild = children.apply(atIndex)
+        inserted = treeApi.insertBefore(
+          parentNode = ref,
+          newChild = child.ref,
+          referenceChild = nextChild.ref
+        )
+      } else if (atIndex == children.length) {
+        inserted = treeApi.appendChild(parentNode = ref, child = child.ref)
+      }
+
+      if (inserted) {
+        // 2. Update this node
+        children.splice(atIndex, 0, child)
+
+        // 3. Update child
+        child.setParent(this)
+      }
+    }
+    inserted
+  }
+
+  /** Note: Does nothing if `oldChild` was not found in parent's children, or if `oldChild==newChild`
+    *
+    * @return Whether child was replaced
+    */
   def replaceChild(
     oldChild: ChildNode[N, DomNode, DomNode],
     newChild: ChildNode[N, DomNode, DomNode]
-  ): Unit = {
-    // @TODO throw if not found?
+  ): Boolean = {
+    var replaced = false
     _maybeChildren.foreach { children =>
-      val index = children.indexOf(oldChild)
 
-      // 1. Update this node
-      if (index != -1) {
-        children.update(index, newChild)
-      } else {
-        // @TODO throw?
+      // 0. Check precondition required for consistency of our own Tree vs real DOM
+      val indexOfChild = children.indexOf(oldChild)
+      if (indexOfChild != -1) {
+
+        // 1. Update DOM
+        replaced = treeApi.replaceChild(
+          parentNode = ref,
+          newChild = newChild.ref,
+          oldChild = oldChild.ref
+        )
+
+        // 2. Update this node
+        children.update(indexOfChild, newChild)
+
+        // 3. Update children
+        // @TODO[Test] This order is important when oldChild==newChild. Add a test for it
+        oldChild.clearParent()
+        newChild.setParent(this)
       }
-
-      // 2. Update child
-      newChild.setParent(this)
-      oldChild.clearParent()
-
-      // 3. Update DOM
-      treeApi.insertBefore(
-        parentNode = ref,
-        newNode = newChild.ref,
-        referenceNode = oldChild.ref
-      )
-      treeApi.removeChild(parentNode = ref, child = oldChild.ref)
     }
+    replaced
   }
 
-  //  @inline protected def numberOfChildren(): Int = {
-  //    maybeChildren.map(children => children.length).getOrElse(0)
-  //  }
-  //
-  //  @inline protected def indexOfChild(child: N): Int = {
-  //    maybeChildren.map(children => children.indexOf(child)).getOrElse(-1)
-  //  }
-  //
+  /** Note: Does nothing if `fromIndex` or `toIndex` are out of bounds or if `fromIndex>toIndex`
+    *
+    * @return Whether children were replaced
+    */
+  def replaceChildren(
+    fromIndex: Int,
+    toIndex: Int,
+    newChildren: js.Array[ChildNode[N, DomNode, DomNode]]
+  ): Boolean = {
+    // A note on efficiency of this method:
+    //
+    // Scala DOM Builder is not a virtual DOM, it has no concept of "child reconciliation" because
+    // there are no virtual children to compare. If you're building a virtual DOM library on top
+    // of Scala DOM builder, it's up to you to design a reconciliation algorithm that would call
+    // more specific methods like insertChild / replaceChild / removeChild.
+    //
+    // Note that this method does not create any new DOM nodes. All the nodes that should
+    // exist are already provided to it. All it does it detach from the DOM the old children
+    // (within the given index bounds), and attach new children where the old children used to be.
+    //
+    // It is likely that a more refined algorithm could reduce the amount of DOM operations needed
+    // for certain popular use cases, e.g. for reordering of the same items. And we should look
+    // into that eventually, but not before it is proven with benchmarks that
+    //
+    // That said, we can probably improve this method's performance. Even though it doesn't create
+    // any HTML elements unnecessarily (or at all) because they are provided to it
 
+    // @TODO[Performance] introduce a reorderChildren() method to support efficient sorting?
+    // @TODO[Integrity] This does not properly report failures like other methods do
+
+    // 0. Prep this node
+    if (_maybeChildren.isEmpty) {
+      _maybeChildren = js.defined(js.Array())
+    }
+
+    var replaced = false
+    _maybeChildren.foreach { children =>
+      if (
+        newChildren != children
+          && fromIndex >= 0 && fromIndex < children.length
+          && toIndex >= 0 && toIndex < children.length
+          && fromIndex <= toIndex
+      ) {
+        replaced = true
+
+        // A. Remove existing children
+        var numRemovedNodes = 0
+        val numNodesToRemove = toIndex - fromIndex + 1
+        while (numRemovedNodes < numNodesToRemove) {
+          removeChild(children(fromIndex))
+          numRemovedNodes += 1
+        }
+
+        // B. Insert new children
+        var insertedCount = 0
+        newChildren.foreach { newChild =>
+          insertChild(
+            newChild,
+            atIndex = fromIndex + insertedCount
+          )
+          insertedCount += 1
+        }
+      }
+    }
+    replaced
+  }
+
+  def replaceAllChildren(newChildren: js.Array[ChildNode[N, DomNode, DomNode]]): Unit = {
+    // @TODO[Performance] This could be optimized
+    // @TODO[Integrity] This does not properly report failures like other methods do
+
+    // A. Remove existing children
+    _maybeChildren.foreach { children =>
+      children.foreach(removeChild)
+    }
+
+    // B. Add new children
+    newChildren.foreach(appendChild)
+  }
+
+  def indexOfChild(child: ChildNode[N, DomNode, DomNode]): Int = {
+    maybeChildren.map(children => children.indexOf(child)).getOrElse(-1)
+  }
 }

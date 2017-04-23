@@ -5,8 +5,6 @@ import com.raquo.dombuilder.modifiers.Modifier
 // @TODO[SERVER]
 import scala.scalajs.js
 
-// @TODO[API] should this extend Node instead?
-
 trait ChildNode[N, +Ref <: DomNode, DomNode]
   extends Node[N, Ref, DomNode]
   with Modifier[ParentNode[N, DomNode, DomNode]]
