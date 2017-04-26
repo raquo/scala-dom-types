@@ -18,11 +18,11 @@ trait MountOps[El <: Element[N, dom.Element, dom.Node], N] {
 
   private[this] var maybeContainer: Option[dom.Element] = None
 
-  private[this] var maybeRoot: Option[Root[N, dom.Node]] = None
+  private[this] var maybeRoot: Option[Root[N, El, dom.Element, dom.Node]] = None
 
   def container: dom.Element = maybeContainer.get
 
-  def root: Root[N, dom.Node] = maybeRoot.get
+  def root: Root[N, El, dom.Element, dom.Node] = maybeRoot.get
 
   val defaultMountedElementClue = "root"
 
@@ -39,7 +39,7 @@ trait MountOps[El <: Element[N, dom.Element, dom.Node], N] {
     maybeRoot match {
       case Some(root) =>
         val errors = expectedNode.checkNode(
-          root.node.ref,
+          root.element.ref,
           clue = mountedElementClue
         )
         if (errors.nonEmpty) {
