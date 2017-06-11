@@ -24,7 +24,7 @@ package object simple {
 
   val nodeApi: NodeApi[SimpleNode, dom.Node] = new JsNodeApi[SimpleNode] {}
 
-  val textNodeApi: TextApi[SimpleNode, dom.Text] = new JsTextApi[SimpleNode] {}
+  val textNodeApi: TextApi = new JsTextApi {}
 
   val treeApi: TreeApi[SimpleNode, dom.Node] = new JsTreeApi[SimpleNode] {}
 

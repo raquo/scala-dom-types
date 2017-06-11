@@ -7,10 +7,10 @@ import org.scalajs.dom
 
 class SimpleText(override protected[this] var _text: String)
   extends SimpleNode
-  with Text[SimpleNode, dom.Text, dom.Node]
+  with Text[SimpleNode]
   with ChildNode[SimpleNode, dom.Text, dom.Node]
 {
   override val nodeApi: NodeApi[SimpleNode, dom.Node] = simple.nodeApi
 
-  override val textNodeApi: TextApi[SimpleNode, dom.Text] = simple.textNodeApi
+  override val textNodeApi: TextApi = simple.textNodeApi
 }

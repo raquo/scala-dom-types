@@ -27,7 +27,7 @@ class ExpectedNode[N](private val nodeBuilder: NodeBuilder[_, N, _, _]) {
   // @TODO[API] There's gotta be a better way to expose just the type N, not val emptyNode. ClassTag? Sealed trait?
   val nodeType: String = emptyNode match {
     case el: Element[N, _, _] => "Element"
-    case t: Text[N, _, _] => "Text"
+    case t: Text[N] => "Text"
     case c: Comment[N, _, _] => "Comment"
   }
 
@@ -103,7 +103,7 @@ class ExpectedNode[N](private val nodeBuilder: NodeBuilder[_, N, _, _]) {
     emptyNode match {
       case element: Element[N, _, _] =>
         s"ExpectedNode[Element,tag=${repr(element.tagName)}]"
-      case text: Text[N, _, _] =>
+      case text: Text[N] =>
         s"ExpectedNode[Text,text=${repr(text.text)}]"
       case comment: Comment[N, _, _] =>
         s"ExpectedNode[Comment,text=${repr(comment.text)}]"

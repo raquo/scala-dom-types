@@ -6,7 +6,7 @@ import com.raquo.dombuilder.nodes.Text
 
 trait RuleImplicits[N] extends {
 
-  protected val textNodeBuilder: NodeBuilder[Text[N, _, _], N, _, _]
+  protected val textNodeBuilder: NodeBuilder[Text[N], N, _, _]
 
   implicit def withNodeOps(nodeBuilder: NodeBuilder[_, N, _, _]): NodeOps[N] = {
     new NodeOps[N](nodeBuilder)

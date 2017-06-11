@@ -1,10 +1,12 @@
 package com.raquo.dombuilder.domapi
 
-trait TextApi[N, DomText] {
+import com.raquo.dombuilder.DText
 
-  def createText(text: String): DomText
+trait TextApi {
 
-  def textContent(node: DomText): String
+  def createText(text: String): DText
 
-  def setTextContent(node: DomText, text: String): Unit
+  def textContent(node: DText): String
+
+  def setTextContent(node: DText, text: String): Unit
 }

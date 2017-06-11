@@ -1,10 +1,11 @@
 package com.raquo.dombuilder.nodes
 
+import com.raquo.dombuilder.{DNode, DText}
 import com.raquo.dombuilder.domapi.TextApi
 
-trait Text[N, Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { this: N =>
+trait Text[N] extends Node[N, DText, DNode] { this: N =>
 
-  val textNodeApi: TextApi[N, Ref]
+  val textNodeApi: TextApi
 
   protected[this] var _text: String
 
@@ -15,7 +16,7 @@ trait Text[N, Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { this: N =
     textNodeApi.setTextContent(ref, newText)
   }
 
-  override protected[this] def createRef(): Ref = {
+  override protected[this] def createRef(): DText = {
     textNodeApi.createText(text)
   }
 }
