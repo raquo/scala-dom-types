@@ -74,8 +74,6 @@ This is similar to how Snabbdom is the foundation for many popular Javascript li
 
 Scala DOM Builder is particularly well suited for building libraries on top of because it's so unopinionated. It basically represents the mutable state of the DOM – your fancy functional reactive / monadic library will have to deal with that mutable state either way, but at least with Scala DOM Tree you can do it with a more convenient API.
 
-@TODO: Add Laminar as an example.
-
 #### B. Direct Usage
 
 Even though the DOM Builder API is pretty low-level, you can still use it directly, without building a DOM manipulation library on top of it. It is actually remarkably simple, akin to old-school Javascript development from the days when jQuery was a cool application development framework.
@@ -86,7 +84,7 @@ However, be cautioned that without a thought-out framework on top, your code wil
 
 This is because Scala DOM Builder deliberately does not have a mechanism for declarative UI programming. All you can do without building a library on top of Scala DOM Builder is to write code that mutates the DOM. This goes against the last few years of UI development best practices. The current generally accepted UI development paradigm is to represent your DOM as a function of the UI state as opposed to writing callbacks that perform DOM state transitions.
 
-@TODO: Mention Laminar as example of declarative programming
+For example, [Laminar](https://github.com/raquo/laminar) lets you build UI components in a functional reactive way. It was originally based on Snabbdom, and had a lot of unnecessary complexity in its code to deal with the impedance mismatch between its reactive streams API and the virtual DOM paradigm. It is now based on Scala DOM Builder, and its code is considerably smaller and faster as a result.
 
 However, direct usage of Scala DOM Tree still provides a significant advantage over using plain jQuery. Typical jQuery usage involves querying the DOM all the time. That is a very fragile operation because you're relying on a particular DOM structure including particular nesting and CSS styles.
 
@@ -144,11 +142,12 @@ For example, you could represent an attribute's value as a stream of values to d
 
 Oh yes, that's exactly what Scala DOM Builder does, except that it's unaware of the whole concept of reactive streams. So in other words, Scala DOM Builder doesn't do what is arguably the most interesting part in this story, the reactive part. This is because how exactly reactive programming should be done is pretty subjective. Scala DOM Builder exists to facilitate experimentation and evolution in that direction, not to provide opinions.
    
-@TODO Mention Laminar as an example of this.
+Case in point, [Laminar](https://github.com/raquo/laminar) lets you build UI components in a functional reactive way. It was originally based on Snabbdom, and had a lot of unnecessary complexity in its code to deal with the impedance mismatch between its reactive streams API and the virtual DOM paradigm. It is now based on Scala DOM Builder, and its code is considerably smaller and faster as a result.
+
 
 ## Server Side Rendering
 
-Right now Scala DOM Builder only works in Scala.js environment (not the JVM) because that's our primary use case. Parts of thsi project still depend on types provided by Scala.js.
+Right now Scala DOM Builder only works in Scala.js environment (not the JVM) because that's our primary use case. Parts of this project still depend on types provided by Scala.js.
 
 I am working on making Scala DOM Builder generic enough to support the use case of server-side rendering and HTML code generation.
 
