@@ -5,6 +5,8 @@ import com.raquo.dombuilder.modifiers.Modifier
 // @TODO[SERVER]
 import scala.scalajs.js
 
+// @TODO[API] Not sure how useful it is to have ChildNode separate from Node. Pretty much every DOM node is a ChildNode...
+
 trait ChildNode[N, +Ref <: DomNode, DomNode]
   extends Node[N, Ref, DomNode]
   with Modifier[ParentNode[N, DomNode, DomNode]]

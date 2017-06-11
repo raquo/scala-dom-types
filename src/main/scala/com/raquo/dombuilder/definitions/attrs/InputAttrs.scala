@@ -90,7 +90,7 @@ trait InputAttrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomEl
     * attribute of the `form`. This should only be used with `input` elements of
     * of `type` "submit".
     */
-  lazy val formNoValidate: InputAttr[String] = attr("formnovalidate")
+  lazy val formNoValidate: InputAttr[Boolean] = attr("formnovalidate")
 
   /**
     * The `formtarget` provides a name or keyword that indicates where to display
