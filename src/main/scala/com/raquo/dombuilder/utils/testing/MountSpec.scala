@@ -1,14 +1,14 @@
 package com.raquo.dombuilder.utils.testing
 
-import com.raquo.dombuilder.nodes.Element
+import com.raquo.dombuilder.nodes.ChildNode
 import org.scalatest.{BeforeAndAfterEach, Suite}
 import com.raquo.dombuilder.utils.testing.matching.MountOps
 // @TODO[SERVER]
 import org.scalajs.dom
 
-trait MountSpec[El <: Element[N, dom.Element, dom.Node], N]
+trait MountSpec[Ch <: ChildNode[N, dom.Node, dom.Node], N]
   extends BeforeAndAfterEach
-  with MountOps[El, N]
+  with MountOps[Ch, N]
 { this: Suite =>
 
   override def doAssert(condition: Boolean, message: String): Unit = assert(condition, message)

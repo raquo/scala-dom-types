@@ -2,13 +2,13 @@ package com.raquo.dombuilder.utils.testing.matching
 
 import com.raquo.dombuilder.Root
 import com.raquo.dombuilder.domapi.TreeApi
-import com.raquo.dombuilder.nodes.Element
+import com.raquo.dombuilder.nodes.ChildNode
 // @TODO[SERVER]
 import org.scalajs.dom
 
 // @TODO[API] Should we be testing against the mounted element? We could just test against the node's ref
 
-trait MountOps[El <: Element[N, dom.Element, dom.Node], N] {
+trait MountOps[Ch <: ChildNode[N, dom.Node, dom.Node], N] {
 
   val treeApi: TreeApi[N, dom.Node]
 
@@ -18,11 +18,11 @@ trait MountOps[El <: Element[N, dom.Element, dom.Node], N] {
 
   private[this] var maybeContainer: Option[dom.Element] = None
 
-  private[this] var maybeRoot: Option[Root[N, El, dom.Element, dom.Node]] = None
+  private[this] var maybeRoot: Option[Root[N, Ch, dom.Element, dom.Node]] = None
 
   def container: dom.Element = maybeContainer.get
 
-  def root: Root[N, El, dom.Element, dom.Node] = maybeRoot.get
+  def root: Root[N, Ch, dom.Element, dom.Node] = maybeRoot.get
 
   val defaultMountedElementClue = "root"
 
@@ -39,7 +39,7 @@ trait MountOps[El <: Element[N, dom.Element, dom.Node], N] {
     maybeRoot match {
       case Some(root) =>
         val errors = expectedNode.checkNode(
-          root.element.ref,
+          root.child.ref,
           clue = mountedElementClue
         )
         if (errors.nonEmpty) {
@@ -51,12 +51,7 @@ trait MountOps[El <: Element[N, dom.Element, dom.Node], N] {
   }
 
   def clearDocument(): Unit = {
-    maybeRoot match {
-      case Some(root) =>
-        root.unmount()
-        maybeRoot = None
-      case None => ()
-    }
+    unmount()
     maybeContainer = None
     mountedElementClue = defaultMountedElementClue
     dom.document.body.textContent = "" // remove children
@@ -69,11 +64,11 @@ trait MountOps[El <: Element[N, dom.Element, dom.Node], N] {
     dom.document.body.appendChild(newContainer)
   }
 
-  def mount(clue: String, element: El): Unit = {
-    mount(element, clue)
+  def mount(clue: String, node: Ch): Unit = {
+    mount(node, clue)
   }
 
-  def mount(element: El, clue: String = defaultMountedElementClue): Unit = {
+  def mount(node: Ch, clue: String = defaultMountedElementClue): Unit = {
     maybeContainer match {
       case Some(container) =>
         doAssert(
@@ -88,13 +83,23 @@ trait MountOps[El <: Element[N, dom.Element, dom.Node], N] {
         //      "ASSERT FAIL [mount]: Unexpected children in container. Call unmount() before mounting again."
         //    )
         mountedElementClue = clue
-        maybeRoot = Some(Root.mount(container, element, treeApi))
+        maybeRoot = Some(Root.mount(container, node, treeApi))
       case None =>
         doFail("ASSERT FAIL [mount]: Container not found. resetDocument() usually does this in beforeEach().")
     }
   }
 
-  def unmount(): Unit = root.unmount()
+  def unmount(): Unit = {
+    maybeRoot match {
+      case Some(root) =>
+        val unmounted = root.unmount()
+        if (!unmounted) {
+          doFail("ASSERT FAIL [clearDocument]: Failed to unmount root")
+        }
+        maybeRoot = None
+      case None => ()
+    }
+  }
 
   private def createContainer(): dom.Element = {
     val container = dom.document.createElement("div")
