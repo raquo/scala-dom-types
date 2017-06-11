@@ -16,7 +16,7 @@ import scala.scalajs.js
 
 package object simple {
 
-  val commentApi: CommentApi[SimpleNode, dom.Comment] = new JsCommentApi[SimpleNode] {}
+  val commentApi: CommentApi = new JsCommentApi {}
 
   val elementApi: ElementApi[SimpleNode, dom.Element] = new JsElementApi[SimpleNode] {}
 

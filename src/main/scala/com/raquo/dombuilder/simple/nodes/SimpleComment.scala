@@ -7,11 +7,11 @@ import org.scalajs.dom
 
 class SimpleComment(override protected[this] var _text: String)
   extends SimpleNode
-  with Comment[SimpleNode, dom.Comment, dom.Node]
+  with Comment[SimpleNode]
   with ChildNode[SimpleNode, dom.Comment, dom.Node]
 {
 
-  override val commentApi: CommentApi[SimpleNode, dom.Comment] = simple.commentApi
+  override val commentApi: CommentApi = simple.commentApi
 
   override val nodeApi: NodeApi[SimpleNode, dom.Node] = simple.nodeApi
 }

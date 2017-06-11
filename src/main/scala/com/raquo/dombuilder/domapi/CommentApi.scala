@@ -1,6 +1,8 @@
 package com.raquo.dombuilder.domapi
 
-trait CommentApi[N, R] {
+import com.raquo.dombuilder.DComment
 
-  def createComment(text: String): R
+trait CommentApi {
+
+  def createComment(text: String): DComment
 }

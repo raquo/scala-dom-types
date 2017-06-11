@@ -28,7 +28,7 @@ class ExpectedNode[N](private val nodeBuilder: NodeBuilder[_, N, _, _]) {
   val nodeType: String = emptyNode match {
     case el: Element[N, _, _] => "Element"
     case t: Text[N] => "Text"
-    case c: Comment[N, _, _] => "Comment"
+    case c: Comment[N] => "Comment"
   }
 
   def checks: List[Check] = checksBuffer.toList
@@ -105,7 +105,7 @@ class ExpectedNode[N](private val nodeBuilder: NodeBuilder[_, N, _, _]) {
         s"ExpectedNode[Element,tag=${repr(element.tagName)}]"
       case text: Text[N] =>
         s"ExpectedNode[Text,text=${repr(text.text)}]"
-      case comment: Comment[N, _, _] =>
+      case comment: Comment[N] =>
         s"ExpectedNode[Comment,text=${repr(comment.text)}]"
     }
   }
