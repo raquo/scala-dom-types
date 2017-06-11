@@ -1,12 +1,14 @@
 package com.raquo.dombuilder.domapi
 
-trait ElementApi[N, DomElement] {
+import com.raquo.dombuilder.DElement
 
-  def createElement(tagName: String): DomElement
+trait ElementApi {
 
-  @inline def setAttribute[V](element: DomElement, attrName: String, value: V): Unit
+  def createElement(tagName: String): DElement
 
-  @inline def removeAttribute(element: DomElement, attrName: String): Unit
+  @inline def setAttribute[V](element: DElement, attrName: String, value: V): Unit
 
-  @inline def setStyle[V](element: DomElement, propName: String, value: V): Unit
+  @inline def removeAttribute(element: DElement, attrName: String): Unit
+
+  @inline def setStyle[V](element: DElement, propName: String, value: V): Unit
 }

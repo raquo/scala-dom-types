@@ -11,4 +11,6 @@ package object dombuilder {
   type DElement = dom.Element
   type DText = dom.Text
   type DComment = dom.Comment
+
+  type DEvent = dom.Event
 }

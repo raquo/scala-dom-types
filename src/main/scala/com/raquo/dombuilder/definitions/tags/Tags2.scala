@@ -7,12 +7,12 @@ import com.raquo.dombuilder.nodes.Element
   * Contains HTML tags which are used less frequently. These are generally
   * imported individually as needed.
   */
-trait Tags2[El <: Element[N, DomElement, DomNode], N, DomElement <: DomNode, DomNode] {
-  this: TagBuilder[El, N, DomElement, DomNode] =>
+trait Tags2[El <: Element[N], N] {
+  this: TagBuilder[El, N] =>
 
   // @TODO[API] Specify different Ref for different tags
 
-  type Tg2 = Tag[El, N, DomElement, DomNode]
+  type Tg2 = Tag[El, N]
 
   // Document Metadata
 

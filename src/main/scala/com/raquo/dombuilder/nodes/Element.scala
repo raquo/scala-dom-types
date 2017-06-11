@@ -1,16 +1,17 @@
 package com.raquo.dombuilder.nodes
 
+import com.raquo.dombuilder.{DElement, DNode}
 import com.raquo.dombuilder.domapi.ElementApi
 
-trait Element[N, DomElement <: DomNode, DomNode] extends Node[N, DomElement, DomNode] { this: N =>
+trait Element[N] extends Node[N, DElement, DNode] { this: N =>
 
-  val elementApi: ElementApi[N, DomElement]
+  val elementApi: ElementApi
 
   val tagName: String
 
   // @TODO think about memory leaks when detaching nodes
 
-  override protected[this] def createRef(): DomElement = {
+  override protected[this] def createRef(): DElement = {
     elementApi.createElement(tagName)
   }
 }

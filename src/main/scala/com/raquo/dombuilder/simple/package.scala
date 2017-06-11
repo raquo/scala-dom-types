@@ -18,7 +18,7 @@ package object simple {
 
   val commentApi: CommentApi = new JsCommentApi {}
 
-  val elementApi: ElementApi[SimpleNode, dom.Element] = new JsElementApi[SimpleNode] {}
+  val elementApi: ElementApi = new JsElementApi {}
 
   val eventApi: EventApi[SimpleNode, dom.Node, dom.Event, js.Function1] = new JsEventApi[SimpleNode] {}
 
@@ -30,16 +30,16 @@ package object simple {
 
   val commentBuilder: NodeBuilder[SimpleComment, SimpleNode, dom.Comment, dom.Node] = new SimpleCommentBuilder {}
 
-  val tagBuilder: TagBuilder[SimpleElement, SimpleNode, dom.Element, dom.Node] = new SimpleTagBuilder {}
+  val tagBuilder: TagBuilder[SimpleElement, SimpleNode] = new SimpleTagBuilder {}
 
   val textBuilder: NodeBuilder[SimpleText, SimpleNode, dom.Text, dom.Node] = new SimpleTextBuilder {}
 
   object tags
-    extends Tags[SimpleElement, SimpleNode, dom.Element, dom.Node]
+    extends Tags[SimpleElement, SimpleNode]
     with SimpleTagBuilder
 
   object tags2
-    extends Tags2[SimpleElement, SimpleNode, dom.Element, dom.Node]
+    extends Tags2[SimpleElement, SimpleNode]
     with SimpleTagBuilder
 
   object attrs

@@ -5,7 +5,7 @@ import org.scalajs.dom
 
 import scala.scalajs.js
 
-trait JsElementApi[N] extends domapi.ElementApi[N, dom.Element] {
+trait JsElementApi extends domapi.ElementApi {
 
   @inline override def createElement(tagName: String): dom.Element = {
     dom.document.createElement(tagName)

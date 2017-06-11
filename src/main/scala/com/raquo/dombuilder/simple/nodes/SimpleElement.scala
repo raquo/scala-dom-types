@@ -9,13 +9,13 @@ import scala.scalajs.js
 
 class SimpleElement(val tagName: String)
   extends SimpleNode
-  with Element[SimpleNode, dom.Element, dom.Node]
+  with Element[SimpleNode]
   with ParentNode[SimpleNode, dom.Element, dom.Node]
   with ChildNode[SimpleNode, dom.Element, dom.Node]
   with EventfulNode[SimpleNode, dom.Element, dom.Node, dom.Event, js.Function1]
 {
 
-  override val elementApi: ElementApi[SimpleNode, dom.Element] = simple.elementApi
+  override val elementApi: ElementApi = simple.elementApi
 
   override val eventApi: EventApi[SimpleNode, dom.Node, dom.Event, js.Function1] = simple.eventApi
 

@@ -7,10 +7,10 @@ import com.raquo.dombuilder.nodes.Element
   * Trait that contains the contents of the `Tags` object, so they can be mixed
   * in to other objects if needed.
   */
-trait Tags[El <: Element[N, DomElement, DomNode], N, DomElement <: DomNode, DomNode] {
-  this: TagBuilder[El, N, DomElement, DomNode] =>
+trait Tags[El <: Element[N], N] {
+  this: TagBuilder[El, N] =>
 
-  type Tg = Tag[El, N, DomElement, DomNode]
+  type Tg = Tag[El, N]
 
   /**
     * Represents the root of an HTML or XHTML document. All other elements must
