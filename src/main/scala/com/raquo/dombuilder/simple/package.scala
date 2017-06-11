@@ -43,10 +43,10 @@ package object simple {
     with SimpleTagBuilder
 
   object attrs
-    extends Attrs[SimpleNode, dom.Element, dom.Node]
-    with InputAttrs[SimpleNode, dom.Element, dom.Node]
-    with GlobalAttrs[SimpleNode, dom.Element, dom.Node]
-    with AttrBuilder[SimpleNode, dom.Element, dom.Node]
+    extends Attrs[SimpleNode]
+    with InputAttrs[SimpleNode]
+    with GlobalAttrs[SimpleNode]
+    with AttrBuilder[SimpleNode]
 
   object props
     extends Props[SimpleNode]

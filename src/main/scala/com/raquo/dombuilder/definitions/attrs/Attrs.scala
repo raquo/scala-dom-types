@@ -5,7 +5,7 @@ import com.raquo.dombuilder.keys.Attr
 
 // @TODO[Performance] Do we need those vals to be lazy? Scala.js optimizes away unused code anyway, and lazy vals produce more generated code than vals
 
-trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement, DomNode] =>
+trait Attrs[N] { this: AttrBuilder[N] =>
 
   /**
     * This is the single required attribute for anchors defining a hypertext
@@ -18,7 +18,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val href: Attr[String, N, DomElement, DomNode] = attr("href")
+  lazy val href: Attr[String, N] = attr("href")
 
   /**
     * This attribute defines the alternative text describing the image. Users
@@ -27,7 +27,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val alt: Attr[String, N, DomElement, DomNode] = attr("alt")
+  lazy val alt: Attr[String, N] = attr("alt")
 
   /**
     * This attribute names a relationship of the linked document to the current
@@ -39,7 +39,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val rel: Attr[String, N, DomElement, DomNode] = attr("rel")
+  lazy val rel: Attr[String, N] = attr("rel")
 
   /**
     * If the value of the type attribute is image, this attribute specifies a URI
@@ -48,12 +48,12 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val src: Attr[String, N, DomElement, DomNode] = attr("src")
+  lazy val src: Attr[String, N] = attr("src")
 
   /**
     *
     */
-  lazy val xmlns: Attr[String, N, DomElement, DomNode] = attr("xmlns")
+  lazy val xmlns: Attr[String, N] = attr("xmlns")
 
   /**
     * If the value of the type attribute is file, this attribute indicates the
@@ -61,7 +61,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val accept: Attr[String, N, DomElement, DomNode] = attr("accept")
+  lazy val accept: Attr[String, N] = attr("accept")
 
   /**
     * Declares the character encoding of the page or script. Used on meta and
@@ -69,7 +69,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val charset: Attr[String, N, DomElement, DomNode] = attr("charset")
+  lazy val charset: Attr[String, N] = attr("charset")
 
   /**
     * This Boolean attribute indicates that the form control is not available for
@@ -81,7 +81,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val disabled: Attr[Boolean, N, DomElement, DomNode] = attr("disabled")
+  lazy val disabled: Attr[Boolean, N] = attr("disabled")
 
   /**
     * Describes elements which belongs to this one. Used on labels and output
@@ -89,15 +89,15 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val `for`: Attr[String, N, DomElement, DomNode] = attr("for")
-  lazy val forId: Attr[String, N, DomElement, DomNode] = `for`
+  lazy val `for`: Attr[String, N] = attr("for")
+  lazy val forId: Attr[String, N] = `for`
 
   /**
     * The number of visible text lines for the control.
     *
     * MDN
     */
-  lazy val rows: Attr[Int, N, DomElement, DomNode] = attr("rows")
+  lazy val rows: Attr[Int, N] = attr("rows")
 
   /**
     * The visible width of the text control, in average character widths. If it
@@ -106,7 +106,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val cols: Attr[Int, N, DomElement, DomNode] = attr("cols")
+  lazy val cols: Attr[Int, N] = attr("cols")
 
   /**
     * The attribute describes the role(s) the current element plays in the
@@ -123,7 +123,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * See: [[http://www.w3.org/TR/role-attribute/#s_role_module_attributes]]
     */
-  lazy val role: Attr[String, N, DomElement, DomNode] = attr("role")
+  lazy val role: Attr[String, N] = attr("role")
 
   /**
     * This attribute gives the value associated with the http-equiv or name
@@ -131,7 +131,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val content: Attr[String, N, DomElement, DomNode] = attr("content")
+  lazy val content: Attr[String, N] = attr("content")
 
   /**
     * This enumerated attribute defines the pragma that can alter servers and
@@ -146,7 +146,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val httpEquiv: Attr[String, N, DomElement, DomNode] = attr("http-equiv")
+  lazy val httpEquiv: Attr[String, N] = attr("http-equiv")
 
   /**
     * This attribute specifies the media which the linked resource applies to.
@@ -156,7 +156,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-media
     */
-  lazy val media: Attr[String, N, DomElement, DomNode] = attr("media")
+  lazy val media: Attr[String, N] = attr("media")
 
   /**
 
@@ -168,7 +168,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val colSpan: Attr[Int, N, DomElement, DomNode] = attr("colspan")
+  lazy val colSpan: Attr[Int, N] = attr("colspan")
 
   /**
     * This attribute contains a non-negative integer value that indicates for how many
@@ -178,7 +178,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     *
     * MDN
     */
-  lazy val rowSpan: Attr[Int, N, DomElement, DomNode] = attr("rowspan")
+  lazy val rowSpan: Attr[Int, N] = attr("rowspan")
 
   /**
     * ARIA is a set of special accessibility attributes which can be added
@@ -370,7 +370,7 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
   /**
     * Indicates a selected option in an option list of a <select> element.
     */
-  lazy val selected: Attr[Boolean, N, DomElement, DomNode] = attr("selected")
+  lazy val selected: Attr[Boolean, N] = attr("selected")
 
   /**
     * For use in &lt;style&gt; tags.
@@ -378,29 +378,29 @@ trait Attrs[N, DomElement <: DomNode, DomNode] { this: AttrBuilder[N, DomElement
     * If this attribute is present, then the style applies only to its parent element.
     * If absent, the style applies to the whole document.
     */
-  lazy val scoped: Attr[Boolean, N, DomElement, DomNode] = attr("scoped")
+  lazy val scoped: Attr[Boolean, N] = attr("scoped")
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val high: Attr[Double, N, DomElement, DomNode] = attr("high")
+  lazy val high: Attr[Double, N] = attr("high")
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val low: Attr[Double, N, DomElement, DomNode] = attr("low")
+  lazy val low: Attr[Double, N] = attr("low")
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val optimum: Attr[Double, N, DomElement, DomNode] = attr("optimum")
+  lazy val optimum: Attr[Double, N] = attr("optimum")
 
   /** IE-specific property to prevent user selection */
-  lazy val unSelectable: Attr[Boolean, N, DomElement, DomNode] = attr("unselectable")
+  lazy val unSelectable: Attr[Boolean, N] = attr("unselectable")
 }
