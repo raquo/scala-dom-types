@@ -12,15 +12,13 @@ import com.raquo.dombuilder.simple.builders.{SimpleCommentBuilder, SimpleTagBuil
 import com.raquo.dombuilder.simple.nodes.{SimpleComment, SimpleElement, SimpleNode, SimpleText}
 import org.scalajs.dom
 
-import scala.scalajs.js
-
 package object simple {
 
   val commentApi: CommentApi = new JsCommentApi {}
 
   val elementApi: ElementApi = new JsElementApi {}
 
-  val eventApi: EventApi[SimpleNode, dom.Node, dom.Event, js.Function1] = new JsEventApi[SimpleNode] {}
+  val eventApi: EventApi = new JsEventApi {}
 
   val textNodeApi: TextApi = new JsTextApi {}
 
@@ -55,14 +53,14 @@ package object simple {
     with PropBuilder[SimpleNode]
 
   object events
-    extends MouseEventProps[SimpleNode, dom.KeyboardEvent, dom.Event, js.Function1]
-    with FormEventProps[SimpleNode, dom.Event, js.Function1]
-    with KeyboardEventProps[SimpleNode, dom.KeyboardEvent, dom.Event, js.Function1]
-    with ClipboardEventProps[SimpleNode, dom.Event, js.Function1]
-    with EventPropBuilder[SimpleNode, dom.Event, js.Function1] // @TODO add more `with`?
-    with SharedEventProps[SimpleNode, dom.ErrorEvent, dom.Event, js.Function1]
+    extends MouseEventProps[SimpleNode]
+    with FormEventProps[SimpleNode]
+    with KeyboardEventProps[SimpleNode]
+    with ClipboardEventProps[SimpleNode]
+    with EventPropBuilder[SimpleNode] // @TODO add more `with`?
+    with SharedEventProps[SimpleNode]
   {
-    override val eventApi: EventApi[SimpleNode, dom.Node, dom.Event, js.Function1] = simple.eventApi
+    override val eventApi: EventApi = simple.eventApi
   }
 
   object styles

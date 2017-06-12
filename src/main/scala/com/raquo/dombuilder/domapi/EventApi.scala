@@ -1,21 +1,22 @@
 package com.raquo.dombuilder.domapi
 
-// @TODO[API] Hahah does coveriance on existential types even make sense? Think about it.
-trait EventApi[N, DomNode, DomEvent, Fun1[-_, +_]] {
+import org.scalajs.dom
 
-  @inline def addEventListener[E <: DomEvent](
-    element: DomNode,
+import scala.scalajs.js
+
+trait EventApi {
+
+  @inline def addEventListener[Ev <: dom.Event](
+    element: dom.Node,
     eventName: String,
-    eventHandler: Fun1[E, Unit],
+    eventHandler: js.Function1[Ev, Unit],
     useCapture: Boolean = false
   ): Unit
 
-  @inline def removeEventListener[E <: DomEvent](
-    element: DomNode,
+  @inline def removeEventListener[Ev <: dom.Event](
+    element: dom.Node,
     eventName: String,
-    eventHandler: Fun1[E, Unit],
+    eventHandler: js.Function1[Ev, Unit],
     useCapture: Boolean = false
   ): Unit
-
-  @inline def toDomFun[A, B](eventListener: A => B): Fun1[A, B]
 }

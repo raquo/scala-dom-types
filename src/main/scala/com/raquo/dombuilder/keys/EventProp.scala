@@ -2,19 +2,20 @@ package com.raquo.dombuilder.keys
 
 import com.raquo.dombuilder.domapi.EventApi
 import com.raquo.dombuilder.modifiers.EventPropSetter
+import org.scalajs.dom
 
-class EventProp[E <: DomEvent, N, DomEvent, Fun1[-_, +_]](
+class EventProp[Ev <: dom.Event, N](
   val name: String,
-  val eventApi: EventApi[N, _, DomEvent, Fun1]
+  val eventApi: EventApi
 ) {
 
-  def := (value: E => Unit): EventPropSetter[E, N, DomEvent, Fun1] = {
-    new EventPropSetter[E, N, DomEvent, Fun1](this, value, eventApi)
+  def := (value: Ev => Unit): EventPropSetter[Ev, N] = {
+    new EventPropSetter[Ev, N](this, value, eventApi)
   }
 
   // @TODO[Performance] Check how much function wrapping is happening here (there's also "value _" in user code)
-  def := (value: () => Unit): EventPropSetter[E, N, DomEvent, Fun1] = {
-    new EventPropSetter[E, N, DomEvent, Fun1](this, _ => value(), eventApi)
+  def := (value: () => Unit): EventPropSetter[Ev, N] = {
+    new EventPropSetter[Ev, N](this, _ => value(), eventApi)
   }
 
   def domName: String = name.toLowerCase

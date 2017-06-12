@@ -5,27 +5,23 @@ import org.scalajs.dom
 
 import scala.scalajs.js
 
-trait JsEventApi[N] extends domapi.EventApi[N, dom.Node, dom.Event, js.Function1] {
+trait JsEventApi extends domapi.EventApi {
 
-  @inline override def addEventListener[E <: dom.Event](
+  @inline override def addEventListener[Ev <: dom.Event](
     element: dom.Node,
     eventName: String,
-    eventHandler: js.Function1[E, Unit],
+    eventHandler: js.Function1[Ev, Unit],
     useCapture: Boolean = false
   ): Unit = {
     element.addEventListener(eventName, eventHandler, useCapture)
   }
 
-  @inline override def removeEventListener[E <: dom.Event](
+  @inline override def removeEventListener[Ev <: dom.Event](
     element: dom.Node,
     eventName: String,
-    eventHandler: js.Function1[E, Unit],
+    eventHandler: js.Function1[Ev, Unit],
     useCapture: Boolean = false
   ): Unit = {
     element.removeEventListener(eventName, eventHandler, useCapture)
-  }
-
-  @inline override def toDomFun[A, B](eventListener: A => B): js.Function1[A, B] = {
-    eventListener
   }
 }

@@ -2,26 +2,27 @@ package com.raquo.dombuilder.definitions.eventProps
 
 import com.raquo.dombuilder.builders.EventPropBuilder
 import com.raquo.dombuilder.keys.EventProp
+import org.scalajs.dom
 
 /**
   * Keyboard Events - triggered by user action son the keyboard or similar user actions
   */
-trait KeyboardEventProps[N, DomKeyboardEvent <: DomEvent, DomEvent, Fun1[-_, +_]] {
-  this: EventPropBuilder[N, DomEvent, Fun1] =>
+trait KeyboardEventProps[N] {
+  this: EventPropBuilder[N] =>
 
   /**
     * The keydown event is raised when the user presses a keyboard key.
     *
     * MDN
     */
-  lazy val onKeyDown: EventProp[DomKeyboardEvent, N, DomEvent, Fun1] = eventProp("keydown")
+  lazy val onKeyDown: EventProp[dom.KeyboardEvent, N] = eventProp("keydown")
 
   /**
     * The keyup event is raised when the user releases a key that's been pressed.
     *
     * MDN
     */
-  lazy val onKeyUp: EventProp[DomKeyboardEvent, N, DomEvent, Fun1] = eventProp("keyup")
+  lazy val onKeyUp: EventProp[dom.KeyboardEvent, N] = eventProp("keyup")
 
   /**
     * The keypress event should be raised when the user presses a key on the keyboard.
@@ -32,5 +33,5 @@ trait KeyboardEventProps[N, DomKeyboardEvent <: DomEvent, DomEvent, Fun1[-_, +_]
     *
     * MDN
     */
-  lazy val onKeyPress: EventProp[DomKeyboardEvent, N, DomEvent, Fun1] = eventProp("keypress")
+  lazy val onKeyPress: EventProp[dom.KeyboardEvent, N] = eventProp("keypress")
 }
