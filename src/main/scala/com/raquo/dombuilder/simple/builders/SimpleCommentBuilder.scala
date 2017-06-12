@@ -9,4 +9,8 @@ trait SimpleCommentBuilder extends NodeBuilder[SimpleComment, SimpleNode, dom.Co
   override def createNode(): SimpleComment = {
     new SimpleComment("")
   }
+
+  def createNode(text: String): SimpleComment = {
+    new SimpleComment(text)
+  }
 }

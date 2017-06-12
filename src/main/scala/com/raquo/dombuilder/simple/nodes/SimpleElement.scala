@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.simple.nodes
 
-import com.raquo.dombuilder.domapi.{ElementApi, EventApi, NodeApi, TreeApi}
+import com.raquo.dombuilder.domapi.{ElementApi, EventApi, TreeApi}
 import com.raquo.dombuilder.nodes.{ChildNode, Element, EventfulNode, ParentNode}
 import com.raquo.dombuilder.simple
 import org.scalajs.dom
@@ -18,8 +18,6 @@ class SimpleElement(val tagName: String)
   override val elementApi: ElementApi = simple.elementApi
 
   override val eventApi: EventApi[SimpleNode, dom.Node, dom.Event, js.Function1] = simple.eventApi
-
-  override val nodeApi: NodeApi[SimpleNode, dom.Node] = simple.nodeApi
 
   override val treeApi: TreeApi[SimpleNode, dom.Node] = simple.treeApi
 }

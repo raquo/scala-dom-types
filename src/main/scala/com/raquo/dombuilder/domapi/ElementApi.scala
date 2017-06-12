@@ -10,5 +10,7 @@ trait ElementApi {
 
   @inline def removeAttribute(element: DElement, attrName: String): Unit
 
+  @inline def setProperty[V](element: DElement, propName: String, value: V): Unit
+
   @inline def setStyle[V](element: DElement, propName: String, value: V): Unit
 }

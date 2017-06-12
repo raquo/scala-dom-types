@@ -1,15 +1,14 @@
 package com.raquo.dombuilder.modifiers
 
-import com.raquo.dombuilder.DNode
 import com.raquo.dombuilder.keys.Prop
-import com.raquo.dombuilder.nodes.Node
+import com.raquo.dombuilder.nodes.Element
 
 class PropSetter[V, N](
   val key: Prop[V, N],
   val value: V
-) extends Modifier[Node[N, DNode, DNode]] {
+) extends Modifier[Element[N]] {
 
-  override def applyTo(node: Node[N, DNode, DNode]): Unit = {
-    node.nodeApi.setProperty(node.ref, key.name, value)
+  override def applyTo(node: Element[N]): Unit = {
+    node.elementApi.setProperty(node.ref, key.name, value)
   }
 }

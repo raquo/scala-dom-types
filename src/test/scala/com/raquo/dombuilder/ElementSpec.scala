@@ -29,7 +29,7 @@ class ElementSpec extends UnitSpec {
   }
 
   it("renders a comment") {
-    mount(div(simple.commentBuilder(textContent := "yolo")))
+    mount(div(simple.commentBuilder.createNode("yolo")))
     expectNode(div like (simple.commentBuilder like "yolo"))
     unmount()
   }

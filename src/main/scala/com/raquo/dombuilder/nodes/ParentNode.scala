@@ -2,8 +2,7 @@ package com.raquo.dombuilder.nodes
 
 import com.raquo.dombuilder.domapi.TreeApi
 
-// @TODO[SERVER]
-import scala.scalajs.js
+import scala.collection.mutable
 
 /** Represents a node that has or might have children.
   *
@@ -14,9 +13,9 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { th
 
   val treeApi: TreeApi[N, DomNode]
 
-  protected[this] var _maybeChildren: js.UndefOr[js.Array[ChildNode[N, DomNode, DomNode]]] = js.undefined
+  protected[this] var _maybeChildren: Option[mutable.Buffer[ChildNode[N, DomNode, DomNode]]] = None
 
-  @inline def maybeChildren: js.UndefOr[js.Array[ChildNode[N, DomNode, DomNode]]] = _maybeChildren
+  @inline def maybeChildren: Option[mutable.Buffer[ChildNode[N, DomNode, DomNode]]] = _maybeChildren
 
   /** @return Whether child was successfully appended */
   def appendChild(child: ChildNode[N, DomNode, DomNode]): Boolean = {
@@ -27,9 +26,9 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { th
 
       // 2. Update this node
       if (_maybeChildren.isEmpty) {
-        _maybeChildren = js.Array(child)
+        _maybeChildren = Some(mutable.Buffer(child))
       } else {
-        _maybeChildren.foreach(children => children.push(child))
+        _maybeChildren.foreach(children => children += child)
       }
 
       // 3. Update child
@@ -52,7 +51,7 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { th
         if (removed) {
 
           // 2. Update this node
-          children.splice(index = indexOfChild, deleteCount = 1)
+          children.remove(indexOfChild, count = 1)
 
           // 3. Update child
           child.clearParent()
@@ -68,7 +67,7 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { th
 
     // 0. Prep this node
     if (_maybeChildren.isEmpty) {
-      _maybeChildren = js.defined(js.Array())
+      _maybeChildren = Some(mutable.Buffer())
     }
 
     _maybeChildren.foreach { children =>
@@ -86,7 +85,7 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { th
 
       if (inserted) {
         // 2. Update this node
-        children.splice(atIndex, 0, child)
+        children.insert(atIndex, child)
 
         // 3. Update child
         child.setParent(this)
@@ -136,7 +135,7 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { th
   def replaceChildren(
     fromIndex: Int,
     toIndex: Int,
-    newChildren: js.Array[ChildNode[N, DomNode, DomNode]]
+    newChildren: Iterable[ChildNode[N, DomNode, DomNode]]
   ): Boolean = {
     // A note on efficiency of this method:
     //
@@ -161,7 +160,7 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { th
 
     // 0. Prep this node
     if (_maybeChildren.isEmpty) {
-      _maybeChildren = js.defined(js.Array())
+      _maybeChildren = Some(mutable.Buffer())
     }
 
     var replaced = false
@@ -196,7 +195,7 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { th
     replaced
   }
 
-  def replaceAllChildren(newChildren: js.Array[ChildNode[N, DomNode, DomNode]]): Unit = {
+  def replaceAllChildren(newChildren: Iterable[ChildNode[N, DomNode, DomNode]]): Unit = {
     // @TODO[Performance] This could be optimized
     // @TODO[Integrity] This does not properly report failures like other methods do
 
@@ -210,6 +209,6 @@ trait ParentNode[N, +Ref <: DomNode, DomNode] extends Node[N, Ref, DomNode] { th
   }
 
   def indexOfChild(child: ChildNode[N, DomNode, DomNode]): Int = {
-    maybeChildren.map(children => children.indexOf(child)).getOrElse(-1)
+    _maybeChildren.map(children => children.indexOf(child)).getOrElse(-1)
   }
 }
