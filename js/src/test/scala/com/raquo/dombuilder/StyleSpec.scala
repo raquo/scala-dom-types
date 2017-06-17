@@ -1,7 +1,7 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.simple.tags.div
-import com.raquo.dombuilder.simple.styles.{display, height, width}
+import com.raquo.dombuilder.jsdom.simple.tags.div
+import com.raquo.dombuilder.jsdom.simple.styles.{display, height, width}
 
 import scala.util.Random
 
@@ -21,7 +21,7 @@ class StyleSpec extends UnitSpec {
       height := expectedHeight
     ))
     expectNode(
-      div like(
+      div like (
         width is expectedWidth,
         height is expectedHeight
       )

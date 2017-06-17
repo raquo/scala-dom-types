@@ -1,8 +1,8 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.simple.nodeProps.textContent
-import com.raquo.dombuilder.simple.tags.{div, hr, p, span}
-import com.raquo.dombuilder.simple.tags2.article
+import com.raquo.dombuilder.jsdom.simple
+import com.raquo.dombuilder.jsdom.simple.tags.{div, hr, p, span}
+import com.raquo.dombuilder.jsdom.simple.tags2.article
 
 class ElementSpec extends UnitSpec {
 
@@ -29,8 +29,8 @@ class ElementSpec extends UnitSpec {
   }
 
   it("renders a comment") {
-    mount(div(simple.commentBuilder.createNode("yolo")))
-    expectNode(div like (simple.commentBuilder like "yolo"))
+    mount(div(simple.commentNode("yolo")))
+    expectNode(div like (simple.commentNode("") like "yolo")) // @TODO[API] Horrible, use a CommentBuilder
     unmount()
   }
 

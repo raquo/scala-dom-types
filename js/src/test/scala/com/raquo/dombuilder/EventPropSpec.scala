@@ -1,9 +1,9 @@
 package com.raquo.dombuilder
 
-import com.raquo.dombuilder.simple.attrs.cls
-import com.raquo.dombuilder.simple.tags.{div, span}
-import com.raquo.dombuilder.simple.events.{onClick, onScroll}
-import com.raquo.dombuilder.simple.nodes.SimpleText
+import com.raquo.dombuilder.jsdom.simple.attrs.cls
+import com.raquo.dombuilder.jsdom.simple.tags.{div, span}
+import com.raquo.dombuilder.jsdom.simple.events.{onClick, onScroll}
+import com.raquo.dombuilder.jsdom.simple.nodes.SimpleText
 
 class EventPropSpec extends UnitSpec {
 

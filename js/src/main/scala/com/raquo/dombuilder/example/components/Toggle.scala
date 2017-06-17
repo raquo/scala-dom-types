@@ -1,8 +1,8 @@
 package com.raquo.dombuilder.example.components
 
-import com.raquo.dombuilder.simple.nodes.{SimpleElement, SimpleText}
-import com.raquo.dombuilder.simple.{attrs, events, styles}
-import com.raquo.dombuilder.simple.tags._
+import com.raquo.dombuilder.jsdom.simple
+import com.raquo.dombuilder.jsdom.simple.{SimpleHtmlElement, attrs, events, styles}
+import com.raquo.dombuilder.jsdom.simple.tags._
 
 class Toggle(initialIsChecked: Boolean) {
 
@@ -13,9 +13,9 @@ class Toggle(initialIsChecked: Boolean) {
     events.onChange := (_ => setChecked(!_isChecked))
   )
 
-  private val captionNode = new SimpleText(captionText)
+  private val captionNode = simple.textNode(captionText)
 
-  val element: SimpleElement = div(
+  val element: SimpleHtmlElement = div(
     attrs.cls := "Toggle",
     div(
       inputNode,

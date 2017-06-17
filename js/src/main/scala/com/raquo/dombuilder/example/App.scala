@@ -1,8 +1,8 @@
 package com.raquo.dombuilder.example
 
 import com.raquo.dombuilder.example.components.{Counter, Toggle}
-import com.raquo.dombuilder.simple.nodes.SimpleElement
-import com.raquo.dombuilder.{Root, simple}
+import com.raquo.dombuilder.jsdom.simple.SimpleHtmlElement
+import com.raquo.dombuilder.jsdom.simple
 import org.scalajs.dom
 import org.scalajs.dom.document
 
@@ -17,18 +17,18 @@ object App extends js.JSApp {
       val container = document.getElementById("app-container")
       container.textContent = ""
 
-      val root = Root.mount(container, renderCounter(), simple.treeApi)
+      val root = simple.root.mount(container, renderCounter())
 
       // root.unmount()
     })
   }
 
-  def renderCounter(): SimpleElement = {
+  def renderCounter(): SimpleHtmlElement = {
     val counter = new Counter()
     counter.element
   }
 
-  def renderToggle(): SimpleElement = {
+  def renderToggle(): SimpleHtmlElement = {
     val toggle = new Toggle(initialIsChecked = true)
 
 //    dom.window.setInterval(() => {
