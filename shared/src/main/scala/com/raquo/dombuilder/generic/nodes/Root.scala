@@ -2,7 +2,7 @@ package com.raquo.dombuilder.generic.nodes
 
 // @TODO[API] Root can not be a generic class just because we don't have a generic implementation of `appendChild`. It was possible when we had TreeApi.
 
-trait Root[N, Ch <: N with ChildNode[N, BaseRef, BaseRef], +ParentRef <: BaseRef, BaseRef] extends ParentNode[N, ParentRef, BaseRef] { this: N =>
+trait Root[N, +Ch <: N with ChildNode[N, BaseRef, BaseRef], +ParentRef <: BaseRef, BaseRef] extends ParentNode[N, ParentRef, BaseRef] { this: N =>
 
   val container: ParentRef
 
