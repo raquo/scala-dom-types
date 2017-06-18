@@ -78,13 +78,10 @@ trait MountOps[N] {
           container.parentNode == dom.document.body,
           "ASSERT FAIL [mount]: Container is not mounted to <body> (what did you do!?)."
         )
-        // @TODO Looks like this assert is somehow triggering this Scala.js bug? @see https://github.com/scala-js/scala-js/issues/2712
-        // @TODO Or maybe something else is going on? Revisit when Scala.js 0.6.15 is released
-        // @TODO: Note: this bug has been manifesting in Laminar unit tests, not Scala DOM Builder's own tests
-        //    assert(
-        //      container.firstChild == null,
-        //      "ASSERT FAIL [mount]: Unexpected children in container. Call unmount() before mounting again."
-        //    )
+        assert(
+          container.firstChild == null,
+          "ASSERT FAIL [mount]: Unexpected children in container. Call unmount() before mounting again."
+        )
         mountedElementClue = clue
         maybeRoot = Some(makeRoot(container, node))
       case None =>
