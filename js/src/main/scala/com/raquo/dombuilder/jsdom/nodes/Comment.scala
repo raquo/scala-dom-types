@@ -4,9 +4,11 @@ import org.scalajs.dom
 import com.raquo.dombuilder.generic
 import com.raquo.dombuilder.generic.nodes.RefNode
 
-trait Comment extends generic.nodes.Comment with RefNode[dom.Comment] {
+// Note: Due to Scala's Inheritance Linearization, order of supers is important here.
+// Current order ensures that Comment's body with a setText(_text) call is run AFTER
+// RefNode's body (which populates the ref). Doing it the other way causes an NPE.
 
-  setText(text)
+trait Comment extends RefNode[dom.Comment] with generic.nodes.Comment {
 
   def setText(newText: String): Unit = {
     _text = newText

@@ -8,6 +8,3 @@ class SimpleText(override protected[this] var _text: String)
   extends SimpleRefNode
   with Text
   with ChildNode[SimpleRefNode, dom.Text]
-{
-  setText(_text) // @TODO[API] Seems like this should be in Text trait, but how?
-}
