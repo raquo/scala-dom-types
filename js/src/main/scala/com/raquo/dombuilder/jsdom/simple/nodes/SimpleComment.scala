@@ -5,9 +5,9 @@ import com.raquo.dombuilder.jsdom.simple.SimpleRefNode
 import org.scalajs.dom
 
 class SimpleComment(override protected[this] var _text: String)
-  extends Comment
+  extends SimpleRefNode
+  with Comment
   with ChildNode[SimpleRefNode, dom.Comment]
-  with SimpleRefNode
 {
   setText(_text) // @TODO[API] Seems like this should be in Comment trait, but how?
 }

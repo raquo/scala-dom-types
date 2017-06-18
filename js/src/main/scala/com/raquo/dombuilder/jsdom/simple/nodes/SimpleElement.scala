@@ -8,8 +8,9 @@ class SimpleElement[+Ref <: dom.Element](
   override val tagName: String,
   override val void: Boolean = false
 )
-  extends Element[Ref]
+  extends SimpleRefNode
+  with Element[Ref]
   with ChildNode[SimpleRefNode, Ref]
   with ParentNode[SimpleRefNode, Ref]
   with EventfulNode[SimpleRefNode, Ref]
-  with SimpleRefNode
+

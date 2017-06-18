@@ -17,7 +17,7 @@ object App extends js.JSApp {
       val container = document.getElementById("app-container")
       container.textContent = ""
 
-      val root = simple.root.mount(container, renderCounter())
+      val root = simple.mount(container, renderCounter())
 
       // root.unmount()
     })

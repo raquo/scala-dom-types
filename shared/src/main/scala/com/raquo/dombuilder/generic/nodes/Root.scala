@@ -1,10 +1,14 @@
 package com.raquo.dombuilder.generic.nodes
 
-trait Root[N, +ParentRef <: BaseRef, +ChildRef <: BaseRef, BaseRef] extends ParentNode[N, ParentRef, BaseRef] { this: N =>
+// @TODO[API] Root can not be a generic class just because we don't have a generic implementation of `appendChild`. It was possible when we had TreeApi.
+
+trait Root[N, Ch <: N with ChildNode[N, BaseRef, BaseRef], +ParentRef <: BaseRef, BaseRef] extends ParentNode[N, ParentRef, BaseRef] { this: N =>
 
   val container: ParentRef
 
-  val child: N with ChildNode[N, ChildRef, BaseRef]
+  val child: Ch
+
+  appendChild(child)
 
   /**
     * When we create a Root, we don't want to create a new HTML Element, we want to
@@ -15,5 +19,15 @@ trait Root[N, +ParentRef <: BaseRef, +ChildRef <: BaseRef, BaseRef] extends Pare
   }
 
   /** @return Whether child was successfully unmounted */
-  def unmount(): Boolean
+  def unmount(): Boolean = {
+    var removed = false
+    val maybeParentNode = child.maybeParent
+    maybeParentNode.foreach { parentNode =>
+      removed = parentNode.removeChild(child)
+      if (removed) {
+        child.clearParent()
+      }
+    }
+    removed
+  }
 }

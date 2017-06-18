@@ -4,7 +4,7 @@ import com.raquo.dombuilder.generic
 import com.raquo.dombuilder.generic.nodes.RefNode
 import org.scalajs.dom
 
-abstract class Text extends generic.nodes.Text with RefNode[dom.Text] {
+trait Text extends generic.nodes.Text with RefNode[dom.Text] {
 
   def setText(newText: String): Unit = {
     _text = newText

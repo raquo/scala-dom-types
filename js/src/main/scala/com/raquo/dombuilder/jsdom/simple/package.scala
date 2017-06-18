@@ -6,33 +6,14 @@ import com.raquo.dombuilder.generic.simple.SharedSimple
 import com.raquo.dombuilder.jsdom.builders.StyleBuilder
 import com.raquo.dombuilder.jsdom.definitions.styles.{Styles, Styles2}
 import com.raquo.dombuilder.jsdom.keys.EventProp
+import com.raquo.dombuilder.jsdom.nodes.ChildNode
 import com.raquo.dombuilder.jsdom.simple.builders.{SimpleEventBuilder, SimpleTag, SimpleTagBuilder}
-import com.raquo.dombuilder.jsdom.simple.nodes.{SimpleComment, SimpleElement, SimpleText}
+import com.raquo.dombuilder.jsdom.simple.nodes.{SimpleElement, SimpleRoot, SimpleText}
 import org.scalajs.dom
 
 package object simple extends SharedSimple {
 
   type SimpleHtmlElement = SimpleElement[dom.html.Element]
-
-  // Next steps
-  // - REMOVE SOME OLD CODE THAT IS SURELY NOT NEEDED
-  //
-  // - GET EXAMPLE CODE TO "COMPILE" WITH NEW TYPES
-  // - ESPECIALLY NESTING AND MODIFIERS - CHECK IN INTELLIJ
-  // - get the JS project to truly compile
-  // - make a dummy JVM project and make it truly compile
-  // - get the tests to pass on JS
-  // - move around / rename things (do we keep the Js prefix? what about the .generic package?)
-  // - get Laminar to work with the new types
-  // - COMMIT and explain what was done
-     // - cross project
-     // - simplify and decouple the types
-     // - make DOM type definitions universally reusable and more extensible
-     // - replace *Api members with Js* traits
-  // - write an example component that compiles on both JS and JVM
-  // - later
-  // - write a JVM HTML renderer (html & attrs for now, no styles)
-  // - try adding specific types to Tags (InputElement etc.)
 
   object events
     extends MouseEventProps[EventProp, dom.Event, dom.MouseEvent]
@@ -64,7 +45,12 @@ package object simple extends SharedSimple {
     extends Styles2
     with StyleBuilder
 
-  val root = simple.nodes.SimpleRoot
+  def mount(
+    container: dom.Element,
+    child: SimpleRefNode with ChildNode[SimpleRefNode, dom.Element]
+  ): SimpleRoot = {
+    new SimpleRoot(container, child)
+  }
 
   implicit def textNode(text: String): SimpleText = {
     new SimpleText(text)

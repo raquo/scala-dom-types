@@ -2,9 +2,9 @@ package com.raquo.dombuilder.utils.testing
 
 import com.raquo.dombuilder.generic.nodes.Root
 import com.raquo.dombuilder.jsdom.nodes.ChildNode
-import com.raquo.dombuilder.jsdom.simple
 import com.raquo.dombuilder.jsdom.simple.SimpleRefNode
 import com.raquo.dombuilder.jsdom.simple.builders.{SimpleCommentBuilder, SimpleTextBuilder}
+import com.raquo.dombuilder.jsdom.simple
 import com.raquo.dombuilder.utils.testing.matching.{ExpectedNode, RuleImplicits}
 import org.scalajs.dom
 import org.scalatest.Suite
@@ -23,10 +23,10 @@ trait SimpleSpec
     new ExpectedNode(SimpleTextBuilder)
   }
 
-  override def rawMount(
+  override def makeRoot(
     container: dom.Element,
     child: SimpleRefNode with ChildNode[SimpleRefNode, dom.Element]
-  ): Root[SimpleRefNode, dom.Element, dom.Element, dom.Node] = {
-    simple.root.mount(container, child)
+  ): Root[SimpleRefNode, SimpleRefNode with ChildNode[SimpleRefNode, dom.Element], dom.Element, dom.Node] = {
+    simple.mount(container, child)
   }
 }

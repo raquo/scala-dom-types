@@ -15,17 +15,17 @@ trait MountOps[N] {
 
   private[this] var maybeContainer: Option[dom.Element] = None
 
-  private[this] var maybeRoot: Option[Root[N, dom.Element, dom.Element, dom.Node]] = None
+  private[this] var maybeRoot: Option[Root[N, N with ChildNode[N, dom.Element], dom.Element, dom.Node]] = None
 
   def container: dom.Element = maybeContainer.get
 
-  def root: Root[N, dom.Element, dom.Element, dom.Node] = maybeRoot.get
+  def root: Root[N, N with ChildNode[N, dom.Element], dom.Element, dom.Node] = maybeRoot.get
 
-  // @TODO there's gotta be a better way to do this. rawMount should not be exposed to users
-  def rawMount(
+  // @TODO[API] We shouldn't need this, but we don't have a generic Root :(
+  def makeRoot(
     container: dom.Element,
     child: N with ChildNode[N, dom.Element]
-  ): Root[N, dom.Element, dom.Element, dom.Node]
+  ): Root[N, N with ChildNode[N, dom.Element], dom.Element, dom.Node]
 
   val defaultMountedElementClue = "root"
 
@@ -86,7 +86,7 @@ trait MountOps[N] {
         //      "ASSERT FAIL [mount]: Unexpected children in container. Call unmount() before mounting again."
         //    )
         mountedElementClue = clue
-        maybeRoot = Some(rawMount(container, node))
+        maybeRoot = Some(makeRoot(container, node))
       case None =>
         doFail("ASSERT FAIL [mount]: Container not found. resetDocument() usually does this in beforeEach().")
     }
