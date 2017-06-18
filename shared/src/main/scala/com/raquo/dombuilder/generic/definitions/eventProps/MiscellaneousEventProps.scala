@@ -1,11 +1,11 @@
 package com.raquo.dombuilder.generic.definitions.eventProps
 
-import com.raquo.dombuilder.generic.builders.Builder
+import com.raquo.dombuilder.generic.builders.SpecializedBuilder
 
 /**
   * Miscellaneous Events
   */
-trait MiscellaneousEventProps[P[_], Ev] { this: Builder[P] =>
+trait MiscellaneousEventProps[P[_], Ev] { this: SpecializedBuilder[P] =>
 
   /**
     * Fires when a <menu> element is shown as a context menu

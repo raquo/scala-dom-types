@@ -1,8 +1,8 @@
 package com.raquo.dombuilder.generic.definitions.props
 
-import com.raquo.dombuilder.generic.builders.Builder
+import com.raquo.dombuilder.generic.builders.SpecializedBuilder
 
-trait Props[P[_]] { this: Builder[P] =>
+trait Props[P[_]] { this: SpecializedBuilder[P] =>
 
   /**
     * Space-separated list of CSS class names

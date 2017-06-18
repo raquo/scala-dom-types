@@ -1,13 +1,13 @@
 package com.raquo.dombuilder.generic.definitions.eventProps
 
-import com.raquo.dombuilder.generic.builders.Builder
+import com.raquo.dombuilder.generic.builders.SpecializedBuilder
 
 /**
   * Media Events - triggered by media like videos, images and audio. These apply to
   * all HTML elements, but they are most common in media elements, like <audio>,
   * <embed>, <img>, <object>, and <video>.
   */
-trait MediaEventProps[P[_], Ev] { this: Builder[P] =>
+trait MediaEventProps[P[_], Ev] { this: SpecializedBuilder[P] =>
 
   /**
     * Script to be run on abort

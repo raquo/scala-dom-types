@@ -1,5 +1,6 @@
 package com.raquo.dombuilder.utils.testing.matching
 
+import com.raquo.dombuilder.generic.builders.Builder
 import com.raquo.dombuilder.generic.nodes.{Comment, Element, Text}
 import com.raquo.dombuilder.utils.testing.UtilSpec.repr
 // @TODO[SERVER]
@@ -9,14 +10,15 @@ import scala.collection.mutable
 
 // @TODO[API] Implement ExpectedNode as a custom Node[N] once it is generic enough
 // @TODO[API] emptyNode is a clutch, what we really care about is its type (it's the `div` in `div like (...)` part)
-// @TODO ^^^ instead of emptyNode we should accept a NodeBuilder, and make Tag extend a NodeBuilder
 
-class ExpectedNode[N](private val emptyNode: N) {
+class ExpectedNode[N](builder: Builder[N]) {
 
   import ExpectedNode._
 
   // @TODO[Integrity] Write tests for this test util; it's quite complicated.
   // @TODO[Integrity] assert that no attrs / props / eventprops / etc. are defined because those won't be tested ...what the hell does this mean, I forgot :(
+
+  private val emptyNode: N = builder.build()
 
   private val checksBuffer: mutable.Buffer[Check] = mutable.Buffer()
 

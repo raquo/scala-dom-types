@@ -1,11 +1,11 @@
 package com.raquo.dombuilder.generic.definitions.eventProps
 
-import com.raquo.dombuilder.generic.builders.Builder
+import com.raquo.dombuilder.generic.builders.SpecializedBuilder
 
 /**
   * Window Events
   */
-trait WindowEventProps[P[_], Ev] { this: Builder[P] =>
+trait WindowEventProps[P[_], Ev] { this: SpecializedBuilder[P] =>
 
   /**
     * The load event fires at the end of the document loading process. At this

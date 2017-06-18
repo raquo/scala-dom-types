@@ -1,10 +1,10 @@
 package com.raquo.dombuilder.generic.definitions.attrs
 
-import com.raquo.dombuilder.generic.builders.Builder
+import com.raquo.dombuilder.generic.builders.SpecializedBuilder
 
 // @TODO[Performance] Do we need those vals to be lazy? Scala.js optimizes away unused code anyway, and lazy vals produce more generated code than vals
 
-trait Attrs[A[_]] { this: Builder[A] =>
+trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
 
   /**
     * This is the single required attribute for anchors defining a hypertext

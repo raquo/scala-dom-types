@@ -2,13 +2,11 @@ package com.raquo.dombuilder.generic.builders
 
 import com.raquo.dombuilder.generic.modifiers.Modifier
 
-trait Tag[+N, Ref] {
+trait Tag[+N, Ref] extends Builder[N] {
 
   val tagName: String
 
   val void: Boolean
-
-  def build(): N
 
   def apply(modifiers: Modifier[N]*): N = {
     val element = build()

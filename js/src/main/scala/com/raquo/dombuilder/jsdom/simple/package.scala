@@ -1,6 +1,5 @@
 package com.raquo.dombuilder.jsdom
 
-import com.raquo.dombuilder.generic.builders.Builder
 import com.raquo.dombuilder.generic.definitions.eventProps.{ClipboardEventProps, ErrorEventProps, FormEventProps, KeyboardEventProps, MouseEventProps}
 import com.raquo.dombuilder.generic.definitions.tags._
 import com.raquo.dombuilder.generic.simple.SharedSimple
@@ -66,10 +65,6 @@ package object simple extends SharedSimple {
     with StyleBuilder
 
   val root = simple.nodes.SimpleRoot
-
-  def commentNode(text: String): SimpleComment = {
-    new SimpleComment(text)
-  }
 
   implicit def textNode(text: String): SimpleText = {
     new SimpleText(text)

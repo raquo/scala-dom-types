@@ -1,10 +1,11 @@
 package com.raquo.dombuilder.utils.testing
 
-import com.raquo.dombuilder.generic.nodes.{Root, Text}
+import com.raquo.dombuilder.generic.nodes.Root
 import com.raquo.dombuilder.jsdom.nodes.ChildNode
 import com.raquo.dombuilder.jsdom.simple
 import com.raquo.dombuilder.jsdom.simple.SimpleRefNode
-import com.raquo.dombuilder.utils.testing.matching.RuleImplicits
+import com.raquo.dombuilder.jsdom.simple.builders.{SimpleCommentBuilder, SimpleTextBuilder}
+import com.raquo.dombuilder.utils.testing.matching.{ExpectedNode, RuleImplicits}
 import org.scalajs.dom
 import org.scalatest.Suite
 
@@ -14,7 +15,13 @@ trait SimpleSpec
   with DomEventSimulatorSpec {
   this: Suite =>
 
-  override val emptyTextNode: SimpleRefNode with Text = simple.textNode("")
+  override def comment: ExpectedNode[SimpleRefNode] = {
+    new ExpectedNode(SimpleCommentBuilder)
+  }
+
+  override def textNode: ExpectedNode[SimpleRefNode] = {
+    new ExpectedNode(SimpleTextBuilder)
+  }
 
   override def rawMount(
     container: dom.Element,

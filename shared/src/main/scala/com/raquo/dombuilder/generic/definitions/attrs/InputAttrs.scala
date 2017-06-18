@@ -1,8 +1,8 @@
 package com.raquo.dombuilder.generic.definitions.attrs
 
-import com.raquo.dombuilder.generic.builders.Builder
+import com.raquo.dombuilder.generic.builders.SpecializedBuilder
 
-trait InputAttrs[A[_]] { this: Builder[A] =>
+trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
 
   /**
     * The URI of a program that processes the information submitted via the form.
