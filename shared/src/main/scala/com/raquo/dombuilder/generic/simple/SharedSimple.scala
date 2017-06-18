@@ -1,8 +1,8 @@
 package com.raquo.dombuilder.generic.simple
 
 import com.raquo.dombuilder.generic.builders.SpecializedBuilder
-import com.raquo.dombuilder.generic.definitions.attrs.{Attrs, GlobalAttrs, InputAttrs}
-import com.raquo.dombuilder.generic.definitions.props.{NodeProps, Props}
+import com.raquo.dombuilder.generic.defs.attrs.{Attrs, GlobalAttrs, InputAttrs}
+import com.raquo.dombuilder.generic.defs.props.{NodeProps, Props}
 import com.raquo.dombuilder.generic.keys.{Attr, Prop}
 
 trait SharedSimple {

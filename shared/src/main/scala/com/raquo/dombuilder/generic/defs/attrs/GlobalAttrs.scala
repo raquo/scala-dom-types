@@ -1,4 +1,4 @@
-package com.raquo.dombuilder.generic.definitions.attrs
+package com.raquo.dombuilder.generic.defs.attrs
 
 import com.raquo.dombuilder.generic.builders.SpecializedBuilder
 

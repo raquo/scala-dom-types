@@ -1,4 +1,4 @@
-package com.raquo.dombuilder.generic.definitions.tags
+package com.raquo.dombuilder.generic.defs.tags
 
 import com.raquo.dombuilder.generic.builders.TagBuilder
 

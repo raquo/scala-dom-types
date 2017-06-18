@@ -1,4 +1,4 @@
-package com.raquo.dombuilder.generic.definitions.props
+package com.raquo.dombuilder.generic.defs.props
 
 import com.raquo.dombuilder.generic.builders.SpecializedBuilder
 

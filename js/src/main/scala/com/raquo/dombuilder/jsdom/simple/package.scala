@@ -1,10 +1,10 @@
 package com.raquo.dombuilder.jsdom
 
-import com.raquo.dombuilder.generic.definitions.eventProps.{ClipboardEventProps, ErrorEventProps, FormEventProps, KeyboardEventProps, MouseEventProps}
-import com.raquo.dombuilder.generic.definitions.tags._
+import com.raquo.dombuilder.generic.defs.eventProps.{ClipboardEventProps, ErrorEventProps, FormEventProps, KeyboardEventProps, MouseEventProps}
+import com.raquo.dombuilder.generic.defs.tags._
 import com.raquo.dombuilder.generic.simple.SharedSimple
 import com.raquo.dombuilder.jsdom.builders.StyleBuilder
-import com.raquo.dombuilder.jsdom.definitions.styles.{Styles, Styles2}
+import com.raquo.dombuilder.jsdom.defs.styles.{Styles, Styles2}
 import com.raquo.dombuilder.jsdom.keys.EventProp
 import com.raquo.dombuilder.jsdom.nodes.ChildNode
 import com.raquo.dombuilder.jsdom.simple.builders.{SimpleEventBuilder, SimpleTag, SimpleTagBuilder}

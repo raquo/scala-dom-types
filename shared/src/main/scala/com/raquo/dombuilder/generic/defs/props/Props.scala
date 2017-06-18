@@ -1,10 +1,13 @@
-package com.raquo.dombuilder.generic.definitions.attrs
+package com.raquo.dombuilder.generic.defs.props
 
 import com.raquo.dombuilder.generic.builders.SpecializedBuilder
 
-// @TODO[Performance] Do we need those vals to be lazy? Scala.js optimizes away unused code anyway, and lazy vals produce more generated code than vals
+trait Props[P[_]] { this: SpecializedBuilder[P] =>
 
-trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
+  /**
+    * Space-separated list of CSS class names
+    */
+  lazy val className: P[String] = build("className")
 
   /**
     * This is the single required attribute for anchors defining a hypertext
@@ -17,7 +20,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val href: A[String] = build("href")
+  lazy val href: P[String] = build("href")
 
   /**
     * This attribute defines the alternative text describing the image. Users
@@ -26,7 +29,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val alt: A[String] = build("alt")
+  lazy val alt: P[String] = build("alt")
 
   /**
     * This attribute names a relationship of the linked document to the current
@@ -38,7 +41,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val rel: A[String] = build("rel")
+  lazy val rel: P[String] = build("rel")
 
   /**
     * If the value of the type attribute is image, this attribute specifies a URI
@@ -47,12 +50,12 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val src: A[String] = build("src")
+  lazy val src: P[String] = build("src")
 
   /**
     *
     */
-  lazy val xmlns: A[String] = build("xmlns")
+  lazy val xmlns: P[String] = build("xmlns")
 
   /**
     * If the value of the type attribute is file, this attribute indicates the
@@ -60,7 +63,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val accept: A[String] = build("accept")
+  lazy val accept: P[String] = build("accept")
 
   /**
     * Declares the character encoding of the page or script. Used on meta and
@@ -68,7 +71,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val charset: A[String] = build("charset")
+  lazy val charSet: P[String] = build("charset")
 
   /**
     * This Boolean attribute indicates that the form control is not available for
@@ -80,7 +83,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val disabled: A[Boolean] = build("disabled")
+  lazy val disabled: P[Boolean] = build("disabled")
 
   /**
     * Describes elements which belongs to this one. Used on labels and output
@@ -88,15 +91,14 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val `for`: A[String] = build("for")
-  lazy val forId: A[String] = `for`
+  lazy val `for`: P[String] = build("for")
 
   /**
     * The number of visible text lines for the control.
     *
     * MDN
     */
-  lazy val rows: A[Int] = build("rows")
+  lazy val rows: P[Int] = build("rows")
 
   /**
     * The visible width of the text control, in average character widths. If it
@@ -105,7 +107,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val cols: A[Int] = build("cols")
+  lazy val cols: P[Int] = build("cols")
 
   /**
     * The attribute describes the role(s) the current element plays in the
@@ -122,7 +124,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * See: [[http://www.w3.org/TR/role-attribute/#s_role_module_attributes]]
     */
-  lazy val role: A[String] = build("role")
+  lazy val role: P[String] = build("role")
 
   /**
     * This attribute gives the value associated with the http-equiv or name
@@ -130,7 +132,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val content: A[String] = build("content")
+  lazy val content: P[String] = build("content")
 
   /**
     * This enumerated attribute defines the pragma that can alter servers and
@@ -145,7 +147,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val httpEquiv: A[String] = build("http-equiv")
+  lazy val httpEquiv: P[String] = build("httpEquiv")
 
   /**
     * This attribute specifies the media which the linked resource applies to.
@@ -155,7 +157,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-media
     */
-  lazy val media: A[String] = build("media")
+  lazy val media: P[String] = build("media")
 
   /**
 
@@ -167,7 +169,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val colSpan: A[Int] = build("colspan")
+  lazy val colSpan: P[Int] = build("colSpan")
 
   /**
     * This attribute contains a non-negative integer value that indicates for how many
@@ -177,7 +179,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val rowSpan: A[Int] = build("rowspan")
+  lazy val rowSpan: P[Int] = build("rowSpan")
 
   /**
     * ARIA is a set of special accessibility attributes which can be added
@@ -188,8 +190,7 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  object aria{
-
+  object aria {
     /**
       * Identifies the currently active descendant of a composite widget.
       */
@@ -367,39 +368,34 @@ trait Attrs[A[_]] { this: SpecializedBuilder[A] =>
   }
 
   /**
-    * Indicates a selected option in an option list of a <select> element.
-    */
-  lazy val selected: A[Boolean] = build("selected")
-
-  /**
     * For use in &lt;style&gt; tags.
     *
     * If this attribute is present, then the style applies only to its parent element.
     * If absent, the style applies to the whole document.
     */
-  lazy val scoped: A[Boolean] = build("scoped")
+  lazy val scoped: P[Boolean] = build("scoped")
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val high: A[Double] = build("high")
+  lazy val high: P[Double] = build("high")
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val low: A[Double] = build("low")
+  lazy val low: P[Double] = build("low")
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val optimum: A[Double] = build("optimum")
+  lazy val optimum: P[Double] = build("optimum")
 
   /** IE-specific property to prevent user selection */
-  lazy val unSelectable: A[Boolean] = build("unselectable")
+  lazy val unSelectable: P[Boolean] = build("unselectable")
 }

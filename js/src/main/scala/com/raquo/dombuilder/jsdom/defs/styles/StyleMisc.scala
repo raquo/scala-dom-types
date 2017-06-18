@@ -1,4 +1,4 @@
-package com.raquo.dombuilder.jsdom.definitions.styles
+package com.raquo.dombuilder.jsdom.defs.styles
 
 import com.raquo.dombuilder.generic.keys.Style
 import com.raquo.dombuilder.jsdom.builders.StyleBuilder

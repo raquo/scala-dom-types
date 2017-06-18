@@ -1,4 +1,4 @@
-package com.raquo.dombuilder.generic.definitions.eventProps
+package com.raquo.dombuilder.generic.defs.eventProps
 
 import com.raquo.dombuilder.generic.builders.SpecializedBuilder
 
