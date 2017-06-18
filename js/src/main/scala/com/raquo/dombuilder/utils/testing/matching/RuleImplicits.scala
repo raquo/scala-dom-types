@@ -9,8 +9,8 @@ trait RuleImplicits[N] {
 
   def textNode: ExpectedNode[N]
 
-  implicit def withNodeOps(builder: Builder[N]): NodeOps[N] = {
-    new NodeOps[N](builder)
+  implicit def asEmptyExpectedNode(builder: Builder[N]): ExpectedNode[N] = {
+    new ExpectedNode[N](builder)
   }
 
   implicit def withAttrRuleOps[V](attr: Attr[V]): AttrRuleOps[V, N] = {

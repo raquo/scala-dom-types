@@ -48,6 +48,10 @@ class ExpectedNode[N](builder: Builder[N]) {
     this
   }
 
+  def likeWhatever: ExpectedNode[N] = {
+    new ExpectedNode[N](builder)
+  }
+
   def checkNodeType(actualNode: dom.Node): MaybeError = {
     (actualNode, emptyNode) match {
       case (actualElement: dom.Element, emptyElement: Element) =>
