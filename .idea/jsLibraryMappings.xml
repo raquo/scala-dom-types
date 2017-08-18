@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <excludedPredefinedLibrary name="scala-dom-builder/js/target/scala-2.11/scalajs-bundler/main/node_modules" />
+    <excludedPredefinedLibrary name="scala-dom-builder/js/target/scala-2.12/scalajs-bundler/main/node_modules" />
+    <excludedPredefinedLibrary name="scala-dom-builder/js/target/scala-2.12/scalajs-bundler/test/node_modules" />
+    <excludedPredefinedLibrary name="scala-dom-builder/js/target/scalajs-bundler-jsdom/node_modules" />
+    <excludedPredefinedLibrary name="scala-dom-builder/target/scala-2.11/scalajs-bundler/main/node_modules" />
+  </component>
+</project>

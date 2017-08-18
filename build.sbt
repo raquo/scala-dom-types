@@ -12,7 +12,7 @@ lazy val root = project.in(file("."))
 
 lazy val dombuilder = crossProject.in(file("."))
   .settings(
-    organization := "com.raquo",
+    organization := "com.raquo.dombuilder",
     normalizedName := "dombuilder",
     version := "0.1-SNAPSHOT",
     crossScalaVersions := Seq("2.11.11", "2.12.2"),
@@ -26,8 +26,8 @@ lazy val dombuilder = crossProject.in(file("."))
     emitSourceMaps in fastOptJS := false,
     emitSourceMaps in fullOptJS := false,
     libraryDependencies ++= Seq(
-      "org.scala-js" %%% "scalajs-dom" % "0.9.2",
-      "org.scalatest" %%% "scalatest" % "3.0.1" // % "test" @TODO[API] We have reusable test helpers. Create a separate package for those.
+      "org.scala-js" %%% "scalajs-dom" % "0.9.3",
+      "org.scalatest" %%% "scalatest" % "3.0.3" // % "test" @TODO[API] We have reusable test helpers. Create a separate package for those.
     )
   )
   .jvmSettings()
