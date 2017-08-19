@@ -27,7 +27,8 @@ lazy val dombuilder = crossProject.in(file("."))
     emitSourceMaps in fullOptJS := false,
     libraryDependencies ++= Seq(
       "org.scala-js" %%% "scalajs-dom" % "0.9.3",
-      "org.scalatest" %%% "scalatest" % "3.0.3" // % "test" @TODO[API] We have reusable test helpers. Create a separate package for those.
+      "org.scalatest" %%% "scalatest" % "3.0.3" % Test,
+      "com.raquo.dombuilder" %%% "testutils" % "0.1-SNAPSHOT" % Test
     )
   )
   .jvmSettings()

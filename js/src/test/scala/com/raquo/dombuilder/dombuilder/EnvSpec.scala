@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.dombuilder
 
-import com.raquo.dombuilder.dombuilder.utils.testing.DomEnvSpec
+import com.raquo.dombuilder.testutils.DomEnvSpec
 
 /**
   * Sanity checks on the testing environment.

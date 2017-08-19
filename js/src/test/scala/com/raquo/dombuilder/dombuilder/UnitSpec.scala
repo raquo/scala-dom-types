@@ -1,6 +1,6 @@
 package com.raquo.dombuilder.dombuilder
 
-import com.raquo.dombuilder.dombuilder.utils.testing.{SimpleSpec, UtilSpec}
+import com.raquo.dombuilder.testutils.{SimpleSpec, UtilSpec}
 import org.scalatest.{FunSpec, Matchers}
 
 class UnitSpec

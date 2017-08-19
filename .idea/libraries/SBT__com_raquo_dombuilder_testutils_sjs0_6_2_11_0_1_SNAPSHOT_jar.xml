@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: com.raquo.dombuilder:testutils_sjs0.6_2.11:0.1-SNAPSHOT:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/local/com.raquo.dombuilder/testutils_sjs0.6_2.11/0.1-SNAPSHOT/jars/testutils_sjs0.6_2.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/local/com.raquo.dombuilder/testutils_sjs0.6_2.11/0.1-SNAPSHOT/srcs/testutils_sjs0.6_2.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
