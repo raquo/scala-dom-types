@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dombuilder-sources.iml" filepath="$PROJECT_DIR$/.idea/modules/dombuilder-sources.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dombuilderJS.iml" filepath="$PROJECT_DIR$/.idea/modules/dombuilderJS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dombuilderJS-build.iml" filepath="$PROJECT_DIR$/.idea/modules/dombuilderJS-build.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dombuilderJVM.iml" filepath="$PROJECT_DIR$/.idea/modules/dombuilderJVM.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dombuilderJVM-build.iml" filepath="$PROJECT_DIR$/.idea/modules/dombuilderJVM-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dom-types-sources.iml" filepath="$PROJECT_DIR$/.idea/modules/dom-types-sources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domTypesJS.iml" filepath="$PROJECT_DIR$/.idea/modules/domTypesJS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domTypesJS-build.iml" filepath="$PROJECT_DIR$/.idea/modules/domTypesJS-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domTypesJVM.iml" filepath="$PROJECT_DIR$/.idea/modules/domTypesJVM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domTypesJVM-build.iml" filepath="$PROJECT_DIR$/.idea/modules/domTypesJVM-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/root.iml" filepath="$PROJECT_DIR$/.idea/modules/root.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/root-build.iml" filepath="$PROJECT_DIR$/.idea/modules/root-build.iml" />
     </modules>
