@@ -10,10 +10,10 @@ lazy val root = project.in(file("."))
     publishLocal := {}
   )
 
-lazy val domTypes = crossProject.in(file("."))
+lazy val domtypes = crossProject.in(file("."))
   .settings(
-    organization := "com.raquo.dom",
-    normalizedName := "types",
+    organization := "com.raquo",
+    normalizedName := "domtypes",
     version := "0.1-SNAPSHOT",
     crossScalaVersions := Seq("2.11.11", "2.12.3"),
     homepage := Some(url("https://github.com/raquo/scala-dom-types")),
@@ -31,5 +31,5 @@ lazy val domTypes = crossProject.in(file("."))
   )
   .jvmSettings()
 
-lazy val js = domTypes.js
-lazy val jvm = domTypes.jvm
+lazy val js = domtypes.js
+lazy val jvm = domtypes.jvm

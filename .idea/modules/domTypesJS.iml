@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="domTypesJS" external.linked.project.path="$MODULE_DIR$/../../js" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="domtypesJS" external.linked.project.path="$MODULE_DIR$/../../js" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/../../js/target/scala-2.11/classes" />
     <output-test url="file://$MODULE_DIR$/../../js/target/scala-2.11/test-classes" />
@@ -21,10 +21,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="dom-types-sources" exported="" />
-    <orderEntry type="library" name="SBT: org.scala-js:scalajs-library_2.11:0.6.18:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.scala-js:scalajs-dom_sjs0.6_2.11:0.9.3:jar" level="project" />
+    <orderEntry type="module" module-name="domtypes-sources" exported="" />
     <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.11.11:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scala-js:scalajs-test-interface_2.11:0.6.17:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.scala-js:scalajs-library_2.11:0.6.18:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.scala-js:scalajs-dom_sjs0.6_2.11:0.9.3:jar" level="project" />
   </component>
 </module>
