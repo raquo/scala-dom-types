@@ -12,7 +12,7 @@ Type definitions in this project are designed for easy integration into any kind
 
 ## Why use _Scala DOM Types_
 
-The **canonical** use case for _Scala DOM Types_ is to provide a type-safe API like this:
+Canonical use case: you're writing a Scala library that does HTML / DOM construction / manipulation and want to provide a type-safe API like this:
 
 ```scala
 div(
@@ -29,7 +29,7 @@ div(
 
 Of course, your API doesn't need to look anything like this, that's just an example. _Scala DOM Types_ doesn't actually provide the `Tag.apply` and `:=` methods that you'd need to make this example work. If you do in fact want similar syntax, consider using [Scala DOM Builder](https://github.com/raquo/scala-dom-builder) or some of its classes (it's also very extensible and reusable).  
 
-You also don't need to be writing a whole library to make use of _Scala DOM Types_, you can use it instead to make your application code more type-safe. For example, your imaginary method
+You also don't need to be writing a whole library to benefit from _Scala DOM Types_, you can use it instead to make your application code more type-safe. For example, your imaginary method
 
 ```scala
 getProperty(element: dom.Element, propName: String, propValue: Any)
@@ -41,7 +41,7 @@ could become
 getProperty[Value](element: dom.Element, prop: Prop[Value], propValue: Value)
 ```
 
-Now you can't pass just about any random string as `propName`, and `propValue` is now type checked.
+Now you can't pass just about any random string as `propName`, and even `propValue` is now type checked.
 
 However, if all you want is more type safety in your application code, you might want to import tags / attrs / etc. from Scala DOM Builder's `simple` package instead because those don't require any boilerplate on your side. 
 
@@ -62,7 +62,7 @@ The [scala-js-dom](http://scala-js.github.io/scala-js-dom/) project serves a ver
 
 On the other hand, _Scala DOM Types_ lets the consuming library create a type-safe _representation_ of real JS DOM nodes or trees, and it is up to your library's code to instantiate real JS nodes from the provided description. [Scala DOM Builder](https://github.com/raquo/scala-dom-builder) does it in the most straightforward way, but higher level libraries like React or [Snabbdom](https://github.com/raquo/Snabbdom.scala) could use those representations in their own ways, e.g. to create virtual DOM structures.
 
-Oh and _Scala DOM Types_ does work on the JVM. Obviously you can't get native JS types there, but you can provide your own replacements for specific Scala.js types, or just not bother with such specificity.
+Oh and _Scala DOM Types_ **does** work on the JVM. Obviously you can't get native JS types there, but you can provide your own replacements for specific Scala.js types, or just not bother with such specificity.
 
 ## Author
 
