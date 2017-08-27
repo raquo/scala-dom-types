@@ -1,7 +1,7 @@
 package com.raquo.domtypes.generic.builders
 
 /** Tag is an Element Builder */
-trait Tag[+N] extends Builder[N] {
+trait Tag[+Ref] extends Builder[Ref] {
 
   val tagName: String
 
