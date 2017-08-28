@@ -1,3 +1,6 @@
+// @TODO[WTF] Why can't this be inside releaseSettings?
+releaseCrossBuild := true
+
 // @TODO[SBT] How to extract these shared settings into a separate release.sbt file?
 val releaseSettings: Seq[Setting[_]] = Seq(
   name := "Scala DOM Types",
@@ -5,7 +8,6 @@ val releaseSettings: Seq[Setting[_]] = Seq(
   organization := "com.raquo",
   scalaVersion in ThisBuild := "2.11.11", // @TODO[WTF] Why exactly do we need `in ThisBuild` here?
   crossScalaVersions in ThisBuild := Seq("2.11.11", "2.12.3"), // @TODO[WTF] Why exactly do we need `in ThisBuild` here?
-  releaseCrossBuild := true,
   homepage := Some(url("https://github.com/raquo/scala-dom-types")),
   licenses += ("MIT", url("https://github.com/raquo/scala-dom-types/blob/master/LICENSE.txt")),
   scmInfo := Some(
