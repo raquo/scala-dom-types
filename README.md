@@ -2,6 +2,9 @@
 
 This project provides listings and type definitions for Javascript HTML tags as well as their attributes, properties, and CSS styles. 
 
+    "com.raquo" %%% "domtypes" % "0.1" // scala.js
+    "com.raquo" %% "domtypes" % "0.1" // JVM
+
 Type definitions in this project are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, I use _Scala DOM Types_ in my other projects:
 
 - [Scala DOM Builder](https://github.com/raquo/scala-dom-builder), a low level DOM manipulation and tree tracking library
