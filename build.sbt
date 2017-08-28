@@ -33,7 +33,7 @@ val releaseSettings: Seq[Setting[_]] = Seq(
   },
   releaseCrossBuild := true,
   pomIncludeRepository := { _ => false },
-  useGpg := true,
+  useGpg := false,
   releasePublishArtifactsAction := PgpKeys.publishSigned.value
 )
 
