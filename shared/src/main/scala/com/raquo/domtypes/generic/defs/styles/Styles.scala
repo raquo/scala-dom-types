@@ -753,7 +753,7 @@ trait Styles[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS,
     *
     * MDN
     */
-  object float extends Style[String]("cssFloat", "float") {
+  object float extends Style[String]("float", "float") {
     /**
       * Is a keyword indicating that the element must float on the left side of
       * its containing block.

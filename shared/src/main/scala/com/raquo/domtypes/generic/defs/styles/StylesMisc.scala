@@ -19,27 +19,27 @@ trait StylesMisc[SS[_], SSS[_]] { this: StyleBuilder[SS, SSS] =>
   /**
     * A Style that takes any value of type T as a parameter and has an auto value
     */
-  class AutoStyle[V](jsName: String, cssName: String) extends Style[V](jsName, cssName) {
+  class AutoStyle[V](name: String, cssName: String) extends Style[V](name, cssName) {
     lazy val auto: SSS[V] = buildStringSetter(this, "auto")
   }
 
   /**
     * A Style that takes any value of type T as a parameter and has an none value
     */
-  class NoneOpenStyle[V](jsName: String, cssName: String) extends Style[V](jsName, cssName) {
+  class NoneOpenStyle[V](name: String, cssName: String) extends Style[V](name, cssName) {
     lazy val none: SSS[V] = buildStringSetter(this, "none")
   }
 
   /**
     * A Style that takes any value of type T as a parameter and has an normal value
     */
-  class NormalOpenStyle[V](jsName: String, cssName: String) extends Style[V](jsName, cssName) {
+  class NormalOpenStyle[V](name: String, cssName: String) extends Style[V](name, cssName) {
     lazy val normal: SSS[V] = buildStringSetter(this, "normal")
   }
 
-  class MultiImageStyle(jsName: String, cssName: String) extends Style[String](jsName, cssName)
+  class MultiImageStyle(name: String, cssName: String) extends Style[String](name, cssName)
 
-  class OutlineStyle(jsName: String, cssName: String) extends Style[String](jsName, cssName) {
+  class OutlineStyle(name: String, cssName: String) extends Style[String](name, cssName) {
 
     /**
       * Displays a series of rounded dots. The spacing of the dots are not
@@ -108,7 +108,7 @@ trait StylesMisc[SS[_], SSS[_]] { this: StyleBuilder[SS, SSS] =>
     lazy val outset: SS[String] = buildSetter(this, "outset")
   }
 
-  class BorderStyle(jsName: String, cssName: String) extends OutlineStyle(jsName, cssName) {
+  class BorderStyle(name: String, cssName: String) extends OutlineStyle(name, cssName) {
 
     /**
       * Like for the hidden keyword, displays no border. In that case, except if
@@ -135,7 +135,7 @@ trait StylesMisc[SS[_], SSS[_]] { this: StyleBuilder[SS, SSS] =>
 
   }
 
-  class Overflow(jsName: String, cssName: String) extends Style[String](jsName, cssName) {
+  class Overflow(name: String, cssName: String) extends Style[String](name, cssName) {
 
     /**
       * Default value. Content is not clipped, it may be rendered outside the
@@ -171,7 +171,7 @@ trait StylesMisc[SS[_], SSS[_]] { this: StyleBuilder[SS, SSS] =>
     lazy val auto: SS[String] = buildSetter(this, "auto")
   }
 
-  class PageBreak(jsName: String, cssName: String) extends Style[String](jsName, cssName) {
+  class PageBreak(name: String, cssName: String) extends Style[String](name, cssName) {
 
     /**
       * Initial value. Automatic page breaks (neither forced nor forbidden).
@@ -212,7 +212,7 @@ trait StylesMisc[SS[_], SSS[_]] { this: StyleBuilder[SS, SSS] =>
   }
 
 
-  class BorderRadius(jsName: String, cssName: String) extends Style[String](jsName, cssName)
+  class BorderRadius(name: String, cssName: String) extends Style[String](name, cssName)
 
   trait MarginAuto extends Style[String] {
     /**
@@ -224,15 +224,15 @@ trait StylesMisc[SS[_], SSS[_]] { this: StyleBuilder[SS, SSS] =>
     lazy val auto: SS[String] = buildSetter(this, "auto")
   }
 
-  class BorderWidth(jsName: String, cssName: String) extends Style[String](jsName, cssName) {
+  class BorderWidth(name: String, cssName: String) extends Style[String](name, cssName) {
     lazy val thin: SS[String] = buildSetter(this, "thin")
     lazy val medium: SS[String] = buildSetter(this, "medium")
     lazy val thick: SS[String] = buildSetter(this, "thick")
   }
 
-  class MultiTimeStyle(jsName: String, cssName: String) extends Style[String](jsName, cssName)
+  class MultiTimeStyle(name: String, cssName: String) extends Style[String](name, cssName)
 
-  class MinLengthStyle(jsName: String, cssName: String) extends AutoStyle[String](jsName, cssName) {
+  class MinLengthStyle(name: String, cssName: String) extends AutoStyle[String](name, cssName) {
 
     /**
       * The intrinsic preferred length.
@@ -263,7 +263,7 @@ trait StylesMisc[SS[_], SSS[_]] { this: StyleBuilder[SS, SSS] =>
     lazy val fillAvailable: SS[String] = buildSetter(this, "fill-available")
   }
 
-  class MaxLengthStyle(jsName: String, cssName: String) extends Style[String](jsName, cssName) {
+  class MaxLengthStyle(name: String, cssName: String) extends Style[String](name, cssName) {
 
     /**
       * The length has no maximum value.

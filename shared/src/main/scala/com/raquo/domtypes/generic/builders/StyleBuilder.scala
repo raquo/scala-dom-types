@@ -10,7 +10,7 @@ import com.raquo.domtypes.generic.keys.Style
   */
 trait StyleBuilder[SS[_], SSS[V]] {
 
-  @inline def build[V](jsKey: String, cssKey: String): Style[V]
+  @inline def build[V](key: String, cssKey: String): Style[V]
 
   def buildSetter[V](style: Style[V], value: V): SS[V]
 
