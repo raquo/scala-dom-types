@@ -1,5 +1,6 @@
 package com.raquo.domtypes.generic.defs.styles
 
+import com.raquo.domtypes.generic.Modifier
 import com.raquo.domtypes.generic.builders.StyleBuilder
 import com.raquo.domtypes.generic.keys.Style
 
@@ -7,9 +8,9 @@ import com.raquo.domtypes.generic.keys.Style
   * Contains CSS styles which are used less frequently. These are not imported by
   * default to avoid namespace pollution.
   *
-  * For SS and SSS type params docs, see [[StyleBuilder]]
+  * For type params docs, see [[StyleBuilder]]
   */
-trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS, SSS] =>
+trait Styles2[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this: StyleBuilder[StyleSetter] =>
 
   /**
     * The animation-direction CSS property indicates whether the animation should
@@ -135,13 +136,13 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
       *
       * MDN
       */
-    lazy val visible: SS[String] = buildSetter(this, "visible")
+    lazy val visible: StyleSetter = buildSetter(this, "visible")
     /**
       * The back face is not visible.
       *
       * MDN
       */
-    lazy val hidden: SS[String] = buildSetter(this, "hidden")
+    lazy val hidden: StyleSetter = buildSetter(this, "hidden")
   }
 
 
@@ -152,7 +153,7 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
     * MDN
     */
   object columns extends Style[String]("columns", "columns") {
-    def apply(number: Int, width: String): SS[String] = buildSetter(this, s"$number $width")
+    def apply(number: Int, width: String): StyleSetter = buildSetter(this, s"$number $width")
   }
 
   /**
@@ -176,14 +177,14 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
       *
       * MDN
       */
-    lazy val auto: SS[String] = buildSetter(this, "auto")
+    lazy val auto: StyleSetter = buildSetter(this, "auto")
 
     /**
       * Is a keyword indicating that content is equally divided between columns.
       *
       * MDN
       */
-    lazy val balance: SS[String] = buildSetter(this, "balance")
+    lazy val balance: StyleSetter = buildSetter(this, "balance")
   }
 
   /**
@@ -217,7 +218,7 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
       *
       * MDN
       */
-    lazy val none: SSS[Int] = buildStringSetter(this, "none")
+    lazy val none: StyleSetter = buildSetter(this, "none")
     /**
       * The element spans across all columns. Content in the normal flow that
       * appears before the element is automatically balanced across all columns
@@ -226,7 +227,7 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
       *
       * MDN
       */
-    lazy val all: SSS[Int] = buildStringSetter(this, "all")
+    lazy val all: StyleSetter = buildSetter(this, "all")
   }
 
 
@@ -258,9 +259,9 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
     * MDN
     */
   object columnRuleWidth extends Style[String]("columnRuleWidth", "column-rule-width") {
-    lazy val thin: SS[String] = buildSetter(this, "thin")
-    lazy val medium: SS[String] = buildSetter(this, "medium")
-    lazy val thick: SS[String] = buildSetter(this, "thick")
+    lazy val thin: StyleSetter = buildSetter(this, "thin")
+    lazy val medium: StyleSetter = buildSetter(this, "medium")
+    lazy val thick: StyleSetter = buildSetter(this, "thick")
   }
 
   /**
@@ -271,7 +272,7 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
     */
   object columnRuleStyle
     extends OutlineStyle("columnRuleStyle", "column-rule-style") {
-    lazy val hidden: SS[String] = buildSetter(this, "hidden")
+    lazy val hidden: StyleSetter = buildSetter(this, "hidden")
   }
 
 
@@ -414,14 +415,14 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
       *
       * MDN
       */
-    lazy val `preserve-3d`: SS[String] = buildSetter(this, "preserve-3d")
+    lazy val `preserve-3d`: StyleSetter = buildSetter(this, "preserve-3d")
     /**
       * Indicates that the children of the element are lying in the plane of the
       * element itself.
       *
       * MDN
       */
-    lazy val flat: SS[String] = buildSetter(this, "flat")
+    lazy val flat: StyleSetter = buildSetter(this, "flat")
   }
 
   /**
@@ -442,7 +443,7 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
       *
       * MDN
       */
-    lazy val normal: SS[String] = buildSetter(this, "normal")
+    lazy val normal: StyleSetter = buildSetter(this, "normal")
     /**
       * If the element is inline, this value opens an additional level of
       * embedding with respect to the bidirectional algorithm. The direction of
@@ -450,7 +451,7 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
       *
       * MDN
       */
-    lazy val embed: SS[String] = buildSetter(this, "embed")
+    lazy val embed: StyleSetter = buildSetter(this, "embed")
     /**
       * For inline elements this creates an override. For block container elements
       * this creates an override for inline-level descendants not within another
@@ -460,7 +461,7 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
       *
       * MDN
       */
-    lazy val `bidi-override`: SS[String] = buildSetter(this, "bidi-override")
+    lazy val `bidi-override`: StyleSetter = buildSetter(this, "bidi-override")
   }
 
 
@@ -476,21 +477,21 @@ trait Styles2[SS[_], SSS[_]] extends StylesMisc[SS, SSS] { this: StyleBuilder[SS
       *
       * MDN
       */
-    lazy val normal: SS[String] = buildSetter(this, "normal")
+    lazy val normal: StyleSetter = buildSetter(this, "normal")
     /**
       * Word breaks may be inserted between any character for non-CJK
       * (Chinese/Japanese/Korean) text.
       *
       * MDN
       */
-    lazy val breakAll: SS[String] = buildSetter(this, "break-all")
+    lazy val breakAll: StyleSetter = buildSetter(this, "break-all")
     /**
       * Don't allow word breaks for CJK text.  Non-CJK text behavior is same
       * as normal.
       *
       * MDN
       */
-    lazy val keepAll: SS[String] = buildSetter(this, "keep-all")
+    lazy val keepAll: StyleSetter = buildSetter(this, "keep-all")
   }
 
 }
