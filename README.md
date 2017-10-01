@@ -69,7 +69,7 @@ Oh and _Scala DOM Types_ **does** work on the JVM. Obviously you can't get nativ
 
 ## My Related Projects
 
-- [Scala DOM Builder](https://github.com/raquo/scala-dom-types) – Low-level Scala & Scala.js library for building and manipulating DOM trees
+- [Scala DOM Builder](https://github.com/raquo/scala-dom-builder) – Low-level Scala & Scala.js library for building and manipulating DOM trees
 - [Scala DOM TestUtils](https://github.com/raquo/scala-dom-testutils) – Test that your Javascript DOM nodes match your expectations
 - [Laminar](https://github.com/raquo/laminar) – Reactive UI library based on _Scala DOM Builder_
 - [Snabbdom.scala](https://github.com/raquo/Snabbdom.scala) – Scala.js interface to a popular JS virtual DOM library
