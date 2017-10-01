@@ -1,16 +1,16 @@
 package com.raquo.domtypes.generic.defs.styles
 
 import com.raquo.domtypes.generic.Modifier
-import com.raquo.domtypes.generic.builders.StyleBuilder
+import com.raquo.domtypes.generic.builders.StyleBuilders
 import com.raquo.domtypes.generic.keys.Style
 
 /**
   * Trait that contains the contents of the `Styles` object, so they can
   * be mixed in to other objects if needed.
   *
-  * For type params docs, see [[StyleBuilder]]
+  * For type params docs, see [[StyleBuilders]]
   */
-trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this: StyleBuilder[StyleSetter] =>
+trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
 
   /**
     * If a background-image is specified, the background-attachment CSS
@@ -27,7 +27,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val scroll: StyleSetter = buildSetter(this, "scroll")
+    lazy val scroll: StyleSetter = buildStringStyleSetter(this, "scroll")
 
     /**
       * This keyword means that the background image will not scroll with its
@@ -35,7 +35,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val fixed: StyleSetter = buildSetter(this, "fixed")
+    lazy val fixed: StyleSetter = buildStringStyleSetter(this, "fixed")
 
     /**
       * This keyword means that the background image will not scroll with its
@@ -44,7 +44,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val local: StyleSetter = buildSetter(this, "local")
+    lazy val local: StyleSetter = buildStringStyleSetter(this, "local")
   }
 
 
@@ -107,7 +107,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val borderBox: StyleSetter = buildSetter(this, "border-box")
+    lazy val borderBox: StyleSetter = buildStringStyleSetter(this, "border-box")
 
     /**
       * No background is drawn below the border (background extends to the
@@ -115,14 +115,14 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val paddingBox: StyleSetter = buildSetter(this, "border-box")
+    lazy val paddingBox: StyleSetter = buildStringStyleSetter(this, "border-box")
 
     /**
       * The background is painted within (clipped to) the content box.
       *
       * MDN
       */
-    lazy val contentBox: StyleSetter = buildSetter(this, "content-box")
+    lazy val contentBox: StyleSetter = buildStringStyleSetter(this, "content-box")
   }
 
   /**
@@ -143,7 +143,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val borderBox: StyleSetter = buildSetter(this, "border-box")
+    lazy val borderBox: StyleSetter = buildStringStyleSetter(this, "border-box")
 
     /**
       * No background is drawn below the border (background extends to the
@@ -151,14 +151,14 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val paddingBox: StyleSetter = buildSetter(this, "padding-box")
+    lazy val paddingBox: StyleSetter = buildStringStyleSetter(this, "padding-box")
 
     /**
       * The background is painted within (clipped to) the content box.
       *
       * MDN
       */
-    lazy val contentBox: StyleSetter = buildSetter(this, "content-box")
+    lazy val contentBox: StyleSetter = buildStringStyleSetter(this, "content-box")
   }
 
   /**
@@ -176,7 +176,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val auto: StyleSetter = buildSetter(this, "auto")
+    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
 
     /**
       * This keyword specifies that the background image should be scaled to be
@@ -186,7 +186,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val cover: StyleSetter = buildSetter(this, "cover")
+    lazy val cover: StyleSetter = buildStringStyleSetter(this, "cover")
 
     /**
       * This keyword specifies that the background image should be scaled to be
@@ -195,7 +195,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val contain: StyleSetter = buildSetter(this, "contain")
+    lazy val contain: StyleSetter = buildStringStyleSetter(this, "contain")
   }
 
   /**
@@ -336,7 +336,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val separate: StyleSetter = buildSetter(this, "separate")
+    lazy val separate: StyleSetter = buildStringStyleSetter(this, "separate")
 
     /**
       * Is a keyword requesting the use of the collapsed-border table rendering
@@ -344,7 +344,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val collapse: StyleSetter = buildSetter(this, "collapse")
+    lazy val collapse: StyleSetter = buildStringStyleSetter(this, "collapse")
   }
 
   /**
@@ -416,7 +416,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
     * MDN
     */
   object borderSpacing extends Style[String]("borderSpacing", "border-spacing") {
-    def apply(horizontal: String, vertical: String): StyleSetter = buildSetter(this, s"$horizontal $vertical")
+    def apply(horizontal: String, vertical: String): StyleSetter = buildStringStyleSetter(this, s"$horizontal $vertical")
   }
 
   /**
@@ -482,7 +482,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val contentBox: StyleSetter = buildSetter(this, "content-box")
+    lazy val contentBox: StyleSetter = buildStringStyleSetter(this, "content-box")
 
     /**
       * The width and height properties include the padding and border, but not
@@ -491,7 +491,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val borderBox: StyleSetter = buildSetter(this, "border-box")
+    lazy val borderBox: StyleSetter = buildStringStyleSetter(this, "border-box")
   }
 
   /**
@@ -503,22 +503,22 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
     * MDN
     */
   object color extends Style[String]("color", "color") {
-    lazy val black: StyleSetter = buildSetter(this, "black")
-    lazy val silver: StyleSetter = buildSetter(this, "silver")
-    lazy val gray: StyleSetter = buildSetter(this, "gray")
-    lazy val white: StyleSetter = buildSetter(this, "white")
-    lazy val maroon: StyleSetter = buildSetter(this, "maroon")
-    lazy val red: StyleSetter = buildSetter(this, "red")
-    lazy val purple: StyleSetter = buildSetter(this, "purple")
-    lazy val fuschia: StyleSetter = buildSetter(this, "fuschia")
-    lazy val green: StyleSetter = buildSetter(this, "green")
-    lazy val lime: StyleSetter = buildSetter(this, "lime")
-    lazy val olive: StyleSetter = buildSetter(this, "olive")
-    lazy val yellow: StyleSetter = buildSetter(this, "yellow")
-    lazy val navy: StyleSetter = buildSetter(this, "navy")
-    lazy val blue: StyleSetter = buildSetter(this, "blue")
-    lazy val teal: StyleSetter = buildSetter(this, "teal")
-    lazy val aqua: StyleSetter = buildSetter(this, "aqua")
+    lazy val black: StyleSetter = buildStringStyleSetter(this, "black")
+    lazy val silver: StyleSetter = buildStringStyleSetter(this, "silver")
+    lazy val gray: StyleSetter = buildStringStyleSetter(this, "gray")
+    lazy val white: StyleSetter = buildStringStyleSetter(this, "white")
+    lazy val maroon: StyleSetter = buildStringStyleSetter(this, "maroon")
+    lazy val red: StyleSetter = buildStringStyleSetter(this, "red")
+    lazy val purple: StyleSetter = buildStringStyleSetter(this, "purple")
+    lazy val fuschia: StyleSetter = buildStringStyleSetter(this, "fuschia")
+    lazy val green: StyleSetter = buildStringStyleSetter(this, "green")
+    lazy val lime: StyleSetter = buildStringStyleSetter(this, "lime")
+    lazy val olive: StyleSetter = buildStringStyleSetter(this, "olive")
+    lazy val yellow: StyleSetter = buildStringStyleSetter(this, "yellow")
+    lazy val navy: StyleSetter = buildStringStyleSetter(this, "navy")
+    lazy val blue: StyleSetter = buildStringStyleSetter(this, "blue")
+    lazy val teal: StyleSetter = buildStringStyleSetter(this, "teal")
+    lazy val aqua: StyleSetter = buildStringStyleSetter(this, "aqua")
   }
 
   /**
@@ -529,7 +529,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
     */
   object clip extends AutoStyle[String]("clip", "clip") {
     def rect(top: String, right: String, bottom: String, left: String): StyleSetter = {
-      buildSetter(this, s"rect($top, $right, $bottom, $left)")
+      buildStringStyleSetter(this, s"rect($top, $right, $bottom, $left)")
     }
   }
 
@@ -547,202 +547,202 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val auto: StyleSetter = buildSetter(this, "auto")
+    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
     /**
       * Default cursor, typically an arrow.
       *
       * MDN
       */
-    lazy val default: StyleSetter = buildSetter(this, "default")
+    lazy val default: StyleSetter = buildStringStyleSetter(this, "default")
     /**
       * No cursor is rendered.
       *
       * MDN
       */
-    lazy val none: StyleSetter = buildSetter(this, "none")
+    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
     /**
       * A context menu is available under the cursor.
       *
       * MDN
       */
-    lazy val contextMenu: StyleSetter = buildSetter(this, "context-menu")
+    lazy val contextMenu: StyleSetter = buildStringStyleSetter(this, "context-menu")
     /**
       * Indicating help is available.
       *
       * MDN
       */
-    lazy val help: StyleSetter = buildSetter(this, "help")
+    lazy val help: StyleSetter = buildStringStyleSetter(this, "help")
     /**
       * E.g. used when hovering over links, typically a hand.
       *
       * MDN
       */
-    lazy val pointer: StyleSetter = buildSetter(this, "pointer")
+    lazy val pointer: StyleSetter = buildStringStyleSetter(this, "pointer")
     /**
       * The program is busy in the background but the user can still interact
       * with the interface (unlike for wait).
       *
       * MDN
       */
-    lazy val progress: StyleSetter = buildSetter(this, "progress")
+    lazy val progress: StyleSetter = buildStringStyleSetter(this, "progress")
     /**
       * The program is busy (sometimes an hourglass or a watch).
       *
       * MDN
       */
-    lazy val cssWait: StyleSetter = buildSetter(this, "wait")
+    lazy val cssWait: StyleSetter = buildStringStyleSetter(this, "wait")
     /**
       * Indicating that cells can be selected.
       *
       * MDN
       */
-    lazy val cell: StyleSetter = buildSetter(this, "cell")
+    lazy val cell: StyleSetter = buildStringStyleSetter(this, "cell")
     /**
       * Cross cursor, often used to indicate selection in a bitmap.
       *
       * MDN
       */
-    lazy val crosshair: StyleSetter = buildSetter(this, "crosshair")
+    lazy val crosshair: StyleSetter = buildStringStyleSetter(this, "crosshair")
     /**
       * Indicating text can be selected, typically an I-beam.
       *
       * MDN
       */
-    lazy val text: StyleSetter = buildSetter(this, "text")
+    lazy val text: StyleSetter = buildStringStyleSetter(this, "text")
     /**
       * Indicating that vertical text can be selected, typically a sideways I-beam
       *
       * MDN
       */
-    lazy val verticalText: StyleSetter = buildSetter(this, "vertical-text")
+    lazy val verticalText: StyleSetter = buildStringStyleSetter(this, "vertical-text")
     /**
       * Indicating an alias or shortcut is to be created.
       *
       * MDN
       */
-    lazy val alias: StyleSetter = buildSetter(this, "alias")
+    lazy val alias: StyleSetter = buildStringStyleSetter(this, "alias")
     /**
       * Indicating that something can be copied
       *
       * MDN
       */
-    lazy val copy: StyleSetter = buildSetter(this, "copy")
+    lazy val copy: StyleSetter = buildStringStyleSetter(this, "copy")
     /**
       * The hoevered object may be moved.
       *
       * MDN
       */
-    lazy val move: StyleSetter = buildSetter(this, "move")
+    lazy val move: StyleSetter = buildStringStyleSetter(this, "move")
     /**
       * Cursor showing that a drop is not allowed at the current location.
       *
       * MDN
       */
-    lazy val noDrop: StyleSetter = buildSetter(this, "no-drop")
+    lazy val noDrop: StyleSetter = buildStringStyleSetter(this, "no-drop")
     /**
       * Cursor showing that something cannot be done.
       *
       * MDN
       */
-    lazy val notAllowed: StyleSetter = buildSetter(this, "not-allowed")
+    lazy val notAllowed: StyleSetter = buildStringStyleSetter(this, "not-allowed")
     /**
       * Cursor showing that something can be scrolled in any direction (panned).
       *
       * MDN
       */
-    lazy val allScroll: StyleSetter = buildSetter(this, "all-scroll")
+    lazy val allScroll: StyleSetter = buildStringStyleSetter(this, "all-scroll")
     /**
       * The item/column can be resized horizontally. Often rendered as arrows
       * pointing left and right with a vertical separating.
       *
       * MDN
       */
-    lazy val colResize: StyleSetter = buildSetter(this, "col-resize")
+    lazy val colResize: StyleSetter = buildStringStyleSetter(this, "col-resize")
     /**
       * The item/row can be resized vertically. Often rendered as arrows pointing
       * up and down with a horizontal bar separating them.
       *
       * MDN
       */
-    lazy val rowResize: StyleSetter = buildSetter(this, "row-resize")
+    lazy val rowResize: StyleSetter = buildStringStyleSetter(this, "row-resize")
     /**
       * The top edge is to be moved.
       *
       * MDN
       */
-    lazy val nResize: StyleSetter = buildSetter(this, "n-resize")
+    lazy val nResize: StyleSetter = buildStringStyleSetter(this, "n-resize")
     /**
       * The right edge is to be moved.
       *
       * MDN
       */
-    lazy val eResize: StyleSetter = buildSetter(this, "e-resize")
+    lazy val eResize: StyleSetter = buildStringStyleSetter(this, "e-resize")
     /**
       * The bottom edge is to be moved.
       *
       * MDN
       */
-    lazy val sResize: StyleSetter = buildSetter(this, "s-resize")
+    lazy val sResize: StyleSetter = buildStringStyleSetter(this, "s-resize")
     /**
       * The left edge is to be moved.
       *
       * MDN
       */
-    lazy val wResize: StyleSetter = buildSetter(this, "w-resize")
+    lazy val wResize: StyleSetter = buildStringStyleSetter(this, "w-resize")
     /**
       * The top-right corner is to be moved.
       *
       * MDN
       */
-    lazy val neResize: StyleSetter = buildSetter(this, "ne-resize")
+    lazy val neResize: StyleSetter = buildStringStyleSetter(this, "ne-resize")
     /**
       * The top-left corner is to be moved.
       *
       * MDN
       */
-    lazy val nwResize: StyleSetter = buildSetter(this, "nw-resize")
+    lazy val nwResize: StyleSetter = buildStringStyleSetter(this, "nw-resize")
     /**
       * The bottom-right corner is to be moved.
       *
       * MDN
       */
-    lazy val seResize: StyleSetter = buildSetter(this, "se-resize")
+    lazy val seResize: StyleSetter = buildStringStyleSetter(this, "se-resize")
     /**
       * The bottom-left corner is to be moved.
       *
       * MDN
       */
-    lazy val swResize: StyleSetter = buildSetter(this, "sw-resize")
+    lazy val swResize: StyleSetter = buildStringStyleSetter(this, "sw-resize")
 
-    lazy val ewResize: StyleSetter = buildSetter(this, "ew-resize")
-    lazy val nsResize: StyleSetter = buildSetter(this, "ns-resize")
-    lazy val neswResize: StyleSetter = buildSetter(this, "nesw-resize")
-    lazy val nwseResize: StyleSetter = buildSetter(this, "nwse-resize")
+    lazy val ewResize: StyleSetter = buildStringStyleSetter(this, "ew-resize")
+    lazy val nsResize: StyleSetter = buildStringStyleSetter(this, "ns-resize")
+    lazy val neswResize: StyleSetter = buildStringStyleSetter(this, "nesw-resize")
+    lazy val nwseResize: StyleSetter = buildStringStyleSetter(this, "nwse-resize")
 
     /**
       * Indicates that something can be zoomed (magnified) in.
       *
       * MDN
       */
-    lazy val zoomIn: StyleSetter = buildSetter(this, "zoom-in")
+    lazy val zoomIn: StyleSetter = buildStringStyleSetter(this, "zoom-in")
     /**
       * Indicates that something can be zoomed (magnified) out.
       *
       * MDN
       */
-    lazy val zoomOut: StyleSetter = buildSetter(this, "zoom-out")
+    lazy val zoomOut: StyleSetter = buildStringStyleSetter(this, "zoom-out")
     /**
       * Indicates that something can be grabbed (dragged to be moved).
       *
       * MDN
       */
-    lazy val grab: StyleSetter = buildSetter(this, "grab")
+    lazy val grab: StyleSetter = buildStringStyleSetter(this, "grab")
     /**
       * Indicates that something can be grabbed (dragged to be moved).
       *
       * MDN
       */
-    lazy val grabbing: StyleSetter = buildSetter(this, "grabbing")
+    lazy val grabbing: StyleSetter = buildStringStyleSetter(this, "grabbing")
   }
 
 
@@ -761,20 +761,20 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val left: StyleSetter = buildSetter(this, "left")
+    lazy val left: StyleSetter = buildStringStyleSetter(this, "left")
     /**
       * Is a keyword indicating that the element must float on the right side of
       * its containing block.
       *
       * MDN
       */
-    lazy val right: StyleSetter = buildSetter(this, "right")
+    lazy val right: StyleSetter = buildStringStyleSetter(this, "right")
     /**
       * Is a keyword indicating that the element must not float
       *
       * MDN
       */
-    lazy val none: StyleSetter = buildSetter(this, "none")
+    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
   }
 
 
@@ -806,13 +806,13 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val ltr: StyleSetter = buildSetter(this, "ltr")
+    lazy val ltr: StyleSetter = buildStringStyleSetter(this, "ltr")
     /**
       * Text and other elements go from right to left
       *
       * MDN
       */
-    lazy val rtl: StyleSetter = buildSetter(this, "rtl")
+    lazy val rtl: StyleSetter = buildStringStyleSetter(this, "rtl")
   }
 
   /**
@@ -839,33 +839,33 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val none: StyleSetter = buildSetter(this, "none")
+    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
     /**
       * The element generates one or more inline element boxes.
       *
       * MDN
       */
-    lazy val inline: StyleSetter = buildSetter(this, "inline")
+    lazy val inline: StyleSetter = buildStringStyleSetter(this, "inline")
     /**
       * The element generates a block element box.
       *
       * MDN
       */
-    lazy val block: StyleSetter = buildSetter(this, "block")
+    lazy val block: StyleSetter = buildStringStyleSetter(this, "block")
     /**
       * The element generates a block box for the content and a separate
       * list-item inline box.
       *
       * MDN
       */
-    lazy val listItem: StyleSetter = buildSetter(this, "list-item")
+    lazy val listItem: StyleSetter = buildStringStyleSetter(this, "list-item")
     /**
       * The element generates a block element box that will be flowed with
       * surrounding content as if it were a single inline box.
       *
       * MDN
       */
-    lazy val inlineBlock: StyleSetter = buildSetter(this, "inline-block")
+    lazy val inlineBlock: StyleSetter = buildStringStyleSetter(this, "inline-block")
     /**
       * The inline-table value does not have a direct mapping in HTML. It behaves
       * like a table HTML element, but as an inline box, rather than a
@@ -873,75 +873,75 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val inlineTable: StyleSetter = buildSetter(this, "inline-table")
+    lazy val inlineTable: StyleSetter = buildStringStyleSetter(this, "inline-table")
     /**
       * Behaves like the table HTML element. It defines a block-level box.
       *
       * MDN
       */
-    lazy val table: StyleSetter = buildSetter(this, "table")
+    lazy val table: StyleSetter = buildStringStyleSetter(this, "table")
     /**
       * Behaves like the caption HTML element.
       *
       * MDN
       */
-    lazy val tableCaption: StyleSetter = buildSetter(this, "table-caption")
+    lazy val tableCaption: StyleSetter = buildStringStyleSetter(this, "table-caption")
     /**
       * Behaves like the td HTML element
       *
       * MDN
       */
-    lazy val tableCell: StyleSetter = buildSetter(this, "table-cell")
+    lazy val tableCell: StyleSetter = buildStringStyleSetter(this, "table-cell")
     /**
       * These elements behave like the corresponding col HTML elements.
       *
       * MDN
       */
-    lazy val tableColumn: StyleSetter = buildSetter(this, "table-column")
+    lazy val tableColumn: StyleSetter = buildStringStyleSetter(this, "table-column")
     /**
       * These elements behave like the corresponding colgroup HTML elements.
       *
       * MDN
       */
-    lazy val tableColumnGroup: StyleSetter = buildSetter(this, "table-column-group")
+    lazy val tableColumnGroup: StyleSetter = buildStringStyleSetter(this, "table-column-group")
     /**
       * These elements behave like the corresponding tfoot HTML elements
       *
       * MDN
       */
-    lazy val tableFooterGroup: StyleSetter = buildSetter(this, "table-footer-group")
+    lazy val tableFooterGroup: StyleSetter = buildStringStyleSetter(this, "table-footer-group")
     /**
       * These elements behave like the corresponding thead HTML elements
       *
       * MDN
       */
-    lazy val tableHeaderGroup: StyleSetter = buildSetter(this, "table-header-group")
+    lazy val tableHeaderGroup: StyleSetter = buildStringStyleSetter(this, "table-header-group")
     /**
       * Behaves like the tr HTML element
       *
       * MDN
       */
-    lazy val tableRow: StyleSetter = buildSetter(this, "table-row")
+    lazy val tableRow: StyleSetter = buildStringStyleSetter(this, "table-row")
     /**
       * These elements behave like the corresponding tbody HTML elements
       *
       * MDN
       */
-    lazy val tableRowGroup: StyleSetter = buildSetter(this, "table-row-group")
+    lazy val tableRowGroup: StyleSetter = buildStringStyleSetter(this, "table-row-group")
     /**
       * The element behaves like a block element and lays out its content according
       * to the flexbox model.
       *
       * MDN
       */
-    lazy val flex: StyleSetter = buildSetter(this, "flex")
+    lazy val flex: StyleSetter = buildStringStyleSetter(this, "flex")
     /**
       * The element behaves like an inline element and lays out its content
       * according to the flexbox model.
       *
       * MDN
       */
-    lazy val inlineFlex: StyleSetter = buildSetter(this, "inline-flex")
+    lazy val inlineFlex: StyleSetter = buildStringStyleSetter(this, "inline-flex")
   }
 
 
@@ -965,7 +965,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val auto: StyleSetter = buildSetter(this, "auto")
+    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
     /**
       * The element is never the target of mouse events; however, mouse events
       * may target its descendant elements if those descendants have pointer-events
@@ -975,7 +975,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val none: StyleSetter = buildSetter(this, "none")
+    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
     /**
       * SVG only. The element can only be the target of a mouse event when the
       * visibility property is set to visible and when the mouse cursor is over
@@ -986,7 +986,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val visiblePainted: StyleSetter = buildSetter(this, "visiblePainted")
+    lazy val visiblePainted: StyleSetter = buildStringStyleSetter(this, "visiblePainted")
     /**
       * SVG only. The element can only be the target of a mouse event when the
       * visibility property is set to visible and when the mouse cursor is over
@@ -995,7 +995,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val visibleFill: StyleSetter = buildSetter(this, "visibleFill")
+    lazy val visibleFill: StyleSetter = buildStringStyleSetter(this, "visibleFill")
     /**
       * SVG only. The element can only be the target of a mouse event when the
       * visibility property is set to visible and when the mouse cursor is over
@@ -1004,7 +1004,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val visibleStroke: StyleSetter = buildSetter(this, "visibleStroke")
+    lazy val visibleStroke: StyleSetter = buildStringStyleSetter(this, "visibleStroke")
     /**
       * SVG only. The element can be the target of a mouse event when the
       * visibility property is set to visible and the mouse cursor is over either
@@ -1013,7 +1013,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val visible: StyleSetter = buildSetter(this, "visible")
+    lazy val visible: StyleSetter = buildStringStyleSetter(this, "visible")
     /**
       * SVG only. The element can only be the target of a mouse event when the
       * mouse cursor is over the interior (i.e., 'fill') of the element and the
@@ -1024,7 +1024,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val painted: StyleSetter = buildSetter(this, "painted")
+    lazy val painted: StyleSetter = buildStringStyleSetter(this, "painted")
     /**
       * SVG only. The element can only be the target of a mouse event when the
       * pointer is over the interior (i.e., fill) of the element. The values of
@@ -1032,7 +1032,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val fill: StyleSetter = buildSetter(this, "fill")
+    lazy val fill: StyleSetter = buildStringStyleSetter(this, "fill")
     /**
       * SVG only. The element can only be the target of a mouse event when the
       * pointer is over the perimeter (i.e., stroke) of the element. The values
@@ -1040,7 +1040,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val stroke: StyleSetter = buildSetter(this, "stroke")
+    lazy val stroke: StyleSetter = buildStringStyleSetter(this, "stroke")
     /**
       * SVG only. The element can only be the target of a mouse event when the
       * pointer is over the interior (i.e., fill) or the perimeter (i.e., stroke)
@@ -1049,7 +1049,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val all: StyleSetter = buildSetter(this, "all")
+    lazy val all: StyleSetter = buildStringStyleSetter(this, "all")
   }
 
 
@@ -1062,7 +1062,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
     */
   object listStyleImage extends Style[String]("listStyleImage", "list-style-image") {
 
-    def none: StyleSetter = buildSetter(this, "none")
+    def none: StyleSetter = buildStringStyleSetter(this, "none")
   }
 
 
@@ -1079,14 +1079,14 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val outside: StyleSetter = buildSetter(this, "outside")
+    lazy val outside: StyleSetter = buildStringStyleSetter(this, "outside")
     /**
       * The marker box is the first inline box in the principal block box, after
       * which the element's content flows.
       *
       * MDN
       */
-    lazy val inside: StyleSetter = buildSetter(this, "inside")
+    lazy val inside: StyleSetter = buildStringStyleSetter(this, "inside")
   }
 
   object wordWrap extends Style[String]("wordWrap", "word-wrap") {
@@ -1095,14 +1095,14 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val normal: StyleSetter = buildSetter(this, "normal")
+    lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
     /**
       * Indicates that normally unbreakable words may be broken at arbitrary
       * points if there are no otherwise acceptable break points in the line.
       *
       * MDN
       */
-    lazy val breakWord: StyleSetter = buildSetter(this, "break-word")
+    lazy val breakWord: StyleSetter = buildStringStyleSetter(this, "break-word")
   }
 
 
@@ -1151,41 +1151,41 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val baseline: StyleSetter = buildSetter(this, "baseline")
+    lazy val baseline: StyleSetter = buildStringStyleSetter(this, "baseline")
     /**
       * Aligns the baseline of the element with the subscript-baseline of its
       * parent.
       *
       * MDN
       */
-    lazy val sub: StyleSetter = buildSetter(this, "sub")
+    lazy val sub: StyleSetter = buildStringStyleSetter(this, "sub")
     /**
       * Aligns the baseline of the element with the superscript-baseline of its
       * parent.
       *
       * MDN
       */
-    lazy val `super`: StyleSetter = buildSetter(this, "super")
+    lazy val `super`: StyleSetter = buildStringStyleSetter(this, "super")
     /**
       * Aligns the top of the element with the top of the parent element's font.
       *
       * MDN
       */
-    lazy val textTop: StyleSetter = buildSetter(this, "text-top")
+    lazy val textTop: StyleSetter = buildStringStyleSetter(this, "text-top")
     /**
       * Aligns the bottom of the element with the bottom of the parent element's
       * font.
       *
       * MDN
       */
-    lazy val textBottom: StyleSetter = buildSetter(this, "text-bottom")
+    lazy val textBottom: StyleSetter = buildStringStyleSetter(this, "text-bottom")
     /**
       * Aligns the middle of the element with the middle of lowercase letters in
       * the parent.
       *
       * MDN
       */
-    lazy val middle: StyleSetter = buildSetter(this, "middle")
+    lazy val middle: StyleSetter = buildStringStyleSetter(this, "middle")
   }
 
 
@@ -1204,9 +1204,9 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
     * MDN
     */
   object mask extends Style[String]("mask", "mask") {
-    lazy val none: StyleSetter = buildSetter(this, "none")
+    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
 
-    def uri(s: String): StyleSetter = buildSetter(this, s"uri($s)")
+    def uri(s: String): StyleSetter = buildStringStyleSetter(this, s"uri($s)")
   }
 
 
@@ -1223,13 +1223,13 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val show: StyleSetter = buildSetter(this, "show")
+    lazy val show: StyleSetter = buildStringStyleSetter(this, "show")
     /**
       * Is a keyword indicating that no border or backgrounds should be drawn.
       *
       * MDN
       */
-    lazy val hide: StyleSetter = buildSetter(this, "hide")
+    lazy val hide: StyleSetter = buildStringStyleSetter(this, "hide")
   }
 
 
@@ -1355,109 +1355,109 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val none: StyleSetter = buildSetter(this, "none")
+    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
     /**
       * A filled circle (default value)
       *
       * MDN
       */
-    lazy val disc: StyleSetter = buildSetter(this, "disc")
+    lazy val disc: StyleSetter = buildStringStyleSetter(this, "disc")
     /**
       * A hollow circle
       *
       * MDN
       */
-    lazy val circle: StyleSetter = buildSetter(this, "circle")
+    lazy val circle: StyleSetter = buildStringStyleSetter(this, "circle")
     /**
       * A filled square
       *
       * MDN
       */
-    lazy val square: StyleSetter = buildSetter(this, "square")
+    lazy val square: StyleSetter = buildStringStyleSetter(this, "square")
     /**
       * Decimal numbers begining with 1
       *
       * MDN
       */
-    lazy val decimal: StyleSetter = buildSetter(this, "decimal")
+    lazy val decimal: StyleSetter = buildStringStyleSetter(this, "decimal")
     /**
       * Han decimal numbers
       *
       * MDN
       */
-    lazy val cjkDecimal: StyleSetter = buildSetter(this, "cjk-decimal")
+    lazy val cjkDecimal: StyleSetter = buildStringStyleSetter(this, "cjk-decimal")
     /**
       * Decimal numbers padded by initial zeros
       *
       * MDN
       */
-    lazy val decimalLeadingZero: StyleSetter = buildSetter(this, "decimal-leading-zero")
+    lazy val decimalLeadingZero: StyleSetter = buildStringStyleSetter(this, "decimal-leading-zero")
     /**
       * Lowercase roman numerals
       *
       * MDN
       */
-    lazy val lowerRoman: StyleSetter = buildSetter(this, "lower-roman")
+    lazy val lowerRoman: StyleSetter = buildStringStyleSetter(this, "lower-roman")
     /**
       * Uppercase roman numerals
       *
       * MDN
       */
-    lazy val upperRoman: StyleSetter = buildSetter(this, "upper-roman")
+    lazy val upperRoman: StyleSetter = buildStringStyleSetter(this, "upper-roman")
     /**
       * Lowercase classical greek
       *
       * MDN
       */
-    lazy val lowerGreek: StyleSetter = buildSetter(this, "lower-greek")
+    lazy val lowerGreek: StyleSetter = buildStringStyleSetter(this, "lower-greek")
     /**
       * Lowercase ASCII letters
       *
       * MDN
       */
-    lazy val lowerAlpha: StyleSetter = buildSetter(this, "lower-alpha")
+    lazy val lowerAlpha: StyleSetter = buildStringStyleSetter(this, "lower-alpha")
     /**
       * Lowercase ASCII letters
       *
       * MDN
       */
-    lazy val lowerLatin: StyleSetter = buildSetter(this, "lower-latin")
+    lazy val lowerLatin: StyleSetter = buildStringStyleSetter(this, "lower-latin")
     /**
       * Uppercase ASCII letters
       *
       * MDN
       */
-    lazy val upperAlpha: StyleSetter = buildSetter(this, "upper-alpha")
+    lazy val upperAlpha: StyleSetter = buildStringStyleSetter(this, "upper-alpha")
     /**
       * Uppercase ASCII letters
       *
       * MDN
       */
-    lazy val upperLatin: StyleSetter = buildSetter(this, "upper-latin")
+    lazy val upperLatin: StyleSetter = buildStringStyleSetter(this, "upper-latin")
     /**
       * Traditional Armenian numbering
       *
       * MDN
       */
-    lazy val armenian: StyleSetter = buildSetter(this, "armenian")
+    lazy val armenian: StyleSetter = buildStringStyleSetter(this, "armenian")
     /**
       * Traditional Georgian numbering
       *
       * MDN
       */
-    lazy val georgian: StyleSetter = buildSetter(this, "georgian")
+    lazy val georgian: StyleSetter = buildStringStyleSetter(this, "georgian")
     /**
       * Traditional Hebrew numbering
       *
       * MDN
       */
-    lazy val hebrew: StyleSetter = buildSetter(this, "hebrew")
+    lazy val hebrew: StyleSetter = buildStringStyleSetter(this, "hebrew")
     /**
       * Japanese Hiragana
       *
       * MDN
       */
-    lazy val hiragana: StyleSetter = buildSetter(this, "hiragana")
+    lazy val hiragana: StyleSetter = buildStringStyleSetter(this, "hiragana")
     /**
       * Japanese Hiragana
       *
@@ -1465,13 +1465,13 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val hiraganaIroha: StyleSetter = buildSetter(this, "hiragana-iroha")
+    lazy val hiraganaIroha: StyleSetter = buildStringStyleSetter(this, "hiragana-iroha")
     /**
       * Japanese Katakana
       *
       * MDN
       */
-    lazy val katakana: StyleSetter = buildSetter(this, "katakana")
+    lazy val katakana: StyleSetter = buildStringStyleSetter(this, "katakana")
     /**
       * Japanese Katakana
       *
@@ -1479,7 +1479,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val katakanaIroha: StyleSetter = buildSetter(this, "katakana-iroha")
+    lazy val katakanaIroha: StyleSetter = buildStringStyleSetter(this, "katakana-iroha")
   }
 
 
@@ -1512,13 +1512,13 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val top: StyleSetter = buildSetter(this, "top")
+    lazy val top: StyleSetter = buildStringStyleSetter(this, "top")
     /**
       * The caption box will be below the table.
       *
       * MDN
       */
-    lazy val bottom: StyleSetter = buildSetter(this, "bottom")
+    lazy val bottom: StyleSetter = buildStringStyleSetter(this, "bottom")
   }
 
   /**
@@ -1548,7 +1548,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val static: StyleSetter = buildSetter(this, "static")
+    lazy val static: StyleSetter = buildStringStyleSetter(this, "static")
     /**
       * This keyword lays out all elements as though the element were not
       * positioned, and then adjust the element's position, without changing
@@ -1559,7 +1559,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val relative: StyleSetter = buildSetter(this, "relative")
+    lazy val relative: StyleSetter = buildStringStyleSetter(this, "relative")
     /**
       * Do not leave space for the element. Instead, position it at a specified
       * position relative to its closest positioned ancestor or to the containing
@@ -1568,7 +1568,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val absolute: StyleSetter = buildSetter(this, "absolute")
+    lazy val absolute: StyleSetter = buildStringStyleSetter(this, "absolute")
     /**
       * Do not leave space for the element. Instead, position it at a specified
       * position relative to the screen's viewport and doesn't move when scrolled.
@@ -1576,7 +1576,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val fixed: StyleSetter = buildSetter(this, "fixed")
+    lazy val fixed: StyleSetter = buildStringStyleSetter(this, "fixed")
   }
 
 
@@ -1587,10 +1587,10 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val none: StyleSetter = buildSetter(this, "none")
+    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
 
     def ~(pairs: (String, String)*): StyleSetter = {
-      buildSetter(this, pairs.flatMap(x => Seq(x._1, x._2)).map('"' + _ + '"').mkString(" "))
+      buildStringStyleSetter(this, pairs.flatMap(x => Seq(x._1, x._2)).map('"' + _ + '"').mkString(" "))
     }
 
   }
@@ -1603,7 +1603,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val auto: StyleSetter = buildSetter(this, "auto")
+    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
     /**
       * Table and column widths are set by the widths of table and col elements
       * or by the width of the first row of cells. Cells in subsequent rows do
@@ -1611,7 +1611,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val fixed: StyleSetter = buildSetter(this, "fixed")
+    lazy val fixed: StyleSetter = buildStringStyleSetter(this, "fixed")
   }
 
 
@@ -1624,27 +1624,27 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
     * MDN
     */
   object fontSize extends Style[String]("fontSize", "font-size") {
-    lazy val xxSmall: StyleSetter = buildSetter(this, "xx-small")
-    lazy val xSmall: StyleSetter = buildSetter(this, "x-small")
-    lazy val small: StyleSetter = buildSetter(this, "small")
-    lazy val medium: StyleSetter = buildSetter(this, "medium")
-    lazy val large: StyleSetter = buildSetter(this, "large")
-    lazy val xLarge: StyleSetter = buildSetter(this, "x-large")
-    lazy val xxLarge: StyleSetter = buildSetter(this, "xx-large")
+    lazy val xxSmall: StyleSetter = buildStringStyleSetter(this, "xx-small")
+    lazy val xSmall: StyleSetter = buildStringStyleSetter(this, "x-small")
+    lazy val small: StyleSetter = buildStringStyleSetter(this, "small")
+    lazy val medium: StyleSetter = buildStringStyleSetter(this, "medium")
+    lazy val large: StyleSetter = buildStringStyleSetter(this, "large")
+    lazy val xLarge: StyleSetter = buildStringStyleSetter(this, "x-large")
+    lazy val xxLarge: StyleSetter = buildStringStyleSetter(this, "xx-large")
     /**
       * Larger than the parent element's font size, by roughly the ratio used to
       * separate the absolute size keywords above.
       *
       * MDN
       */
-    lazy val larger: StyleSetter = buildSetter(this, "larger")
+    lazy val larger: StyleSetter = buildStringStyleSetter(this, "larger")
     /**
       * Smaller than the parent element's font size, by roughly the ratio used to
       * separate the absolute size keywords above.
       *
       * MDN
       */
-    lazy val smaller: StyleSetter = buildSetter(this, "smaller")
+    lazy val smaller: StyleSetter = buildStringStyleSetter(this, "smaller")
   }
 
 
@@ -1697,27 +1697,27 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       * MDN
       */
 
-    lazy val normal: StyleSetter = buildSetter(this, "normal")
+    lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
     /**
       * Bold font weight. Same as 700.
       *
       * MDN
       */
-    lazy val bold: StyleSetter = buildSetter(this, "bold")
+    lazy val bold: StyleSetter = buildStringStyleSetter(this, "bold")
     /**
       * One font weight lighter than the parent element (among the available
       * weights of the font).
       *
       * MDN
       */
-    lazy val lighter: StyleSetter = buildSetter(this, "lighter")
+    lazy val lighter: StyleSetter = buildStringStyleSetter(this, "lighter")
     /**
       * One font weight darker than the parent element (among the available
       * weights of the font)
       *
       * MDN
       */
-    lazy val bolder: StyleSetter = buildSetter(this, "bolder")
+    lazy val bolder: StyleSetter = buildStringStyleSetter(this, "bolder")
 
   }
 
@@ -1750,19 +1750,19 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val normal: StyleSetter = buildSetter(this, "normal")
+    lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
     /**
       * Selects a font that is labeled italic, if that is not available, one labeled oblique
       *
       * MDN
       */
-    lazy val italic: StyleSetter = buildSetter(this, "italic")
+    lazy val italic: StyleSetter = buildStringStyleSetter(this, "italic")
     /**
       * Selects a font that is labeled oblique
       *
       * MDN
       */
-    lazy val oblique: StyleSetter = buildSetter(this, "oblique")
+    lazy val oblique: StyleSetter = buildStringStyleSetter(this, "oblique")
   }
 
   /**
@@ -1779,25 +1779,25 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val none: StyleSetter = buildSetter(this, "none")
+    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
     /**
       * The element is moved down to clear past left floats.
       *
       * MDN
       */
-    lazy val left: StyleSetter = buildSetter(this, "left")
+    lazy val left: StyleSetter = buildStringStyleSetter(this, "left")
     /**
       * The element is moved down to clear past right floats.
       *
       * MDN
       */
-    lazy val right: StyleSetter = buildSetter(this, "right")
+    lazy val right: StyleSetter = buildStringStyleSetter(this, "right")
     /**
       * The element is moved down to clear past both left and right floats.
       *
       * MDN
       */
-    lazy val both: StyleSetter = buildSetter(this, "both")
+    lazy val both: StyleSetter = buildStringStyleSetter(this, "both")
   }
 
   /**
@@ -1854,7 +1854,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val auto: StyleSetter = buildSetter(this, "auto")
+    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
 
   }
 
@@ -1986,19 +1986,19 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val thin: StyleSetter = buildSetter(this, "thin")
+    lazy val thin: StyleSetter = buildStringStyleSetter(this, "thin")
     /**
       * Typically 3px in desktop browsers like Firefox.
       *
       * MDN
       */
-    lazy val medium: StyleSetter = buildSetter(this, "medium")
+    lazy val medium: StyleSetter = buildStringStyleSetter(this, "medium")
     /**
       * Typically 5px in desktop browsers like Firefox.
       *
       * MDN
       */
-    lazy val thick: StyleSetter = buildSetter(this, "thick")
+    lazy val thick: StyleSetter = buildStringStyleSetter(this, "thick")
   }
 
   /**
@@ -2017,7 +2017,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val invert: StyleSetter = buildSetter(this, "invert")
+    lazy val invert: StyleSetter = buildStringStyleSetter(this, "invert")
   }
 
 
@@ -2046,39 +2046,39 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val start: StyleSetter = buildSetter(this, "start")
+    lazy val start: StyleSetter = buildStringStyleSetter(this, "start")
     /**
       * The same as right if direction is left-to-right and left if direction is
       * right-to-left.
       *
       * MDN
       */
-    lazy val end: StyleSetter = buildSetter(this, "end")
+    lazy val end: StyleSetter = buildStringStyleSetter(this, "end")
     /**
       * The inline contents are aligned to the left edge of the line box.
       *
       * MDN
       */
-    lazy val left: StyleSetter = buildSetter(this, "left")
+    lazy val left: StyleSetter = buildStringStyleSetter(this, "left")
     /**
       * The inline contents are aligned to the right edge of the line box.
       *
       * MDN
       */
-    lazy val right: StyleSetter = buildSetter(this, "right")
+    lazy val right: StyleSetter = buildStringStyleSetter(this, "right")
     /**
       * The inline contents are centered within the line box.
       *
       * MDN
       */
-    lazy val center: StyleSetter = buildSetter(this, "center")
+    lazy val center: StyleSetter = buildStringStyleSetter(this, "center")
     /**
       * The text is justified. Text should line up their left and right edges to
       * the left and right content edges of the paragraph.
       *
       * MDN
       */
-    lazy val justify: StyleSetter = buildSetter(this, "justify")
+    lazy val justify: StyleSetter = buildStringStyleSetter(this, "justify")
   }
 
   /**
@@ -2102,25 +2102,25 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val none: StyleSetter = buildSetter(this, "none")
+    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
     /**
       * Each line of text is underlined.
       *
       * MDN
       */
-    lazy val underline: StyleSetter = buildSetter(this, "underline")
+    lazy val underline: StyleSetter = buildStringStyleSetter(this, "underline")
     /**
       * Each line of text has a line above it.
       *
       * MDN
       */
-    lazy val overline: StyleSetter = buildSetter(this, "overline")
+    lazy val overline: StyleSetter = buildStringStyleSetter(this, "overline")
     /**
       * Each line of text has a line through the middle.
       *
       * MDN
       */
-    lazy val lineThrough: StyleSetter = buildSetter(this, "line-through")
+    lazy val lineThrough: StyleSetter = buildStringStyleSetter(this, "line-through")
   }
 
   /**
@@ -2150,7 +2150,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val clip: StyleSetter = buildSetter(this, "clip")
+    lazy val clip: StyleSetter = buildStringStyleSetter(this, "clip")
     /**
       * This keyword value indicates to display an ellipsis ('…', U+2026 HORIZONTAL
       * ELLIPSIS) to represent clipped text. The ellipsis is displayed inside the
@@ -2159,7 +2159,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val ellipsis: StyleSetter = buildSetter(this, "ellipsis")
+    lazy val ellipsis: StyleSetter = buildStringStyleSetter(this, "ellipsis")
   }
 
   /**
@@ -2178,7 +2178,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val auto: StyleSetter = buildSetter(this, "auto")
+    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
     /**
       * This keyword forces the line to be set below the alphabetic baseline, at
       * a position where it won't cross any descender. This is useful to prevent
@@ -2187,7 +2187,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val under: StyleSetter = buildSetter(this, "under")
+    lazy val under: StyleSetter = buildStringStyleSetter(this, "under")
     /**
       * In vertical writing-modes, this keyword forces the line to be placed on
       * the left of the characters. In horizontal writing-modes, it is a synonym
@@ -2195,7 +2195,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val left: StyleSetter = buildSetter(this, "left")
+    lazy val left: StyleSetter = buildStringStyleSetter(this, "left")
     /**
       * In vertical writing-modes, this keyword forces the line to be placed on
       * the right of the characters. In horizontal writing-modes, it is a synonym
@@ -2203,9 +2203,9 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val right: StyleSetter = buildSetter(this, "right")
-    lazy val underLeft: StyleSetter = buildSetter(this, "under left")
-    lazy val underRight: StyleSetter = buildSetter(this, "under right")
+    lazy val right: StyleSetter = buildStringStyleSetter(this, "right")
+    lazy val underLeft: StyleSetter = buildStringStyleSetter(this, "under left")
+    lazy val underRight: StyleSetter = buildStringStyleSetter(this, "under right")
   }
 
   /**
@@ -2222,25 +2222,25 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val capitalize: StyleSetter = buildSetter(this, "capitalize")
+    lazy val capitalize: StyleSetter = buildStringStyleSetter(this, "capitalize")
     /**
       * Forces all characters to be converted to uppercase.
       *
       * MDN
       */
-    lazy val uppercase: StyleSetter = buildSetter(this, "uppercase")
+    lazy val uppercase: StyleSetter = buildStringStyleSetter(this, "uppercase")
     /**
       * Forces all characters to be converted to lowercase.
       *
       * MDN
       */
-    lazy val lowercase: StyleSetter = buildSetter(this, "lowercase")
+    lazy val lowercase: StyleSetter = buildStringStyleSetter(this, "lowercase")
     /**
       * Prevents the case of all characters from being changed
       *
       * MDN
       */
-    lazy val none: StyleSetter = buildSetter(this, "none")
+    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
   }
 
 
@@ -2333,7 +2333,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val visible: StyleSetter = buildSetter(this, "visible")
+    lazy val visible: StyleSetter = buildStringStyleSetter(this, "visible")
     /**
       * The box is invisible (fully transparent, nothing is drawn), but still
       * affects layout.  Descendants of the element will be visible if they have
@@ -2341,7 +2341,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val hidden: StyleSetter = buildSetter(this, "hidden")
+    lazy val hidden: StyleSetter = buildStringStyleSetter(this, "hidden")
     /**
       * For table rows, columns, column groups, and row groups the row(s) or
       * column(s) are hidden and the space they would have occupied is (as if
@@ -2349,7 +2349,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val collapse: StyleSetter = buildSetter(this, "collapse")
+    lazy val collapse: StyleSetter = buildStringStyleSetter(this, "collapse")
   }
 
 
@@ -2367,35 +2367,35 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val normal: StyleSetter = buildSetter(this, "normal")
+    lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
     /**
       * Collapses whitespace as for normal, but suppresses line breaks (text
       * wrapping) within text.
       *
       * MDN
       */
-    lazy val nowrap: StyleSetter = buildSetter(this, "nowrap")
+    lazy val nowrap: StyleSetter = buildStringStyleSetter(this, "nowrap")
     /**
       * Sequences of whitespace are preserved, lines are only broken at newline
       * characters in the source and at br elements.
       *
       * MDN
       */
-    lazy val pre: StyleSetter = buildSetter(this, "pre")
+    lazy val pre: StyleSetter = buildStringStyleSetter(this, "pre")
     /**
       * Sequences of whitespace are preserved. Lines are broken at newline
       * characters, at br, and as necessary to fill line boxes.
       *
       * MDN
       */
-    lazy val preWrap: StyleSetter = buildSetter(this, "pre-wrap")
+    lazy val preWrap: StyleSetter = buildStringStyleSetter(this, "pre-wrap")
     /**
       * Sequences of whitespace are collapsed. Lines are broken at newline
       * characters, at br, and as necessary to fill line boxes.
       *
       * MDN
       */
-    lazy val preLine: StyleSetter = buildSetter(this, "pre-line")
+    lazy val preLine: StyleSetter = buildStringStyleSetter(this, "pre-line")
   }
 
   /**
@@ -2461,7 +2461,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val flexStart: StyleSetter = buildSetter(this, "flex-start")
+    lazy val flexStart: StyleSetter = buildStringStyleSetter(this, "flex-start")
 
     /**
       * Lines are packed starting from the cross-end. Cross-end of the last line and cross-end of the flex container
@@ -2469,7 +2469,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val flexEnd: StyleSetter = buildSetter(this, "flex-end")
+    lazy val flexEnd: StyleSetter = buildStringStyleSetter(this, "flex-end")
 
     /**
       * Lines are packed toward the center of the flex container. The lines are flushed with each other and aligned
@@ -2478,7 +2478,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val center: StyleSetter = buildSetter(this, "center")
+    lazy val center: StyleSetter = buildStringStyleSetter(this, "center")
 
     /**
       * Lines are evenly distributed in the flex container. The spacing is done such as the space between two
@@ -2487,7 +2487,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val spaceBeteween: StyleSetter = buildSetter(this, "space-between")
+    lazy val spaceBeteween: StyleSetter = buildStringStyleSetter(this, "space-between")
 
     /**
       * Lines are evenly distributed so that the space between two adjacent lines is the same. The empty space before
@@ -2495,14 +2495,14 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val spaceAround: StyleSetter = buildSetter(this, "space-around")
+    lazy val spaceAround: StyleSetter = buildStringStyleSetter(this, "space-around")
 
     /**
       * Lines stretch to use the remaining space. The free-space is split equally between all the lines.
       *
       * MDN
       */
-    lazy val stretch: StyleSetter = buildSetter(this, "stretch")
+    lazy val stretch: StyleSetter = buildStringStyleSetter(this, "stretch")
   }
 
   /**
@@ -2517,21 +2517,21 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val auto: StyleSetter = buildSetter(this, "auto")
+    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
 
     /**
       * The cross-start margin edge of the flex item is flushed with the cross-start edge of the line.
       *
       * MDN
       */
-    lazy val flexStart: StyleSetter = buildSetter(this, "flex-start")
+    lazy val flexStart: StyleSetter = buildStringStyleSetter(this, "flex-start")
 
     /**
       * The cross-end margin edge of the flex item is flushed with the cross-end edge of the line.
       *
       * MDN
       */
-    lazy val flexEnd: StyleSetter = buildSetter(this, "flex-end")
+    lazy val flexEnd: StyleSetter = buildStringStyleSetter(this, "flex-end")
 
     /**
       * The flex item's margin box is centered within the line on the cross-axis. If the cross-size of the item is
@@ -2539,7 +2539,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val center: StyleSetter = buildSetter(this, "center")
+    lazy val center: StyleSetter = buildStringStyleSetter(this, "center")
 
     /**
       * All flex items are aligned such that their baselines align. The item with the largest distance between its
@@ -2547,7 +2547,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val baseline: StyleSetter = buildSetter(this, "baseline")
+    lazy val baseline: StyleSetter = buildStringStyleSetter(this, "baseline")
 
     /**
       * Flex items are stretched such as the cross-size of the item's margin box is the same as the line while
@@ -2555,7 +2555,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val stretch: StyleSetter = buildSetter(this, "stretch")
+    lazy val stretch: StyleSetter = buildStringStyleSetter(this, "stretch")
   }
 
   /**
@@ -2572,7 +2572,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val nowrap: StyleSetter = buildSetter(this, "nowrap")
+    lazy val nowrap: StyleSetter = buildStringStyleSetter(this, "nowrap")
 
     /**
       * The flex items break into multiple lines. The cross-start is either equivalent to start or before depending
@@ -2580,14 +2580,14 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val wrap: StyleSetter = buildSetter(this, "wrap")
+    lazy val wrap: StyleSetter = buildStringStyleSetter(this, "wrap")
 
     /**
       * Behaves the same as wrap but cross-start and cross-end are permuted.
       *
       * MDN
       */
-    lazy val wrapReverse: StyleSetter = buildSetter(this, "wrapReverse")
+    lazy val wrapReverse: StyleSetter = buildStringStyleSetter(this, "wrapReverse")
 
   }
 
@@ -2604,14 +2604,14 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val flexStart: StyleSetter = buildSetter(this, "flex-start")
+    lazy val flexStart: StyleSetter = buildStringStyleSetter(this, "flex-start")
 
     /**
       * The cross-end margin edge of the flex item is flushed with the cross-end edge of the line.
       *
       * MDN
       */
-    lazy val flexEnd: StyleSetter = buildSetter(this, "flex-end")
+    lazy val flexEnd: StyleSetter = buildStringStyleSetter(this, "flex-end")
 
     /**
       * The flex item's margin box is centered within the line on the cross-axis. If the cross-size of the item
@@ -2619,7 +2619,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val center: StyleSetter = buildSetter(this, "center")
+    lazy val center: StyleSetter = buildStringStyleSetter(this, "center")
 
     /**
       * All flex items are aligned such that their baselines align. The item with the largest distance between its
@@ -2627,7 +2627,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val baseline: StyleSetter = buildSetter(this, "baseline")
+    lazy val baseline: StyleSetter = buildStringStyleSetter(this, "baseline")
 
     /**
       * Flex items are stretched such as the cross-size of the item's margin box is the same as the line while
@@ -2635,7 +2635,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val stretch: StyleSetter = buildSetter(this, "stretch")
+    lazy val stretch: StyleSetter = buildStringStyleSetter(this, "stretch")
 
   }
 
@@ -2656,7 +2656,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val flexStart: StyleSetter = buildSetter(this, "flex-start")
+    lazy val flexStart: StyleSetter = buildStringStyleSetter(this, "flex-start")
 
     /**
       * The flex items are packed starting from the main-end. The margin edge of the last flex item is flushed with the
@@ -2664,7 +2664,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val flexEnd: StyleSetter = buildSetter(this, "flex-end")
+    lazy val flexEnd: StyleSetter = buildStringStyleSetter(this, "flex-end")
 
     /**
       * The flex items are packed toward the center of the line. The flex items are flushed with each other and aligned
@@ -2673,7 +2673,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val center: StyleSetter = buildSetter(this, "center")
+    lazy val center: StyleSetter = buildStringStyleSetter(this, "center")
 
     /**
       * Flex items are evenly distributed along the line. The spacing is done such as the space between two adjacent
@@ -2681,7 +2681,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val spaceBetween: StyleSetter = buildSetter(this, "space-between")
+    lazy val spaceBetween: StyleSetter = buildStringStyleSetter(this, "space-between")
 
     /**
       * Flex items are evenly distributed so that the space between two adjacent items is the same. The empty space
@@ -2689,7 +2689,7 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val spaceAround: StyleSetter = buildSetter(this, "space-around")
+    lazy val spaceAround: StyleSetter = buildStringStyleSetter(this, "space-around")
 
   }
 
@@ -2712,14 +2712,14 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val column: StyleSetter = buildSetter(this, "column")
+    lazy val column: StyleSetter = buildStringStyleSetter(this, "column")
 
     /**
       * Behaves the same as column but the main-start and main-end are permuted.
       *
       * MDN
       */
-    lazy val columnReverse: StyleSetter = buildSetter(this, "column-reverse")
+    lazy val columnReverse: StyleSetter = buildStringStyleSetter(this, "column-reverse")
 
     /**
       * The flex container's main-axis is defined to be the same as the text direction.
@@ -2727,13 +2727,13 @@ trait Styles[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this:
       *
       * MDN
       */
-    lazy val row: StyleSetter = buildSetter(this, "row")
+    lazy val row: StyleSetter = buildStringStyleSetter(this, "row")
 
     /**
       * Behaves the same as row but the main-start and main-end points are permuted.
       *
       * MDN
       */
-    lazy val rowReverse: StyleSetter = buildSetter(this, "row-reverse")
+    lazy val rowReverse: StyleSetter = buildStringStyleSetter(this, "row-reverse")
   }
 }

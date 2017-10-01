@@ -1,6 +1,6 @@
 package com.raquo.domtypes.generic.nodes
 
-trait Element {
+trait Element extends Node {
 
   val tagName: String
 
