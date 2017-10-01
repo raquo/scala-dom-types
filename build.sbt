@@ -42,6 +42,7 @@ val releaseSettings: Seq[Setting[_]] = Seq(
 
 lazy val root = project.in(file("."))
   .aggregate(js, jvm)
+  .settings(releaseSettings)
   .settings(
     publish := {},
     publishLocal := {}
