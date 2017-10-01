@@ -35,21 +35,21 @@ Of course, your API doesn't need to look anything like this, that's just an exam
 You also don't need to be writing a whole library to benefit from _Scala DOM Types_, you can use it instead to make your application code more type-safe. For example, your imaginary method
 
 ```scala
-getProperty(element: dom.Element, propName: String, propValue: Any)
+setProperty(element: dom.Element, propName: String, propValue: Any)
 ```
 
 could become
  
 ```scala
-getProperty[Value](element: dom.Element, prop: Prop[Value], propValue: Value)
+setProperty[Value](element: dom.Element, prop: Prop[Value], propValue: Value)
 ```
 
 Now you can't pass just about any random string as `propName`, and even `propValue` is now type checked.
 
-However, if all you want is more type safety in your application code, you might want to import tags / attrs / etc. from Scala DOM Builder's `simple` package instead because those don't require any boilerplate on your side. 
+However, if all you want is more type safety in your application code, you might want to import tags / attrs / etc. from [Scala DOM Builder](https://github.com/raquo/scala-dom-builder)'s `simple` package instead because those don't require any boilerplate on your side. 
 
 
-## Why not ScalaTags
+## What about ScalaTags
 
 [ScalaTags](http://www.lihaoyi.com/scalatags/) is a popular Scala library that contains DOM type definitions similar to what we have here. However, _Scala DOM Types_ is different in a few ways:
 
@@ -63,9 +63,18 @@ There are some other differences, for example _Scala DOM Types_ uses camelCase f
 
 The [scala-js-dom](http://scala-js.github.io/scala-js-dom/) project serves a very different purpose – it provides typed Scala.js interfaces to native Javascript DOM classes such as `HTMLInputElement`. You can use those types when you already have instances of DOM elements, but you can not instantiate those types without using untyped methods like `document.createElement` because that is the only kind of API that Javascript provides for this.
 
-On the other hand, _Scala DOM Types_ lets the consuming library create a type-safe _representation_ of real JS DOM nodes or trees, and it is up to your library's code to instantiate real JS nodes from the provided description. [Scala DOM Builder](https://github.com/raquo/scala-dom-builder) does it in the most straightforward way, but higher level libraries like React or [Snabbdom](https://github.com/raquo/Snabbdom.scala) could use those representations in their own ways, e.g. to create virtual DOM structures.
+On the other hand, _Scala DOM Types_ lets the consuming library create a type-safe _representation_ of real JS DOM nodes or trees, and it is up to your library's code to instantiate real JS nodes from the provided description. [Scala DOM Builder](https://github.com/raquo/scala-dom-builder) does that in the most straightforward way, but higher level libraries like React or [Snabbdom](https://github.com/raquo/Snabbdom.scala) could use _Scala DOM Types_ in their own way, e.g. to create _virtual_ DOM structures.
 
-Oh and _Scala DOM Types_ **does** work on the JVM. Obviously you can't get native JS types there, but you can provide your own replacements for specific Scala.js types, or just not bother with such specificity.
+Oh and _Scala DOM Types_ **does** work on the JVM. Obviously you can't get native JS types there, but you can provide your own replacements for specific Scala.js types, or just not bother with such specificity (see [`defs.sameRefTags`](https://github.com/raquo/scala-dom-types/blob/master/shared/src/main/scala/com/raquo/domtypes/generic/defs/package.scala)).
+
+## My Related Projects
+
+- [Scala DOM Builder](https://github.com/raquo/scala-dom-types) – Low-level Scala & Scala.js library for building and manipulating DOM trees
+- [Scala DOM TestUtils](https://github.com/raquo/scala-dom-testutils) – Test that your Javascript DOM nodes match your expectations
+- [Laminar](https://github.com/raquo/laminar) – Reactive UI library based on _Scala DOM Builder_
+- [Snabbdom.scala](https://github.com/raquo/Snabbdom.scala) – Scala.js interface to a popular JS virtual DOM library
+- [XStream.scala](https://github.com/raquo/XStream.scala) – Scala.js interface to a simple JS reactive streams library
+- [Cycle.scala](https://github.com/raquo/Cycle.scala) – Scala.js interface to a popular JS functional reactive library
 
 ## Author
 
@@ -73,8 +82,8 @@ Nikita Gazarov – [raquo.com](http://raquo.com)
 
 ## License and Credits
 
-_Scala DOM Types_ is provided under MIT license.
+_Scala DOM Types_ is provided under the [MIT license](https://github.com/raquo/scala-dom-types/blob/master/LICENSE.md).
 
-Files in `defs` directory contain listings of DOM attributes, props, styles, etc. – Those were adapted from Li Haoyi's [ScalaTags](http://www.lihaoyi.com/scalatags/#License).
+Files in [`defs`](https://github.com/raquo/scala-dom-types/tree/master/shared/src/main/scala/com/raquo/domtypes/generic/defs) directory contain listings of DOM attributes, props, styles, etc. – Those were adapted from Li Haoyi's [ScalaTags](http://www.lihaoyi.com/scalatags/#License), which is also MIT licensed.
 
 Comments marked with "MDN" are taken or derived from content created by Mozilla Contributors and are licensed under Creative Commons Attribution-ShareAlike license (CC-BY-SA), v2.5.
