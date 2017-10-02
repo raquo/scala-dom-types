@@ -104,7 +104,7 @@ trait TextTags[T[_ <: DomElement], DomElement, HtmlAnchor <: DomElement, HtmlEle
     *
     *  MDN  [[org.scalajs.dom.html.BR]]
     */
-  lazy val br: T[HtmlBr] = build("br")
+  lazy val br: T[HtmlBr] = build("br", void = true)
 
   /**
     * Represents a line break opportunity, that is a suggested point for wrapping
@@ -112,7 +112,7 @@ trait TextTags[T[_ <: DomElement], DomElement, HtmlAnchor <: DomElement, HtmlEle
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val wbr: T[HtmlElement] = build("wbr")
+  lazy val wbr: T[HtmlElement] = build("wbr", void = true)
 
   /**
     * Defines an addition to the document.

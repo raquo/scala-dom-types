@@ -33,7 +33,7 @@ trait TableTags[T[_ <: DomElement], DomElement, HtmlTable <: DomElement, HtmlTab
     *
     *  MDN
     */
-  lazy val col: T[HtmlTableCol] = build("col")
+  lazy val col: T[HtmlTableCol] = build("col", void = true)
 
   /**
     * The table body.

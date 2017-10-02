@@ -41,7 +41,7 @@ trait FormTags[T[_ <: DomElement], DomElement, HtmlForm <: DomElement, HtmlField
     *
     *  MDN
     */
-  lazy val input: T[HtmlInput] = build("input")
+  lazy val input: T[HtmlInput] = build("input", void = true)
 
   /**
     * A button

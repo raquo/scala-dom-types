@@ -26,21 +26,21 @@ trait DocumentTags[T[_ <: DomElement], DomElement, Html <: DomElement, HtmlHead 
     *
     *  MDN
     */
-  lazy val base: T[HtmlBase] = build("base")
+  lazy val base: T[HtmlBase] = build("base", void = true)
 
   /**
     * Used to link JavaScript and external CSS with the current HTML document.
     *
     *  MDN
     */
-  lazy val link: T[HtmlLink] = build("link")
+  lazy val link: T[HtmlLink] = build("link", void = true)
 
   /**
     * Defines metadata that can't be defined using another HTML element.
     *
     *  MDN
     */
-  lazy val meta: T[HtmlMeta] = build("meta")
+  lazy val meta: T[HtmlMeta] = build("meta", void = true)
 
   /**
     * Defines either an internal script or a link to an external script. The

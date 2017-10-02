@@ -20,7 +20,7 @@ trait GroupingTags[T[_ <: DomElement], DomElement, HtmlParagraph <: DomElement, 
     *
     *  MDN
     */
-  lazy val hr: T[HtmlHr] = build("hr")
+  lazy val hr: T[HtmlHr] = build("hr", void = true)
 
   /**
     * Indicates that its content is preformatted and that this format must be
