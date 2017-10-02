@@ -9,7 +9,7 @@ val releaseSettings: Seq[Setting[_]] = Seq(
   scalaVersion in ThisBuild := "2.11.11", // @TODO[WTF] Why exactly do we need `in ThisBuild` here?
   crossScalaVersions in ThisBuild := Seq("2.11.11", "2.12.3"), // @TODO[WTF] Why exactly do we need `in ThisBuild` here?
   homepage := Some(url("https://github.com/raquo/scala-dom-types")),
-  licenses += ("MIT", url("https://github.com/raquo/scala-dom-types/blob/master/LICENSE.txt")),
+  licenses += ("MIT", url("https://github.com/raquo/scala-dom-types/blob/master/LICENSE.md")),
   scmInfo := Some(
     ScmInfo(
       url("https://github.com/raquo/scala-dom-types"),
