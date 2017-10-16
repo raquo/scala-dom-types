@@ -1,11 +1,13 @@
 package com.raquo.domtypes.generic.defs.eventProps
 
-import com.raquo.domtypes.generic.builders.BoundedBuilder
+import com.raquo.domtypes.generic.builders.EventPropBuilder
 
 /**
   * Clipboard Events
+  *
+  * For type param docs see [[EventPropBuilder]]
   */
-trait ClipboardEventProps[EP[_ <: DomEvent], DomEvent] { this: BoundedBuilder[EP, DomEvent] =>
+trait ClipboardEventProps[EP[_ <: DomEvent], DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * Fires when the user copies the content of an element

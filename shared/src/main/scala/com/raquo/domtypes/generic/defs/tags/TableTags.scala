@@ -12,68 +12,68 @@ trait TableTags[T[_ <: DomElement], DomElement, HtmlTable <: DomElement, HtmlTab
     *
     *  MDN
     */
-  lazy val table: T[HtmlTable] = build("table")
+  lazy val table: T[HtmlTable] = tag("table")
 
   /**
     * The title of a table.
     *
     *  MDN
     */
-  lazy val caption: T[HtmlTableCaption] = build("caption")
+  lazy val caption: T[HtmlTableCaption] = tag("caption")
 
   /**
     * A set of columns.
     *
     *  MDN
     */
-  lazy val colGroup: T[HtmlTableCol] = build("colgroup")
+  lazy val colGroup: T[HtmlTableCol] = tag("colgroup")
 
   /**
     * A single column.
     *
     *  MDN
     */
-  lazy val col: T[HtmlTableCol] = build("col", void = true)
+  lazy val col: T[HtmlTableCol] = tag("col", void = true)
 
   /**
     * The table body.
     *
     *  MDN
     */
-  lazy val tbody: T[HtmlTableSection] = build("tbody")
+  lazy val tbody: T[HtmlTableSection] = tag("tbody")
 
   /**
     * The table headers.
     *
     *  MDN
     */
-  lazy val thead: T[HtmlTableSection] = build("thead")
+  lazy val thead: T[HtmlTableSection] = tag("thead")
 
   /**
     * The table footer.
     *
     *  MDN
     */
-  lazy val tfoot: T[HtmlTableSection] = build("tfoot")
+  lazy val tfoot: T[HtmlTableSection] = tag("tfoot")
 
   /**
     * A single row in a table.
     *
     *  MDN
     */
-  lazy val tr: T[HtmlTableRow] = build("tr")
+  lazy val tr: T[HtmlTableRow] = tag("tr")
 
   /**
     * A single cell in a table.
     *
     *  MDN
     */
-  lazy val td: T[HtmlTableCell] = build("td")
+  lazy val td: T[HtmlTableCell] = tag("td")
 
   /**
     * A header cell in a table.
     *
     *  MDN
     */
-  lazy val th: T[HtmlTableHeaderCell] = build("th")
+  lazy val th: T[HtmlTableHeaderCell] = tag("th")
 }

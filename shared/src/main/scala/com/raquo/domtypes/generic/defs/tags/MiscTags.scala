@@ -18,14 +18,14 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     * MDN
     */
-  lazy val title: T[HtmlTitle] = build("title")
+  lazy val title: T[HtmlTitle] = tag("title")
 
   /**
     * Used to write inline CSS.
     *
     *  MDN
     */
-  lazy val style: T[HtmlStyle] = build("style")
+  lazy val style: T[HtmlStyle] = tag("style")
 
   // Sections
 
@@ -35,7 +35,7 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val section: T[HtmlElement] = build("section")
+  lazy val section: T[HtmlElement] = tag("section")
 
   /**
     * Represents a section of a page that links to other pages or to parts within
@@ -43,7 +43,7 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val nav: T[HtmlElement] = build("nav")
+  lazy val nav: T[HtmlElement] = tag("nav")
 
   /**
     * Defines self-contained content that could exist independently of the rest
@@ -51,7 +51,7 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val article: T[HtmlElement] = build("article")
+  lazy val article: T[HtmlElement] = tag("article")
 
   /**
     * Defines some content loosely related to the page content. If it is removed,
@@ -59,14 +59,14 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val aside: T[HtmlElement] = build("aside")
+  lazy val aside: T[HtmlElement] = tag("aside")
 
   /**
     * Defines a section containing contact information.
     *
     *  MDN
     */
-  lazy val address: T[HtmlElement] = build("address")
+  lazy val address: T[HtmlElement] = tag("address")
 
   /**
     * Defines the main or important content in the document. There is only one
@@ -74,7 +74,7 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val main: T[HtmlElement] = build("main")
+  lazy val main: T[HtmlElement] = tag("main")
 
   // Text level semantics
 
@@ -83,7 +83,7 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val q: T[HtmlQuote] = build("q")
+  lazy val q: T[HtmlQuote] = tag("q")
 
   /**
     * Represents a term whose definition is contained in its nearest ancestor
@@ -91,7 +91,7 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val dfn: T[HtmlElement] = build("dfn")
+  lazy val dfn: T[HtmlElement] = tag("dfn")
 
   /**
     * An abbreviation or acronym; the expansion of the abbreviation can be
@@ -99,14 +99,14 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val abbr: T[HtmlElement] = build("abbr")
+  lazy val abbr: T[HtmlElement] = tag("abbr")
 
   /**
     * Associates to its content a machine-readable equivalent.
     *
     *  MDN
     */
-  lazy val data: T[HtmlElement] = build("data")
+  lazy val data: T[HtmlElement] = tag("data")
 
   /**
     * Represents a date and time value; the machine-readable equivalent can be
@@ -114,35 +114,35 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val time: T[HtmlElement] = build("time")
+  lazy val time: T[HtmlElement] = tag("time")
 
   /**
     * Represents a variable.
     *
     *  MDN
     */
-  lazy val `var`: T[HtmlElement] = build("var")
+  lazy val `var`: T[HtmlElement] = tag("var")
 
   /**
     * Represents the output of a program or a computer.
     *
     *  MDN
     */
-  lazy val samp: T[HtmlElement] = build("samp")
+  lazy val samp: T[HtmlElement] = tag("samp")
 
   /**
     * Represents user input, often from a keyboard, but not necessarily.
     *
     *  MDN
     */
-  lazy val kbd: T[HtmlElement] = build("kbd")
+  lazy val kbd: T[HtmlElement] = tag("kbd")
 
   /**
     * Defines a mathematical formula.
     *
     *  MDN
     */
-  lazy val math: T[HtmlElement] = build("math")
+  lazy val math: T[HtmlElement] = tag("math")
 
   /**
     * Represents text highlighted for reference purposes, that is for its
@@ -150,7 +150,7 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val mark: T[HtmlElement] = build("mark")
+  lazy val mark: T[HtmlElement] = tag("mark")
 
   /**
     * Represents content to be marked with ruby annotations, short runs of text
@@ -160,14 +160,14 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val ruby: T[HtmlElement] = build("ruby")
+  lazy val ruby: T[HtmlElement] = tag("ruby")
 
   /**
     * Represents the text of a ruby annotation.
     *
     *  MDN
     */
-  lazy val rt: T[HtmlElement] = build("rt")
+  lazy val rt: T[HtmlElement] = tag("rt")
 
   /**
     * Represents parenthesis around a ruby annotation, used to display the
@@ -176,7 +176,7 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val rp: T[HtmlElement] = build("rp")
+  lazy val rp: T[HtmlElement] = tag("rp")
 
   /**
     * Represents text that must be isolated from its surrounding for bidirectional
@@ -185,7 +185,7 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val bdi: T[HtmlElement] = build("bdi")
+  lazy val bdi: T[HtmlElement] = tag("bdi")
 
   /**
     * Represents the directionality of its children, in order to explicitly
@@ -193,7 +193,7 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val bdo: T[HtmlElement] = build("bdo")
+  lazy val bdo: T[HtmlElement] = tag("bdo")
 
   // Forms
 
@@ -202,28 +202,28 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val keyGen: T[HtmlElement] = build("keygen")
+  lazy val keyGen: T[HtmlElement] = tag("keygen")
 
   /**
     * The result of a calculation
     *
     *  MDN
     */
-  lazy val output: T[HtmlElement] = build("output")
+  lazy val output: T[HtmlElement] = tag("output")
 
   /**
     * A progress completion bar
     *
     *  MDN
     */
-  lazy val progress: T[HtmlProgress] = build("progress")
+  lazy val progress: T[HtmlProgress] = tag("progress")
 
   /**
     * A scalar measurement within a known range.
     *
     *  MDN
     */
-  lazy val meter: T[HtmlElement] = build("meter")
+  lazy val meter: T[HtmlElement] = tag("meter")
 
   // Interactive elements
 
@@ -233,26 +233,26 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val details: T[HtmlElement] = build("details")
+  lazy val details: T[HtmlElement] = tag("details")
 
   /**
     * A summary, caption, or legend for a given details.
     *
     *  MDN
     */
-  lazy val summary: T[HtmlElement] = build("summary")
+  lazy val summary: T[HtmlElement] = tag("summary")
 
   /**
     * A command that the user can invoke.
     *
     *  MDN
     */
-  lazy val command: T[HtmlElement] = build("command")
+  lazy val command: T[HtmlElement] = tag("command")
 
   /**
     * A list of commands
     *
     *  MDN
     */
-  lazy val menu: T[HtmlMenu] = build("menu")
+  lazy val menu: T[HtmlMenu] = tag("menu")
 }

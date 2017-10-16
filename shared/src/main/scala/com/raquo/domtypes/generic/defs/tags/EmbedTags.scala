@@ -12,14 +12,14 @@ trait EmbedTags[T[_ <: DomElement], DomElement, HtmlImage <: DomElement, HtmlIfr
     *
     *  MDN
     */
-  lazy val img: T[HtmlImage] = build("img", void = true)
+  lazy val img: T[HtmlImage] = tag("img", void = true)
 
   /**
     * Represents a nested browsing context, that is an embedded HTML document.
     *
     *  MDN
     */
-  lazy val iframe: T[HtmlIframe] = build("iframe")
+  lazy val iframe: T[HtmlIframe] = tag("iframe")
 
   /**
     * Represents a integration point for an external, often non-HTML, application
@@ -27,7 +27,7 @@ trait EmbedTags[T[_ <: DomElement], DomElement, HtmlImage <: DomElement, HtmlIfr
     *
     *  MDN
     */
-  lazy val embed: T[HtmlEmbed] = build("embed", void = true)
+  lazy val embed: T[HtmlEmbed] = tag("embed", void = true)
 
   /**
     * Represents an external resource, which is treated as an image, an HTML
@@ -35,14 +35,14 @@ trait EmbedTags[T[_ <: DomElement], DomElement, HtmlImage <: DomElement, HtmlIfr
     *
     *  MDN
     */
-  lazy val `object`: T[HtmlObject] = build("object")
+  lazy val `object`: T[HtmlObject] = tag("object")
 
   /**
     * Defines parameters for use by plug-ins invoked by object elements.
     *
     *  MDN
     */
-  lazy val param: T[HtmlParam] = build("param", void = true)
+  lazy val param: T[HtmlParam] = tag("param", void = true)
 
   /**
     * Represents a video, and its associated audio files and captions, with the
@@ -50,14 +50,14 @@ trait EmbedTags[T[_ <: DomElement], DomElement, HtmlImage <: DomElement, HtmlIfr
     *
     *  MDN
     */
-  lazy val video: T[HtmlVideo] = build("video")
+  lazy val video: T[HtmlVideo] = tag("video")
 
   /**
     * Represents a sound or an audio stream.
     *
     *  MDN
     */
-  lazy val audio: T[HtmlAudio] = build("audio")
+  lazy val audio: T[HtmlAudio] = tag("audio")
 
   /**
     * Allows the authors to specify alternate media resources for media elements
@@ -65,7 +65,7 @@ trait EmbedTags[T[_ <: DomElement], DomElement, HtmlImage <: DomElement, HtmlIfr
     *
     *  MDN
     */
-  lazy val source: T[HtmlSource] = build("source", void = true)
+  lazy val source: T[HtmlSource] = tag("source", void = true)
 
   /**
     * Allows authors to specify timed text track for media elements like video or
@@ -73,7 +73,7 @@ trait EmbedTags[T[_ <: DomElement], DomElement, HtmlImage <: DomElement, HtmlIfr
     *
     *  MDN
     */
-  lazy val track: T[HtmlTrack] = build("track", void = true)
+  lazy val track: T[HtmlTrack] = tag("track", void = true)
 
   /**
     * Represents a bitmap area that scripts can use to render graphics like graphs,
@@ -81,19 +81,19 @@ trait EmbedTags[T[_ <: DomElement], DomElement, HtmlImage <: DomElement, HtmlIfr
     *
     *  MDN
     */
-  lazy val canvas: T[HtmlCanvas] = build("canvas")
+  lazy val canvas: T[HtmlCanvas] = tag("canvas")
 
   /**
     * In conjunction with area, defines an image map.
     *
     *  MDN
     */
-  lazy val map: T[HtmlMap] = build("map")
+  lazy val map: T[HtmlMap] = tag("map")
 
   /**
     * In conjunction with map, defines an image map
     *
     *  MDN
     */
-  lazy val area: T[HtmlArea] = build("area", void = true)
+  lazy val area: T[HtmlArea] = tag("area", void = true)
 }

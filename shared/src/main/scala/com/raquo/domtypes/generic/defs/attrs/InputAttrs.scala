@@ -1,8 +1,11 @@
 package com.raquo.domtypes.generic.defs.attrs
 
-import com.raquo.domtypes.generic.builders.SpecializedBuilder
+import com.raquo.domtypes.generic.builders.AttrBuilder
 
-trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
+/**
+  * @tparam A Attribute
+  */
+trait InputAttrs[A[_]] { this: AttrBuilder[A] =>
 
   /**
     * The URI of a program that processes the information submitted via the form.
@@ -11,7 +14,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val action: A[String] = build("action")
+  lazy val action: A[String] = attr("action")
 
   /**
     * This attribute indicates whether the value of the control can be
@@ -23,7 +26,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val autoComplete: A[String] = build("autocomplete")
+  lazy val autoComplete: A[String] = attr("autocomplete")
 
   /**
     * This Boolean attribute lets you specify that a form control should have
@@ -35,7 +38,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val autoFocus: A[Boolean] = build("autofocus")
+  lazy val autoFocus: A[Boolean] = attr("autofocus")
 
   /**
     * When the value of the type attribute is radio or checkbox, the presence of
@@ -44,18 +47,18 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val checked: A[Boolean] = build("checked")
+  lazy val checked: A[Boolean] = attr("checked")
 
   /**
     * The `enctype` attribute provides the encoding type of the form when it is
     * submitted (for forms with a method of "POST").
     */
-  lazy val encType: A[String] = build("enctype")
+  lazy val encType: A[String] = attr("enctype")
 
   /**
     * The form attribute specifies one or more forms an `<input>` element belongs to.
     */
-  lazy val formAttr: A[String] = build("form") // TODO: Conflicts with "form" element
+  lazy val formAttr: A[String] = attr("form") // TODO: Conflicts with "form" element
 
   /**
     * The `formaction` attribute provides the URL that will process the input control
@@ -63,7 +66,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     * `form` element. This should be used only with `input` elements of `type`
     * submit or image.
     */
-  lazy val formAction: A[String] = build("formaction")
+  lazy val formAction: A[String] = attr("formaction")
 
   /**
     * The `formenctype` attribute provides the encoding type of the form when it is
@@ -71,7 +74,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     * `enctype` attribute of the `form` element. This should be used only with the
     * `input` elements of `type` "submit" or "image"
     */
-  lazy val formEncType: A[String] = build("formenctype")
+  lazy val formEncType: A[String] = attr("formenctype")
 
   /**
     * The `formmethod` attribute specifies the HTTP Method the form should use when
@@ -79,7 +82,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     * element. This should be used only with the `input` elements of `type` "submit"
     * or "image".
     */
-  lazy val formMethod: A[String] = build("formmethod")
+  lazy val formMethod: A[String] = attr("formmethod")
 
   /**
     * The `formnovalidate` Boolean attribute specifies that the input of the form
@@ -87,7 +90,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     * attribute of the `form`. This should only be used with `input` elements of
     * of `type` "submit".
     */
-  lazy val formNoValidate: A[Boolean] = build("formnovalidate")
+  lazy val formNoValidate: A[Boolean] = attr("formnovalidate")
 
   /**
     * The `formtarget` provides a name or keyword that indicates where to display
@@ -95,19 +98,19 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     * `target` attribute of them `form` element. This should only be used with
     * the `input` elements of `type` "submit" or "image"
     */
-  lazy val formTarget: A[String] = build("formtarget")
+  lazy val formTarget: A[String] = attr("formtarget")
 
   /**
     * The `height` attribute specifies the height of an `input` element of
     * `type` "image".
     */
-  lazy val heightAttr: A[Int] = build("height") // TODO: Conflicts with "height" in Styles -
+  lazy val heightAttr: A[Int] = attr("height") // TODO: Conflicts with "height" in Styles -
 
   /**
     * The list attribute refers to a <datalist> element that contains the options
     * for an input element the presents a select list.
     */
-  lazy val list: A[String] = build("list")
+  lazy val list: A[String] = attr("list")
 
   // @TODO[API][improve] - Can we improve usability of the max/min attributes?
 
@@ -115,13 +118,13 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     * The max attribute specifies the maximum value for an <input> element of type
     * number, range, date, datetime, datetime-local, month, time, or week.
     */
-  lazy val max: A[String] = build("max")
+  lazy val max: A[String] = attr("max")
 
   /**
     * The min attribute specifies the minimum value for an <input> element of type
     * number, range, date, datetime, datetime-local, month, time, or week.
     */
-  lazy val min: A[String] = build("min")
+  lazy val min: A[String] = attr("min")
 
   /**
     * This Boolean attribute specifies, when present/true, that the user is allowed
@@ -129,14 +132,14 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     * It can also be provided to the <select> element to allow selecting more than one
     * option.
     */
-  lazy val multiple: A[Boolean] = build("multiple")
+  lazy val multiple: A[Boolean] = attr("multiple")
 
   /**
     * The maximum allowed length for the input field. This attribute forces the input control
     * to accept no more than the allowed number of characters. It does not produce any
     * feedback to the user; you must write Javascript to make that happen.
     */
-  lazy val maxLength: A[Int] = build("maxlength")
+  lazy val maxLength: A[Int] = attr("maxlength")
 
   /**
     * The HTTP method that the browser uses to submit the form. Possible values are:
@@ -154,7 +157,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val method: A[String] = build("method")
+  lazy val method: A[String] = attr("method")
 
   /**
     * On form elements (input etc.):
@@ -168,14 +171,14 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val name: A[String] = build("name")
+  lazy val name: A[String] = attr("name")
 
   /**
     * Specifies a regular expression to validate the input. The pattern attribute
     * works with the following input types: text, search, url, tel, email, and
     * password. Use the `title` attribute to describe the pattern to the user.
     */
-  lazy val pattern: A[String] = build("pattern")
+  lazy val pattern: A[String] = attr("pattern")
 
   /**
     * A hint to the user of what can be entered in the control. The placeholder
@@ -185,7 +188,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val placeholder: A[String] = build("placeholder")
+  lazy val placeholder: A[String] = attr("placeholder")
 
   /**
     * This Boolean attribute indicates that the user cannot modify the value of
@@ -194,7 +197,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val readOnly: A[Boolean] = build("readonly")
+  lazy val readOnly: A[Boolean] = attr("readonly")
 
   /**
     * This attribute specifies that the user must fill in a value before
@@ -204,7 +207,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val required: A[Boolean] = build("required")
+  lazy val required: A[Boolean] = attr("required")
 
   /**
     * The initial size of the control. This value is in pixels unless the value
@@ -216,7 +219,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val size: A[Int] = build("size")
+  lazy val size: A[Int] = attr("size")
 
   /**
     * The step attribute specifies the numeric intervals for an <input> element
@@ -227,7 +230,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     * The step attribute is applicable to <input> elements of the following
     * types: number, range, date, datetime, datetime-local, month, time and week.
     */
-  lazy val step: A[String] = build("step")
+  lazy val step: A[String] = attr("step")
 
   /**
     * A name or keyword indicating where to display the response that is received
@@ -251,7 +254,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *   same way as _self.
     * - iframename: The response is displayed in a named iframe.
     */
-  lazy val target: A[String] = build("target")
+  lazy val target: A[String] = attr("target")
 
   /**
     * This attribute is used to define the type of the content linked to. The
@@ -263,7 +266,7 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val `type`: A[String] = build("type")
+  lazy val `type`: A[String] = attr("type")
 
   /**
     * Shorthand for the `type` attribute
@@ -281,11 +284,11 @@ trait InputAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val value: A[String] = build("value")
+  lazy val value: A[String] = attr("value")
 
   /**
     * The `width` attribute specifies the width of an `input` element of
     * `type` "image".
     */
-  lazy val widthAttr: A[Int] = build("width") // TODO: Conflicts with "width" in Styles
+  lazy val widthAttr: A[Int] = attr("width") // TODO: Conflicts with "width" in Styles
 }

@@ -1,8 +1,8 @@
 package com.raquo.domtypes.generic.defs.eventProps
 
-import com.raquo.domtypes.generic.builders.BoundedBuilder
+import com.raquo.domtypes.generic.builders.EventPropBuilder
 
-trait FormEventProps[EP[_ <: DomEvent], DomEvent] { this: BoundedBuilder[EP, DomEvent] =>
+trait FormEventProps[EP[_ <: DomEvent], DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * The blur event is raised when an element loses focus.

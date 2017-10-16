@@ -1,19 +1,21 @@
 package com.raquo.domtypes.generic.defs.attrs
 
-import com.raquo.domtypes.generic.builders.SpecializedBuilder
+import com.raquo.domtypes.generic.builders.AttrBuilder
 
 // @TODO[API][cleanup] Why is this separate from Attrs? How is it different? We're following ScalaTags on definitions
 
 /**
   * A trait for global attributes that are applicable to any HTML5 element. All traits that define Attrs should
   * derive from this trait since all groupings of attributes should include these global ones.
+  *
+  * @tparam A Attribute
   */
-trait GlobalAttrs[A[_]] { this: SpecializedBuilder[A] =>
+trait GlobalAttrs[A[_]] { this: AttrBuilder[A] =>
 
   /**
     * Specifies a shortcut key to activate/focus an element
     */
-  lazy val accessKey: A[String] = build("accesskey")
+  lazy val accessKey: A[String] = attr("accesskey")
 
   /**
     * This attribute is a space-separated list of the classes of the element.
@@ -24,7 +26,7 @@ trait GlobalAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val cls: A[String] = build("class")
+  lazy val cls: A[String] = attr("class")
 
   /**
     * Alias for the `cls` attribute
@@ -39,13 +41,13 @@ trait GlobalAttrs[A[_]] { this: SpecializedBuilder[A] =>
   /**
     * Specifies whether the content of an element is editable or not
     */
-  lazy val contentEditable: A[Boolean] = build("contenteditable")
+  lazy val contentEditable: A[Boolean] = attr("contenteditable")
 
   /**
     * Specifies a context menu for an element by its element id.
     * The context menu appears when a user right-clicks on the element
     */
-  lazy val contextMenu: A[String] = build("contextmenu")
+  lazy val contextMenu: A[String] = attr("contextmenu")
 
   /**
     * This class of attributes, called custom data attributes, allows proprietary
@@ -75,7 +77,7 @@ trait GlobalAttrs[A[_]] { this: SpecializedBuilder[A] =>
   //    def :=[T](v: T)(implicit ev: AttrValue[Builder, T]) =
   //      AttrPair(makeKey(sections.reverse.mkString("-")), v, ev)
   //  }
-  def data(suffix: String): A[String] = build(s"data-$suffix")
+  def data(suffix: String): A[String] = attr(s"data-$suffix")
 
   /**
     * Specifies the text direction for the content in an element. The valid values are:
@@ -87,24 +89,24 @@ trait GlobalAttrs[A[_]] { this: SpecializedBuilder[A] =>
     * - `auto` Let the browser figure out the text direction, based on the content,
     *          (only recommended if the text direction is unknown)
     */
-  lazy val dir: A[String] = build("dir")
+  lazy val dir: A[String] = attr("dir")
 
   /**
     * A Boolean attribute that specifies whether an element is draggable or not
     */
-  lazy val draggable: A[Boolean] = build("draggable")
+  lazy val draggable: A[Boolean] = attr("draggable")
 
   /**
     * Specifies whether the dragged data is copied, moved, or linked, when dropped
     * Acceptable values: `copy` | `move` | `link`
     */
-  lazy val dropZone: A[String] = build("dropzone")
+  lazy val dropZone: A[String] = attr("dropzone")
 
   /**
     * Specifies that an element is not yet, or is no longer, relevant and
     * consequently hidden from view of the user.
     */
-  lazy val hidden: A[Boolean] = build("hidden")
+  lazy val hidden: A[Boolean] = attr("hidden")
 
   /**
     * This attribute defines a unique identifier (ID) which must be unique in
@@ -113,7 +115,7 @@ trait GlobalAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val id: A[String] = build("id")
+  lazy val id: A[String] = attr("id")
 
   /**
     * This attribute participates in defining the language of the element, the
@@ -126,7 +128,7 @@ trait GlobalAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val lang: A[String] = build("lang")
+  lazy val lang: A[String] = attr("lang")
 
   /**
     * This enumerated attribute defines whether the element may be checked for
@@ -134,7 +136,7 @@ trait GlobalAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val spellCheck: A[Boolean] = build("spellcheck")
+  lazy val spellCheck: A[Boolean] = attr("spellcheck")
 
   /**
     * This attribute contains CSS styling declarations to be applied to the
@@ -144,7 +146,7 @@ trait GlobalAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val style: A[String] = build("style")
+  lazy val style: A[String] = attr("style")
 
   /**
     * This integer attribute indicates if the element can take input focus (is
@@ -164,7 +166,7 @@ trait GlobalAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * An element with a 0 value, an invalid value, or no tabindex value should be placed after elements with a positive tabindex in the sequential keyboard navigation order.
     */
-  lazy val tabIndex: A[Int] = build("tabindex")
+  lazy val tabIndex: A[Int] = attr("tabindex")
 
   /**
     * This attribute contains a text representing advisory information related to
@@ -173,10 +175,10 @@ trait GlobalAttrs[A[_]] { this: SpecializedBuilder[A] =>
     *
     * MDN
     */
-  lazy val title: A[String] = build("title")
+  lazy val title: A[String] = attr("title")
 
   /**
     * Specifies whether the content of an element should be translated or not
     */
-  lazy val translate: A[Boolean] = build("translate")
+  lazy val translate: A[Boolean] = attr("translate")
 }

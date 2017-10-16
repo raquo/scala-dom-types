@@ -1,8 +1,9 @@
 package com.raquo.domtypes.generic.builders
 
-import com.raquo.domtypes.generic.keys.Attr
+/**
+  * @tparam A Attribute
+  */
+trait AttrBuilder[A[_]] {
 
-trait AttrBuilder extends SpecializedBuilder[Attr] {
-
-  @inline override def build[V](key: String): Attr[V] = new Attr(key)
+  @inline def attr[V](key: String): A[V]
 }

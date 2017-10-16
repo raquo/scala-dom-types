@@ -1,11 +1,11 @@
 package com.raquo.domtypes.generic.defs.eventProps
 
-import com.raquo.domtypes.generic.builders.BoundedBuilder
+import com.raquo.domtypes.generic.builders.EventPropBuilder
 
 /**
   * Mouse Events: triggered by a mouse, or similar user actions.
   */
-trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent] { this: BoundedBuilder[EP, DomEvent] =>
+trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * The click event is raised when the user clicks on an element. The click

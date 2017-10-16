@@ -11,7 +11,7 @@ trait SectionTags[T[_ <: DomElement], DomElement, HtmlBody <: DomElement, HtmlEl
     *
     *  MDN  [[org.scalajs.dom.html.Body]]
     */
-  lazy val body: T[HtmlBody] = build("body")
+  lazy val body: T[HtmlBody] = tag("body")
 
   /**
     * Defines the header of a page or section. It often contains a logo, the
@@ -19,7 +19,7 @@ trait SectionTags[T[_ <: DomElement], DomElement, HtmlBody <: DomElement, HtmlEl
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val header: T[HtmlElement] = build("header")
+  lazy val header: T[HtmlElement] = tag("header")
 
   /**
     * Defines the footer for a page or section. It often contains a copyright
@@ -27,47 +27,47 @@ trait SectionTags[T[_ <: DomElement], DomElement, HtmlBody <: DomElement, HtmlEl
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val footer: T[HtmlElement] = build("footer")
+  lazy val footer: T[HtmlElement] = tag("footer")
 
   /**
     * Heading level 1
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h1: T[HtmlHeading] = build("h1")
+  lazy val h1: T[HtmlHeading] = tag("h1")
 
   /**
     * Heading level 2
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h2: T[HtmlHeading] = build("h2")
+  lazy val h2: T[HtmlHeading] = tag("h2")
 
   /**
     * Heading level 3
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h3: T[HtmlHeading] = build("h3")
+  lazy val h3: T[HtmlHeading] = tag("h3")
 
   /**
     * Heading level 4
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h4: T[HtmlHeading] = build("h4")
+  lazy val h4: T[HtmlHeading] = tag("h4")
 
   /**
     * Heading level 5
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h5: T[HtmlHeading] = build("h5")
+  lazy val h5: T[HtmlHeading] = tag("h5")
 
   /**
     * Heading level 6
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h6: T[HtmlHeading] = build("h6")
+  lazy val h6: T[HtmlHeading] = tag("h6")
 }

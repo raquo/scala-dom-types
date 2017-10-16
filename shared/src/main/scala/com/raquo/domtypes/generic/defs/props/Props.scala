@@ -1,13 +1,13 @@
 package com.raquo.domtypes.generic.defs.props
 
-import com.raquo.domtypes.generic.builders.SpecializedBuilder
+import com.raquo.domtypes.generic.builders.PropBuilder
 
-trait Props[P[_]] { this: SpecializedBuilder[P] =>
+trait Props[P[_]] { this: PropBuilder[P] =>
 
   /**
     * Space-separated list of CSS class names
     */
-  lazy val className: P[String] = build("className")
+  lazy val className: P[String] = prop("className")
 
   /**
     * This is the single required attribute for anchors defining a hypertext
@@ -20,7 +20,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val href: P[String] = build("href")
+  lazy val href: P[String] = prop("href")
 
   /**
     * This attribute defines the alternative text describing the image. Users
@@ -29,7 +29,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val alt: P[String] = build("alt")
+  lazy val alt: P[String] = prop("alt")
 
   /**
     * This attribute names a relationship of the linked document to the current
@@ -41,7 +41,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val rel: P[String] = build("rel")
+  lazy val rel: P[String] = prop("rel")
 
   /**
     * If the value of the type attribute is image, this attribute specifies a URI
@@ -50,12 +50,12 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val src: P[String] = build("src")
+  lazy val src: P[String] = prop("src")
 
   /**
     *
     */
-  lazy val xmlns: P[String] = build("xmlns")
+  lazy val xmlns: P[String] = prop("xmlns")
 
   /**
     * If the value of the type attribute is file, this attribute indicates the
@@ -63,7 +63,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val accept: P[String] = build("accept")
+  lazy val accept: P[String] = prop("accept")
 
   /**
     * Declares the character encoding of the page or script. Used on meta and
@@ -71,7 +71,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val charSet: P[String] = build("charset")
+  lazy val charSet: P[String] = prop("charset")
 
   /**
     * This Boolean attribute indicates that the form control is not available for
@@ -83,7 +83,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val disabled: P[Boolean] = build("disabled")
+  lazy val disabled: P[Boolean] = prop("disabled")
 
   /**
     * Describes elements which belongs to this one. Used on labels and output
@@ -91,14 +91,21 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val `for`: P[String] = build("for")
+  lazy val `for`: P[String] = prop("for")
+
+  /**
+    * Current value of the element. This is different from value _attribute_,
+    * which contains the _initial_ value of the element.
+    * More info: https://stackoverflow.com/a/6004028/2601788
+    */
+  lazy val value: P[String] = prop("value")
 
   /**
     * The number of visible text lines for the control.
     *
     * MDN
     */
-  lazy val rows: P[Int] = build("rows")
+  lazy val rows: P[Int] = prop("rows")
 
   /**
     * The visible width of the text control, in average character widths. If it
@@ -107,7 +114,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val cols: P[Int] = build("cols")
+  lazy val cols: P[Int] = prop("cols")
 
   /**
     * The attribute describes the role(s) the current element plays in the
@@ -124,7 +131,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * See: [[http://www.w3.org/TR/role-attribute/#s_role_module_attributes]]
     */
-  lazy val role: P[String] = build("role")
+  lazy val role: P[String] = prop("role")
 
   /**
     * This attribute gives the value associated with the http-equiv or name
@@ -132,7 +139,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val content: P[String] = build("content")
+  lazy val content: P[String] = prop("content")
 
   /**
     * This enumerated attribute defines the pragma that can alter servers and
@@ -147,7 +154,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val httpEquiv: P[String] = build("httpEquiv")
+  lazy val httpEquiv: P[String] = prop("httpEquiv")
 
   /**
     * This attribute specifies the media which the linked resource applies to.
@@ -157,7 +164,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-media
     */
-  lazy val media: P[String] = build("media")
+  lazy val media: P[String] = prop("media")
 
   /**
 
@@ -169,7 +176,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val colSpan: P[Int] = build("colSpan")
+  lazy val colSpan: P[Int] = prop("colSpan")
 
   /**
     * This attribute contains a non-negative integer value that indicates for how many
@@ -179,7 +186,7 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     *
     * MDN
     */
-  lazy val rowSpan: P[Int] = build("rowSpan")
+  lazy val rowSpan: P[Int] = prop("rowSpan")
 
   /**
     * ARIA is a set of special accessibility attributes which can be added
@@ -191,180 +198,183 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     * MDN
     */
   object aria {
+
+    // @TODO These aria props need proper types. If you need those, please send a PR
+
     /**
       * Identifies the currently active descendant of a composite widget.
       */
-    lazy val activeDescendant = build("aria-activedescendant")
+    lazy val activeDescendant = prop("aria-activedescendant")
 
     /**
       * Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. See related aria-relevant.
       */
-    lazy val atomic = build("aria-atomic")
+    lazy val atomic = prop("aria-atomic")
 
     /**
       * Indicates whether user input completion suggestions are provided.
       */
-    lazy val autoComplete = build("aria-autocomplete")
+    lazy val autoComplete = prop("aria-autocomplete")
 
     /**
       * Indicates whether an element, and its subtree, are currently being updated.
       */
-    lazy val busy = build("aria-busy")
+    lazy val busy = prop("aria-busy")
 
     /**
       * Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. See related aria-pressed and aria-selected.
       */
-    lazy val checked = build("aria-checked")
+    lazy val checked = prop("aria-checked")
 
     /**
       * Identifies the element (or elements) whose contents or presence are controlled by the current element. See related aria-owns.
       */
-    lazy val controls = build("aria-controls")
+    lazy val controls = prop("aria-controls")
 
     /**
       * Identifies the element (or elements) that describes the object. See related aria-labelledby.
       */
-    lazy val describedBy = build("aria-describedby")
+    lazy val describedBy = prop("aria-describedby")
 
     /**
       * Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. See related aria-hidden and aria-readonly.
       */
-    lazy val disabled = build("aria-disabled")
+    lazy val disabled = prop("aria-disabled")
 
     /**
       * Indicates what functions can be performed when the dragged object is released on the drop target. This allows assistive technologies to convey the possible drag options available to users, including whether a pop-up menu of choices is provided by the application. Typically, drop effect functions can only be provided once an object has been grabbed for a drag operation as the drop effect functions available are dependent on the object being dragged.
       */
-    lazy val dropEffect = build("aria-dropeffect")
+    lazy val dropEffect = prop("aria-dropeffect")
 
     /**
       * Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed.
       */
-    lazy val expanded = build("aria-expanded")
+    lazy val expanded = prop("aria-expanded")
 
     /**
       * Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order.
       */
-    lazy val flowTo = build("aria-flowto")
+    lazy val flowTo = prop("aria-flowto")
 
     /**
       * Indicates an element's "grabbed" state in a drag-and-drop operation.
       */
-    lazy val grabbed = build("aria-grabbed")
+    lazy val grabbed = prop("aria-grabbed")
 
     /**
       * Indicates that the element has a popup context menu or sub-level menu.
       */
-    lazy val hasPopup = build("aria-haspopup")
+    lazy val hasPopup = prop("aria-haspopup")
 
     /**
       * Indicates that the element and all of its descendants are not visible or perceivable to any user as implemented by the author. See related aria-disabled.
       */
-    lazy val hidden = build("aria-hidden")
+    lazy val hidden = prop("aria-hidden")
 
     /**
       * Indicates the entered value does not conform to the format expected by the application.
       */
-    lazy val invalid = build("aria-invalid")
+    lazy val invalid = prop("aria-invalid")
 
     /**
       * Defines a string value that labels the current element. See related aria-labelledby.
       */
-    lazy val label = build("aria-label")
+    lazy val label = prop("aria-label")
 
     /**
       * Identifies the element (or elements) that labels the current element. See related aria-label and aria-describedby.
       */
-    lazy val labelledBy = build("aria-labelledby")
+    lazy val labelledBy = prop("aria-labelledby")
 
     /**
       * Defines the hierarchical level of an element within a structure.
       */
-    lazy val level = build("aria-level")
+    lazy val level = prop("aria-level")
 
     /**
       * Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region.
       */
-    lazy val live = build("aria-live")
+    lazy val live = prop("aria-live")
 
     /**
       * Indicates whether a text box accepts multiple lines of input or only a single line.
       */
-    lazy val multiLine = build("aria-multiline")
+    lazy val multiLine = prop("aria-multiline")
 
     /**
       * Indicates that the user may select more than one item from the current selectable descendants.
       */
-    lazy val multiSelectable = build("aria-multiselectable")
+    lazy val multiSelectable = prop("aria-multiselectable")
 
     /**
       * Indicates whether the element and orientation is horizontal or vertical.
       */
-    lazy val orientation = build("aria-orientation")
+    lazy val orientation = prop("aria-orientation")
 
     /**
       * Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. See related aria-controls.
       */
-    lazy val owns = build("aria-owns")
+    lazy val owns = prop("aria-owns")
 
     /**
       * Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. See related aria-setsize.
       */
-    lazy val posInSet = build("aria-posinset")
+    lazy val posInSet = prop("aria-posinset")
 
     /**
       * Indicates the current "pressed" state of toggle buttons. See related aria-checked and aria-selected.
       */
-    lazy val pressed = build("aria-pressed")
+    lazy val pressed = prop("aria-pressed")
 
     /**
       * Indicates that the element is not editable, but is otherwise operable. See related aria-disabled.
       */
-    lazy val readOnly = build("aria-readonly")
+    lazy val readOnly = prop("aria-readonly")
 
     /**
       * Indicates what user agent change notifications (additions, removals, etc.) assistive technologies will receive within a live region. See related aria-atomic.
       */
-    lazy val relevant = build("aria-relevant")
+    lazy val relevant = prop("aria-relevant")
 
     /**
       * Indicates that user input is required on the element before a form may be submitted.
       */
-    lazy val required = build("aria-required")
+    lazy val required = prop("aria-required")
 
     /**
       * Indicates the current "selected" state of various widgets. See related aria-checked and aria-pressed.
       */
-    lazy val selected = build("aria-selected")
+    lazy val selected = prop("aria-selected")
 
     /**
       * Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. See related aria-posinset.
       */
-    lazy val setSize = build("aria-setsize")
+    lazy val setSize = prop("aria-setsize")
 
     /**
       * Indicates if items in a table or grid are sorted in ascending or descending order.
       */
-    lazy val sort = build("aria-sort")
+    lazy val sort = prop("aria-sort")
 
     /**
       * Defines the maximum allowed value for a range widget.
       */
-    lazy val valueMax = build("aria-valuemax")
+    lazy val valueMax = prop("aria-valuemax")
 
     /**
       * Defines the minimum allowed value for a range widget.
       */
-    lazy val valueMin = build("aria-valuemin")
+    lazy val valueMin = prop("aria-valuemin")
 
     /**
       * Defines the current value for a range widget. See related aria-valuetext.
       */
-    lazy val valueNow = build("aria-valuenow")
+    lazy val valueNow = prop("aria-valuenow")
 
     /**
       * Defines the human readable text alternative of aria-valuenow for a range widget.
       */
-    lazy val valueText = build("aria-valuetext")
+    lazy val valueText = prop("aria-valuetext")
   }
 
   /**
@@ -373,29 +383,29 @@ trait Props[P[_]] { this: SpecializedBuilder[P] =>
     * If this attribute is present, then the style applies only to its parent element.
     * If absent, the style applies to the whole document.
     */
-  lazy val scoped: P[Boolean] = build("scoped")
+  lazy val scoped: P[Boolean] = prop("scoped")
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val high: P[Double] = build("high")
+  lazy val high: P[Double] = prop("high")
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val low: P[Double] = build("low")
+  lazy val low: P[Double] = prop("low")
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val optimum: P[Double] = build("optimum")
+  lazy val optimum: P[Double] = prop("optimum")
 
   /** IE-specific property to prevent user selection */
-  lazy val unSelectable: P[Boolean] = build("unselectable")
+  lazy val unSelectable: P[Boolean] = prop("unselectable")
 }
