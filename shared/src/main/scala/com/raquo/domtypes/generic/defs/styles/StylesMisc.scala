@@ -1,6 +1,5 @@
 package com.raquo.domtypes.generic.defs.styles
 
-import com.raquo.domtypes.generic.Modifier
 import com.raquo.domtypes.generic.builders.StyleBuilders
 import com.raquo.domtypes.generic.keys.Style
 
@@ -15,7 +14,7 @@ import com.raquo.domtypes.generic.keys.Style
   *
   * For StyleSetter type params docs, see [[StyleBuilders]]
   */
-trait StylesMisc[StyleSetter <: Modifier[_]] { this: StyleBuilders[StyleSetter] =>
+trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
 
   /**
     * A Style that takes any value of type T as a parameter and has an auto value

@@ -1,6 +1,5 @@
 package com.raquo.domtypes.generic.builders
 
-import com.raquo.domtypes.generic.Modifier
 import com.raquo.domtypes.generic.keys.Style
 
 /**
@@ -9,9 +8,9 @@ import com.raquo.domtypes.generic.keys.Style
   * If extending or instantiating this trait, you will need to override implicit defs.
   * See the SimpleStyleBuilder trait in Scala DOM Builder project for an example of that.
   *
-  * @tparam StyleSetter – a [[Modifier]] that represents an operation of setting a certain CSS style property to a certain value.
+  * @tparam StyleSetter – represents an operation of setting a certain CSS style property to a certain value. Often a subtype of [[com.raquo.domtypes.generic.Modifier]]
   */
-trait StyleBuilders[StyleSetter <: Modifier[_]] {
+trait StyleBuilders[StyleSetter] {
 
   @inline def build[V](key: String, cssKey: String): Style[V] = new Style(name = key, cssName = cssKey)
 

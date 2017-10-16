@@ -1,6 +1,5 @@
 package com.raquo.domtypes.generic.defs.styles
 
-import com.raquo.domtypes.generic.Modifier
 import com.raquo.domtypes.generic.builders.StyleBuilders
 import com.raquo.domtypes.generic.keys.Style
 
@@ -10,7 +9,7 @@ import com.raquo.domtypes.generic.keys.Style
   *
   * For type params docs, see [[StyleBuilders]]
   */
-trait Styles2[StyleSetter <: Modifier[_]] extends StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
+trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
 
   /**
     * The animation-direction CSS property indicates whether the animation should
