@@ -12,10 +12,10 @@ trait MiscellaneousEventProps[EP[_ <: DomEvent], DomEvent] { this: EventPropBuil
   /**
     * Fires when a <menu> element is shown as a context menu
     */
-  lazy val onShow: EP[DomEvent] = build("show")
+  lazy val onShow: EP[DomEvent] = eventProp("show")
 
   /**
     * Fires when the user opens or closes the <details> element
     */
-  lazy val onToggle: EP[DomEvent] = build("toggle")
+  lazy val onToggle: EP[DomEvent] = eventProp("toggle")
 }

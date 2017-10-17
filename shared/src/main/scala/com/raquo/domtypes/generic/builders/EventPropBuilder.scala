@@ -6,5 +6,5 @@ package com.raquo.domtypes.generic.builders
   */
 trait EventPropBuilder[EP[Ev <: DomEvent], DomEvent] {
 
-  @inline def build[Ev <: DomEvent](key: String): EP[Ev]
+  @inline def eventProp[Ev <: DomEvent](key: String): EP[Ev]
 }
