@@ -7,7 +7,7 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
   *
   * For type param docs see [[EventPropBuilder]]
   */
-trait WindowEventProps[EP[_], DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
+trait WindowEventProps[EP[_ <: DomEvent], DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * The load event fires at the end of the document loading process. At this
