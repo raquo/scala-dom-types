@@ -8,9 +8,10 @@ import com.raquo.domtypes.generic.builders.AttrBuilder
   * A trait for global attributes that are applicable to any HTML5 element. All traits that define Attrs should
   * derive from this trait since all groupings of attributes should include these global ones.
   *
-  * @tparam A Attribute
+  * @tparam A Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]]
+  * @tparam BA Boolean Attribute, canonically [[com.raquo.domtypes.generic.keys.BooleanAttr]]
   */
-trait GlobalAttrs[A[_]] { this: AttrBuilder[A] =>
+trait GlobalAttrs[A[_], BA[_]] { this: AttrBuilder[A, BA] =>
 
   /**
     * Specifies a shortcut key to activate/focus an element
@@ -40,6 +41,8 @@ trait GlobalAttrs[A[_]] { this: AttrBuilder[A] =>
 
   /**
     * Specifies whether the content of an element is editable or not
+    *
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable
     */
   lazy val contentEditable: A[Boolean] = attr("contenteditable")
 
@@ -92,7 +95,7 @@ trait GlobalAttrs[A[_]] { this: AttrBuilder[A] =>
   lazy val dir: A[String] = attr("dir")
 
   /**
-    * A Boolean attribute that specifies whether an element is draggable or not
+    * Specifies whether an element is draggable or not
     */
   lazy val draggable: A[Boolean] = attr("draggable")
 
@@ -105,8 +108,10 @@ trait GlobalAttrs[A[_]] { this: AttrBuilder[A] =>
   /**
     * Specifies that an element is not yet, or is no longer, relevant and
     * consequently hidden from view of the user.
+    *
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden
     */
-  lazy val hidden: A[Boolean] = attr("hidden")
+  lazy val hidden: BA[Boolean] = booleanAttr("hidden")
 
   /**
     * This attribute defines a unique identifier (ID) which must be unique in
@@ -131,10 +136,9 @@ trait GlobalAttrs[A[_]] { this: AttrBuilder[A] =>
   lazy val lang: A[String] = attr("lang")
 
   /**
-    * This enumerated attribute defines whether the element may be checked for
-    * spelling errors.
+    * Defines whether the element may be checked for spelling errors.
     *
-    * MDN
+    * MDN – https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck
     */
   lazy val spellCheck: A[Boolean] = attr("spellcheck")
 
@@ -179,6 +183,8 @@ trait GlobalAttrs[A[_]] { this: AttrBuilder[A] =>
 
   /**
     * Specifies whether the content of an element should be translated or not
+    *
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/translate
     */
   lazy val translate: A[Boolean] = attr("translate")
 }

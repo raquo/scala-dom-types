@@ -3,9 +3,12 @@ package com.raquo.domtypes.generic.defs.attrs
 import com.raquo.domtypes.generic.builders.AttrBuilder
 
 /**
-  * @tparam A Attribute
+  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+  *
+  * @tparam A Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]]
+  * @tparam BA Boolean Attribute, canonically [[com.raquo.domtypes.generic.keys.BooleanAttr]]
   */
-trait InputAttrs[A[_]] { this: AttrBuilder[A] =>
+trait InputAttrs[A[_], BA[_]] { this: AttrBuilder[A, BA] =>
 
   /**
     * The URI of a program that processes the information submitted via the form.
@@ -38,7 +41,7 @@ trait InputAttrs[A[_]] { this: AttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val autoFocus: A[Boolean] = attr("autofocus")
+  lazy val autoFocus: BA[Boolean] = booleanAttr("autofocus")
 
   /**
     * When the value of the type attribute is radio or checkbox, the presence of
@@ -47,7 +50,7 @@ trait InputAttrs[A[_]] { this: AttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val checked: A[Boolean] = attr("checked")
+  lazy val checked: BA[Boolean] = booleanAttr("checked")
 
   /**
     * The `enctype` attribute provides the encoding type of the form when it is
@@ -90,7 +93,7 @@ trait InputAttrs[A[_]] { this: AttrBuilder[A] =>
     * attribute of the `form`. This should only be used with `input` elements of
     * of `type` "submit".
     */
-  lazy val formNoValidate: A[Boolean] = attr("formnovalidate")
+  lazy val formNoValidate: BA[Boolean] = booleanAttr("formnovalidate")
 
   /**
     * The `formtarget` provides a name or keyword that indicates where to display
@@ -132,7 +135,7 @@ trait InputAttrs[A[_]] { this: AttrBuilder[A] =>
     * It can also be provided to the <select> element to allow selecting more than one
     * option.
     */
-  lazy val multiple: A[Boolean] = attr("multiple")
+  lazy val multiple: BA[Boolean] = booleanAttr("multiple")
 
   /**
     * The maximum allowed length for the input field. This attribute forces the input control
@@ -197,7 +200,7 @@ trait InputAttrs[A[_]] { this: AttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val readOnly: A[Boolean] = attr("readonly")
+  lazy val readOnly: BA[Boolean] = booleanAttr("readonly")
 
   /**
     * This attribute specifies that the user must fill in a value before
@@ -207,7 +210,7 @@ trait InputAttrs[A[_]] { this: AttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val required: A[Boolean] = attr("required")
+  lazy val required: BA[Boolean] = booleanAttr("required")
 
   /**
     * The initial size of the control. This value is in pixels unless the value

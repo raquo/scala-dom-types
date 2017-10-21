@@ -2,12 +2,13 @@ package com.raquo.domtypes.generic.defs.attrs
 
 import com.raquo.domtypes.generic.builders.AttrBuilder
 
-// @TODO[Performance] Do we need those vals to be lazy? Scala.js optimizes away unused code anyway, and lazy vals produce more generated code than vals
+// @TODO[Performance] Do we need those vals to be lazy? Will Scala.js still DCE those if they are just unused val-s?
 
 /**
-  * @tparam A Attribute
+  * @tparam A  Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]]
+  * @tparam BA Boolean Attribute, canonically [[com.raquo.domtypes.generic.keys.BooleanAttr]]
   */
-trait Attrs[A[_]] { this: AttrBuilder[A] =>
+trait Attrs[A[_], BA[A]] { this: AttrBuilder[A, BA] =>
 
   /**
     * This is the single required attribute for anchors defining a hypertext
@@ -83,7 +84,7 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val disabled: A[Boolean] = attr("disabled")
+  lazy val disabled: BA[Boolean] = booleanAttr("disabled")
 
   /**
     * Describes elements which belongs to this one. Used on labels and output
@@ -191,7 +192,7 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     *
     * MDN
     */
-  object aria{
+  object aria {
 
     /**
       * Identifies the currently active descendant of a composite widget.
@@ -372,7 +373,7 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
   /**
     * Indicates a selected option in an option list of a <select> element.
     */
-  lazy val selected: A[Boolean] = attr("selected")
+  lazy val selected: BA[Boolean] = booleanAttr("selected")
 
   /**
     * For use in &lt;style&gt; tags.
@@ -380,7 +381,7 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     * If this attribute is present, then the style applies only to its parent element.
     * If absent, the style applies to the whole document.
     */
-  lazy val scoped: A[Boolean] = attr("scoped")
+  lazy val scoped: BA[Boolean] = booleanAttr("scoped")
 
   /**
     * For use in &lt;meter&gt; tags.
@@ -403,6 +404,7 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     */
   lazy val optimum: A[Double] = attr("optimum")
 
+  // @TODO[API] this accepts either "on" or "off". Make it into a boolean somehow?
   /** IE-specific property to prevent user selection */
-  lazy val unSelectable: A[Boolean] = attr("unselectable")
+  lazy val unSelectable: A[String] = attr("unselectable")
 }
