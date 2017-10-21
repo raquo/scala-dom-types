@@ -8,7 +8,7 @@ import com.raquo.domtypes.generic.builders.AttrBuilder
   * @tparam A  Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]]
   * @tparam BA Boolean Attribute, canonically [[com.raquo.domtypes.generic.keys.BooleanAttr]]
   */
-trait Attrs[A[_], BA[A]] { this: AttrBuilder[A, BA] =>
+trait Attrs[A[_], BA] { this: AttrBuilder[A, BA] =>
 
   /**
     * This is the single required attribute for anchors defining a hypertext
@@ -84,7 +84,7 @@ trait Attrs[A[_], BA[A]] { this: AttrBuilder[A, BA] =>
     *
     * MDN
     */
-  lazy val disabled: BA[Boolean] = booleanAttr("disabled")
+  lazy val disabled: BA = booleanAttr("disabled")
 
   /**
     * Describes elements which belongs to this one. Used on labels and output
@@ -488,7 +488,7 @@ trait Attrs[A[_], BA[A]] { this: AttrBuilder[A, BA] =>
   /**
     * Indicates a selected option in an option list of a <select> element.
     */
-  lazy val selected: BA[Boolean] = booleanAttr("selected")
+  lazy val selected: BA = booleanAttr("selected")
 
   /**
     * For use in &lt;style&gt; tags.
@@ -496,7 +496,7 @@ trait Attrs[A[_], BA[A]] { this: AttrBuilder[A, BA] =>
     * If this attribute is present, then the style applies only to its parent element.
     * If absent, the style applies to the whole document.
     */
-  lazy val scoped: BA[Boolean] = booleanAttr("scoped")
+  lazy val scoped: BA = booleanAttr("scoped")
 
   /**
     * For use in &lt;meter&gt; tags.

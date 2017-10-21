@@ -11,7 +11,7 @@ import com.raquo.domtypes.generic.builders.AttrBuilder
   * @tparam A Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]]
   * @tparam BA Boolean Attribute, canonically [[com.raquo.domtypes.generic.keys.BooleanAttr]]
   */
-trait GlobalAttrs[A[_], BA[_]] { this: AttrBuilder[A, BA] =>
+trait GlobalAttrs[A[_], BA] { this: AttrBuilder[A, BA] =>
 
   /**
     * Specifies a shortcut key to activate/focus an element
@@ -111,7 +111,7 @@ trait GlobalAttrs[A[_], BA[_]] { this: AttrBuilder[A, BA] =>
     *
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden
     */
-  lazy val hidden: BA[Boolean] = booleanAttr("hidden")
+  lazy val hidden: BA = booleanAttr("hidden")
 
   /**
     * This attribute defines a unique identifier (ID) which must be unique in

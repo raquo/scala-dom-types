@@ -4,7 +4,7 @@ package com.raquo.domtypes.generic.builders
   * @tparam A Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]]
   * @tparam BA Boolean Attribute, canonically [[com.raquo.domtypes.generic.keys.BooleanAttr]]
   */
-trait AttrBuilder[A[_], BA[_]] {
+trait AttrBuilder[A[_], BA] {
 
   /** Create an attribute
     *
@@ -25,5 +25,5 @@ trait AttrBuilder[A[_], BA[_]] {
     *
     * @return canonically, this returns a [[com.raquo.domtypes.generic.keys.BooleanAttr]]
     */
-  @inline def booleanAttr(key: String): BA[Boolean]
+  @inline def booleanAttr(key: String): BA
 }
