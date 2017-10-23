@@ -94,9 +94,19 @@ trait Props[P[_]] { this: PropBuilder[P] =>
   lazy val `for`: P[String] = prop("for")
 
   /**
+    * When the value of the type attribute is "radio" or "checkbox", this property
+    * determines whether it is checked or not.
+    *
+    * See also [[com.raquo.domtypes.generic.defs.attrs.InputAttrs.checked]]
+    */
+  lazy val checked: P[Boolean] = prop("checked")
+
+  /**
     * Current value of the element. This is different from value _attribute_,
     * which contains the _initial_ value of the element.
     * More info: https://stackoverflow.com/a/6004028/2601788
+    *
+    * See also [[com.raquo.domtypes.generic.defs.attrs.InputAttrs.value]]
     */
   lazy val value: P[String] = prop("value")
 

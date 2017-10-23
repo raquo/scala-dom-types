@@ -44,9 +44,11 @@ trait InputAttrs[A[_], BA] { this: AttrBuilder[A, BA] =>
   lazy val autoFocus: BA = booleanAttr("autofocus")
 
   /**
-    * When the value of the type attribute is radio or checkbox, the presence of
-    * this Boolean attribute indicates that the control is selected by default;
+    * When the value of the type attribute is "radio" or "checkbox", the presence of
+    * this Boolean attribute indicates that the control is selected **by default**;
     * otherwise it is ignored.
+    *
+    * See [[com.raquo.domtypes.generic.defs.props.Props.checked]]
     *
     * MDN
     */
@@ -284,6 +286,8 @@ trait InputAttrs[A[_], BA] { this: AttrBuilder[A, BA] =>
   /**
     * The initial value of the control. This attribute is optional except when
     * the value of the type attribute is radio or checkbox.
+    *
+    * See also [[com.raquo.domtypes.generic.defs.attrs.InputAttrs.checked]]
     *
     * MDN
     */
