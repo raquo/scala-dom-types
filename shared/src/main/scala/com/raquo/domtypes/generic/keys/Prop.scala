@@ -1,5 +1,7 @@
 package com.raquo.domtypes.generic.keys
 
+import com.raquo.domtypes.generic.codecs.Codec
+
 /**
   * This class represents a DOM Element Property. Meaning the key that can be set, not a key-value pair.
   *
@@ -7,4 +9,4 @@ package com.raquo.domtypes.generic.keys
   *
   * @tparam V type of values that this Property can be set to
   */
-class Prop[V] (override val name: String) extends Key
+class Prop[V] (override val name: String, val codec: Codec[V, _]) extends Key

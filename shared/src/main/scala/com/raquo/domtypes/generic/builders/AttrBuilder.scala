@@ -1,29 +1,22 @@
 package com.raquo.domtypes.generic.builders
 
-/**
-  * @tparam A Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]]
-  * @tparam BA Boolean Attribute, canonically [[com.raquo.domtypes.generic.keys.BooleanAttr]]
+import com.raquo.domtypes.generic.codecs.{Codec, DoubleAsStringCodec, IntAsStringCodec, StringAsIsCodec}
+
+/** This trait builds attribute objects which are typically found on the left hand side
+  * of the `attr := value` syntax.
+  *
+  * See also: [[com.raquo.domtypes.generic.builders.canonical.CanonicalAttrBuilder]]
+  *
+  * @tparam A HTML Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]]
   */
-trait AttrBuilder[A[_], BA] {
+trait AttrBuilder[A[_]] {
 
-  /** Create an attribute
-    *
-    * Note: `A[Boolean]` returned by this method is not a boolean attribute,
-    * it's an enumerated attribute which can be set to "true" or "false" in the DOM.
-    *
-    * For true boolean attributes, use the `booleanAttr` method.
-    *
-    * @return canonically, this returns an [[com.raquo.domtypes.generic.keys.Attr]]
-    */
-  @inline def attr[V](key: String): A[V]
+  /** Create an HTML Attribute */
+  def attr[V](key: String, codec: Codec[V, _]): A[V]
 
-  /** Create a boolean attribute
-    *
-    * Boolean attributes are to be encoded like this in the DOM:
-    * - false means attribute is absent
-    * - true means attribute is present (with no value)
-    *
-    * @return canonically, this returns a [[com.raquo.domtypes.generic.keys.BooleanAttr]]
-    */
-  @inline def booleanAttr(key: String): BA
+  @inline def intAttr(key: String): A[Int] = attr(key, IntAsStringCodec)
+
+  @inline def doubleAttr(key: String): A[Double] = attr(key, DoubleAsStringCodec)
+
+  @inline def stringAttr(key: String): A[String] = attr(key, StringAsIsCodec)
 }

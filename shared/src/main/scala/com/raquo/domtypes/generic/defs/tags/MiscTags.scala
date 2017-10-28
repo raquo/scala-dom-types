@@ -18,14 +18,14 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     * MDN
     */
-  lazy val title: T[HtmlTitle] = tag("title")
+  lazy val titleTag: T[HtmlTitle] = tag("title")
 
   /**
     * Used to write inline CSS.
     *
     *  MDN
     */
-  lazy val style: T[HtmlStyle] = tag("style")
+  lazy val styleTag: T[HtmlStyle] = tag("style")
 
   // Sections
 
@@ -106,7 +106,7 @@ trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyl
     *
     *  MDN
     */
-  lazy val data: T[HtmlElement] = tag("data")
+  lazy val dataTag: T[HtmlElement] = tag("data")
 
   /**
     * Represents a date and time value; the machine-readable equivalent can be
