@@ -14,5 +14,5 @@ import com.raquo.domtypes.generic.keys.Attr
   */
 trait CanonicalAttrBuilder extends AttrBuilder[Attr] {
 
-  override def attr[V](key: String, codec: Codec[V, _]): Attr[V] = new Attr(key, codec)
+  override def attr[V](key: String, codec: Codec[V, String]): Attr[V] = new Attr(key, codec)
 }

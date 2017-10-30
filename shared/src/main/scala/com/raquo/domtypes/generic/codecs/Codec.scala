@@ -27,8 +27,12 @@ trait Codec[ScalaType, DomType] {
   def decode(domValue: DomType): ScalaType
 
   /** Convert desired attribute value to appropriate DOM type. The resulting value should
-    * be passed to `dom.Node.setAttribute` call, except when resulting value is a `null`.
+    * be passed to `dom.Node.setAttribute` call, EXCEPT when resulting value is a `null`.
     * In that case you should call `dom.Node.removeAttribute` instead.
+    *
+    * We use `null` instead of [[Option]] here to reduce overhead in JS land. This method
+    * should not be called by end users anyway, it's the consuming library's job to
+    * call this method under the hood.
     */
   def encode(scalaValue: ScalaType): DomType
 }

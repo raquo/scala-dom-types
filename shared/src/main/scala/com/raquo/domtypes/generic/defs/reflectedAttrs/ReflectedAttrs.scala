@@ -1,7 +1,7 @@
 package com.raquo.domtypes.generic.defs.reflectedAttrs
 
 import com.raquo.domtypes.generic.builders.ReflectedAttrBuilder
-import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsPresenceCodec, BooleanAsTrueFalseStringCodec, BooleanAsYesNoStringCodec, IterableAsSpaceSeparatedStringCodec}
+import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsAttrPresenceCodec, BooleanAsTrueFalseStringCodec, BooleanAsYesNoStringCodec, IterableAsSpaceSeparatedStringCodec}
 
 /**
   * Reflected attributes are attributes that can be set using either a DOM property
@@ -18,8 +18,11 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsPr
   *   (NOTE: The specification calls DOM properties "IDL attributes" and HTML attributes "Content attributes")
   *
   * For type param docs, see [[ReflectedAttrBuilder]]
+  *
+  * @tparam RA Reflected Attribute, canonically either [[com.raquo.domtypes.generic.keys.Prop]]
+  *            or a type alias to [[com.raquo.domtypes.generic.keys.Attr]] (to remove the extra type param)
   */
-trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
+trait ReflectedAttrs[RA[_, _]] { this: ReflectedAttrBuilder[RA] =>
 
   /**
     * If the value of the type attribute is file, this attribute indicates the
@@ -27,7 +30,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val accept: RA[String] = stringReflectedAttr("accept")
+  lazy val accept: RA[String, String] = stringReflectedAttr("accept")
 
   /**
     * The URI of a program that processes the information submitted via the form.
@@ -38,12 +41,12 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * Only applies to [[com.raquo.domtypes.generic.defs.tags.FormTags.form]]
     */
-  lazy val action: RA[String] = stringReflectedAttr("action")
+  lazy val action: RA[String, String] = stringReflectedAttr("action")
 
   /**
     * Specifies a shortcut key to activate/focus an element
     */
-  lazy val accessKey: RA[String] = stringReflectedAttr(attrKey = "accesskey", propKey = "accessKey")
+  lazy val accessKey: RA[String, String] = stringReflectedAttr(attrKey = "accesskey", propKey = "accessKey")
 
   /**
     * This attribute defines the alternative text describing the image. Users
@@ -52,7 +55,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val alt: RA[String] = stringReflectedAttr("alt")
+  lazy val alt: RA[String, String] = stringReflectedAttr("alt")
 
   /**
     * This is a nonstandard attribute used by Chrome and iOS Safari Mobile, which
@@ -65,7 +68,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Non-standard_%3Cinput%3E_attributes
     */
-  lazy val autoCapitalize: RA[String] = stringReflectedAttr("autocapitalize")
+  lazy val autoCapitalize: RA[String, String] = stringReflectedAttr("autocapitalize")
 
   /**
     * This attribute indicates whether the value of the control can be
@@ -75,7 +78,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val autoComplete: RA[Boolean] = reflectedAttr(
+  lazy val autoComplete: RA[Boolean, String] = reflectedAttr(
     attrKey = "autocomplete",
     propKey = "autocomplete",
     attrCodec = BooleanAsOnOffStringCodec,
@@ -92,10 +95,10 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val autoFocus: RA[Boolean] = booleanReflectedAttr("autofocus", BooleanAsPresenceCodec)
+  lazy val autoFocus: RA[Boolean, Boolean] = booleanReflectedAttr("autofocus", attrCodec = BooleanAsAttrPresenceCodec)
 
   /** This attribute converts [[className]] into an iterable of class names */
-  lazy val classNames: RA[Iterable[String]] = reflectedAttr(
+  lazy val classNames: RA[Iterable[String], String] = reflectedAttr(
     attrKey = "class",
     propKey = "className",
     attrCodec = IterableAsSpaceSeparatedStringCodec,
@@ -110,7 +113,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val className: RA[String] = stringReflectedAttr(attrKey = "class", propKey = "className")
+  lazy val className: RA[String, String] = stringReflectedAttr(attrKey = "class", propKey = "className")
 
   /**
     * The visible width of text input or <textArea>, in average character widths.
@@ -119,10 +122,9 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val cols: RA[Int] = intReflectedAttr("cols")
+  lazy val cols: RA[Int, Int] = intReflectedAttr("cols")
 
   /**
-
     * This attribute contains a non-negative integer value that indicates for
     * how many columns the cell extends. Its default value is 1; if its value
     * is set to 0, it extends until the end of the <colgroup>, even if implicitly
@@ -131,7 +133,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val colSpan: RA[Int] = intReflectedAttr(attrKey = "colspan", propKey = "colSpan")
+  lazy val colSpan: RA[Int, Int] = intReflectedAttr(attrKey = "colspan", propKey = "colSpan")
 
   /**
     * This attribute gives the value associated with the [[name]] or [[httpEquiv]] attribute,
@@ -139,7 +141,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val contentAttr: RA[String] = stringReflectedAttr("content")
+  lazy val contentAttr: RA[String, String] = stringReflectedAttr("content")
 
   /**
     * When the value of the type attribute is "radio" or "checkbox", the presence of
@@ -150,7 +152,11 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val defaultChecked: RA[Boolean] = booleanReflectedAttr(attrKey = "checked", propKey = "defaultChecked", attrCodec = BooleanAsPresenceCodec)
+  lazy val defaultChecked: RA[Boolean, Boolean] = booleanReflectedAttr(
+    attrKey = "checked",
+    propKey = "defaultChecked",
+    attrCodec = BooleanAsAttrPresenceCodec
+  )
 
   /**
     * Indicates whether this <option> is initially selected
@@ -158,7 +164,11 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * See [[com.raquo.domtypes.generic.defs.props.Props.selected]]
     */
-  lazy val defaultSelected: RA[Boolean] = booleanReflectedAttr(attrKey = "selected", propKey = "defaultSelected", attrCodec = BooleanAsPresenceCodec)
+  lazy val defaultSelected: RA[Boolean, Boolean] = booleanReflectedAttr(
+    attrKey = "selected",
+    propKey = "defaultSelected",
+    attrCodec = BooleanAsAttrPresenceCodec
+  )
 
   /**
     * The initial value of the control. This attribute is optional except when
@@ -168,7 +178,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val defaultValue: RA[String] = stringReflectedAttr(attrKey = "value", propKey = "defaultValue")
+  lazy val defaultValue: RA[String, String] = stringReflectedAttr(attrKey = "value", propKey = "defaultValue")
 
   /**
     * Specifies the text direction for the content in an element. The valid values are:
@@ -180,7 +190,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     * - `auto` Let the browser figure out the text direction, based on the content,
     *          (only recommended if the text direction is unknown)
     */
-  lazy val dir: RA[String] = stringReflectedAttr("dir")
+  lazy val dir: RA[String, String] = stringReflectedAttr("dir")
 
   /**
     * This Boolean attribute indicates that the form control is not available for
@@ -192,12 +202,12 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val disabled: RA[Boolean] = booleanReflectedAttr("disabled", attrCodec = BooleanAsPresenceCodec)
+  lazy val disabled: RA[Boolean, Boolean] = booleanReflectedAttr("disabled", attrCodec = BooleanAsAttrPresenceCodec)
 
   /**
     * Specifies whether an element is draggable or not
     */
-  lazy val draggable: RA[Boolean] = booleanReflectedAttr("draggable", attrCodec = BooleanAsTrueFalseStringCodec)
+  lazy val draggable: RA[Boolean, Boolean] = booleanReflectedAttr("draggable", attrCodec = BooleanAsTrueFalseStringCodec)
 
   /**
     * The `enctype` attribute provides the encoding type of the form when it is
@@ -205,14 +215,14 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * Only applies to [[com.raquo.domtypes.generic.defs.tags.FormTags.form]]
     */
-  lazy val encType: RA[String] = stringReflectedAttr("enctype")
+  lazy val encType: RA[String, String] = stringReflectedAttr("enctype")
 
   /**
     * Describes an element which belongs to this one. Used on labels and output elements.
     *
     * MDN
     */
-  lazy val forId: RA[String] = stringReflectedAttr(attrKey = "for", propKey = "htmlFor")
+  lazy val forId: RA[String, String] = stringReflectedAttr(attrKey = "for", propKey = "htmlFor")
 
   /**
     * The `formaction` attribute provides the URL that will process the input control
@@ -220,7 +230,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     * `form` element. This should be used only with `input` elements of `type`
     * submit or image.
     */
-  lazy val formAction: RA[String] = stringReflectedAttr(attrKey = "formaction", propKey = "formAction")
+  lazy val formAction: RA[String, String] = stringReflectedAttr(attrKey = "formaction", propKey = "formAction")
 
   /**
     * The `formenctype` attribute provides the encoding type of the form when it is
@@ -230,7 +240,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * Enumerated: "multipart/form-data" | "text/plain" | "application/x-www-form-urlencoded" (default)
     */
-  lazy val formEncType: RA[String] = stringReflectedAttr(attrKey = "formenctype", propKey = "formEnctype")
+  lazy val formEncType: RA[String, String] = stringReflectedAttr(attrKey = "formenctype", propKey = "formEnctype")
 
   /**
     * The `formmethod` attribute specifies the HTTP Method the form should use when
@@ -240,7 +250,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * Enumerated: "post" | "get"
     */
-  lazy val formMethod: RA[String] = stringReflectedAttr(attrKey = "formmethod", propKey = "formMethod")
+  lazy val formMethod: RA[String, String] = stringReflectedAttr(attrKey = "formmethod", propKey = "formMethod")
 
   /**
     * The `formnovalidate` Boolean attribute specifies that the input of the form
@@ -248,7 +258,11 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     * attribute of the `form`. This should only be used with `input` elements of
     * of `type` "submit".
     */
-  lazy val formNoValidate: RA[Boolean] = booleanReflectedAttr(attrKey = "formnovalidate", propKey = "formNoValidate", attrCodec = BooleanAsPresenceCodec)
+  lazy val formNoValidate: RA[Boolean, Boolean] = booleanReflectedAttr(
+    attrKey = "formnovalidate",
+    propKey = "formNoValidate",
+    attrCodec = BooleanAsAttrPresenceCodec
+  )
 
   /**
     * The `formtarget` provides a name or keyword that indicates where to display
@@ -260,7 +274,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
     */
-  lazy val formTarget: RA[String] = stringReflectedAttr(attrKey = "formtarget", propKey = "formTarget")
+  lazy val formTarget: RA[String, String] = stringReflectedAttr(attrKey = "formtarget", propKey = "formTarget")
 
   /**
     * Specifies that an element is not yet, or is no longer, relevant and
@@ -268,14 +282,14 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden
     */
-  lazy val hidden: RA[Boolean] = booleanReflectedAttr("hidden", attrCodec = BooleanAsPresenceCodec)
+  lazy val hidden: RA[Boolean, Boolean] = booleanReflectedAttr("hidden", attrCodec = BooleanAsAttrPresenceCodec)
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val high: RA[Double] = doubleReflectedAttr("high")
+  lazy val high: RA[Double, Double] = doubleReflectedAttr("high")
 
   /**
     * This is the single required attribute for anchors defining a hypertext
@@ -288,7 +302,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val href: RA[String] = stringReflectedAttr("href")
+  lazy val href: RA[String, String] = stringReflectedAttr("href")
 
   /**
     * This enumerated attribute defines the pragma that can alter servers and
@@ -303,7 +317,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val httpEquiv: RA[String] = stringReflectedAttr(attrKey = "http-equiv", propKey = "httpEquiv")
+  lazy val httpEquiv: RA[String, String] = stringReflectedAttr(attrKey = "http-equiv", propKey = "httpEquiv")
 
   /**
     * This attribute defines a unique identifier (ID) which must be unique in
@@ -312,7 +326,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val id: RA[String] = stringReflectedAttr("id")
+  lazy val id: RA[String, String] = stringReflectedAttr("id")
 
   /**
     * This attribute participates in defining the language of the element, the
@@ -325,14 +339,14 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val lang: RA[String] = stringReflectedAttr("lang")
+  lazy val lang: RA[String, String] = stringReflectedAttr("lang")
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val low: RA[Double] = doubleReflectedAttr("low")
+  lazy val low: RA[Double, Double] = doubleReflectedAttr("low")
 
   /**
     * If the type of the input element is text, email, search, password, tel, or
@@ -341,14 +355,14 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val minLength: RA[Int] = intReflectedAttr(attrKey = "minlength", propKey = "minLength")
+  lazy val minLength: RA[Int, Int] = intReflectedAttr(attrKey = "minlength", propKey = "minLength")
 
   /**
     * The maximum allowed length for the input field. This attribute forces the input control
     * to accept no more than the allowed number of characters. It does not produce any
     * feedback to the user; you must write Javascript to make that happen.
     */
-  lazy val maxLength: RA[Int] = intReflectedAttr(attrKey = "maxlength", propKey = "maxLength")
+  lazy val maxLength: RA[Int, Int] = intReflectedAttr(attrKey = "maxlength", propKey = "maxLength")
 
   /**
     * This attribute specifies the media which the linked resource applies to.
@@ -358,7 +372,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-media
     */
-  lazy val media: RA[String] = stringReflectedAttr("media")
+  lazy val media: RA[String, String] = stringReflectedAttr("media")
 
   /**
     * The HTTP method that the browser uses to submit the form. Possible values are:
@@ -376,7 +390,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val method: RA[String] = stringReflectedAttr("method")
+  lazy val method: RA[String, String] = stringReflectedAttr("method")
 
   /**
     * This Boolean attribute specifies, when present/true, that the user is allowed
@@ -384,7 +398,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     * It can also be provided to the <select> element to allow selecting more than one
     * option.
     */
-  lazy val multiple: RA[Boolean] = booleanReflectedAttr("multiple", attrCodec = BooleanAsPresenceCodec)
+  lazy val multiple: RA[Boolean, Boolean] = booleanReflectedAttr("multiple", attrCodec = BooleanAsAttrPresenceCodec)
 
   /**
     * On form elements (input etc.):
@@ -398,7 +412,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val name: RA[String] = stringReflectedAttr("name")
+  lazy val name: RA[String, String] = stringReflectedAttr("name")
 
   /**
     * This Boolean attribute indicates that the form is not to be validated when
@@ -406,21 +420,25 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     * validated), this default setting can be overridden by a formnovalidate
     * attribute on a <button> or <input> element belonging to the form.
     */
-  lazy val noValidate: RA[Boolean] = booleanReflectedAttr(attrKey = "novalidate", propKey = "noValidate", attrCodec = BooleanAsPresenceCodec)
+  lazy val noValidate: RA[Boolean, Boolean] = booleanReflectedAttr(
+    attrKey = "novalidate",
+    propKey = "noValidate",
+    attrCodec = BooleanAsAttrPresenceCodec
+  )
 
   /**
     * For use in &lt;meter&gt; tags.
     *
     * @see https://css-tricks.com/html5-meter-element/
     */
-  lazy val optimum: RA[Double] = doubleReflectedAttr("optimum")
+  lazy val optimum: RA[Double, Double] = doubleReflectedAttr("optimum")
 
   /**
     * Specifies a regular expression to validate the input. The pattern attribute
     * works with the following input types: text, search, url, tel, email, and
     * password. Use the `title` attribute to describe the pattern to the user.
     */
-  lazy val pattern: RA[String] = stringReflectedAttr("pattern")
+  lazy val pattern: RA[String, String] = stringReflectedAttr("pattern")
 
   /**
     * A hint to the user of what can be entered in the control. The placeholder
@@ -430,7 +448,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val placeholder: RA[String] = stringReflectedAttr("placeholder")
+  lazy val placeholder: RA[String, String] = stringReflectedAttr("placeholder")
 
   /**
     * This Boolean attribute indicates that the user cannot modify the value of
@@ -439,7 +457,11 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val readOnly: RA[Boolean] = booleanReflectedAttr(attrKey = "readonly", propKey = "readOnly", attrCodec = BooleanAsPresenceCodec)
+  lazy val readOnly: RA[Boolean, Boolean] = booleanReflectedAttr(
+    attrKey = "readonly",
+    propKey = "readOnly",
+    attrCodec = BooleanAsAttrPresenceCodec
+  )
 
   /**
     * This attribute names a relationship of the linked document to the current
@@ -451,7 +473,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val rel: RA[String] = stringReflectedAttr("rel")
+  lazy val rel: RA[String, String] = stringReflectedAttr("rel")
 
   /**
     * This attribute specifies that the user must fill in a value before
@@ -461,7 +483,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val required: RA[Boolean] = booleanReflectedAttr("required", attrCodec = BooleanAsPresenceCodec)
+  lazy val required: RA[Boolean, Boolean] = booleanReflectedAttr("required", attrCodec = BooleanAsAttrPresenceCodec)
 
   /**
     * The attribute describes the role(s) the current element plays in the
@@ -478,14 +500,14 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * See: [[http://www.w3.org/TR/role-attribute/#s_role_module_attributes]]
     */
-  lazy val role: RA[String] = stringReflectedAttr("role")
+  lazy val role: RA[String, String] = stringReflectedAttr("role")
 
   /**
     * The number of visible text lines for a text control.
     *
     * MDN
     */
-  lazy val rows: RA[Int] = intReflectedAttr("rows")
+  lazy val rows: RA[Int, Int] = intReflectedAttr("rows")
 
   /**
     * This attribute contains a non-negative integer value that indicates for how many
@@ -495,7 +517,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val rowSpan: RA[Int] = intReflectedAttr(attrKey = "rowspan", propKey = "rowSpan")
+  lazy val rowSpan: RA[Int, Int] = intReflectedAttr(attrKey = "rowspan", propKey = "rowSpan")
 
   /**
     * For use in &lt;style&gt; tags.
@@ -503,7 +525,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     * If this attribute is present, then the style applies only to its parent element.
     * If absent, the style applies to the whole document.
     */
-  lazy val scoped: RA[Boolean] = booleanReflectedAttr("scoped", attrCodec = BooleanAsPresenceCodec)
+  lazy val scoped: RA[Boolean, Boolean] = booleanReflectedAttr("scoped", attrCodec = BooleanAsAttrPresenceCodec)
 
   /**
     * The initial size of the control. This value is in pixels unless the value
@@ -515,14 +537,14 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val size: RA[Int] = intReflectedAttr("size")
+  lazy val size: RA[Int, Int] = intReflectedAttr("size")
 
   /**
     * Defines whether the element may be checked for spelling errors.
     *
     * MDN – https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck
     */
-  lazy val spellCheck: RA[Boolean] = booleanReflectedAttr("spellcheck", attrCodec = BooleanAsTrueFalseStringCodec)
+  lazy val spellCheck: RA[Boolean, Boolean] = booleanReflectedAttr("spellcheck", attrCodec = BooleanAsTrueFalseStringCodec)
 
   /**
     * If the value of the type attribute is image, this attribute specifies a URI
@@ -531,7 +553,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val src: RA[String] = stringReflectedAttr("src")
+  lazy val src: RA[String, String] = stringReflectedAttr("src")
 
   /**
     * This integer attribute indicates if the element can take input focus (is
@@ -551,7 +573,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * An element with a 0 value, an invalid value, or no tabindex value should be placed after elements with a positive tabindex in the sequential keyboard navigation order.
     */
-  lazy val tabIndex: RA[Int] = intReflectedAttr(attrKey = "tabindex", propKey = "tabIndex")
+  lazy val tabIndex: RA[Int, Int] = intReflectedAttr(attrKey = "tabindex", propKey = "tabIndex")
 
   /**
     * A name or keyword indicating where to display the response that is received
@@ -575,7 +597,7 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *   same way as _self.
     * - iframename: The response is displayed in a named iframe.
     */
-  lazy val target: RA[String] = stringReflectedAttr("target")
+  lazy val target: RA[String, String] = stringReflectedAttr("target")
 
   /**
     * This attribute contains a text representing advisory information related to
@@ -584,15 +606,15 @@ trait ReflectedAttrs[RA[_]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val title: RA[String] = stringReflectedAttr("title")
+  lazy val title: RA[String, String] = stringReflectedAttr("title")
 
   /**
     * Specifies whether the content of an element should be translated or not
     */
-  lazy val translate: RA[Boolean] = booleanReflectedAttr("translate", BooleanAsYesNoStringCodec)
+  lazy val translate: RA[Boolean, Boolean] = booleanReflectedAttr("translate", attrCodec = BooleanAsYesNoStringCodec)
 
   /**
     * Specifies XML namespace for the document
     */
-  lazy val xmlns: RA[String] = stringReflectedAttr("xmlns")
+  lazy val xmlns: RA[String, String] = stringReflectedAttr("xmlns")
 }

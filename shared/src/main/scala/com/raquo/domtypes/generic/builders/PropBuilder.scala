@@ -9,14 +9,14 @@ import com.raquo.domtypes.generic.codecs.{Codec, DoubleAsIsCodec, IntAsIsCodec, 
   *
   * @tparam P DOM Property, canonically [[com.raquo.domtypes.generic.keys.Prop]]
   */
-trait PropBuilder[P[_]] {
+trait PropBuilder[P[_, _]] {
 
   /** Create a DOM Property */
-  def prop[V](key: String, codec: Codec[V, _]): P[V]
+  def prop[V, DomV](key: String, codec: Codec[V, DomV]): P[V, DomV]
 
-  @inline def intProp(key: String): P[Int] = prop(key, IntAsIsCodec)
+  @inline def intProp(key: String): P[Int, Int] = prop(key, IntAsIsCodec)
 
-  @inline def doubleProp(key: String): P[Double] = prop(key, DoubleAsIsCodec)
+  @inline def doubleProp(key: String): P[Double, Double] = prop(key, DoubleAsIsCodec)
 
-  @inline def stringProp(key: String): P[String] = prop(key, StringAsIsCodec)
+  @inline def stringProp(key: String): P[String, String] = prop(key, StringAsIsCodec)
 }

@@ -4,7 +4,7 @@ import com.raquo.domtypes.generic.builders.PropBuilder
 import com.raquo.domtypes.generic.codecs.BooleanAsIsCodec
 
 /** @tparam P DOM Property, canonically [[com.raquo.domtypes.generic.keys.Prop]] */
-trait Props[P[_]] { this: PropBuilder[P] =>
+trait Props[P[_, _]] { this: PropBuilder[P] =>
 
   /**
     * In addition to the checked and unchecked states, there is a third state
@@ -13,7 +13,7 @@ trait Props[P[_]] { this: PropBuilder[P] =>
     *
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes
     */
-  lazy val indeterminate: P[Boolean] = prop("indeterminate", BooleanAsIsCodec)
+  lazy val indeterminate: P[Boolean, Boolean] = prop("indeterminate", BooleanAsIsCodec)
 
   /**
     * When the value of the type attribute is "radio" or "checkbox", this property
@@ -21,7 +21,7 @@ trait Props[P[_]] { this: PropBuilder[P] =>
     *
     * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedAttrs.defaultChecked]]
     */
-  lazy val checked: P[Boolean] = prop("checked", BooleanAsIsCodec)
+  lazy val checked: P[Boolean, Boolean] = prop("checked", BooleanAsIsCodec)
 
   /** Determines the textual content of an element and all its descendants.
     * Setting this property replaces all of the node's children with a text node containing
@@ -29,7 +29,7 @@ trait Props[P[_]] { this: PropBuilder[P] =>
     *
     * MDN
     */
-  lazy val textContent: P[String] = stringProp("textContent")
+  lazy val textContent: P[String, String] = stringProp("textContent")
 
   /**
     * Indicates whether an <option> element is _currently_ selected. This is different from `selected` _attribute_,
@@ -38,7 +38,7 @@ trait Props[P[_]] { this: PropBuilder[P] =>
     *
     * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedAttrs.defaultSelected]]
     */
-  lazy val selected: P[Boolean] = prop("selected", BooleanAsIsCodec)
+  lazy val selected: P[Boolean, Boolean] = prop("selected", BooleanAsIsCodec)
 
   /**
     * Current value of the element. This is different from `value` _attribute_,
@@ -47,5 +47,5 @@ trait Props[P[_]] { this: PropBuilder[P] =>
     *
     * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedAttrs.defaultValue]]
     */
-  lazy val value: P[String] = stringProp("value")
+  lazy val value: P[String, String] = stringProp("value")
 }

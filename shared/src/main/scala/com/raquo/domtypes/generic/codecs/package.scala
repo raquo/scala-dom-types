@@ -30,7 +30,7 @@ package object codecs {
 
   object BooleanAsIsCodec extends AsIsCodec[Boolean]
 
-  object BooleanAsPresenceCodec extends Codec[Boolean, String] {
+  object BooleanAsAttrPresenceCodec extends Codec[Boolean, String] {
     override def decode(domValue: String): Boolean = domValue != null
     override def encode(scalaValue: Boolean): String = if (scalaValue) "" else null
   }
