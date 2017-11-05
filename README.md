@@ -73,6 +73,41 @@ On the other hand, _Scala DOM Types_ lets the consuming library create a type-sa
 
 Oh and _Scala DOM Types_ **does** work on the JVM. Obviously you can't get native JS types there, but you can provide your own replacements for specific Scala.js types, or just not bother with such specificity (see [`defs.sameRefTags`](https://github.com/raquo/scala-dom-types/blob/master/shared/src/main/scala/com/raquo/domtypes/generic/defs/package.scala)).
 
+## Design Goals
+
+The purpose of _Scala DOM Types_ is to become a standard DOM types library used in Scala projects, both in Scala.js and the JVM.
+
+#### Precise Types
+
+The most important type information must be encoded as Scala types. For example, DOM properties that only accept integers should be typed as such.  
+
+#### Reasonably Precise Types
+
+The types we provide will never be perfect. For example, MDN has this to say about the `list` attribute (`listId` in our API):
+
+> The value must be the id of a <datalist> element in the same document. [...] This attribute is ignored when the type attribute's value is hidden, checkbox, radio, file, or a button type.
+
+A far as I know, encoding such constraints as Scala types would be very hard, if possible at all.
+
+This is not to say that we are content with the level of type safety we currently have in _Scala DOM Types_. Improvements are welcome as long as they provide significantly more value than burden to the users of this library. This kind of thing is often subjective, so I suggest you open an issue for discussion first.
+
+#### Flexibility
+
+_Scala DOM Types_ is a low level library that is used by other libraries. As such, its API should be unopinionated and focused solely on providing useful data about DOM elements / attributes / etc. to consuming libraries in a way that is easy for them to implement.
+
+#### Sanity Preservation Measures
+
+We should provide a better API than the DOM if we can do that in a way that keeps usage discoverable and non-surprising.
+
+Developers familiar with the DOM API should generally be able to discover the names of attributes / tags / etc. they need using IDE autocompletion (assuming they expect the names to match the DOM API). For example: `forId` is a good name for the `for` attribute. It avoids using a Scala reserved word, and it starts with `for` like the original attribute, so it's easy to find. It also implies what kind of string is expected for a value (an `id` of an element).
+
+Within that constraint, we should also try to clean up the more insane corners of the DOM API.
+
+* For example, the difference between `value` attribute vs `value` property trips up even experienced developers all the time. Scala DOM Types on the other hand has a `defaultValue` reflected attribute and a `value` property, which behave the way everyone would expect from the given names or from their knowledge of the DOM API.
+* For another example, enumerated attributes like `contentEditable` that in the DOM accept "true" / "false" or "on" / "off" or "yes" / "no" should be boolean attributes in _Scala DOM Types_.
+
+All naming differences with the DOM API should be documented in the README file (see below). Type differences are generally assumed to be self-documenting.
+
 ## Documentation
 
 TODO:
