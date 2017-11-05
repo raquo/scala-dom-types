@@ -2,11 +2,11 @@ package com.raquo.domtypes
 
 import com.raquo.domtypes.generic.builders.canonical.CanonicalReflectedAttrBuilder.ReflectedAttr
 import com.raquo.domtypes.generic.builders.canonical.{CanonicalAttrBuilder, CanonicalEventPropBuilder, CanonicalPropBuilder, CanonicalReflectedAttrBuilder}
-import com.raquo.domtypes.generic.builders.{AttrBuilder, EventPropBuilder, PropBuilder, ReflectedAttrBuilder, StyleBuilders, Tag, TagBuilder}
+import com.raquo.domtypes.generic.builders.{StyleBuilders, Tag, TagBuilder}
 import com.raquo.domtypes.generic.defs.attrs.{AriaAttrs, Attrs}
 import com.raquo.domtypes.generic.defs.props.Props
 import com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedAttrs
-import com.raquo.domtypes.generic.defs.styles.{Styles, Styles2, StylesMisc}
+import com.raquo.domtypes.generic.defs.styles.{Styles, Styles2}
 import com.raquo.domtypes.generic.keys.{Attr, EventProp, Prop, Style}
 import com.raquo.domtypes.jsdom.defs.eventProps.{ClipboardEventProps, ErrorEventProps, FormEventProps, KeyboardEventProps, MediaEventProps, MiscellaneousEventProps, MouseEventProps, WindowEventProps}
 import com.raquo.domtypes.jsdom.defs.tags.{DocumentTags, EmbedTags, FormTags, GroupingTags, MiscTags, SectionTags, TableTags, TextTags}

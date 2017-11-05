@@ -3,8 +3,6 @@ package com.raquo.domtypes.generic.defs.attrs
 import com.raquo.domtypes.generic.builders.AttrBuilder
 import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTrueFalseStringCodec}
 
-// @TODO[API][cleanup] Why is this separate from Attrs? How is it different? We're following ScalaTags on definitions
-
 /** @tparam A HTML Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]] */
 trait Attrs[A[_]] { this: AttrBuilder[A] =>
 
