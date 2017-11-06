@@ -11,7 +11,7 @@ trait DocumentTags[T[_ <: DomElement], DomElement, Html <: DomElement, HtmlHead 
     *
     *  MDN
     */
-  lazy val html: T[Html] = build("html")
+  lazy val html: T[Html] = tag("html")
 
   /**
     * Represents a collection of metadata about the document, including links to,
@@ -19,28 +19,28 @@ trait DocumentTags[T[_ <: DomElement], DomElement, Html <: DomElement, HtmlHead 
     *
     *  MDN
     */
-  lazy val head: T[HtmlHead] = build("head")
+  lazy val head: T[HtmlHead] = tag("head")
 
   /**
     * Defines the base URL for relative URLs in the page.
     *
     *  MDN
     */
-  lazy val base: T[HtmlBase] = build("base", void = true)
+  lazy val base: T[HtmlBase] = tag("base", void = true)
 
   /**
     * Used to link JavaScript and external CSS with the current HTML document.
     *
     *  MDN
     */
-  lazy val link: T[HtmlLink] = build("link", void = true)
+  lazy val link: T[HtmlLink] = tag("link", void = true)
 
   /**
     * Defines metadata that can't be defined using another HTML element.
     *
     *  MDN
     */
-  lazy val meta: T[HtmlMeta] = build("meta", void = true)
+  lazy val meta: T[HtmlMeta] = tag("meta", void = true)
 
   /**
     * Defines either an internal script or a link to an external script. The
@@ -48,7 +48,7 @@ trait DocumentTags[T[_ <: DomElement], DomElement, Html <: DomElement, HtmlHead 
     *
     *  MDN
     */
-  lazy val script: T[HtmlScript] = build("script")
+  lazy val script: T[HtmlScript] = tag("script")
 
   /**
     * Defines alternative content to display when the browser doesn't support
@@ -56,5 +56,5 @@ trait DocumentTags[T[_ <: DomElement], DomElement, Html <: DomElement, HtmlHead 
     *
     *  MDN
     */
-  lazy val noScript: T[HtmlElement] = build("noscript")
+  lazy val noScript: T[HtmlElement] = tag("noscript")
 }

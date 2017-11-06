@@ -17,7 +17,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationDirection: Style[String] = build("animationDirection", "animation-direction")
+  lazy val animationDirection: Style[String] = style("animationDirection", "animation-direction")
 
   /**
     * The animation-duration CSS property specifies the Length of time that an
@@ -28,7 +28,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationDuration: Style[String] = build("animationDuration", "animation-duration")
+  lazy val animationDuration: Style[String] = style("animationDuration", "animation-duration")
 
   /**
     * The animation-name CSS property specifies a list of animations that should
@@ -37,7 +37,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationName: Style[String] = build("animationName", "animation-name")
+  lazy val animationName: Style[String] = style("animationName", "animation-name")
 
   /**
     * The animation-fill-mode CSS property specifies how a CSS animation should
@@ -45,7 +45,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationFillMode: Style[String] = build("animationFillMode", "animation-fill-mode")
+  lazy val animationFillMode: Style[String] = style("animationFillMode", "animation-fill-mode")
 
   /**
     * The animation-iteration-count CSS property defines the number of times an
@@ -53,7 +53,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationIterationCount: Style[Int] = build("animationIterationCount", "animation-iteration-count")
+  lazy val animationIterationCount: Style[Int] = style("animationIterationCount", "animation-iteration-count")
 
 
   /**
@@ -95,7 +95,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationTimingFunction: Style[String] = build("animationTimingFunction", "animation-timing-function")
+  lazy val animationTimingFunction: Style[String] = style("animationTimingFunction", "animation-timing-function")
 
 
   /**
@@ -110,7 +110,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationPlayState: Style[String] = build("animationPlayState", "animation-play-state")
+  lazy val animationPlayState: Style[String] = style("animationPlayState", "animation-play-state")
   /**
     * The animation CSS property is a shorthand property for animation-name,
     * animation-duration, animation-timing-function, animation-delay,
@@ -118,7 +118,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animation: Style[String] = build("animation", "animation")
+  lazy val animation: Style[String] = style("animation", "animation")
 
 
   /**
@@ -202,7 +202,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val columnRule: Style[String] = build("columnRule", "column-rule")
+  lazy val columnRule: Style[String] = style("columnRule", "column-rule")
 
   /**
     * The column-span CSS property makes it possible for an element to span across
@@ -249,7 +249,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val columnRuleColor: Style[String] = build("columnRuleColor", "column-rule-color")
+  lazy val columnRuleColor: Style[String] = style("columnRuleColor", "column-rule-color")
 
   /**
     * The column-rule-width CSS property lets you set the width of the rule drawn
@@ -282,7 +282,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val content: Style[String] = build("content", "content")
+  lazy val content: Style[String] = style("content", "content")
 
   /**
     * The counter-increment CSS property is used to increase the value of CSS
@@ -291,7 +291,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val counterIncrement: Style[String] = build("counterIncrement", "counter-increment")
+  lazy val counterIncrement: Style[String] = style("counterIncrement", "counter-increment")
 
   /**
     * The counter-reset CSS property is used to reset CSS Counters to a given
@@ -299,7 +299,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val counterReset: Style[String] = build("counterReset", "counter-reset")
+  lazy val counterReset: Style[String] = style("counterReset", "counter-reset")
 
 
   /**
@@ -309,7 +309,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val orphans: Style[Int] = build("orphans", "orphans")
+  lazy val orphans: Style[Int] = style("orphans", "orphans")
 
 
   /**
@@ -322,7 +322,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val widows: Style[Int] = build("widows", "widows")
+  lazy val widows: Style[Int] = style("widows", "widows")
 
 
   /**
@@ -371,7 +371,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val perspectiveOrigin: Style[String] = build("perspectiveOrigin", "perspective-origin")
+  lazy val perspectiveOrigin: Style[String] = style("perspectiveOrigin", "perspective-origin")
 
 
   /**
@@ -385,7 +385,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val transform: Style[String] = build("transform", "transform")
+  lazy val transform: Style[String] = style("transform", "transform")
 
 
   /**
@@ -399,7 +399,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val transformOrigin: Style[String] = build("transformOrigin", "transform-origin")
+  lazy val transformOrigin: Style[String] = style("transformOrigin", "transform-origin")
 
   /**
     * The transform-style CSS property determines if the children of the element

@@ -1,8 +1,22 @@
 package com.raquo.domtypes.generic.builders
 
-import com.raquo.domtypes.generic.keys.Prop
+import com.raquo.domtypes.generic.codecs.{Codec, DoubleAsIsCodec, IntAsIsCodec, StringAsIsCodec}
 
-trait PropBuilder extends SpecializedBuilder[Prop] {
+/** This trait builds objects representing properties, which are typically
+  * on the left hand side of the `prop := value` syntax.
+  *
+  * See also: [[com.raquo.domtypes.generic.builders.canonical.CanonicalPropBuilder]]
+  *
+  * @tparam P DOM Property, canonically [[com.raquo.domtypes.generic.keys.Prop]]
+  */
+trait PropBuilder[P[_, _]] {
 
-  @inline override def build[V](key: String): Prop[V] = new Prop(key)
+  /** Create a DOM Property */
+  def prop[V, DomV](key: String, codec: Codec[V, DomV]): P[V, DomV]
+
+  @inline def intProp(key: String): P[Int, Int] = prop(key, IntAsIsCodec)
+
+  @inline def doubleProp(key: String): P[Double, Double] = prop(key, DoubleAsIsCodec)
+
+  @inline def stringProp(key: String): P[String, String] = prop(key, StringAsIsCodec)
 }

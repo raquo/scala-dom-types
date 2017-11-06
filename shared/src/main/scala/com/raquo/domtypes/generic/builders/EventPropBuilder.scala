@@ -1,10 +1,14 @@
 package com.raquo.domtypes.generic.builders
 
-import com.raquo.domtypes.generic.keys.EventProp
+/** This trait builds event prop objects which are typically found on the left hand side
+  * of the `onEvent := callback` syntax.
+  *
+  * See also: [[com.raquo.domtypes.generic.builders.canonical.CanonicalEventPropBuilder]]
+  *
+  * @tparam EP EventProp
+  * @tparam DomEvent Base type for DOM events (dom.Event in Scala JS)
+  */
+trait EventPropBuilder[EP[Ev <: DomEvent], DomEvent] {
 
-trait EventPropBuilder extends SpecializedBuilder[EventProp] {
-
-  @inline override def build[Ev](key: String): EventProp[Ev] = {
-    new EventProp[Ev](name = key)
-  }
+  @inline def eventProp[Ev <: DomEvent](key: String): EP[Ev]
 }
