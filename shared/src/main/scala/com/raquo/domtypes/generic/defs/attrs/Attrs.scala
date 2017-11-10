@@ -131,6 +131,8 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
 
   lazy val typ: A[String] = `type`
 
+  lazy val tpe: A[String] = `type`
+
   /** IE-specific property to prevent user selection */
   lazy val unselectable: A[Boolean] = attr("unselectable", BooleanAsOnOffStringCodec)
 

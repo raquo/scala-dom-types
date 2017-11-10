@@ -177,7 +177,8 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
 * `contextmenu` attribute is renamed to `contextMenuId` for clarity and consistency
 
 #### Aliases
-* Attribute `type` == `typ` to avoid Scala reserved word
+* Attribute `type` == `typ` == `tpe` to avoid Scala reserved word
+* Attribute `className` == `cls` for consistency with Scala / ScalaTags
 
 
 ## My Related Projects
