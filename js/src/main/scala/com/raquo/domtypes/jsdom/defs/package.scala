@@ -6,13 +6,14 @@ import org.scalajs.dom
 package object defs {
 
   object eventProps {
-    type ClipboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ClipboardEventProps[EP, dom.Event]
+    type ClipboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ClipboardEventProps[EP, dom.Event, dom.ClipboardEvent]
     type ErrorEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ErrorEventProps[EP, dom.Event, dom.ErrorEvent]
-    type FormEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.FormEventProps[EP, dom.Event]
+    type FormEventProps[EP[_ <: dom.Event]] = FormEventPropsWithValue[EP, dom.Event]
+    type FormEventPropsWithValue[EP[_ <: dom.Event], DomValueElementEvent <: dom.Event] = generic.defs.eventProps.FormEventProps[EP, dom.Event, dom.FocusEvent, DomValueElementEvent]
     type KeyboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.KeyboardEventProps[EP, dom.Event, dom.KeyboardEvent]
     type MediaEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MediaEventProps[EP, dom.Event]
     type MiscellaneousEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MiscellaneousEventProps[EP, dom.Event]
-    type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[EP, dom.Event, dom.MouseEvent]
+    type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[EP, dom.Event, dom.MouseEvent, dom.DragEvent]
     type WindowEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowEventProps[EP, dom.Event]
   }
 
