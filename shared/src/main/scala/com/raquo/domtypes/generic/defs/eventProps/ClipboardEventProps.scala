@@ -7,20 +7,20 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
   *
   * For type param docs see [[EventPropBuilder]]
   */
-trait ClipboardEventProps[EP[_ <: DomEvent], DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
+trait ClipboardEventProps[EP[_ <: DomEvent], DomEvent, DomClipboardEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * Fires when the user copies the content of an element
     */
-  lazy val onCopy: EP[DomEvent] = eventProp("copy")
+  lazy val onCopy: EP[DomClipboardEvent] = eventProp("copy")
 
   /**
     * Fires when the user cuts the content of an element
     */
-  lazy val onCut: EP[DomEvent] = eventProp("cut")
+  lazy val onCut: EP[DomClipboardEvent] = eventProp("cut")
 
   /**
     * Fires when the user pastes some content in an element
     */
-  lazy val onPaste: EP[DomEvent] = eventProp("paste")
+  lazy val onPaste: EP[DomClipboardEvent] = eventProp("paste")
 }
