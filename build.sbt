@@ -40,6 +40,37 @@ val releaseSettings: Seq[Setting[_]] = Seq(
   releasePublishArtifactsAction := PgpKeys.publishSigned.value
 )
 
+inThisBuild(Seq(
+  scalacOptions ++=
+    "-encoding" :: "UTF-8" ::
+    "-unchecked" ::
+    "-deprecation" ::
+    "-explaintypes" ::
+    "-feature" ::
+    "-language:_" ::
+    "-Xcheckinit" ::
+    "-Xfuture" ::
+    "-Xlint" ::
+    "-Ypartial-unification" ::
+    "-Yno-adapted-args" ::
+    "-Ywarn-infer-any" ::
+    "-Ywarn-value-discard" ::
+    "-Ywarn-nullary-override" ::
+    "-Ywarn-nullary-unit" ::
+    "-Ywarn-unused" ::
+    Nil,
+
+  scalacOptions ++= {
+    CrossVersion.partialVersion(scalaVersion.value) match {
+      case Some((2, 12)) =>
+        "-Ywarn-extra-implicit" ::
+        Nil
+      case _             =>
+        Nil
+    }
+  }
+))
+
 lazy val root = project.in(file("."))
   .aggregate(js, jvm)
   .settings(releaseSettings)
