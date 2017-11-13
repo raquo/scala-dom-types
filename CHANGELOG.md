@@ -8,6 +8,17 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.4 (pending release) – Nov 2017
+
+Summary: More precise event types, especially for input events
+
+* Docs: Explain the peculiarities of typing input events in README
+* **New: More specific types for input events: `onChange`, `onSelect` and `onInput`: introduce `InputElementTargetEvent`**
+* **New: More specific types: DomFocusEvent, DomDragEvent** 
+* Misc: Bring back `cls` and `tpe` attribute aliases
+
+Includes contributions from [@cornerman](https://github.com/cornerman). Thanks!
+
 #### v0.3 – Nov 2017
 
 Summary: API and documentation improvements, support usage from Outwatch 

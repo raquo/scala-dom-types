@@ -2,7 +2,17 @@ package com.raquo.domtypes.generic.defs.eventProps
 
 import com.raquo.domtypes.generic.builders.EventPropBuilder
 
-trait FormEventProps[EP[_ <: DomEvent], DomEvent, DomFocusEvent <: DomEvent, DomValueElementEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
+/**
+  * @tparam DomInputElementTargetEvent
+  *            An event that has an HTMLInputElement as `target`.
+  *            This event type has no corresponding type in JS DOM. See our own `InputElementTargetEvent` trait.
+  *            Strictly speaking, this type is not applicable to `onInput` because the latter
+  *            can be fired on any HTMLElement that has `contentEditable` mode enabled.
+  * @tparam DomInputEvent
+  *            DOM InputEvent https://developer.mozilla.org/en-US/docs/Web/API/InputEvent
+  *            Note: This type is not implemented in scala-js-dom
+  */
+trait FormEventProps[EP[_ <: DomEvent], DomEvent, DomFocusEvent <: DomEvent, DomInputElementTargetEvent <: DomEvent, DomInputEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * The change event is fired for input, select, and textarea elements
@@ -10,7 +20,7 @@ trait FormEventProps[EP[_ <: DomEvent], DomEvent, DomFocusEvent <: DomEvent, Dom
     *
     * MDN
     */
-  lazy val onChange: EP[DomValueElementEvent] = eventProp("change")
+  lazy val onChange: EP[DomInputElementTargetEvent] = eventProp("change")
 
   /**
     * The select event only fires when text inside a text input or textarea is
@@ -18,13 +28,13 @@ trait FormEventProps[EP[_ <: DomEvent], DomEvent, DomFocusEvent <: DomEvent, Dom
     *
     * MDN
     */
-  lazy val onSelect: EP[DomValueElementEvent] = eventProp("select")
+  lazy val onSelect: EP[DomInputElementTargetEvent] = eventProp("select")
 
   /**
     * The input event is fired for input, select, textarea, and
-    * contenteditable elements when it gets user input.
+    * contentEditable elements when it gets user input.
     */
-  lazy val onInput: EP[DomValueElementEvent] = eventProp("input")
+  lazy val onInput: EP[DomInputEvent] = eventProp("input")
 
   /**
     * The blur event is raised when an element loses focus.
@@ -42,7 +52,7 @@ trait FormEventProps[EP[_ <: DomEvent], DomEvent, DomFocusEvent <: DomEvent, Dom
   lazy val onFocus: EP[DomFocusEvent] = eventProp("focus")
 
   /**
-    * The submit event is raised when the user clicks a submit button in a form
+    * The submit event is fired when the user clicks a submit button in a form
     * (<input type="submit"/>).
     *
     * MDN

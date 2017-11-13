@@ -2,25 +2,23 @@ package com.raquo.domtypes.jsdom
 
 import com.raquo.domtypes.generic
 import org.scalajs.dom
-import org.scalajs.dom.html
-import scala.scalajs.js.annotation.ScalaJSDefined
+
+import scala.scalajs.js
 
 package object defs {
 
-  @ScalaJSDefined
-  class ValueElementEvent extends dom.Event {
-    def targetValue: String = target match {
-      case input: html.Input => input.value
-      case textarea: html.TextArea => textarea.value
-      case select: html.Select => select.value
-      case elem: html.Element => elem.textContent // for contenteditable elements
-    }
+  /** Type refinement for events that are fired on input elements.
+    * You can safely use this type for `onChange` and `onSelect` events,
+    * and SOME `onInput` events. See README for more details. */
+  @js.native
+  trait InputElementTargetEvent extends dom.Event {
+    override def target: dom.html.Input = js.native
   }
 
   object eventProps {
     type ClipboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ClipboardEventProps[EP, dom.Event, dom.ClipboardEvent]
     type ErrorEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ErrorEventProps[EP, dom.Event, dom.ErrorEvent]
-    type FormEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.FormEventProps[EP, dom.Event, dom.FocusEvent, ValueElementEvent]
+    type FormEventProps[EP[_ <: dom.Event], DomInputEvent <: dom.Event] = generic.defs.eventProps.FormEventProps[EP, dom.Event, dom.FocusEvent, InputElementTargetEvent, DomInputEvent]
     type KeyboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.KeyboardEventProps[EP, dom.Event, dom.KeyboardEvent]
     type MediaEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MediaEventProps[EP, dom.Event]
     type MiscellaneousEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MiscellaneousEventProps[EP, dom.Event]

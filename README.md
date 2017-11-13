@@ -147,6 +147,17 @@ Reflected attributes may behave slightly differently depending on whether you im
 
 Note that Javascript DOM performs better for reading/writing DOM props than reading/writing HTML attributes.
 
+### Input Events & `dom.Event.target`
+
+When listening to `onChange`, `onSelect`, `onInput` events found in `FormEventProps`, you often need to access `event.target.value` to get the new value of the input element the event was fired on. However, `dom.Event.target` is an `EventTarget`, whereas the `value` property is only defined on `HTMLInputElement`, which `EventTarget` is not.
+
+_Scala DOM Types_ provides an optional way to have `target` typed as `HTMLInputElement` for such events – all you need to do is to use `InputElementTargetEvent` as the relevant type param(s) in `FormEventProps`.
+
+You might have noticed that this is the default for `onChange` and `onSelect`, but not `onInput` events. This is because `onInput` events are not guaranteed to fire on `HTMLInputElement`-s. In fact, `onInput` also fires when the users edits the content of any `HTMLElement` with `contentEditable` set to `true`. Since the `target` of such events is not necessarily an `HTMLInputElement`, marking it as such would be incorrect, resulting in incorrect types by design, something we would like to avoid.
+
+It is up to the consuming library to decide how to deal with such events. For example, you could be conservative, and simply use a correct but not very useful `dom.Event` type for `onInput`, or you could add a new eventProp like `onInputContentEdited` with a general type while keeping `onInput` usefully specialized. We only suggest that you document this in your docs.
+
+
 ### Naming Differences Compared To Native HTML & DOM
 
 We try to make the native HTML & DOM API a bit saner to work with in Scala.

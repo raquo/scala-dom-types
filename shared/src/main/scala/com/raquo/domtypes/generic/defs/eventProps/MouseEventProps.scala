@@ -5,7 +5,7 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
 /**
   * Mouse Events: triggered by a mouse, or similar user actions.
   */
-trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent, DomDragEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
+trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent, DomDragEvent <: DomMouseEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * The click event is raised when the user clicks on an element. The click
