@@ -7,7 +7,7 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
   *
   * For type param docs see [[EventPropBuilder]]
   */
-trait WindowEventProps[EP[_ <: DomEvent], DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
+trait WindowEventProps[EP[_ <: DomEvent], DomEvent, DomUIEvent <: DomEvent, DomBeforeUnloadEvent <: DomEvent, DomHashChangeEvent <: DomEvent, DomPageTransitionEvent <: DomEvent, DomPopStateEvent <: DomEvent, DomStorageEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * The load event fires at the end of the document loading process. At this
@@ -16,7 +16,7 @@ trait WindowEventProps[EP[_ <: DomEvent], DomEvent] { this: EventPropBuilder[EP,
     *
     * MDN
     */
-  lazy val onLoad: EP[DomEvent] = eventProp("onload")
+  lazy val onLoad: EP[DomUIEvent] = eventProp("onload")
 
   /**
     * Script to be run after the document is printed
@@ -31,12 +31,12 @@ trait WindowEventProps[EP[_ <: DomEvent], DomEvent] { this: EventPropBuilder[EP,
   /**
     * Script to be run when the document is about to be unloaded
     */
-  lazy val onBeforeUnload: EP[DomEvent] = eventProp("onbeforeunload")
+  lazy val onBeforeUnload: EP[DomBeforeUnloadEvent] = eventProp("onbeforeunload")
 
   /**
     * Script to be run when there has been changes to the anchor part of the a URL
     */
-  lazy val onHashChange: EP[DomEvent] = eventProp("onhashchange")
+  lazy val onHashChange: EP[DomHashChangeEvent] = eventProp("onhashchange")
 
   /**
     * Script to be run when the message is triggered
@@ -56,30 +56,30 @@ trait WindowEventProps[EP[_ <: DomEvent], DomEvent] { this: EventPropBuilder[EP,
   /**
     * Script to be run when a user navigates away from a page
     */
-  lazy val onPageHide: EP[DomEvent] = eventProp("onpagehide")
+  lazy val onPageHide: EP[DomPageTransitionEvent] = eventProp("onpagehide")
 
   /**
     * Script to be run when a user navigates to a page
     */
-  lazy val onPageShow: EP[DomEvent] = eventProp("onpageshow")
+  lazy val onPageShow: EP[DomPageTransitionEvent] = eventProp("onpageshow")
 
   /**
     * Script to be run when the window's history changes
     */
-  lazy val onPopState: EP[DomEvent] = eventProp("onpopstate")
+  lazy val onPopState: EP[DomPopStateEvent] = eventProp("onpopstate")
 
   /**
     * Fires when the browser window is resized
     */
-  lazy val onResize: EP[DomEvent] = eventProp("onresize")
+  lazy val onResize: EP[DomUIEvent] = eventProp("onresize")
 
   /**
     * Script to be run when a Web Storage area is updated
     */
-  lazy val onStorage: EP[DomEvent] = eventProp("onstorage")
+  lazy val onStorage: EP[DomStorageEvent] = eventProp("onstorage")
 
   /**
     * Fires once a page has unloaded (or the browser window has been closed)
     */
-  lazy val onUnload: EP[DomEvent] = eventProp("onunload")
+  lazy val onUnload: EP[DomUIEvent] = eventProp("onunload")
 }

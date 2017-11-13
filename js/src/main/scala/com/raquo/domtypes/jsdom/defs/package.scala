@@ -23,7 +23,7 @@ package object defs {
     type MediaEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MediaEventProps[EP, dom.Event]
     type MiscellaneousEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MiscellaneousEventProps[EP, dom.Event]
     type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[EP, dom.Event, dom.MouseEvent, dom.DragEvent]
-    type WindowEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowEventProps[EP, dom.Event]
+    type WindowEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowEventProps[EP, dom.Event, dom.UIEvent, dom.BeforeUnloadEvent, dom.HashChangeEvent, events.PageTransitionEvent, dom.PopStateEvent, dom.StorageEvent]
   }
 
   object tags {
