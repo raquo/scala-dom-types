@@ -1,39 +1,20 @@
 package com.raquo.domtypes.jsdom
 
 import com.raquo.domtypes.generic
+import com.raquo.domtypes.jsdom.defs.events.{ElementTargetEvent, PageTransitionEvent}
 import org.scalajs.dom
 
-import scala.scalajs.js
-
 package object defs {
-
-  @js.native
-  //TODO: maybe even ElementTargetEvent[T <: dom.html.Element]?
-  trait ElementTargetEvent extends dom.Event {
-    override def target: dom.html.Element = js.native
-  }
-
-  implicit class ElementTargetEventWithValue(val ev: ElementTargetEvent) extends AnyVal {
-    import dom.html
-
-    def targetValue: String = ev.target match {
-      case input: html.Input => input.value
-      case textarea: html.TextArea => textarea.value
-      case select: html.Select => select.value
-      case elem => elem.textContent // for contenteditable
-    }
-  }
 
   object eventProps {
     type ClipboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ClipboardEventProps[EP, dom.Event, dom.ClipboardEvent]
     type ErrorEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ErrorEventProps[EP, dom.Event, dom.ErrorEvent]
-    type FormEventProps[EP[_ <: dom.Event]] = FormEventPropsWithInputEvent[EP, dom.Event]
-    type FormEventPropsWithInputEvent[EP[_ <: dom.Event], DomInputEvent <: dom.Event] = generic.defs.eventProps.FormEventProps[EP, dom.Event, dom.FocusEvent, DomInputEvent, ElementTargetEvent]
+    type FormEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.FormEventProps[EP, dom.Event, dom.FocusEvent, dom.Event, ElementTargetEvent[dom.html.Element], ElementTargetEvent[dom.html.Form], ElementTargetEvent[dom.html.Input]]
     type KeyboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.KeyboardEventProps[EP, dom.Event, dom.KeyboardEvent]
     type MediaEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MediaEventProps[EP, dom.Event]
     type MiscellaneousEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MiscellaneousEventProps[EP, dom.Event]
     type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[EP, dom.Event, dom.MouseEvent, dom.DragEvent]
-    type WindowEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowEventProps[EP, dom.Event, dom.UIEvent, dom.BeforeUnloadEvent, dom.HashChangeEvent, events.PageTransitionEvent, dom.PopStateEvent, dom.StorageEvent]
+    type WindowEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowEventProps[EP, dom.Event, dom.UIEvent, dom.BeforeUnloadEvent, dom.HashChangeEvent, PageTransitionEvent, dom.PopStateEvent, dom.StorageEvent]
   }
 
   object tags {
@@ -46,4 +27,5 @@ package object defs {
     type TableTags[T[_ <: dom.Element]] = generic.defs.tags.TableTags[T, dom.Element, dom.html.Table, dom.html.TableCaption, dom.html.TableCol, dom.html.TableSection, dom.html.TableRow, dom.html.TableCell, dom.html.TableHeaderCell]
     type MiscTags[T[_ <: dom.Element]] = generic.defs.tags.MiscTags[T, dom.Element, dom.html.Title, dom.html.Style, dom.html.Element, dom.html.Quote, dom.html.Progress, dom.html.Menu]
   }
+
 }

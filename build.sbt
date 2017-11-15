@@ -65,7 +65,7 @@ inThisBuild(Seq(
       case Some((2, 12)) =>
         "-Ywarn-extra-implicit" ::
         Nil
-      case _             =>
+      case _ =>
         Nil
     }
   }
