@@ -153,7 +153,7 @@ When listening to `onChange`, `onSelect`, `onInput` events found in `FormEventPr
 
 Properly typing `target` in JS events is hard because almost all events in which we care about it could fire not only on `HTMLInputElement`, but also `HTMLTextAreaElement`, and even `HTMLElement` in some cases (`onInput` on element with `contentEditable` set to `true`). 
 
-_Scala DOM Types_ provides a few type params in `FormEventProps` to help deal with this mess, as well as the `ElementTargetEvent` type refinement trait, and a `ElementTargetEventWithValue` value class that you can define an implicit conversion for.
+_Scala DOM Types_ provides a few type params in `FormEventProps` to help deal with this mess, as well as the `ElementTargetEvent` type refinement trait. Ultimately, you simply can't safely use `.target` as something other than an `HTMLElement` for most events due to the underlying JS API being very dynamic.
 
 
 ### Naming Differences Compared To Native HTML & DOM
