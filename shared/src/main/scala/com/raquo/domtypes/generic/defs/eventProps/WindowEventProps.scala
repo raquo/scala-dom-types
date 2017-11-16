@@ -7,7 +7,7 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
   *
   * For type param docs see [[EventPropBuilder]]
   */
-trait WindowEventProps[EP[_ <: DomEvent], DomEvent, DomUIEvent <: DomEvent, DomBeforeUnloadEvent <: DomEvent, DomHashChangeEvent <: DomEvent, DomPageTransitionEvent <: DomEvent, DomPopStateEvent <: DomEvent, DomStorageEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
+trait WindowEventProps[EP[_ <: DomEvent], DomEvent, DomUIEvent <: DomEvent, DomBeforeUnloadEvent <: DomEvent, DomHashChangeEvent <: DomEvent, DomMessageEvent <: DomEvent, DomPageTransitionEvent <: DomEvent, DomPopStateEvent <: DomEvent, DomStorageEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * Script to be run after the document is printed
@@ -30,9 +30,15 @@ trait WindowEventProps[EP[_ <: DomEvent], DomEvent, DomUIEvent <: DomEvent, DomB
   lazy val onHashChange: EP[DomHashChangeEvent] = eventProp("onhashchange")
 
   /**
-    * Script to be run when the message is triggered
+    * Script to be run when an object receives a message
     */
-  lazy val onMessage: EP[DomEvent] = eventProp("onmessage")
+  lazy val onMessage: EP[DomMessageEvent] = eventProp("onmessage")
+
+  /**
+    * Script to be run when an object receives a message that cannot be
+    * deserialized and therefore raises an error
+    */
+  lazy val onMessageError: EP[DomMessageEvent] = eventProp("onmessageerror")
 
   /**
     * Script to be run when the browser starts to work offline
