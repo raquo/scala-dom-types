@@ -10,15 +10,6 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
 trait WindowEventProps[EP[_ <: DomEvent], DomEvent, DomUIEvent <: DomEvent, DomBeforeUnloadEvent <: DomEvent, DomHashChangeEvent <: DomEvent, DomPageTransitionEvent <: DomEvent, DomPopStateEvent <: DomEvent, DomStorageEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
-    * The load event fires at the end of the document loading process. At this
-    * point, all of the objects in the document are in the DOM, and all the
-    * images and sub-frames have finished loading.
-    *
-    * MDN
-    */
-  lazy val onLoad: EP[DomUIEvent] = eventProp("onload")
-
-  /**
     * Script to be run after the document is printed
     */
   lazy val onAfterPrint: EP[DomEvent] = eventProp("onafterprint")
@@ -67,11 +58,6 @@ trait WindowEventProps[EP[_ <: DomEvent], DomEvent, DomUIEvent <: DomEvent, DomB
     * Script to be run when the window's history changes
     */
   lazy val onPopState: EP[DomPopStateEvent] = eventProp("onpopstate")
-
-  /**
-    * Fires when the browser window is resized
-    */
-  lazy val onResize: EP[DomUIEvent] = eventProp("onresize")
 
   /**
     * Script to be run when a Web Storage area is updated
