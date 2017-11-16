@@ -16,12 +16,12 @@ trait MiscellaneousEventProps[EP[_ <: DomEvent], DomEvent, DomUIEvent <: DomEven
     *
     * MDN
     */
-  lazy val onLoad: EP[DomUIEvent] = eventProp("onload")
+  lazy val onLoad: EP[DomUIEvent] = eventProp("load")
 
   /**
     * Fires when the browser window is resized
     */
-  lazy val onResize: EP[DomUIEvent] = eventProp("onresize")
+  lazy val onResize: EP[DomUIEvent] = eventProp("resize")
 
   /**
     * Specifies the function to be called when the window is scrolled.
