@@ -1,4 +1,5 @@
 # Scala DOM Types
+[![Build Status](https://travis-ci.org/raquo/scala-dom-types.svg?branch=master)](https://travis-ci.org/raquo/scala-dom-types)
 
 This project provides listings and type definitions for Javascript HTML tags as well as their attributes, properties, and CSS styles. 
 
