@@ -10,23 +10,26 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
 trait MiscellaneousEventProps[EP[_ <: DomEvent], DomEvent, DomUIEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
-    * The load event fires at the end of the document loading process. At this
-    * point, all of the objects in the document are in the DOM, and all the
-    * images and sub-frames have finished loading.
+    * The onload property of the GlobalEventHandlers mixin is an event handler
+    * for the load event of a Window, XMLHttpRequest, <img> element, etc.,
+    * which fires when the resource has loaded.
     *
-    * MDN
+    * https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
     */
   lazy val onLoad: EP[DomUIEvent] = eventProp("load")
 
   /**
-    * Fires when the browser window is resized
+    * The GlobalEventHandlers.onresize property contains an EventHandler
+    * triggered when a resize event is received.
+    *
+    * https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onresize
     */
   lazy val onResize: EP[DomUIEvent] = eventProp("resize")
 
   /**
-    * Specifies the function to be called when the window is scrolled.
+    * An event handler for scroll events on element.
     *
-    * MDN
+    * https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onscroll
     */
   lazy val onScroll: EP[DomUIEvent] = eventProp("scroll")
 
