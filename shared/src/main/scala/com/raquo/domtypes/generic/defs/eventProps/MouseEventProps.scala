@@ -6,7 +6,7 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
   * Mouse Events: triggered by a mouse, or similar user actions.
   * @tparam DomHtmlElementTargetEvent
   *            An event that has an HTMLElement as `target`.
-  *            This event type has no corresponding type in JS DOM. See our own `ElementTargetEvent` trait.
+  *            This event type has no corresponding type in JS DOM. See our own `TypedTargetEvent` trait.
   */
 trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent, DomDragEvent <: DomMouseEvent, DomHtmlElementTargetEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 

@@ -5,13 +5,13 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
 /**
   * @tparam DomHtmlElementTargetEvent
   *            An event that has an HTMLElement as `target`.
-  *            This event type has no corresponding type in JS DOM. See our own `ElementTargetEvent` trait.
+  *            This event type has no corresponding type in JS DOM. See our own `TypedTargetEvent` trait.
   * @tparam DomFormElementTargetEvent
   *            An event that has an HTMLFormElement as `target`.
-  *            This event type has no corresponding type in JS DOM. See our own `ElementTargetEvent` trait.
+  *            This event type has no corresponding type in JS DOM. See our own `TypedTargetEvent` trait.
   * @tparam DomInputElementTargetEvent
   *            An event that has an HTMLInputElement as `target`.
-  *            This event type has no corresponding type in JS DOM. See our own `ElementTargetEvent` trait.
+  *            This event type has no corresponding type in JS DOM. See our own `TypedTargetEvent` trait.
   *            - Strictly speaking, this type is not applicable to `onInput` because the latter
   *              can be fired on any HTMLElement that has `contentEditable` mode enabled.
   *            - Similarly for `onChange` and `onSelect` – these could also fire on an `HTMLTextAreaElement`.
