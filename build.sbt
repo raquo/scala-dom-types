@@ -1,13 +1,16 @@
+inThisBuild(Seq(
+  name := "Scala DOM Types",
+  normalizedName := "domtypes",
+  organization := "com.raquo",
+  scalaVersion := "2.11.11",
+  crossScalaVersions := Seq("2.11.11", "2.12.4")
+))
+
 // @TODO[WTF] Why can't this be inside releaseSettings?
 releaseCrossBuild := true
 
 // @TODO[SBT] How to extract these shared settings into a separate release.sbt file?
-val releaseSettings: Seq[Setting[_]] = Seq(
-  name := "Scala DOM Types",
-  normalizedName := "domtypes",
-  organization := "com.raquo",
-  scalaVersion in ThisBuild := "2.11.11", // @TODO[WTF] Why exactly do we need `in ThisBuild` here?
-  crossScalaVersions in ThisBuild := Seq("2.11.11", "2.12.3"), // @TODO[WTF] Why exactly do we need `in ThisBuild` here?
+lazy val releaseSettings = Seq(
   homepage := Some(url("https://github.com/raquo/scala-dom-types")),
   licenses += ("MIT", url("https://github.com/raquo/scala-dom-types/blob/master/LICENSE.md")),
   scmInfo := Some(
@@ -40,7 +43,7 @@ val releaseSettings: Seq[Setting[_]] = Seq(
   releasePublishArtifactsAction := PgpKeys.publishSigned.value
 )
 
-inThisBuild(Seq(
+lazy val scalacSettings = Seq(
   scalacOptions ++=
     "-encoding" :: "UTF-8" ::
     "-unchecked" ::
@@ -69,18 +72,20 @@ inThisBuild(Seq(
         Nil
     }
   }
-))
+)
+
+lazy val commonSettings = releaseSettings ++ scalacSettings
 
 lazy val root = project.in(file("."))
   .aggregate(js, jvm)
-  .settings(releaseSettings)
+  .settings(commonSettings)
   .settings(
     publish := {},
     publishLocal := {}
   )
 
 lazy val domtypes = crossProject.in(file("."))
-  .settings(releaseSettings)
+  .settings(commonSettings)
   .jsConfigure(_.enablePlugins(ScalaJSBundlerPlugin))
   .jsSettings(
     requiresDOM in Test := true,
