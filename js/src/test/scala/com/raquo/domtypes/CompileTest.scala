@@ -8,7 +8,7 @@ import com.raquo.domtypes.generic.defs.props.Props
 import com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedAttrs
 import com.raquo.domtypes.generic.defs.styles.{Styles, Styles2}
 import com.raquo.domtypes.generic.keys.{Attr, EventProp, Prop, Style}
-import com.raquo.domtypes.jsdom.defs.eventProps.{ClipboardEventProps, ErrorEventProps, FormEventProps, KeyboardEventProps, MediaEventProps, MiscellaneousEventProps, MouseEventProps, WindowEventProps}
+import com.raquo.domtypes.jsdom.defs.eventProps.{ClipboardEventProps, ErrorEventProps, EventPropsInHTMLElement, FormEventProps, KeyboardEventProps, MediaEventProps, MiscellaneousEventProps, MouseEventProps, WindowEventProps}
 import com.raquo.domtypes.jsdom.defs.tags.{DocumentTags, EmbedTags, FormTags, GroupingTags, MiscTags, SectionTags, TableTags, TextTags}
 import org.scalajs.dom
 
@@ -67,4 +67,8 @@ class CompileTest {
     with CanonicalPropBuilder
     with SomeStyleBuilders
     with SomeTagBuilder
+
+  object SpecificEventProps
+    extends EventPropsInHTMLElement[EventProp]
+    with CanonicalEventPropBuilder[dom.Event]
 }

@@ -15,6 +15,12 @@ package object defs {
     type MiscellaneousEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MiscellaneousEventProps[EP, dom.Event, dom.UIEvent]
     type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[EP, dom.Event, dom.MouseEvent, dom.DragEvent, ElementTargetEvent[dom.html.Element]]
     type WindowEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowEventProps[EP, dom.Event, dom.UIEvent, dom.BeforeUnloadEvent, dom.HashChangeEvent, dom.MessageEvent, PageTransitionEvent, dom.PopStateEvent, dom.StorageEvent]
+
+    trait EventPropsInGlobal[EP[_ <: dom.Event]] extends ErrorEventProps[EP] with FormEventProps[EP] with KeyboardEventProps[EP] with MediaEventProps[EP] with MiscellaneousEventProps[EP] with MouseEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+    trait EventPropsInWindow[EP[_ <: dom.Event]] extends EventPropsInGlobal[EP] with WindowEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+    trait EventPropsInDocument[EP[_ <: dom.Event]] extends EventPropsInGlobal[EP] with ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+    trait EventPropsInElement[EP[_ <: dom.Event]] extends EventPropsInGlobal[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+    trait EventPropsInHTMLElement[EP[_ <: dom.Event]] extends EventPropsInGlobal[EP] with ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
   }
 
   object tags {
