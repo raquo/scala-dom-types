@@ -3,7 +3,7 @@ package com.raquo.domtypes.generic.defs.eventProps
 import com.raquo.domtypes.generic.builders.EventPropBuilder
 
 /**
-  * Keyboard Events - triggered by user action son the keyboard or similar user actions
+  * Keyboard Events - triggered by user actions on the keyboard
   *
   * For type param docs see [[EventPropBuilder]]
   */
