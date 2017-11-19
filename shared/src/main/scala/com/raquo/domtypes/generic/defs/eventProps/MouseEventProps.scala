@@ -4,11 +4,11 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
 
 /**
   * Mouse Events: triggered by a mouse, or similar user actions.
-  * @tparam DomHtmlElementTargetEvent
-  *            An event that has an HTMLElement as `target`.
+  * @tparam DomElementTargetEvent
+  *            An event that has an Element as `target`.
   *            This event type has no corresponding type in JS DOM. See our own `TypedTargetEvent` trait.
   */
-trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent, DomDragEvent <: DomMouseEvent, DomHtmlElementTargetEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
+trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent, DomDragEvent <: DomMouseEvent, DomElementTargetEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * The click event is raised when the user clicks on an element. The click
@@ -16,7 +16,7 @@ trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent, Do
     *
     * MDN
     */
-  lazy val onClick: EP[DomMouseEvent with DomHtmlElementTargetEvent] = eventProp("click")
+  lazy val onClick: EP[DomMouseEvent with DomElementTargetEvent] = eventProp("click")
 
   /**
     * The dblclick event is fired when a pointing device button (usually a
@@ -24,21 +24,21 @@ trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent, Do
     *
     * MDN
     */
-  lazy val onDblClick: EP[DomMouseEvent with DomHtmlElementTargetEvent] = eventProp("dblclick")
+  lazy val onDblClick: EP[DomMouseEvent with DomElementTargetEvent] = eventProp("dblclick")
 
   /**
     * The mousedown event is raised when the user presses the mouse button.
     *
     * MDN
     */
-  lazy val onMouseDown: EP[DomMouseEvent with DomHtmlElementTargetEvent] = eventProp("mousedown")
+  lazy val onMouseDown: EP[DomMouseEvent with DomElementTargetEvent] = eventProp("mousedown")
 
   /**
     * The mousemove event is raised when the user moves the mouse.
     *
     * MDN
     */
-  lazy val onMouseMove: EP[DomMouseEvent with DomHtmlElementTargetEvent] = eventProp("mousemove")
+  lazy val onMouseMove: EP[DomMouseEvent with DomElementTargetEvent] = eventProp("mousemove")
 
   /**
     * The mouseout event is raised when the mouse leaves an element (e.g, when
@@ -47,7 +47,7 @@ trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent, Do
     *
     * MDN
     */
-  lazy val onMouseOut: EP[DomMouseEvent with DomHtmlElementTargetEvent] = eventProp("mouseout")
+  lazy val onMouseOut: EP[DomMouseEvent with DomElementTargetEvent] = eventProp("mouseout")
 
   /**
     * The mouseover event is raised when the user moves the mouse over a
@@ -55,14 +55,14 @@ trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent, Do
     *
     * MDN
     */
-  lazy val onMouseOver: EP[DomMouseEvent with DomHtmlElementTargetEvent] = eventProp("mouseover")
+  lazy val onMouseOver: EP[DomMouseEvent with DomElementTargetEvent] = eventProp("mouseover")
 
   /**
     * The mouseup event is raised when the user releases the mouse button.
     *
     * MDN
     */
-  lazy val onMouseUp: EP[DomMouseEvent with DomHtmlElementTargetEvent] = eventProp("mouseup")
+  lazy val onMouseUp: EP[DomMouseEvent with DomElementTargetEvent] = eventProp("mouseup")
 
   /**
     * Fires when the mouse wheel rolls up or down over an element

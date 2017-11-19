@@ -9,11 +9,11 @@ package object defs {
   object eventProps {
     type ClipboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ClipboardEventProps[EP, dom.Event, dom.ClipboardEvent]
     type ErrorEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ErrorEventProps[EP, dom.Event, dom.ErrorEvent]
-    type FormEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.FormEventProps[EP, dom.Event, dom.FocusEvent, dom.Event, TypedTargetEvent[dom.html.Element], TypedTargetEvent[dom.html.Form], TypedTargetEvent[dom.html.Input]]
+    type FormEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.FormEventProps[EP, dom.Event, dom.FocusEvent, dom.Event, TypedTargetEvent[dom.Element], TypedTargetEvent[dom.html.Element], TypedTargetEvent[dom.html.Form], TypedTargetEvent[dom.html.Input]]
     type KeyboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.KeyboardEventProps[EP, dom.Event, dom.KeyboardEvent]
     type MediaEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MediaEventProps[EP, dom.Event]
     type MiscellaneousEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MiscellaneousEventProps[EP, dom.Event, dom.UIEvent]
-    type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[EP, dom.Event, dom.MouseEvent, dom.DragEvent, TypedTargetEvent[dom.html.Element]]
+    type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[EP, dom.Event, dom.MouseEvent, dom.DragEvent, TypedTargetEvent[dom.Element]]
     type WindowOnlyEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowOnlyEventProps[EP, dom.Event, dom.UIEvent, dom.BeforeUnloadEvent, dom.HashChangeEvent, dom.MessageEvent, PageTransitionEvent, dom.PopStateEvent, dom.StorageEvent]
 
     trait GlobalEventProps[EP[_ <: dom.Event]] extends ErrorEventProps[EP] with FormEventProps[EP] with KeyboardEventProps[EP] with MediaEventProps[EP] with MiscellaneousEventProps[EP] with MouseEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
