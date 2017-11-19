@@ -12,11 +12,11 @@ import com.raquo.domtypes.generic.codecs.{Codec, DoubleAsIsCodec, IntAsIsCodec, 
 trait PropBuilder[P[_, _]] {
 
   /** Create a DOM Property */
-  def prop[V, DomV](key: String, codec: Codec[V, DomV]): P[V, DomV]
+  protected def prop[V, DomV](key: String, codec: Codec[V, DomV]): P[V, DomV]
 
-  @inline def intProp(key: String): P[Int, Int] = prop(key, IntAsIsCodec)
+  @inline protected def intProp(key: String): P[Int, Int] = prop(key, IntAsIsCodec)
 
-  @inline def doubleProp(key: String): P[Double, Double] = prop(key, DoubleAsIsCodec)
+  @inline protected def doubleProp(key: String): P[Double, Double] = prop(key, DoubleAsIsCodec)
 
-  @inline def stringProp(key: String): P[String, String] = prop(key, StringAsIsCodec)
+  @inline protected def stringProp(key: String): P[String, String] = prop(key, StringAsIsCodec)
 }

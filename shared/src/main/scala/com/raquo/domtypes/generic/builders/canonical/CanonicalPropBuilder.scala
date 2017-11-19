@@ -14,5 +14,5 @@ import com.raquo.domtypes.generic.keys.Prop
   */
 trait CanonicalPropBuilder extends PropBuilder[Prop] {
 
-  override def prop[V, DomV](key: String, codec: Codec[V, DomV]): Prop[V, DomV] = new Prop(key, codec)
+  override protected def prop[V, DomV](key: String, codec: Codec[V, DomV]): Prop[V, DomV] = new Prop(key, codec)
 }

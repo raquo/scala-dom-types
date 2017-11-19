@@ -13,5 +13,5 @@ import com.raquo.domtypes.generic.keys.EventProp
   */
 trait CanonicalEventPropBuilder[DomEvent] extends EventPropBuilder[EventProp, DomEvent] {
 
-  override def eventProp[Ev <: DomEvent](key: String): EventProp[Ev] = new EventProp(key)
+  override protected def eventProp[Ev <: DomEvent](key: String): EventProp[Ev] = new EventProp(key)
 }

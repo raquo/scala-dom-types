@@ -12,11 +12,11 @@ import com.raquo.domtypes.generic.codecs.{Codec, DoubleAsStringCodec, IntAsStrin
 trait AttrBuilder[A[_]] {
 
   /** Create an HTML Attribute */
-  def attr[V](key: String, codec: Codec[V, String]): A[V]
+  protected def attr[V](key: String, codec: Codec[V, String]): A[V]
 
-  @inline def intAttr(key: String): A[Int] = attr(key, IntAsStringCodec)
+  @inline protected def intAttr(key: String): A[Int] = attr(key, IntAsStringCodec)
 
-  @inline def doubleAttr(key: String): A[Double] = attr(key, DoubleAsStringCodec)
+  @inline protected def doubleAttr(key: String): A[Double] = attr(key, DoubleAsStringCodec)
 
-  @inline def stringAttr(key: String): A[String] = attr(key, StringAsIsCodec)
+  @inline protected def stringAttr(key: String): A[String] = attr(key, StringAsIsCodec)
 }

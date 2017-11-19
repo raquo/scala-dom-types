@@ -20,38 +20,38 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsIsCodec, Codec, DoubleAsIsCod
 trait ReflectedAttrBuilder[RA[_, _]] {
 
   /** Create a reflected attribute */
-  @inline def reflectedAttr[V, DomPropV](
+  @inline protected def reflectedAttr[V, DomPropV](
     attrKey: String,
     propKey: String,
     attrCodec: Codec[V, String],
     propCodec: Codec[V, DomPropV]
   ): RA[V, DomPropV]
 
-  @inline def intReflectedAttr(attrKey: String, propKey: String): RA[Int, Int] = {
+  @inline protected def intReflectedAttr(attrKey: String, propKey: String): RA[Int, Int] = {
     reflectedAttr(attrKey = attrKey, propKey = propKey, attrCodec = IntAsStringCodec, propCodec = IntAsIsCodec)
   }
 
-  @inline def intReflectedAttr(key: String): RA[Int, Int] = {
+  @inline protected def intReflectedAttr(key: String): RA[Int, Int] = {
     intReflectedAttr(attrKey = key, propKey = key)
   }
 
-  @inline def doubleReflectedAttr(key: String): RA[Double, Double] = {
+  @inline protected def doubleReflectedAttr(key: String): RA[Double, Double] = {
     reflectedAttr(attrKey = key, propKey = key, attrCodec = DoubleAsStringCodec, propCodec = DoubleAsIsCodec)
   }
 
-  @inline def stringReflectedAttr(attrKey: String, propKey: String): RA[String, String] = {
+  @inline protected def stringReflectedAttr(attrKey: String, propKey: String): RA[String, String] = {
     reflectedAttr(attrKey = attrKey, propKey = propKey, attrCodec = StringAsIsCodec, propCodec = StringAsIsCodec)
   }
 
-  @inline def stringReflectedAttr(key: String): RA[String, String] = {
+  @inline protected def stringReflectedAttr(key: String): RA[String, String] = {
     stringReflectedAttr(attrKey = key, propKey = key)
   }
 
-  @inline def booleanReflectedAttr(attrKey: String, propKey: String, attrCodec: Codec[Boolean, String]): RA[Boolean, Boolean] = {
+  @inline protected def booleanReflectedAttr(attrKey: String, propKey: String, attrCodec: Codec[Boolean, String]): RA[Boolean, Boolean] = {
     reflectedAttr(attrKey = attrKey, propKey = propKey, attrCodec = attrCodec, propCodec = BooleanAsIsCodec)
   }
 
-  @inline def booleanReflectedAttr(key: String, attrCodec: Codec[Boolean, String]): RA[Boolean, Boolean] = {
+  @inline protected def booleanReflectedAttr(key: String, attrCodec: Codec[Boolean, String]): RA[Boolean, Boolean] = {
     reflectedAttr(attrKey = key, propKey = key, attrCodec = attrCodec, propCodec = BooleanAsIsCodec)
   }
 }

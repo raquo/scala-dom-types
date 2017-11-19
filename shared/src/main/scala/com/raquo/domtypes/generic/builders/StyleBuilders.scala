@@ -12,11 +12,11 @@ import com.raquo.domtypes.generic.keys.Style
   */
 trait StyleBuilders[StyleSetter] {
 
-  @inline def style[V](key: String, cssKey: String): Style[V] = new Style(name = key, cssName = cssKey)
+  @inline protected def style[V](key: String, cssKey: String): Style[V] = new Style(name = key, cssName = cssKey)
 
-  @inline def buildIntStyleSetter(style: Style[Int], value: Int): StyleSetter
+  @inline protected def buildIntStyleSetter(style: Style[Int], value: Int): StyleSetter
 
-  @inline def buildDoubleStyleSetter(style: Style[Double], value: Double): StyleSetter
+  @inline protected def buildDoubleStyleSetter(style: Style[Double], value: Double): StyleSetter
 
   /**
     * Pretty much every CSS Style can be set to some string like "auto" or "inherit", so we provide this
@@ -24,5 +24,5 @@ trait StyleBuilders[StyleSetter] {
     *
     * We do not want to use Scala.js' `|` type operator because it is not supported on the JVM.
     */
-  @inline def buildStringStyleSetter(style: Style[_], value: String): StyleSetter
+  @inline protected def buildStringStyleSetter(style: Style[_], value: String): StyleSetter
 }

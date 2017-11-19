@@ -15,7 +15,7 @@ import com.raquo.domtypes.generic.keys.Prop
   */
 trait CanonicalReflectedPropBuilder extends ReflectedAttrBuilder[Prop] {
 
-  override def reflectedAttr[V, DomPropV](
+  override protected def reflectedAttr[V, DomPropV](
     attrKey: String,
     propKey: String,
     attrCodec: Codec[V, String],

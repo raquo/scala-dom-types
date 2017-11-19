@@ -10,5 +10,5 @@ package com.raquo.domtypes.generic.builders
   */
 trait EventPropBuilder[EP[Ev <: DomEvent], DomEvent] {
 
-  @inline def eventProp[Ev <: DomEvent](key: String): EP[Ev]
+  @inline protected def eventProp[Ev <: DomEvent](key: String): EP[Ev]
 }
