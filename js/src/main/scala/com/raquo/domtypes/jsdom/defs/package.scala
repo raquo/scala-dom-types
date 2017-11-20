@@ -16,7 +16,11 @@ package object defs {
     type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[EP, dom.Event, dom.MouseEvent, dom.DragEvent, TypedTargetEvent[dom.Element]]
     type WindowOnlyEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowOnlyEventProps[EP, dom.Event, dom.UIEvent, dom.BeforeUnloadEvent, dom.HashChangeEvent, dom.MessageEvent, PageTransitionEvent, dom.PopStateEvent, dom.StorageEvent]
 
+    // See this comment thread for examples on how to use the traits below: https://github.com/raquo/scala-dom-types/pull/9#discussion_r151857048
+
+    /** Matches GlobalEventHandlers: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers */
     trait GlobalEventProps[EP[_ <: dom.Event]] extends ErrorEventProps[EP] with FormEventProps[EP] with KeyboardEventProps[EP] with MediaEventProps[EP] with MiscellaneousEventProps[EP] with MouseEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+    /** Matches WindowEventHandlers: https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers */
     trait WindowEventProps[EP[_ <: dom.Event]] extends GlobalEventProps[EP] with WindowOnlyEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
     trait DocumentEventProps[EP[_ <: dom.Event]] extends GlobalEventProps[EP] with ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
     trait ElementEventProps[EP[_ <: dom.Event]] extends GlobalEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }

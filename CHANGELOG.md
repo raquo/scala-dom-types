@@ -8,13 +8,19 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
-#### v0.4 (pending release) – Nov 2017
+#### v0.4 – Nov 2017
 
-Summary: More precise event types, especially for input events
+Summary: More precise event types, especially for input and form events
 
 * Docs: Explain the difficulty of properly typing input events in README
 * **New: More specific types for `FormEventProps`, introduce `TypedTargetEvent`**
-* **New: More specific types: DomFocusEvent, DomDragEvent** 
+* **New: More specific event types: `DomFocusEvent`, `DomDragEvent`, `PageTransitionEvent`, etc.** 
+* New: aggregated eventProp traits like `GlobalEventProps`
+* **API: Protect builder methods like `AttrBuilder.attr`**
+* **API: Make `Tag` a class, remove `Tag.build` method**
+* Fix: A bunch of Error & Window events had incorrect JS string names ("onerror" vs "error") 
+* **Naming: WindowEventProps -> WindowOnlyEventProps**
+* Build: add Travis CI badge, improve build.sbt
 * Misc: Bring back `cls` and `tpe` attribute aliases
 
 Includes contributions from [@cornerman](https://github.com/cornerman). Thanks!

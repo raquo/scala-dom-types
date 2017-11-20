@@ -3,8 +3,8 @@
 
 This project provides listings and type definitions for Javascript HTML tags as well as their attributes, properties, and CSS styles. 
 
-    "com.raquo" %%% "domtypes" % "0.3"    // scala.js
-    "com.raquo" %% "domtypes" % "0.3"     // JVM
+    "com.raquo" %%% "domtypes" % "0.4"    // scala.js
+    "com.raquo" %% "domtypes" % "0.4"     // JVM
 
 Type definitions in this project are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, I use _Scala DOM Types_ in my other projects:
 
@@ -148,13 +148,15 @@ Reflected attributes may behave slightly differently depending on whether you im
 
 Note that Javascript DOM performs better for reading/writing DOM props than reading/writing HTML attributes.
 
-### Input Events & `dom.Event.target`
+### DOM Events & `dom.Event.target`
 
 When listening to `onChange`, `onSelect`, `onInput` events found in `FormEventProps`, you often need to access `event.target.value` to get the new value of the input element the event was fired on. However, `dom.Event.target` is an `EventTarget`, whereas the `value` property is only defined on `HTMLInputElement`, which `EventTarget` is not.
 
 Properly typing `target` in JS events is hard because almost all events in which we care about it could fire not only on `HTMLInputElement`, but also `HTMLTextAreaElement`, and even `HTMLElement` in some cases (`onInput` on element with `contentEditable` set to `true`). 
 
-_Scala DOM Types_ provides a few type params in `FormEventProps` to help deal with this mess, as well as the `ElementTargetEvent` type refinement trait. Ultimately, you simply can't safely use `.target` as something other than an `HTMLElement` for most events due to the underlying JS API being very dynamic.
+_Scala DOM Types_ provides a few type params in `FormEventProps` to help deal with this mess, as well as the `TypedTargetEvent` type refinement trait. Ultimately, you simply can't safely use `.target` as something other than an `HTMLElement` for most events due to the underlying JS API being very dynamic.
+
+For related discussion see [issue #13](https://github.com/raquo/scala-dom-types/issues/13) and [Outwatch issue #93](https://github.com/OutWatch/outwatch/issues/93), and some comments on [PR #9](https://github.com/raquo/scala-dom-types/pull/9).
 
 
 ### Naming Differences Compared To Native HTML & DOM
