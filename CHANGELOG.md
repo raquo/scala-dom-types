@@ -13,7 +13,7 @@ TODO: Adopt more mature versioning, eventually. Read about eviction, binary comp
 Summary: More precise event types, especially for input events
 
 * Docs: Explain the difficulty of properly typing input events in README
-* **New: More specific types for `FormEventProps`, introduce `ElementTargetEvent`**
+* **New: More specific types for `FormEventProps`, introduce `TypedTargetEvent`**
 * **New: More specific types: DomFocusEvent, DomDragEvent** 
 * Misc: Bring back `cls` and `tpe` attribute aliases
 
