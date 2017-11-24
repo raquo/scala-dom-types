@@ -176,7 +176,6 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
   * Note that the `checked` **property** retains its name
 * `selected` **attribute** is renamed to `defaultSelected` for the same reason
   * Note that the `selected` **property** retains its name
-* `class` **attribute** is renamed to `className` for consistency with reflected property name, and to avoid Scala reserved word
 * `for` attribute and `htmlFor` property are available as reflected attribute `forId` for consistency and to avoid Scala reserved word
 * `style` attribute is renamed to `styleAttr` to let you implement a custom `style` attribute if you want.
 * `style` tag is renamed to `styleTag` for the same reason, to avoid hogging a good name
@@ -190,7 +189,7 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
 
 #### Aliases
 * Attribute `type` == `typ` == `tpe` to avoid Scala reserved word
-* Attribute `className` == `cls` for consistency with Scala / ScalaTags
+* Attribute `class` == `className` == `cls` for consistency with reflected property and with Scala / ScalaTags
 
 
 ## My Related Projects
