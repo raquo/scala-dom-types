@@ -57,6 +57,36 @@ trait MouseEventProps[EP[_ <: DomEvent], DomEvent, DomMouseEvent <: DomEvent, Do
     */
   lazy val onMouseOver: EP[DomMouseEvent with DomElementTargetEvent] = eventProp("mouseover")
 
+
+  /**
+    * The mouseleave event is fired when the pointer of a pointing device (usually a mouse) is
+    * moved out of an element.
+    *
+    * mouseleave and mouseout are similar but differ in that mouseleave does not bubble and mouseout does.
+    *
+    * This means that mouseleave is fired when the pointer has exited the element and all of its descendants,
+    * whereas mouseout is fired when the pointer leaves the element or leaves one of the element's
+    * descendants (even if the pointer is still within the element).
+    *
+    * MDN
+    */
+  lazy val onMouseLeave: EP[DomMouseEvent with DomElementTargetEvent] = eventProp("mouseleave")
+
+
+  /**
+    * The mouseenter event is fired when a pointing device (usually a mouse) is moved over
+    * the element that has the listener attached.
+    *
+    * Similar to mouseover, it differs in that it doesn't bubble and that it isn't sent
+    * when the pointer is moved from one of its descendants' physical space to its own physical space.
+    *
+    * With deep hierarchies, the amount of mouseenter events sent can be quite huge and cause
+    * significant performance problems. In such cases, it is better to listen for mouseover events.
+    *
+    * MDN
+    */
+  lazy val onMouseEnter: EP[DomMouseEvent with DomElementTargetEvent] = eventProp("mouseenter")
+
   /**
     * The mouseup event is raised when the user releases the mouse button.
     *
