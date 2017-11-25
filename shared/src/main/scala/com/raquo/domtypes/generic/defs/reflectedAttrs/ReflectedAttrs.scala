@@ -116,6 +116,8 @@ trait ReflectedAttrs[RA[_, _]] { this: ReflectedAttrBuilder[RA] =>
   lazy val className: RA[String, String] = stringReflectedAttr(attrKey = "class", propKey = "className")
 
   lazy val cls: RA[String, String] = className
+ 
+  lazy val `class`: RA[String, String] = className
 
   /**
     * The visible width of text input or <textArea>, in average character widths.
