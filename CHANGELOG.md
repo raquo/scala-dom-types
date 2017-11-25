@@ -8,6 +8,12 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.4.1 – Nov 2017
+
+* New: Add missing onMouseLeave and onMouseEnter event props
+
+Thanks, [@mariusmuja](https://github.com/mariusmuja)!
+
 #### v0.4 – Nov 2017
 
 Summary: More precise event types, especially for input and form events
