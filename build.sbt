@@ -51,7 +51,6 @@ lazy val scalacSettings = Seq(
     "-explaintypes" ::
     "-feature" ::
     "-language:_" ::
-    "-Xcheckinit" ::
     "-Xfuture" ::
     "-Xlint" ::
     "-Ypartial-unification" ::

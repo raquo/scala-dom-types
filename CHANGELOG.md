@@ -8,9 +8,13 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.4.2 – Dec 2017
+
+* Build: Remove `-Xcheckinit` compiler option due to its [runtime overhead](https://docs.scala-lang.org/tutorials/FAQ/initialization-order.html)
+
 #### v0.4.1 – Nov 2017
 
-* New: Add missing onMouseLeave and onMouseEnter event props
+* New: Add missing `onMouseLeave` and `onMouseEnter` event props
 
 Thanks, [@mariusmuja](https://github.com/mariusmuja)!
 
