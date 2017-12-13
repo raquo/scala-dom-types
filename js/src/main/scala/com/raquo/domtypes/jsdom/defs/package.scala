@@ -7,24 +7,111 @@ import org.scalajs.dom
 package object defs {
 
   object eventProps {
+
     type ClipboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ClipboardEventProps[EP, dom.Event, dom.ClipboardEvent]
+
     type ErrorEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ErrorEventProps[EP, dom.Event, dom.ErrorEvent]
-    type FormEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.FormEventProps[EP, dom.Event, dom.FocusEvent, dom.Event, TypedTargetEvent[dom.Element], TypedTargetEvent[dom.html.Element], TypedTargetEvent[dom.html.Form], TypedTargetEvent[dom.html.Input]]
+
+    type FormEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.FormEventProps[EP, dom.Event, dom.FocusEvent, dom.Event, dom.Event, dom.Event, dom.Event, dom.Event]
+
     type KeyboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.KeyboardEventProps[EP, dom.Event, dom.KeyboardEvent]
+
     type MediaEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MediaEventProps[EP, dom.Event]
+
     type MiscellaneousEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MiscellaneousEventProps[EP, dom.Event, dom.UIEvent]
-    type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[EP, dom.Event, dom.MouseEvent, dom.DragEvent, TypedTargetEvent[dom.Element]]
-    type WindowOnlyEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowOnlyEventProps[EP, dom.Event, dom.UIEvent, dom.BeforeUnloadEvent, dom.HashChangeEvent, dom.MessageEvent, PageTransitionEvent, dom.PopStateEvent, dom.StorageEvent]
+
+    type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[EP, dom.Event, dom.MouseEvent, dom.MouseEvent, dom.DragEvent]
+
+    type WindowOnlyEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowOnlyEventProps[
+      EP,
+      dom.Event,
+      dom.UIEvent,
+      dom.BeforeUnloadEvent,
+      dom.HashChangeEvent,
+      dom.MessageEvent,
+      PageTransitionEvent, // @TODO contribute this type to scala-js-dom
+      dom.PopStateEvent,
+      dom.StorageEvent
+    ]
 
     // See this comment thread for examples on how to use the traits below: https://github.com/raquo/scala-dom-types/pull/9#discussion_r151857048
 
     /** Matches GlobalEventHandlers: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers */
-    trait GlobalEventProps[EP[_ <: dom.Event]] extends ErrorEventProps[EP] with FormEventProps[EP] with KeyboardEventProps[EP] with MediaEventProps[EP] with MiscellaneousEventProps[EP] with MouseEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+    trait GlobalEventProps[EP[_ <: dom.Event]]
+      extends ErrorEventProps[EP]
+      with FormEventProps[EP]
+      with KeyboardEventProps[EP]
+      with MediaEventProps[EP]
+      with MiscellaneousEventProps[EP]
+      with MouseEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+
     /** Matches WindowEventHandlers: https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers */
-    trait WindowEventProps[EP[_ <: dom.Event]] extends GlobalEventProps[EP] with WindowOnlyEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
-    trait DocumentEventProps[EP[_ <: dom.Event]] extends GlobalEventProps[EP] with ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
-    trait ElementEventProps[EP[_ <: dom.Event]] extends GlobalEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
-    trait HTMLElementEventProps[EP[_ <: dom.Event]] extends ElementEventProps[EP] with ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+    trait WindowEventProps[EP[_ <: dom.Event]]
+      extends GlobalEventProps[EP]
+      with WindowOnlyEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+
+    trait DocumentEventProps[EP[_ <: dom.Event]]
+      extends GlobalEventProps[EP]
+      with ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+
+    trait ElementEventProps[EP[_ <: dom.Event]]
+      extends GlobalEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+
+    trait HTMLElementEventProps[EP[_ <: dom.Event]]
+      extends ElementEventProps[EP]
+      with ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+  }
+
+  /** These event props have additional, more precise types that you can use instead of the types
+    * in the [[eventProps]] package above if you don't mind uglier type signatures.
+    */
+  object typedEventProps {
+
+    type FormEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.FormEventProps[
+      EP,
+      dom.Event,
+      dom.FocusEvent with TypedTargetEvent[dom.Element],
+      dom.Event,
+      TypedTargetEvent[dom.Element],
+      TypedTargetEvent[dom.html.Element],
+      TypedTargetEvent[dom.html.Form],
+      TypedTargetEvent[dom.html.Input]
+    ]
+
+    type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[
+      EP,
+      dom.Event,
+      dom.MouseEvent,
+      dom.MouseEvent with TypedTargetEvent[dom.Element],
+      dom.DragEvent
+    ]
+
+    // See this comment thread for examples on how to use the traits below: https://github.com/raquo/scala-dom-types/pull/9#discussion_r151857048
+
+    /** Matches GlobalEventHandlers: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers */
+    trait GlobalEventProps[EP[_ <: dom.Event]]
+      extends eventProps.ErrorEventProps[EP]
+      with FormEventProps[EP]
+      with eventProps.KeyboardEventProps[EP]
+      with eventProps.MediaEventProps[EP]
+      with eventProps.MiscellaneousEventProps[EP]
+      with MouseEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+
+    /** Matches WindowEventHandlers: https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers */
+    trait WindowEventProps[EP[_ <: dom.Event]]
+      extends GlobalEventProps[EP]
+      with eventProps.WindowOnlyEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+
+    trait DocumentEventProps[EP[_ <: dom.Event]]
+      extends GlobalEventProps[EP]
+      with eventProps.ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+
+    trait ElementEventProps[EP[_ <: dom.Event]]
+      extends GlobalEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+
+    trait HTMLElementEventProps[EP[_ <: dom.Event]]
+      extends ElementEventProps[EP]
+      with eventProps.ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
   }
 
   object tags {

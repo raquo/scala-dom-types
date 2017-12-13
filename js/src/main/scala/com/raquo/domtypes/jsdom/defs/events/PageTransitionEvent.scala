@@ -4,7 +4,7 @@ import org.scalajs.dom
 
 import scala.scalajs.js
 
-//TODO: contribute to scala-js-dom with onpageshow/onpagehide methods
+// @TODO: contribute to scala-js-dom with onpageshow/onpagehide methods
 /** Page transition events fire when a webpage is being loaded or unloaded.
   *
   * See https://developer.mozilla.org/en-US/docs/Web/API/PageTransitionEvent
