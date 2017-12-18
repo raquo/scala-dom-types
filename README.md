@@ -6,10 +6,10 @@ This project provides listings and type definitions for Javascript HTML tags as 
     "com.raquo" %%% "domtypes" % "0.5"    // scala.js
     "com.raquo" %% "domtypes" % "0.5"     // JVM
 
-Type definitions in this project are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, I use _Scala DOM Types_ in my other projects:
+Type definitions in this project are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, popular Scala.js reactive UI library [Outwatch](https://github.com/OutWatch/outwatch/) recently switched to _Scala DOM Types_, offloading thousands of lines of code and improving type safety ([diff](https://github.com/OutWatch/outwatch/pull/62)). I am also using _Scala DOM Types_ in my own projects:
 
 - [Scala DOM Builder](https://github.com/raquo/scala-dom-builder), a low level DOM manipulation and tree tracking library
-- [Laminar](https://github.com/raquo/laminar), a high level, opinionated reactive UI library for Scala.js 
+- [Laminar](https://github.com/raquo/laminar), a high level reactive UI library for Scala.js 
 - [Scala DOM Test Utils](https://github.com/raquo/scala-dom-testutils), a library that verifies that your DOM node / tree matches provided description
 
 `DOM` stands [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction), in our context it's an object that represents an HTML document along with its HTML elements and their attributes, props and styles.
