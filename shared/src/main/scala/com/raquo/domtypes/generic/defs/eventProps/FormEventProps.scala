@@ -22,7 +22,16 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
   *            DOM InputEvent https://developer.mozilla.org/en-US/docs/Web/API/InputEvent
   *            Note: This type is not implemented in scala-js-dom
   */
-trait FormEventProps[EP[_ <: DomEvent], DomEvent, DomFocusEvent <: DomEvent, DomInputEvent <: DomEvent, DomElementTargetEvent <: DomEvent, DomHtmlElementTargetEvent <: DomEvent, DomFormElementTargetEvent <: DomEvent, DomInputElementTargetEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
+trait FormEventProps[
+  EP[_ <: DomEvent],
+  DomEvent,
+  DomElementFocusEvent <: DomElementTargetEvent,
+  DomInputEvent <: DomEvent,
+  DomElementTargetEvent <: DomEvent,
+  DomHtmlElementTargetEvent <: DomEvent,
+  DomFormElementTargetEvent <: DomEvent,
+  DomInputElementTargetEvent <: DomEvent
+] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * The change event is fired for input, select, and textarea elements
@@ -51,15 +60,14 @@ trait FormEventProps[EP[_ <: DomEvent], DomEvent, DomFocusEvent <: DomEvent, Dom
     *
     * MDN
     */
-  lazy val onBlur: EP[DomFocusEvent with DomElementTargetEvent] = eventProp("blur")
-
+  lazy val onBlur: EP[DomElementFocusEvent] = eventProp("blur")
 
   /**
     * The focus event is raised when the user sets focus on the given element.
     *
     * MDN
     */
-  lazy val onFocus: EP[DomFocusEvent with DomElementTargetEvent] = eventProp("focus")
+  lazy val onFocus: EP[DomElementFocusEvent] = eventProp("focus")
 
   /**
     * The submit event is fired when the user clicks a submit button in a form
