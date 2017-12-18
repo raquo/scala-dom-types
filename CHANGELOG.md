@@ -8,6 +8,11 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.5 – Dec 2017
+
+* API: Introduce `TypedTargetMouseEvent` and `TypedTargetFocusEvent`
+* **API: Change type params related to `TypedTargetEvent` in generic `MouseEventProps` and `FormEventProps` traits**
+
 #### v0.4.2 – Dec 2017
 
 * Build: Remove `-Xcheckinit` compiler option due to its [runtime overhead](https://docs.scala-lang.org/tutorials/FAQ/initialization-order.html)
