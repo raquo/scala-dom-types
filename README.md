@@ -1,12 +1,12 @@
 # Scala DOM Types
 [![Build Status](https://travis-ci.org/raquo/scala-dom-types.svg?branch=master)](https://travis-ci.org/raquo/scala-dom-types)
 
-This project provides listings and type definitions for Javascript HTML tags as well as their attributes, properties, and CSS styles. 
+_Scala DOM Types_ provides listings and type definitions for Javascript HTML tags as well as their attributes, DOM properties, and CSS styles.
 
     "com.raquo" %%% "domtypes" % "0.5"    // scala.js
     "com.raquo" %% "domtypes" % "0.5"     // JVM
 
-Type definitions in this project are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, popular Scala.js reactive UI library [Outwatch](https://github.com/OutWatch/outwatch/) recently switched to _Scala DOM Types_, offloading thousands of lines of code and improving type safety ([diff](https://github.com/OutWatch/outwatch/pull/62)). I am also using _Scala DOM Types_ in my own projects:
+Our type definitions are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, popular Scala.js reactive UI library [Outwatch](https://github.com/OutWatch/outwatch/) recently switched to _Scala DOM Types_, offloading thousands of lines of code and improving type safety ([diff](https://github.com/OutWatch/outwatch/pull/62)). I am also using _Scala DOM Types_ in my own projects:
 
 - [Scala DOM Builder](https://github.com/raquo/scala-dom-builder), a low level DOM manipulation and tree tracking library
 - [Laminar](https://github.com/raquo/laminar), a high level reactive UI library for Scala.js 
@@ -53,8 +53,6 @@ setProperty[Value](element: dom.Element, prop: Prop[Value], propValue: Value)
 
 Now you can't pass just about any random string as `propName`, and even `propValue` is now type checked.
 
-However, if all you want is more type safety in your application code, you might want to import tags / attrs / etc. from [Scala DOM Builder](https://github.com/raquo/scala-dom-builder)'s `simple` package instead because those don't require any boilerplate on your side. 
-
 
 ## What about ScalaTags
 
@@ -62,7 +60,9 @@ However, if all you want is more type safety in your application code, you might
 
 - **More type safe**. For example, in _Scala DOM Types_ an `input` tag is linked to Scala.js `HTMLInputInput` class. This lets you provide exact types for the DOM nodes you create, so that you don't need to perform unsafe casts in your application code if you want to e.g. access the `value` property on an `input` you created. Similarly, all attributes, properties and styles are linked to the types that they accept to prevent you from assigning incorrect values.
 
-- **More flexible**. _Scala DOM Types_ does not tell you how to compose your attributes / props / styles / tags together, and does not enforce any rendering paradigm, you are free to implement your own composition. I see that some projects fork ScalaTags basically to just get the type definitions, I'm hoping there would be no need for that with _Scala DOM Types_.
+- **More flexible**. _Scala DOM Types_ does not tell you how to compose your attributes / props / styles / tags together, and does not enforce any rendering paradigm. You are free to implement your own composition. I see that some projects fork ScalaTags just to get the type definitions without everything else. _Scala DOM Types_ does not get in your way, eliminating the need for such forking.
+
+- **Better representation of native DOM types**. _Scala DOM Types_ handles Reflected Attributes consistently, and uses Codecs to properly encode/decode DOM values.
 
 There are some other differences, for example _Scala DOM Types_ uses camelCase for attr / prop / style names because that is consistent with common Scala style.
 
