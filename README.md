@@ -1,5 +1,6 @@
 # Scala DOM Types
 [![Build Status](https://travis-ci.org/raquo/scala-dom-types.svg?branch=master)](https://travis-ci.org/raquo/scala-dom-types)
+![Maven Central](https://img.shields.io/maven-central/v/com.raquo/domtypes_sjs0.6_2.12.svg)
 
 _Scala DOM Types_ provides listings and type definitions for Javascript HTML tags as well as their attributes, DOM properties, and CSS styles.
 
@@ -13,6 +14,32 @@ Our type definitions are designed for easy integration into any kind of library.
 - [Scala DOM Test Utils](https://github.com/raquo/scala-dom-testutils), a library that verifies that your DOM node / tree matches provided description
 
 `DOM` stands [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction), in our context it's an object that represents an HTML document along with its HTML elements and their attributes, props and styles.
+
+
+
+## Table of Contents
+
+* [Community](#community)
+* [Why use _Scala DOM Types_](#why-use-scala-dom-types)
+* [What about ScalaTags](#what-about-scalatags)
+* [What about scala-js-dom](#what-about-scala-js-dom)
+* [Design Goals](#design-goals)
+* [Documentation](#documentation)
+  * [Codecs](#codecs)
+  * [Reflected Attributes](#reflected-attributes)
+  * [DOM Events & `dom.Event.target`](#dom-events--domeventtarget)
+  * [Naming Differences Compared To Native HTML & DOM](#naming-differences-compared-to-native-html--dom)
+* [Related Projects](#my-related-projects)
+
+
+
+## Community
+
+Please use [github issues](https://github.com/raquo/scala-dom-types/issues) for bugs, feature requests, as well as all kinds of discussions, including questions on usage and integrations. I think this will work better than spreading thin across gitter / stackoverflow / etc. You can _watch_ this project on github to get issue updates if you're interested in following discussions.
+
+See also: [Contribution guide](https://github.com/raquo/scala-dom-types/blob/master/CONTRIBUTING.md)
+
+
 
 ## Why use _Scala DOM Types_
 
@@ -54,6 +81,7 @@ setProperty[Value](element: dom.Element, prop: Prop[Value], propValue: Value)
 Now you can't pass just about any random string as `propName`, and even `propValue` is now type checked.
 
 
+
 ## What about ScalaTags
 
 [ScalaTags](http://www.lihaoyi.com/scalatags/) is a popular Scala library that contains DOM type definitions similar to what we have here. However, _Scala DOM Types_ is different in a few ways:
@@ -66,6 +94,8 @@ Now you can't pass just about any random string as `propName`, and even `propVal
 
 There are some other differences, for example _Scala DOM Types_ uses camelCase for attr / prop / style names because that is consistent with common Scala style.
 
+
+
 ## What about scala-js-dom
 
 The [scala-js-dom](http://scala-js.github.io/scala-js-dom/) project serves a very different purpose – it provides typed Scala.js interfaces to native Javascript DOM classes such as `HTMLInputElement`. You can use those types when you already have instances of DOM elements, but you can not instantiate those types without using untyped methods like `document.createElement` because that is the only kind of API that Javascript provides for this.
@@ -74,13 +104,17 @@ On the other hand, _Scala DOM Types_ lets the consuming library create a type-sa
 
 Oh and _Scala DOM Types_ **does** work on the JVM. Obviously you can't get native JS types there, but you can provide your own replacements for specific Scala.js types, or just not bother with such specificity (see [`defs.sameRefTags`](https://github.com/raquo/scala-dom-types/blob/master/shared/src/main/scala/com/raquo/domtypes/generic/defs/package.scala)).
 
+
+
 ## Design Goals
 
 The purpose of _Scala DOM Types_ is to become a standard DOM types library used in Scala projects, both in Scala.js and the JVM.
 
+
 #### Precise Types
 
 The most important type information must be encoded as Scala types. For example, DOM properties that only accept integers should be typed as such.  
+
 
 #### Reasonably Precise Types
 
@@ -92,9 +126,11 @@ A far as I know, encoding such constraints as Scala types would be very hard, if
 
 This is not to say that we are content with the level of type safety we currently have in _Scala DOM Types_. Improvements are welcome as long as they provide significantly more value than burden to the users of this library. This kind of thing is often subjective, so I suggest you open an issue for discussion first.
 
+
 #### Flexibility
 
 _Scala DOM Types_ is a low level library that is used by other libraries. As such, its API should be unopinionated and focused solely on providing useful data about DOM elements / attributes / etc. to consuming libraries in a way that is easy for them to implement.
+
 
 #### Sanity Preservation Measures
 
@@ -109,12 +145,15 @@ Within that constraint, we should also try to clean up the more insane corners o
 
 All naming differences with the DOM API should be documented in the README file (see below). Type differences are generally assumed to be self-documenting.
 
+
+
 ## Documentation
 
 TODO:
 
 * Write about general project structure, builders, etc.
 * Provide links to specific implementation examples in other libraries (use my keys + implicits, or use your own keys) 
+
 
 ### Codecs
 
@@ -134,6 +173,7 @@ _Scala DOM Types_ coalesces all these differences using codecs. When implementin
 
 For example, the codecs for the three boolean options above are `BooleanAsPresenceCodec`, `BooleanAsTrueFalseStringCodec`, and `BooleanAsYesNoStringCodec`. They have concrete implementations of encode / decode methods but of course you don't have to use those.
 
+
 ### Reflected Attributes
 
 HTML attributes and DOM properties are different things. As a prerequisite for this section, please read [this StackOverflow answer](https://stackoverflow.com/a/6004028/2601788) first. 
@@ -147,6 +187,7 @@ To keep you sane, _Scala DOM Types_ reflected attributes also normalize the DOM 
 Reflected attributes may behave slightly differently depending on whether you implement them as props or attributes. For example, in HTML5 the `cols` reflected attribute has a default value of `20`. If you read the `col` property fro man empty `<textarea>` element, you will get `20`. However, if you try to read the attribute `col`, you will get nothing because the attribute was never explicitly set.
 
 Note that Javascript DOM performs better for reading/writing DOM props than reading/writing HTML attributes.
+
 
 ### DOM Events & `dom.Event.target`
 
@@ -193,6 +234,7 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
 * Attribute `className` == `cls` for consistency with Scala / ScalaTags
 
 
+
 ## My Related Projects
 
 - [Scala DOM Builder](https://github.com/raquo/scala-dom-builder) – Low-level Scala & Scala.js library for building and manipulating DOM trees
@@ -202,9 +244,13 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
 - [XStream.scala](https://github.com/raquo/XStream.scala) – Scala.js interface to a simple JS reactive streams library
 - [Cycle.scala](https://github.com/raquo/Cycle.scala) – Scala.js interface to a popular JS functional reactive library
 
+
+
 ## Author
 
 Nikita Gazarov – [raquo.com](http://raquo.com)
+
+
 
 ## License and Credits
 
