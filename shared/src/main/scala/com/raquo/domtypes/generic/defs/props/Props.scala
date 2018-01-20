@@ -48,4 +48,11 @@ trait Props[P[_, _]] { this: PropBuilder[P] =>
     * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedAttrs.defaultValue]]
     */
   lazy val value: P[String, String] = stringProp("value")
+
+  /**
+    * The Element.innerHTML property sets or gets the HTML syntax describing the element's descendants.
+    *
+    * MDN
+    */
+  lazy val innerHTML: P[String, String] = stringProp("innerHTML")
 }
