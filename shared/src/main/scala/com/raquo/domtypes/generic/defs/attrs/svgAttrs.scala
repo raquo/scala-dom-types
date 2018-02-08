@@ -5,7 +5,7 @@ import com.raquo.domtypes.generic.builders.AttrBuilder
 import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTrueFalseStringCodec}
 
 /** @tparam A HTML Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]] */
-trait Attrs[A[_]] { this: AttrBuilder[A] =>
+trait svgAttrs[A[_]] { this: AttrBuilder[A] =>
   /**
    * This attribute defines the distance from the origin to the top of accent characters,
    * measured by a distance within the font coordinate system.
