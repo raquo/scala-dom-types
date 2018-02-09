@@ -33,7 +33,10 @@ Our type definitions are designed for easy integration into any kind of library.
 
 
 
-## Community
+## Community & Contributing
+
+### updating:
+    Currently we are working to add support for svg at svg branch ,help very welcomed!
 
 Please use [github issues](https://github.com/raquo/scala-dom-types/issues) for bugs, feature requests, as well as all kinds of discussions, including questions on usage and integrations. I think this will work better than spreading thin across gitter / stackoverflow / etc. You can _watch_ this project on github to get issue updates if you're interested in following discussions.
 
