@@ -4,7 +4,7 @@ package com.raquo.domtypes.generic.defs.attrs
 import com.raquo.domtypes.generic.builders.AttrBuilder
 import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTrueFalseStringCodec}
 
-/** @tparam A svg Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]] */
+/** @tparam A svg Attribute, canonically [[com.raquo.domtypes.generic.keys.SvgAttr]] */
 trait SvgAttrs[A[_]] { this: AttrBuilder[A] =>
   /**
    * This attribute defines the distance from the origin to the top of accent characters,
