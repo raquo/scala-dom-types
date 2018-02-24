@@ -88,7 +88,7 @@ package object defs {
     type MiscTags[T[_ <: dom.Element]] = generic.defs.tags.MiscTags[T, dom.Element, dom.html.Title, dom.html.Style, dom.html.Element, dom.html.Quote, dom.html.Progress, dom.html.Menu]
     import org.scalajs.dom._
     import svg._
-    type svgTags[T[_ <: dom.Element]]=generic.defs.tags.SvgTags[T,dom.Element,svg.Element,Circle,ClipPath,Defs,Desc,Ellipse,FEBlend,FEColorMatrix,ComponentTransferFunction,FEComposite,FEConvolveMatrix,FEDiffuseLighting,FEDisplacementMap,FEDiffuseLighting,FEFlood,FEFuncA,FEFuncB,FEFuncG,FEFuncR,FEGaussianBlur,FEImage,FEMerge,FEMergeNode,FEMorphology,FEOffset,FEPointLight,FESpecularLighting,FESpecularLighting,FETile,FETurbulence,Filter,G,Image,Line,LinearGradient,Marker,Mask,Metadata,Path,Pattern,Polygon,Polyline,RadialGradient,RectElement,SVG,Stop,SVG,Switch,Symbol,svg.Text,TextPath,TSpan,Use,View]
+    type SvgTags[T[_ <: dom.Element]]=generic.defs.tags.SvgTags[T,dom.Element,svg.Element,Circle,ClipPath,Defs,Desc,Ellipse,FEBlend,FEColorMatrix,ComponentTransferFunction,FEComposite,FEConvolveMatrix,FEDiffuseLighting,FEDisplacementMap,FEDiffuseLighting,FEFlood,FEFuncA,FEFuncB,FEFuncG,FEFuncR,FEGaussianBlur,FEImage,FEMerge,FEMergeNode,FEMorphology,FEOffset,FEPointLight,FESpecularLighting,FESpecularLighting,FETile,FETurbulence,Filter,G,Image,Line,LinearGradient,Marker,Mask,Metadata,Path,Pattern,Polygon,Polyline,RadialGradient,RectElement,SVG,Stop,SVG,Switch,Symbol,svg.Text,TextPath,TSpan,Use,View]
 
   }
 
