@@ -8,7 +8,38 @@ I can help you understand how to integrate Scala DOM Types into your library, an
 
 _Scala DOM Types_ is not v1.0 yet, so we're generally open to breaking changes that provide commensurate improvements.
 
+
+## Workflow
+
+We don't need many rules for now – just make a PR for your proposed change. Please don't push to master directly as I would like a chance to review things going there.
+
 Breaking changes and new features should be documented in CHANGELOG.md
+
+
+## Commit Messages
+
+Please prefix commit messages with one of the following prefixes:
+
+* `New` (new features or improved functionality)
+* `API` (changes in the API)
+* `Refactor` (change how things work under the hood, or a major rearrangement of things)
+* `Fix` (bug fix, or a fixed test)
+* `Naming` (for changes that are primarily just renaming)
+* `Docs` (for documentation or comments)
+* `Build` (for everything sbt-related)
+* `Test` (new or updated tests)
+* `Misc` (other things, or changes of no significant consequence such as formatting)
+
+Commit messages should explain the main changes using imperative mood. For example:
+
+* New: Add missing `onMouseLeave` and `onMouseEnter` event props
+* Docs: Explain the difficulty of properly typing input events in README
+* Build: Add Travis CI badge, improve build.sbt
+* API: Make `Tag` a class, remove `Tag.build` method
+* Fix: Properly mark void tags
+
+These guidelines are for commit messages going into master. I think going forward we will be squash & merging PRs that have too many commits, or commits that don't follow this naming scheme.
+
 
 ## Contribution FAQ
 
