@@ -39,8 +39,9 @@ Please use [github issues](https://github.com/raquo/scala-dom-types/issues) for 
 
 See also: [Contribution guide](https://github.com/raquo/scala-dom-types/blob/master/CONTRIBUTING.md)
 
-### Currently work on progress:
-svg support : Help and testing welcomed! please work on svg branch https://github.com/raquo/scala-dom-types/issues/20
+### Notable Work In Progress
+
+**SVG Support!** – see [#20](https://github.com/raquo/scala-dom-types/issues/20) and [#25](https://github.com/raquo/scala-dom-types/pull/25). Feedback / help / testing appreciated! 
 
 
 ## Why use _Scala DOM Types_
