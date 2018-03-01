@@ -4,9 +4,10 @@ package com.raquo.domtypes.generic.defs.attrs
 import com.raquo.domtypes.generic.builders.AttrBuilder
 import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTrueFalseStringCodec}
 
-  /** @tparam A svg Attribute, canonically [[com.raquo.domtypes.generic.keys.SvgAttr]] */
+ 
 // adopted from : 
 // https://github.com/lihaoyi/scalatags/blob/44cbd0602d40186d33d39b8d4a259f681d2e4a3b/scalatags/shared/src/main/scala/scalatags/generic/SvgAttrs.scala
+  /** @tparam A svg Attribute, canonically [[com.raquo.domtypes.generic.keys.SvgAttr]] */
   trait SvgAttrs[A[_]] { this: AttrBuilder[A] =>
     /**
       * This attribute defines the distance from the origin to the top of accent characters,
@@ -224,7 +225,7 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTr
       *
       * MDN
       */
-    lazy val clipPath = stringAttr("clip-path")
+    lazy val clipPathAttr = stringAttr("clip-path")
 
     /**
       * The clipPathUnits attribute defines the coordinate system for the contents
@@ -373,7 +374,7 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTr
       *
       * MDN
       */
-    lazy val cursor = stringAttr("cursor")
+    lazy val cursorAttr = stringAttr("cursor")
 
 
     /**
@@ -540,7 +541,7 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTr
       *
       * MDN
       */
-    lazy val filter = stringAttr("filter")
+    lazy val filterAttr = stringAttr("filter")
 
 
     /**
@@ -864,7 +865,7 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTr
       *
       * MDN
       */
-    lazy val mask = stringAttr("mak")
+    lazy val maskAttr = stringAttr("mak")
 
 
 
@@ -1527,6 +1528,4 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTr
      * MDN
      */
     lazy val z = stringAttr("z")
-  
-
-}
+  }
