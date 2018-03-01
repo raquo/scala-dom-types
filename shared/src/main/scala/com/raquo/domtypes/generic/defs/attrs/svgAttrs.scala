@@ -1527,6 +1527,6 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTr
      * MDN
      */
     lazy val z = stringAttr("z")
-  }
+  
 
 }
