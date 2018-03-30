@@ -75,20 +75,83 @@ package object defs {
     trait HTMLElementEventProps[EP[_ <: dom.Event]]
       extends ElementEventProps[EP]
       with ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+
   }
 
   object tags {
+
     type DocumentTags[T[_ <: dom.Element]] = generic.defs.tags.DocumentTags[T, dom.Element, dom.html.Html, dom.html.Head, dom.html.Base, dom.html.Link, dom.html.Meta, dom.html.Script, dom.html.Element]
+
     type GroupingTags[T[_ <: dom.Element]] = generic.defs.tags.GroupingTags[T, dom.Element, dom.html.Paragraph, dom.html.HR, dom.html.Pre, dom.html.Quote, dom.html.OList, dom.html.UList, dom.html.LI, dom.html.DList, dom.html.DT, dom.html.DD, dom.html.Element, dom.html.Div]
+
     type TextTags[T[_ <: dom.Element]] = generic.defs.tags.TextTags[T, dom.Element, dom.html.Anchor, dom.html.Element, dom.html.Span, dom.html.BR, dom.html.Mod]
+
     type FormTags[T[_ <: dom.Element]] = generic.defs.tags.FormTags[T, dom.Element, dom.html.Form, dom.html.FieldSet, dom.html.Legend, dom.html.Label, dom.html.Input, dom.html.Button, dom.html.Select, dom.html.DataList, dom.html.OptGroup, dom.html.Option, dom.html.TextArea]
+
     type SectionTags[T[_ <: dom.Element]] = generic.defs.tags.SectionTags[T, dom.Element, dom.html.Body, dom.html.Element, dom.html.Heading]
+
     type EmbedTags[T[_ <: dom.Element]] = generic.defs.tags.EmbedTags[T, dom.Element, dom.html.Image, dom.html.IFrame, dom.html.Embed, dom.html.Object, dom.html.Param, dom.html.Video, dom.html.Audio, dom.html.Source, dom.html.Track, dom.html.Canvas, dom.html.Map, dom.html.Area]
+
     type TableTags[T[_ <: dom.Element]] = generic.defs.tags.TableTags[T, dom.Element, dom.html.Table, dom.html.TableCaption, dom.html.TableCol, dom.html.TableSection, dom.html.TableRow, dom.html.TableCell, dom.html.TableHeaderCell]
+
     type MiscTags[T[_ <: dom.Element]] = generic.defs.tags.MiscTags[T, dom.Element, dom.html.Title, dom.html.Style, dom.html.Element, dom.html.Quote, dom.html.Progress, dom.html.Menu]
-    import org.scalajs.dom._
-    import svg._
-    type SvgTags[T[_ <: dom.Element]]=generic.defs.tags.SvgTags[T,dom.Element,svg.Element,Circle,ClipPath,Defs,Desc,Ellipse,FEBlend,FEColorMatrix,ComponentTransferFunction,FEComposite,FEConvolveMatrix,FEDiffuseLighting,FEDisplacementMap,FEDiffuseLighting,FEFlood,FEFuncA,FEFuncB,FEFuncG,FEFuncR,FEGaussianBlur,FEImage,FEMerge,FEMergeNode,FEMorphology,FEOffset,FEPointLight,FESpecularLighting,FESpecularLighting,FETile,FETurbulence,Filter,G,Image,Line,LinearGradient,Marker,Mask,Metadata,Path,Pattern,Polygon,Polyline,RadialGradient,RectElement,SVG,Stop,SVG,Switch,Symbol,svg.Text,TextPath,TSpan,Use,View]
+
+    type SvgTags[T[_ <: dom.svg.Element]] = generic.defs.tags.SvgTags[
+      T,
+      dom.svg.Element,
+      dom.svg.Circle,
+      dom.svg.ClipPath,
+      dom.svg.Defs,
+      dom.svg.Desc,
+      dom.svg.Ellipse,
+      dom.svg.FEBlend,
+      dom.svg.FEColorMatrix,
+      dom.svg.ComponentTransferFunction,
+      dom.svg.FEComposite,
+      dom.svg.FEConvolveMatrix,
+      dom.svg.FEDiffuseLighting,
+      dom.svg.FEDisplacementMap,
+      dom.svg.FEDiffuseLighting,
+      dom.svg.FEFlood,
+      dom.svg.FEFuncA,
+      dom.svg.FEFuncB,
+      dom.svg.FEFuncG,
+      dom.svg.FEFuncR,
+      dom.svg.FEGaussianBlur,
+      dom.svg.FEImage,
+      dom.svg.FEMerge,
+      dom.svg.FEMergeNode,
+      dom.svg.FEMorphology,
+      dom.svg.FEOffset,
+      dom.svg.FEPointLight,
+      dom.svg.FESpecularLighting,
+      dom.svg.FESpecularLighting,
+      dom.svg.FETile,
+      dom.svg.FETurbulence,
+      dom.svg.Filter,
+      dom.svg.G,
+      dom.svg.Image,
+      dom.svg.Line,
+      dom.svg.LinearGradient,
+      dom.svg.Marker,
+      dom.svg.Mask,
+      dom.svg.Metadata,
+      dom.svg.Path,
+      dom.svg.Pattern,
+      dom.svg.Polygon,
+      dom.svg.Polyline,
+      dom.svg.RadialGradient,
+      dom.svg.RectElement,
+      dom.svg.SVG,
+      dom.svg.Stop,
+      dom.svg.Switch,
+      dom.svg.Symbol,
+      dom.svg.Text,
+      dom.svg.TextPath,
+      dom.svg.TSpan,
+      dom.svg.Use,
+      dom.svg.View
+    ]
 
   }
 
