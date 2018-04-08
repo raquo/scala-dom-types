@@ -2,8 +2,8 @@ package com.raquo.domtypes.generic.defs.tags
 
 import com.raquo.domtypes.generic.builders.TagBuilder
 
-trait TextTags[T[_ <: DomElement], DomElement, HtmlAnchor <: DomElement, HtmlElement <: DomElement, HtmlSpan <: DomElement, HtmlBr <: DomElement, HtmlMod <: DomElement] {
-  this: TagBuilder[T, DomElement] =>
+trait TextTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlAnchor <: DomHtmlElement, HtmlElement <: DomHtmlElement, HtmlSpan <: DomHtmlElement, HtmlBr <: DomHtmlElement, HtmlMod <: DomHtmlElement] {
+  this: TagBuilder[T, DomHtmlElement] =>
 
   /**
     * Represents a hyperlink, linking to another resource.

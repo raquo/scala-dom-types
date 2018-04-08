@@ -2,8 +2,8 @@ package com.raquo.domtypes.generic.defs.tags
 
 import com.raquo.domtypes.generic.builders.TagBuilder
 
-trait DocumentTags[T[_ <: DomElement], DomElement, Html <: DomElement, HtmlHead <: DomElement, HtmlBase <: DomElement, HtmlLink <: DomElement, HtmlMeta <: DomElement, HtmlScript <: DomElement, HtmlElement <: DomElement] {
-  this: TagBuilder[T, DomElement] =>
+trait DocumentTags[T[_ <: DomHtmlElement], DomHtmlElement, Html <: DomHtmlElement, HtmlHead <: DomHtmlElement, HtmlBase <: DomHtmlElement, HtmlLink <: DomHtmlElement, HtmlMeta <: DomHtmlElement, HtmlScript <: DomHtmlElement, HtmlElement <: DomHtmlElement] {
+  this: TagBuilder[T, DomHtmlElement] =>
 
   /**
     * Represents the root of an HTML or XHTML document. All other elements must

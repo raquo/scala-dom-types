@@ -2,8 +2,8 @@ package com.raquo.domtypes.generic.defs.tags
 
 import com.raquo.domtypes.generic.builders.TagBuilder
 
-trait TableTags[T[_ <: DomElement], DomElement, HtmlTable <: DomElement, HtmlTableCaption <: DomElement, HtmlTableCol <: DomElement, HtmlTableSection <: DomElement, HtmlTableRow <: DomElement, HtmlTableCell <: DomElement, HtmlTableHeaderCell <: DomElement] {
-  this: TagBuilder[T, DomElement] =>
+trait TableTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlTable <: DomHtmlElement, HtmlTableCaption <: DomHtmlElement, HtmlTableCol <: DomHtmlElement, HtmlTableSection <: DomHtmlElement, HtmlTableRow <: DomHtmlElement, HtmlTableCell <: DomHtmlElement, HtmlTableHeaderCell <: DomHtmlElement] {
+  this: TagBuilder[T, DomHtmlElement] =>
 
   // @TODO[Docs] add links to canonical ScalaJS types in comments
 

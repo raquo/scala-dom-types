@@ -2,8 +2,8 @@ package com.raquo.domtypes.generic.defs.tags
 
 import com.raquo.domtypes.generic.builders.TagBuilder
 
-trait SectionTags[T[_ <: DomElement], DomElement, HtmlBody <: DomElement, HtmlElement <: DomElement, HtmlHeading <: DomElement] {
-  this: TagBuilder[T, DomElement] =>
+trait SectionTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlBody <: DomHtmlElement, HtmlElement <: DomHtmlElement, HtmlHeading <: DomHtmlElement] {
+  this: TagBuilder[T, DomHtmlElement] =>
 
   /**
     * Represents the content of an HTML document. There is only one body

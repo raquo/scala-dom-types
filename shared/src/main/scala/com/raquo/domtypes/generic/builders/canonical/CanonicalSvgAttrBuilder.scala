@@ -4,7 +4,7 @@ import com.raquo.domtypes.generic.builders.AttrBuilder
 import com.raquo.domtypes.generic.codecs.Codec
 import com.raquo.domtypes.generic.keys.SvgAttr
 
-/** Canonical implementation of [[AttrBuilder]], using our own [[SvgAttr]] class.
+/** Canonical implementation of [[AttrBuilder]] for SVG attrs, using our own [[SvgAttr]] class.
   *
   * If you are using this implementation, create an implicit value class
   * around [[SvgAttr]] – there you can e.g. implement the `:=` method.
