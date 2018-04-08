@@ -6,7 +6,7 @@ package com.raquo.domtypes.generic
   *
   * We're defining a specific trait for this because we expect to have implicit conversions into this type.
   */
-trait Modifier[-El] ex{
+trait Modifier[-El] {
 
   def apply[X](el: El): Unit
 }
