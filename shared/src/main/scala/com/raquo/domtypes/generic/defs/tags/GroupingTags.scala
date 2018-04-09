@@ -2,8 +2,8 @@ package com.raquo.domtypes.generic.defs.tags
 
 import com.raquo.domtypes.generic.builders.TagBuilder
 
-trait GroupingTags[T[_ <: DomElement], DomElement, HtmlParagraph <: DomElement, HtmlHr <: DomElement, HtmlPre <: DomElement, HtmlQuote <: DomElement, HtmlOlist <: DomElement, HtmUlist <: DomElement, HtmlLi <: DomElement, HtmlDlist <: DomElement, HtmlDt <: DomElement, HtmlDd <: DomElement, HtmlElement <: DomElement, HtmlDiv <: DomElement] {
-  this: TagBuilder[T, DomElement] =>
+trait GroupingTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlParagraph <: DomHtmlElement, HtmlHr <: DomHtmlElement, HtmlPre <: DomHtmlElement, HtmlQuote <: DomHtmlElement, HtmlOlist <: DomHtmlElement, HtmUlist <: DomHtmlElement, HtmlLi <: DomHtmlElement, HtmlDlist <: DomHtmlElement, HtmlDt <: DomHtmlElement, HtmlDd <: DomHtmlElement, HtmlElement <: DomHtmlElement, HtmlDiv <: DomHtmlElement] {
+  this: TagBuilder[T, DomHtmlElement] =>
 
   // @TODO[Docs] add links to canonical ScalaJS types in comments
 

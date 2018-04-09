@@ -6,8 +6,8 @@ import com.raquo.domtypes.generic.builders.TagBuilder
   * Contains HTML tags which are used less frequently. These are generally
   * imported individually as needed.
   */
-trait MiscTags[T[_ <: DomElement], DomElement, HtmlTitle <: DomElement, HtmlStyle <: DomElement, HtmlElement <: DomElement, HtmlQuote <: DomElement, HtmlProgress <: DomElement, HtmlMenu <: DomElement] {
-  this: TagBuilder[T, DomElement] =>
+trait MiscTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlTitle <: DomHtmlElement, HtmlStyle <: DomHtmlElement, HtmlElement <: DomHtmlElement, HtmlQuote <: DomHtmlElement, HtmlProgress <: DomHtmlElement, HtmlMenu <: DomHtmlElement] {
+  this: TagBuilder[T, DomHtmlElement] =>
 
   // Document Metadata
 

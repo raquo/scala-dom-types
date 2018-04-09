@@ -8,6 +8,14 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.6 – Apr 2018
+
+* **New: SVG Support (see README). Some type params now require types `T <: dom.html.Element` instead of `T <: dom.Element`.** 
+* **API: `Element` no longer has `tagName` and `void` members, instead it now has one `tag` member**
+* **Naming: `tagName` -> `name` in `Tag`**
+
+Includes SVG contributions from [@doofin](https://github.com/doofin). Thanks!
+
 #### v0.5 – Dec 2017
 
 * API: Introduce `TypedTargetMouseEvent` and `TypedTargetFocusEvent`

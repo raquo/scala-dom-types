@@ -2,8 +2,8 @@ package com.raquo.domtypes.generic.defs.tags
 
 import com.raquo.domtypes.generic.builders.TagBuilder
 
-trait EmbedTags[T[_ <: DomElement], DomElement, HtmlImage <: DomElement, HtmlIframe <: DomElement, HtmlEmbed <: DomElement, HtmlObject <: DomElement, HtmlParam <: DomElement, HtmlVideo <: DomElement, HtmlAudio <: DomElement, HtmlSource <: DomElement, HtmlTrack <: DomElement, HtmlCanvas <: DomElement, HtmlMap <: DomElement, HtmlArea <: DomElement] {
-  this: TagBuilder[T, DomElement] =>
+trait EmbedTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlImage <: DomHtmlElement, HtmlIframe <: DomHtmlElement, HtmlEmbed <: DomHtmlElement, HtmlObject <: DomHtmlElement, HtmlParam <: DomHtmlElement, HtmlVideo <: DomHtmlElement, HtmlAudio <: DomHtmlElement, HtmlSource <: DomHtmlElement, HtmlTrack <: DomHtmlElement, HtmlCanvas <: DomHtmlElement, HtmlMap <: DomHtmlElement, HtmlArea <: DomHtmlElement] {
+  this: TagBuilder[T, DomHtmlElement] =>
 
   // @TODO[Docs] add links to canonical ScalaJS types in comments
 

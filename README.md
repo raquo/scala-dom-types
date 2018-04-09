@@ -28,6 +28,8 @@ Our type definitions are designed for easy integration into any kind of library.
   * [Codecs](#codecs)
   * [Reflected Attributes](#reflected-attributes)
   * [DOM Events & `dom.Event.target`](#dom-events--domeventtarget)
+  * [CSS](#css)
+  * [SVG](#svg)
   * [Naming Differences Compared To Native HTML & DOM](#naming-differences-compared-to-native-html--dom)
 * [Related Projects](#my-related-projects)
 
@@ -201,6 +203,20 @@ Properly typing `target` in JS events is hard because almost all events in which
 _Scala DOM Types_ provides a few type params in `FormEventProps` to help deal with this mess, as well as the `TypedTargetEvent` type refinement trait. Ultimately, you simply can't safely use `.target` as something other than an `HTMLElement` for most events due to the underlying JS API being very dynamic.
 
 For related discussion see [issue #13](https://github.com/raquo/scala-dom-types/issues/13) and [Outwatch issue #93](https://github.com/OutWatch/outwatch/issues/93), and some comments on [PR #9](https://github.com/raquo/scala-dom-types/pull/9).
+
+
+### CSS
+
+CSS is rather hard to type properly. A lot of CSS properties accept both numbers and a set of magic strings such as "auto", or specially formed strings in multiple formats such as "2px 5em 0 auto". We attempt to deal with this the same way that ScalaTags does, by defining objects for some CSS properties that have shorthand methods for applicable magic strings defined on them.
+
+The downside of this approach is that this requires _Scala DOM Types_ to venture outside of its design scope, as for such a setup to work _Scala DOM Types_ needs to be aware of the concept of setters – `Modifier`s that set a particular property to a particular value, such as `backGroundColor := "auto"`.
+
+See [Issue #2](https://github.com/raquo/scala-dom-types/issues/2) for discussion.
+
+
+### SVG
+
+SVG attributes have the same typing problems as CSS properties (see above), but a different solution in _Scala DOM Types_. We basically type most SVG attributes as strings. Eventually we hope to find a better solution that will fit both SVG and CSS use cases. See [Issue #2](https://github.com/raquo/scala-dom-types/issues/2) for discussion.
 
 
 ### Naming Differences Compared To Native HTML & DOM

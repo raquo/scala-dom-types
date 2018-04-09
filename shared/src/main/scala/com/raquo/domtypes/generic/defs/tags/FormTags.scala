@@ -2,8 +2,8 @@ package com.raquo.domtypes.generic.defs.tags
 
 import com.raquo.domtypes.generic.builders.TagBuilder
 
-trait FormTags[T[_ <: DomElement], DomElement, HtmlForm <: DomElement, HtmlFieldSet <: DomElement, HtmlLegend <: DomElement, HtmlLabel <: DomElement, HtmlInput <: DomElement, HtmlButton <: DomElement, HtmlSelect <: DomElement, HtmlDataList <: DomElement, HtmlOptGroup <: DomElement, HtmlOption <: DomElement, HtmlTextArea <: DomElement] {
-  this: TagBuilder[T, DomElement] =>
+trait FormTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlForm <: DomHtmlElement, HtmlFieldSet <: DomHtmlElement, HtmlLegend <: DomHtmlElement, HtmlLabel <: DomHtmlElement, HtmlInput <: DomHtmlElement, HtmlButton <: DomHtmlElement, HtmlSelect <: DomHtmlElement, HtmlDataList <: DomHtmlElement, HtmlOptGroup <: DomHtmlElement, HtmlOption <: DomHtmlElement, HtmlTextArea <: DomHtmlElement] {
+  this: TagBuilder[T, DomHtmlElement] =>
 
   // @TODO[Docs] add links to canonical ScalaJS types in comments
 
