@@ -2,7 +2,7 @@ inThisBuild(Seq(
   name := "Scala DOM Types",
   normalizedName := "domtypes",
   organization := "com.raquo",
-  scalaVersion := "2.11.11",
+  scalaVersion := "2.12.4",
   crossScalaVersions := Seq("2.11.11", "2.12.4")
 ))
 
@@ -91,7 +91,7 @@ lazy val domtypes = crossProject.in(file("."))
     useYarn := true,
     emitSourceMaps := false,
     libraryDependencies ++= Seq(
-       "org.scala-js" %%% "scalajs-dom" % "0.9.3"
+       "org.scala-js" %%% "scalajs-dom" % "0.9.4"
     )
   )
   .jvmSettings()
