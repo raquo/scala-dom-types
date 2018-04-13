@@ -13,6 +13,7 @@ TODO: Adopt more mature versioning, eventually. Read about eviction, binary comp
 * **New: SVG Support (see README). Some type params now require types `T <: dom.html.Element` instead of `T <: dom.Element`.** 
 * **API: `Element` no longer has `tagName` and `void` members, instead it now has one `tag` member**
 * **Naming: `tagName` -> `name` in `Tag`**
+* **API: Make `Modifier.apply` non-abstract to prevent SAM sugar**
 
 Includes SVG contributions from [@doofin](https://github.com/doofin). Thanks!
 
