@@ -8,5 +8,8 @@ package com.raquo.domtypes.generic
   */
 trait Modifier[-El] {
 
-  def apply[X](el: El): Unit
+  /** Note: the reason this method is not abstract is to avoid broken SAM sugar in case of meta modifiers.
+    * See https://github.com/raquo/scala-dom-types/issues/27
+    */
+  def apply(el: El): Unit = ()
 }
