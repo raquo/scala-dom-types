@@ -1,7 +1,7 @@
 package com.raquo.domtypes.generic.defs.reflectedAttrs
 
 import com.raquo.domtypes.generic.builders.ReflectedAttrBuilder
-import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsAttrPresenceCodec, BooleanAsTrueFalseStringCodec, BooleanAsYesNoStringCodec, IterableAsSpaceSeparatedStringCodec}
+import com.raquo.domtypes.generic.codecs.{BooleanAsAttrPresenceCodec, BooleanAsOnOffStringCodec, BooleanAsTrueFalseStringCodec, BooleanAsYesNoStringCodec, IterableAsSpaceSeparatedStringCodec}
 
 /**
   * Reflected attributes are attributes that can be set using either a DOM property
@@ -20,7 +20,7 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsAt
   * For type param docs, see [[ReflectedAttrBuilder]]
   *
   * @tparam RA Reflected Attribute, canonically either [[com.raquo.domtypes.generic.keys.Prop]]
-  *            or a type alias to [[com.raquo.domtypes.generic.keys.Attr]] (to remove the extra type param)
+  *            or a type alias to [[com.raquo.domtypes.generic.keys.HtmlAttr]] (to remove the extra type param)
   */
 trait ReflectedAttrs[RA[_, _]] { this: ReflectedAttrBuilder[RA] =>
 

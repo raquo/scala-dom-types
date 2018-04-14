@@ -1,9 +1,9 @@
 package com.raquo.domtypes.generic.defs.tags
 
-import com.raquo.domtypes.generic.builders.TagBuilder
+import com.raquo.domtypes.generic.builders.HtmlTagBuilder
 
 trait DocumentTags[T[_ <: DomHtmlElement], DomHtmlElement, Html <: DomHtmlElement, HtmlHead <: DomHtmlElement, HtmlBase <: DomHtmlElement, HtmlLink <: DomHtmlElement, HtmlMeta <: DomHtmlElement, HtmlScript <: DomHtmlElement, HtmlElement <: DomHtmlElement] {
-  this: TagBuilder[T, DomHtmlElement] =>
+  this: HtmlTagBuilder[T, DomHtmlElement] =>
 
   /**
     * Represents the root of an HTML or XHTML document. All other elements must
@@ -11,7 +11,7 @@ trait DocumentTags[T[_ <: DomHtmlElement], DomHtmlElement, Html <: DomHtmlElemen
     *
     *  MDN
     */
-  lazy val html: T[Html] = tag("html")
+  lazy val html: T[Html] = htmlTag("html")
 
   /**
     * Represents a collection of metadata about the document, including links to,
@@ -19,28 +19,28 @@ trait DocumentTags[T[_ <: DomHtmlElement], DomHtmlElement, Html <: DomHtmlElemen
     *
     *  MDN
     */
-  lazy val head: T[HtmlHead] = tag("head")
+  lazy val head: T[HtmlHead] = htmlTag("head")
 
   /**
     * Defines the base URL for relative URLs in the page.
     *
     *  MDN
     */
-  lazy val base: T[HtmlBase] = tag("base", void = true)
+  lazy val base: T[HtmlBase] = htmlTag("base", void = true)
 
   /**
     * Used to link JavaScript and external CSS with the current HTML document.
     *
     *  MDN
     */
-  lazy val link: T[HtmlLink] = tag("link", void = true)
+  lazy val link: T[HtmlLink] = htmlTag("link", void = true)
 
   /**
     * Defines metadata that can't be defined using another HTML element.
     *
     *  MDN
     */
-  lazy val meta: T[HtmlMeta] = tag("meta", void = true)
+  lazy val meta: T[HtmlMeta] = htmlTag("meta", void = true)
 
   /**
     * Defines either an internal script or a link to an external script. The
@@ -48,7 +48,7 @@ trait DocumentTags[T[_ <: DomHtmlElement], DomHtmlElement, Html <: DomHtmlElemen
     *
     *  MDN
     */
-  lazy val script: T[HtmlScript] = tag("script")
+  lazy val script: T[HtmlScript] = htmlTag("script")
 
   /**
     * Defines alternative content to display when the browser doesn't support
@@ -56,5 +56,5 @@ trait DocumentTags[T[_ <: DomHtmlElement], DomHtmlElement, Html <: DomHtmlElemen
     *
     *  MDN
     */
-  lazy val noScript: T[HtmlElement] = tag("noscript")
+  lazy val noScript: T[HtmlElement] = htmlTag("noscript")
 }

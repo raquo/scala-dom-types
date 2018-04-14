@@ -11,7 +11,7 @@ import com.raquo.domtypes.generic.keys.Prop
   *
   * Alternatively, you can use [[CanonicalReflectedAttrBuilder]], or implement your own
   * [[ReflectedAttrBuilder]] that uses either a subclass of either [[Prop]] or
-  * [[com.raquo.domtypes.generic.keys.Attr]], or a completely unrelated type of your own.
+  * [[com.raquo.domtypes.generic.keys.HtmlAttr]], or a completely unrelated type of your own.
   */
 trait CanonicalReflectedPropBuilder extends ReflectedAttrBuilder[Prop] {
 

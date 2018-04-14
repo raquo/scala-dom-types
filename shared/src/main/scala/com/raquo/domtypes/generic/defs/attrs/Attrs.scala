@@ -1,10 +1,10 @@
 package com.raquo.domtypes.generic.defs.attrs
 
-import com.raquo.domtypes.generic.builders.AttrBuilder
+import com.raquo.domtypes.generic.builders.HtmlAttrBuilder
 import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTrueFalseStringCodec}
 
-/** @tparam A HTML Attribute, canonically [[com.raquo.domtypes.generic.keys.Attr]] */
-trait Attrs[A[_]] { this: AttrBuilder[A] =>
+/** @tparam A HTML Attribute, canonically [[com.raquo.domtypes.generic.keys.HtmlAttr]] */
+trait Attrs[A[_]] { this: HtmlAttrBuilder[A] =>
 
   /**
     * Declares the character encoding of the page or script. Used on meta and
@@ -12,7 +12,7 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val charset: A[String] = stringAttr("charset")
+  lazy val charset: A[String] = stringHtmlAttr("charset")
 
   /**
     * Indicates whether the element should be editable by the user.
@@ -22,13 +22,13 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     *
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable
     */
-  lazy val contentEditable: A[Boolean] = attr("contenteditable", BooleanAsTrueFalseStringCodec)
+  lazy val contentEditable: A[Boolean] = htmlAttr("contenteditable", BooleanAsTrueFalseStringCodec)
 
   /**
     * Specifies a context menu for an element by its element id.
     * The context menu appears when a user right-clicks on the element
     */
-  lazy val contextMenuId: A[String] = stringAttr("contextmenu")
+  lazy val contextMenuId: A[String] = stringHtmlAttr("contextmenu")
 
   /**
     * This class of attributes, called custom data attributes, allows proprietary
@@ -50,24 +50,24 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     *
     * MDN
     */
-  def dataAttr(suffix: String): A[String] = stringAttr(s"data-$suffix")
+  def dataAttr(suffix: String): A[String] = stringHtmlAttr(s"data-$suffix")
 
   /**
     * Specifies whether the dragged data is copied, moved, or linked, when dropped
     * Acceptable values: `copy` | `move` | `link`
     */
-  lazy val dropZone: A[String] = stringAttr("dropzone")
+  lazy val dropZone: A[String] = stringHtmlAttr("dropzone")
 
   /**
     * The form attribute specifies an ID of the form an `<input>` element belongs to.
     */
-  lazy val formId: A[String] = stringAttr("form")
+  lazy val formId: A[String] = stringHtmlAttr("form")
 
   /**
     * The `height` attribute specifies the pixel height of the following elements:
     * `<canvas>, <embed>, <iframe>, <img>, <input type="image">, <object>, <video>`
     */
-  lazy val heightAttr: A[Int] = intAttr("height")
+  lazy val heightAttr: A[Int] = intHtmlAttr("height")
 
   /**
     * Identifies a list of pre-defined options to suggest to the user. The value must be
@@ -80,7 +80,7 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     *
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
     */
-  lazy val listId: A[String] = stringAttr("list")
+  lazy val listId: A[String] = stringHtmlAttr("list")
 
   // @TODO[API][improve] - Can we improve usability of the max/min attributes?
 
@@ -88,13 +88,13 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     * The max attribute specifies the maximum value for an <input> element of type
     * number, range, date, datetime, datetime-local, month, time, or week.
     */
-  lazy val max: A[String] = stringAttr("max")
+  lazy val max: A[String] = stringHtmlAttr("max")
 
   /**
     * The min attribute specifies the minimum value for an <input> element of type
     * number, range, date, datetime, datetime-local, month, time, or week.
     */
-  lazy val min: A[String] = stringAttr("min")
+  lazy val min: A[String] = stringHtmlAttr("min")
 
   /**
     * The step attribute specifies the numeric intervals for an <input> element
@@ -105,7 +105,7 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     * The step attribute is applicable to <input> elements of the following
     * types: number, range, date, datetime, datetime-local, month, time and week.
     */
-  lazy val step: A[String] = stringAttr("step")
+  lazy val step: A[String] = stringHtmlAttr("step")
 
   /**
     * This attribute contains CSS styling declarations to be applied to the
@@ -115,7 +115,7 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val styleAttr: A[String] = stringAttr("style")
+  lazy val styleAttr: A[String] = stringHtmlAttr("style")
 
   /**
     * This attribute is used to define the type of the content linked to. The
@@ -127,18 +127,18 @@ trait Attrs[A[_]] { this: AttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val `type`: A[String] = stringAttr("type")
+  lazy val `type`: A[String] = stringHtmlAttr("type")
 
   lazy val typ: A[String] = `type`
 
   lazy val tpe: A[String] = `type`
 
   /** IE-specific property to prevent user selection */
-  lazy val unselectable: A[Boolean] = attr("unselectable", BooleanAsOnOffStringCodec)
+  lazy val unselectable: A[Boolean] = htmlAttr("unselectable", BooleanAsOnOffStringCodec)
 
   /**
     * The `width` attribute specifies the pixel width of the following elements:
     * `<canvas>, <embed>, <iframe>, <img>, <input type="image">, <object>, <video>`
     */
-  lazy val widthAttr: A[Int] = intAttr("width")
+  lazy val widthAttr: A[Int] = intHtmlAttr("width")
 }

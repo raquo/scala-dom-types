@@ -1,30 +1,30 @@
 package com.raquo.domtypes.generic.defs.tags
 
-import com.raquo.domtypes.generic.builders.TagBuilder
+import com.raquo.domtypes.generic.builders.HtmlTagBuilder
 
 trait TextTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlAnchor <: DomHtmlElement, HtmlElement <: DomHtmlElement, HtmlSpan <: DomHtmlElement, HtmlBr <: DomHtmlElement, HtmlMod <: DomHtmlElement] {
-  this: TagBuilder[T, DomHtmlElement] =>
+  this: HtmlTagBuilder[T, DomHtmlElement] =>
 
   /**
     * Represents a hyperlink, linking to another resource.
     *
     *  MDN  [[org.scalajs.dom.html.Anchor]]
     */
-  lazy val a: T[HtmlAnchor] = tag("a")
+  lazy val a: T[HtmlAnchor] = htmlTag("a")
 
   /**
     * Represents emphasized text.
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val em: T[HtmlElement] = tag("em")
+  lazy val em: T[HtmlElement] = htmlTag("em")
 
   /**
     * Represents especially important text.
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val strong: T[HtmlElement] = tag("strong")
+  lazy val strong: T[HtmlElement] = htmlTag("strong")
 
   /**
     * Represents a side comment; text like a disclaimer or copyright, which is not
@@ -32,63 +32,63 @@ trait TextTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlAnchor <: DomHtmlElem
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val small: T[HtmlElement] = tag("small")
+  lazy val small: T[HtmlElement] = htmlTag("small")
 
   /**
     * Strikethrough element, used for that is no longer accurate or relevant.
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val s: T[HtmlElement] = tag("s")
+  lazy val s: T[HtmlElement] = htmlTag("s")
 
   /**
     * Represents the title of a work being cited.
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val cite: T[HtmlElement] = tag("cite")
+  lazy val cite: T[HtmlElement] = htmlTag("cite")
 
   /**
     * Represents computer code.
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val code: T[HtmlElement] = tag("code")
+  lazy val code: T[HtmlElement] = htmlTag("code")
 
   /**
     * Subscript tag
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val sub: T[HtmlElement] = tag("sub")
+  lazy val sub: T[HtmlElement] = htmlTag("sub")
 
   /**
     * Superscript tag.
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val sup: T[HtmlElement] = tag("sup")
+  lazy val sup: T[HtmlElement] = htmlTag("sup")
 
   /**
     * Italicized text.
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val i: T[HtmlElement] = tag("i")
+  lazy val i: T[HtmlElement] = htmlTag("i")
 
   /**
     * Bold text.
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val b: T[HtmlElement] = tag("b")
+  lazy val b: T[HtmlElement] = htmlTag("b")
 
   /**
     * Underlined text.
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val u: T[HtmlElement] = tag("u")
+  lazy val u: T[HtmlElement] = htmlTag("u")
 
   /**
     * Represents text with no specific meaning. This has to be used when no other
@@ -97,14 +97,14 @@ trait TextTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlAnchor <: DomHtmlElem
     *
     *  MDN  [[org.scalajs.dom.html.Span]]
     */
-  def span: T[HtmlSpan] = tag("span")
+  def span: T[HtmlSpan] = htmlTag("span")
 
   /**
     * Represents a line break.
     *
     *  MDN  [[org.scalajs.dom.html.BR]]
     */
-  lazy val br: T[HtmlBr] = tag("br", void = true)
+  lazy val br: T[HtmlBr] = htmlTag("br", void = true)
 
   /**
     * Represents a line break opportunity, that is a suggested point for wrapping
@@ -112,19 +112,19 @@ trait TextTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlAnchor <: DomHtmlElem
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val wbr: T[HtmlElement] = tag("wbr", void = true)
+  lazy val wbr: T[HtmlElement] = htmlTag("wbr", void = true)
 
   /**
     * Defines an addition to the document.
     *
     *  MDN  [[org.scalajs.dom.html.Mod]]
     */
-  lazy val ins: T[HtmlMod] = tag("ins")
+  lazy val ins: T[HtmlMod] = htmlTag("ins")
 
   /**
     * Defines a remolazy val from the document.
     *
     *  MDN  [[org.scalajs.dom.html.Mod]]
     */
-  lazy val del: T[HtmlMod] = tag("del")
+  lazy val del: T[HtmlMod] = htmlTag("del")
 }
