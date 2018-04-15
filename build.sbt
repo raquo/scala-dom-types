@@ -73,8 +73,7 @@ lazy val root = project.in(file("."))
   .aggregate(js, jvm)
   .settings(commonSettings)
   .settings(
-    publish := {},
-    publishLocal := {}
+    skip in publish := true
   )
 
 lazy val domtypes = crossProject.in(file("."))
