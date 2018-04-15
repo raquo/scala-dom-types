@@ -2,8 +2,8 @@ inThisBuild(Seq(
   name := "Scala DOM Types",
   normalizedName := "domtypes",
   organization := "com.raquo",
-  scalaVersion := "2.12.4",
-  crossScalaVersions := Seq("2.11.11", "2.12.4")
+  scalaVersion := "2.12.5",
+  crossScalaVersions := Seq("2.11.12", "2.12.5")
 ))
 
 // @TODO[WTF] Why can't this be inside releaseSettings?
@@ -91,7 +91,7 @@ lazy val domtypes = crossProject.in(file("."))
     useYarn := true,
     emitSourceMaps := false,
     libraryDependencies ++= Seq(
-       "org.scala-js" %%% "scalajs-dom" % "0.9.4"
+       "org.scala-js" %%% "scalajs-dom" % "0.9.5"
     )
   )
   .jvmSettings()

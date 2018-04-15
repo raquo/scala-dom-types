@@ -8,6 +8,12 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.7 – Apr 2018
+
+* **API: Better separation of HTML/SVG tags and attributes**
+* **Naming: el -> element in Modifier.apply**
+* Upgrade Scala.js and other build dependencies
+
 #### v0.6 – Apr 2018
 
 * **New: SVG Support (see README). Some type params now require types `T <: dom.html.Element` instead of `T <: dom.Element`.** 
