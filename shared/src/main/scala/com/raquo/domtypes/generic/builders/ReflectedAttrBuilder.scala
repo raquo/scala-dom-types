@@ -13,7 +13,7 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsIsCodec, Codec, DoubleAsIsCod
   * of the same name.
   *
   * @tparam RA
-  *            Reflected Attribute, canonically either [[com.raquo.domtypes.generic.keys.Attr]]
+  *            Reflected Attribute, canonically either [[com.raquo.domtypes.generic.keys.HtmlAttr]]
   *            or [[com.raquo.domtypes.generic.keys.Prop]] depending on whether you want to build
   *            properties or attributes
   */
