@@ -78,12 +78,7 @@ trait ReflectedAttrs[RA[_, _]] { this: ReflectedAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val autoComplete: RA[Boolean, String] = reflectedAttr(
-    attrKey = "autocomplete",
-    propKey = "autocomplete",
-    attrCodec = BooleanAsOnOffStringCodec,
-    propCodec = BooleanAsOnOffStringCodec
-  )
+  lazy val autoComplete: RA[String, String] = stringReflectedAttr("autocomplete")
 
   /**
     * This Boolean attribute lets you specify that a form control should have
