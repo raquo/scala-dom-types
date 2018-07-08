@@ -1,19 +1,19 @@
 package com.raquo.domtypes.generic.builders.canonical
 
-import com.raquo.domtypes.generic.builders.ReflectedAttrBuilder
+import com.raquo.domtypes.generic.builders.ReflectedHtmlAttrBuilder
 import com.raquo.domtypes.generic.codecs.Codec
 import com.raquo.domtypes.generic.keys.Prop
 
-/** Canonical implementation of [[ReflectedAttrBuilder]], using our own [[Prop]] class.
+/** Canonical implementation of [[ReflectedHtmlAttrBuilder]], using our own [[Prop]] class.
   *
   * If you are using this implementation, create an implicit value class
   * around [[Prop]] – there you can e.g. implement the `:=` method.
   *
-  * Alternatively, you can use [[CanonicalReflectedAttrBuilder]], or implement your own
-  * [[ReflectedAttrBuilder]] that uses either a subclass of either [[Prop]] or
+  * Alternatively, you can use [[CanonicalReflectedHtmlAttrBuilder]], or implement your own
+  * [[ReflectedHtmlAttrBuilder]] that uses either a subclass of either [[Prop]] or
   * [[com.raquo.domtypes.generic.keys.HtmlAttr]], or a completely unrelated type of your own.
   */
-trait CanonicalReflectedPropBuilder extends ReflectedAttrBuilder[Prop] {
+trait CanonicalReflectedPropBuilder extends ReflectedHtmlAttrBuilder[Prop] {
 
   override protected def reflectedAttr[V, DomPropV](
     attrKey: String,

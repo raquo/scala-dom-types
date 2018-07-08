@@ -8,10 +8,11 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
-#### v0.8 – TBD
+#### v0.8 – Aug 2018
 
 * **New: Add `namespace` param to `SvgAttr`**
 * **Naming: `xlink` -> `xlinkRole` to match native attribute name**
+* **Naming: Add `Html` to various traits that deal with HTML attributes**
 
 #### v0.7.1 – Jul 2018
 

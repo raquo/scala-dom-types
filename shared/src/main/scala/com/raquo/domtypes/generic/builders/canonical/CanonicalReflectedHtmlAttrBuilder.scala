@@ -1,20 +1,20 @@
 package com.raquo.domtypes.generic.builders.canonical
 
-import com.raquo.domtypes.generic.builders.ReflectedAttrBuilder
-import com.raquo.domtypes.generic.builders.canonical.CanonicalReflectedAttrBuilder.ReflectedAttr
+import com.raquo.domtypes.generic.builders.ReflectedHtmlAttrBuilder
+import com.raquo.domtypes.generic.builders.canonical.CanonicalReflectedHtmlAttrBuilder.ReflectedAttr
 import com.raquo.domtypes.generic.codecs.Codec
 import com.raquo.domtypes.generic.keys.HtmlAttr
 
-/** Canonical implementation of [[ReflectedAttrBuilder]], using our own [[HtmlAttr]] class.
+/** Canonical implementation of [[ReflectedHtmlAttrBuilder]], using our own [[HtmlAttr]] class.
   *
   * If you are using this implementation, create an implicit value class
   * around [[HtmlAttr]] – there you can e.g. implement the `:=` method.
   *
   * Alternatively, you can use [[CanonicalReflectedPropBuilder]], or implement your own
-  * [[ReflectedAttrBuilder]] that uses either a subclass of either [[HtmlAttr]] or
+  * [[ReflectedHtmlAttrBuilder]] that uses either a subclass of either [[HtmlAttr]] or
   * [[com.raquo.domtypes.generic.keys.Prop]], or a completely unrelated type of your own.
   */
-trait CanonicalReflectedAttrBuilder extends ReflectedAttrBuilder[ReflectedAttr] {
+trait CanonicalReflectedHtmlAttrBuilder extends ReflectedHtmlAttrBuilder[ReflectedAttr] {
 
   override protected def reflectedAttr[V, DomPropV](
     attrKey: String,
@@ -29,7 +29,7 @@ trait CanonicalReflectedAttrBuilder extends ReflectedAttrBuilder[ReflectedAttr] 
   }
 }
 
-object CanonicalReflectedAttrBuilder {
+object CanonicalReflectedHtmlAttrBuilder {
 
   // @TODO[Integrity] We can't enforce that DomV is String here, but we know it from the DOM spec.
   /** All this type alias does is discard the DomV type param that is not used in Attrs. */
