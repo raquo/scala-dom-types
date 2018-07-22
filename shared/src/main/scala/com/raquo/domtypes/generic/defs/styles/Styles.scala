@@ -2486,7 +2486,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
       *
       * MDN
       */
-    lazy val spaceBeteween: StyleSetter = buildStringStyleSetter(this, "space-between")
+    lazy val spaceBetween: StyleSetter = buildStringStyleSetter(this, "space-between")
 
     /**
       * Lines are evenly distributed so that the space between two adjacent lines is the same. The empty space before
