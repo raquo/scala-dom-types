@@ -2851,4 +2851,135 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     * MDN
     */
   lazy val resize: Style[String] = style("resize", "resize")
+
+  /**
+    * The grid-template-rows CSS property defines the line names and track
+    * sizing functions of the grid rows.
+    *
+    * MDN
+    */
+  lazy val gridTemplateRows: Style[String] = style("gridTemplateRows", "grid-template-rows")
+
+  /**
+    * The grid-template-areas CSS property specifies named grid areas.
+    *
+    * MDN
+    */
+  lazy val gridTemplateAreas: Style[String] = style("gridTemplateAreas", "grid-template-areas")
+
+  /**
+    * The grid-template CSS property is a shorthand property for defining grid
+    * columns, rows, and areas.
+    *
+    * MDN
+    */
+  lazy val gridTemplate: Style[String] = style("gridTemplate", "grid-template")
+
+  /**
+    * The grid-auto-columns CSS property specifies the size of an
+    * implicitly-created grid column track.
+    *
+    * MDN
+    */
+  lazy val gridAutoColumns: Style[String] = style("gridAutoColumns", "grid-auto-columns")
+
+  /**
+    * The grid-auto-rows CSS property specifies the size of an
+    * implicitly-created grid row track.
+    *
+    * MDN
+    */
+  lazy val gridAutoRows: Style[String] = style("gridAutoRows", "grid-auto-rows")
+
+  /**
+    * The grid-auto-flow CSS property controls how the auto-placement algorithm
+    * works, specifying exactly how auto-placed items get flowed into the grid.
+    *
+    * MDN
+    */
+  lazy val gridAutoFlow: Style[String] = style("gridAutoFlow", "grid-auto-flow")
+
+  /**
+    * The grid CSS property is a shorthand property that sets all of the
+    * explicit grid properties (grid-template-rows, grid-template-columns, and
+    * grid-template-areas), and all the implicit grid properties
+    * (grid-auto-rows, grid-auto-columns, and grid-auto-flow), in a single
+    * declaration.
+    *
+    * MDN
+    */
+  lazy val grid: Style[String] = style("grid", "grid")
+
+  /**
+    * The grid-row-start CSS property specifies a grid item’s start position
+    * within the grid row by contributing a line, a span, or nothing
+    * (automatic) to its grid placement, thereby specifying the inline-start
+    * edge of its grid area.
+    *
+    * MDN
+    */
+  lazy val gridRowStart: Style[String] = style("gridRowStart", "grid-row-start")
+
+  /**
+    * The grid-column-start CSS property specifies a grid item’s start position
+    * within the grid column by contributing a line, a span, or nothing
+    * (automatic) to its grid placement. This start position defines the
+    * block-start edge of the grid area.
+    *
+    * MDN
+    */
+  lazy val gridColumnStart: Style[String] = style("gridColumnStart", "grid-column-start")
+
+  /**
+    * The grid-row-end CSS property specifies a grid item’s end position within
+    * the grid row by contributing a line, a span, or nothing (automatic) to
+    * its grid placement, thereby specifying the inline-end edge of its grid
+    * area.
+    *
+    * MDN
+    */
+  lazy val gridRowEnd: Style[String] = style("gridRowEnd", "grid-row-end")
+
+  /**
+   * The grid-column-end CSS property specifies a grid item’s end position
+   * within the grid column by contributing a line, a span, or nothing
+   * (automatic) to its grid placement, thereby specifying the block-end edge
+   * of its grid area.
+   *
+   * MDN
+   */
+  lazy val gridColumnEnd: Style[String] = style("gridColumnEnd", "grid-column-end")
+
+  /**
+   * The grid-row CSS property is a shorthand property for grid-row-start and
+   * grid-row-end specifying a grid item’s size and location within the grid
+   * row by contributing a line, a span, or nothing (automatic) to its grid
+   * placement, thereby specifying the inline-start and inline-end edge of its
+   * grid area.
+   *
+   * MDN
+   */
+  lazy val gridRow: Style[String] = style("gridRow", "grid-row")
+
+  /**
+   * The grid-column CSS property is a shorthand property for grid-column-start
+   * and grid-column-end specifying a grid item's size and location within the
+   * grid column by contributing a line, a span, or nothing (automatic) to its
+   * grid placement, thereby specifying the inline-start and inline-end edge of
+   * its grid area.
+   *
+   * MDN
+   */
+  lazy val gridColumn: Style[String] = style("gridColumn", "grid-column")
+
+  /**
+   * The grid-area CSS property is a shorthand property for grid-row-start,
+   * grid-column-start, grid-row-end and grid-column-end, specifying a grid
+   * item’s size and location within the grid row by contributing a line, a
+   * span, or nothing (automatic) to its grid placement, thereby specifying the
+   * edges of its grid area.
+   *
+   * MDN
+   */
+  lazy val gridArea: Style[String] = style("gridArea", "grid-area")
 }
