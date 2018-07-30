@@ -49,6 +49,11 @@ package object defs {
       dom.StorageEvent
     ]
 
+    type DocumentOnlyEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.DocumentOnlyEventProps[
+      EP,
+      dom.Event
+    ]
+
     // See this comment thread for examples on how to use the traits below: https://github.com/raquo/scala-dom-types/pull/9#discussion_r151857048
 
     /** Matches GlobalEventHandlers: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers */
@@ -67,6 +72,7 @@ package object defs {
 
     trait DocumentEventProps[EP[_ <: dom.Event]]
       extends GlobalEventProps[EP]
+      with DocumentOnlyEventProps[EP]
       with ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
 
     trait ElementEventProps[EP[_ <: dom.Event]]
