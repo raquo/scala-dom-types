@@ -2834,4 +2834,12 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
       */
     lazy val rowReverse: StyleSetter = buildStringStyleSetter(this, "row-reverse")
   }
+
+  /**
+    * The resize CSS property sets whether an element is resizable, and if so,
+    * in which direction(s).
+    *
+    * MDN
+    */
+  lazy val resize: Style[String] = style("resize", "resize")
 }
