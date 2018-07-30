@@ -465,8 +465,9 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
 
 
   /**
-    * The word-break CSS property is used to specify how (or if) to break lines
-    * within words.
+    * The word-break CSS property specifies whether or not the browser should
+    * insert line breaks wherever the text would otherwise overflow its content
+    * box.
     *
     * MDN
     */
@@ -477,20 +478,30 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
       * MDN
       */
     lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
+
     /**
-      * Word breaks may be inserted between any character for non-CJK
-      * (Chinese/Japanese/Korean) text.
+      * To prevent overflow, word breaks should be inserted between any two
+      * characters (excluding Chinese/Japanese/Korean text).
       *
       * MDN
       */
     lazy val breakAll: StyleSetter = buildStringStyleSetter(this, "break-all")
+
     /**
-      * Don't allow word breaks for CJK text.  Non-CJK text behavior is same
-      * as normal.
+      * Word breaks should not be used for Chinese/Japanese/Korean (CJK) text.
+      * Non-CJK text behavior is the same as for normal.
       *
       * MDN
       */
     lazy val keepAll: StyleSetter = buildStringStyleSetter(this, "keep-all")
-  }
 
+    /**
+      * To prevent overflow, normally unbreakable words may be broken at
+      * arbitrary points if there are no otherwise acceptable break points in
+      * the line.
+      *
+      * MDN
+      */
+    lazy val breakWord: StyleSetter = buildStringStyleSetter(this, "break-word")
+  }
 }
