@@ -149,6 +149,14 @@ All naming differences with the DOM API should be documented in the README file 
 
 
 
+## My Related Projects
+
+- [Laminar](https://github.com/raquo/Laminar) – Reactive UI library based on _Scala DOM Builder_
+- [Scala DOM Builder](https://github.com/raquo/scala-dom-builder) – Low-level Scala & Scala.js library for building and manipulating DOM trees
+- [Scala DOM TestUtils](https://github.com/raquo/scala-dom-testutils) – Test that your Javascript DOM nodes match your expectations
+
+
+
 ## Documentation
 
 TODO:
@@ -156,6 +164,18 @@ TODO:
 * Write about general project structure, builders, etc.
 * Provide links to specific implementation examples in other libraries (use my keys + implicits, or use your own keys) 
 
+https://github.com/raquo/scala-dom-types/tree/master/shared/src/main/scala/com/raquo/domtypes/generic SDT is cross platform ,so this is where most of the code lives.
+```
+shared/src/main/scala/com/raquo/domtypes/generic/defs
+├── attrs  html and svg attributes
+├── eventProps
+├── package.scala
+├── props
+├── reflectedAttrs
+├── styles
+└── tags  html and svg element tags
+
+```
 
 ### Codecs
 
@@ -248,14 +268,6 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
 #### Aliases
 * Attribute `type` == `typ` == `tpe` to avoid Scala reserved word
 * Attribute `className` == `cls` for consistency with Scala / ScalaTags
-
-
-
-## My Related Projects
-
-- [Laminar](https://github.com/raquo/Laminar) – Reactive UI library based on _Scala DOM Builder_
-- [Scala DOM Builder](https://github.com/raquo/scala-dom-builder) – Low-level Scala & Scala.js library for building and manipulating DOM trees
-- [Scala DOM TestUtils](https://github.com/raquo/scala-dom-testutils) – Test that your Javascript DOM nodes match your expectations
 
 
 
