@@ -156,6 +156,18 @@ TODO:
 * Write about general project structure, builders, etc.
 * Provide links to specific implementation examples in other libraries (use my keys + implicits, or use your own keys) 
 
+https://github.com/raquo/scala-dom-types/tree/master/shared/src/main/scala/com/raquo/domtypes/generic SDT is cross platform ,so this is where most of the code lives.
+```
+shared/src/main/scala/com/raquo/domtypes/generic/defs
+├── attrs  html and svg attributes
+├── eventProps
+├── package.scala
+├── props
+├── reflectedAttrs
+├── styles
+└── tags  html and svg element tags
+
+```
 
 ### Codecs
 
