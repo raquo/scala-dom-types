@@ -1088,13 +1088,6 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     lazy val inside: StyleSetter = buildStringStyleSetter(this, "inside")
   }
 
-  /**
-   * The overflow-wrap CSS property specifies whether or not the browser should
-   * insert line breaks within words to prevent text from overflowing its
-   * content box.
-   *
-   * MDN
-   */
   class OverflowWrap(name: String, cssName: String) extends Style[String](name, cssName) {
     /**
       * Indicates that lines may only break at normal word break points.
@@ -1110,8 +1103,25 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
       */
     lazy val breakWord: StyleSetter = buildStringStyleSetter(this, "break-word")
   }
-  val overflowWrap = new OverflowWrap("overflowWrap", "overflow-wrap")
-  val wordWrap = new OverflowWrap("wordWrap", "word-wrap")
+
+  /**
+    * The overflow-wrap CSS property specifies whether or not the browser should
+    * insert line breaks within words to prevent text from overflowing its
+    * content box.
+    *
+    * See also: [[wordWrap]]
+    *
+    * MDN
+    */
+  lazy val overflowWrap = new OverflowWrap("overflowWrap", "overflow-wrap")
+
+  /**
+    * The original non-standard property that was eventually standardized as
+    * "overflow-wrap".
+    *
+    * See also: [[overflowWrap]]
+    */
+  lazy val wordWrap = new OverflowWrap("wordWrap", "word-wrap")
 
 
   /**
