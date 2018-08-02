@@ -892,10 +892,12 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
 
   lazy val offset: A[String] = stringSvgAttr("offset")
 
-    /**
-    * The ‘orient’ attribute indicates how the marker is rotated when it is placed at its position on the markable element.
+  /**
+    * This attribute defines the orientation of the marker relative to the shape it is attached to.
     *
-    * W3C
+    * Value type: auto|auto-start-reverse|<angle> ; Default value: 0; Animatable: yes
+    *
+    * MDN
     */
   lazy val orient: A[String] = stringSvgAttr("orient")
 
@@ -1051,22 +1053,25 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
   lazy val radius: A[String] = stringSvgAttr("radius")
 
   /**
-    * The ‘refX’ attribute defines the reference point of the marker which is to be placed exactly at
-    * the marker's position on the markable element. It is interpreted as being in the coordinate system of
-    * the marker contents, after application of the ‘viewBox’ and ‘preserveAspectRatio’ attributes.
+    * The refX attribute is used alongside the refY attribute to provide coordinates for the location on the
+    * marker where it will be joined to its markable element. Coordinates are relative to the marker's
+    * coordinate system (after application of the ‘viewBox’ and ‘preserveAspectRatio’ attributes), and not
+    * the markable element it is placed on.
     *
-    *  W3C
+    * MDN
     */
   lazy val refX: A[String] = stringSvgAttr("refX")
 
   /**
-    * The ‘refY’ attribute defines the reference point of the marker which is to be placed exactly at
-    * the marker's position on the markable element. It is interpreted as being in the coordinate system of
-    * the marker contents, after application of the ‘viewBox’ and ‘preserveAspectRatio’ attributes.
+    * The refY attribute is used alongside the refY attribute to provide coordinates for the location on the
+    * marker where it will be joined to its markable element. Coordinates are relative to the marker's
+    * coordinate system (after application of the ‘viewBox’ and ‘preserveAspectRatio’ attributes), and not
+    * the markable element it is placed on.
     *
-    *  W3C
+    * MDN
     */
   lazy val refY: A[String] = stringSvgAttr("refY")
+
   /**
     *
     *
