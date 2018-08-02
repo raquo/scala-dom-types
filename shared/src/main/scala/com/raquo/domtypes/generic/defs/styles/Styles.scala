@@ -1088,7 +1088,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     lazy val inside: StyleSetter = buildStringStyleSetter(this, "inside")
   }
 
-  object wordWrap extends Style[String]("wordWrap", "word-wrap") {
+  class OverflowWrap(name: String, cssName: String) extends Style[String](name, cssName) {
     /**
       * Indicates that lines may only break at normal word break points.
       *
@@ -1103,6 +1103,25 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
       */
     lazy val breakWord: StyleSetter = buildStringStyleSetter(this, "break-word")
   }
+
+  /**
+    * The overflow-wrap CSS property specifies whether or not the browser should
+    * insert line breaks within words to prevent text from overflowing its
+    * content box.
+    *
+    * See also: [[wordWrap]]
+    *
+    * MDN
+    */
+  lazy val overflowWrap = new OverflowWrap("overflowWrap", "overflow-wrap")
+
+  /**
+    * The original non-standard property that was eventually standardized as
+    * "overflow-wrap".
+    *
+    * See also: [[overflowWrap]]
+    */
+  lazy val wordWrap = new OverflowWrap("wordWrap", "word-wrap")
 
 
   /**
@@ -2650,46 +2669,145 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
   object justifyContent extends Style[String]("justifyContent", "justify-content") {
 
     /**
-      * The flex items are packed starting from the main-start. Margins of the first flex item is flushed with the
-      * main-start edge of the line and each following flex item is flushed with the preceding.
+      * The items are packed flush to each other toward the start edge of the
+      * alignment container in the main axis.
+      *
+      * MDN
+      */
+    lazy val start: StyleSetter = buildStringStyleSetter(this, "start")
+
+    /**
+      * The items are packed flush to each other toward the end edge of the
+      * alignment container in the main axis.
+      *
+      * MDN
+      */
+    lazy val end: StyleSetter = buildStringStyleSetter(this, "start")
+
+    /**
+      * The items are packed flush to each other toward the edge of the
+      * alignment container depending on the flex container's main-start side.
+      * This only applies to flex layout items. For items that are not children
+      * of a flex container, this value is treated like start.
       *
       * MDN
       */
     lazy val flexStart: StyleSetter = buildStringStyleSetter(this, "flex-start")
 
     /**
-      * The flex items are packed starting from the main-end. The margin edge of the last flex item is flushed with the
-      * main-end edge of the line and each preceding flex item is flushed with the following.
+      * The items are packed flush to each other toward the edge of the
+      * alignment container depending on the flex container's main-end side.
+      * This only applies to flex layout items. For items that are not children
+      * of a flex container, this value is treated like end.
       *
       * MDN
       */
     lazy val flexEnd: StyleSetter = buildStringStyleSetter(this, "flex-end")
 
     /**
-      * The flex items are packed toward the center of the line. The flex items are flushed with each other and aligned
-      * in the center of the line. Space between the main-start edge of the line and first item and between main-end
-      * and the last item of the line is the same.
+      * The items are packed flush to each other toward the center of the of
+      * the alignment container along the main axis.
       *
       * MDN
       */
     lazy val center: StyleSetter = buildStringStyleSetter(this, "center")
 
     /**
-      * Flex items are evenly distributed along the line. The spacing is done such as the space between two adjacent
-      * items is the same. Main-start edge and main-end edge are flushed with respectively first and last flex item edges.
+      * The items are packed flush to each other toward the left edge of the
+      * alignment container. If the property’s axis is not parallel with the
+      * inline axis, this value behaves like start.
+      *
+      * MDN
+      */
+    lazy val left: StyleSetter = buildStringStyleSetter(this, "left")
+
+    /**
+      * The items are packed flush to each other toward the right edge of the
+      * alignment container in the appropriate axis. If the property’s axis is
+      * not parallel with the inline axis, this value behaves like start.
+      *
+      * MDN
+      */
+    lazy val right: StyleSetter = buildStringStyleSetter(this, "right")
+
+    /**
+      * The items are packed in their default position as if no justify-content
+      * value was set.
+      *
+      * MDN
+      */
+    lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
+
+    /**
+      * Specifies participation in first- or last-baseline alignment: aligns
+      * the alignment baseline of the box’s first or last baseline set with the
+      * corresponding baseline in the shared first or last baseline set of all
+      * the boxes in its baseline-sharing group. The fallback alignment for
+      * first baseline is start, the one for last baseline is end.
+      *
+      * MDN
+      */
+    lazy val baseline: StyleSetter = buildStringStyleSetter(this, "baseline")
+    lazy val firstBaseline: StyleSetter = buildStringStyleSetter(this, "first-baseline")
+    lazy val lastBaseline: StyleSetter = buildStringStyleSetter(this, "last-baseline")
+
+    /**
+      * The items are evenly distributed within the alignment container along
+      * the main axis. The spacing between each pair of adjacent items is the
+      * same. The first item is flush with the main-start edge, and the last
+      * item is flush with the main-end edge.
       *
       * MDN
       */
     lazy val spaceBetween: StyleSetter = buildStringStyleSetter(this, "space-between")
 
     /**
-      * Flex items are evenly distributed so that the space between two adjacent items is the same. The empty space
-      * before the first and after the last items equals half of the space between two adjacent items.
+      * The items are evenly distributed within the alignment container along
+      * the main axis. The spacing between each pair of adjacent items is the
+      * same. The empty space before the first and after the last item equals
+      * half of the space between each pair of adjacent items.
       *
       * MDN
       */
     lazy val spaceAround: StyleSetter = buildStringStyleSetter(this, "space-around")
 
+    /**
+      * The items are evenly distributed within the alignment container along
+      * the main axis. The spacing between each pair of adjacent items, the
+      * main-start edge and the first item, and the main-end edge and the last
+      * item, are all exactly the same.
+      *
+      * MDN
+      */
+    lazy val spaceEvenly: StyleSetter = buildStringStyleSetter(this, "space-evenly")
+
+    /**
+      * If the combined size of the items is less than the size of the
+      * alignment container, any auto-sized items have their size increased
+      * equally (not proportionally), while still respecting the constraints
+      * imposed by max-height/max-width (or equivalent functionality), so that
+      * the combined size exactly fills the alignment container along the main
+      * axis.
+      *
+      * MDN
+      */
+    lazy val stretch: StyleSetter = buildStringStyleSetter(this, "stretch")
+
+    /**
+      * If the size of the item overflows the alignment container, the item is
+      * instead aligned as if the alignment mode were start.
+      *
+      * MDN
+      */
+    lazy val safe: StyleSetter = buildStringStyleSetter(this, "safe")
+
+    /**
+      * Regardless of the relative sizes of the item and alignment container,
+      * the given alignment value is honored.
+      *
+      * MDN
+      */
+    lazy val unsafe: StyleSetter = buildStringStyleSetter(this, "unsafe")
   }
 
   /**
@@ -2735,4 +2853,12 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
       */
     lazy val rowReverse: StyleSetter = buildStringStyleSetter(this, "row-reverse")
   }
+
+  /**
+    * The resize CSS property sets whether an element is resizable, and if so,
+    * in which direction(s).
+    *
+    * MDN
+    */
+  lazy val resize: Style[String] = style("resize", "resize")
 }
