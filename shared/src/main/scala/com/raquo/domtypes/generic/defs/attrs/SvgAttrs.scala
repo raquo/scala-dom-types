@@ -892,6 +892,13 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
 
   lazy val offset: A[String] = stringSvgAttr("offset")
 
+    /**
+    * The ‘orient’ attribute indicates how the marker is rotated when it is placed at its position on the markable element.
+    *
+    * W3C
+    */
+  lazy val orient: A[String] = stringSvgAttr("orient")
+
   /**
     *
     *
@@ -1043,7 +1050,23 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     */
   lazy val radius: A[String] = stringSvgAttr("radius")
 
+  /**
+    * The ‘refX’ attribute defines the reference point of the marker which is to be placed exactly at
+    * the marker's position on the markable element. It is interpreted as being in the coordinate system of
+    * the marker contents, after application of the ‘viewBox’ and ‘preserveAspectRatio’ attributes.
+    *
+    *  W3C
+    */
+  lazy val refX: A[String] = stringSvgAttr("refX")
 
+  /**
+    * The ‘refY’ attribute defines the reference point of the marker which is to be placed exactly at
+    * the marker's position on the markable element. It is interpreted as being in the coordinate system of
+    * the marker contents, after application of the ‘viewBox’ and ‘preserveAspectRatio’ attributes.
+    *
+    *  W3C
+    */
+  lazy val refY: A[String] = stringSvgAttr("refY")
   /**
     *
     *
