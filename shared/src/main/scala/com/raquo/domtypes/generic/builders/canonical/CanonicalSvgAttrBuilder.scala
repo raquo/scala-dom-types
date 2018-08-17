@@ -14,5 +14,7 @@ import com.raquo.domtypes.generic.keys.SvgAttr
   */
 trait CanonicalSvgAttrBuilder extends SvgAttrBuilder[SvgAttr] {
 
-  override protected def svgAttr[V](key: String, codec: Codec[V, String]): SvgAttr[V] = new SvgAttr(key, codec)
+  override protected def svgAttr[V](key: String, codec: Codec[V, String], namespace: Option[String]): SvgAttr[V] = {
+    new SvgAttr(key, codec, namespace)
+  }
 }
