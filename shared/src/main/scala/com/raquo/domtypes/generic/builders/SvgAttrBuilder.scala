@@ -12,11 +12,11 @@ import com.raquo.domtypes.generic.codecs.{Codec, DoubleAsStringCodec, IntAsStrin
 trait SvgAttrBuilder[A[_]] {
 
   /** Create an SVG Attribute */
-  protected def svgAttr[V](key: String, codec: Codec[V, String]): A[V]
+  protected def svgAttr[V](key: String, codec: Codec[V, String], namespace: Option[String]): A[V]
 
-  @inline protected def intSvgAttr(key: String): A[Int] = svgAttr(key, IntAsStringCodec)
+  @inline protected def intSvgAttr(key: String, namespace: Option[String] = None): A[Int] = svgAttr(key, IntAsStringCodec, namespace)
 
-  @inline protected def doubleSvgAttr(key: String): A[Double] = svgAttr(key, DoubleAsStringCodec)
+  @inline protected def doubleSvgAttr(key: String, namespace: Option[String] = None): A[Double] = svgAttr(key, DoubleAsStringCodec, namespace)
 
-  @inline protected def stringSvgAttr(key: String): A[String] = svgAttr(key, StringAsIsCodec)
+  @inline protected def stringSvgAttr(key: String, namespace: Option[String] = None): A[String] = svgAttr(key, StringAsIsCodec, namespace)
 }

@@ -1,7 +1,7 @@
 package com.raquo.domtypes.generic.defs.reflectedAttrs
 
 import com.raquo.domtypes.generic.builders.ReflectedAttrBuilder
-import com.raquo.domtypes.generic.codecs.{BooleanAsAttrPresenceCodec, BooleanAsOnOffStringCodec, BooleanAsTrueFalseStringCodec, BooleanAsYesNoStringCodec, IterableAsSpaceSeparatedStringCodec}
+import com.raquo.domtypes.generic.codecs.{BooleanAsAttrPresenceCodec, BooleanAsTrueFalseStringCodec, BooleanAsYesNoStringCodec, IterableAsSpaceSeparatedStringCodec}
 
 /**
   * Reflected attributes are attributes that can be set using either a DOM property

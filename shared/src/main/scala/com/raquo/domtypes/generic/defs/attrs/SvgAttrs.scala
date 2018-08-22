@@ -5,6 +5,8 @@ import com.raquo.domtypes.generic.builders.SvgAttrBuilder
 /** @tparam A SVG Attribute, canonically [[com.raquo.domtypes.generic.keys.SvgAttr]] */
 trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
 
+  import SvgAttrs._
+
   /**
     * This attribute defines the distance from the origin to the top of accent characters,
     * measured by a distance within the font coordinate system.
@@ -1441,7 +1443,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    * MDN
    */
   // TODO : this currently does not work,have to add namespace: Namespace.svgXlinkNamespaceConfig)
-  lazy val xlinkHref: A[String] = stringSvgAttr("xlink:href")
+  lazy val xlinkHref: A[String] = stringSvgAttr("xlink:href", namespace = xlinkNamespace)
 
 
   /*
@@ -1449,7 +1451,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val xlink: A[String] = stringSvgAttr("xlink:role")
+  lazy val xlinkRole: A[String] = stringSvgAttr("xlink:role", namespace = xlinkNamespace)
 
 
   /*
@@ -1457,7 +1459,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val xlinkTitle: A[String] = stringSvgAttr("xlink:title")
+  lazy val xlinkTitle: A[String] = stringSvgAttr("xlink:title", namespace = xlinkNamespace)
 
 
   /*
@@ -1465,7 +1467,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val xmlSpace: A[String] = stringSvgAttr("xml:space")
+  lazy val xmlSpace: A[String] = stringSvgAttr("xml:space", namespace = xmlNamespace)
 
 
   /**
@@ -1481,7 +1483,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val xmlnsXlink: A[String] = stringSvgAttr("xmlns:xlink")
+  lazy val xmlnsXlink: A[String] = stringSvgAttr("xmlns:xlink", namespace = xlinkNamespace)
 
 
   /*
@@ -1522,4 +1524,11 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    * MDN
    */
   lazy val z: A[String] = stringSvgAttr("z")
+}
+
+object SvgAttrs {
+
+  private[SvgAttrs] val xlinkNamespace = Some("http://www.w3.org/1999/xlink")
+
+  private[SvgAttrs] val xmlNamespace = Some("http://www.w3.org/XML/1998/namespace")
 }

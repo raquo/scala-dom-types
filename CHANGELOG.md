@@ -8,6 +8,11 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.8 – TBD
+
+* **New: Add `namespace` param to `SvgAttr`**
+* **Naming: `xlink` -> `xlinkRole` to match native attribute name**
+
 #### v0.7.1 – Jul 2018
 
 * **Fix: `autocomplete` is now a string attribute ([#33](https://github.com/raquo/scala-dom-types/pull/33))**
