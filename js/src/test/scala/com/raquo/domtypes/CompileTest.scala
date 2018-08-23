@@ -1,11 +1,11 @@
 package com.raquo.domtypes
 
-import com.raquo.domtypes.generic.builders.canonical.CanonicalReflectedAttrBuilder.ReflectedAttr
-import com.raquo.domtypes.generic.builders.canonical.{CanonicalEventPropBuilder, CanonicalHtmlAttrBuilder, CanonicalPropBuilder, CanonicalReflectedAttrBuilder, CanonicalSvgAttrBuilder}
+import com.raquo.domtypes.generic.builders.canonical.CanonicalReflectedHtmlAttrBuilder.ReflectedAttr
+import com.raquo.domtypes.generic.builders.canonical.{CanonicalEventPropBuilder, CanonicalHtmlAttrBuilder, CanonicalPropBuilder, CanonicalReflectedHtmlAttrBuilder, CanonicalSvgAttrBuilder}
 import com.raquo.domtypes.generic.builders.{HtmlTagBuilder, StyleBuilders, SvgTagBuilder, Tag}
-import com.raquo.domtypes.generic.defs.attrs.{AriaAttrs, Attrs, SvgAttrs}
+import com.raquo.domtypes.generic.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
 import com.raquo.domtypes.generic.defs.props.Props
-import com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedAttrs
+import com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedHtmlAttrs
 import com.raquo.domtypes.generic.defs.styles.{Styles, Styles2}
 import com.raquo.domtypes.generic.keys.{EventProp, HtmlAttr, Prop, Style, SvgAttr}
 import com.raquo.domtypes.jsdom.defs.eventProps.{ClipboardEventProps, DocumentOnlyEventProps, ErrorEventProps, FormEventProps, HTMLElementEventProps, KeyboardEventProps, MediaEventProps, MiscellaneousEventProps, MouseEventProps, WindowOnlyEventProps}
@@ -35,7 +35,7 @@ class CompileTest {
 
   object Bundle
     // Attrs
-    extends Attrs[HtmlAttr]
+    extends HtmlAttrs[HtmlAttr]
     with AriaAttrs[HtmlAttr]
     // Event Props
     with ClipboardEventProps[EventProp]
@@ -50,7 +50,7 @@ class CompileTest {
     // Props
     with Props[Prop]
     // Reflected Attrs
-    with ReflectedAttrs[ReflectedAttr]
+    with ReflectedHtmlAttrs[ReflectedAttr]
     // Styles
     with Styles[SomeStyleSetter]
     with Styles2[SomeStyleSetter]
@@ -65,7 +65,7 @@ class CompileTest {
     with TextTags[Tag]
     // Concrete Builders
     with CanonicalHtmlAttrBuilder
-    with CanonicalReflectedAttrBuilder
+    with CanonicalReflectedHtmlAttrBuilder
     with CanonicalEventPropBuilder[dom.Event]
     with CanonicalPropBuilder
     with CanonicalSvgAttrBuilder // Not needed but want to ensure compatibility

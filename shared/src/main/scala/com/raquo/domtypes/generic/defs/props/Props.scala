@@ -19,7 +19,7 @@ trait Props[P[_, _]] { this: PropBuilder[P] =>
     * When the value of the type attribute is "radio" or "checkbox", this property
     * determines whether it is checked or not.
     *
-    * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedAttrs.defaultChecked]]
+    * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedHtmlAttrs.defaultChecked]]
     */
   lazy val checked: P[Boolean, Boolean] = prop("checked", BooleanAsIsCodec)
 
@@ -36,7 +36,7 @@ trait Props[P[_, _]] { this: PropBuilder[P] =>
     * which contains the _initial_ selected status of the element.
     * More info: https://stackoverflow.com/a/6004028/2601788 (`selected` behaves similar to `value`)
     *
-    * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedAttrs.defaultSelected]]
+    * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedHtmlAttrs.defaultSelected]]
     */
   lazy val selected: P[Boolean, Boolean] = prop("selected", BooleanAsIsCodec)
 
@@ -45,7 +45,7 @@ trait Props[P[_, _]] { this: PropBuilder[P] =>
     * which contains the _initial_ value of the element.
     * More info: https://stackoverflow.com/a/6004028/2601788
     *
-    * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedAttrs.defaultValue]]
+    * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedHtmlAttrs.defaultValue]]
     */
   lazy val value: P[String, String] = stringProp("value")
 }

@@ -4,7 +4,7 @@ import com.raquo.domtypes.generic.builders.HtmlAttrBuilder
 import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTrueFalseStringCodec}
 
 /** @tparam A HTML Attribute, canonically [[com.raquo.domtypes.generic.keys.HtmlAttr]] */
-trait Attrs[A[_]] { this: HtmlAttrBuilder[A] =>
+trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
 
   /**
     * Declares the character encoding of the page or script. Used on meta and

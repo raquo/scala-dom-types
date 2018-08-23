@@ -7,7 +7,7 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsIsCodec, Codec, DoubleAsIsCod
   *
   * Reflected attributes are explained in the README file.
   *
-  * Also see [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedAttrs]] for a summary of
+  * Also see [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedHtmlAttrs]] for a summary of
   * reflected attributes. Basically it's a subset of HTML attributes that are fully mirrored
   * as DOM properties, so typically you don't want to load both an attribute and a property
   * of the same name.
@@ -17,7 +17,7 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsIsCodec, Codec, DoubleAsIsCod
   *            or [[com.raquo.domtypes.generic.keys.Prop]] depending on whether you want to build
   *            properties or attributes
   */
-trait ReflectedAttrBuilder[RA[_, _]] {
+trait ReflectedHtmlAttrBuilder[RA[_, _]] {
 
   /** Create a reflected attribute */
   @inline protected def reflectedAttr[V, DomPropV](

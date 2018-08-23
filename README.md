@@ -4,8 +4,8 @@
 
 _Scala DOM Types_ provides listings and type definitions for Javascript HTML and SVG tags as well as their attributes, DOM properties, and CSS styles.
 
-    "com.raquo" %%% "domtypes" % "0.7.1"    // scala.js
-    "com.raquo" %% "domtypes" % "0.7.1"     // JVM
+    "com.raquo" %%% "domtypes" % "0.8"    // scala.js
+    "com.raquo" %% "domtypes" % "0.8"     // JVM
 
 Our type definitions are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, popular Scala.js reactive UI library [Outwatch](https://github.com/OutWatch/outwatch/) recently switched to _Scala DOM Types_, offloading thousands of lines of code and improving type safety ([diff](https://github.com/OutWatch/outwatch/pull/62)). I am also using _Scala DOM Types_ in my own projects:
 
@@ -182,9 +182,9 @@ HTML attributes and DOM properties are different things. As a prerequisite for t
 
 For more on this, read [Section 2.6.1 of this DOM spec](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes). Note that it uses the term "IDL attributes" to refer to what we call "DOM properties", and "Content attributes" to refer to what we here call "HTML attributes".
 
-So with that knowledge, `id` for example is a reflected attribute. Setting and reading it works exactly the same way regardless of whether you're using the HTML attribute `id`, or the DOM property `id`. Such reflected attributes live in `ReflectedAttrs` trait, which lets you build either attributes or properties depending on what implementation of `ReflectedAttrBuilder` you provide.
+So with that knowledge, `id` for example is a reflected attribute. Setting and reading it works exactly the same way regardless of whether you're using the HTML attribute `id`, or the DOM property `id`. Such reflected attributes live in `ReflectedHtmlAttrs` trait, which lets you build either attributes or properties depending on what implementation of `ReflectedHtmlAttrBuilder` you provide.
 
-To keep you sane, _Scala DOM Types_ reflected attributes also normalize the DOM API a bit. For example, there is no `value` attribute in _Scala DOM Types_. There is only `defaultValue` reflected attribute, which uses either the `value` HTML attribute or the `defaultValue` DOM property depending on how you implement `ReflectedAttrBuilder`. This is because that attribute and that property behave the same even though they're named differently in the DOM, whereas the `value` DOM property has different behaviour (see the StackOverflow answer linked above). A corresponding HTML attribute with such behaviour does not exist, so in Scala DOM Types the `value` prop is defined in trait `Props`. It is not an attribute, nor is it a a reflected attribute.
+To keep you sane, _Scala DOM Types_ reflected attributes also normalize the DOM API a bit. For example, there is no `value` attribute in _Scala DOM Types_. There is only `defaultValue` reflected attribute, which uses either the `value` HTML attribute or the `defaultValue` DOM property depending on how you implement `ReflectedHtmlAttrBuilder`. This is because that attribute and that property behave the same even though they're named differently in the DOM, whereas the `value` DOM property has different behaviour (see the StackOverflow answer linked above). A corresponding HTML attribute with such behaviour does not exist, so in Scala DOM Types the `value` prop is defined in trait `Props`. It is not an attribute, nor is it a a reflected attribute.
 
 Reflected attributes may behave slightly differently depending on whether you implement them as props or attributes. For example, in HTML5 the `cols` reflected attribute has a default value of `20`. If you read the `col` property fro man empty `<textarea>` element, you will get `20`. However, if you try to read the attribute `col`, you will get nothing because the attribute was never explicitly set.
 

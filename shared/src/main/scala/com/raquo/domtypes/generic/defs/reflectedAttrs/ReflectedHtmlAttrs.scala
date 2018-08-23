@@ -1,6 +1,6 @@
 package com.raquo.domtypes.generic.defs.reflectedAttrs
 
-import com.raquo.domtypes.generic.builders.ReflectedAttrBuilder
+import com.raquo.domtypes.generic.builders.ReflectedHtmlAttrBuilder
 import com.raquo.domtypes.generic.codecs.{BooleanAsAttrPresenceCodec, BooleanAsTrueFalseStringCodec, BooleanAsYesNoStringCodec, IterableAsSpaceSeparatedStringCodec}
 
 /**
@@ -17,12 +17,12 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsAttrPresenceCodec, BooleanAsT
   * - https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes
   *   (NOTE: The specification calls DOM properties "IDL attributes" and HTML attributes "Content attributes")
   *
-  * For type param docs, see [[ReflectedAttrBuilder]]
+  * For type param docs, see [[ReflectedHtmlAttrBuilder]]
   *
   * @tparam RA Reflected Attribute, canonically either [[com.raquo.domtypes.generic.keys.Prop]]
   *            or a type alias to [[com.raquo.domtypes.generic.keys.HtmlAttr]] (to remove the extra type param)
   */
-trait ReflectedAttrs[RA[_, _]] { this: ReflectedAttrBuilder[RA] =>
+trait ReflectedHtmlAttrs[RA[_, _]] { this: ReflectedHtmlAttrBuilder[RA] =>
 
   /**
     * If the value of the type attribute is file, this attribute indicates the
