@@ -184,25 +184,6 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
 
 
   /**
-    * Assigns a class name or set of class names to an element. You may assign the same
-    * class name or names to any number of elements. If you specify multiple class names,
-    * they must be separated by whitespace characters.
-    * The class name of an element has two key roles:
-    * -As a style sheet selector, for use when an author wants to assign style
-    * information to a set of elements.
-    * -For general usage by the browser.
-    * The class can be used to style SVG content using CSS.
-    *
-    * Value 	<list-of-class-names>
-    *
-    * MDN
-    */
-  lazy val className: A[String] = stringSvgAttr("class")
-
-  lazy val cls: A[String] = className
-
-
-  /**
     * The clip attribute has the same parameter values as defined for the css clip property.
     * Unitless values, which indicate current user coordinates, are permitted on the coordinate
     * values on the <shape>. The value of auto defines a clipping path along the bounds of
