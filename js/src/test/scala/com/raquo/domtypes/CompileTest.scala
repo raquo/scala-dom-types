@@ -4,6 +4,7 @@ import com.raquo.domtypes.generic.builders.canonical.CanonicalReflectedHtmlAttrB
 import com.raquo.domtypes.generic.builders.canonical.{CanonicalEventPropBuilder, CanonicalHtmlAttrBuilder, CanonicalPropBuilder, CanonicalReflectedHtmlAttrBuilder, CanonicalSvgAttrBuilder}
 import com.raquo.domtypes.generic.builders.{HtmlTagBuilder, StyleBuilders, SvgTagBuilder, Tag}
 import com.raquo.domtypes.generic.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
+import com.raquo.domtypes.generic.defs.complex.canonical.{CanonicalComplexHtmlKeys, CanonicalComplexSvgKeys}
 import com.raquo.domtypes.generic.defs.props.Props
 import com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedHtmlAttrs
 import com.raquo.domtypes.generic.defs.styles.{Styles, Styles2}
@@ -34,9 +35,9 @@ class CompileTest {
   }
 
   object Bundle
+    extends CanonicalComplexHtmlKeys[ReflectedAttr, HtmlAttr, Prop]
     // Attrs
-    extends HtmlAttrs[HtmlAttr]
-    with AriaAttrs[HtmlAttr]
+    with HtmlAttrs[HtmlAttr]
     // Event Props
     with ClipboardEventProps[EventProp]
     with ErrorEventProps[EventProp]
@@ -72,9 +73,14 @@ class CompileTest {
     with SomeStyleBuilders
     with SomeTagBuilders {
 
+    object aria
+      extends AriaAttrs[HtmlAttr]
+      with CanonicalHtmlAttrBuilder
+
     object svg
-      extends SvgAttrs[SvgAttr]
-      with SvgTags[Tag]
+      extends SvgTags[Tag]
+      with CanonicalComplexSvgKeys[SvgAttr]
+      with SvgAttrs[SvgAttr]
       with CanonicalSvgAttrBuilder
       with SomeTagBuilders
   }

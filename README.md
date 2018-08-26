@@ -4,8 +4,8 @@
 
 _Scala DOM Types_ provides listings and type definitions for Javascript HTML and SVG tags as well as their attributes, DOM properties, and CSS styles.
 
-    "com.raquo" %%% "domtypes" % "0.8.1"    // scala.js
-    "com.raquo" %% "domtypes" % "0.8.1"     // JVM
+    "com.raquo" %%% "domtypes" % "0.9"    // scala.js
+    "com.raquo" %% "domtypes" % "0.9"     // JVM
 
 Our type definitions are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, popular Scala.js reactive UI library [Outwatch](https://github.com/OutWatch/outwatch/) recently switched to _Scala DOM Types_, offloading thousands of lines of code and improving type safety ([diff](https://github.com/OutWatch/outwatch/pull/62)). I am also using _Scala DOM Types_ in my own projects:
 
@@ -27,6 +27,7 @@ Our type definitions are designed for easy integration into any kind of library.
 * [Documentation](#documentation)
   * [Codecs](#codecs)
   * [Reflected Attributes](#reflected-attributes)
+  * [Complex Keys](#complex-keys)
   * [DOM Events & `dom.Event.target`](#dom-events--domeventtarget)
   * [CSS](#css)
   * [SVG](#svg)
@@ -189,6 +190,13 @@ To keep you sane, _Scala DOM Types_ reflected attributes also normalize the DOM 
 Reflected attributes may behave slightly differently depending on whether you implement them as props or attributes. For example, in HTML5 the `cols` reflected attribute has a default value of `20`. If you read the `col` property fro man empty `<textarea>` element, you will get `20`. However, if you try to read the attribute `col`, you will get nothing because the attribute was never explicitly set.
 
 Note that Javascript DOM performs better for reading/writing DOM props than reading/writing HTML attributes.
+
+
+### Complex Keys
+
+Properties like `className` often require special handling in consuming libraries. For example, instead of a `String` based interface, you might want to offer a `Seq[String]` based one for `className`. To facilitate the development of such opinionated APIs we offer these keys in separate traits (`ComplexHtmlKeys` and `ComplexSvgKeys`) that allow for completely custom types.
+
+If you don't need such customization at all, just use `CanonicalComplexHtmlKeys` and `CanonicalComplexSvgKeys` traits which implement these keys similar to all the others.
 
 
 ### DOM Events & `dom.Event.target`

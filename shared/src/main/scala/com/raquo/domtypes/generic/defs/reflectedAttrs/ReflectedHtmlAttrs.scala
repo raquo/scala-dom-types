@@ -1,7 +1,7 @@
 package com.raquo.domtypes.generic.defs.reflectedAttrs
 
 import com.raquo.domtypes.generic.builders.ReflectedHtmlAttrBuilder
-import com.raquo.domtypes.generic.codecs.{BooleanAsAttrPresenceCodec, BooleanAsTrueFalseStringCodec, BooleanAsYesNoStringCodec, IterableAsSpaceSeparatedStringCodec}
+import com.raquo.domtypes.generic.codecs.{BooleanAsAttrPresenceCodec, BooleanAsTrueFalseStringCodec, BooleanAsYesNoStringCodec}
 
 /**
   * Reflected attributes are attributes that can be set using either a DOM property
@@ -91,26 +91,6 @@ trait ReflectedHtmlAttrs[RA[_, _]] { this: ReflectedHtmlAttrBuilder[RA] =>
     * MDN
     */
   lazy val autoFocus: RA[Boolean, Boolean] = booleanReflectedAttr("autofocus", attrCodec = BooleanAsAttrPresenceCodec)
-
-  /** This attribute converts [[className]] into an iterable of class names */
-  lazy val classNames: RA[Iterable[String], String] = reflectedAttr(
-    attrKey = "class",
-    propKey = "className",
-    attrCodec = IterableAsSpaceSeparatedStringCodec,
-    propCodec = IterableAsSpaceSeparatedStringCodec
-  )
-
-  /**
-    * This attribute is a space-separated list of the classes of the element.
-    * Classes allows CSS and Javascript to select and access specific elements
-    * via the class selectors or functions like the DOM method
-    * document.getElementsByClassName.
-    *
-    * MDN
-    */
-  lazy val className: RA[String, String] = stringReflectedAttr(attrKey = "class", propKey = "className")
-
-  lazy val cls: RA[String, String] = className
 
   /**
     * The visible width of text input or <textArea>, in average character widths.
@@ -459,18 +439,6 @@ trait ReflectedHtmlAttrs[RA[_, _]] { this: ReflectedHtmlAttrBuilder[RA] =>
     propKey = "readOnly",
     attrCodec = BooleanAsAttrPresenceCodec
   )
-
-  /**
-    * This attribute names a relationship of the linked document to the current
-    * document. The attribute must be a space-separated list of the link types
-    * values. The most common use of this attribute is to specify a link to an
-    * external style sheet: the rel attribute is set to stylesheet, and the href
-    * attribute is set to the URL of an external style sheet to format the page.
-    *
-    *
-    * MDN
-    */
-  lazy val rel: RA[String, String] = stringReflectedAttr("rel")
 
   /**
     * This attribute specifies that the user must fill in a value before

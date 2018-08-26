@@ -23,14 +23,6 @@ trait Props[P[_, _]] { this: PropBuilder[P] =>
     */
   lazy val checked: P[Boolean, Boolean] = prop("checked", BooleanAsIsCodec)
 
-  /** Determines the textual content of an element and all its descendants.
-    * Setting this property replaces all of the node's children with a text node containing
-    * the provided string.
-    *
-    * MDN
-    */
-  lazy val textContent: P[String, String] = stringProp("textContent")
-
   /**
     * Indicates whether an <option> element is _currently_ selected. This is different from `selected` _attribute_,
     * which contains the _initial_ selected status of the element.

@@ -31,28 +31,6 @@ trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
   lazy val contextMenuId: A[String] = stringHtmlAttr("contextmenu")
 
   /**
-    * This class of attributes, called custom data attributes, allows proprietary
-    * information to be exchanged between the HTML and its DOM representation that
-    * may be used by scripts. All such custom data are available via the HTMLElement
-    * interface of the element the attribute is set on. The HTMLElement.dataset
-    * property gives access to them.
-    *
-    * The `suffix` is subject to the following restrictions:
-    *
-    * must not start with xml, whatever case is used for these letters;
-    * must not contain any semicolon (U+003A);
-    * must not contain capital A to Z letters.
-    *
-    * Note that the HTMLElement.dataset attribute is a StringMap and the name of the
-    * custom data attribute data-test-value will be accessible via
-    * HTMLElement.dataset.testValue as any dash (U+002D) is replaced by the capitalization
-    * of the next letter (camelcase).
-    *
-    * MDN
-    */
-  def dataAttr(suffix: String): A[String] = stringHtmlAttr(s"data-$suffix")
-
-  /**
     * Specifies whether the dragged data is copied, moved, or linked, when dropped
     * Acceptable values: `copy` | `move` | `link`
     */
@@ -106,16 +84,6 @@ trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     * types: number, range, date, datetime, datetime-local, month, time and week.
     */
   lazy val step: A[String] = stringHtmlAttr("step")
-
-  /**
-    * This attribute contains CSS styling declarations to be applied to the
-    * element. Note that it is recommended for styles to be defined in a separate
-    * file or files. This attribute and the style element have mainly the
-    * purpose of allowing for quick styling, for example for testing purposes.
-    *
-    * MDN
-    */
-  lazy val styleAttr: A[String] = stringHtmlAttr("style")
 
   /**
     * This attribute is used to define the type of the content linked to. The

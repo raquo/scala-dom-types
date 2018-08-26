@@ -49,4 +49,8 @@ These guidelines are for commit messages going into master. I think going forwar
 
 So far we are focused on HTML5 attributes and read-writeable DOM props, but it doesn't have to stay that way. There is value in providing listings for popular non-standard attributes as well (e.g. `autoCapitalize`, `unSelectable`) but we haven't decided how to deal with those yet. Don't hesitate to trigger this discussion though.
 
+Previous discussions:
+
+* `innerHTML` / `raw()` – [#21](https://github.com/raquo/scala-dom-types/pull/21), [#41](https://github.com/raquo/scala-dom-types/issues/41)
+
 As a workaround, you can always create custom attributes / props / etc. in your project, or publish e.g. a collection of attributes as a separate project.
