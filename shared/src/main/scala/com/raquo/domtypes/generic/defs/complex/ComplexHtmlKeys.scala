@@ -8,7 +8,7 @@ package com.raquo.domtypes.generic.defs.complex
   * If your opinions are too strong to use this trait – don't! You can implement
   * any subset of these keys yourself with whatever names you like.
   */
-trait ComplexHtmlKeys[ClassNameRA, ClsRA, RelRA, DataA, StyleA, TextContentP] {
+trait ComplexHtmlKeys[ClassNameRA, RelRA, RoleRA, DataA, StyleA, TextContentP] {
 
   /**
     * This attribute is a space-separated list of the classes of the element.
@@ -20,7 +20,8 @@ trait ComplexHtmlKeys[ClassNameRA, ClsRA, RelRA, DataA, StyleA, TextContentP] {
     */
   def className: ClassNameRA
 
-  def cls: ClsRA
+  // @TODO[Performance] Wouldn't `@inline def` be better for aliasing in Scala.js? className will be overriden with a lazy val anyway.
+  lazy val cls: ClassNameRA = className
 
   /**
     * This attribute names a relationship of the linked document to the current
@@ -33,6 +34,23 @@ trait ComplexHtmlKeys[ClassNameRA, ClsRA, RelRA, DataA, StyleA, TextContentP] {
     * MDN
     */
   def rel: RelRA
+
+  /**
+    * The attribute describes the role(s) the current element plays in the
+    * context of the document. This can be used, for example,
+    * by applications and assistive technologies to determine the purpose of
+    * an element. This could allow a user to make informed decisions on which
+    * actions may be taken on an element and activate the selected action in a
+    * device independent way. It could also be used as a mechanism for
+    * annotating portions of a document in a domain specific way (e.g.,
+    * a legal term taxonomy). Although the role attribute may be used to add
+    * semantics to an element, authors should use elements with inherent
+    * semantics, such as p, rather than layering semantics on semantically
+    * neutral elements, such as div role="paragraph".
+    *
+    * See: [[http://www.w3.org/TR/role-attribute/#s_role_module_attributes]]
+    */
+  def role: RoleRA
 
   /**
     * This class of attributes, called custom data attributes, allows proprietary
@@ -65,12 +83,4 @@ trait ComplexHtmlKeys[ClassNameRA, ClsRA, RelRA, DataA, StyleA, TextContentP] {
     * MDN
     */
   def styleAttr: StyleA
-
-  /** Determines the textual content of an element and all its descendants.
-    * Setting this property replaces all of the node's children with a text node containing
-    * the provided string.
-    *
-    * MDN
-    */
-  def textContent: TextContentP
 }
