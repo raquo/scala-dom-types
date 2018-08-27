@@ -8,7 +8,7 @@ package com.raquo.domtypes.generic.defs.complex
   * If your opinions are too strong to use this trait – don't! You can implement
   * any subset of these keys yourself with whatever names you like.
   */
-trait ComplexSvgKeys[ClassNameA, ClsA] {
+trait ComplexSvgKeys[ClassNameA] {
 
   /**
     * Assigns a class name or set of class names to an element. You may assign the same
@@ -26,5 +26,5 @@ trait ComplexSvgKeys[ClassNameA, ClsA] {
     */
   def className: ClassNameA
 
-  def cls: ClsA
+  lazy val cls: ClassNameA = className
 }

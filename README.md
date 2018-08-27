@@ -137,7 +137,7 @@ _Scala DOM Types_ is a low level library that is used by other libraries. As suc
 
 #### Sanity Preservation Measures
 
-We should provide a better API than the DOM if we can do that in a way that keeps usage discoverable and non-surprising.
+We should provide a better API than the DOM if we can do that in a way that keeps usage discoverable and unsurprising.
 
 Developers familiar with the DOM API should generally be able to discover the names of attributes / tags / etc. they need using IDE autocompletion (assuming they expect the names to match the DOM API). For example: `forId` is a good name for the `for` attribute. It avoids using a Scala reserved word, and it starts with `for` like the original attribute, so it's easy to find. It also implies what kind of string is expected for a value (an `id` of an element).
 

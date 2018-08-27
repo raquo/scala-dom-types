@@ -451,23 +451,6 @@ trait ReflectedHtmlAttrs[RA[_, _]] { this: ReflectedHtmlAttrBuilder[RA] =>
   lazy val required: RA[Boolean, Boolean] = booleanReflectedAttr("required", attrCodec = BooleanAsAttrPresenceCodec)
 
   /**
-    * The attribute describes the role(s) the current element plays in the
-    * context of the document. This can be used, for example,
-    * by applications and assistive technologies to determine the purpose of
-    * an element. This could allow a user to make informed decisions on which
-    * actions may be taken on an element and activate the selected action in a
-    * device independent way. It could also be used as a mechanism for
-    * annotating portions of a document in a domain specific way (e.g.,
-    * a legal term taxonomy). Although the role attribute may be used to add
-    * semantics to an element, authors should use elements with inherent
-    * semantics, such as p, rather than layering semantics on semantically
-    * neutral elements, such as div role="paragraph".
-    *
-    * See: [[http://www.w3.org/TR/role-attribute/#s_role_module_attributes]]
-    */
-  lazy val role: RA[String, String] = stringReflectedAttr("role")
-
-  /**
     * The number of visible text lines for a text control.
     *
     * MDN

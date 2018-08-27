@@ -14,14 +14,11 @@ trait CanonicalComplexHtmlKeys[RA[_, _], A[_], P[_, _]] extends ComplexHtmlKeys[
 
   override lazy val className: RA[String, String] = stringReflectedAttr(attrKey = "class", propKey = "className")
 
-  override lazy val cls: RA[String, String] = className
-
   override lazy val rel: RA[String, String] = stringReflectedAttr("rel")
+
+  override lazy val role: RA[String, String] = stringReflectedAttr("role")
 
   override def dataAttr(suffix: String): A[String] = stringHtmlAttr(s"data-$suffix")
 
   override lazy val styleAttr: A[String] = stringHtmlAttr("style")
-
-  override lazy val textContent: P[String, String] = stringProp("textContent")
-
 }
