@@ -97,7 +97,7 @@ trait TextTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlAnchor <: DomHtmlElem
     *
     *  MDN  [[org.scalajs.dom.html.Span]]
     */
-  def span: T[HtmlSpan] = htmlTag("span")
+  lazy val span: T[HtmlSpan] = htmlTag("span")
 
   /**
     * Represents a line break.
