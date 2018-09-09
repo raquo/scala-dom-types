@@ -1061,7 +1061,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     */
   object listStyleImage extends Style[String]("listStyleImage", "list-style-image") {
 
-    def none: StyleSetter = buildStringStyleSetter(this, "none")
+    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
   }
 
 
@@ -1679,7 +1679,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  def fontSizeAdjust: Style[Double] = style("fontSizeAdjust", "font-size-adjust")
+  lazy val fontSizeAdjust: Style[Double] = style("fontSizeAdjust", "font-size-adjust")
 
   /**
     * The font-family CSS property allows for a prioritized list of font family
