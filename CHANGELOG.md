@@ -8,6 +8,10 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.8.1 – Sep 2018
+
+* **Fix: `span`, `fontSizeAdjust`, `listStyleImage.none` should be `lazy val`s, not `def`s**
+
 #### v0.8 – Aug 2018
 
 * **New: Add `namespace` param to `SvgAttr`**
