@@ -8,6 +8,10 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.9.1 – Oct 2018
+
+* New: Add `DOMContentLoaded` document event
+
 #### v0.9 – Sep 2018
 
 * **API: `AriaAttrs` now exposes attributes as members, without `aria` object**
