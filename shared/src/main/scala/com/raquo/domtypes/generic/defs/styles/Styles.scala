@@ -2682,7 +2682,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
       *
       * MDN
       */
-    lazy val end: StyleSetter = buildStringStyleSetter(this, "start")
+    lazy val end: StyleSetter = buildStringStyleSetter(this, "end")
 
     /**
       * The items are packed flush to each other toward the edge of the
