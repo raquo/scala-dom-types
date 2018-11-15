@@ -8,6 +8,10 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.9.2 – Nov 2018
+
+* Fix: `justifyContent.end`
+
 #### v0.9.1 – Oct 2018
 
 * New: Add `DOMContentLoaded` document event
