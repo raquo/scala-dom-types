@@ -70,7 +70,8 @@ package object defs {
       with KeyboardEventProps[EP]
       with MediaEventProps[EP]
       with MiscellaneousEventProps[EP]
-      with MouseEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+      with MouseEventProps[EP]
+      with PointerEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
 
     /** Matches WindowEventHandlers: https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers */
     trait WindowEventProps[EP[_ <: dom.Event]]
