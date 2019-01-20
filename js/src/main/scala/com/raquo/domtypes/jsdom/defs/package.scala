@@ -1,7 +1,7 @@
 package com.raquo.domtypes.jsdom
 
 import com.raquo.domtypes.generic
-import com.raquo.domtypes.jsdom.defs.events.{PageTransitionEvent, TypedTargetEvent, TypedTargetFocusEvent, TypedTargetMouseEvent}
+import com.raquo.domtypes.jsdom.defs.events._
 import org.scalajs.dom
 
 package object defs {
@@ -35,6 +35,13 @@ package object defs {
       dom.MouseEvent,
       TypedTargetMouseEvent[dom.Element],
       dom.DragEvent
+    ]
+
+    type PointerEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.PointerEventProps[
+      EP,
+      dom.Event,
+      dom.PointerEvent,
+      TypedTargetPointerEvent[dom.Element],
     ]
 
     type WindowOnlyEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowOnlyEventProps[
