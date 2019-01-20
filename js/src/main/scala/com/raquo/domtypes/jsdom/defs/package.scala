@@ -41,7 +41,7 @@ package object defs {
       EP,
       dom.Event,
       dom.PointerEvent,
-      TypedTargetPointerEvent[dom.Element],
+      TypedTargetPointerEvent[dom.Element]
     ]
 
     type WindowOnlyEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowOnlyEventProps[
