@@ -89,7 +89,7 @@ Now you can't pass just about any random string as `propName`, and even `propVal
 
 [ScalaTags](http://www.lihaoyi.com/scalatags/) is a popular Scala library that contains DOM type definitions similar to what we have here. However, _Scala DOM Types_ is different in a few ways:
 
-- **More type safe**. For example, in _Scala DOM Types_ an `input` tag is linked to Scala.js `HTMLInputInput` class. This lets you provide exact types for the DOM nodes you create, so that you don't need to perform unsafe casts in your application code if you want to e.g. access the `value` property on an `input` you created. Similarly, all attributes, properties and styles are linked to the types that they accept to prevent you from assigning incorrect values.
+- **More type safe**. For example, in _Scala DOM Types_ an `input` tag is linked to Scala.js `HTMLInputElement` class. This lets you provide exact types for the DOM nodes you create, so that you don't need to perform unsafe casts in your application code if you want to e.g. access the `value` property on an `input` you created. Similarly, all attributes, properties and styles are linked to the types that they accept to prevent you from assigning incorrect values.
 
 - **More flexible**. _Scala DOM Types_ does not tell you how to compose your attributes / props / styles / tags together, and does not enforce any rendering paradigm. You are free to implement your own composition. I see that some projects fork ScalaTags just to get the type definitions without everything else. _Scala DOM Types_ does not get in your way, eliminating the need for such forking.
 
@@ -187,7 +187,7 @@ So with that knowledge, `id` for example is a reflected attribute. Setting and r
 
 To keep you sane, _Scala DOM Types_ reflected attributes also normalize the DOM API a bit. For example, there is no `value` attribute in _Scala DOM Types_. There is only `defaultValue` reflected attribute, which uses either the `value` HTML attribute or the `defaultValue` DOM property depending on how you implement `ReflectedHtmlAttrBuilder`. This is because that attribute and that property behave the same even though they're named differently in the DOM, whereas the `value` DOM property has different behaviour (see the StackOverflow answer linked above). A corresponding HTML attribute with such behaviour does not exist, so in Scala DOM Types the `value` prop is defined in trait `Props`. It is not an attribute, nor is it a a reflected attribute.
 
-Reflected attributes may behave slightly differently depending on whether you implement them as props or attributes. For example, in HTML5 the `cols` reflected attribute has a default value of `20`. If you read the `col` property fro man empty `<textarea>` element, you will get `20`. However, if you try to read the attribute `col`, you will get nothing because the attribute was never explicitly set.
+Reflected attributes may behave slightly differently depending on whether you implement them as props or attributes. For example, in HTML5 the `cols` reflected attribute has a default value of `20`. If you read the `col` property from an empty `<textarea>` element, you will get `20`. However, if you try to read the attribute `col`, you will get nothing because the attribute was never explicitly set.
 
 Note that Javascript DOM performs better for reading/writing DOM props than reading/writing HTML attributes.
 
@@ -231,8 +231,8 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
 #### General
 
 * All identifiers are camelCased, (e.g. `datalist` is `dataList`) for consistency with conventional Scala style.
-* `data-<suffix>` attributes are created using `dataAttr(suffix: String)` factory
-* `aria-<suffix>` attributes are renamed `aria.<suffix>`
+* `data-<suffix>` attributes are created using `dataAttr(suffix: String)` factory.
+* `aria-<suffix>` attributes are available without the `aria-` prefix in the `AriaAttrs` trait. You could thus create `object aria extends AriaAttrs[...]` to namespace those attributes.
 
 #### Individual identifiers
 * `value` **attribute** is renamed `defaultValue` because native naming is misleading and confusing ([example](https://stackoverflow.com/a/6004028/2601788))
