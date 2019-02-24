@@ -2605,7 +2605,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
       *
       * MDN
       */
-    lazy val wrapReverse: StyleSetter = buildStringStyleSetter(this, "wrapReverse")
+    lazy val wrapReverse: StyleSetter = buildStringStyleSetter(this, "wrap-reverse")
 
   }
 
