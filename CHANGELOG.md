@@ -8,6 +8,10 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.9.4 – Feb 2019
+
+* Fix: flexWrap.wrapReverse CSS name (thanks, @fdietze!)
+
 #### v0.9.3 – Jan 2019
 
 * New: Pointer Events, TypedTargetPointerEvent (thanks, [@Busti](https://github.com/Busti)!)
