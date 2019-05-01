@@ -11,7 +11,7 @@ trait SectionTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlBody <: DomHtmlEle
     *
     *  MDN  [[org.scalajs.dom.html.Body]]
     */
-  lazy val body: T[HtmlBody] = htmlTag("body")
+  @inline final def body: T[HtmlBody] = htmlTag("body")
 
   /**
     * Defines the header of a page or section. It often contains a logo, the
@@ -19,7 +19,7 @@ trait SectionTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlBody <: DomHtmlEle
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val header: T[HtmlElement] = htmlTag("header")
+  @inline final def header: T[HtmlElement] = htmlTag("header")
 
   /**
     * Defines the footer for a page or section. It often contains a copyright
@@ -27,47 +27,47 @@ trait SectionTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlBody <: DomHtmlEle
     *
     *  MDN  [[org.scalajs.dom.html.Element]]
     */
-  lazy val footer: T[HtmlElement] = htmlTag("footer")
+  @inline final def footer: T[HtmlElement] = htmlTag("footer")
 
   /**
     * Heading level 1
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h1: T[HtmlHeading] = htmlTag("h1")
+  @inline final def h1: T[HtmlHeading] = htmlTag("h1")
 
   /**
     * Heading level 2
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h2: T[HtmlHeading] = htmlTag("h2")
+  @inline final def h2: T[HtmlHeading] = htmlTag("h2")
 
   /**
     * Heading level 3
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h3: T[HtmlHeading] = htmlTag("h3")
+  @inline final def h3: T[HtmlHeading] = htmlTag("h3")
 
   /**
     * Heading level 4
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h4: T[HtmlHeading] = htmlTag("h4")
+  @inline final def h4: T[HtmlHeading] = htmlTag("h4")
 
   /**
     * Heading level 5
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h5: T[HtmlHeading] = htmlTag("h5")
+  @inline final def h5: T[HtmlHeading] = htmlTag("h5")
 
   /**
     * Heading level 6
     *
     *  MDN  [[org.scalajs.dom.html.Heading]]
     */
-  lazy val h6: T[HtmlHeading] = htmlTag("h6")
+  @inline final def h6: T[HtmlHeading] = htmlTag("h6")
 }

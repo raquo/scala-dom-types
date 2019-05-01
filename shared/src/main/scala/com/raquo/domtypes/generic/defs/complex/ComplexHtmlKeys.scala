@@ -20,8 +20,8 @@ trait ComplexHtmlKeys[ClassNameRA, RelRA, RoleRA, DataA, StyleA, TextContentP] {
     */
   def className: ClassNameRA
 
-  // @TODO[Performance] Wouldn't `@inline def` be better for aliasing in Scala.js? className will be overriden with a lazy val anyway.
-  lazy val cls: ClassNameRA = className
+  // @TODO[Performance] Wouldn't `@inline def` be better for aliasing in Scala.js? className will be overriden with a @inline final def anyway.
+  @inline final def cls: ClassNameRA = className
 
   /**
     * This attribute names a relationship of the linked document to the current

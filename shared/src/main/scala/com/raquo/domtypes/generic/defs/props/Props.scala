@@ -13,7 +13,7 @@ trait Props[P[_, _]] { this: PropBuilder[P] =>
     *
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes
     */
-  lazy val indeterminate: P[Boolean, Boolean] = prop("indeterminate", BooleanAsIsCodec)
+  @inline final def indeterminate: P[Boolean, Boolean] = prop("indeterminate", BooleanAsIsCodec)
 
   /**
     * When the value of the type attribute is "radio" or "checkbox", this property
@@ -21,7 +21,7 @@ trait Props[P[_, _]] { this: PropBuilder[P] =>
     *
     * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedHtmlAttrs.defaultChecked]]
     */
-  lazy val checked: P[Boolean, Boolean] = prop("checked", BooleanAsIsCodec)
+  @inline final def checked: P[Boolean, Boolean] = prop("checked", BooleanAsIsCodec)
 
   /**
     * Indicates whether an <option> element is _currently_ selected. This is different from `selected` _attribute_,
@@ -30,7 +30,7 @@ trait Props[P[_, _]] { this: PropBuilder[P] =>
     *
     * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedHtmlAttrs.defaultSelected]]
     */
-  lazy val selected: P[Boolean, Boolean] = prop("selected", BooleanAsIsCodec)
+  @inline final def selected: P[Boolean, Boolean] = prop("selected", BooleanAsIsCodec)
 
   /**
     * Current value of the element. This is different from `value` _attribute_,
@@ -39,5 +39,5 @@ trait Props[P[_, _]] { this: PropBuilder[P] =>
     *
     * See also [[com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedHtmlAttrs.defaultValue]]
     */
-  lazy val value: P[String, String] = stringProp("value")
+  @inline final def value: P[String, String] = stringProp("value")
 }

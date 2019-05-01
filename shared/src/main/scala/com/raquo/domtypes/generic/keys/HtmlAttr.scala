@@ -7,4 +7,4 @@ import com.raquo.domtypes.generic.codecs.Codec
   *
   * @tparam V type of values that this Attribute can be set to
   */
-class HtmlAttr[V] (override val name: String, val codec: Codec[V, String]) extends Key
+@inline class HtmlAttr[V] (override val name: String, val codec: Codec[V, String]) extends Key

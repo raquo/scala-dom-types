@@ -20,21 +20,21 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
     * A Style that takes any value of type T as a parameter and has an auto value
     */
   class AutoStyle[V](name: String, cssName: String) extends Style[V](name, cssName) {
-    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
+    @inline final def auto: StyleSetter = buildStringStyleSetter(this, "auto")
   }
 
   /**
     * A Style that takes any value of type T as a parameter and has an none value
     */
   class NoneOpenStyle[V](name: String, cssName: String) extends Style[V](name, cssName) {
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
+    @inline final def none: StyleSetter = buildStringStyleSetter(this, "none")
   }
 
   /**
     * A Style that takes any value of type T as a parameter and has an normal value
     */
   class NormalOpenStyle[V](name: String, cssName: String) extends Style[V](name, cssName) {
-    lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
+    @inline final def normal: StyleSetter = buildStringStyleSetter(this, "normal")
   }
 
   class MultiImageStyle(name: String, cssName: String) extends Style[String](name, cssName)
@@ -48,7 +48,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val dotted: StyleSetter = buildStringStyleSetter(this, "dotted")
+    @inline final def dotted: StyleSetter = buildStringStyleSetter(this, "dotted")
 
     /**
       * Displays a series of short square-ended dashes or line segments. The exact
@@ -57,14 +57,14 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val dashed: StyleSetter = buildStringStyleSetter(this, "dashed")
+    @inline final def dashed: StyleSetter = buildStringStyleSetter(this, "dashed")
 
     /**
       * Displays a single, straight, solid line.
       *
       * MDN
       */
-    lazy val solid: StyleSetter = buildStringStyleSetter(this, "solid")
+    @inline final def solid: StyleSetter = buildStringStyleSetter(this, "solid")
 
     /**
       * Displays two straight lines that add up to the pixel amount defined as
@@ -72,14 +72,14 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val double: StyleSetter = buildStringStyleSetter(this, "double")
+    @inline final def double: StyleSetter = buildStringStyleSetter(this, "double")
 
     /**
       * Displays a border leading to a carved effect. It is the opposite of ridge.
       *
       * MDN
       */
-    lazy val groove: StyleSetter = buildStringStyleSetter(this, "groove")
+    @inline final def groove: StyleSetter = buildStringStyleSetter(this, "groove")
 
     /**
       * Displays a border with a 3D effect, like if it is coming out of the page.
@@ -87,7 +87,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val ridge: StyleSetter = buildStringStyleSetter(this, "ridge")
+    @inline final def ridge: StyleSetter = buildStringStyleSetter(this, "ridge")
 
     /**
       * Displays a border that makes the box appear embedded. It is the opposite
@@ -96,7 +96,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val inset: StyleSetter = buildStringStyleSetter(this, "inset")
+    @inline final def inset: StyleSetter = buildStringStyleSetter(this, "inset")
 
     /**
       * Displays a border that makes the box appear in 3D, embossed. It is the
@@ -105,7 +105,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val outset: StyleSetter = buildStringStyleSetter(this, "outset")
+    @inline final def outset: StyleSetter = buildStringStyleSetter(this, "outset")
   }
 
   class BorderStyle(name: String, cssName: String) extends OutlineStyle(name, cssName) {
@@ -120,7 +120,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
+    @inline final def none: StyleSetter = buildStringStyleSetter(this, "none")
 
     /**
       * Like for the none keyword, displays no border. In that case, except if a
@@ -131,7 +131,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val hidden: StyleSetter = buildStringStyleSetter(this, "hidden")
+    @inline final def hidden: StyleSetter = buildStringStyleSetter(this, "hidden")
 
   }
 
@@ -143,14 +143,14 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val visible: StyleSetter = buildStringStyleSetter(this, "visible")
+    @inline final def visible: StyleSetter = buildStringStyleSetter(this, "visible")
 
     /**
       * The content is clipped and no scrollbars are provided.
       *
       * MDN
       */
-    lazy val hidden: StyleSetter = buildStringStyleSetter(this, "hidden")
+    @inline final def hidden: StyleSetter = buildStringStyleSetter(this, "hidden")
 
     /**
       * The content is clipped and desktop browsers use scrollbars, whether or
@@ -160,7 +160,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val scroll: StyleSetter = buildStringStyleSetter(this, "scroll")
+    @inline final def scroll: StyleSetter = buildStringStyleSetter(this, "scroll")
 
     /**
       * Depends on the user agent. Desktop browsers like Firefox provide
@@ -168,7 +168,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
+    @inline final def auto: StyleSetter = buildStringStyleSetter(this, "auto")
   }
 
   class PageBreak(name: String, cssName: String) extends Style[String](name, cssName) {
@@ -178,21 +178,21 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
+    @inline final def auto: StyleSetter = buildStringStyleSetter(this, "auto")
 
     /**
       * Always force page breaks.
       *
       * MDN
       */
-    lazy val always: StyleSetter = buildStringStyleSetter(this, "always")
+    @inline final def always: StyleSetter = buildStringStyleSetter(this, "always")
 
     /**
       * Avoid page breaks.
       *
       * MDN
       */
-    lazy val avoid: StyleSetter = buildStringStyleSetter(this, "avoid")
+    @inline final def avoid: StyleSetter = buildStringStyleSetter(this, "avoid")
 
     /**
       * Force page breaks so that the next page is formatted
@@ -200,7 +200,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val left: StyleSetter = buildStringStyleSetter(this, "left")
+    @inline final def left: StyleSetter = buildStringStyleSetter(this, "left")
 
     /**
       * Force page breaks so that the next page is formatted
@@ -208,7 +208,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val right: StyleSetter = buildStringStyleSetter(this, "right")
+    @inline final def right: StyleSetter = buildStringStyleSetter(this, "right")
   }
 
 
@@ -221,13 +221,13 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
+    @inline final def auto: StyleSetter = buildStringStyleSetter(this, "auto")
   }
 
   class BorderWidth(name: String, cssName: String) extends Style[String](name, cssName) {
-    lazy val thin: StyleSetter = buildStringStyleSetter(this, "thin")
-    lazy val medium: StyleSetter = buildStringStyleSetter(this, "medium")
-    lazy val thick: StyleSetter = buildStringStyleSetter(this, "thick")
+    @inline final def thin: StyleSetter = buildStringStyleSetter(this, "thin")
+    @inline final def medium: StyleSetter = buildStringStyleSetter(this, "medium")
+    @inline final def thick: StyleSetter = buildStringStyleSetter(this, "thick")
   }
 
   class MultiTimeStyle(name: String, cssName: String) extends Style[String](name, cssName)
@@ -239,28 +239,28 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val maxContent: StyleSetter = buildStringStyleSetter(this, "max-content")
+    @inline final def maxContent: StyleSetter = buildStringStyleSetter(this, "max-content")
 
     /**
       * The intrinsic minimum length.
       *
       * MDN
       */
-    lazy val minContent: StyleSetter = buildStringStyleSetter(this, "min-content")
+    @inline final def minContent: StyleSetter = buildStringStyleSetter(this, "min-content")
 
     /**
       * Defined as min(max-content, max(min-content, fill-available).
       *
       * MDN
       */
-    lazy val fitContent: StyleSetter = buildStringStyleSetter(this, "fit-content")
+    @inline final def fitContent: StyleSetter = buildStringStyleSetter(this, "fit-content")
 
     /**
       * The containing block width minus margin, border and padding.
       *
       * MDN
       */
-    lazy val fillAvailable: StyleSetter = buildStringStyleSetter(this, "fill-available")
+    @inline final def fillAvailable: StyleSetter = buildStringStyleSetter(this, "fill-available")
   }
 
   class MaxLengthStyle(name: String, cssName: String) extends Style[String](name, cssName) {
@@ -270,34 +270,34 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
       *
       * MDN
       */
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
+    @inline final def none: StyleSetter = buildStringStyleSetter(this, "none")
 
     /**
       * The intrinsic preferred length.
       *
       * MDN
       */
-    lazy val maxContent: StyleSetter = buildStringStyleSetter(this, "max-content")
+    @inline final def maxContent: StyleSetter = buildStringStyleSetter(this, "max-content")
 
     /**
       * The intrinsic minimum length.
       *
       * MDN
       */
-    lazy val minContent: StyleSetter = buildStringStyleSetter(this, "min-content")
+    @inline final def minContent: StyleSetter = buildStringStyleSetter(this, "min-content")
 
     /**
       * Defined as min(max-content, max(min-content, fill-available).
       *
       * MDN
       */
-    lazy val fitContent: StyleSetter = buildStringStyleSetter(this, "fit-content")
+    @inline final def fitContent: StyleSetter = buildStringStyleSetter(this, "fit-content")
 
     /**
       * The containing block width minus margin, border and padding.
       *
       * MDN
       */
-    lazy val fillAvailable: StyleSetter = buildStringStyleSetter(this, "fill-available")
+    @inline final def fillAvailable: StyleSetter = buildStringStyleSetter(this, "fill-available")
   }
 }

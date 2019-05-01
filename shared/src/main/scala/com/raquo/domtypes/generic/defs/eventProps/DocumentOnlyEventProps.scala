@@ -19,12 +19,12 @@ trait DocumentOnlyEventProps[EP[_ <: DomEvent], DomEvent] { this: EventPropBuild
     *
     * MDN
     */
-  lazy val onDomContentLoaded: EP[DomEvent] = eventProp("DOMContentLoaded")
+  @inline final def onDomContentLoaded: EP[DomEvent] = eventProp("DOMContentLoaded")
 
   /**
    * The visibilitychange event is fired when the content of a tab has become visible or has been hidden.
    *
    * MDN
    */
-  lazy val onVisibilityChange: EP[DomEvent] = eventProp("visibilitychange")
+  @inline final def onVisibilityChange: EP[DomEvent] = eventProp("visibilitychange")
 }

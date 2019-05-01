@@ -12,7 +12,7 @@ trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val charset: A[String] = stringHtmlAttr("charset")
+  @inline final def charset: A[String] = stringHtmlAttr("charset")
 
   /**
     * Indicates whether the element should be editable by the user.
@@ -22,30 +22,30 @@ trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable
     */
-  lazy val contentEditable: A[Boolean] = htmlAttr("contenteditable", BooleanAsTrueFalseStringCodec)
+  @inline final def contentEditable: A[Boolean] = htmlAttr("contenteditable", BooleanAsTrueFalseStringCodec)
 
   /**
     * Specifies a context menu for an element by its element id.
     * The context menu appears when a user right-clicks on the element
     */
-  lazy val contextMenuId: A[String] = stringHtmlAttr("contextmenu")
+  @inline final def contextMenuId: A[String] = stringHtmlAttr("contextmenu")
 
   /**
     * Specifies whether the dragged data is copied, moved, or linked, when dropped
     * Acceptable values: `copy` | `move` | `link`
     */
-  lazy val dropZone: A[String] = stringHtmlAttr("dropzone")
+  @inline final def dropZone: A[String] = stringHtmlAttr("dropzone")
 
   /**
     * The form attribute specifies an ID of the form an `<input>` element belongs to.
     */
-  lazy val formId: A[String] = stringHtmlAttr("form")
+  @inline final def formId: A[String] = stringHtmlAttr("form")
 
   /**
     * The `height` attribute specifies the pixel height of the following elements:
     * `<canvas>, <embed>, <iframe>, <img>, <input type="image">, <object>, <video>`
     */
-  lazy val heightAttr: A[Int] = intHtmlAttr("height")
+  @inline final def heightAttr: A[Int] = intHtmlAttr("height")
 
   /**
     * Identifies a list of pre-defined options to suggest to the user. The value must be
@@ -58,7 +58,7 @@ trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
     */
-  lazy val listId: A[String] = stringHtmlAttr("list")
+  @inline final def listId: A[String] = stringHtmlAttr("list")
 
   // @TODO[API][improve] - Can we improve usability of the max/min attributes?
 
@@ -66,13 +66,13 @@ trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     * The max attribute specifies the maximum value for an <input> element of type
     * number, range, date, datetime, datetime-local, month, time, or week.
     */
-  lazy val max: A[String] = stringHtmlAttr("max")
+  @inline final def max: A[String] = stringHtmlAttr("max")
 
   /**
     * The min attribute specifies the minimum value for an <input> element of type
     * number, range, date, datetime, datetime-local, month, time, or week.
     */
-  lazy val min: A[String] = stringHtmlAttr("min")
+  @inline final def min: A[String] = stringHtmlAttr("min")
 
   /**
     * The step attribute specifies the numeric intervals for an <input> element
@@ -83,7 +83,7 @@ trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     * The step attribute is applicable to <input> elements of the following
     * types: number, range, date, datetime, datetime-local, month, time and week.
     */
-  lazy val step: A[String] = stringHtmlAttr("step")
+  @inline final def step: A[String] = stringHtmlAttr("step")
 
   /**
     * This attribute is used to define the type of the content linked to. The
@@ -95,18 +95,18 @@ trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val `type`: A[String] = stringHtmlAttr("type")
+  @inline final def `type`: A[String] = stringHtmlAttr("type")
 
-  lazy val typ: A[String] = `type`
+  @inline final def typ: A[String] = `type`
 
-  lazy val tpe: A[String] = `type`
+  @inline final def tpe: A[String] = `type`
 
   /** IE-specific property to prevent user selection */
-  lazy val unselectable: A[Boolean] = htmlAttr("unselectable", BooleanAsOnOffStringCodec)
+  @inline final def unselectable: A[Boolean] = htmlAttr("unselectable", BooleanAsOnOffStringCodec)
 
   /**
     * The `width` attribute specifies the pixel width of the following elements:
     * `<canvas>, <embed>, <iframe>, <img>, <input type="image">, <object>, <video>`
     */
-  lazy val widthAttr: A[Int] = intHtmlAttr("width")
+  @inline final def widthAttr: A[Int] = intHtmlAttr("width")
 }

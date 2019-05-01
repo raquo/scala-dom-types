@@ -16,7 +16,7 @@ trait MiscellaneousEventProps[EP[_ <: DomEvent], DomEvent, DomUIEvent <: DomEven
     *
     * https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
     */
-  lazy val onLoad: EP[DomUIEvent] = eventProp("load")
+  @inline final def onLoad: EP[DomUIEvent] = eventProp("load")
 
   /**
     * The GlobalEventHandlers.onresize property contains an EventHandler
@@ -24,22 +24,22 @@ trait MiscellaneousEventProps[EP[_ <: DomEvent], DomEvent, DomUIEvent <: DomEven
     *
     * https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onresize
     */
-  lazy val onResize: EP[DomUIEvent] = eventProp("resize")
+  @inline final def onResize: EP[DomUIEvent] = eventProp("resize")
 
   /**
     * An event handler for scroll events on element.
     *
     * https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onscroll
     */
-  lazy val onScroll: EP[DomUIEvent] = eventProp("scroll")
+  @inline final def onScroll: EP[DomUIEvent] = eventProp("scroll")
 
   /**
     * Fires when a <menu> element is shown as a context menu
     */
-  lazy val onShow: EP[DomEvent] = eventProp("show")
+  @inline final def onShow: EP[DomEvent] = eventProp("show")
 
   /**
     * Fires when the user opens or closes the <details> element
     */
-  lazy val onToggle: EP[DomEvent] = eventProp("toggle")
+  @inline final def onToggle: EP[DomEvent] = eventProp("toggle")
 }

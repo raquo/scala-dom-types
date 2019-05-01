@@ -14,14 +14,14 @@ trait KeyboardEventProps[EP[_ <: DomEvent], DomEvent, DomKeyboardEvent <: DomEve
     *
     * MDN
     */
-  lazy val onKeyDown: EP[DomKeyboardEvent] = eventProp("keydown")
+  @inline final def onKeyDown: EP[DomKeyboardEvent] = eventProp("keydown")
 
   /**
     * The keyup event is raised when the user releases a key that's been pressed.
     *
     * MDN
     */
-  lazy val onKeyUp: EP[DomKeyboardEvent] = eventProp("keyup")
+  @inline final def onKeyUp: EP[DomKeyboardEvent] = eventProp("keyup")
 
   /**
     * The keypress event should be raised when the user presses a key on the keyboard.
@@ -32,5 +32,5 @@ trait KeyboardEventProps[EP[_ <: DomEvent], DomEvent, DomKeyboardEvent <: DomEve
     *
     * MDN
     */
-  lazy val onKeyPress: EP[DomKeyboardEvent] = eventProp("keypress")
+  @inline final def onKeyPress: EP[DomKeyboardEvent] = eventProp("keypress")
 }

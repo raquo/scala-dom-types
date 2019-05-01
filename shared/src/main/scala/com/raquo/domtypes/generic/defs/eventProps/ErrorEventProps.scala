@@ -10,5 +10,5 @@ trait ErrorEventProps[EP[_ <: DomEvent], DomEvent, DomErrorEvent <: DomEvent] { 
   /**
     * Script to be run when an error occurs when the file is being loaded
     */
-  lazy val onError: EP[DomErrorEvent] = eventProp("error")
+  @inline final def onError: EP[DomErrorEvent] = eventProp("error")
 }

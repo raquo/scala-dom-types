@@ -7,7 +7,7 @@ package com.raquo.domtypes.generic.keys
   * @param cssName  CSS property name, e.g. "background-color"
   * @tparam V  type of values that this CSS property can be set to (in addition to String, which is a sort of an escape hatch)
   */
-class Style[V] (
+@inline class Style[V] (
   override val name: String,
   val cssName: String // @TODO Do we need this? seems like cssName can be derived from name (except cssFloat vs float)
 ) extends Key

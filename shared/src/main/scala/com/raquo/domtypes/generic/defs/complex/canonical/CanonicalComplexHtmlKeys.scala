@@ -12,13 +12,13 @@ trait CanonicalComplexHtmlKeys[RA[_, _], A[_], P[_, _]] extends ComplexHtmlKeys[
   P[String, String]
 ] { this: ReflectedHtmlAttrBuilder[RA] with HtmlAttrBuilder[A] with PropBuilder[P] =>
 
-  override lazy val className: RA[String, String] = stringReflectedAttr(attrKey = "class", propKey = "className")
+  @inline override def className: RA[String, String] = stringReflectedAttr(attrKey = "class", propKey = "className")
 
-  override lazy val rel: RA[String, String] = stringReflectedAttr("rel")
+  @inline override def rel: RA[String, String] = stringReflectedAttr("rel")
 
-  override lazy val role: RA[String, String] = stringReflectedAttr("role")
+  @inline override def role: RA[String, String] = stringReflectedAttr("role")
 
-  override def dataAttr(suffix: String): A[String] = stringHtmlAttr(s"data-$suffix")
+  @inline override def dataAttr(suffix: String): A[String] = stringHtmlAttr(s"data-$suffix")
 
-  override lazy val styleAttr: A[String] = stringHtmlAttr("style")
+  @inline override def styleAttr: A[String] = stringHtmlAttr("style")
 }

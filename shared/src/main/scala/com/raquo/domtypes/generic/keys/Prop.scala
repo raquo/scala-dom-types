@@ -10,4 +10,4 @@ import com.raquo.domtypes.generic.codecs.Codec
   * @tparam V type of values that this Property can be set to
   * @tparam DomV type of values that this Property holds in the native Javascript DOM
   */
-class Prop[V, DomV] (override val name: String, val codec: Codec[V, DomV]) extends Key
+@inline class Prop[V, DomV] (override val name: String, val codec: Codec[V, DomV]) extends Key

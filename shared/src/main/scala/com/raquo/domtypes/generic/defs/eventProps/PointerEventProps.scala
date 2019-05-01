@@ -40,7 +40,7 @@ trait PointerEventProps[
    *
    * MDN
    */
-  lazy val onPointerOver: EP[DomElementPointerEvent] = eventProp("pointerover")
+  @inline final def onPointerOver: EP[DomElementPointerEvent] = eventProp("pointerover")
 
   /**
    * fired when a pointing device is moved into the hit test boundaries of an element
@@ -49,28 +49,28 @@ trait PointerEventProps[
    *
    * MDN
    */
-  lazy val onPointerEnter: EP[DomElementPointerEvent] = eventProp("pointerenter")
+  @inline final def onPointerEnter: EP[DomElementPointerEvent] = eventProp("pointerenter")
 
   /**
    * fired when a pointer becomes active.
    *
    * MDN
    */
-  lazy val onPointerDown: EP[DomElementPointerEvent] = eventProp("pointerdown")
+  @inline final def onPointerDown: EP[DomElementPointerEvent] = eventProp("pointerdown")
 
   /**
    * fired when a pointer changes coordinates.
    *
    * MDN
    */
-  lazy val onPointerMove: EP[DomElementPointerEvent] = eventProp("pointermove")
+  @inline final def onPointerMove: EP[DomElementPointerEvent] = eventProp("pointermove")
 
   /**
    * fired when a pointer is no longer active.
    *
    * MDN
    */
-  lazy val onPointerUp: EP[DomElementPointerEvent] = eventProp("pointerup")
+  @inline final def onPointerUp: EP[DomElementPointerEvent] = eventProp("pointerup")
 
   /**
    * a browser fires this event if it concludes the pointer will no longer be able
@@ -78,7 +78,7 @@ trait PointerEventProps[
    *
    * MDN
    */
-  lazy val onPointerCancel: EP[DomElementPointerEvent] = eventProp("pointercancel")
+  @inline final def onPointerCancel: EP[DomElementPointerEvent] = eventProp("pointercancel")
 
   /**
    * fired for several reasons including: pointing device is moved out of
@@ -89,7 +89,7 @@ trait PointerEventProps[
    *
    * MDN
    */
-  lazy val onPointerOut: EP[DomElementPointerEvent] = eventProp("pointerout")
+  @inline final def onPointerOut: EP[DomElementPointerEvent] = eventProp("pointerout")
 
   /**
    * fired when a pointing device is moved out of the hit test boundaries of an element.
@@ -97,19 +97,19 @@ trait PointerEventProps[
    *
    * MDN
    */
-  lazy val onPointerLeave: EP[DomElementPointerEvent] = eventProp("pointerleave")
+  @inline final def onPointerLeave: EP[DomElementPointerEvent] = eventProp("pointerleave")
 
   /**
    * fired when an element receives pointer capture.
    *
    * MDN
    */
-  lazy val gotPointerCapture: EP[DomElementPointerEvent] = eventProp("gotpointercapture")
+  @inline final def gotPointerCapture: EP[DomElementPointerEvent] = eventProp("gotpointercapture")
 
   /**
    * Fired after pointer capture is released for a pointer.
    *
    * MDN
    */
-  lazy val lostPointerCapture: EP[DomElementPointerEvent] = eventProp("lostpointercapture")
+  @inline final def lostPointerCapture: EP[DomElementPointerEvent] = eventProp("lostpointercapture")
 }

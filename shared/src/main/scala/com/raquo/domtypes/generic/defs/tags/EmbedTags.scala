@@ -12,14 +12,14 @@ trait EmbedTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlImage <: DomHtmlElem
     *
     *  MDN
     */
-  lazy val img: T[HtmlImage] = htmlTag("img", void = true)
+  @inline final def img: T[HtmlImage] = htmlTag("img", void = true)
 
   /**
     * Represents a nested browsing context, that is an embedded HTML document.
     *
     *  MDN
     */
-  lazy val iframe: T[HtmlIframe] = htmlTag("iframe")
+  @inline final def iframe: T[HtmlIframe] = htmlTag("iframe")
 
   /**
     * Represents a integration point for an external, often non-HTML, application
@@ -27,7 +27,7 @@ trait EmbedTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlImage <: DomHtmlElem
     *
     *  MDN
     */
-  lazy val embed: T[HtmlEmbed] = htmlTag("embed", void = true)
+  @inline final def embed: T[HtmlEmbed] = htmlTag("embed", void = true)
 
   /**
     * Represents an external resource, which is treated as an image, an HTML
@@ -35,14 +35,14 @@ trait EmbedTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlImage <: DomHtmlElem
     *
     *  MDN
     */
-  lazy val `object`: T[HtmlObject] = htmlTag("object")
+  @inline final def `object`: T[HtmlObject] = htmlTag("object")
 
   /**
     * Defines parameters for use by plug-ins invoked by object elements.
     *
     *  MDN
     */
-  lazy val param: T[HtmlParam] = htmlTag("param", void = true)
+  @inline final def param: T[HtmlParam] = htmlTag("param", void = true)
 
   /**
     * Represents a video, and its associated audio files and captions, with the
@@ -50,14 +50,14 @@ trait EmbedTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlImage <: DomHtmlElem
     *
     *  MDN
     */
-  lazy val video: T[HtmlVideo] = htmlTag("video")
+  @inline final def video: T[HtmlVideo] = htmlTag("video")
 
   /**
     * Represents a sound or an audio stream.
     *
     *  MDN
     */
-  lazy val audio: T[HtmlAudio] = htmlTag("audio")
+  @inline final def audio: T[HtmlAudio] = htmlTag("audio")
 
   /**
     * Allows the authors to specify alternate media resources for media elements
@@ -65,7 +65,7 @@ trait EmbedTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlImage <: DomHtmlElem
     *
     *  MDN
     */
-  lazy val source: T[HtmlSource] = htmlTag("source", void = true)
+  @inline final def source: T[HtmlSource] = htmlTag("source", void = true)
 
   /**
     * Allows authors to specify timed text track for media elements like video or
@@ -73,7 +73,7 @@ trait EmbedTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlImage <: DomHtmlElem
     *
     *  MDN
     */
-  lazy val track: T[HtmlTrack] = htmlTag("track", void = true)
+  @inline final def track: T[HtmlTrack] = htmlTag("track", void = true)
 
   /**
     * Represents a bitmap area that scripts can use to render graphics like graphs,
@@ -81,19 +81,19 @@ trait EmbedTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlImage <: DomHtmlElem
     *
     *  MDN
     */
-  lazy val canvas: T[HtmlCanvas] = htmlTag("canvas")
+  @inline final def canvas: T[HtmlCanvas] = htmlTag("canvas")
 
   /**
     * In conjunction with area, defines an image map.
     *
     *  MDN
     */
-  lazy val map: T[HtmlMap] = htmlTag("map")
+  @inline final def map: T[HtmlMap] = htmlTag("map")
 
   /**
     * In conjunction with map, defines an image map
     *
     *  MDN
     */
-  lazy val area: T[HtmlArea] = htmlTag("area", void = true)
+  @inline final def area: T[HtmlArea] = htmlTag("area", void = true)
 }

@@ -26,5 +26,5 @@ trait ComplexSvgKeys[ClassNameA] {
     */
   def className: ClassNameA
 
-  lazy val cls: ClassNameA = className
+  @inline final def cls: ClassNameA = className
 }
