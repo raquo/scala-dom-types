@@ -17,7 +17,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val accentHeight: A[Double] = doubleSvgAttr("accent-height")
+  @inline def accentHeight: A[Double] = doubleSvgAttr("accent-height")
 
   /**
     * This attribute controls whether or not the animation is cumulative.
@@ -29,7 +29,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val accumulate: A[String] = stringSvgAttr("accumulate")
+  @inline def accumulate: A[String] = stringSvgAttr("accumulate")
 
   /**
     * This attribute controls whether or not the animation is additive.
@@ -42,7 +42,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val additive: A[String] = stringSvgAttr("additive")
+  @inline def additive: A[String] = stringSvgAttr("additive")
 
   /**
     * The alignment-baseline attribute specifies how an object is aligned
@@ -60,7 +60,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val alignmentBaseline: A[String] = stringSvgAttr("alignment-baseline")
+  @inline def alignmentBaseline: A[String] = stringSvgAttr("alignment-baseline")
 
 
   /**
@@ -73,7 +73,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val ascent: A[Double] = doubleSvgAttr("ascent")
+  @inline def ascent: A[Double] = doubleSvgAttr("ascent")
 
 
   /**
@@ -84,7 +84,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val attributeName: A[String] = stringSvgAttr("attributeName")
+  @inline def attributeName: A[String] = stringSvgAttr("attributeName")
 
 
   /**
@@ -95,7 +95,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val attributeType: A[String] = stringSvgAttr("attributeType")
+  @inline def attributeType: A[String] = stringSvgAttr("attributeType")
 
 
   /**
@@ -108,7 +108,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val azimuth: A[Double] = doubleSvgAttr("azimuth")
+  @inline def azimuth: A[Double] = doubleSvgAttr("azimuth")
 
 
   /**
@@ -125,7 +125,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val baseFrequency: A[String] = stringSvgAttr("baseFrequency")
+  @inline def baseFrequency: A[String] = stringSvgAttr("baseFrequency")
 
 
   /**
@@ -139,7 +139,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val baselineShift: A[String] = stringSvgAttr("baseline-shift")
+  @inline def baselineShift: A[String] = stringSvgAttr("baseline-shift")
 
 
   /**
@@ -154,7 +154,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val begin: A[String] = stringSvgAttr("begin")
+  @inline def begin: A[String] = stringSvgAttr("begin")
 
 
   /**
@@ -168,7 +168,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val bias: A[Double] = doubleSvgAttr("bias")
+  @inline def bias: A[Double] = doubleSvgAttr("bias")
 
 
   /**
@@ -180,7 +180,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val calcMode: A[String] = stringSvgAttr("calcMode")
+  @inline def calcMode: A[String] = stringSvgAttr("calcMode")
 
 
   /**
@@ -195,7 +195,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val clip: A[String] = stringSvgAttr("clip")
+  @inline def clip: A[String] = stringSvgAttr("clip")
 
 
   /**
@@ -206,7 +206,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val clipPathAttr: A[String] = stringSvgAttr("clip-path")
+  @inline def clipPathAttr: A[String] = stringSvgAttr("clip-path")
 
   /**
     * The clipPathUnits attribute defines the coordinate system for the contents
@@ -221,7 +221,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val clipPathUnits: A[String] = stringSvgAttr("clipPathUnits")
+  @inline def clipPathUnits: A[String] = stringSvgAttr("clipPathUnits")
 
   /**
     * The clip-rule attribute only applies to graphics elements that are contained within a
@@ -232,7 +232,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val clipRule: A[String] = stringSvgAttr("clip-rule")
+  @inline def clipRule: A[String] = stringSvgAttr("clip-rule")
 
   /**
     * The color attribute is used to provide a potential indirect value (currentColor)
@@ -244,7 +244,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val color: A[String] = stringSvgAttr("color")
+  @inline def color: A[String] = stringSvgAttr("color")
 
 
   /**
@@ -264,7 +264,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val colorInterpolation: A[String] = stringSvgAttr("color-interpolation")
+  @inline def colorInterpolation: A[String] = stringSvgAttr("color-interpolation")
 
 
   /**
@@ -281,7 +281,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val colorInterpolationFilters: A[String] = stringSvgAttr("color-interpolation-filters")
+  @inline def colorInterpolationFilters: A[String] = stringSvgAttr("color-interpolation-filters")
 
 
   /**
@@ -294,7 +294,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val colorProfileAttr: A[String] = stringSvgAttr("color-profile")
+  @inline def colorProfileAttr: A[String] = stringSvgAttr("color-profile")
 
 
   /**
@@ -312,7 +312,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val colorRendering: A[String] = stringSvgAttr("color-rendering")
+  @inline def colorRendering: A[String] = stringSvgAttr("color-rendering")
 
 
   /**
@@ -327,7 +327,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val contentScriptType: A[String] = stringSvgAttr("contentScriptType")
+  @inline def contentScriptType: A[String] = stringSvgAttr("contentScriptType")
 
 
   /**
@@ -339,7 +339,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val contentStyleType: A[String] = stringSvgAttr("contentStyleType")
+  @inline def contentStyleType: A[String] = stringSvgAttr("contentStyleType")
 
 
   /**
@@ -355,7 +355,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val cursorAttr: A[String] = stringSvgAttr("cursor")
+  @inline def cursorAttr: A[String] = stringSvgAttr("cursor")
 
 
   /**
@@ -371,7 +371,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val cx: A[String] = stringSvgAttr("cx")
+  @inline def cx: A[String] = stringSvgAttr("cx")
 
   /**
     * For the <circle> and the <ellipse> element, this attribute define the y-axis coordinate
@@ -386,7 +386,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val cy: A[String] = stringSvgAttr("cy")
+  @inline def cy: A[String] = stringSvgAttr("cy")
 
 
   /**
@@ -394,7 +394,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val d: A[String] = stringSvgAttr("d")
+  @inline def d: A[String] = stringSvgAttr("d")
 
 
   /**
@@ -402,7 +402,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val diffuseConstant: A[String] = stringSvgAttr("diffuseConstant")
+  @inline def diffuseConstant: A[String] = stringSvgAttr("diffuseConstant")
 
 
   /**
@@ -410,7 +410,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val direction: A[String] = stringSvgAttr("direction")
+  @inline def direction: A[String] = stringSvgAttr("direction")
 
 
   /**
@@ -418,7 +418,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val display: A[String] = stringSvgAttr("display")
+  @inline def display: A[String] = stringSvgAttr("display")
 
 
   /**
@@ -426,7 +426,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val divisor: A[String] = stringSvgAttr("divisor")
+  @inline def divisor: A[String] = stringSvgAttr("divisor")
 
 
   /**
@@ -434,7 +434,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val dominantBaseline: A[String] = stringSvgAttr("dominant-baseline")
+  @inline def dominantBaseline: A[String] = stringSvgAttr("dominant-baseline")
 
 
   /**
@@ -442,7 +442,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val dur: A[String] = stringSvgAttr("dur")
+  @inline def dur: A[String] = stringSvgAttr("dur")
 
 
   /**
@@ -450,7 +450,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val dx: A[String] = stringSvgAttr("dx")
+  @inline def dx: A[String] = stringSvgAttr("dx")
 
 
   /**
@@ -458,7 +458,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val dy: A[String] = stringSvgAttr("dy")
+  @inline def dy: A[String] = stringSvgAttr("dy")
 
 
   /**
@@ -466,7 +466,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val edgeMode: A[String] = stringSvgAttr("edgeMode")
+  @inline def edgeMode: A[String] = stringSvgAttr("edgeMode")
 
 
   /**
@@ -474,7 +474,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val elevation: A[Double] = doubleSvgAttr("elevation")
+  @inline def elevation: A[Double] = doubleSvgAttr("elevation")
 
 
   /**
@@ -482,7 +482,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val end: A[String] = stringSvgAttr("end")
+  @inline def end: A[String] = stringSvgAttr("end")
 
 
   /**
@@ -490,7 +490,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val externalResourcesRequired: A[String] = stringSvgAttr("externalResourcesRequired")
+  @inline def externalResourcesRequired: A[String] = stringSvgAttr("externalResourcesRequired")
 
 
   /**
@@ -498,7 +498,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val fill: A[String] = stringSvgAttr("fill")
+  @inline def fill: A[String] = stringSvgAttr("fill")
 
 
   /**
@@ -506,7 +506,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val fillOpacity: A[String] = stringSvgAttr("fill-opacity")
+  @inline def fillOpacity: A[String] = stringSvgAttr("fill-opacity")
 
 
   /**
@@ -514,7 +514,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val fillRule: A[String] = stringSvgAttr("fill-rule")
+  @inline def fillRule: A[String] = stringSvgAttr("fill-rule")
 
 
   /**
@@ -522,7 +522,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val filterAttr: A[String] = stringSvgAttr("filter")
+  @inline def filterAttr: A[String] = stringSvgAttr("filter")
 
 
   /**
@@ -530,7 +530,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val filterRes: A[String] = stringSvgAttr("filterRes")
+  @inline def filterRes: A[String] = stringSvgAttr("filterRes")
 
 
   /**
@@ -538,7 +538,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val filterUnits: A[String] = stringSvgAttr("filterUnits")
+  @inline def filterUnits: A[String] = stringSvgAttr("filterUnits")
 
 
   /**
@@ -546,7 +546,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val floodColor: A[String] = stringSvgAttr("flood-color")
+  @inline def floodColor: A[String] = stringSvgAttr("flood-color")
 
 
   /**
@@ -554,7 +554,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val floodOpacity: A[String] = stringSvgAttr("flood-opacity")
+  @inline def floodOpacity: A[String] = stringSvgAttr("flood-opacity")
 
 
   /**
@@ -562,7 +562,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val fontFamily: A[String] = stringSvgAttr("font-family")
+  @inline def fontFamily: A[String] = stringSvgAttr("font-family")
 
 
   /**
@@ -570,7 +570,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val fontSize: A[String] = stringSvgAttr("font-size")
+  @inline def fontSize: A[String] = stringSvgAttr("font-size")
 
 
   /**
@@ -578,7 +578,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val fontSizeAdjust: A[String] = stringSvgAttr("font-size-adjust")
+  @inline def fontSizeAdjust: A[String] = stringSvgAttr("font-size-adjust")
 
 
   /**
@@ -586,7 +586,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val fontStretch: A[String] = stringSvgAttr("font-stretch")
+  @inline def fontStretch: A[String] = stringSvgAttr("font-stretch")
 
 
   /**
@@ -594,7 +594,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val fontVariant: A[String] = stringSvgAttr("font-variant")
+  @inline def fontVariant: A[String] = stringSvgAttr("font-variant")
 
 
   /**
@@ -602,7 +602,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val fontWeight: A[String] = stringSvgAttr("font-weight")
+  @inline def fontWeight: A[String] = stringSvgAttr("font-weight")
 
 
   /**
@@ -610,7 +610,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val from: A[String] = stringSvgAttr("from")
+  @inline def from: A[String] = stringSvgAttr("from")
 
 
   /**
@@ -618,7 +618,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val gradientTransform: A[String] = stringSvgAttr("gradientTransform")
+  @inline def gradientTransform: A[String] = stringSvgAttr("gradientTransform")
 
 
   /**
@@ -626,7 +626,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val gradientUnits: A[String] = stringSvgAttr("gradientUnits")
+  @inline def gradientUnits: A[String] = stringSvgAttr("gradientUnits")
 
 
   /**
@@ -634,7 +634,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val height: A[String] = stringSvgAttr("height")
+  @inline def height: A[String] = stringSvgAttr("height")
 
 
   /**
@@ -642,11 +642,11 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val imageRendering: A[String] = stringSvgAttr("imageRendering")
+  @inline def imageRendering: A[String] = stringSvgAttr("imageRendering")
 
 
   // @TODO[API] Ideally this should not be a distinct svg-specific attr, I think.
-  lazy val id: A[String] = stringSvgAttr("id")
+  @inline def id: A[String] = stringSvgAttr("id")
 
 
   /**
@@ -654,7 +654,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val in: A[String] = stringSvgAttr("in")
+  @inline def in: A[String] = stringSvgAttr("in")
 
 
   /**
@@ -662,7 +662,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val in2: A[String] = stringSvgAttr("in2")
+  @inline def in2: A[String] = stringSvgAttr("in2")
 
 
   /**
@@ -670,7 +670,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val k1: A[Double] = doubleSvgAttr("k1")
+  @inline def k1: A[Double] = doubleSvgAttr("k1")
 
 
   /**
@@ -678,7 +678,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val k2: A[Double] = doubleSvgAttr("k2")
+  @inline def k2: A[Double] = doubleSvgAttr("k2")
 
 
   /**
@@ -686,7 +686,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val k3: A[Double] = doubleSvgAttr("k3")
+  @inline def k3: A[Double] = doubleSvgAttr("k3")
 
 
   /**
@@ -694,7 +694,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val k4: A[Double] = doubleSvgAttr("k4")
+  @inline def k4: A[Double] = doubleSvgAttr("k4")
 
 
   /**
@@ -702,7 +702,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val kernelMatrix: A[String] = stringSvgAttr("kernelMatrix")
+  @inline def kernelMatrix: A[String] = stringSvgAttr("kernelMatrix")
 
 
   /**
@@ -710,7 +710,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val kernelUnitLength: A[String] = stringSvgAttr("kernelUnitLength")
+  @inline def kernelUnitLength: A[String] = stringSvgAttr("kernelUnitLength")
 
 
   /**
@@ -718,7 +718,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val kerning: A[String] = stringSvgAttr("kerning")
+  @inline def kerning: A[String] = stringSvgAttr("kerning")
 
 
   /**
@@ -726,7 +726,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val keySplines: A[String] = stringSvgAttr("keySplines")
+  @inline def keySplines: A[String] = stringSvgAttr("keySplines")
 
 
   /**
@@ -734,7 +734,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val keyTimes: A[String] = stringSvgAttr("keyTimes")
+  @inline def keyTimes: A[String] = stringSvgAttr("keyTimes")
 
 
   /**
@@ -742,7 +742,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val letterSpacing: A[String] = stringSvgAttr("letter-spacing")
+  @inline def letterSpacing: A[String] = stringSvgAttr("letter-spacing")
 
 
   /**
@@ -750,7 +750,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val lightingColor: A[String] = stringSvgAttr("lighting-color")
+  @inline def lightingColor: A[String] = stringSvgAttr("lighting-color")
 
 
   /**
@@ -758,7 +758,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val limitingConeAngle: A[String] = stringSvgAttr("limitingConeAngle")
+  @inline def limitingConeAngle: A[String] = stringSvgAttr("limitingConeAngle")
 
 
   /**
@@ -766,7 +766,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val local: A[String] = stringSvgAttr("local")
+  @inline def local: A[String] = stringSvgAttr("local")
 
 
   /**
@@ -774,7 +774,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val markerEnd: A[String] = stringSvgAttr("marker-end")
+  @inline def markerEnd: A[String] = stringSvgAttr("marker-end")
 
 
   /**
@@ -782,7 +782,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val markerMid: A[String] = stringSvgAttr("marker-mid")
+  @inline def markerMid: A[String] = stringSvgAttr("marker-mid")
 
 
   /**
@@ -790,7 +790,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val markerStart: A[String] = stringSvgAttr("marker-start")
+  @inline def markerStart: A[String] = stringSvgAttr("marker-start")
 
 
   /**
@@ -798,7 +798,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val markerHeight: A[String] = stringSvgAttr("markerHeight")
+  @inline def markerHeight: A[String] = stringSvgAttr("markerHeight")
 
 
   /**
@@ -806,7 +806,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val markerUnits: A[String] = stringSvgAttr("markerUnits")
+  @inline def markerUnits: A[String] = stringSvgAttr("markerUnits")
 
 
   /**
@@ -814,7 +814,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val markerWidth: A[String] = stringSvgAttr("markerWidth")
+  @inline def markerWidth: A[String] = stringSvgAttr("markerWidth")
 
 
   /**
@@ -822,7 +822,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val maskContentUnits: A[String] = stringSvgAttr("maskContentUnits")
+  @inline def maskContentUnits: A[String] = stringSvgAttr("maskContentUnits")
 
 
   /**
@@ -830,7 +830,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val maskUnits: A[String] = stringSvgAttr("maskUnits")
+  @inline def maskUnits: A[String] = stringSvgAttr("maskUnits")
 
 
   /**
@@ -838,7 +838,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val maskAttr: A[String] = stringSvgAttr("mak")
+  @inline def maskAttr: A[String] = stringSvgAttr("mak")
 
 
   /**
@@ -846,7 +846,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val max: A[String] = stringSvgAttr("max")
+  @inline def max: A[String] = stringSvgAttr("max")
 
 
   /**
@@ -854,7 +854,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val min: A[String] = stringSvgAttr("min")
+  @inline def min: A[String] = stringSvgAttr("min")
 
 
   /**
@@ -862,7 +862,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val mode: A[String] = stringSvgAttr("mode")
+  @inline def mode: A[String] = stringSvgAttr("mode")
 
 
   /**
@@ -870,10 +870,10 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val numOctaves: A[Int] = intSvgAttr("numOctaves")
+  @inline def numOctaves: A[Int] = intSvgAttr("numOctaves")
 
 
-  lazy val offset: A[String] = stringSvgAttr("offset")
+  @inline def offset: A[String] = stringSvgAttr("offset")
 
   /**
     * This attribute defines the orientation of the marker relative to the shape it is attached to.
@@ -882,22 +882,14 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val orient: A[String] = stringSvgAttr("orient")
+  @inline def orient: A[String] = stringSvgAttr("orient")
 
   /**
     *
     *
     * MDN
     */
-  lazy val opacity: A[String] = stringSvgAttr("opacity")
-
-
-  /**
-    *
-    *
-    * MDN
-    */
-  lazy val operator: A[String] = stringSvgAttr("operator")
+  @inline def opacity: A[String] = stringSvgAttr("opacity")
 
 
   /**
@@ -905,7 +897,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val order: A[String] = stringSvgAttr("order")
+  @inline def operator: A[String] = stringSvgAttr("operator")
 
 
   /**
@@ -913,7 +905,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val overflow: A[String] = stringSvgAttr("overflow")
+  @inline def order: A[String] = stringSvgAttr("order")
 
 
   /**
@@ -921,7 +913,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val paintOrder: A[String] = stringSvgAttr("paint-order")
+  @inline def overflow: A[String] = stringSvgAttr("overflow")
 
 
   /**
@@ -929,7 +921,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val pathLength: A[String] = stringSvgAttr("pathLength")
+  @inline def paintOrder: A[String] = stringSvgAttr("paint-order")
 
 
   /**
@@ -937,7 +929,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val patternContentUnits: A[String] = stringSvgAttr("patternContentUnits")
+  @inline def pathLength: A[String] = stringSvgAttr("pathLength")
 
 
   /**
@@ -945,7 +937,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val patternTransform: A[String] = stringSvgAttr("patternTransform")
+  @inline def patternContentUnits: A[String] = stringSvgAttr("patternContentUnits")
 
 
   /**
@@ -953,7 +945,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val patternUnits: A[String] = stringSvgAttr("patternUnits")
+  @inline def patternTransform: A[String] = stringSvgAttr("patternTransform")
 
 
   /**
@@ -961,7 +953,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val pointerEvents: A[String] = stringSvgAttr("pointer-events")
+  @inline def patternUnits: A[String] = stringSvgAttr("patternUnits")
 
 
   /**
@@ -969,7 +961,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val points: A[String] = stringSvgAttr("points")
+  @inline def pointerEvents: A[String] = stringSvgAttr("pointer-events")
 
 
   /**
@@ -977,7 +969,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val pointsAtX: A[String] = stringSvgAttr("pointsAtX")
+  @inline def points: A[String] = stringSvgAttr("points")
 
 
   /**
@@ -985,7 +977,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val pointsAtY: A[String] = stringSvgAttr("pointsAtY")
+  @inline def pointsAtX: A[String] = stringSvgAttr("pointsAtX")
 
 
   /**
@@ -993,7 +985,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val pointsAtZ: A[String] = stringSvgAttr("pointsAtZ")
+  @inline def pointsAtY: A[String] = stringSvgAttr("pointsAtY")
 
 
   /**
@@ -1001,7 +993,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val preserveAlpha: A[String] = stringSvgAttr("preserveAlpha")
+  @inline def pointsAtZ: A[String] = stringSvgAttr("pointsAtZ")
 
 
   /**
@@ -1009,7 +1001,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val preserveAspectRatio: A[String] = stringSvgAttr("preserveAspectRatio")
+  @inline def preserveAlpha: A[String] = stringSvgAttr("preserveAlpha")
 
 
   /**
@@ -1017,7 +1009,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val primitiveUnits: A[String] = stringSvgAttr("primitiveUnits")
+  @inline def preserveAspectRatio: A[String] = stringSvgAttr("preserveAspectRatio")
 
 
   /**
@@ -1025,7 +1017,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val r: A[String] = stringSvgAttr("r")
+  @inline def primitiveUnits: A[String] = stringSvgAttr("primitiveUnits")
 
 
   /**
@@ -1033,7 +1025,15 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val radius: A[String] = stringSvgAttr("radius")
+  @inline def r: A[String] = stringSvgAttr("r")
+
+
+  /**
+    *
+    *
+    * MDN
+    */
+  @inline def radius: A[String] = stringSvgAttr("radius")
 
   /**
     * The refX attribute is used alongside the refY attribute to provide coordinates for the location on the
@@ -1043,7 +1043,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val refX: A[String] = stringSvgAttr("refX")
+  @inline def refX: A[String] = stringSvgAttr("refX")
 
   /**
     * The refY attribute is used alongside the refY attribute to provide coordinates for the location on the
@@ -1053,22 +1053,14 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val refY: A[String] = stringSvgAttr("refY")
+  @inline def refY: A[String] = stringSvgAttr("refY")
 
   /**
     *
     *
     * MDN
     */
-  lazy val repeatCount: A[String] = stringSvgAttr("repeatCount")
-
-
-  /**
-    *
-    *
-    * MDN
-    */
-  lazy val repeatDur: A[String] = stringSvgAttr("repeatDur")
+  @inline def repeatCount: A[String] = stringSvgAttr("repeatCount")
 
 
   /**
@@ -1076,7 +1068,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val requiredFeatures: A[String] = stringSvgAttr("requiredFeatures")
+  @inline def repeatDur: A[String] = stringSvgAttr("repeatDur")
 
 
   /**
@@ -1084,7 +1076,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val restart: A[String] = stringSvgAttr("restart")
+  @inline def requiredFeatures: A[String] = stringSvgAttr("requiredFeatures")
 
 
   /**
@@ -1092,7 +1084,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val result: A[String] = stringSvgAttr("result")
+  @inline def restart: A[String] = stringSvgAttr("restart")
 
 
   /**
@@ -1100,7 +1092,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val rx: A[String] = stringSvgAttr("rx")
+  @inline def result: A[String] = stringSvgAttr("result")
 
 
   /**
@@ -1108,7 +1100,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val ry: A[String] = stringSvgAttr("ry")
+  @inline def rx: A[String] = stringSvgAttr("rx")
 
 
   /**
@@ -1116,7 +1108,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val scale: A[String] = stringSvgAttr("scale")
+  @inline def ry: A[String] = stringSvgAttr("ry")
 
 
   /**
@@ -1124,7 +1116,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val seed: A[Double] = doubleSvgAttr("seed")
+  @inline def scale: A[String] = stringSvgAttr("scale")
 
 
   /**
@@ -1132,7 +1124,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val shapeRendering: A[String] = stringSvgAttr("shape-rendering")
+  @inline def seed: A[Double] = doubleSvgAttr("seed")
 
 
   /**
@@ -1140,7 +1132,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val specularConstant: A[Double] = doubleSvgAttr("specularConstant")
+  @inline def shapeRendering: A[String] = stringSvgAttr("shape-rendering")
 
 
   /**
@@ -1148,7 +1140,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val specularExponent: A[Double] = doubleSvgAttr("specularExponent")
+  @inline def specularConstant: A[Double] = doubleSvgAttr("specularConstant")
 
 
   /**
@@ -1156,7 +1148,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val spreadMethod: A[String] = stringSvgAttr("spreadMethod")
+  @inline def specularExponent: A[Double] = doubleSvgAttr("specularExponent")
 
 
   /**
@@ -1164,7 +1156,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val stdDeviation: A[String] = stringSvgAttr("stdDeviation")
+  @inline def spreadMethod: A[String] = stringSvgAttr("spreadMethod")
 
 
   /**
@@ -1172,7 +1164,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val stitchTiles: A[String] = stringSvgAttr("stitchTiles")
+  @inline def stdDeviation: A[String] = stringSvgAttr("stdDeviation")
 
 
   /**
@@ -1180,7 +1172,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val stopColor: A[String] = stringSvgAttr("stop-color")
+  @inline def stitchTiles: A[String] = stringSvgAttr("stitchTiles")
 
 
   /**
@@ -1188,7 +1180,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val stopOpacity: A[String] = stringSvgAttr("stop-opacity")
+  @inline def stopColor: A[String] = stringSvgAttr("stop-color")
 
 
   /**
@@ -1196,7 +1188,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val stroke: A[String] = stringSvgAttr("stroke")
+  @inline def stopOpacity: A[String] = stringSvgAttr("stop-opacity")
 
 
   /**
@@ -1204,7 +1196,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val strokeDashArray: A[String] = stringSvgAttr("stroke-dasharray")
+  @inline def stroke: A[String] = stringSvgAttr("stroke")
 
 
   /**
@@ -1212,7 +1204,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val strokeDashOffset: A[String] = stringSvgAttr("stroke-dashoffset")
+  @inline def strokeDashArray: A[String] = stringSvgAttr("stroke-dasharray")
 
 
   /**
@@ -1220,7 +1212,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val strokeLineCap: A[String] = stringSvgAttr("stroke-linecap")
+  @inline def strokeDashOffset: A[String] = stringSvgAttr("stroke-dashoffset")
 
 
   /**
@@ -1228,7 +1220,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val strokeLineJoin: A[String] = stringSvgAttr("stroke-linejoin")
+  @inline def strokeLineCap: A[String] = stringSvgAttr("stroke-linecap")
 
 
   /**
@@ -1236,7 +1228,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val strokeMiterLimit: A[String] = stringSvgAttr("stroke-miterlimit")
+  @inline def strokeLineJoin: A[String] = stringSvgAttr("stroke-linejoin")
 
 
   /**
@@ -1244,7 +1236,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val strokeOpacity: A[String] = stringSvgAttr("stroke-opacity")
+  @inline def strokeMiterLimit: A[String] = stringSvgAttr("stroke-miterlimit")
 
 
   /**
@@ -1252,7 +1244,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val strokeWidth: A[String] = stringSvgAttr("stroke-width")
+  @inline def strokeOpacity: A[String] = stringSvgAttr("stroke-opacity")
 
 
   /**
@@ -1260,7 +1252,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val style: A[String] = stringSvgAttr("style")
+  @inline def strokeWidth: A[String] = stringSvgAttr("stroke-width")
 
 
   /**
@@ -1268,7 +1260,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val surfaceScale: A[String] = stringSvgAttr("surfaceScale")
+  @inline def style: A[String] = stringSvgAttr("style")
 
 
   /**
@@ -1276,7 +1268,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val targetX: A[String] = stringSvgAttr("targetX")
+  @inline def surfaceScale: A[String] = stringSvgAttr("surfaceScale")
 
 
   /**
@@ -1284,7 +1276,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val targetY: A[String] = stringSvgAttr("targetY")
+  @inline def targetX: A[String] = stringSvgAttr("targetX")
 
 
   /**
@@ -1292,7 +1284,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val textAnchor: A[String] = stringSvgAttr("text-anchor")
+  @inline def targetY: A[String] = stringSvgAttr("targetY")
 
 
   /**
@@ -1300,7 +1292,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val textDecoration: A[String] = stringSvgAttr("text-decoration")
+  @inline def textAnchor: A[String] = stringSvgAttr("text-anchor")
 
 
   /**
@@ -1308,7 +1300,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val textRendering: A[String] = stringSvgAttr("text-rendering")
+  @inline def textDecoration: A[String] = stringSvgAttr("text-decoration")
 
 
   /**
@@ -1316,7 +1308,15 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val to: A[String] = stringSvgAttr("to")
+  @inline def textRendering: A[String] = stringSvgAttr("text-rendering")
+
+
+  /**
+    *
+    *
+    * MDN
+    */
+  @inline def to: A[String] = stringSvgAttr("to")
 
 
   /*
@@ -1324,7 +1324,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val transform: A[String] = stringSvgAttr("transform")
+  @inline def transform: A[String] = stringSvgAttr("transform")
 
 
   /*
@@ -1332,11 +1332,11 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val `type`: A[String] = stringSvgAttr("type")
+  @inline def `type`: A[String] = stringSvgAttr("type")
 
-  lazy val typ: A[String] = `type`
+  @inline def typ: A[String] = `type`
 
-  lazy val tpe: A[String] = `type`
+  @inline def tpe: A[String] = `type`
 
 
   /*
@@ -1344,7 +1344,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val values: A[String] = stringSvgAttr("values")
+  @inline def values: A[String] = stringSvgAttr("values")
 
 
   /**
@@ -1352,7 +1352,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val viewBox: A[String] = stringSvgAttr("viewBox")
+  @inline def viewBox: A[String] = stringSvgAttr("viewBox")
 
 
   /*
@@ -1360,7 +1360,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val visibility: A[String] = stringSvgAttr("visibility")
+  @inline def visibility: A[String] = stringSvgAttr("visibility")
 
 
   /*
@@ -1368,7 +1368,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val width: A[String] = stringSvgAttr("width")
+  @inline def width: A[String] = stringSvgAttr("width")
 
 
   /*
@@ -1376,22 +1376,14 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val wordSpacing: A[String] = stringSvgAttr("word-spacing")
+  @inline def wordSpacing: A[String] = stringSvgAttr("word-spacing")
 
   /*
    *
    *
    * MDN
    */
-  lazy val writingMode: A[String] = stringSvgAttr("writing-mode")
-
-
-  /*
-   *
-   *
-   * MDN
-   */
-  lazy val x: A[String] = stringSvgAttr("x")
+  @inline def writingMode: A[String] = stringSvgAttr("writing-mode")
 
 
   /*
@@ -1399,7 +1391,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val x1: A[String] = stringSvgAttr("x1")
+  @inline def x: A[String] = stringSvgAttr("x")
 
 
   /*
@@ -1407,7 +1399,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val x2: A[String] = stringSvgAttr("x2")
+  @inline def x1: A[String] = stringSvgAttr("x1")
 
 
   /*
@@ -1415,7 +1407,15 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val xChannelSelector: A[String] = stringSvgAttr("xChannelSelector")
+  @inline def x2: A[String] = stringSvgAttr("x2")
+
+
+  /*
+   *
+   *
+   * MDN
+   */
+  @inline def xChannelSelector: A[String] = stringSvgAttr("xChannelSelector")
 
 
   /*
@@ -1424,7 +1424,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    * MDN
    */
   // TODO : this currently does not work,have to add namespace: Namespace.svgXlinkNamespaceConfig)
-  lazy val xlinkHref: A[String] = stringSvgAttr("xlink:href", namespace = xlinkNamespace)
+  @inline def xlinkHref: A[String] = stringSvgAttr("xlink:href", namespace = xlinkNamespace)
 
 
   /*
@@ -1432,7 +1432,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val xlinkRole: A[String] = stringSvgAttr("xlink:role", namespace = xlinkNamespace)
+  @inline def xlinkRole: A[String] = stringSvgAttr("xlink:role", namespace = xlinkNamespace)
 
 
   /*
@@ -1440,7 +1440,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val xlinkTitle: A[String] = stringSvgAttr("xlink:title", namespace = xlinkNamespace)
+  @inline def xlinkTitle: A[String] = stringSvgAttr("xlink:title", namespace = xlinkNamespace)
 
 
   /*
@@ -1448,7 +1448,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val xmlSpace: A[String] = stringSvgAttr("xml:space", namespace = xmlNamespace)
+  @inline def xmlSpace: A[String] = stringSvgAttr("xml:space", namespace = xmlNamespace)
 
 
   /**
@@ -1456,7 +1456,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val xmlns: A[String] = stringSvgAttr("xmlns")
+  @inline def xmlns: A[String] = stringSvgAttr("xmlns")
 
 
   /**
@@ -1464,7 +1464,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val xmlnsXlink: A[String] = stringSvgAttr("xmlns:xlink", namespace = xlinkNamespace)
+  @inline def xmlnsXlink: A[String] = stringSvgAttr("xmlns:xlink", namespace = xlinkNamespace)
 
 
   /*
@@ -1472,7 +1472,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val y: A[String] = stringSvgAttr("y")
+  @inline def y: A[String] = stringSvgAttr("y")
 
 
   /*
@@ -1480,7 +1480,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val y1: A[String] = stringSvgAttr("y1")
+  @inline def y1: A[String] = stringSvgAttr("y1")
 
 
   /*
@@ -1488,7 +1488,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val y2: A[String] = stringSvgAttr("y2")
+  @inline def y2: A[String] = stringSvgAttr("y2")
 
 
   /*
@@ -1496,7 +1496,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val yChannelSelector: A[String] = stringSvgAttr("yChannelSelector")
+  @inline def yChannelSelector: A[String] = stringSvgAttr("yChannelSelector")
 
 
   /*
@@ -1504,7 +1504,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val z: A[String] = stringSvgAttr("z")
+  @inline def z: A[String] = stringSvgAttr("z")
 }
 
 object SvgAttrs {

@@ -21,14 +21,14 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
   /**
     * Identifies the currently active descendant of a composite widget.
     */
-  lazy val activeDescendant: A[String] = stringHtmlAttr("aria-activedescendant")
+  @inline def activeDescendant: A[String] = stringHtmlAttr("aria-activedescendant")
 
   /**
     * Indicates whether assistive technologies will present all, or only parts of, the
     * changed region based on the change notifications defined by the aria-relevant
     * attribute. See related [[relevant]].
     */
-  lazy val atomic: A[Boolean] = htmlAttr("aria-atomic", BooleanAsTrueFalseStringCodec)
+  @inline def atomic: A[Boolean] = htmlAttr("aria-atomic", BooleanAsTrueFalseStringCodec)
 
   /**
     * Indicates whether user input completion suggestions are provided.
@@ -37,14 +37,14 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-autocomplete
     */
-  lazy val autoComplete: A[String] = stringHtmlAttr("aria-autocomplete")
+  @inline def autoComplete: A[String] = stringHtmlAttr("aria-autocomplete")
 
   /**
     * Indicates whether an element, and its subtree, are currently being updated.
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-busy
     */
-  lazy val busy: A[Boolean] = htmlAttr("aria-busy", BooleanAsTrueFalseStringCodec)
+  @inline def busy: A[Boolean] = htmlAttr("aria-busy", BooleanAsTrueFalseStringCodec)
 
   /**
     * Indicates the current "checked" state of checkboxes, radio buttons, and other
@@ -55,7 +55,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-checked
     */
-  lazy val checked: A[String] = stringHtmlAttr("aria-checked")
+  @inline def checked: A[String] = stringHtmlAttr("aria-checked")
 
   /**
     * Identifies the element (or elements) whose contents or presence are controlled
@@ -63,7 +63,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-controls
     */
-  lazy val controls: A[String] = stringHtmlAttr("aria-controls")
+  @inline def controls: A[String] = stringHtmlAttr("aria-controls")
 
   /**
     * Identifies the element (or elements) that describes the object.
@@ -71,7 +71,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-describedby
     */
-  lazy val describedBy: A[String] = stringHtmlAttr("aria-describedby")
+  @inline def describedBy: A[String] = stringHtmlAttr("aria-describedby")
 
   /**
     * Indicates that the element is perceivable but disabled, so it is not editable
@@ -79,7 +79,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-disabled
     */
-  lazy val disabled: A[Boolean] = htmlAttr("aria-disabled", BooleanAsTrueFalseStringCodec)
+  @inline def disabled: A[Boolean] = htmlAttr("aria-disabled", BooleanAsTrueFalseStringCodec)
 
   /**
     * Indicates what functions can be performed when the dragged object is released
@@ -93,7 +93,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-dropeffect
     */
-  lazy val dropEffect: A[String] = stringHtmlAttr("aria-dropeffect")
+  @inline def dropEffect: A[String] = stringHtmlAttr("aria-dropeffect")
 
   /**
     * Indicates whether the element, or another grouping element it controls, is
@@ -101,7 +101,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-expanded
     */
-  lazy val expanded: A[Boolean] = htmlAttr("aria-expanded", BooleanAsTrueFalseStringCodec)
+  @inline def expanded: A[Boolean] = htmlAttr("aria-expanded", BooleanAsTrueFalseStringCodec)
 
   /**
     * Identifies the next element (or elements) in an alternate reading order of
@@ -110,21 +110,21 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-flowto
     */
-  lazy val flowTo: A[String] = stringHtmlAttr("aria-flowto")
+  @inline def flowTo: A[String] = stringHtmlAttr("aria-flowto")
 
   /**
     * Indicates an element's "grabbed" state in a drag-and-drop operation.
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-grabbed
     */
-  lazy val grabbed: A[Boolean] = htmlAttr("aria-grabbed", BooleanAsTrueFalseStringCodec)
+  @inline def grabbed: A[Boolean] = htmlAttr("aria-grabbed", BooleanAsTrueFalseStringCodec)
 
   /**
     * Indicates that the element has a popup context menu or sub-level menu.
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-haspopup
     */
-  lazy val hasPopup: A[Boolean] = htmlAttr("aria-haspopup", BooleanAsTrueFalseStringCodec)
+  @inline def hasPopup: A[Boolean] = htmlAttr("aria-haspopup", BooleanAsTrueFalseStringCodec)
 
   /**
     * Indicates that the element and all of its descendants are not visible or
@@ -133,7 +133,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-hidden
     */
-  lazy val hidden: A[Boolean] = htmlAttr("aria-hidden", BooleanAsTrueFalseStringCodec)
+  @inline def hidden: A[Boolean] = htmlAttr("aria-hidden", BooleanAsTrueFalseStringCodec)
 
   /**
     * Indicates the entered value does not conform to the format expected by the
@@ -143,7 +143,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-invalid
     */
-  lazy val invalid: A[String] = stringHtmlAttr("aria-invalid")
+  @inline def invalid: A[String] = stringHtmlAttr("aria-invalid")
 
   /**
     * Defines a string value that labels the current element.
@@ -151,7 +151,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-label
     */
-  lazy val label: A[String] = stringHtmlAttr("aria-label")
+  @inline def label: A[String] = stringHtmlAttr("aria-label")
 
   /**
     * Identifies the element (or elements) that labels the current element.
@@ -159,14 +159,14 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-labelledby
     */
-  lazy val labelledBy: A[String] = stringHtmlAttr("aria-labelledby")
+  @inline def labelledBy: A[String] = stringHtmlAttr("aria-labelledby")
 
   /**
     * Defines the hierarchical level of an element within a structure.
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-level
     */
-  lazy val level: A[Int] = intHtmlAttr("aria-level")
+  @inline def level: A[Int] = intHtmlAttr("aria-level")
 
   /**
     * Indicates that an element will be updated, and describes the types of updates the
@@ -176,21 +176,21 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-live
     */
-  lazy val live: A[String] = stringHtmlAttr("aria-live")
+  @inline def live: A[String] = stringHtmlAttr("aria-live")
 
   /**
     * Indicates whether a text box accepts multiple lines of input or only a single line.
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-multiline
     */
-  lazy val multiLine: A[Boolean] = htmlAttr("aria-multiline", BooleanAsTrueFalseStringCodec)
+  @inline def multiLine: A[Boolean] = htmlAttr("aria-multiline", BooleanAsTrueFalseStringCodec)
 
   /**
     * Indicates that the user may select more than one item from the current selectable descendants.
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-multiselectable
     */
-  lazy val multiSelectable: A[Boolean] = htmlAttr("aria-multiselectable", BooleanAsTrueFalseStringCodec)
+  @inline def multiSelectable: A[Boolean] = htmlAttr("aria-multiselectable", BooleanAsTrueFalseStringCodec)
 
   /**
     * Indicates whether the element and orientation is horizontal or vertical.
@@ -199,7 +199,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-orientation
     */
-  lazy val orientation: A[String] = stringHtmlAttr("aria-orientation")
+  @inline def orientation: A[String] = stringHtmlAttr("aria-orientation")
 
   /**
     * Identifies an element (or elements) in order to define a visual, functional, or
@@ -208,7 +208,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-owns
     */
-  lazy val owns: A[String] = stringHtmlAttr("aria-owns")
+  @inline def owns: A[String] = stringHtmlAttr("aria-owns")
 
   /**
     * Defines an element's number or position in the current set of listitems or treeitems.
@@ -216,7 +216,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-posinset
     */
-  lazy val posInSet: A[Int] = intHtmlAttr("aria-posinset")
+  @inline def posInSet: A[Int] = intHtmlAttr("aria-posinset")
 
   /**
     * Indicates the current "pressed" state of toggle buttons. See related [[checked]] and [[selected]].
@@ -226,14 +226,14 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
     */
-  lazy val pressed: A[String] = stringHtmlAttr("aria-pressed")
+  @inline def pressed: A[String] = stringHtmlAttr("aria-pressed")
 
   /**
     * Indicates that the element is not editable, but is otherwise operable. See related [[disabled]].
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-readonly
     */
-  lazy val readOnly: A[Boolean] = htmlAttr("aria-readonly", BooleanAsTrueFalseStringCodec)
+  @inline def readOnly: A[Boolean] = htmlAttr("aria-readonly", BooleanAsTrueFalseStringCodec)
 
   /**
     * Indicates what user agent change notifications (additions, removals, etc.)
@@ -243,14 +243,14 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-relevant
     */
-  lazy val relevant: A[String] = stringHtmlAttr("aria-relevant")
+  @inline def relevant: A[String] = stringHtmlAttr("aria-relevant")
 
   /**
     * Indicates that user input is required on the element before a form may be submitted.
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-required
     */
-  lazy val required: A[Boolean] = htmlAttr("aria-required", BooleanAsTrueFalseStringCodec)
+  @inline def required: A[Boolean] = htmlAttr("aria-required", BooleanAsTrueFalseStringCodec)
 
   /**
     * Indicates the current "selected" state of various widgets.
@@ -258,7 +258,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
     */
-  lazy val selected: A[Boolean] = htmlAttr("aria-selected", BooleanAsTrueFalseStringCodec)
+  @inline def selected: A[Boolean] = htmlAttr("aria-selected", BooleanAsTrueFalseStringCodec)
 
   /**
     * Defines the number of items in the current set of listitems or treeitems.
@@ -267,7 +267,7 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-setsize
     */
-  lazy val setSize: A[Int] = intHtmlAttr("aria-setsize")
+  @inline def setSize: A[Int] = intHtmlAttr("aria-setsize")
 
   /**
     * Indicates if items in a table or grid are sorted in ascending or descending order.
@@ -276,33 +276,33 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-sort
     */
-  lazy val sort: A[String] = stringHtmlAttr("aria-sort")
+  @inline def sort: A[String] = stringHtmlAttr("aria-sort")
 
   /**
     * Defines the maximum allowed value for a range widget.
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-valuemax
     */
-  lazy val valueMax: A[Double] = doubleHtmlAttr("aria-valuemax")
+  @inline def valueMax: A[Double] = doubleHtmlAttr("aria-valuemax")
 
   /**
     * Defines the minimum allowed value for a range widget.
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-valuemin
     */
-  lazy val valueMin: A[Double] = doubleHtmlAttr("aria-valuemin")
+  @inline def valueMin: A[Double] = doubleHtmlAttr("aria-valuemin")
 
   /**
     * Defines the current value for a range widget. See related [[valueText]].
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-valuenow
     */
-  lazy val valueNow: A[Double] = doubleHtmlAttr("aria-valuenow")
+  @inline def valueNow: A[Double] = doubleHtmlAttr("aria-valuenow")
 
   /**
     * Defines the human readable text alternative of aria-valuenow for a range widget.
     *
     * https://www.w3.org/TR/wai-aria/states_and_properties#aria-valuetext
     */
-  lazy val valueText: A[String] = stringHtmlAttr("aria-valuetext")
+  @inline def valueText: A[String] = stringHtmlAttr("aria-valuetext")
 }

@@ -13,75 +13,75 @@ trait FormTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlForm <: DomHtmlElemen
     *
     *  MDN
     */
-  lazy val form: T[HtmlForm] = htmlTag("form")
+  @inline def form: T[HtmlForm] = htmlTag("form")
 
   /**
     * A set of fields.
     *
     *  MDN
     */
-  lazy val fieldSet: T[HtmlFieldSet] = htmlTag("fieldset")
+  @inline def fieldSet: T[HtmlFieldSet] = htmlTag("fieldset")
 
   /**
     * The caption for a fieldset.
     *
     *  MDN
     */
-  lazy val legend: T[HtmlLegend] = htmlTag("legend")
+  @inline def legend: T[HtmlLegend] = htmlTag("legend")
 
   /**
     * The caption of a single field
     *
     *  MDN
     */
-  lazy val label: T[HtmlLabel] = htmlTag("label")
+  @inline def label: T[HtmlLabel] = htmlTag("label")
 
   /**
     * A typed data field allowing the user to input data.
     *
     *  MDN
     */
-  lazy val input: T[HtmlInput] = htmlTag("input", void = true)
+  @inline def input: T[HtmlInput] = htmlTag("input", void = true)
 
   /**
     * A button
     *
     *  MDN
     */
-  lazy val button: T[HtmlButton] = htmlTag("button")
+  @inline def button: T[HtmlButton] = htmlTag("button")
 
   /**
     * A control that allows the user to select one of a set of options.
     *
     *  MDN
     */
-  lazy val select: T[HtmlSelect] = htmlTag("select")
+  @inline def select: T[HtmlSelect] = htmlTag("select")
 
   /**
     * A set of predefined options for other controls.
     *
     *  MDN
     */
-  lazy val dataList: T[HtmlDataList] = htmlTag("datalist")
+  @inline def dataList: T[HtmlDataList] = htmlTag("datalist")
 
   /**
     * A set of options, logically grouped.
     *
     *  MDN
     */
-  lazy val optGroup: T[HtmlOptGroup] = htmlTag("optgroup")
+  @inline def optGroup: T[HtmlOptGroup] = htmlTag("optgroup")
 
   /**
     * An option in a select element.
     *
     *  MDN
     */
-  lazy val option: T[HtmlOption] = htmlTag("option")
+  @inline def option: T[HtmlOption] = htmlTag("option")
 
   /**
     * A multiline text edit control.
     *
     *  MDN
     */
-  lazy val textArea: T[HtmlTextArea] = htmlTag("textarea")
+  @inline def textArea: T[HtmlTextArea] = htmlTag("textarea")
 }

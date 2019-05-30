@@ -12,15 +12,15 @@ trait ClipboardEventProps[EP[_ <: DomEvent], DomEvent, DomClipboardEvent <: DomE
   /**
     * Fires when the user copies the content of an element
     */
-  lazy val onCopy: EP[DomClipboardEvent] = eventProp("copy")
+  @inline def onCopy: EP[DomClipboardEvent] = eventProp("copy")
 
   /**
     * Fires when the user cuts the content of an element
     */
-  lazy val onCut: EP[DomClipboardEvent] = eventProp("cut")
+  @inline def onCut: EP[DomClipboardEvent] = eventProp("cut")
 
   /**
     * Fires when the user pastes some content in an element
     */
-  lazy val onPaste: EP[DomClipboardEvent] = eventProp("paste")
+  @inline def onPaste: EP[DomClipboardEvent] = eventProp("paste")
 }

@@ -39,7 +39,7 @@ trait FormEventProps[
     *
     * MDN
     */
-  lazy val onChange: EP[DomHtmlElementTargetEvent] = eventProp("change")
+  @inline def onChange: EP[DomHtmlElementTargetEvent] = eventProp("change")
 
   /**
     * The select event only fires when text inside a text input or textarea is
@@ -47,27 +47,27 @@ trait FormEventProps[
     *
     * MDN
     */
-  lazy val onSelect: EP[DomHtmlElementTargetEvent] = eventProp("select")
+  @inline def onSelect: EP[DomHtmlElementTargetEvent] = eventProp("select")
 
   /**
     * The input event is fired for input, select, textarea, and
     * contentEditable elements when it gets user input.
     */
-  lazy val onInput: EP[DomHtmlElementTargetEvent] = eventProp("input")
+  @inline def onInput: EP[DomHtmlElementTargetEvent] = eventProp("input")
 
   /**
     * The blur event is raised when an element loses focus.
     *
     * MDN
     */
-  lazy val onBlur: EP[DomElementFocusEvent] = eventProp("blur")
+  @inline def onBlur: EP[DomElementFocusEvent] = eventProp("blur")
 
   /**
     * The focus event is raised when the user sets focus on the given element.
     *
     * MDN
     */
-  lazy val onFocus: EP[DomElementFocusEvent] = eventProp("focus")
+  @inline def onFocus: EP[DomElementFocusEvent] = eventProp("focus")
 
   /**
     * The submit event is fired when the user clicks a submit button in a form
@@ -75,22 +75,22 @@ trait FormEventProps[
     *
     * MDN
     */
-  lazy val onSubmit: EP[DomFormElementTargetEvent] = eventProp("submit")
+  @inline def onSubmit: EP[DomFormElementTargetEvent] = eventProp("submit")
 
   /**
     * The reset event is fired when a form is reset.
     *
     * MDN
     */
-  lazy val onReset: EP[DomFormElementTargetEvent] = eventProp("reset")
+  @inline def onReset: EP[DomFormElementTargetEvent] = eventProp("reset")
 
   /**
     * Script to be run when an element is invalid
     */
-  lazy val onInvalid: EP[DomElementTargetEvent] = eventProp("invalid")
+  @inline def onInvalid: EP[DomElementTargetEvent] = eventProp("invalid")
 
   /**
     * Fires when the user writes something in a search field (for <input="search">)
     */
-  lazy val onSearch: EP[DomInputElementTargetEvent] = eventProp("search")
+  @inline def onSearch: EP[DomInputElementTargetEvent] = eventProp("search")
 }
