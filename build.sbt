@@ -2,8 +2,8 @@ inThisBuild(Seq(
   name := "Scala DOM Types",
   normalizedName := "domtypes",
   organization := "com.raquo",
-  scalaVersion := "2.12.6",
-  crossScalaVersions := Seq("2.11.12", "2.12.6")
+  scalaVersion := "2.12.9",
+  crossScalaVersions := Seq("2.11.12", "2.12.9")
 ))
 
 // @TODO[WTF] Why can't this be inside releaseSettings?
