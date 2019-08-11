@@ -13,7 +13,7 @@ Our type definitions are designed for easy integration into any kind of library.
 - [Laminar](https://github.com/raquo/laminar), a high level reactive UI library for Scala.js 
 - [Scala DOM Test Utils](https://github.com/raquo/scala-dom-testutils), a library that verifies that your DOM node / tree matches provided description
 
-`DOM` stands [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction), in our context it's an object that represents an HTML document along with its HTML elements and their attributes, props and styles.
+`DOM` stands for [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction), in our context it's an object that represents an HTML document along with its HTML elements and their attributes, props and styles.
 
 
 
