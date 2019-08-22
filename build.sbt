@@ -2,8 +2,8 @@ inThisBuild(Seq(
   name := "Scala DOM Types",
   normalizedName := "domtypes",
   organization := "com.raquo",
-  scalaVersion := "2.12.9",
-  crossScalaVersions := Seq("2.11.12", "2.12.9")
+  scalaVersion := "2.12.8",
+  crossScalaVersions := Seq("2.11.12", "2.12.9", "2.13.0")
 ))
 
 // @TODO[WTF] Why can't this be inside releaseSettings?
@@ -45,24 +45,27 @@ lazy val scalacSettings = Seq(
     "-explaintypes" ::
     "-feature" ::
     "-language:_" ::
-    "-Xfuture" ::
-    "-Xlint" ::
-    "-Ypartial-unification" ::
-    "-Yno-adapted-args" ::
-    "-Ywarn-infer-any" ::
-    "-Ywarn-value-discard" ::
-    "-Ywarn-nullary-override" ::
-    "-Ywarn-nullary-unit" ::
-    "-Ywarn-unused" ::
     Nil,
 
   scalacOptions ++= {
     CrossVersion.partialVersion(scalaVersion.value) match {
       case Some((2, 12)) =>
+        "-Ypartial-unification" ::
         "-Ywarn-extra-implicit" ::
+        "-Yno-adapted-args" ::
+        "-Xlint" ::
+        "-Ywarn-infer-any" ::
+        "-Ywarn-value-discard" ::
+        "-Ywarn-nullary-override" ::
+        "-Ywarn-nullary-unit" ::
+        "-Ywarn-unused" ::
+        "-Xfuture" ::
         Nil
-      case _ =>
+      case Some((2, minor)) if minor < 12 =>
+        "-Ypartial-unification" :: 
+        "-Xfuture" ::
         Nil
+      case _ => Nil
     }
   }
 )
@@ -84,7 +87,7 @@ lazy val domtypes = crossProject.in(file("."))
     useYarn := true,
     emitSourceMaps := false,
     libraryDependencies ++= Seq(
-       "org.scala-js" %%% "scalajs-dom" % "0.9.6"
+       "org.scala-js" %%% "scalajs-dom" % "0.9.7"
     )
   )
   .jvmSettings()
