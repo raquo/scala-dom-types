@@ -1608,7 +1608,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
 
     def ~(pairs: (String, String)*): StyleSetter = {
-      buildStringStyleSetter(this, pairs.flatMap(x => Seq(x._1, x._2)).map('"' + _ + '"').mkString(" "))
+      buildStringStyleSetter(this, pairs.flatMap(x => Seq(x._1, x._2)).map(n => s""""$n"""").mkString(" "))
     }
 
   }
