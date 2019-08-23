@@ -45,18 +45,21 @@ lazy val scalacSettings = Seq(
     "-explaintypes" ::
     "-feature" ::
     "-language:_" ::
+    "-Xlint" ::
     "-Ywarn-value-discard" ::
     "-Ywarn-unused" ::
     Nil,
 
   scalacOptions ++= {
     CrossVersion.partialVersion(scalaVersion.value) match {
+      case Some((2, 13)) =>
+        "-Ywarn-extra-implicit" ::
+        Nil
       case Some((2, 12)) =>
         "-Ypartial-unification" ::
-        "-Ywarn-extra-implicit" ::
         "-Yno-adapted-args" ::
-        "-Xlint" ::
         "-Ywarn-infer-any" ::
+        "-Ywarn-extra-implicit" ::
         "-Ywarn-nullary-override" ::
         "-Ywarn-nullary-unit" ::
         "-Xfuture" ::
