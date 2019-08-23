@@ -37,38 +37,34 @@ lazy val releaseSettings = Seq(
   releasePublishArtifactsAction := PgpKeys.publishSigned.value
 )
 
-lazy val scalacSettings = Seq(
-  scalacOptions ++=
-    "-encoding" :: "UTF-8" ::
-    "-unchecked" ::
-    "-deprecation" ::
-    "-explaintypes" ::
-    "-feature" ::
-    "-language:_" ::
-    "-Xlint" ::
-    "-Ywarn-value-discard" ::
-    "-Ywarn-unused" ::
-    Nil,
 
+val baseScalacSettings =
+  "-encoding" :: "UTF-8" ::
+  "-unchecked" ::
+  "-deprecation" ::
+  "-explaintypes" ::
+  "-feature" ::
+  "-language:_" ::
+  "-Xfuture" ::
+  "-Xlint" ::
+  "-Yno-adapted-args" ::
+  "-Ywarn-value-discard" ::
+  "-Ywarn-unused" ::
+  Nil
+
+lazy val scalacSettings = Seq(
   scalacOptions ++= {
     CrossVersion.partialVersion(scalaVersion.value) match {
       case Some((2, 13)) =>
-        "-Ywarn-extra-implicit" ::
-        Nil
-      case Some((2, 12)) =>
-        "-Ypartial-unification" ::
-        "-Yno-adapted-args" ::
-        "-Ywarn-infer-any" ::
-        "-Ywarn-extra-implicit" ::
-        "-Ywarn-nullary-override" ::
-        "-Ywarn-nullary-unit" ::
-        "-Xfuture" ::
-        Nil
-      case Some((2, minor)) if minor < 12 =>
-        "-Ypartial-unification" ::
-        "-Xfuture" ::
-        Nil
-      case _ => Nil
+        baseScalacSettings.diff(
+          "-Xfuture" ::
+          "-Yno-adapted-args" ::
+          "-Ywarn-infer-any" ::
+          "-Ywarn-nullary-override" ::
+          "-Ywarn-nullary-unit" ::
+          Nil
+        )
+      case _ => baseScalacSettings
     }
   }
 )
