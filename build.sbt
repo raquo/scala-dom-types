@@ -45,6 +45,8 @@ lazy val scalacSettings = Seq(
     "-explaintypes" ::
     "-feature" ::
     "-language:_" ::
+    "-Ywarn-value-discard" ::
+    "-Ywarn-unused" ::
     Nil,
 
   scalacOptions ++= {
@@ -55,14 +57,12 @@ lazy val scalacSettings = Seq(
         "-Yno-adapted-args" ::
         "-Xlint" ::
         "-Ywarn-infer-any" ::
-        "-Ywarn-value-discard" ::
         "-Ywarn-nullary-override" ::
         "-Ywarn-nullary-unit" ::
-        "-Ywarn-unused" ::
         "-Xfuture" ::
         Nil
       case Some((2, minor)) if minor < 12 =>
-        "-Ypartial-unification" :: 
+        "-Ypartial-unification" ::
         "-Xfuture" ::
         Nil
       case _ => Nil
