@@ -8,9 +8,13 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.9.5
+
+* Build: Add Scala 2.13 Support (thanks, [@zakpatterson](https://github.com/zakpatterson)!)
+
 #### v0.9.4 – Feb 2019
 
-* Fix: flexWrap.wrapReverse CSS name (thanks, @fdietze!)
+* Fix: flexWrap.wrapReverse CSS name (thanks, [@fdietze](https://github.com/fdietze)!)
 
 #### v0.9.3 – Jan 2019
 
