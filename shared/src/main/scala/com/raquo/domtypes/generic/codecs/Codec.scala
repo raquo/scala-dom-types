@@ -24,7 +24,7 @@ trait Codec[ScalaType, DomType] {
     *
     * // @TODO Orly? What about boolean attrs? How do we distinguish that? What about props?
     */
-  def decode(domValue: DomType): ScalaType
+  @inline def decode(domValue: DomType): ScalaType
 
   /** Convert desired attribute value to appropriate DOM type. The resulting value should
     * be passed to `dom.Node.setAttribute` call, EXCEPT when resulting value is a `null`.
@@ -34,5 +34,5 @@ trait Codec[ScalaType, DomType] {
     * should not be called by end users anyway, it's the consuming library's job to
     * call this method under the hood.
     */
-  def encode(scalaValue: ScalaType): DomType
+  @inline def encode(scalaValue: ScalaType): DomType
 }
