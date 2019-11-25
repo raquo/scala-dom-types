@@ -8,7 +8,11 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
-#### v0.9.5
+#### v0.9.6 – Nov 2019
+
+* Fix: svg attribute typo: `mak` -> `mask` (thanks, [@weihsiu](https://github.com/weihsiu)!)
+
+#### v0.9.5 – Aug 2019 
 
 * Build: Add Scala 2.13 Support (thanks, [@zakpatterson](https://github.com/zakpatterson)!)
 

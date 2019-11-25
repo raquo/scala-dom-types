@@ -1,7 +1,8 @@
 logLevel := Level.Warn
 
-addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.28")
+addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.31")
 
+// @TODO I don't think we need this plugin in this project
 addSbtPlugin("ch.epfl.scala" % "sbt-scalajs-bundler" % "0.12.0")
 
 addSbtPlugin("com.jsuereth" % "sbt-pgp" % "1.1.1")
