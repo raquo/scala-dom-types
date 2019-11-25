@@ -838,7 +838,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val maskAttr: A[String] = stringSvgAttr("mak")
+  lazy val maskAttr: A[String] = stringSvgAttr("mask")
 
 
   /**
