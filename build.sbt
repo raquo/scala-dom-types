@@ -1,3 +1,5 @@
+import sbtcrossproject.CrossPlugin.autoImport.crossProject
+
 inThisBuild(Seq(
   name := "Scala DOM Types",
   normalizedName := "domtypes",
@@ -78,15 +80,15 @@ lazy val root = project.in(file("."))
     skip in publish := true
   )
 
-lazy val domtypes = crossProject.in(file("."))
+lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
   .settings(commonSettings)
   .jsConfigure(_.enablePlugins(ScalaJSBundlerPlugin))
   .jsSettings(
-    requiresDOM in Test := true,
+    scalaJSLinkerConfig ~= { _.withSourceMap(false) },
+    requireJsDomEnv in Test := true,
     useYarn := true,
-    emitSourceMaps := false,
     libraryDependencies ++= Seq(
-       "org.scala-js" %%% "scalajs-dom" % "0.9.7"
+       "org.scala-js" %%% "scalajs-dom" % "0.9.8"
     )
   )
   .jvmSettings()
