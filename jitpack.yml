@@ -1,2 +1,3 @@
 install:
    - sbt +publishM2
+   - sbt +js/publishM2

@@ -91,7 +91,6 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
        "org.scala-js" %%% "scalajs-dom" % "0.9.8"
     )
   )
-  .jvmSettings()
 
 lazy val js = domtypes.js
 lazy val jvm = domtypes.jvm

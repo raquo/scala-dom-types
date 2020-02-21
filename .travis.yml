@@ -5,11 +5,9 @@ scala:
   - 2.11.12
   - 2.12.10
   - 2.13.1
-
 env:
   - SCALAJS_VERSION="0.6.32"
   - SCALAJS_VERSION="1.0.0"
-
 cache:
   yarn: true
   directories:
@@ -17,7 +15,6 @@ cache:
     - $HOME/.ivy2/local
     - $HOME/.sbt/boot/
     - $HOME/.sbt/launchers/
-
 before_cache:
   # Tricks to avoid unnecessary cache updates
   # http://www.scala-sbt.org/0.13/docs/Travis-CI-with-sbt.html
