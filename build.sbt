@@ -74,7 +74,7 @@ lazy val scalacSettings = Seq(
 lazy val commonSettings = releaseSettings ++ scalacSettings
 
 lazy val root = project.in(file("."))
-  .aggregate(js, jvm)
+  .aggregate(domtypesJS, domtypesJVM)
   .settings(commonSettings)
   .settings(
     skip in publish := true
@@ -92,5 +92,5 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
     )
   )
 
-lazy val js = domtypes.js
-lazy val jvm = domtypes.jvm
+lazy val domtypesJS = domtypes.js
+lazy val domtypesJVM = domtypes.jvm
