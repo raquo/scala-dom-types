@@ -8,6 +8,10 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.9.7 – Mar 2020
+
+* Build: Add Scala.js 1.0.0 support (thanks, [@lolgab](https://github.com/lolgab)!)
+
 #### v0.9.6 – Nov 2019
 
 * Fix: svg attribute typo: `mak` -> `mask` (thanks, [@weihsiu](https://github.com/weihsiu)!)
