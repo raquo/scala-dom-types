@@ -9,8 +9,8 @@ _Scala DOM Types_ provides listings and type definitions for Javascript HTML and
 
 Our type definitions are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, popular Scala.js reactive UI library [Outwatch](https://github.com/OutWatch/outwatch/) recently switched to _Scala DOM Types_, offloading thousands of lines of code and improving type safety ([diff](https://github.com/OutWatch/outwatch/pull/62)). I am also using _Scala DOM Types_ in my own projects:
 
-- [Scala DOM Builder](https://github.com/raquo/scala-dom-builder), a low level DOM manipulation and tree tracking library
 - [Laminar](https://github.com/raquo/laminar), a high level reactive UI library for Scala.js 
+- [Scala DOM Builder](https://github.com/raquo/scala-dom-builder), a low level DOM manipulation and tree tracking library
 - [Scala DOM Test Utils](https://github.com/raquo/scala-dom-testutils), a library that verifies that your DOM node / tree matches provided description
 
 `DOM` stands for [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction), in our context it's an object that represents an HTML document along with its HTML elements and their attributes, props and styles.
@@ -32,6 +32,7 @@ Our type definitions are designed for easy integration into any kind of library.
   * [CSS](#css)
   * [SVG](#svg)
   * [Naming Differences Compared To Native HTML & DOM](#naming-differences-compared-to-native-html--dom)
+  * [How to Use _Scala DOM Types_](#how-to-use-_scala-dom-types_)
 * [Related Projects](#my-related-projects)
 
 
@@ -258,10 +259,32 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
 * Attribute `className` == `cls` for consistency with Scala / ScalaTags
 
 
+### How to Use _Scala DOM Types_
+
+So you're considering building a higher level DOM manipulation library on top of _Scala DOM Types_ such as [Laminar](https://github.com/raquo/Laminar), [Outwatch](https://github.com/OutWatch/outwatch) or [ScalaJS-React](https://github.com/japgolly/scalajs-react) (the former two use _Scala DOM Types_, the latter doesn't).
+
+First off, if you're building such a library, you need to know a quite few things about how JS DOM works. _Scala DOM Types_ is just a collection of types, it's not an abstraction layer for the DOM. _You're_ building the abstraction layer. We can't cover everything about JS DOM here, but we did touch on some of the nastier parts above.
+
+Laminar is my own library that uses _Scala DOM Types_ in a pretty standard way. Open [Laminar.scala](https://github.com/raquo/Laminar/blob/master/src/main/scala/com/raquo/laminar/api/Laminar.scala), which is Laminar's public API, and let's see what it has.
+
+As you see we're building up a big `private[laminar] object Laminar`. It's marked private because it's exposed under a different alias, `com.raquo.laminar.L`. End users are expected to import either this object, or all of its properties (`L._`) depending on their preference, everything will work either way.
+
+Our `object Laminar` extends quite a few _Scala DOM Types_ traits. Let's see what some of these traits these are, and what kinds of type params we pass to them.
+
+We see `with ReflectedHtmlAttrs[ReactiveReflectedProp]` – this brings in the [`ReflectedHtmlAttrs`](https://github.com/raquo/scala-dom-types/blob/master/shared/src/main/scala/com/raquo/domtypes/generic/defs/reflectedAttrs/ReflectedHtmlAttrs.scala) trait. The type param of `ReflectedHtmlAttrs` indicates the type of Reflected Attribute instanced that you get when you call `L.id` or `L.alt` etc. In Laminar, this type is [`ReactiveProp`](https://github.com/raquo/Laminar/blob/master/src/main/scala/com/raquo/laminar/keys/ReactiveProp.scala) which extends _Scala DOM Types_ [Prop](https://github.com/raquo/scala-dom-types/blob/master/shared/src/main/scala/com/raquo/domtypes/generic/keys/Prop.scala) class. So ReactiveProp adds Laminar functionality to Prop, but it doesn't actually have to extend Prop, Prop is only provided as a canonical Prop class to help potential interop between libraries and to reduce boilerplate.
+
+Speaking of boilerplate, `ReflectedHtmlAttrs` trait requires Laminar object to also implement `ReflectedHtmlAttrBuilder`. Because Laminar uses its own `ReactiveProp` type, we have to implement it ourselves, and we do it in [`HtmlBuilders`](https://github.com/raquo/Laminar/blob/master/src/main/scala/com/raquo/laminar/builders/HtmlBuilders.scala) trait, which `object Laminar` also extends. But if Laminar just used the canonical `Prop` instead of its own `ReactiveProp`, it could have simply used `Scala DOM Types` [CanonicalReflectedPropBuilder](https://github.com/raquo/scala-dom-types/blob/master/shared/src/main/scala/com/raquo/domtypes/generic/builders/canonical/CanonicalReflectedPropBuilder.scala) instead of re-implementing all the same `reflectedAttr` method in `HtmlBuilders`. But then I would need to add Laminar functionality to `Prop` by means of implicit extension methods, and I personally prefer non-implicit APIs.
+
+If you look at `HtmlBuilders` you will see that it extends quite a few other traits – those follow the same pattern but for different types of keys – html attrs, event props, style props, tags, etc. And you'll see `object Laminar` extending _Scala DOM Types_ traits that provide these listings of attrs, event props, style props, tags, etc.
+
+Lastly, Scala DOM Types code provides quite a few comments explaining what the traits are used for and what the classes represent. Hopefully together with the Laminar example it will be clear enough how to use Scala DOM Types from your library. If you've built libraries on top of ScalaTags, it's a somewhat similar pattern.
+
+Notice that most _Scala DOM Types_ def traits live in the `shared` project. Some of them accept many type params to represent different types of DOM Events or HTML elements. This enables you to use _Scala DOM Types_ on the JVM. For implementing a purely frontend library you will want to use the type aliases defined in the `js` project, specifically in the [package object](https://github.com/raquo/scala-dom-types/blob/master/js/src/main/scala/com/raquo/domtypes/jsdom/defs/package.scala) there. Those aliases provide standard type params for _Scala DOM Types_ definition traits from the scalajs-dom project. Laminar uses those type aliases, and there is no reason not to if you don't need JVM compatibility in your library.
+
 
 ## My Related Projects
 
-- [Laminar](https://github.com/raquo/Laminar) – Reactive UI library based on _Scala DOM Builder_
+- [Laminar](https://github.com/raquo/Laminar) – Reactive UI library based on _Scala DOM Types_
 - [Scala DOM Builder](https://github.com/raquo/scala-dom-builder) – Low-level Scala & Scala.js library for building and manipulating DOM trees
 - [Scala DOM TestUtils](https://github.com/raquo/scala-dom-testutils) – Test that your Javascript DOM nodes match your expectations
 
