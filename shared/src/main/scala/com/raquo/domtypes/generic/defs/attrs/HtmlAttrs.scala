@@ -66,13 +66,13 @@ trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     * The max attribute specifies the maximum value for an <input> element of type
     * number, range, date, datetime, datetime-local, month, time, or week.
     */
-  lazy val max: A[String] = stringHtmlAttr("max")
+  lazy val maxAttr: A[String] = stringHtmlAttr("max")
 
   /**
     * The min attribute specifies the minimum value for an <input> element of type
     * number, range, date, datetime, datetime-local, month, time, or week.
     */
-  lazy val min: A[String] = stringHtmlAttr("min")
+  lazy val minAttr: A[String] = stringHtmlAttr("min")
 
   /**
     * The step attribute specifies the numeric intervals for an <input> element
@@ -83,7 +83,7 @@ trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
     * The step attribute is applicable to <input> elements of the following
     * types: number, range, date, datetime, datetime-local, month, time and week.
     */
-  lazy val step: A[String] = stringHtmlAttr("step")
+  lazy val stepAttr: A[String] = stringHtmlAttr("step")
 
   /**
     * This attribute is used to define the type of the content linked to. The

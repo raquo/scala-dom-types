@@ -8,6 +8,14 @@ The following allowances for breaking changes exist _for now_:
 
 TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
 
+#### v0.10.0 – Mar 2020
+
+* **Build: Upgrade to scala-js-dom 1.0.0**
+  * This version removes types that were previously deprecated
+  * Removed a couple type params from `GroupingTags` and `TableTags`, see diff
+* **Naming: `id` -> `idAttr`, `min` -> `minAttr`, `max` -> `maxAttr`, `step` -> `stepAttr`, `offset` -> `offsetAttr`, `result` -> `resultAttr`**
+* **Naming: `link` -> `linkTag`, `param` -> `paramTag`, `map` -> `mapTag`, `object` -> `objectTag`**
+
 #### v0.9.7 – Mar 2020
 
 * Build: Add Scala.js 1.0.0 support (thanks, [@lolgab](https://github.com/lolgab)!)

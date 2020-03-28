@@ -235,7 +235,7 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
 * `data-<suffix>` attributes are created using `dataAttr(suffix: String)` factory.
 * `aria-<suffix>` attributes are available without the `aria-` prefix in the `AriaAttrs` trait. You could thus create `object aria extends AriaAttrs[...]` to namespace those attributes.
 
-#### Individual identifiers
+#### Attributes & Props
 * `value` **attribute** is renamed `defaultValue` because native naming is misleading and confusing ([example](https://stackoverflow.com/a/6004028/2601788))
   * Note that the `value` **property** retains its name
 * `checked` **attribute** is renamed to `defaultChecked` for the same reason
@@ -244,15 +244,23 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
   * Note that the `selected` **property** retains its name
 * `class` **attribute** is renamed to `className` for consistency with reflected property name, and to avoid Scala reserved word
 * `for` attribute and `htmlFor` property are available as reflected attribute `forId` for consistency and to avoid Scala reserved word
+* `id` reflected attribute is renamed to `idAttr`, `max` attribute to `maxAttr`, `min` to `minAttr`, and `step` to `stepAttr` to free up good names for end user code
+* `offset` and `result` SVG attributes renamed to `offsetAttr` and `resultAttr` respectively to free up good names for end user code
 * `style` attribute is renamed to `styleAttr` to let you implement a custom `style` attribute if you want.
-* `style` tag is renamed to `styleTag` for the same reason, to avoid hogging a good name
-* `title` tag is renamed to `titleTag` to avoid conflict with `title` reflected attribute
 * `content` attribute is renamed to `contentAttr` to avoid conflict with `content` CSS property
 * `form` attribute is renamed to `formId` to avoid conflict with `form` tag
 * `height` attribute is renamed to `heightAttr` to avoid conflict with `height` CSS property
 * `width` attribute is renamed to `widthAttr` to avoid conflict with `width` CSS property
 * `list` attribute is renamed to `listId` for clarity and consistency
 * `contextmenu` attribute is renamed to `contextMenuId` for clarity and consistency
+
+#### Tags
+* Tags renamed to free up good names for end user code:
+  * `style` -> `styleTag`, `link` -> `linkTag`, `param` -> `paramTag`, `map` -> `mapTag`
+* Other tag renamings:
+  * `title` -> `titleTag` to avoid conflict with `title` reflected attribute
+  * `object` -> `objectTag` to avoid Scala reserved word
+
 
 #### Aliases
 * Attribute `type` == `typ` == `tpe` to avoid Scala reserved word

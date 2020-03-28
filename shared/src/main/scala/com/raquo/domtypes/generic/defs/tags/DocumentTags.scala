@@ -33,7 +33,7 @@ trait DocumentTags[T[_ <: DomHtmlElement], DomHtmlElement, Html <: DomHtmlElemen
     *
     *  MDN
     */
-  lazy val link: T[HtmlLink] = htmlTag("link", void = true)
+  lazy val linkTag: T[HtmlLink] = htmlTag("link", void = true)
 
   /**
     * Defines metadata that can't be defined using another HTML element.

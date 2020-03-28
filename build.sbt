@@ -88,7 +88,7 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
     requireJsDomEnv in Test := true,
     useYarn := true,
     libraryDependencies ++= Seq(
-       "org.scala-js" %%% "scalajs-dom" % "0.9.8"
+      "org.scala-js" %%% "scalajs-dom" % "1.0.0"
     )
   )
 

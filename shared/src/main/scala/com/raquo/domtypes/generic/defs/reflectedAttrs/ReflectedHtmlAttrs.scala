@@ -303,7 +303,7 @@ trait ReflectedHtmlAttrs[RA[_, _]] { this: ReflectedHtmlAttrBuilder[RA] =>
     *
     * MDN
     */
-  lazy val id: RA[String, String] = stringReflectedAttr("id")
+  lazy val idAttr: RA[String, String] = stringReflectedAttr("id")
 
   /**
     * This attribute participates in defining the language of the element, the

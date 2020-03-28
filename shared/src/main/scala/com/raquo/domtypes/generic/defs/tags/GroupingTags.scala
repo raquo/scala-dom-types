@@ -2,7 +2,7 @@ package com.raquo.domtypes.generic.defs.tags
 
 import com.raquo.domtypes.generic.builders.HtmlTagBuilder
 
-trait GroupingTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlParagraph <: DomHtmlElement, HtmlHr <: DomHtmlElement, HtmlPre <: DomHtmlElement, HtmlQuote <: DomHtmlElement, HtmlOlist <: DomHtmlElement, HtmUlist <: DomHtmlElement, HtmlLi <: DomHtmlElement, HtmlDlist <: DomHtmlElement, HtmlDt <: DomHtmlElement, HtmlDd <: DomHtmlElement, HtmlElement <: DomHtmlElement, HtmlDiv <: DomHtmlElement] {
+trait GroupingTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlParagraph <: DomHtmlElement, HtmlHr <: DomHtmlElement, HtmlPre <: DomHtmlElement, HtmlQuote <: DomHtmlElement, HtmlOlist <: DomHtmlElement, HtmUlist <: DomHtmlElement, HtmlLi <: DomHtmlElement, HtmlDlist <: DomHtmlElement, HtmlElement <: DomHtmlElement, HtmlDiv <: DomHtmlElement] {
   this: HtmlTagBuilder[T, DomHtmlElement] =>
 
   // @TODO[Docs] add links to canonical ScalaJS types in comments
@@ -70,14 +70,14 @@ trait GroupingTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlParagraph <: DomH
     *
     *  MDN
     */
-  lazy val dt: T[HtmlDt] = htmlTag("dt")
+  lazy val dt: T[HtmlElement] = htmlTag("dt")
 
   /**
     * Represents the definition of the terms immediately listed before it.
     *
     *  MDN
     */
-  lazy val dd: T[HtmlDd] = htmlTag("dd")
+  lazy val dd: T[HtmlElement] = htmlTag("dd")
 
   /**
     * Represents a figure illustrated as part of the document.
