@@ -10,6 +10,7 @@ TODO: Adopt more mature versioning, eventually. Read about eviction, binary comp
 
 #### v0.10.0 – Mar 2020
 
+* **Build: this release is Scala.js 1.x only**
 * **Build: Upgrade to scala-js-dom 1.0.0**
   * This version removes types that were previously deprecated
   * Removed a couple type params from `GroupingTags` and `TableTags`, see diff
@@ -19,6 +20,7 @@ TODO: Adopt more mature versioning, eventually. Read about eviction, binary comp
 #### v0.9.7 – Mar 2020
 
 * Build: Add Scala.js 1.0.0 support (thanks, [@lolgab](https://github.com/lolgab)!)
+  * This is the last release that supports Scala.js 0.6.x
 
 #### v0.9.6 – Nov 2019
 
