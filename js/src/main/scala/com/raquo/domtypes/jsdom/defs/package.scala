@@ -96,7 +96,7 @@ package object defs {
 
     type DocumentTags[T[_ <: dom.html.Element]] = generic.defs.tags.DocumentTags[T, dom.html.Element, dom.html.Html, dom.html.Head, dom.html.Base, dom.html.Link, dom.html.Meta, dom.html.Script, dom.html.Element]
 
-    type GroupingTags[T[_ <: dom.html.Element]] = generic.defs.tags.GroupingTags[T, dom.html.Element, dom.html.Paragraph, dom.html.HR, dom.html.Pre, dom.html.Quote, dom.html.OList, dom.html.UList, dom.html.LI, dom.html.DList, dom.html.DT, dom.html.DD, dom.html.Element, dom.html.Div]
+    type GroupingTags[T[_ <: dom.html.Element]] = generic.defs.tags.GroupingTags[T, dom.html.Element, dom.html.Paragraph, dom.html.HR, dom.html.Pre, dom.html.Quote, dom.html.OList, dom.html.UList, dom.html.LI, dom.html.DList, dom.html.Element, dom.html.Div]
 
     type TextTags[T[_ <: dom.html.Element]] = generic.defs.tags.TextTags[T, dom.html.Element, dom.html.Anchor, dom.html.Element, dom.html.Span, dom.html.BR, dom.html.Mod]
 
@@ -106,7 +106,7 @@ package object defs {
 
     type EmbedTags[T[_ <: dom.html.Element]] = generic.defs.tags.EmbedTags[T, dom.html.Element, dom.html.Image, dom.html.IFrame, dom.html.Embed, dom.html.Object, dom.html.Param, dom.html.Video, dom.html.Audio, dom.html.Source, dom.html.Track, dom.html.Canvas, dom.html.Map, dom.html.Area]
 
-    type TableTags[T[_ <: dom.html.Element]] = generic.defs.tags.TableTags[T, dom.html.Element, dom.html.Table, dom.html.TableCaption, dom.html.TableCol, dom.html.TableSection, dom.html.TableRow, dom.html.TableCell, dom.html.TableHeaderCell]
+    type TableTags[T[_ <: dom.html.Element]] = generic.defs.tags.TableTags[T, dom.html.Element, dom.html.Table, dom.html.TableCaption, dom.html.TableCol, dom.html.TableSection, dom.html.TableRow, dom.html.TableCell]
 
     type MiscTags[T[_ <: dom.html.Element]] = generic.defs.tags.MiscTags[T, dom.html.Element, dom.html.Title, dom.html.Style, dom.html.Element, dom.html.Quote, dom.html.Progress, dom.html.Menu]
 

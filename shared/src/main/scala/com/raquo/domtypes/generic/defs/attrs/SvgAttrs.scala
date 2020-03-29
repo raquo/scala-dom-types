@@ -646,7 +646,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
 
 
   // @TODO[API] Ideally this should not be a distinct svg-specific attr, I think.
-  lazy val id: A[String] = stringSvgAttr("id")
+  lazy val idAttr: A[String] = stringSvgAttr("id")
 
 
   /**
@@ -846,7 +846,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val max: A[String] = stringSvgAttr("max")
+  lazy val maxAttr: A[String] = stringSvgAttr("max")
 
 
   /**
@@ -854,7 +854,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val min: A[String] = stringSvgAttr("min")
+  lazy val minAttr: A[String] = stringSvgAttr("min")
 
 
   /**
@@ -873,7 +873,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
   lazy val numOctaves: A[Int] = intSvgAttr("numOctaves")
 
 
-  lazy val offset: A[String] = stringSvgAttr("offset")
+  lazy val offsetAttr: A[String] = stringSvgAttr("offset")
 
   /**
     * This attribute defines the orientation of the marker relative to the shape it is attached to.
@@ -1092,7 +1092,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val result: A[String] = stringSvgAttr("result")
+  lazy val resultAttr: A[String] = stringSvgAttr("result")
 
 
   /**

@@ -35,14 +35,14 @@ trait EmbedTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlImage <: DomHtmlElem
     *
     *  MDN
     */
-  lazy val `object`: T[HtmlObject] = htmlTag("object")
+  lazy val objectTag: T[HtmlObject] = htmlTag("object")
 
   /**
     * Defines parameters for use by plug-ins invoked by object elements.
     *
     *  MDN
     */
-  lazy val param: T[HtmlParam] = htmlTag("param", void = true)
+  lazy val paramTag: T[HtmlParam] = htmlTag("param", void = true)
 
   /**
     * Represents a video, and its associated audio files and captions, with the
@@ -88,7 +88,7 @@ trait EmbedTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlImage <: DomHtmlElem
     *
     *  MDN
     */
-  lazy val map: T[HtmlMap] = htmlTag("map")
+  lazy val mapTag: T[HtmlMap] = htmlTag("map")
 
   /**
     * In conjunction with map, defines an image map
