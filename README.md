@@ -153,6 +153,8 @@ All naming differences with the DOM API should be documented in the README file 
 
 ## Documentation
 
+[API doc](https://javadoc.io/doc/com.raquo/domtypes_sjs1_2.13/latest/com/raquo/domtypes/index.html)
+
 TODO:
 
 * Write about general project structure, builders, etc.
