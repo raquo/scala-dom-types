@@ -2,11 +2,9 @@
 
 **Bolded items** in the log are breaking changes.
 
-The following allowances for breaking changes exist _for now_:
-* Minor version bump: breaking changes requiring changes in the code of consuming libraries
-* Patch version bump: breaking changes not requiring changes in the consuming libraries (e.g. renaming an attribute would be allowed here – that should only break end user code).
+#### v0.10.1 – Aug 2020
 
-TODO: Adopt more mature versioning, eventually. Read about eviction, binary compatibility, etc.
+* New: `slot` reflected attribute (for Web Components)
 
 #### v0.10.0 – Mar 2020
 

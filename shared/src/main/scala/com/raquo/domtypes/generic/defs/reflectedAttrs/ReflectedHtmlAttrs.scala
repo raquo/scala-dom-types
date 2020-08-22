@@ -488,6 +488,13 @@ trait ReflectedHtmlAttrs[RA[_, _]] { this: ReflectedHtmlAttrBuilder[RA] =>
   lazy val size: RA[Int, Int] = intReflectedAttr("size")
 
   /**
+    * The slot global attribute assigns a slot in a shadow DOM shadow tree to an element.
+    *
+    * MDN – https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/slot
+    */
+  lazy val slot: RA[String, String] = stringReflectedAttr("slot")
+
+  /**
     * Defines whether the element may be checked for spelling errors.
     *
     * MDN – https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck
