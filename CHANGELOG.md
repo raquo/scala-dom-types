@@ -2,6 +2,11 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.10.2 – Dec 2020
+
+* New: `loadingAttr` reflected attribute (for images)
+* Build: bump Scala and sbt versions
+
 #### v0.10.1 – Aug 2020
 
 * New: `slot` reflected attribute (for Web Components)
