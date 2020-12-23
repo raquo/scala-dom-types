@@ -27,7 +27,12 @@ package object defs {
 
     type MediaEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MediaEventProps[EP, dom.Event]
 
-    type MiscellaneousEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MiscellaneousEventProps[EP, dom.Event, dom.AnimationEvent, dom.UIEvent]
+    type MiscellaneousEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MiscellaneousEventProps[
+      EP,
+      dom.Event,
+      dom.AnimationEvent,
+      dom.TransitionEvent,
+      dom.UIEvent]
 
     type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[
       EP,

@@ -7,12 +7,13 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
   *
   * For type param docs see [[EventPropBuilder]]
   */
-trait MiscellaneousEventProps[
-  EP[_ <: DomEvent],
-  DomEvent,
-  DomAnimationEvent <: DomEvent,
-  DomUIEvent <: DomEvent
-] { this: EventPropBuilder[EP, DomEvent] =>
+trait MiscellaneousEventProps[EP[_ <: DomEvent],
+                              DomEvent,
+                              DomAnimationEvent <: DomEvent,
+                              DomTransitionEvent <: DomEvent,
+                              DomUIEvent <: DomEvent] {
+  this: EventPropBuilder[EP, DomEvent] =>
+
   /**
     * An animationcancel event is sent when a CSS animation unexpectedly aborts, that is, any time it stops running
     * without sending an animationend event. This can happen, for example, when the animation-name is changed such
@@ -79,4 +80,18 @@ trait MiscellaneousEventProps[
     * Fires when the user opens or closes the <details> element
     */
   lazy val onToggle: EP[DomEvent] = eventProp("toggle")
+
+  /**
+    * The `transitioncancel` event is sent when a CSS transition is cancelled.
+    *
+    * @see [[https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/ontransitioncancel MDN]]
+    */
+  lazy val onTransitionCancel: EP[DomEvent] = eventProp("transitioncancel")
+
+  /**
+    * The `transitionend` event is sent to when a CSS transition completes.
+    *
+    * @see [[https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/ontransitionend MDN]]
+    */
+  lazy val onTransitionEnd: EP[DomEvent] = eventProp("transitionend")
 }
