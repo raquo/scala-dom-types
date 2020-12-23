@@ -4,8 +4,8 @@
 
 _Scala DOM Types_ provides listings and type definitions for Javascript HTML and SVG tags as well as their attributes, DOM properties, and CSS styles.
 
-    "com.raquo" %%% "domtypes" % "0.10.2"    // Scala.js 1.x
-    "com.raquo" %% "domtypes" % "0.10.2"     // JVM
+    "com.raquo" %%% "domtypes" % "0.11.0"    // Scala.js 1.x
+    "com.raquo" %% "domtypes" % "0.11.0"     // JVM
 
 Our type definitions are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, popular Scala.js reactive UI library [Outwatch](https://github.com/OutWatch/outwatch/) recently switched to _Scala DOM Types_, offloading thousands of lines of code and improving type safety ([diff](https://github.com/OutWatch/outwatch/pull/62)). I am also using _Scala DOM Types_ in my own projects:
 
@@ -313,4 +313,4 @@ _Scala DOM Types_ is provided under the [MIT license](https://github.com/raquo/s
 
 Files in [`defs`](https://github.com/raquo/scala-dom-types/tree/master/shared/src/main/scala/com/raquo/domtypes/generic/defs) directory contain listings of DOM attributes, props, styles, etc. – Those were adapted from Li Haoyi's [ScalaTags](http://www.lihaoyi.com/scalatags/#License), which is also MIT licensed.
 
-Comments marked with "MDN" are taken or derived from content created by Mozilla Contributors and are licensed under Creative Commons Attribution-ShareAlike license (CC-BY-SA), v2.5.
+Comments marked with "MDN" or linking to MDN website are taken or derived from content created by Mozilla Contributors and are licensed under Creative Commons Attribution-ShareAlike license (CC-BY-SA), v2.5.

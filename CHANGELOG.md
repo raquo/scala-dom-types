@@ -2,6 +2,13 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.11.0 – Jan 2021
+
+* **New: CSS animation events (thanks, [@nghuuphuoc](https://github.com/nghuuphuoc)!)**
+  * Breaking change: added type param to `MiscellaneousEventProps.scala`
+* New: CSS transition events (thanks, [@ajaychandran](https://github.com/ajaychandran)!)
+* New: fullscreen events (thanks, [@nghuuphuoc](https://github.com/nghuuphuoc)!)
+
 #### v0.10.2 – Dec 2020
 
 * New: `loadingAttr` reflected attribute (for images)

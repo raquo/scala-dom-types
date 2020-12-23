@@ -18,7 +18,7 @@ trait MiscellaneousEventProps[
   /**
     * The animationend event is event fires when a CSS animation reaches the end of its active period.
     *
-    * MDN
+    * https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationend_event
     */
   lazy val onAnimationEnd: EP[DomAnimationEvent] = eventProp("animationend")
 
@@ -27,14 +27,14 @@ trait MiscellaneousEventProps[
     * when a single pass through the sequence of animation instructions is completed by executing the last
     * animation step.
     *
-    * MDN
+    * https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationiteration_event
     */
   lazy val onAnimationIteration: EP[DomAnimationEvent] = eventProp("animationiteration")
 
   /**
     * The animationstart event is sent when a CSS Animation starts to play.
     *
-    * MDN
+    * https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationstart_event
     */
   lazy val onAnimationStart: EP[DomAnimationEvent] = eventProp("animationstart")
 
