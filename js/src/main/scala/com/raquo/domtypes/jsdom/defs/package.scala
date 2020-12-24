@@ -32,7 +32,8 @@ package object defs {
       dom.Event,
       dom.AnimationEvent,
       dom.TransitionEvent,
-      dom.UIEvent]
+      dom.UIEvent
+    ]
 
     type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[
       EP,
