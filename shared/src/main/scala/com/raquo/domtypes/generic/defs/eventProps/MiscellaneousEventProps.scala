@@ -127,7 +127,7 @@ trait MiscellaneousEventProps[
       * `transition-delay` has ended.
       *
       * @see Browser compatibility:
-      *       - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionstart_event#Browser_compatibility Element]]
+      *       - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionstart_event#Browser_compatibility HTMLElement]]
       *       - [[https://developer.mozilla.org/en-US/docs/Web/API/Document/transitionstart_event#Browser_compatibility Document]]
       *       - [[https://developer.mozilla.org/en-US/docs/Web/API/Window/transitionstart_event#Browser_compatibility Window]]
       */
