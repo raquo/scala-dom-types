@@ -11,17 +11,9 @@ trait MiscellaneousEventProps[
   EP[_ <: DomEvent],
   DomEvent,
   DomAnimationEvent <: DomEvent,
+  DomTransitionEvent <: DomEvent,
   DomUIEvent <: DomEvent
 ] { this: EventPropBuilder[EP, DomEvent] =>
-  /**
-    * An animationcancel event is sent when a CSS animation unexpectedly aborts, that is, any time it stops running
-    * without sending an animationend event. This can happen, for example, when the animation-name is changed such
-    * that the animation is removed, or when the animating node is hidden—either directly or because any of its
-    * containing nodes are hidden—using CSS.
-    *
-    * MDN
-    */
-  lazy val onAnimationCancel: EP[DomAnimationEvent] = eventProp("animationcancel")
 
   /**
     * The animationend event is event fires when a CSS animation reaches the end of its active period.
@@ -79,4 +71,16 @@ trait MiscellaneousEventProps[
     * Fires when the user opens or closes the <details> element
     */
   lazy val onToggle: EP[DomEvent] = eventProp("toggle")
+
+  /**
+    * The `transitionend` event is sent to when a CSS transition completes.
+    *
+    * @note If the transition is removed from its target node before the transition completes execution, the
+    *       `transitionend` event won't be generated. One way this can happen is by changing the value of the
+    *       `transition-property` attribute which applies to the target. Another is if the `display` attribute is set to
+    *       `none`.
+    *
+    * @see [[https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/ontransitionend MDN]]
+    */
+  lazy val onTransitionEnd: EP[DomEvent] = eventProp("transitionend")
 }
