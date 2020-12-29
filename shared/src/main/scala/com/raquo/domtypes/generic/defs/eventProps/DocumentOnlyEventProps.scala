@@ -22,6 +22,20 @@ trait DocumentOnlyEventProps[EP[_ <: DomEvent], DomEvent] { this: EventPropBuild
   lazy val onDomContentLoaded: EP[DomEvent] = eventProp("DOMContentLoaded")
 
   /**
+    * The fullscreenchange event is fired immediately after the browser switches into or out of full-screen mode.
+    *
+    * MDN
+    */
+  lazy val onFullScreenChange: EP[DomEvent] = eventProp("fullscreenchange")
+
+  /**
+    * The fullscreenerror event is fired when the browser cannot switch to full-screen mode.
+    *
+    * MDN
+    */
+  lazy val onFullScreenError: EP[DomEvent] = eventProp("fullscreenerror")
+
+  /**
    * The visibilitychange event is fired when the content of a tab has become visible or has been hidden.
    *
    * MDN
