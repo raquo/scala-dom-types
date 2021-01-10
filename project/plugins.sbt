@@ -1,9 +1,11 @@
 logLevel := Level.Warn
 
-addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.0.1")
+addSbtPlugin("ch.epfl.lamp" % "sbt-dotty" % "0.5.1")
+
+addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.2.0")
 
 // @TODO I don't think we need this plugin in this project
-addSbtPlugin("ch.epfl.scala" % s"sbt-scalajs-bundler" % "0.17.0")
+addSbtPlugin("ch.epfl.scala" % s"sbt-scalajs-bundler" % "0.18.0")
 
 addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject" % "1.0.0")
 

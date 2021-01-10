@@ -7,7 +7,7 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
   *
   * For type param docs see [[EventPropBuilder]]
   */
-trait ClipboardEventProps[EP[_ <: DomEvent], DomEvent, DomClipboardEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
+trait ClipboardEventProps[A, EP[A <: DomEvent], DomEvent, DomClipboardEvent <: DomEvent] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
     * Fires when the user copies the content of an element
