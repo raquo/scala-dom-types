@@ -1,11 +1,16 @@
 import sbtcrossproject.CrossPlugin.autoImport.crossProject
 
+val scala213Version = "2.13.4"
+val scala212Version = "2.12.12"
+val scala211Version = "2.11.12"
+val scala3Version = "3.0.0-RC1-bin-20210113-8345078-NIGHTLY"
+
 inThisBuild(Seq(
   name := "Scala DOM Types",
   normalizedName := "domtypes",
   organization := "com.raquo",
-  scalaVersion := "3.0.0-M3",
-  crossScalaVersions := Seq("2.11.12", "2.12.11", "2.13.1", "3.0.0-M3")
+  scalaVersion := scala3Version, //scala213Version,
+  crossScalaVersions := Seq(scala3Version, scala213Version, scala212Version, scala211Version)
 ))
 
 // @TODO[WTF] Why can't this be inside releaseSettings?
@@ -39,36 +44,29 @@ lazy val releaseSettings = Seq(
   releasePublishArtifactsAction := PgpKeys.publishSigned.value
 )
 
+lazy val adjustScalacOptions = { options: Seq[String] =>
+  options.filterNot(
+    Set(
+      "-Wdead-code",
+      "-Wunused:implicits",
+      "-Wunused:explicits",
+      "-Wunused:imports",
+      "-Wunused:params"
+    )
+  )
+}
 
-val baseScalacSettings =
-  "-encoding" :: "UTF-8" ::
-  "-unchecked" ::
-  "-deprecation" ::
-  "-explaintypes" ::
-  "-feature" ::
-  "-language:_" ::
-  "-Xfuture" ::
-  "-Xlint" ::
-  "-Yno-adapted-args" ::
-  "-Ywarn-value-discard" ::
-  "-Ywarn-unused" ::
-  Nil
 
 lazy val scalacSettings = Seq(
-  scalacOptions ++= {
-    CrossVersion.partialVersion(scalaVersion.value) match {
-      case Some((2, 13)) =>
-        baseScalacSettings.diff(
-          "-Xfuture" ::
-          "-Yno-adapted-args" ::
-          "-Ywarn-infer-any" ::
-          "-Ywarn-nullary-override" ::
-          "-Ywarn-nullary-unit" ::
-          Nil
-        )
-      case _ => baseScalacSettings
-    }
-  }
+  scalacOptions ~= adjustScalacOptions,
+//  scalacOptions ++= (CrossVersion.partialVersion(scalaVersion.value) match {
+//      case Some((3, _)) =>
+//        Seq.empty
+//      case _ =>
+//        Seq(
+//          "-Ymacro-annotations"
+//        )
+//    }),
 )
 
 lazy val commonSettings = releaseSettings ++ scalacSettings
@@ -77,6 +75,7 @@ lazy val root = project.in(file("."))
   .aggregate(domtypesJS, domtypesJVM)
   .settings(commonSettings)
   .settings(
+    name := "Scala DOM Types",
     skip in publish := true
   )
 
@@ -87,9 +86,11 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
     scalaJSLinkerConfig ~= { _.withSourceMap(false) },
     requireJsDomEnv in Test := true,
     useYarn := true,
-    libraryDependencies ++= Seq(
-      ("org.scala-js" %%% "scalajs-dom" % "1.1.0").withDottyCompat(scalaVersion.value)
-    )
+    libraryDependencies ++= (CrossVersion.partialVersion(scalaVersion.value) match {
+      case Some((3, _)) => Seq("org.scala-js" %%% "scalajs-dom" % "1.2.0.3M3-SNAPSHOT")
+      case Some((2, _)) => Seq("org.scala-js" %%% "scalajs-dom" % "1.1.0")
+      case _ => Seq.empty
+    })
   )
 
 lazy val domtypesJS = domtypes.js
