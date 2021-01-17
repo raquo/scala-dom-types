@@ -1,6 +1,6 @@
 # Contribution Guide
 
-We welcome any contributions that help further this project's design goals (see README.md)).
+We welcome any contributions that help further this project's design goals (see README.md).
 
 Feel free to open an issue before spending the time to implement your changes.
 
@@ -13,7 +13,7 @@ _Scala DOM Types_ is not v1.0 yet, so we're generally open to breaking changes t
 
 We don't need many rules for now – just make a PR for your proposed change. Please don't push to master directly as I would like a chance to review things going there.
 
-Breaking changes and new features should be documented in CHANGELOG.md
+Changes should be documented in CHANGELOG.md
 
 
 ## Commit Messages

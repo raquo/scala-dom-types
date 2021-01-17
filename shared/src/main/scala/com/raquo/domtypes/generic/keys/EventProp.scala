@@ -7,7 +7,4 @@ package com.raquo.domtypes.generic.keys
   *
   * @tparam Ev type of DOM Events that the event handler callback for this event prop accepts
   */
-class EventProp[Ev](override val name: String) extends Key {
-
-  @inline def domName: String = name.toLowerCase
-}
+class EventProp[Ev](override val name: String) extends Key
