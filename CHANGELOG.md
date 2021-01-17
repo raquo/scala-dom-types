@@ -2,6 +2,11 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.12.0 – Jan 2021
+
+* **API: Remove EventProp#domName**
+  * Event names don't need lowercasing, which is what domName does. Event names are case sensitive, and this actually breaks custom Web Component events.
+
 #### v0.11.0 – Jan 2021
 
 * **New: CSS animation events (thanks, [@nghuuphuoc](https://github.com/nghuuphuoc)!)**
