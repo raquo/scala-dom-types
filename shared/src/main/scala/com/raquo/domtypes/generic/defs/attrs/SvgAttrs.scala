@@ -636,6 +636,12 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     */
   lazy val height: A[String] = stringSvgAttr("height")
 
+  /**
+    *
+    *
+    * MDN
+    */
+  lazy val href: A[String] = stringSvgAttr("href")
 
   /**
     *
@@ -1270,6 +1276,13 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     */
   lazy val surfaceScale: A[String] = stringSvgAttr("surfaceScale")
 
+
+  /**
+    *
+    *
+    * MDN
+    */
+  lazy val target: A[String] = stringSvgAttr("target")
 
   /**
     *

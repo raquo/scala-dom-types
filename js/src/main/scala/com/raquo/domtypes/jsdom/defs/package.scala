@@ -119,6 +119,7 @@ package object defs {
     type SvgTags[T[_ <: dom.svg.Element]] = generic.defs.tags.SvgTags[
       T,
       dom.svg.Element,
+      dom.svg.A,
       dom.svg.Circle,
       dom.svg.ClipPath,
       dom.svg.Defs,
