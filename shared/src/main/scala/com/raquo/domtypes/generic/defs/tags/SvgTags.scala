@@ -3,6 +3,7 @@ package com.raquo.domtypes.generic.defs.tags
 import com.raquo.domtypes.generic.builders.SvgTagBuilder
 
 trait SvgTags[T[_ <: SvgElement], SvgElement,
+  SvgAnchor <: SvgElement,
   SvgCircle <: SvgElement,
   SvgClipPath <: SvgElement,
   SvgDefs <: SvgElement,
@@ -58,6 +59,13 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
 ] {
   this: SvgTagBuilder[T, SvgElement] =>
 
+
+  /**
+    * Represents a hyperlink, linking to another resource.
+    *
+    *  MDN  [[org.scalajs.dom.svg.A]]
+    */
+  lazy val a: T[SvgAnchor] = svgTag("a")
 
   /**
     * The altGlyph element allows sophisticated selection of the glyphs used to
