@@ -8,7 +8,7 @@ package object defs {
 
   object eventProps {
 
-    type ClipboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ClipboardEventProps[dom.Event, EP, dom.Event, dom.ClipboardEvent]
+    type ClipboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ClipboardEventProps[EP, dom.Event, dom.ClipboardEvent]
 
     type ErrorEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ErrorEventProps[EP, dom.Event, dom.ErrorEvent]
 
