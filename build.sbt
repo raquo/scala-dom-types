@@ -9,6 +9,7 @@ lazy val domtypes =
         "-Ywarn-unused:params",
         "-Wunused:explicits"
       ))),
+      scalacOptions in (Compile, doc) ~= (_.filter(_.startsWith("-Xplugin"))),
       scalacOptions in (Compile, doc) ++= Seq(
         "-no-link-warnings" // Suppress scaladoc "Could not find any member to link for" warnings
       )
