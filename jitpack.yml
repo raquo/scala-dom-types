@@ -1,3 +1,0 @@
-install:
-   - sbt +publishM2
-   - sbt +domtypesJS/publishM2
