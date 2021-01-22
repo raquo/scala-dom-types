@@ -1,6 +1,6 @@
-scalaVersion in ThisBuild := ScalaVersions.v2_13
+scalaVersion in ThisBuild := Versions.Scala_2_13
 
-crossScalaVersions in ThisBuild := Seq(ScalaVersions.v3_RC1, ScalaVersions.v2_13, ScalaVersions.v2_12, ScalaVersions.v2_11)
+crossScalaVersions in ThisBuild := Seq(Versions.Scala_3_RC1, Versions.Scala_2_13, Versions.Scala_2_12, Versions.Scala_2_11)
 
 // @TODO[WTF] Why can't this be inside releaseSettings?
 releaseCrossBuild := true
@@ -55,7 +55,7 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
   .jsSettings(
     scalaJSLinkerConfig ~= { _.withSourceMap(false) },
     libraryDependencies ++= Seq(
-      ("org.scala-js" %%% "scalajs-dom" % "1.0.0").withDottyCompat(scalaVersion.value)
+      ("org.scala-js" %%% "scalajs-dom" % Versions.ScalaJsDom).withDottyCompat(scalaVersion.value)
     )
   )
 
