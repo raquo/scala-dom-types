@@ -19,7 +19,7 @@ jobs:
       - restore_cache:
           name: Restore Sbt Dependencies Cache
           keys:
-            - sbt-deps--{{ checksum "build.sbt" }}--{{ checksum "project/plugins.sbt" }}--{{ checksum "project/Versions.sbt" }}
+            - sbt-deps--{{ checksum "build.sbt" }}--{{ checksum "project/plugins.sbt" }}--{{ checksum "project/Versions.scala" }}
 
       # Make sure this exists, or checksum will fail (we might want to commit yarn.lock...)
       - run: touch yarn.lock
@@ -32,7 +32,7 @@ jobs:
             - ~/.m2
             - ~/.ivy2/cache
             - ~/.sbt
-          key: sbt-deps--{{ checksum "build.sbt" }}--{{ checksum "project/plugins.sbt" }}--{{ checksum "project/Versions.sbt" }}
+          key: sbt-deps--{{ checksum "build.sbt" }}--{{ checksum "project/plugins.sbt" }}--{{ checksum "project/Versions.scala" }}
 
 
       # run tests!
