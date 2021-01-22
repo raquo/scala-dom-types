@@ -26,6 +26,24 @@ lazy val commonSettings = Seq(
   releasePublishArtifactsAction := PgpKeys.publishSigned.value
 )
 
+releaseProcess := {
+  import ReleaseTransformations._
+  Seq[ReleaseStep](
+    checkSnapshotDependencies,
+    inquireVersions,
+    runClean,
+    runTest,
+    setReleaseVersion,
+    commitReleaseVersion,
+    tagRelease,
+    releaseStepCommandAndRemaining("+publishSigned"),
+    releaseStepCommand("sonatypeBundleRelease"),
+    setNextVersion,
+    commitNextVersion,
+    pushChanges
+  )
+}
+
 lazy val noPublish = Seq(
   publishLocal / skip := true,
   publish / skip := true,
