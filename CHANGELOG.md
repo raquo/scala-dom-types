@@ -8,7 +8,8 @@
   * Event names don't need lowercasing, which is what domName does. Event names are case sensitive, and this actually breaks custom Web Component events.
 * **New: Add SVG `<a>` element, and `href` & `target` SVG attributes**
   * Same as HTML `<a>` element, but for SVGs.
-  * Breaking because this adds a type param to `trait SvgTags` 
+  * Breaking because this adds a type param to `trait SvgTags`
+* Build: Initial Scala 3.0.0-RC1-nightly support (thanks, [@yurique!](https://github.com/yurique)!)
 
 #### v0.11.0 – Jan 2021
 
