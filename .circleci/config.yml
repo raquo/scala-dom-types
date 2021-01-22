@@ -1,0 +1,39 @@
+# Docs: https://circleci.com/docs/2.0/sample-config/
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:11-jdk-node
+
+    working_directory: ~/domtypes
+
+    environment:
+      # Customize the JVM maximum heap limit
+      JVM_OPTS: -Xmx1000m
+      TERM: dumb
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          name: Restore Sbt Dependencies Cache
+          keys:
+            - sbt-deps--{{ checksum "build.sbt" }}--{{ checksum "project/plugins.sbt" }}--{{ checksum "project/Versions.sbt" }}
+
+      # Make sure this exists, or checksum will fail (we might want to commit yarn.lock...)
+      - run: touch yarn.lock
+
+      - run: cat /dev/null | sbt +test:compile
+
+      - save_cache:
+          name: Save Sbt Dependencies Cache
+          paths:
+            - ~/.m2
+            - ~/.ivy2/cache
+            - ~/.sbt
+          key: sbt-deps--{{ checksum "build.sbt" }}--{{ checksum "project/plugins.sbt" }}--{{ checksum "project/Versions.sbt" }}
+
+
+      # run tests!
+      - run: cat /dev/null | sbt +test:test
