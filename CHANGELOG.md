@@ -2,6 +2,11 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.12.0-LEGACY – Feb 2021
+
+* Build: Downgrade to Scala.js 1.1.0 to work around [this issue](https://github.com/scala-js/scala-js/issues/4416).
+* Build: Temporarily drop Scala 3 (due to Scala.js downgrade)
+
 #### v0.12.0 – Jan 2021
 
 * **API: Remove EventProp#domName**

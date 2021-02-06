@@ -1,6 +1,6 @@
 scalaVersion in ThisBuild := Versions.Scala_2_13
 
-crossScalaVersions in ThisBuild := Seq(Versions.Scala_3_RC1, Versions.Scala_2_13, Versions.Scala_2_12, Versions.Scala_2_11)
+crossScalaVersions in ThisBuild := Seq(Versions.Scala_2_13, Versions.Scala_2_12, Versions.Scala_2_11)
 
 // @TODO[WTF] Why can't this be inside releaseSettings?
 releaseCrossBuild := true
