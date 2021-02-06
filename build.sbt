@@ -20,7 +20,7 @@ lazy val commonSettings = Seq(
   sonatypeProfileName := "com.raquo",
   publishMavenStyle := true,
   publishArtifact in Test := false,
-  publishTo := sonatypePublishTo.value,
+  publishTo := sonatypePublishToBundle.value,
   releaseCrossBuild := true,
   pomIncludeRepository := { _ => false },
   releasePublishArtifactsAction := PgpKeys.publishSigned.value
