@@ -2,10 +2,11 @@
 
 **Bolded items** in the log are breaking changes.
 
-#### v0.12.0-LEGACY – Feb 2021
+#### v0.12.1 – Feb 2021
 
 * Build: Downgrade to Scala.js 1.1.0 to work around [this issue](https://github.com/scala-js/scala-js/issues/4416).
 * Build: Temporarily drop Scala 3 (due to Scala.js downgrade)
+* These changes will be undone in a future version. There is no reason to upgrade to 0.12.1 unless you are facing the same bug.
 
 #### v0.12.0 – Jan 2021
 
@@ -14,7 +15,7 @@
 * **New: Add SVG `<a>` element, and `href` & `target` SVG attributes**
   * Same as HTML `<a>` element, but for SVGs.
   * Breaking because this adds a type param to `trait SvgTags`
-* Build: Initial Scala 3.0.0-RC1-nightly support (thanks, [@yurique!](https://github.com/yurique)!)
+* Build: Initial Scala 3.0.0-RC1-nightly support (thanks, [@yurique](https://github.com/yurique)!)
 
 #### v0.11.0 – Jan 2021
 
