@@ -18,7 +18,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object backgroundAttachment extends Style[String]("backgroundAttachment", "background-attachment") {
+  object backgroundAttachment extends Style[String]("background-attachment") {
 
     /**
       * This keyword means that the background image will scroll within the
@@ -56,7 +56,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val background: Style[String] = style("background", "background")
+  lazy val background: Style[String] = style("background")
 
   /**
     * The background-repeat CSS property defines how background images are repeated.
@@ -69,7 +69,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val backgroundRepeat: Style[String] = style("backgroundRepeat", "background-repeat")
+  lazy val backgroundRepeat: Style[String] = style("background-repeat")
 
 
   /**
@@ -79,7 +79,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val backgroundPosition: Style[String] = style("backgroundPosition", "background-position")
+  lazy val backgroundPosition: Style[String] = style("background-position")
 
   /**
     * The background-color CSS property sets the background color of an element,
@@ -87,7 +87,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val backgroundColor: Style[String] = style("backgroundColor", "background-color")
+  lazy val backgroundColor: Style[String] = style("background-color")
 
   /**
     * The background-origin CSS property determines the background positioning
@@ -98,7 +98,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object backgroundOrigin extends Style[String]("backgroundOrigin", "background-origin") {
+  object backgroundOrigin extends Style[String]("background-origin") {
 
     /**
       * The background extends to the outside edge of the border (but underneath
@@ -134,7 +134,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object backgroundClip extends Style[String]("backgroundClip", "background-clip") {
+  object backgroundClip extends Style[String]("background-clip") {
 
     /**
       * The background extends to the outside edge of the border (but underneath
@@ -167,7 +167,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object backgroundSize extends Style[String]("backgroundSize", "background-size") {
+  object backgroundSize extends Style[String]("background-size") {
 
     /**
       * The auto keyword that scales the background image in the corresponding
@@ -206,7 +206,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val backgroundImage = new MultiImageStyle("backgroundImage", "background-image")
+  lazy val backgroundImage = new MultiImageStyle("background-image")
 
   /**
     * The border-top-color CSS property sets the color of the top border of an
@@ -215,7 +215,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderTopColor: Style[String] = style("borderTopColor", "border-top-color")
+  lazy val borderTopColor: Style[String] = style("border-top-color")
 
   /**
     * The border-style CSS property is a shorthand property for setting the line
@@ -223,14 +223,14 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderStyle: Style[String] = style("borderStyle", "border-style")
+  lazy val borderStyle: Style[String] = style("border-style")
 
   /**
     * The border-top-style CSS property sets the line style of the top border of a box.
     *
     * MDN
     */
-  lazy val borderTopStyle = new BorderStyle("borderTopStyle", "border-top-style")
+  lazy val borderTopStyle = new BorderStyle("border-top-style")
 
   /**
     * The border-right-style CSS property sets the line style of the right border
@@ -238,7 +238,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderRightStyle = new BorderStyle("borderRightStyle", "border-right-style")
+  lazy val borderRightStyle = new BorderStyle("border-right-style")
 
   /**
     * The border-right-width CSS property sets the width of the right border of
@@ -246,7 +246,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderRightWidth = new BorderWidth("borderRightWidth", "border-right-width")
+  lazy val borderRightWidth = new BorderWidth("border-right-width")
 
   /**
     * The border-top-right-radius CSS property sets the rounding of the top-right
@@ -255,7 +255,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderTopRightRadius = new BorderRadius("borderTopRightRadius", "border-top-right-radius")
+  lazy val borderTopRightRadius = new BorderRadius("border-top-right-radius")
 
   /**
     * The border-bottom-left-radius CSS property sets the rounding of the
@@ -265,7 +265,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderBottomLeftRadius = new BorderRadius("borderBottomLeftRadius", "border-bottom-left-radius")
+  lazy val borderBottomLeftRadius = new BorderRadius("border-bottom-left-radius")
 
   /**
     * The border-right-color CSS property sets the color of the top border of an
@@ -274,7 +274,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderRightColor: Style[String] = style("borderRightColor", "border-right-color")
+  lazy val borderRightColor: Style[String] = style("border-right-color")
 
   /**
     * The border-bottom CSS property is a shorthand that sets the values of
@@ -283,7 +283,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderBottom: Style[String] = style("borderBottom", "border-bottom")
+  lazy val borderBottom: Style[String] = style("border-bottom")
 
   /**
     * The border CSS property is a shorthand property for setting the individual
@@ -293,7 +293,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val border: Style[String] = style("border", "border")
+  lazy val border: Style[String] = style("border")
 
   /**
     * The border-bottom-width CSS property sets the width of the bottom border of
@@ -301,7 +301,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderBottomWidth = new BorderWidth("borderBottomWidth", "border-bottom-width")
+  lazy val borderBottomWidth = new BorderWidth("border-bottom-width")
 
   /**
     * The border-right-color CSS property sets the color of the right border of
@@ -310,7 +310,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderLeftColor: Style[String] = style("borderLeftColor", "border-left-color")
+  lazy val borderLeftColor: Style[String] = style("border-left-color")
 
   /**
     * The border-bottom-color CSS property sets the color of the bottom border of
@@ -319,7 +319,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderBottomColor: Style[String] = style("borderBottomColor", "border-bottom-color")
+  lazy val borderBottomColor: Style[String] = style("border-bottom-color")
 
   /**
     * The border-collapse CSS property selects a table's border model. This has
@@ -327,7 +327,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object borderCollapse extends Style[String]("borderCollapse", "border-collapse") {
+  object borderCollapse extends Style[String]("border-collapse") {
 
     /**
       * Is a keyword requesting the use of the separated-border table rendering
@@ -356,7 +356,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderLeft: Style[String] = style("borderLeft", "border-left")
+  lazy val borderLeft: Style[String] = style("border-left")
 
   /**
     * The border-left-style CSS property sets the line style of the left border
@@ -364,7 +364,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderLeftStyle = new BorderStyle("borderLeftStyle", "border-left-style")
+  lazy val borderLeftStyle = new BorderStyle("border-left-style")
 
   /**
     * The border-right CSS property is a shorthand that sets the values of
@@ -373,7 +373,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderRight: Style[String] = style("borderRight", "border-right")
+  lazy val borderRight: Style[String] = style("border-right")
 
   /**
     * The border-bottom-style CSS property sets the line style of the bottom
@@ -381,21 +381,21 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderBottomStyle = new BorderStyle("borderBottomStyle", "border-bottom-style")
+  lazy val borderBottomStyle = new BorderStyle("border-bottom-style")
 
   /**
     * The border-left-width CSS property sets the width of the left border of a box.
     *
     * MDN
     */
-  lazy val borderLeftWidth = new BorderWidth("borderLeftWidth", "border-left-width")
+  lazy val borderLeftWidth = new BorderWidth("border-left-width")
 
   /**
     * The border-top-width CSS property sets the width of the top border of a box.
     *
     * MDN
     */
-  lazy val borderTopWidth = new BorderWidth("borderTopWidth", "border-top-width")
+  lazy val borderTopWidth = new BorderWidth("border-top-width")
 
   /**
     * The border-top CSS property is a shorthand that sets the values of
@@ -404,7 +404,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderTop: Style[String] = style("borderTop", "border-top")
+  lazy val borderTop: Style[String] = style("border-top")
 
   /**
     * The border-spacing CSS property specifies the distance between the borders
@@ -414,7 +414,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object borderSpacing extends Style[String]("borderSpacing", "border-spacing") {
+  object borderSpacing extends Style[String]("border-spacing") {
     def apply(horizontal: String, vertical: String): StyleSetter = buildStringStyleSetter(this, s"$horizontal $vertical")
   }
 
@@ -425,7 +425,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderRadius: Style[String] = style("borderRadius", "border-radius")
+  lazy val borderRadius: Style[String] = style("border-radius")
 
   /**
     * The border-width CSS property sets the width of the border of a box. Using
@@ -433,7 +433,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderWidth: Style[String] = style("borderWidth", "border-width")
+  lazy val borderWidth: Style[String] = style("border-width")
 
   /**
     * The border-bottom-right-radius CSS property sets the rounding of the
@@ -443,7 +443,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderBottomRightRadius = new BorderRadius("borderBottomRightRadius", "border-bottom-right-radius")
+  lazy val borderBottomRightRadius = new BorderRadius("border-bottom-right-radius")
 
   /**
     * The border-top-left-radius CSS property sets the rounding of the
@@ -453,7 +453,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderTopLeftRadius = new BorderRadius("borderTopLeftRadius", "border-top-left-radius")
+  lazy val borderTopLeftRadius = new BorderRadius("border-top-left-radius")
 
   /**
     * The border-color CSS property is a shorthand for setting the color of the
@@ -462,7 +462,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val borderColor: Style[String] = style("borderColor", "border-color")
+  lazy val borderColor: Style[String] = style("border-color")
 
   /**
     * The box-sizing CSS property is used to alter the default CSS box model used
@@ -472,7 +472,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object boxSizing extends Style[String]("boxSizing", "box-sizing") {
+  object boxSizing extends Style[String]("box-sizing") {
 
     /**
       * This is the default style as specified by the CSS standard. The width and
@@ -501,7 +501,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object color extends Style[String]("color", "color") {
+  object color extends Style[String]("color") {
     lazy val black: StyleSetter = buildStringStyleSetter(this, "black")
     lazy val silver: StyleSetter = buildStringStyleSetter(this, "silver")
     lazy val gray: StyleSetter = buildStringStyleSetter(this, "gray")
@@ -526,7 +526,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object clip extends AutoStyle[String]("clip", "clip") {
+  object clip extends AutoStyle[String]("clip") {
     def rect(top: String, right: String, bottom: String, left: String): StyleSetter = {
       buildStringStyleSetter(this, s"rect($top, $right, $bottom, $left)")
     }
@@ -538,7 +538,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object cursor extends Style[String]("cursor", "cursor") {
+  object cursor extends Style[String]("cursor") {
 
     /**
       * The browser determines the cursor to display based on the current context.
@@ -753,7 +753,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object float extends Style[String]("float", "float") {
+  object float extends Style[String]("float") {
     /**
       * Is a keyword indicating that the element must float on the left side of
       * its containing block.
@@ -798,7 +798,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object direction extends Style[String]("direction", "direction") {
+  object direction extends Style[String]("direction") {
     /**
       * The initial value of direction (that is, if not otherwise specified). Text
       * and other elements go from left to right.
@@ -827,7 +827,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object display extends Style[String]("display", "display") {
+  object display extends Style[String]("display") {
     /**
       * Turns off the display of an element (it has no effect on layout); all
       * descendant elements also have their display turned off. The document is
@@ -956,7 +956,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object pointerEvents extends Style[String]("pointerEvents", "pointer-events") {
+  object pointerEvents extends Style[String]("pointer-events") {
     /**
       * The element behaves as it would if the pointer-events property was not
       * specified. In SVG content, this value and the value visiblePainted have
@@ -1059,7 +1059,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object listStyleImage extends Style[String]("listStyleImage", "list-style-image") {
+  object listStyleImage extends Style[String]("list-style-image") {
 
     lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
   }
@@ -1072,7 +1072,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object listStylePosition extends Style[String]("listStylePosition", "list-style-position") {
+  object listStylePosition extends Style[String]("list-style-position") {
     /**
       * The marker box is outside the principal block box.
       *
@@ -1088,7 +1088,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     lazy val inside: StyleSetter = buildStringStyleSetter(this, "inside")
   }
 
-  class OverflowWrap(name: String, cssName: String) extends Style[String](name, cssName) {
+  class OverflowWrap(name: String) extends Style[String](name) {
     /**
       * Indicates that lines may only break at normal word break points.
       *
@@ -1113,7 +1113,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val overflowWrap = new OverflowWrap("overflowWrap", "overflow-wrap")
+  lazy val overflowWrap = new OverflowWrap("overflow-wrap")
 
   /**
     * The original non-standard property that was eventually standardized as
@@ -1121,7 +1121,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * See also: [[overflowWrap]]
     */
-  lazy val wordWrap = new OverflowWrap("wordWrap", "word-wrap")
+  lazy val wordWrap = new OverflowWrap("word-wrap")
 
 
   /**
@@ -1139,7 +1139,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val opacity: Style[Double] = style("opacity", "opacity")
+  lazy val opacity: Style[Double] = style("opacity")
 
 
   /**
@@ -1151,7 +1151,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val maxWidth = new MaxLengthStyle("maxWidth", "max-width")
+  lazy val maxWidth = new MaxLengthStyle("max-width")
 
 
   /**
@@ -1160,7 +1160,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object verticalAlign extends Style[String]("verticalAlign", "vertical-align") {
+  object verticalAlign extends Style[String]("vertical-align") {
     /**
       * Aligns the baseline of the element with the baseline of its parent. The
       * baseline of some replaced elements, like textarea is not specified by
@@ -1213,7 +1213,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object overflow extends Overflow("overflow", "overflow")
+  object overflow extends Overflow("overflow")
 
   /**
     * If the value is a URI value, the element pointed to by the URI is used as
@@ -1221,7 +1221,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object mask extends Style[String]("mask", "mask") {
+  object mask extends Style[String]("mask") {
     lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
 
     def uri(s: String): StyleSetter = buildStringStyleSetter(this, s"uri($s)")
@@ -1234,7 +1234,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object emptyCells extends Style[String]("emptyCells", "empty-cells") {
+  object emptyCells extends Style[String]("empty-cells") {
     /**
       * Is a keyword indicating that borders and backgrounds should be drawn like
       * in a normal cells.
@@ -1260,7 +1260,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val height = new AutoStyle[String]("height", "height")
+  lazy val height = new AutoStyle[String]("height")
 
 
   /**
@@ -1271,7 +1271,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val paddingRight: Style[String] = style("paddingRight", "padding-right")
+  lazy val paddingRight: Style[String] = style("padding-right")
 
   /**
     * The padding-top CSS property of an element sets the padding space required
@@ -1281,7 +1281,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val paddingTop: Style[String] = style("paddingTop", "padding-top")
+  lazy val paddingTop: Style[String] = style("padding-top")
 
   /**
     * The padding-left CSS property of an element sets the padding space required
@@ -1290,7 +1290,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val paddingLeft: Style[String] = style("paddingLeft", "padding-left")
+  lazy val paddingLeft: Style[String] = style("padding-left")
 
   /**
     * The padding CSS property sets the required padding space on all sides of an
@@ -1302,7 +1302,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val padding: Style[String] = style("padding", "padding")
+  lazy val padding: Style[String] = style("padding")
 
   /**
     * The padding-bottom CSS property of an element sets the height of the padding
@@ -1312,7 +1312,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val paddingBottom: Style[String] = style("paddingBottom", "padding-bottom")
+  lazy val paddingBottom: Style[String] = style("padding-bottom")
 
   /**
     * The right CSS property specifies part of the position of positioned elements.
@@ -1332,7 +1332,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val right = new AutoStyle[String]("right", "right")
+  lazy val right = new AutoStyle[String]("right")
 
 
   /**
@@ -1346,7 +1346,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val lineHeight = new NormalOpenStyle[String]("lineHeight", "line-height")
+  lazy val lineHeight = new NormalOpenStyle[String]("line-height")
 
   /**
     * The left CSS property specifies part of the position of positioned elements.
@@ -1357,7 +1357,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val left = new AutoStyle[String]("left", "left")
+  lazy val left = new AutoStyle[String]("left")
 
 
   /**
@@ -1367,7 +1367,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object listStyleType extends Style[String]("listStyleType", "list-style-type") {
+  object listStyleType extends Style[String]("list-style-type") {
     /**
       * No item marker is shown
       *
@@ -1507,7 +1507,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val listStyle: Style[String] = style("listStyle", "list-style")
+  lazy val listStyle: Style[String] = style("list-style")
 
   /**
     * The overflow-y CSS property specifies whether to clip content, render a
@@ -1516,7 +1516,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val overflowY = new Overflow("overflowY", "overflow-y")
+  lazy val overflowY = new Overflow("overflow-y")
 
   /**
     * The caption-side CSS property positions the content of a table's caption
@@ -1524,7 +1524,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object captionSide extends Style[String]("captionSide", "caption-side") {
+  object captionSide extends Style[String]("caption-side") {
     /**
       * The caption box will be above the table.
       *
@@ -1549,7 +1549,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val boxShadow: Style[String] = style("boxShadow", "box-shadow")
+  lazy val boxShadow: Style[String] = style("box-shadow")
 
 
   /**
@@ -1558,7 +1558,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object position extends Style[String]("position", "position") {
+  object position extends Style[String]("position") {
     /**
       * This keyword let the element use the normal behavior, that is it is laid
       * out in its current position in the flow.  The top, right, bottom, and left
@@ -1598,7 +1598,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
   }
 
 
-  object quotes extends Style[String]("quotes", "quotes") {
+  object quotes extends Style[String]("quotes") {
     /**
       * The open-quote and close-quote values of the content property produce no
       * quotation marks.
@@ -1613,7 +1613,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
 
   }
 
-  object tableLayout extends Style[String]("tableLayout", "table-layout") {
+  object tableLayout extends Style[String]("table-layout") {
     /**
       * An automatic table layout algorithm is commonly used by most browsers for
       * table layout. The width of the table and its cells depends on the content
@@ -1641,7 +1641,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object fontSize extends Style[String]("fontSize", "font-size") {
+  object fontSize extends Style[String]("font-size") {
     lazy val xxSmall: StyleSetter = buildStringStyleSetter(this, "xx-small")
     lazy val xSmall: StyleSetter = buildStringStyleSetter(this, "x-small")
     lazy val small: StyleSetter = buildStringStyleSetter(this, "small")
@@ -1679,7 +1679,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val fontSizeAdjust: Style[Double] = style("fontSizeAdjust", "font-size-adjust")
+  lazy val fontSizeAdjust: Style[Double] = style("font-size-adjust")
 
   /**
     * The font-family CSS property allows for a prioritized list of font family
@@ -1691,7 +1691,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val fontFamily: Style[String] = style("fontFamily", "font-family")
+  lazy val fontFamily: Style[String] = style("font-family")
 
   /**
     * The font-weight CSS property specifies the weight or boldness of the font.
@@ -1708,7 +1708,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object fontWeight extends Style[Int]("fontWeight", "font-weight") {
+  object fontWeight extends Style[Int]("font-weight") {
     /**
       * Normal font weight. Same as 400.
       *
@@ -1746,7 +1746,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val font: Style[String] = style("font", "font")
+  lazy val font: Style[String] = style("font")
 
   /**
     * The font-feature-settings CSS property allows control over advanced
@@ -1754,7 +1754,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val fontFeatureSettings: Style[String] = style("fontFeatureSettings", "font-feature-settings")
+  lazy val fontFeatureSettings: Style[String] = style("font-feature-settings")
 
   /**
     * The font-style CSS property allows italic or oblique faces to be selected
@@ -1762,7 +1762,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object fontStyle extends Style[String]("fontStyle", "font-style") {
+  object fontStyle extends Style[String]("font-style") {
     /**
       * Selects a font that is classified as normal within a font-family
       *
@@ -1791,7 +1791,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object clear extends Style[String]("clear", "clear") {
+  object clear extends Style[String]("clear") {
     /**
       * The element is not moved down to clear past floating elements.
       *
@@ -1824,7 +1824,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val marginBottom = new AutoStyle[String]("marginBottom", "margin-bottom")
+  lazy val marginBottom = new AutoStyle[String]("margin-bottom")
 
   /**
     * The margin-right CSS property of an element sets the margin space required
@@ -1832,7 +1832,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val marginRight = new Style[String]("marginRight", "margin-right") with MarginAuto
+  lazy val marginRight = new Style[String]("margin-right") with MarginAuto
 
 
   /**
@@ -1841,7 +1841,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val marginTop = new Style[String]("marginTop", "margin-top") with MarginAuto
+  lazy val marginTop = new Style[String]("margin-top") with MarginAuto
 
 
   /**
@@ -1854,7 +1854,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val marginLeft = new Style[String]("marginLeft", "margin-left") with MarginAuto
+  lazy val marginLeft = new Style[String]("margin-left") with MarginAuto
 
   /**
     * The margin CSS property sets the margin for all four sides. It is a
@@ -1865,7 +1865,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object margin extends Style[String]("margin", "margin") {
+  object margin extends Style[String]("margin") {
     /**
       * auto is replaced by some suitable value, e.g. it can be used for
       * centering of blocks.
@@ -1894,7 +1894,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val top = new AutoStyle[String]("top", "top")
+  lazy val top = new AutoStyle[String]("top")
 
 
   /**
@@ -1905,7 +1905,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val width = new AutoStyle[String]("width", "width")
+  lazy val width = new AutoStyle[String]("width")
 
   /**
     * The bottom CSS property participates in specifying the position of
@@ -1924,7 +1924,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val bottom = new AutoStyle[String]("bottom", "bottom")
+  lazy val bottom = new AutoStyle[String]("bottom")
 
   /**
     * The letter-spacing CSS property specifies spacing behavior between text
@@ -1932,7 +1932,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val letterSpacing = new NormalOpenStyle[String]("letterSpacing", "letter-spacing")
+  lazy val letterSpacing = new NormalOpenStyle[String]("letter-spacing")
 
 
   /**
@@ -1944,7 +1944,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val maxHeight = new MaxLengthStyle("maxHeight", "max-height")
+  lazy val maxHeight = new MaxLengthStyle("max-height")
 
   /**
     * The min-width CSS property is used to set the minimum width of a given
@@ -1955,7 +1955,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val minWidth = new MinLengthStyle("minWidth", "min-width")
+  lazy val minWidth = new MinLengthStyle("min-width")
 
 
   /**
@@ -1967,7 +1967,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val minHeight = new MinLengthStyle("minHeight", "min-height")
+  lazy val minHeight = new MinLengthStyle("min-height")
 
 
   /**
@@ -1980,7 +1980,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val outline: Style[String] = style("outline", "outline")
+  lazy val outline: Style[String] = style("outline")
 
   /**
     * The outline-style CSS property is used to set the style of the outline of
@@ -1989,7 +1989,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val outlineStyle = new OutlineStyle("outlineStyle", "outline-style")
+  lazy val outlineStyle = new OutlineStyle("outline-style")
 
   /**
     * The outline-width CSS property is used to set the width of the outline of
@@ -1998,7 +1998,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object outlineWidth extends Style[String]("outlineWidth", "outline-width") {
+  object outlineWidth extends Style[String]("outline-width") {
     /**
       * Typically 1px in desktop browsers like Firefox.
       *
@@ -2026,7 +2026,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object outlineColor extends Style[String]("outlineColor", "outline-color") {
+  object outlineColor extends Style[String]("outline-color") {
     /**
       * To ensure the outline is visible, performs a color inversion of the
       * background. This makes the focus border more salient, regardless of the
@@ -2046,7 +2046,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val overflowX = new Overflow("overflowX", "overflow-x")
+  lazy val overflowX = new Overflow("overflow-x")
 
 
   /**
@@ -2055,7 +2055,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val textAlignLast = new Style[String]("textAlignLast", "text-align-last") with TextAlign
+  lazy val textAlignLast = new Style[String]("text-align-last") with TextAlign
 
   trait TextAlign extends Style[String] {
     /**
@@ -2106,7 +2106,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val textAlign = new Style[String]("textAlign", "text-align") with TextAlign
+  lazy val textAlign = new Style[String]("text-align") with TextAlign
 
   /**
     * The text-decoration CSS property is used to set the text formatting to
@@ -2114,7 +2114,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object textDecoration extends Style[String]("textDecoration", "text-decoration") {
+  object textDecoration extends Style[String]("text-decoration") {
     /**
       * Produces no text decoration.
       *
@@ -2149,7 +2149,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val textIndent: Style[String] = style("textIndent", "text-indent")
+  lazy val textIndent: Style[String] = style("text-indent")
 
   /**
     * The text-overflow CSS property determines how overflowed content that is
@@ -2158,7 +2158,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object textOverflow extends Style[String]("textOverflow", "text-overflow") {
+  object textOverflow extends Style[String]("text-overflow") {
     /**
       * This keyword value indicates to truncate the text at the limit of the
       * content area, therefore the truncation can happen in the middle of a
@@ -2189,7 +2189,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object textUnderlinePosition extends Style[String]("textUnderlinePosition", "text-underline-position") {
+  object textUnderlinePosition extends Style[String]("text-underline-position") {
     /**
       * This keyword allows the browser to use an algorithm to choose between
       * under and alphabetic.
@@ -2233,7 +2233,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object textTransform extends Style[String]("textTransform", "text-transform") {
+  object textTransform extends Style[String]("text-transform") {
     /**
       * Forces the first letter of each word to be converted to
       * uppercase. Other characters are unchanged.
@@ -2274,7 +2274,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val textShadow = new NoneOpenStyle[String]("textShadow", "text-shadow")
+  lazy val textShadow = new NoneOpenStyle[String]("text-shadow")
 
 
   /**
@@ -2297,7 +2297,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val transitionDelay = new MultiTimeStyle("transitionDelay", "transition-delay")
+  lazy val transitionDelay = new MultiTimeStyle("transition-delay")
 
   /**
     * The CSS transition property is a shorthand property for transition-property,
@@ -2308,7 +2308,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val transition: Style[String] = style("transition", "transition")
+  lazy val transition: Style[String] = style("transition")
 
   /**
     * The CSS transition-timing-function property is used to describe how the
@@ -2318,7 +2318,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val transitionTimingFunction: Style[String] = style("transitionTimingFunction", "transition-timing-function")
+  lazy val transitionTimingFunction: Style[String] = style("transition-timing-function")
 
   /**
     * The transition-duration CSS property specifies the number of seconds or
@@ -2334,7 +2334,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val transitionDuration = new MultiTimeStyle("transitionDuration", "transition-duration")
+  lazy val transitionDuration = new MultiTimeStyle("transition-duration")
 
   /**
     * The transition-property CSS property is used to specify the names of CSS
@@ -2342,10 +2342,10 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val transitionProperty: Style[String] = style("transitionProperty", "transition-property")
+  lazy val transitionProperty: Style[String] = style("transition-property")
 
 
-  object visibility extends Style[String]("visibility", "visibility") {
+  object visibility extends Style[String]("visibility") {
     /**
       * Default value, the box is visible
       *
@@ -2377,7 +2377,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object whiteSpace extends Style[String]("whiteSpace", "white-space") {
+  object whiteSpace extends Style[String]("white-space") {
     /**
       * Sequences of whitespace are collapsed. Newline characters in the source
       * are handled as other whitespace. Breaks lines as necessary to fill line
@@ -2422,7 +2422,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val wordSpacing = new NormalOpenStyle[String]("wordSpacing", "word-spacing")
+  lazy val wordSpacing = new NormalOpenStyle[String]("word-spacing")
   /**
     * The z-index CSS property specifies the z-order of an element and its
     * descendants. When elements overlap, z-order determines which one covers the
@@ -2431,7 +2431,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val zIndex = new AutoStyle[Int]("zIndex", "z-index")
+  lazy val zIndex = new AutoStyle[Int]("z-index")
 
 
   /**
@@ -2441,7 +2441,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  final lazy val flex: Style[String] = style("flex", "flex")
+  final lazy val flex: Style[String] = style("flex")
 
   /**
     * The CSS flex-basis property specifies the flex basis which is the initial main size of a flex item.
@@ -2449,21 +2449,21 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  final lazy val flexBasis: Style[String] = style("flexBasis", "flex-basis")
+  final lazy val flexBasis: Style[String] = style("flex-basis")
 
   /**
     * The CSS flex-grow property specifies the flex grow factor of a flex item.
     *
     * MDN
     */
-  final lazy val flexGrow = style[Double]("flexGrow", "flex-grow")
+  final lazy val flexGrow = style[Double]("flex-grow")
 
   /**
     * The CSS flex-shrink property specifies the flex shrink factor of a flex item.
     *
     * MDN
     */
-  final lazy val flexShrink = style[Double]("flexShrink", "flex-shrink")
+  final lazy val flexShrink = style[Double]("flex-shrink")
 
   /**
     * The CSS align-content property aligns a flex container's lines within the flex container when there is extra
@@ -2471,7 +2471,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object alignContent extends Style[String]("alignContent", "align-content") {
+  object alignContent extends Style[String]("align-content") {
 
     /**
       * Lines are packed starting from the cross-start. Cross-start edge of the first line and cross-start edge of
@@ -2529,7 +2529,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object alignSelf extends Style[String]("alignSelf", "align-self") {
+  object alignSelf extends Style[String]("align-self") {
     /**
       * Computes to parent's align-items value or stretch if the element has no parent.
       *
@@ -2582,7 +2582,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object flexWrap extends Style[String]("flexWrap", "flex-wrap") {
+  object flexWrap extends Style[String]("flex-wrap") {
 
     /**
       * The flex items are laid out in a single line which may cause the flex container to overflow. The cross-start
@@ -2615,7 +2615,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object alignItems extends Style[String]("alignItems", "align-items") {
+  object alignItems extends Style[String]("align-items") {
 
     /**
       * The cross-start margin edge of the flex item is flushed with the cross-start edge of the line.
@@ -2666,7 +2666,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object justifyContent extends Style[String]("justifyContent", "justify-content") {
+  object justifyContent extends Style[String]("justify-content") {
 
     /**
       * The items are packed flush to each other toward the start edge of the
@@ -2821,7 +2821,7 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  object flexDirection extends Style[String]("flexDirection", "flex-direction") {
+  object flexDirection extends Style[String]("flex-direction") {
 
     /**
       * The flex container's main-axis is the same as the block-axis.
@@ -2860,5 +2860,5 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * MDN
     */
-  lazy val resize: Style[String] = style("resize", "resize")
+  lazy val resize: Style[String] = style("resize")
 }

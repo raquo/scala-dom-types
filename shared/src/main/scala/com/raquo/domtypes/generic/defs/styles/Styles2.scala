@@ -17,7 +17,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationDirection: Style[String] = style("animationDirection", "animation-direction")
+  lazy val animationDirection: Style[String] = style("animation-direction")
 
   /**
     * The animation-duration CSS property specifies the Length of time that an
@@ -28,7 +28,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationDuration: Style[String] = style("animationDuration", "animation-duration")
+  lazy val animationDuration: Style[String] = style("animation-duration")
 
   /**
     * The animation-name CSS property specifies a list of animations that should
@@ -37,7 +37,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationName: Style[String] = style("animationName", "animation-name")
+  lazy val animationName: Style[String] = style("animation-name")
 
   /**
     * The animation-fill-mode CSS property specifies how a CSS animation should
@@ -45,7 +45,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationFillMode: Style[String] = style("animationFillMode", "animation-fill-mode")
+  lazy val animationFillMode: Style[String] = style("animation-fill-mode")
 
   /**
     * The animation-iteration-count CSS property defines the number of times an
@@ -53,7 +53,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationIterationCount: Style[Int] = style("animationIterationCount", "animation-iteration-count")
+  lazy val animationIterationCount: Style[Int] = style("animation-iteration-count")
 
 
   /**
@@ -78,7 +78,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationDelay = new MultiTimeStyle("animationDelay", "animation-delay")
+  lazy val animationDelay = new MultiTimeStyle("animation-delay")
 
   /**
     * The CSS animation-timing-function property specifies how a CSS animation
@@ -95,7 +95,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationTimingFunction: Style[String] = style("animationTimingFunction", "animation-timing-function")
+  lazy val animationTimingFunction: Style[String] = style("animation-timing-function")
 
 
   /**
@@ -110,7 +110,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animationPlayState: Style[String] = style("animationPlayState", "animation-play-state")
+  lazy val animationPlayState: Style[String] = style("animation-play-state")
   /**
     * The animation CSS property is a shorthand property for animation-name,
     * animation-duration, animation-timing-function, animation-delay,
@@ -118,7 +118,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val animation: Style[String] = style("animation", "animation")
+  lazy val animation: Style[String] = style("animation")
 
 
   /**
@@ -129,7 +129,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  object backfaceVisibility extends Style[String]("backfaceVisibility", "backface-visibility") {
+  object backfaceVisibility extends Style[String]("backface-visibility") {
     /**
       * The back face is visible.
       *
@@ -151,7 +151,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  object columns extends Style[String]("columns", "columns") {
+  object columns extends Style[String]("columns") {
     def apply(number: Int, width: String): StyleSetter = buildStringStyleSetter(this, s"$number $width")
   }
 
@@ -160,7 +160,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val columnCount: AutoStyle[Int] = new AutoStyle("columnCount", "column-count")
+  lazy val columnCount: AutoStyle[Int] = new AutoStyle("column-count")
 
   /**
     * The column-fill CSS property controls how contents are partitioned into
@@ -170,7 +170,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  object columnFill extends Style[String]("columnFill", "column-fill") {
+  object columnFill extends Style[String]("column-fill") {
     /**
       * Is a keyword indicating that columns are filled sequentially.
       *
@@ -192,7 +192,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val columnGap = new NormalOpenStyle[String]("columnGap", "column-gap")
+  lazy val columnGap = new NormalOpenStyle[String]("column-gap")
 
   /**
     * In multi-column layouts, the column-rule CSS property specifies a straight
@@ -202,7 +202,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val columnRule: Style[String] = style("columnRule", "column-rule")
+  lazy val columnRule: Style[String] = style("column-rule")
 
   /**
     * The column-span CSS property makes it possible for an element to span across
@@ -211,7 +211,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  object columnSpan extends Style[Int]("columnSpan", "column-span") {
+  object columnSpan extends Style[Int]("column-span") {
     /**
       * The element does not span multiple columns.
       *
@@ -241,7 +241,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val columnWidth = new AutoStyle[Int]("columnWidth", "column-width")
+  lazy val columnWidth = new AutoStyle[Int]("column-width")
 
   /**
     * The column-rule-color CSS property lets you set the color of the rule drawn
@@ -249,7 +249,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val columnRuleColor: Style[String] = style("columnRuleColor", "column-rule-color")
+  lazy val columnRuleColor: Style[String] = style("column-rule-color")
 
   /**
     * The column-rule-width CSS property lets you set the width of the rule drawn
@@ -257,7 +257,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  object columnRuleWidth extends Style[String]("columnRuleWidth", "column-rule-width") {
+  object columnRuleWidth extends Style[String]("column-rule-width") {
     lazy val thin: StyleSetter = buildStringStyleSetter(this, "thin")
     lazy val medium: StyleSetter = buildStringStyleSetter(this, "medium")
     lazy val thick: StyleSetter = buildStringStyleSetter(this, "thick")
@@ -270,7 +270,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     * MDN
     */
   object columnRuleStyle
-    extends OutlineStyle("columnRuleStyle", "column-rule-style") {
+    extends OutlineStyle("column-rule-style") {
     lazy val hidden: StyleSetter = buildStringStyleSetter(this, "hidden")
   }
 
@@ -282,7 +282,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val content: Style[String] = style("content", "content")
+  lazy val content: Style[String] = style("content")
 
   /**
     * The counter-increment CSS property is used to increase the value of CSS
@@ -291,7 +291,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val counterIncrement: Style[String] = style("counterIncrement", "counter-increment")
+  lazy val counterIncrement: Style[String] = style("counter-increment")
 
   /**
     * The counter-reset CSS property is used to reset CSS Counters to a given
@@ -299,7 +299,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val counterReset: Style[String] = style("counterReset", "counter-reset")
+  lazy val counterReset: Style[String] = style("counter-reset")
 
 
   /**
@@ -309,7 +309,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val orphans: Style[Int] = style("orphans", "orphans")
+  lazy val orphans: Style[Int] = style("orphans")
 
 
   /**
@@ -322,7 +322,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val widows: Style[Int] = style("widows", "widows")
+  lazy val widows: Style[Int] = style("widows")
 
 
   /**
@@ -331,7 +331,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val pageBreakAfter = new PageBreak("pageBreakAfter", "page-break-after")
+  lazy val pageBreakAfter = new PageBreak("page-break-after")
 
   /**
     * The page-break-inside CSS property adjusts page breaks inside the current
@@ -339,7 +339,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val pageBreakInside = new PageBreak("pageBreakInside", "page-break-inside")
+  lazy val pageBreakInside = new PageBreak("page-break-inside")
 
 
   /**
@@ -351,7 +351,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val pageBreakBefore = new PageBreak("pageBreakBefore", "page-break-before")
+  lazy val pageBreakBefore = new PageBreak("page-break-before")
 
 
   /**
@@ -363,7 +363,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val perspective = new NoneOpenStyle[String]("perspective", "perspective")
+  lazy val perspective = new NoneOpenStyle[String]("perspective")
 
   /**
     * The perspective-origin CSS property determines the position the viewer is
@@ -371,7 +371,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val perspectiveOrigin: Style[String] = style("perspectiveOrigin", "perspective-origin")
+  lazy val perspectiveOrigin: Style[String] = style("perspective-origin")
 
 
   /**
@@ -385,7 +385,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val transform: Style[String] = style("transform", "transform")
+  lazy val transform: Style[String] = style("transform")
 
 
   /**
@@ -399,7 +399,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  lazy val transformOrigin: Style[String] = style("transformOrigin", "transform-origin")
+  lazy val transformOrigin: Style[String] = style("transform-origin")
 
   /**
     * The transform-style CSS property determines if the children of the element
@@ -407,7 +407,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  object transformStyle extends Style[String]("transformStyle", "transform-style") {
+  object transformStyle extends Style[String]("transform-style") {
     /**
       * Indicates that the children of the element should be positioned in the
       * 3D-space.
@@ -434,7 +434,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  object unicodeBidi extends Style[String]("unicodeBidi", "unicode-bidi") {
+  object unicodeBidi extends Style[String]("unicode-bidi") {
     /**
       * The element does not offer a additional level of embedding with respect
       * to the bidirectional algorithm. For inline elements implicit reordering
@@ -471,7 +471,7 @@ trait Styles2[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders
     *
     * MDN
     */
-  object wordBreak extends Style[String]("wordBreak", "word-break") {
+  object wordBreak extends Style[String]("word-break") {
     /**
       * Use the default line break rule.
       *

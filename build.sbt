@@ -2,7 +2,7 @@ scalaVersion in ThisBuild := Versions.Scala_2_13
 
 crossScalaVersions in ThisBuild := Seq(Versions.Scala_2_13, Versions.Scala_2_12, Versions.Scala_2_11)
 
-// @TODO[WTF] Why can't this be inside releaseSettings?
+// @TODO Does this need to be here too?
 releaseCrossBuild := true
 
 lazy val commonSettings = Seq(
@@ -53,9 +53,7 @@ lazy val noPublish = Seq(
 lazy val root = project.in(file("."))
   .aggregate(domtypesJS, domtypesJVM)
   .settings(commonSettings)
-  .settings(
-    skip in publish := true
-  )
+  .settings(noPublish)
 
 lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
   .settings(commonSettings)
