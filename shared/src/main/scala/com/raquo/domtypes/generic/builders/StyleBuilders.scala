@@ -12,7 +12,7 @@ import com.raquo.domtypes.generic.keys.Style
   */
 trait StyleBuilders[StyleSetter] {
 
-  @inline protected def style[V](key: String, cssKey: String): Style[V] = new Style(name = key, cssName = cssKey)
+  @inline protected def style[V](key: String): Style[V] = new Style(name = key)
 
   @inline protected def buildIntStyleSetter(style: Style[Int], value: Int): StyleSetter
 

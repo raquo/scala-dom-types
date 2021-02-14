@@ -19,27 +19,27 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
   /**
     * A Style that takes any value of type T as a parameter and has an auto value
     */
-  class AutoStyle[V](name: String, cssName: String) extends Style[V](name, cssName) {
+  class AutoStyle[V](name: String) extends Style[V](name) {
     lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
   }
 
   /**
     * A Style that takes any value of type T as a parameter and has an none value
     */
-  class NoneOpenStyle[V](name: String, cssName: String) extends Style[V](name, cssName) {
+  class NoneOpenStyle[V](name: String) extends Style[V](name) {
     lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
   }
 
   /**
     * A Style that takes any value of type T as a parameter and has an normal value
     */
-  class NormalOpenStyle[V](name: String, cssName: String) extends Style[V](name, cssName) {
+  class NormalOpenStyle[V](name: String) extends Style[V](name) {
     lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
   }
 
-  class MultiImageStyle(name: String, cssName: String) extends Style[String](name, cssName)
+  class MultiImageStyle(name: String) extends Style[String](name)
 
-  class OutlineStyle(name: String, cssName: String) extends Style[String](name, cssName) {
+  class OutlineStyle(name: String) extends Style[String](name) {
 
     /**
       * Displays a series of rounded dots. The spacing of the dots are not
@@ -108,7 +108,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
     lazy val outset: StyleSetter = buildStringStyleSetter(this, "outset")
   }
 
-  class BorderStyle(name: String, cssName: String) extends OutlineStyle(name, cssName) {
+  class BorderStyle(name: String) extends OutlineStyle(name) {
 
     /**
       * Like for the hidden keyword, displays no border. In that case, except if
@@ -135,7 +135,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
 
   }
 
-  class Overflow(name: String, cssName: String) extends Style[String](name, cssName) {
+  class Overflow(name: String) extends Style[String](name) {
 
     /**
       * Default value. Content is not clipped, it may be rendered outside the
@@ -171,7 +171,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
     lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
   }
 
-  class PageBreak(name: String, cssName: String) extends Style[String](name, cssName) {
+  class PageBreak(name: String) extends Style[String](name) {
 
     /**
       * Initial value. Automatic page breaks (neither forced nor forbidden).
@@ -212,7 +212,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
   }
 
 
-  class BorderRadius(name: String, cssName: String) extends Style[String](name, cssName)
+  class BorderRadius(name: String) extends Style[String](name)
 
   trait MarginAuto extends Style[String] {
     /**
@@ -224,15 +224,15 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
     lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
   }
 
-  class BorderWidth(name: String, cssName: String) extends Style[String](name, cssName) {
+  class BorderWidth(name: String) extends Style[String](name) {
     lazy val thin: StyleSetter = buildStringStyleSetter(this, "thin")
     lazy val medium: StyleSetter = buildStringStyleSetter(this, "medium")
     lazy val thick: StyleSetter = buildStringStyleSetter(this, "thick")
   }
 
-  class MultiTimeStyle(name: String, cssName: String) extends Style[String](name, cssName)
+  class MultiTimeStyle(name: String) extends Style[String](name)
 
-  class MinLengthStyle(name: String, cssName: String) extends AutoStyle[String](name, cssName) {
+  class MinLengthStyle(name: String) extends AutoStyle[String](name) {
 
     /**
       * The intrinsic preferred length.
@@ -263,7 +263,7 @@ trait StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
     lazy val fillAvailable: StyleSetter = buildStringStyleSetter(this, "fill-available")
   }
 
-  class MaxLengthStyle(name: String, cssName: String) extends Style[String](name, cssName) {
+  class MaxLengthStyle(name: String) extends Style[String](name) {
 
     /**
       * The length has no maximum value.

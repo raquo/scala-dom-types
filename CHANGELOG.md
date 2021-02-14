@@ -2,6 +2,13 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.13.0 – Feb 2021
+
+* **API: CSS Styles now have a single `name` instead of `name` (camelCased) and `cssName` (kebab-cased).**
+  * The new `name` is kebab-cased just like `cssName` before it. 
+  * To migrate, first make sure you're not using the style's old `name`, then convert usages of the old `cssName` to `name`, and adjust various style-related overriden methods and constructor calls to only accept one `name` param.
+  * As far as I can tell, the camelCased version of CSS property names is not actually used in native JS APIs, so you should have no use for the old `name`.
+
 #### v0.12.1 – Feb 2021
 
 * Build: Downgrade to Scala.js 1.1.0 to work around [this issue](https://github.com/scala-js/scala-js/issues/4416).
