@@ -112,7 +112,7 @@ Oh, and _Scala DOM Types_ **does** work on the JVM. Obviously you can't get nati
 
 ## Design Goals
 
-The purpose of _Scala DOM Types_ is to become a standard DOM types library used in Scala projects, both in Scala.js and the JVM.
+The purpose of _Scala DOM Types_ is to become a standard DOM types library used in Scala.js projects.
 
 
 #### Precise Types
