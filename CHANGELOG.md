@@ -2,6 +2,10 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.13.1 – Feb 2021
+
+* **Build: Bump Scala 3 version to Scala 3.0.0-RC1** 
+
 #### v0.13.0 – Feb 2021
 
 * **API: CSS Styles now have a single `name` instead of `name` (camelCased) and `cssName` (kebab-cased).**
