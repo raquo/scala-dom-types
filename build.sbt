@@ -72,7 +72,15 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
     scalaJSLinkerConfig ~= { _.withSourceMap(false) },
     libraryDependencies ++= Seq(
       ("org.scala-js" %%% "scalajs-dom" % Versions.ScalaJsDom).withDottyCompat(scalaVersion.value)
-    )
+    ),
+    scalacOptions ++= {
+      val remote = s"https://raw.githubusercontent.com/raquo/scala-dom-types/${git.gitHeadCommit.value.get}"
+
+      Seq(
+        s"-P:scalajs:mapSourceURI:${file("js").toURI}->$remote/js/",
+        s"-P:scalajs:mapSourceURI:${file("shared").toURI}->$remote/shared/"
+      )
+    }
   )
 
 lazy val domtypesJS = domtypes.js
