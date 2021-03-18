@@ -74,11 +74,11 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
       ("org.scala-js" %%% "scalajs-dom" % Versions.ScalaJsDom).withDottyCompat(scalaVersion.value)
     ),
     scalacOptions ++= {
-      val remote = s"https://raw.githubusercontent.com/raquo/scala-dom-types/${git.gitHeadCommit.value.get}"
-
+      val sourcesUrl = s"https://raw.githubusercontent.com/raquo/scala-dom-types/${git.gitHeadCommit.value.get}"
+      val sourcesOptionName = if (scalaVersion.value == Versions.Scala_3_RC1) "-scalajs-mapSourceURI" else "-P:scalajs:mapSourceURI"
       Seq(
-        s"-P:scalajs:mapSourceURI:${file("js").toURI}->$remote/js/",
-        s"-P:scalajs:mapSourceURI:${file("shared").toURI}->$remote/shared/"
+        s"${sourcesOptionName}:${file("js").toURI}->$sourcesUrl/js/",
+        s"${sourcesOptionName}:${file("shared").toURI}->$sourcesUrl/shared/"
       )
     }
   )
