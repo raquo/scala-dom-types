@@ -2,6 +2,12 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.14.1 – Mar 2021
+
+* Build: Use `mapSourceURI` option to point source maps to github (thanks, [@ajablonski](https://github.com/ajablonski)!).
+  * This should make source maps usable, I think.
+* New: `AsIsCodec.apply` convenience method
+
 #### v0.14.0 – Feb 2021
 
 * **Build: Support Scala 3.0.0-RC1, bump Scala.js requirement to 1.5.0**
