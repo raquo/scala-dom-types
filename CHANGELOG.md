@@ -2,6 +2,10 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.14.2 – Apr 2021
+
+* Fix: Specify correct namespace for `xmlns` SVG attribute
+
 #### v0.14.1 – Mar 2021
 
 * Build: Use `mapSourceURI` option to point source maps to github (thanks, [@ajablonski](https://github.com/ajablonski)!).

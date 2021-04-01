@@ -1,11 +1,10 @@
 package com.raquo.domtypes.generic.defs.attrs
 
 import com.raquo.domtypes.generic.builders.SvgAttrBuilder
+import com.raquo.domtypes.generic.defs.SvgNamespaces
 
 /** @tparam A SVG Attribute, canonically [[com.raquo.domtypes.generic.keys.SvgAttr]] */
 trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
-
-  import SvgAttrs._
 
   /**
     * This attribute defines the distance from the origin to the top of accent characters,
@@ -1436,8 +1435,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  // TODO : this currently does not work,have to add namespace: Namespace.svgXlinkNamespaceConfig)
-  lazy val xlinkHref: A[String] = stringSvgAttr("xlink:href", namespace = xlinkNamespace)
+  lazy val xlinkHref: A[String] = stringSvgAttr("xlink:href", namespace = Some(SvgNamespaces.xlink))
 
 
   /*
@@ -1445,7 +1443,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val xlinkRole: A[String] = stringSvgAttr("xlink:role", namespace = xlinkNamespace)
+  lazy val xlinkRole: A[String] = stringSvgAttr("xlink:role", namespace = Some(SvgNamespaces.xlink))
 
 
   /*
@@ -1453,7 +1451,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val xlinkTitle: A[String] = stringSvgAttr("xlink:title", namespace = xlinkNamespace)
+  lazy val xlinkTitle: A[String] = stringSvgAttr("xlink:title", namespace = Some(SvgNamespaces.xlink))
 
 
   /*
@@ -1461,7 +1459,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    *
    * MDN
    */
-  lazy val xmlSpace: A[String] = stringSvgAttr("xml:space", namespace = xmlNamespace)
+  lazy val xmlSpace: A[String] = stringSvgAttr("xml:space", namespace = Some(SvgNamespaces.xml))
 
 
   /**
@@ -1469,7 +1467,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val xmlns: A[String] = stringSvgAttr("xmlns")
+  lazy val xmlns: A[String] = stringSvgAttr("xmlns", namespace = Some(SvgNamespaces.xmlns))
 
 
   /**
@@ -1477,7 +1475,7 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
     *
     * MDN
     */
-  lazy val xmlnsXlink: A[String] = stringSvgAttr("xmlns:xlink", namespace = xlinkNamespace)
+  lazy val xmlnsXlink: A[String] = stringSvgAttr("xmlns:xlink", namespace = Some(SvgNamespaces.xlink))
 
 
   /*
@@ -1518,11 +1516,4 @@ trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
    * MDN
    */
   lazy val z: A[String] = stringSvgAttr("z")
-}
-
-object SvgAttrs {
-
-  private[SvgAttrs] val xlinkNamespace = Some("http://www.w3.org/1999/xlink")
-
-  private[SvgAttrs] val xmlNamespace = Some("http://www.w3.org/XML/1998/namespace")
 }
