@@ -10,5 +10,7 @@ object Versions {
 
   val Scala_3_RC2 = "3.0.0-RC2"
 
+  val Scala_3_RC3 = "3.0.0-RC3"
+
   val ScalaJsDom = "1.1.0"
 }

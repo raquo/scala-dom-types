@@ -1,6 +1,7 @@
-scalaVersion in ThisBuild := Versions.Scala_2_13
+(ThisBuild / scalaVersion) := Versions.Scala_2_13
 
-crossScalaVersions in ThisBuild := Seq(
+(ThisBuild / crossScalaVersions) := Seq(
+  Versions.Scala_3_RC3,
   Versions.Scala_3_RC2,
   Versions.Scala_3_RC1,
   Versions.Scala_2_13,
@@ -25,7 +26,7 @@ lazy val commonSettings = Seq(
   ),
   sonatypeProfileName := "com.raquo",
   publishMavenStyle := true,
-  publishArtifact in Test := false,
+  (Test / publishArtifact) := false,
   publishTo := sonatypePublishToBundle.value,
   releaseCrossBuild := true,
   pomIncludeRepository := { _ => false },
@@ -69,8 +70,8 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
       "-Ywarn-unused:params",
       "-Wunused:explicits"
     ))),
-    scalacOptions in (Compile, doc) ~= (_.filter(_.startsWith("-Xplugin"))), // https://github.com/DavidGregory084/sbt-tpolecat/issues/36
-    scalacOptions in (Compile, doc) ++= Seq(
+    (Compile / doc / scalacOptions) ~= (_.filter(_.startsWith("-Xplugin"))), // https://github.com/DavidGregory084/sbt-tpolecat/issues/36
+    (Compile / doc / scalacOptions) ++= Seq(
       "-no-link-warnings" // Suppress scaladoc "Could not find any member to link for" warnings
     )
   )
