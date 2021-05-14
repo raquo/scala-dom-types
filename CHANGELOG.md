@@ -4,7 +4,8 @@
 
 #### v0.14.3 – Apr 2021
 
-* Build: Publish for Scala 3.0.0-RC3 
+* Build: Publish for Scala 3.0.0-RC3
+  * ETA May 2021: And Scala 3.0.0 now that it's released
 * Misc: Add `svg` namespace to SvgNamespaces (not used)
 
 #### v0.14.2 – Apr 2021

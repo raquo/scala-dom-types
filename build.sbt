@@ -1,9 +1,7 @@
 (ThisBuild / scalaVersion) := Versions.Scala_2_13
 
 (ThisBuild / crossScalaVersions) := Seq(
-  Versions.Scala_3_RC3,
-  Versions.Scala_3_RC2,
-  Versions.Scala_3_RC1,
+  Versions.Scala_3,
   Versions.Scala_2_13,
   Versions.Scala_2_12,
   Versions.Scala_2_11
@@ -78,7 +76,7 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
   .jsSettings(
     scalaJSLinkerConfig ~= { _.withSourceMap(false) },
     libraryDependencies ++= Seq(
-      ("org.scala-js" %%% "scalajs-dom" % Versions.ScalaJsDom).withDottyCompat(scalaVersion.value)
+      ("org.scala-js" %%% "scalajs-dom" % Versions.ScalaJsDom).cross(CrossVersion.for3Use2_13)
     ),
     scalacOptions ++= {
       val sourcesUrl = s"https://raw.githubusercontent.com/raquo/scala-dom-types/${git.gitHeadCommit.value.get}"
