@@ -1,10 +1,7 @@
-(ThisBuild / scalaVersion) := Versions.Scala_2_13
+(ThisBuild / scalaVersion) := Versions.Scala_3
 
 (ThisBuild / crossScalaVersions) := Seq(
-  Versions.Scala_3,
-  Versions.Scala_2_13,
-  Versions.Scala_2_12,
-  Versions.Scala_2_11
+  Versions.Scala_3
 )
 
 // @TODO Does this need to be here too?
