@@ -2,6 +2,14 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.14.4 - Sep 2021
+
+* API: Implement special builder methods for html-svg transition tags, i.e. `foreignObject`, which is a svg tag, but it's children are html tags.
+  This change applies to the tags `EmbedTags.svg` and `SvgTags.foreignObject`.
+  The added builder method is implemented to call the main builder method by default to not break existing implementations.
+* API: Deprecate `SvgTags.svg` since it is a html tag in all browsers, unless it is being used in a standalone svg.
+* API: Add `EmbedTags.svg`.
+
 #### v0.14.3 – Apr 2021
 
 * Build: Publish for Scala 3.0.0-RC3

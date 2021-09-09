@@ -458,7 +458,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val foreignObject: T[SvgElement] = svgTag("foreignObject")
+  lazy val foreignObject: T[SvgElement] = svgToHtmlTag("foreignObject")
 
   /**
     * The g element is a container used to group objects. Transformations applied
@@ -642,6 +642,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
+  @deprecated("use EmbedTags.svg instead", "0.14.4")
   lazy val svg: T[Svg] = svgTag("svg")
 
   /**
