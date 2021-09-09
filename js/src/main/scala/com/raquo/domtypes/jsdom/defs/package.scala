@@ -110,7 +110,7 @@ package object defs {
 
     type SectionTags[T[_ <: dom.html.Element]] = generic.defs.tags.SectionTags[T, dom.html.Element, dom.html.Body, dom.html.Element, dom.html.Heading]
 
-    type EmbedTags[T[_ <: dom.html.Element]] = generic.defs.tags.EmbedTags[T, dom.html.Element, dom.html.Image, dom.html.IFrame, dom.html.Embed, dom.html.Object, dom.html.Param, dom.html.Video, dom.html.Audio, dom.html.Source, dom.html.Track, dom.html.Canvas, dom.html.Map, dom.html.Area]
+    type EmbedTags[T[_ <: dom.html.Element]] = generic.defs.tags.EmbedTags[T, dom.html.Element, dom.html.Image, dom.html.SVG, dom.html.IFrame, dom.html.Embed, dom.html.Object, dom.html.Param, dom.html.Video, dom.html.Audio, dom.html.Source, dom.html.Track, dom.html.Canvas, dom.html.Map, dom.html.Area]
 
     type TableTags[T[_ <: dom.html.Element]] = generic.defs.tags.TableTags[T, dom.html.Element, dom.html.Table, dom.html.TableCaption, dom.html.TableCol, dom.html.TableSection, dom.html.TableRow, dom.html.TableCell]
 
