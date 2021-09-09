@@ -7,6 +7,10 @@ trait SvgTagBuilder[T[_ <: DomSvgElement], -DomSvgElement] {
     svgTag(tagName)
   }
 
+  @inline protected def htmlToSvgTag[Ref <: DomSvgElement](tagName: String): T[Ref] = {
+    svgTag(tagName)
+  }
+
   @inline protected def svgTag[Ref <: DomSvgElement](tagName: String): T[Ref] = {
     svgTag(tagName, void = false)
   }
