@@ -3,11 +3,11 @@ package com.raquo.domtypes.generic.builders
 /** SvgTagBuilder is a builder of SVG Tags, which themselves are builders of SVG Elements. #factoryfactory */
 trait SvgTagBuilder[T[_ <: DomSvgElement], -DomSvgElement] {
 
-  @inline protected def svgToHtmlTag[Ref <: DomSvgElement](tagName: String): T[Ref] = {
+  @inline protected def svgForeignObjectTag[Ref <: DomSvgElement](tagName: String): T[Ref] = {
     svgTag(tagName)
   }
 
-  @inline protected def htmlToSvgTag[Ref <: DomSvgElement](tagName: String): T[Ref] = {
+  @inline protected def svgSvgTag[Ref <: DomSvgElement](tagName: String): T[Ref] = {
     svgTag(tagName)
   }
 
