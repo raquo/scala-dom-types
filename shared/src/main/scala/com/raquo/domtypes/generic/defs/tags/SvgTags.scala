@@ -59,13 +59,16 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
 ] {
   this: SvgTagBuilder[T, SvgElement] =>
 
+  type TPure <: T
+  type TSvg <: T[Svg]
+  type TForeignObject <: T[SvgElement]
 
   /**
     * Represents a hyperlink, linking to another resource.
     *
     *  MDN  [[org.scalajs.dom.svg.A]]
     */
-  lazy val a: T[SvgAnchor] = svgTag("a")
+  lazy val a: TPure[SvgAnchor] = svgTag("a")
 
   /**
     * The altGlyph element allows sophisticated selection of the glyphs used to
@@ -73,14 +76,14 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val altGlyph: T[SvgElement] = svgTag("altGlyph")
+  lazy val altGlyph: TPure[SvgElement] = svgTag("altGlyph")
 
   /**
     * The altGlyphDef element defines a substitution representation for glyphs.
     *
     * MDN
     */
-  lazy val altGlyphDef: T[SvgElement] = svgTag("altGlyphDef")
+  lazy val altGlyphDef: TPure[SvgElement] = svgTag("altGlyphDef")
 
   /**
     * The altGlyphItem element provides a set of candidates for glyph substitution
@@ -88,7 +91,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val altGlyphItem: T[SvgElement] = svgTag("altGlyphItem")
+  lazy val altGlyphItem: TPure[SvgElement] = svgTag("altGlyphItem")
 
   /**
     * The animate element is put inside a shape element and defines how an
@@ -96,7 +99,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val animate: T[SvgElement] = svgTag("animate")
+  lazy val animate: TPure[SvgElement] = svgTag("animate")
 
   /**
     * The animateMotion element causes a referenced element to move along a
@@ -104,7 +107,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val animateMotion: T[SvgElement] = svgTag("animateMotion")
+  lazy val animateMotion: TPure[SvgElement] = svgTag("animateMotion")
 
   /**
     * The animateTransform element animates a transformation attribute on a target
@@ -113,7 +116,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val animateTransform: T[SvgElement] = svgTag("animateTransform")
+  lazy val animateTransform: TPure[SvgElement] = svgTag("animateTransform")
 
   /**
     * The circle element is an SVG basic shape, used to create circles based on a
@@ -121,7 +124,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val circle: T[SvgCircle] = svgTag("circle")
+  lazy val circle: TPure[SvgCircle] = svgTag("circle")
 
   /**
     * The clipping path restricts the region to which paint can be applied.
@@ -130,14 +133,14 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val clipPathTag: T[SvgClipPath] = svgTag("clipPath")
+  lazy val clipPathTag: TPure[SvgClipPath] = svgTag("clipPath")
 
   /**
     * The element allows describing the color profile used for the image.
     *
     * MDN
     */
-  lazy val colorProfileTag: T[SvgElement] = svgTag("color-profile")
+  lazy val colorProfileTag: TPure[SvgElement] = svgTag("color-profile")
 
   /**
     * The cursor element can be used to define a platform-independent custom
@@ -148,7 +151,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val cursor: T[SvgElement] = svgTag("cursor")
+  lazy val cursor: TPure[SvgElement] = svgTag("cursor")
 
   /**
     * SVG allows graphical objects to be defined for later reuse. It is
@@ -161,7 +164,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val defs: T[SvgDefs] = svgTag("defs")
+  lazy val defs: TPure[SvgDefs] = svgTag("defs")
 
   /**
     * Each container element or graphics element in an SVG drawing can supply a
@@ -174,7 +177,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val desc: T[SvgDesc] = svgTag("desc")
+  lazy val desc: TPure[SvgDesc] = svgTag("desc")
 
   /**
     * The ellipse element is an SVG basic shape, used to create ellipses based
@@ -186,7 +189,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val ellipse: T[SvgEllipse] = svgTag("ellipse")
+  lazy val ellipse: TPure[SvgEllipse] = svgTag("ellipse")
 
   /**
     * The feBlend filter composes two objects together ruled by a certain blending
@@ -195,7 +198,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feBlend: T[SvgFEBlend] = svgTag("feBlend")
+  lazy val feBlend: TPure[SvgFEBlend] = svgTag("feBlend")
 
   /**
     * This filter changes colors based on a transformation matrix. Every pixel's
@@ -204,7 +207,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feColorMatrix: T[SvgFEColorMatrix] = svgTag("feColorMatrix")
+  lazy val feColorMatrix: TPure[SvgFEColorMatrix] = svgTag("feColorMatrix")
 
   /**
     * The color of each pixel is modified by changing each channel (R, G, B, and
@@ -213,7 +216,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feComponentTransfer: T[SvgComponentTransferFunction] = svgTag("feComponentTransfer")
+  lazy val feComponentTransfer: TPure[SvgComponentTransferFunction] = svgTag("feComponentTransfer")
 
   /**
     * This filter primitive performs the combination of two input images pixel-wise
@@ -223,7 +226,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feComposite: T[SvgFEComposite] = svgTag("feComposite")
+  lazy val feComposite: TPure[SvgFEComposite] = svgTag("feComposite")
 
   /**
     * the feConvolveMatrix element applies a matrix convolution filter effect.
@@ -234,7 +237,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feConvolveMatrix: T[SvgFEConvolveMatrix] = svgTag("feConvolveMatrix")
+  lazy val feConvolveMatrix: TPure[SvgFEConvolveMatrix] = svgTag("feConvolveMatrix")
 
   /**
     * This filter primitive lights an image using the alpha channel as a bump map.
@@ -243,7 +246,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feDiffuseLighting: T[SvgFEDiffuseLighting] = svgTag("feDiffuseLighting")
+  lazy val feDiffuseLighting: TPure[SvgFEDiffuseLighting] = svgTag("feDiffuseLighting")
 
   /**
     * This filter primitive uses the pixels values from the image from in2 to
@@ -251,7 +254,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feDisplacementMap: T[SvgFEDisplacementMap] = svgTag("feDisplacementMap")
+  lazy val feDisplacementMap: TPure[SvgFEDisplacementMap] = svgTag("feDisplacementMap")
 
   /**
     * This filter primitive define a distant light source that can be used
@@ -260,7 +263,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feDistantLighting: T[SvgFEDistantLight] = svgTag("feDistantLighting")
+  lazy val feDistantLighting: TPure[SvgFEDistantLight] = svgTag("feDistantLighting")
 
   /**
     * The filter fills the filter subregion with the color and opacity defined by
@@ -268,7 +271,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feFlood: T[SvgFEFlood] = svgTag("feFlood")
+  lazy val feFlood: TPure[SvgFEFlood] = svgTag("feFlood")
 
   /**
     * This filter primitive defines the transfer function for the alpha component
@@ -276,7 +279,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feFuncA: T[SvgFEFuncA] = svgTag("feFuncA")
+  lazy val feFuncA: TPure[SvgFEFuncA] = svgTag("feFuncA")
 
   /**
     * This filter primitive defines the transfer function for the blue component
@@ -284,7 +287,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feFuncB: T[SvgFEFuncB] = svgTag("feFuncB")
+  lazy val feFuncB: TPure[SvgFEFuncB] = svgTag("feFuncB")
 
   /**
     * This filter primitive defines the transfer function for the green component
@@ -292,7 +295,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feFuncG: T[SvgFEFuncG] = svgTag("feFuncG")
+  lazy val feFuncG: TPure[SvgFEFuncG] = svgTag("feFuncG")
 
   /**
     * This filter primitive defines the transfer function for the red component
@@ -300,7 +303,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feFuncR: T[SvgFEFuncR] = svgTag("feFuncR")
+  lazy val feFuncR: TPure[SvgFEFuncR] = svgTag("feFuncR")
 
   /**
     * The filter blurs the input image by the amount specified in stdDeviation,
@@ -308,7 +311,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feGaussianBlur: T[SvgFEGaussianBlur] = svgTag("feGaussianBlur")
+  lazy val feGaussianBlur: TPure[SvgFEGaussianBlur] = svgTag("feGaussianBlur")
 
   /**
     * The feImage filter fetches image data from an external source and provides
@@ -317,7 +320,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feImage: T[SvgFEImage] = svgTag("feImage")
+  lazy val feImage: TPure[SvgFEImage] = svgTag("feImage")
 
   /**
     * The feMerge filter allows filter effects to be applied concurrently
@@ -327,7 +330,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feMerge: T[SvgFEMerge] = svgTag("feMerge")
+  lazy val feMerge: TPure[SvgFEMerge] = svgTag("feMerge")
 
   /**
     * The feMergeNode takes the result of another filter to be processed by its
@@ -335,7 +338,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feMergeNode: T[SvgFEMergeNode] = svgTag("feMergeNode")
+  lazy val feMergeNode: TPure[SvgFEMergeNode] = svgTag("feMergeNode")
 
   /**
     * This filter is used to erode or dilate the input image. It's usefulness
@@ -343,7 +346,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feMorphology: T[SvgFEMorphology] = svgTag("feMorphology")
+  lazy val feMorphology: TPure[SvgFEMorphology] = svgTag("feMorphology")
 
   /**
     * The input image as a whole is offset by the values specified in the dx
@@ -351,12 +354,12 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feOffset: T[SvgFEOffset] = svgTag("feOffset")
+  lazy val feOffset: TPure[SvgFEOffset] = svgTag("feOffset")
 
   /**
     *
     */
-  lazy val fePointLight: T[SvgFEPointLight] = svgTag("fePointLight")
+  lazy val fePointLight: TPure[SvgFEPointLight] = svgTag("fePointLight")
 
   /**
     * This filter primitive lights a source graphic using the alpha channel as a
@@ -369,12 +372,12 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feSpecularLighting: T[SvgFESpecularLighting] = svgTag("feSpecularLighting")
+  lazy val feSpecularLighting: TPure[SvgFESpecularLighting] = svgTag("feSpecularLighting")
 
   /**
     *
     */
-  lazy val feSpotlight: T[SvgFESpotLight] = svgTag("feSpotlight")
+  lazy val feSpotlight: TPure[SvgFESpotLight] = svgTag("feSpotlight")
 
   /**
     * An input image is tiled and the result used to fill a target. The effect
@@ -382,7 +385,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feTile: T[SvgFETile] = svgTag("feTile")
+  lazy val feTile: TPure[SvgFETile] = svgTag("feTile")
 
   /**
     * This filter primitive creates an image using the Perlin turbulence
@@ -391,7 +394,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feTurbulance: T[SvgFETurbulence] = svgTag("feTurbulance")
+  lazy val feTurbulance: TPure[SvgFETurbulence] = svgTag("feTurbulance")
 
   /**
     * The filter element serves as container for atomic filter operations. It is
@@ -400,14 +403,14 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val filter: T[SvgFilter] = svgTag("filter")
+  lazy val filter: TPure[SvgFilter] = svgTag("filter")
 
   /**
     * The font element defines a font to be used for text layout.
     *
     * MDN
     */
-  lazy val font: T[SvgElement] = svgTag("font")
+  lazy val font: TPure[SvgElement] = svgTag("font")
 
   /**
     * The font-face element corresponds to the CSS @font-face declaration. It
@@ -415,7 +418,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val fontFace: T[SvgElement] = svgTag("font-face")
+  lazy val fontFace: TPure[SvgElement] = svgTag("font-face")
 
   /**
     * The font-face-format element describes the type of font referenced by its
@@ -423,7 +426,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val fontFaceFormat: T[SvgElement] = svgTag("font-face-format")
+  lazy val fontFaceFormat: TPure[SvgElement] = svgTag("font-face-format")
 
   /**
     * The font-face-name element points to a locally installed copy of this font,
@@ -431,7 +434,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val fontFaceName: T[SvgElement] = svgTag("font-face-name")
+  lazy val fontFaceName: TPure[SvgElement] = svgTag("font-face-name")
 
   /**
     * The font-face-src element corresponds to the src property in CSS @font-face
@@ -441,14 +444,14 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val fontFaceSrc: T[SvgElement] = svgTag("font-face-src")
+  lazy val fontFaceSrc: TPure[SvgElement] = svgTag("font-face-src")
 
   /**
     * The font-face-uri element points to a remote definition of the current font.
     *
     * MDN
     */
-  lazy val fontFaceUri: T[SvgElement] = svgTag("font-face-uri")
+  lazy val fontFaceUri: TPure[SvgElement] = svgTag("font-face-uri")
 
   /**
     * The foreignObject element allows for inclusion of a foreign XML namespace
@@ -458,7 +461,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val foreignObject: T[SvgElement] = svgForeignObjectTag("foreignObject")
+  lazy val foreignObject: TForeignObject = svgForeignObjectTag("foreignObject")
 
   /**
     * The g element is a container used to group objects. Transformations applied
@@ -468,14 +471,14 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val g: T[SvgG] = svgTag("g")
+  lazy val g: TPure[SvgG] = svgTag("g")
 
   /**
     * A glyph defines a single glyph in an SVG font.
     *
     * MDN
     */
-  lazy val glyph: T[SvgElement] = svgTag("glyph")
+  lazy val glyph: TPure[SvgElement] = svgTag("glyph")
 
   /**
     * The glyphRef element provides a single possible glyph to the referencing
@@ -483,7 +486,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val glyphRef: T[SvgElement] = svgTag("glyphRef")
+  lazy val glyphRef: TPure[SvgElement] = svgTag("glyphRef")
 
   /**
     * The horizontal distance between two glyphs can be fine-tweaked with an
@@ -491,7 +494,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val hkern: T[SvgElement] = svgTag("hkern")
+  lazy val hkern: TPure[SvgElement] = svgTag("hkern")
 
   /**
     * The SVG Image Element (image) allows a raster image into be included in
@@ -499,7 +502,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val image: T[SvgImage] = svgTag("image")
+  lazy val image: TPure[SvgImage] = svgTag("image")
 
   /**
     * The line element is an SVG basic shape, used to create a line connecting
@@ -507,7 +510,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val line: T[SvgLine] = svgTag("line")
+  lazy val line: TPure[SvgLine] = svgTag("line")
 
   /**
     * linearGradient lets authors define linear gradients to fill or stroke
@@ -515,7 +518,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val linearGradient: T[SvgLinearGradient] = svgTag("linearGradient")
+  lazy val linearGradient: TPure[SvgLinearGradient] = svgTag("linearGradient")
 
   /**
     * The marker element defines the graphics that is to be used for drawing
@@ -524,7 +527,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val marker: T[SvgMarker] = svgTag("marker")
+  lazy val marker: TPure[SvgMarker] = svgTag("marker")
 
   /**
     * In SVG, you can specify that any other graphics object or g element can
@@ -534,7 +537,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val mask: T[SvgMask] = svgTag("mask")
+  lazy val mask: TPure[SvgMask] = svgTag("mask")
 
   /**
     * Metadata is structured data about data. Metadata which is included with SVG
@@ -544,7 +547,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val metadata: T[SvgMetadata] = svgTag("metadata")
+  lazy val metadata: TPure[SvgMetadata] = svgTag("metadata")
 
   /**
     * The missing-glyph's content is rendered, if for a given character the font
@@ -552,7 +555,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val missingGlyph: T[SvgElement] = svgTag("missing-glyph")
+  lazy val missingGlyph: TPure[SvgElement] = svgTag("missing-glyph")
 
   /**
     * the mpath sub-element for the animateMotion element provides the ability
@@ -560,13 +563,13 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val mpath: T[SvgElement] = svgTag("mpath")
+  lazy val mpath: TPure[SvgElement] = svgTag("mpath")
 
   /**
     * The path element is the generic element to define a shape. All the basic
     * shapes can be created with a path element.
     */
-  lazy val path: T[SvgPath] = svgTag("path")
+  lazy val path: TPure[SvgPath] = svgTag("path")
 
   /**
     * A pattern is used to fill or stroke an object using a pre-defined graphic
@@ -578,7 +581,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val pattern: T[SvgPattern] = svgTag("pattern")
+  lazy val pattern: TPure[SvgPattern] = svgTag("pattern")
 
   /**
     * The polygon element defines a closed shape consisting of a set of connected
@@ -586,7 +589,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val polygon: T[SvgPolygon] = svgTag("polygon")
+  lazy val polygon: TPure[SvgPolygon] = svgTag("polygon")
 
   /**
     * The polyline element is an SVG basic shape, used to create a series of
@@ -595,7 +598,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val polyline: T[SvgPolyline] = svgTag("polyline")
+  lazy val polyline: TPure[SvgPolyline] = svgTag("polyline")
 
   /**
     * radialGradient lets authors define radial gradients to fill or stroke
@@ -603,7 +606,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val radialGradient: T[SvgRadialGradient] = svgTag("radialGradient")
+  lazy val radialGradient: TPure[SvgRadialGradient] = svgTag("radialGradient")
 
   /**
     * The rect element is an SVG basic shape, used to create rectangles based on
@@ -612,7 +615,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val rect: T[SvgRectElement] = svgTag("rect")
+  lazy val rect: TPure[SvgRectElement] = svgTag("rect")
 
   /**
     * The set element provides a simple means of just setting the value of an
@@ -623,7 +626,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val set: T[SvgElement] = svgTag("set")
+  lazy val set: TPure[SvgElement] = svgTag("set")
 
   /**
     * The ramp of colors to use on a gradient is defined by the stop elements
@@ -632,7 +635,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val stop: T[SvgStop] = svgTag("stop")
+  lazy val stop: TPure[SvgStop] = svgTag("stop")
 
   /**
     * When it is not the root element, the svg element can be used to nest a
@@ -642,7 +645,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val svg: T[Svg] = svgSvgTag("svg")
+  lazy val svg: TSvg = svgSvgTag("svg")
 
   /**
     * The switch element evaluates the requiredFeatures, requiredExtensions and
@@ -654,7 +657,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val switch: T[SvgSwitch] = svgTag("switch")
+  lazy val switch: TPure[SvgSwitch] = svgTag("switch")
 
   /**
     * The symbol element is used to define graphical template objects which can
@@ -668,7 +671,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val symbol: T[SvgSymbol] = svgTag("symbol")
+  lazy val symbol: TPure[SvgSymbol] = svgTag("symbol")
 
   /**
     * The text element defines a graphics element consisting of text. Note that
@@ -677,7 +680,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val text: T[SvgText] = svgTag("text")
+  lazy val text: TPure[SvgText] = svgTag("text")
 
   /**
     * In addition to text drawn in a straight line, SVG also includes the
@@ -688,7 +691,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val textPath: T[SvgTextPath] = svgTag("textPath")
+  lazy val textPath: TPure[SvgTextPath] = svgTag("textPath")
 
   /**
     * The textual content for a text can be either character data directly
@@ -697,7 +700,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val tref: T[SvgElement] = svgTag("tref")
+  lazy val tref: TPure[SvgElement] = svgTag("tref")
 
   /**
     * Within a text element, text and font properties and the current text
@@ -706,7 +709,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val tspan: T[SvgTSpan] = svgTag("tspan")
+  lazy val tspan: TPure[SvgTSpan] = svgTag("tspan")
 
   /**
     * The use element takes nodes from within the SVG document, and duplicates
@@ -719,7 +722,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val use: T[SvgUse] = svgTag("use")
+  lazy val use: TPure[SvgUse] = svgTag("use")
 
   /**
     * A view is a defined way to view the image, like a zoom level or a detail
@@ -727,7 +730,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val view: T[SvgView] = svgTag("view")
+  lazy val view: TPure[SvgView] = svgTag("view")
 
   /**
     * The vertical distance between two glyphs in top-to-bottom fonts can be
@@ -735,6 +738,6 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val vkern: T[SvgElement] = svgTag("vkern")
+  lazy val vkern: TPure[SvgElement] = svgTag("vkern")
 }
 

@@ -17,5 +17,6 @@ package object defs {
     type EmbedTags[T[_ <: N], N] = generic.defs.tags.EmbedTags[T, N, N, N, N, N, N, N, N, N, N, N, N, N]
     type TableTags[T[_ <: N], N] = generic.defs.tags.TableTags[T, N, N, N, N, N, N, N]
     type MiscTags[T[_ <: N], N] = generic.defs.tags.MiscTags[T, N, N, N, N, N, N, N]
+    type SvgTags[T[_ <: N], N] = generic.defs.tags.SvgTags[T, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N]
   }
 }
