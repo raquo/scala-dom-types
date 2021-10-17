@@ -8,5 +8,5 @@ object Versions {
 
   val Scala_3 = "3.0.0"
 
-  val ScalaJsDom = "1.1.0"
+  val ScalaJsDom = "2.0.0-RC1"
 }
