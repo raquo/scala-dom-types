@@ -2,6 +2,9 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### Unreleased changes
+* Build: Update `scala-js-dom` to `2.0.0`
+
 #### v0.14.3 – Apr 2021
 
 * Build: Publish for Scala 3.0.0-RC3
