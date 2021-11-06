@@ -391,7 +391,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     *
     * MDN
     */
-  lazy val feTurbulance: T[SvgFETurbulence] = svgTag("feTurbulance")
+  lazy val feTurbulence: T[SvgFETurbulence] = svgTag("feTurbulence")
 
   /**
     * The filter element serves as container for atomic filter operations. It is
