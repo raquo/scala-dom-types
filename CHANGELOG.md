@@ -2,6 +2,11 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.15.0 – Nov 2021
+
+* **Build: Upgrade scala-js-dom to 2.0.0 (thanks, [@armanbilge](https://github.com/armanbilge)!)**
+* Fix: Typo in attribute name: `feTurbulance` -> `feTurbulence` (thanks, [@deterdw](https://github.com/deterdw)!)
+
 #### v0.14.3 – Apr 2021
 
 * Build: Publish for Scala 3.0.0-RC3
