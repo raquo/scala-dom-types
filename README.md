@@ -1,11 +1,11 @@
 # Scala DOM Types
-[![Build Status](https://travis-ci.org/raquo/scala-dom-types.svg?branch=master)](https://travis-ci.org/raquo/scala-dom-types)
+[![Build Status](https://circleci.com/gh/raquo/scala-dom-types.svg?style=svg)](https://circleci.com/gh/raquo/Airstream)
 ![Maven Central](https://img.shields.io/maven-central/v/com.raquo/domtypes_sjs1_2.13.svg)
 
 _Scala DOM Types_ provides listings and type definitions for Javascript HTML and SVG tags as well as their attributes, DOM properties, and CSS styles.
 
-    "com.raquo" %%% "domtypes" % "0.14.3"    // Scala.js 1.5.0+
-    "com.raquo" %% "domtypes" % "0.14.3"     // JVM
+    "com.raquo" %%% "domtypes" % "0.15.0"    // Scala.js 1.5.0+
+    "com.raquo" %% "domtypes" % "0.15.0"     // JVM
 
 Our type definitions are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, popular Scala.js reactive UI library [Outwatch](https://github.com/OutWatch/outwatch/) recently switched to _Scala DOM Types_, offloading thousands of lines of code and improving type safety ([diff](https://github.com/OutWatch/outwatch/pull/62)). I am also using _Scala DOM Types_ in my own projects:
 
