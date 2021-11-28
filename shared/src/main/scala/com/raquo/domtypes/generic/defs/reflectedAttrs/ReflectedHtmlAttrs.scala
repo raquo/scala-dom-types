@@ -306,6 +306,20 @@ trait ReflectedHtmlAttrs[RA[_, _]] { this: ReflectedHtmlAttrBuilder[RA] =>
   lazy val idAttr: RA[String, String] = stringReflectedAttr("id")
 
   /**
+    * The inputmode attribute hints at the type of data that might be entered by
+    * the user while editing the element or its contents. This allows a browser
+    * to display an appropriate virtual keyboard.
+    * 
+    * Acceptable values:
+    * `none` | `text` (default value) | `decimal` | `numeric` | `tel` | `search` | `email` | `url`
+    * 
+    * MDN
+    * 
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode
+    */
+  lazy val inputMode: RA[String, String] = stringReflectedAttr(attrKey = "inputmode", propKey = "inputMode")
+
+  /**
     * This attribute participates in defining the language of the element, the
     * language that non-editable elements are written in or the language that
     * editable elements should be written in. The tag contains one single entry
