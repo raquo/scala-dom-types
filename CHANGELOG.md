@@ -2,6 +2,10 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.15.1 – Nov 2021
+
+* New: Add `inputMode` reflected attribute (thanks, [@Lasering](https://github.com/Lasering)!)
+
 #### v0.15.0 – Nov 2021
 
 * **Build: Upgrade scala-js-dom to 2.0.0 (thanks, [@armanbilge](https://github.com/armanbilge)!)**
