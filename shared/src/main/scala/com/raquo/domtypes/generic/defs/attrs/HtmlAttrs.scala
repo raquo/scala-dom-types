@@ -3,7 +3,7 @@ package com.raquo.domtypes.generic.defs.attrs
 import com.raquo.domtypes.generic.builders.HtmlAttrBuilder
 import com.raquo.domtypes.generic.codecs.{BooleanAsOnOffStringCodec, BooleanAsTrueFalseStringCodec}
 
-/** @tparam A HTML Attribute, canonically [[com.raquo.domtypes.generic.keys.HtmlAttr]] */
+/** @tparam A HTML Attribute, canonically [[com.raquo.domtypes.fixtures.keys.HtmlAttr]] */
 trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
 
   /**

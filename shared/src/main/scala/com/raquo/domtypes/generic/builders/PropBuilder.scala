@@ -5,9 +5,9 @@ import com.raquo.domtypes.generic.codecs.{Codec, DoubleAsIsCodec, IntAsIsCodec, 
 /** This trait builds objects representing properties, which are typically
   * on the left hand side of the `prop := value` syntax.
   *
-  * See also: [[com.raquo.domtypes.generic.builders.canonical.CanonicalPropBuilder]]
+  * See also: [[com.raquo.domtypes.fixtures.canonical.CanonicalPropBuilder]]
   *
-  * @tparam P DOM Property, canonically [[com.raquo.domtypes.generic.keys.Prop]]
+  * @tparam P DOM Property, canonically [[com.raquo.domtypes.fixtures.keys.Prop]]
   */
 trait PropBuilder[P[_, _]] {
 

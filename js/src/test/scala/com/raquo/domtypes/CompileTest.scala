@@ -1,14 +1,16 @@
 package com.raquo.domtypes
 
-import com.raquo.domtypes.generic.builders.canonical.CanonicalReflectedHtmlAttrBuilder.ReflectedAttr
-import com.raquo.domtypes.generic.builders.canonical.{CanonicalEventPropBuilder, CanonicalHtmlAttrBuilder, CanonicalPropBuilder, CanonicalReflectedHtmlAttrBuilder, CanonicalSvgAttrBuilder}
-import com.raquo.domtypes.generic.builders.{HtmlTagBuilder, StyleBuilders, SvgTagBuilder, Tag}
+import com.raquo.domtypes.fixtures.builders.ExampleReflectedHtmlAttrBuilder.ReflectedAttr
+import com.raquo.domtypes.fixtures.builders._
+import com.raquo.domtypes.fixtures.complexKeys._
+import com.raquo.domtypes.fixtures.keys._
+import com.raquo.domtypes.fixtures.styles._
+import com.raquo.domtypes.fixtures.tags._
+import com.raquo.domtypes.generic.builders.{HtmlTagBuilder, SvgTagBuilder}
 import com.raquo.domtypes.generic.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
-import com.raquo.domtypes.generic.defs.complex.canonical.{CanonicalComplexHtmlKeys, CanonicalComplexSvgKeys}
 import com.raquo.domtypes.generic.defs.props.Props
 import com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedHtmlAttrs
-import com.raquo.domtypes.generic.defs.styles.{Styles, Styles2}
-import com.raquo.domtypes.generic.keys.{EventProp, HtmlAttr, Prop, Style, SvgAttr}
+import com.raquo.domtypes.generic.defs.styles.Styles
 import com.raquo.domtypes.jsdom.defs.eventProps.{ClipboardEventProps, DocumentOnlyEventProps, ErrorEventProps, FormEventProps, HTMLElementEventProps, KeyboardEventProps, MediaEventProps, MiscellaneousEventProps, MouseEventProps, PointerEventProps, WindowOnlyEventProps}
 import com.raquo.domtypes.jsdom.defs.tags.{DocumentTags, EmbedTags, FormTags, GroupingTags, MiscTags, SectionTags, SvgTags, TableTags, TextTags}
 import org.scalajs.dom
@@ -16,28 +18,9 @@ import org.scalajs.dom
 /** We just want to make sure that this compiles. */
 class CompileTest {
 
-  trait SomeStyleSetter
-
-  trait SomeStyleBuilders extends StyleBuilders[SomeStyleSetter] {
-
-    override def buildDoubleStyleSetter(style: Style[Double], value: Double): SomeStyleSetter = ???
-
-    override def buildIntStyleSetter(style: Style[Int], value: Int): SomeStyleSetter = ???
-
-    override def buildStringStyleSetter(style: Style[_], value: String): SomeStyleSetter = ???
-  }
-
-  trait SomeTagBuilders extends HtmlTagBuilder[Tag, dom.Element] with SvgTagBuilder[Tag, dom.svg.Element] {
-
-    override def htmlTag[Ref <: dom.Element](tagName: String, void: Boolean): Tag[Ref] = ???
-
-    override def svgTag[Ref <: dom.svg.Element](tagName: String, void: Boolean): Tag[Ref] = ???
-  }
-
   object Bundle
-    extends CanonicalComplexHtmlKeys[ReflectedAttr, HtmlAttr, Prop]
     // Attrs
-    with HtmlAttrs[HtmlAttr]
+    extends HtmlAttrs[HtmlAttr]
     // Event Props
     with ClipboardEventProps[EventProp]
     with ErrorEventProps[EventProp]
@@ -54,8 +37,7 @@ class CompileTest {
     // Reflected Attrs
     with ReflectedHtmlAttrs[ReflectedAttr]
     // Styles
-    with Styles[SomeStyleSetter]
-    with Styles2[SomeStyleSetter]
+    with Styles[ExampleStyleProp, ExampleStyleSetter, ExampleDerivedStyleProp.Base]
     // Tags
     with DocumentTags[Tag]
     with EmbedTags[Tag]
@@ -66,27 +48,44 @@ class CompileTest {
     with TableTags[Tag]
     with TextTags[Tag]
     // Concrete Builders
-    with CanonicalHtmlAttrBuilder
-    with CanonicalReflectedHtmlAttrBuilder
-    with CanonicalEventPropBuilder[dom.Event]
-    with CanonicalPropBuilder
-    with CanonicalSvgAttrBuilder // Not needed but want to ensure compatibility
-    with SomeStyleBuilders
-    with SomeTagBuilders {
+    with ExampleComplexHtmlKeys[ReflectedAttr, HtmlAttr, Prop]
+    with ExampleHtmlAttrBuilder
+    with ExampleReflectedHtmlAttrBuilder
+    with ExampleEventPropBuilder[dom.Event]
+    with ExamplePropBuilder
+    with ExampleSvgAttrBuilder // Not needed but want to ensure compatibility
+    with ExampleStylePropBuilder
+    with ExampleTagBuilders {
 
     object aria
       extends AriaAttrs[HtmlAttr]
-      with CanonicalHtmlAttrBuilder
+      with ExampleHtmlAttrBuilder
 
     object svg
       extends SvgTags[Tag]
-      with CanonicalComplexSvgKeys[SvgAttr]
+      with ExampleComplexSvgKeys[SvgAttr]
       with SvgAttrs[SvgAttr]
-      with CanonicalSvgAttrBuilder
-      with SomeTagBuilders
+      with ExampleSvgAttrBuilder
+      with ExampleTagBuilders
   }
 
   object SpecificEventProps
     extends HTMLElementEventProps[EventProp]
-    with CanonicalEventPropBuilder[dom.Event]
+    with ExampleEventPropBuilder[dom.Event]
+
+
+  trait ExampleTagBuilders extends HtmlTagBuilder[Tag, dom.Element] with SvgTagBuilder[Tag, dom.svg.Element] {
+
+    override def htmlTag[Ref <: dom.Element](tagName: String, void: Boolean): Tag[Ref] = ???
+
+    override def svgTag[Ref <: dom.svg.Element](tagName: String, void: Boolean): Tag[Ref] = ???
+  }
+
+
+
+
+
+
+
+
 }

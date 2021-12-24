@@ -12,7 +12,7 @@ import com.raquo.domtypes.generic.codecs.BooleanAsTrueFalseStringCodec
   *
   * MDN
   *
-  * @tparam A Attribute, canonically [[com.raquo.domtypes.generic.keys.HtmlAttr]]
+  * @tparam A Attribute, canonically [[com.raquo.domtypes.fixtures.keys.HtmlAttr]]
   */
 trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
 

@@ -3,7 +3,7 @@ package com.raquo.domtypes.generic.defs.attrs
 import com.raquo.domtypes.generic.builders.SvgAttrBuilder
 import com.raquo.domtypes.generic.defs.SvgNamespaces
 
-/** @tparam A SVG Attribute, canonically [[com.raquo.domtypes.generic.keys.SvgAttr]] */
+/** @tparam A SVG Attribute, canonically [[com.raquo.domtypes.fixtures.keys.SvgAttr]] */
 trait SvgAttrs[A[_]] { this: SvgAttrBuilder[A] =>
 
   /**
