@@ -885,7 +885,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_]] { this: StylePropBuilder[SP, Sett
     *
     * @see @see https://developer.mozilla.org/en-US/docs/Web/CSS/height
     */
-  lazy val height: AutoStyle[String] = autoStyle("height")
+  lazy val height: LengthStyle with AutoStyle[String] = lengthAutoStyle("height")
 
   /**
     * The CSS justify-content property defines how a browser distributes available
@@ -1590,7 +1590,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_]] { this: StylePropBuilder[SP, Sett
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/width
     */
-  lazy val width: AutoStyle[String] = autoStyle("width")
+  lazy val width: LengthStyle with AutoStyle[String] = lengthAutoStyle("width")
 
   /**
     * The white-space CSS property is used to to describe how whitespace inside
