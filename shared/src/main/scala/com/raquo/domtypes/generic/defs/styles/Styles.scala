@@ -3,7 +3,7 @@ package com.raquo.domtypes.generic.defs.styles
 import com.raquo.domtypes.generic.builders.StylePropBuilder
 
 /** @tparam SP   DOM Style Property, canonically [[com.raquo.domtypes.fixtures.keys.StyleProp]] */
-trait Styles[SP[_], Setter[_], DerivedProp[_]] { this: StylePropBuilder[SP, Setter, DerivedProp] =>
+trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuilder[SP, Setter, DerivedProp, LengthNum] =>
 
 
   /**

@@ -11,7 +11,7 @@ import com.raquo.domtypes.generic.defs.styles.{keywords, units}
   * @tparam Prop     Representation of a DOM CSS style property, e.g. "background"
   * @tparam Setter   Representation of a key-value pair, for a specific style property and its value
   */
-trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_]] {
+trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_], LengthNum] {
 
   type AutoStyle[V] = Prop[V] with keywords.AutoStyle[Setter[V]]
 
@@ -45,7 +45,7 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_]] {
 
   type FloatStyle = Prop[String] with keywords.FloatStyle[Setter[String]]
 
-  type FontSizeStyle = Prop[String] with keywords.FontSizeStyle[Setter[String], DerivedProp]
+  type FontSizeStyle = Prop[String] with keywords.FontSizeStyle[Setter[String], DerivedProp, LengthNum]
 
   type FontStyleStyle = Prop[String] with keywords.FontStyleStyle[Setter[String]]
 
@@ -53,15 +53,15 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_]] {
 
   type JustifyContentStyle = Prop[String] with keywords.JustifyContentStyle[Setter[String]]
 
-  type LengthStyle = Prop[String] with units.LengthUnits[DerivedProp] with StyleStringValueBuilder[Setter[String]]
+  type LengthStyle = Prop[String] with units.LengthUnits[DerivedProp, LengthNum] with StyleStringValueBuilder[Setter[String]]
 
   type LineStyle = Prop[String] with keywords.LineStyle[Setter[String]]
 
   type ListStylePositionStyle = Prop[String] with keywords.ListStylePositionStyle[Setter[String]]
 
-  type MaxLengthStyle = Prop[String] with keywords.MinMaxLengthStyle[Setter[String], DerivedProp] with keywords.NoneStyle[Setter[String]]
+  type MaxLengthStyle = Prop[String] with keywords.MinMaxLengthStyle[Setter[String], DerivedProp, LengthNum] with keywords.NoneStyle[Setter[String]]
 
-  type MinLengthStyle = Prop[String] with keywords.MinMaxLengthStyle[Setter[String], DerivedProp] with keywords.AutoStyle[Setter[String]]
+  type MinLengthStyle = Prop[String] with keywords.MinMaxLengthStyle[Setter[String], DerivedProp, LengthNum] with keywords.AutoStyle[Setter[String]]
 
   type NoneStyle[V] = Prop[V] with keywords.NoneStyle[Setter[V]]
 
@@ -93,7 +93,7 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_]] {
 
   type TimeStyle = Prop[String] with units.TimeUnits[DerivedProp] with StyleStringValueBuilder[Setter[String]]
 
-  type VerticalAlignStyle = Prop[String] with keywords.VerticalAlignStyle[Setter[String], DerivedProp]
+  type VerticalAlignStyle = Prop[String] with keywords.VerticalAlignStyle[Setter[String], DerivedProp, LengthNum]
 
   type VisibilityStyle = Prop[String] with keywords.VisibilityStyle[Setter[String]]
 

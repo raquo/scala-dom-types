@@ -37,7 +37,7 @@ class CompileTest {
     // Reflected Attrs
     with ReflectedHtmlAttrs[ReflectedAttr]
     // Styles
-    with Styles[ExampleStyleProp, ExampleStyleSetter, ExampleDerivedStyleProp.Base]
+    with Styles[ExampleStyleProp, ExampleStyleSetter, ExampleDerivedStyleProp.Base, Int]
     // Tags
     with DocumentTags[Tag]
     with EmbedTags[Tag]

@@ -3,7 +3,7 @@ package com.raquo.domtypes.generic.defs.styles.keywords
 import com.raquo.domtypes.generic.builders.StyleStringValueBuilder
 import com.raquo.domtypes.generic.defs.styles.units.LengthUnits
 
-trait MinMaxLengthStyle[T, DerivedProp[_]] extends LengthUnits[DerivedProp] with StyleStringValueBuilder[T] {
+trait MinMaxLengthStyle[T, DerivedProp[_], Num] extends LengthUnits[DerivedProp, Num] with StyleStringValueBuilder[T] {
 
   /** The intrinsic preferred length.  --MDN */
   lazy val maxContent: T = buildStringValue("max-content")

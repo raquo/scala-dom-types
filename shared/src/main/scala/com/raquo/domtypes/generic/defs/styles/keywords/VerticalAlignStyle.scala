@@ -4,7 +4,7 @@ import com.raquo.domtypes.generic.builders.StyleStringValueBuilder
 import com.raquo.domtypes.generic.defs.styles.units.LengthUnits
 
 /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align */
-trait VerticalAlignStyle[T, DerivedProp[_]] extends LengthUnits[DerivedProp] with StyleStringValueBuilder[T] {
+trait VerticalAlignStyle[T, DerivedProp[_], Num] extends LengthUnits[DerivedProp, Num] with StyleStringValueBuilder[T] {
 
   /**
     * Aligns the baseline of the element with the baseline of its parent. The

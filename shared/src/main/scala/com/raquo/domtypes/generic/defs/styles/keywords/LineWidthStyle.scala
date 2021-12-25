@@ -10,7 +10,7 @@ import com.raquo.domtypes.generic.defs.styles.units.LengthUnits
 /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-width
   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width
   */
-trait LineWidthStyle[T, DerivedProp[_]] extends LengthUnits[DerivedProp] with StyleStringValueBuilder[T] {
+trait LineWidthStyle[T, DerivedProp[_], Num] extends LengthUnits[DerivedProp, Num] with StyleStringValueBuilder[T] {
 
   /** Typically 1px in desktop browsers like Firefox.  --MDN */
   lazy val thin: T = buildStringValue("thin")

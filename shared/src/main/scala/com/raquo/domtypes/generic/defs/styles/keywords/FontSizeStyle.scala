@@ -8,7 +8,7 @@ import com.raquo.domtypes.generic.defs.styles.units.LengthUnits
 //  Font size is usually set in length units, not with keywords.
 
 /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-size */
-trait FontSizeStyle[T, DerivedProp[_]] extends LengthUnits[DerivedProp] with StyleStringValueBuilder[T] {
+trait FontSizeStyle[T, DerivedProp[_], Num] extends LengthUnits[DerivedProp, Num] with StyleStringValueBuilder[T] {
 
   lazy val xxSmall: T = buildStringValue("xx-small")
 

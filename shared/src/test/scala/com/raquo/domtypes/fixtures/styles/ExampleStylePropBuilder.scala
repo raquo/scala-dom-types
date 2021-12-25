@@ -3,7 +3,12 @@ package com.raquo.domtypes.fixtures.styles
 import com.raquo.domtypes.generic.builders.StylePropBuilder
 import com.raquo.domtypes.generic.defs.styles.{keywords, units}
 
-trait ExampleStylePropBuilder extends StylePropBuilder[ExampleStyleProp, ExampleStyleSetter, ExampleDerivedStyleProp.Base] {
+trait ExampleStylePropBuilder extends StylePropBuilder[
+  ExampleStyleProp,
+  ExampleStyleSetter,
+  ExampleDerivedStyleProp.Base,
+  Int
+] {
 
   // -- Basic style types --
 
@@ -32,19 +37,19 @@ trait ExampleStylePropBuilder extends StylePropBuilder[ExampleStyleProp, Example
     new ExampleStyleProp[String](key) with keywords.FlexPositionStyle[ExampleStyleSetter[String]]
 
   protected def lengthStyle(key: String): LengthStyle =
-    new ExampleStyleProp[String](key) with units.LengthUnits[ExampleDerivedStyleProp.Base]
+    new ExampleStyleProp[String](key) with units.LengthUnits[ExampleDerivedStyleProp.Base, Int]
 
   protected def lengthAutoStyle(key: String): LengthStyle with AutoStyle[String] =
-    new ExampleStyleProp[String](key) with units.LengthUnits[ExampleDerivedStyleProp.Base] with keywords.AutoStyle[ExampleStyleSetter[String]]
+    new ExampleStyleProp[String](key) with units.LengthUnits[ExampleDerivedStyleProp.Base, Int] with keywords.AutoStyle[ExampleStyleSetter[String]]
 
   protected def lineStyle(key: String): LineStyle =
     new ExampleStyleProp[String](key) with keywords.LineStyle[ExampleStyleSetter[String]]
 
   protected def maxLengthStyle(key: String): MaxLengthStyle =
-    new ExampleStyleProp[String](key) with keywords.MinMaxLengthStyle[ExampleStyleSetter[String], ExampleDerivedStyleProp.Base] with keywords.NoneStyle[ExampleStyleSetter[String]]
+    new ExampleStyleProp[String](key) with keywords.MinMaxLengthStyle[ExampleStyleSetter[String], ExampleDerivedStyleProp.Base, Int] with keywords.NoneStyle[ExampleStyleSetter[String]]
 
   protected def minLengthStyle(key: String): MinLengthStyle =
-    new ExampleStyleProp[String](key) with keywords.MinMaxLengthStyle[ExampleStyleSetter[String], ExampleDerivedStyleProp.Base] with keywords.AutoStyle[ExampleStyleSetter[String]]
+    new ExampleStyleProp[String](key) with keywords.MinMaxLengthStyle[ExampleStyleSetter[String], ExampleDerivedStyleProp.Base, Int] with keywords.AutoStyle[ExampleStyleSetter[String]]
 
   protected def noneStyle[V](key: String): NoneStyle[V] =
     new ExampleStyleProp[V](key) with keywords.NoneStyle[ExampleStyleSetter[V]]
@@ -112,7 +117,7 @@ trait ExampleStylePropBuilder extends StylePropBuilder[ExampleStyleProp, Example
     new ExampleStyleProp[String](key) with keywords.FloatStyle[ExampleStyleSetter[String]]
 
   protected def fontSizeStyle(key: String): FontSizeStyle =
-    new ExampleStyleProp[String](key) with keywords.FontSizeStyle[ExampleStyleSetter[String], ExampleDerivedStyleProp.Base]
+    new ExampleStyleProp[String](key) with keywords.FontSizeStyle[ExampleStyleSetter[String], ExampleDerivedStyleProp.Base, Int]
 
   protected def fontStyleStyle(key: String): FontStyleStyle =
     new ExampleStyleProp[String](key) with keywords.FontStyleStyle[ExampleStyleSetter[String]]
@@ -151,7 +156,7 @@ trait ExampleStylePropBuilder extends StylePropBuilder[ExampleStyleProp, Example
     new ExampleStyleProp[String](key) with keywords.TextUnderlinePositionStyle[ExampleStyleSetter[String]]
 
   protected def verticalAlignStyle(key: String): VerticalAlignStyle =
-    new ExampleStyleProp[String](key) with keywords.VerticalAlignStyle[ExampleStyleSetter[String], ExampleDerivedStyleProp.Base]
+    new ExampleStyleProp[String](key) with keywords.VerticalAlignStyle[ExampleStyleSetter[String], ExampleDerivedStyleProp.Base, Int]
 
   protected def visibilityStyle(key: String): VisibilityStyle =
     new ExampleStyleProp[String](key) with keywords.VisibilityStyle[ExampleStyleSetter[String]]
