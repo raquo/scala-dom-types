@@ -12,9 +12,8 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsIsCodec, Codec, DoubleAsIsCod
   * as DOM properties, so typically you don't want to load both an attribute and a property
   * of the same name.
   *
-  * @tparam RA
-  *            Reflected Attribute, either a Prop or an HtmlAttr, depending on whether you want to
-  *            build properties or attributes
+  * @tparam RA ReflectedAttribute[ScalaValue, PropRawDomValue], either a Prop or an HtmlAttr,
+  *            depending on whether you want to build properties or attributes
   */
 trait ReflectedHtmlAttrBuilder[RA[_, _]] {
 

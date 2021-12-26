@@ -5,9 +5,7 @@ import com.raquo.domtypes.generic.codecs.{Codec, DoubleAsStringCodec, IntAsStrin
 /** This trait builds attribute objects which are typically found on the left hand side
   * of the `svgAttr := value` syntax.
   *
-  * See also: [[com.raquo.domtypes.fixtures.canonical.CanonicalSvgAttrBuilder]]
-  *
-  * @tparam A SVG Attribute, canonically [[com.raquo.domtypes.fixtures.keys.SvgAttr]]
+  * @tparam A SVG Attribute
   */
 trait SvgAttrBuilder[A[_]] {
 

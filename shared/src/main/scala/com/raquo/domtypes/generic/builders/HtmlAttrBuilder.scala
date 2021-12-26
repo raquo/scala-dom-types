@@ -5,9 +5,7 @@ import com.raquo.domtypes.generic.codecs.{Codec, DoubleAsStringCodec, IntAsStrin
 /** This trait builds attribute objects which are typically found on the left hand side
   * of the `htmlAttr := value` syntax.
   *
-  * See also: [[com.raquo.domtypes.fixtures.canonical.CanonicalHtmlAttrBuilder]]
-  *
-  * @tparam A HTML Attribute, canonically [[com.raquo.domtypes.fixtures.keys.HtmlAttr]]
+  * @tparam A HTML Attribute
   */
 trait HtmlAttrBuilder[A[_]] {
 

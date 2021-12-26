@@ -19,8 +19,7 @@ import com.raquo.domtypes.generic.codecs.{BooleanAsAttrPresenceCodec, BooleanAsT
   *
   * For type param docs, see [[ReflectedHtmlAttrBuilder]]
   *
-  * @tparam RA Reflected Attribute, canonically either [[com.raquo.domtypes.fixtures.keys.Prop]]
-  *            or a type alias to [[com.raquo.domtypes.fixtures.keys.HtmlAttr]] (to remove the extra type param)
+  * @tparam RA ReflectedAttribute[ScalaValue, PropRawDomValue]
   */
 trait ReflectedHtmlAttrs[RA[_, _]] { this: ReflectedHtmlAttrBuilder[RA] =>
 
