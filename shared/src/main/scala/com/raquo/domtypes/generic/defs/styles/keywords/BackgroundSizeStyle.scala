@@ -1,6 +1,8 @@
 package com.raquo.domtypes.generic.defs.styles.keywords
 
-trait BackgroundSizeStyle[T] extends AutoStyle[T] {
+import com.raquo.domtypes.generic.defs.styles.units.LengthUnits
+
+trait BackgroundSizeStyle[T, DerivedProp[_], Num] extends LengthUnits[DerivedProp, Num] with AutoStyle[T] {
 
   /**
     * This keyword specifies that the background image should be scaled to be

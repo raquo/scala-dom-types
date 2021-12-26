@@ -17,7 +17,9 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_], LengthNum] {
 
   type AlignContentStyle = Prop[String] with keywords.AlignContentStyle[Setter[String]]
 
-  type BackgroundSizeStyle = Prop[String] with keywords.BackgroundSizeStyle[Setter[String]]
+  type BackgroundAttachmentStyle = Prop[String] with keywords.BackgroundAttachmentStyle[Setter[String]]
+
+  type BackgroundSizeStyle = Prop[String] with keywords.BackgroundSizeStyle[Setter[String], DerivedProp, LengthNum]
 
   type BackfaceVisibilityStyle = Prop[String] with keywords.BackfaceVisibilityStyle[Setter[String]]
 
@@ -93,6 +95,8 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_], LengthNum] {
 
   type TimeStyle = Prop[String] with units.TimeUnits[DerivedProp] with StyleStringValueBuilder[Setter[String]]
 
+  type UrlStyle = Prop[String] with units.UrlUnits[DerivedProp] with StyleStringValueBuilder[Setter[String]]
+
   type VerticalAlignStyle = Prop[String] with keywords.VerticalAlignStyle[Setter[String], DerivedProp, LengthNum]
 
   type VisibilityStyle = Prop[String] with keywords.VisibilityStyle[Setter[String]]
@@ -121,11 +125,15 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_], LengthNum] {
 
   protected def colorStyle(key: String): ColorStyle
 
+  protected def colorUrlStyle(key: String): ColorStyle with UrlStyle
+
   protected def flexPositionStyle(key: String): FlexPositionStyle
 
   protected def lengthStyle(key: String): LengthStyle
 
   protected def lengthAutoStyle(key: String): LengthStyle with AutoStyle[String]
+
+  protected def lengthNormalStyle(key: String): LengthStyle with NormalStyle[String]
 
   protected def lineStyle(key: String): LineStyle
 
@@ -147,12 +155,18 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_], LengthNum] {
 
   protected def timeStyle(key: String): TimeStyle
 
+  protected def urlStyle(key: String): UrlStyle
+
+  protected def urlNoneStyle(key: String): UrlStyle with NoneStyle[String]
+
 
 
 
   // -- Unique custom types --
 
   protected def alignContentStyle(key: String): AlignContentStyle
+
+  protected def backgroundAttachmentStyle(key: String): BackgroundAttachmentStyle
 
   protected def backgroundSizeStyle(key: String): BackgroundSizeStyle
 

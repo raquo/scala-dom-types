@@ -175,7 +175,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background
     */
-  lazy val background: ColorStyle = colorStyle("background")
+  lazy val background: ColorStyle with UrlStyle = colorUrlStyle("background")
 
   /**
     * If a background-image is specified, the background-attachment CSS
@@ -184,7 +184,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment
     */
-  lazy val backgroundAttachment: SP[String] = stringStyle("background-attachment")
+  lazy val backgroundAttachment: BackgroundAttachmentStyle = backgroundAttachmentStyle("background-attachment")
 
   /**
     * The background-clip CSS property specifies whether an element's background,
@@ -215,7 +215,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-image
     */
-  lazy val backgroundImage: SP[String] = stringStyle("background-image")
+  lazy val backgroundImage: UrlStyle = urlStyle("background-image")
 
   /**
     * The background-origin CSS property determines the background positioning
@@ -262,6 +262,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
 
 
 
+
   /**
     * The CSS backface-visibility property determines whether or not the back
     * face of the element is visible when facing the user. The back face of an
@@ -271,6 +272,9 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility
     */
   lazy val backfaceVisibility: BackfaceVisibilityStyle = backfaceVisibilityStyle("backface-visibility")
+
+
+
 
   /**
     * The border CSS property is a shorthand property for setting the individual
@@ -341,6 +345,17 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
 
   /** The border-left-color CSS property sets the color of the left border of an element.  --MDN */
   lazy val borderLeftColor: ColorStyle = colorStyle("border-left-color")
+
+
+
+
+  /**
+    * The border-image CSS property draws an image around a given element.
+    * It replaces the element's regular border.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-image
+    */
+  lazy val borderImage: UrlStyle = urlStyle("border-image")
 
 
 
@@ -636,7 +651,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/content
     */
-  lazy val contentCss: SP[String] = stringStyle("content")
+  lazy val contentCss: UrlStyle with NoneStyle[String] = urlNoneStyle("content")
 
   /**
     * The counter-increment CSS property is used to increase the value of CSS
@@ -929,7 +944,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     * On replaced inline elements, like buttons or other input element,
     * line-height has no effect.  --MDN
     */
-  lazy val lineHeight: NormalStyle[String] = normalStyle("line-height")
+  lazy val lineHeight: LengthStyle with NormalStyle[String] = lengthNormalStyle("line-height")
 
 
 
@@ -948,7 +963,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image
     */
-  lazy val listStyleImage: NoneStyle[String] = noneStyle("list-style-image")
+  lazy val listStyleImage: UrlStyle with NoneStyle[String] = urlNoneStyle("list-style-image")
 
   /**
     * The list-style-position CSS property specifies the position of the marker
@@ -1005,7 +1020,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/mask
     */
-  lazy val mask: NoneStyle[String] = noneStyle("mask")
+  lazy val mask: UrlStyle with NoneStyle[String] = urlNoneStyle("mask")
 
 
 
