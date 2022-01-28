@@ -2,6 +2,19 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v0.16-RC1 – Jan 2022
+
+* **API: Remove canonical implementations of various builders, as well as concreate types like Tag, Element, HtmlAttr, Modifier, etc.**
+  * Moved them to test fixtures since there is essentially no benefit for otherwise incompatible UI libraries to share these exact types.
+  * Library authors: copy-paste any of the removed code that you need into your own project.
+* **API: Complete rework of CSS Styles**
+  * Library authors: as a migration guide, see example diff from Laminar referenced in [#75](https://github.com/raquo/scala-dom-types/pull/75)
+* **Naming: `content` style prop is renamed to `contentCss` to avoid using a common name**
+* **Naming: `cssWait` value for CSS `cursor` property renamed to `waitCss` for consistency.**
+  * (`wait` is an unrelated final method on Java objects so we can't use that name) 
+* New: `download` reflected attribute (thanks, [@ioleo](https://github.com/ioleo)!)
+* New: `VendorPrefixes` object with string constants
+
 #### v0.15.1 – Nov 2021
 
 * New: Add `inputMode` reflected attribute (thanks, [@Lasering](https://github.com/Lasering)!)

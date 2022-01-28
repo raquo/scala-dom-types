@@ -3,8 +3,6 @@ package com.raquo.domtypes.generic.defs.complex
 /** This trait gives you a very flexible way to define SVG keys that
   * consuming libraries often have strong opinions about.
   *
-  * Use [[canonical.CanonicalComplexHtmlKeys]] if you lack such strong opinions.
-  *
   * If your opinions are too strong to use this trait – don't! You can implement
   * any subset of these keys yourself with whatever names you like.
   */

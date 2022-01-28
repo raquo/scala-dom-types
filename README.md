@@ -4,8 +4,8 @@
 
 _Scala DOM Types_ provides listings and type definitions for Javascript HTML and SVG tags as well as their attributes, DOM properties, and CSS styles.
 
-    "com.raquo" %%% "domtypes" % "0.15.1"    // Scala.js 1.7.1+
-    "com.raquo" %% "domtypes" % "0.15.1"     // JVM
+    "com.raquo" %%% "domtypes" % "0.16.0-RC1"    // Scala.js 1.7.1+
+    "com.raquo" %% "domtypes" % "0.16.0-RC1"     // JVM
 
 Our type definitions are designed for easy integration into any kind of library. You can use this project to build your own DOM libraries like React or Snabbdom, but type-safe. For example, popular Scala.js reactive UI library [Outwatch](https://github.com/OutWatch/outwatch/) recently switched to _Scala DOM Types_, offloading thousands of lines of code and improving type safety ([diff](https://github.com/OutWatch/outwatch/pull/62)). I am also using _Scala DOM Types_ in my own projects:
 
@@ -64,9 +64,7 @@ div(
 
 Of course, your API doesn't need to look anything like this, that's just an example. _Scala DOM Types_ doesn't actually provide the **`Tag.apply`** and **`:=`** methods that you'd need to make this example work.
 
-If you do in fact want similar syntax, you could extend `Tag`, `HtmlAttr`, `Prop`, etc., or provide your own alternatives to those (_Scala DOM Types_ does not require you to use its own traits).
-
-You can also extend the API of those classes with implicit conversions / implicit classes instead of subclassing. Or you might even use [Scala DOM Builder](https://github.com/raquo/scala-dom-builder) if that's what you need, or some of its individual classes (it's also very extensible and reusable).  
+If you do in fact want similar syntax, you should create simple `Tag`, `HtmlAttr`, `Prop`, etc. classes similar to what's found in the test fixtures of this project. Up to v0.15.0, _Scala DOM Types_ provided its own canonical implementations of these types, but they were not needed as so were removed.
 
 ---
 
@@ -82,7 +80,7 @@ could become
 setProperty[Value](element: dom.Element, prop: Prop[Value], propValue: Value)
 ```
 
-Now you can't pass just about any random string as `propName`, and even `propValue` is now type checked.
+Now you can't pass just about any random string as `propName`, and even `propValue` is now type checked. However, doing this without a UI library that already makes use of _Scala DOM Types_ puts the burden of writing the integration boilerplate on yourself.
 
 
 
@@ -188,7 +186,7 @@ For more on this, read [Section 2.6.1 of this DOM spec](https://html.spec.whatwg
 
 So with that knowledge, `id` for example is a reflected attribute. Setting and reading it works exactly the same way regardless of whether you're using the HTML attribute `id`, or the DOM property `id`. Such reflected attributes live in `ReflectedHtmlAttrs` trait, which lets you build either attributes or properties depending on what implementation of `ReflectedHtmlAttrBuilder` you provide.
 
-To keep you sane, _Scala DOM Types_ reflected attributes also normalize the DOM API a bit. For example, there is no `value` attribute in _Scala DOM Types_. There is only `defaultValue` reflected attribute, which uses either the `value` HTML attribute or the `defaultValue` DOM property depending on how you implement `ReflectedHtmlAttrBuilder`. This is because that attribute and that property behave the same even though they're named differently in the DOM, whereas the `value` DOM property has different behaviour (see the StackOverflow answer linked above). A corresponding HTML attribute with such behaviour does not exist, so in Scala DOM Types the `value` prop is defined in trait `Props`. It is not an attribute, nor is it a a reflected attribute.
+To keep you sane, _Scala DOM Types_ reflected attributes also normalize the DOM API a bit. For example, there is no `value` attribute in _Scala DOM Types_. There is only `defaultValue` reflected attribute, which uses either the `value` HTML attribute or the `defaultValue` DOM property depending on how you implement `ReflectedHtmlAttrBuilder`. This is because that attribute and that property behave the same even though they're named differently in the DOM, whereas the `value` DOM property has different behaviour (see the StackOverflow answer linked above). A corresponding HTML attribute with such behaviour does not exist, so in Scala DOM Types the `value` prop is defined in trait `Props`. It is not an attribute, nor is it a reflected attribute.
 
 Reflected attributes may behave slightly differently depending on whether you implement them as props or attributes. For example, in HTML5 the `cols` reflected attribute has a default value of `20`. If you read the `col` property from an empty `<textarea>` element, you will get `20`. However, if you try to read the attribute `col`, you will get nothing because the attribute was never explicitly set.
 
@@ -250,12 +248,16 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
 * `offset` and `result` SVG attributes renamed to `offsetAttr` and `resultAttr` respectively to free up good names for end user code
 * `loading` reflected HTML attribute renamed to `loadingAttr` to avoid using a good name
 * `style` attribute is renamed to `styleAttr` to let you implement a custom `style` attribute if you want.
-* `content` attribute is renamed to `contentAttr` to avoid conflict with `content` CSS property
+* `content` attribute is renamed to `contentAttr` to avoid using a common name
 * `form` attribute is renamed to `formId` to avoid conflict with `form` tag
 * `height` attribute is renamed to `heightAttr` to avoid conflict with `height` CSS property
 * `width` attribute is renamed to `widthAttr` to avoid conflict with `width` CSS property
 * `list` attribute is renamed to `listId` for clarity and consistency
 * `contextmenu` attribute is renamed to `contextMenuId` for clarity and consistency
+
+#### CSS Style Props
+
+* `content` prop is renamed to `contentCss` to avoid using a common name
 
 #### Tags
 * Tags renamed to free up good names for end user code:
