@@ -179,6 +179,19 @@ trait ReflectedHtmlAttrs[RA[_, _]] { this: ReflectedHtmlAttrBuilder[RA] =>
     * MDN
     */
   lazy val disabled: RA[Boolean, Boolean] = booleanReflectedAttr("disabled", attrCodec = BooleanAsAttrPresenceCodec)
+ 
+  /**
+    * Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value:
+    *
+    * - Without a value, the browser will suggest a filename/extension, generated from various sources:
+    *   - The Content-Disposition HTTP header
+    *   - The final segment in the URL path
+    *   - The media type (from the Content-Type header, the start of a data: URL, or Blob.type for a blob: URL)
+    * - Defining a value suggests it as the filename. / and \ characters are converted to underscores (_). Filesystems may forbid other characters in filenames, so browsers will adjust the suggested name if necessary.
+    *
+    * MDN
+    */
+  lazy val download: RA[String, String] = stringReflectedAttr("download")
 
   /**
     * Specifies whether an element is draggable or not
