@@ -3,7 +3,7 @@ package com.raquo.domtypes.generic.defs.styles.keywords
 /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/display */
 trait DisplayStyle[T] extends NoneStyle[T] {
 
-  // #nc how to deal with tupled values ????
+  // #TODO[API] how to deal with tupled values ?
 
   /** Two-value syntax, e.g. "inline flex" */
   def tupled(outside: T, inside: T): T = buildStringValue(s"${valueAsString(outside)} ${valueAsString(inside)}")

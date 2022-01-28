@@ -5,9 +5,6 @@ import com.raquo.domtypes.generic.defs.styles.{keywords, units}
 /**
   * This trait contains functionality for creating CSS Styles and Style Setters.
   *
-  * If extending or instantiating this trait, you will need to override implicit defs.
-  * See the SimpleStyleBuilder trait in Scala DOM Builder project for an example of that.
-  *
   * @tparam Prop     Representation of a DOM CSS style property, e.g. "background"
   * @tparam Setter   Representation of a key-value pair, for a specific style property and its value
   */

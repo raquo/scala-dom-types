@@ -3,10 +3,10 @@ package com.raquo.domtypes.generic.defs.styles.keywords
 import com.raquo.domtypes.generic.builders.StyleStringValueBuilder
 
 /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap */
-trait OverflowWrapStyle[T] extends StyleStringValueBuilder[T] {
+trait OverflowWrapStyle[T] extends StyleStringValueBuilder[T] with NormalStyle[T] {
 
   /** Indicates that lines may only break at normal word break points.  --MDN */
-  lazy val normal: T = buildStringValue("normal")
+  override lazy val normal: T = buildStringValue("normal")
 
   /**
     * Indicates that normally unbreakable words may be broken at arbitrary

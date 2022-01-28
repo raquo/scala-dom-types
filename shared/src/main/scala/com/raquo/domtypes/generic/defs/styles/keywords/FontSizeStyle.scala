@@ -3,10 +3,6 @@ package com.raquo.domtypes.generic.defs.styles.keywords
 import com.raquo.domtypes.generic.builders.StyleStringValueBuilder
 import com.raquo.domtypes.generic.defs.styles.units.LengthUnits
 
-// #Note: these types are provided for reference, but they are not used in the Styles trait
-//  because I don't think they are useful enough to force their overhead onto every consumer.
-//  Font size is usually set in length units, not with keywords.
-
 /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-size */
 trait FontSizeStyle[T, DerivedProp[_], Num] extends LengthUnits[DerivedProp, Num] with StyleStringValueBuilder[T] {
 

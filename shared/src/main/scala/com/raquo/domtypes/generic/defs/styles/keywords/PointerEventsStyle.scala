@@ -1,14 +1,14 @@
 package com.raquo.domtypes.generic.defs.styles.keywords
 
 /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events */
-trait PointerEventsStyle[T] extends NoneStyle[T] {
+trait PointerEventsStyle[T] extends NoneStyle[T] with AutoStyle[T] {
 
   /**
     * The element behaves as it would if the pointer-events property was not
     * specified. In SVG content, this value and the value visiblePainted have
     * the same effect.  --MDN
     */
-  lazy val auto: T = buildStringValue("auto")
+  override lazy val auto: T = buildStringValue("auto")
 
   /**
     * The element is never the target of mouse events; however, mouse events

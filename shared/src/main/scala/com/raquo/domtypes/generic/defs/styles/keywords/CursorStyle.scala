@@ -22,7 +22,7 @@ trait CursorStyle[T] extends AutoStyle[T] with NoneStyle[T] {
   lazy val progress: T = buildStringValue("progress")
 
   /** The program is busy (sometimes an hourglass or a watch).  --MDN */
-  lazy val cssWait: T = buildStringValue("wait")
+  lazy val waitCss: T = buildStringValue("wait")
 
   /** Indicating that cells can be selected.  --MDN */
   lazy val cell: T = buildStringValue("cell")

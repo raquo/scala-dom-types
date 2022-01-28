@@ -81,11 +81,4 @@ class CompileTest {
     override def svgTag[Ref <: dom.svg.Element](tagName: String, void: Boolean): Tag[Ref] = ???
   }
 
-
-
-
-
-
-
-
 }

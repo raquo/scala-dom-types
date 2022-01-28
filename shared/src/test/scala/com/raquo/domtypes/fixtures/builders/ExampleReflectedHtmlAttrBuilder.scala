@@ -22,15 +22,14 @@ trait ExampleReflectedHtmlAttrBuilder extends ReflectedHtmlAttrBuilder[Reflected
     attrCodec: Codec[V, String],
     propCodec: Codec[V, DomPropV]
   ): Prop[V, DomPropV] = {
-    // Note that we use `attrKey` and `attrCodec` params to build Attr, because it
-    // represents an HTML attribute, not a DOM property. If you wanted a representation
-    // of a DOM property instead, you would use `propKey` and `propCodec`.
+    // Note that we use `propKey` and `propCodec` params to build Prop, because it
+    // represents a DOM property, not an HTML attribute. If you wanted a representation
+    // of an HTML attribute instead, you would use `attrKey` and `attrCodec`.
     new Prop(propKey, propCodec)
   }
 }
 
 object ExampleReflectedHtmlAttrBuilder {
 
-  /** All this type alias does is discard the DomV type param that is not used in Attrs. */
   type ReflectedAttr[V, DomV] = Prop[V, DomV]
 }

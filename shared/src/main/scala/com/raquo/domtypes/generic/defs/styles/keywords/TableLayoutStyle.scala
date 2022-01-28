@@ -3,14 +3,14 @@ package com.raquo.domtypes.generic.defs.styles.keywords
 import com.raquo.domtypes.generic.builders.StyleStringValueBuilder
 
 /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout */
-trait TableLayoutStyle[T] extends StyleStringValueBuilder[T] {
+trait TableLayoutStyle[T] extends StyleStringValueBuilder[T] with AutoStyle[T] {
 
   /**
     * An automatic table layout algorithm is commonly used by most browsers for
     * table layout. The width of the table and its cells depends on the content
     * thereof.  --MDN
     */
-  lazy val auto: T = buildStringValue("auto")
+  override lazy val auto: T = buildStringValue("auto")
 
   /**
     * Table and column widths are set by the widths of table and col elements

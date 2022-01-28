@@ -5,8 +5,6 @@ trait LengthUnits[T[_], Num] extends CalcUnits[T] {
 
   // -- Most common units --
 
-  // lazy val px: T[Int] = contramapValue(n => s"${n}px")
-
   /** Pixels */
   lazy val px: T[Num] = derivedStyle(n => s"${n}px")
 

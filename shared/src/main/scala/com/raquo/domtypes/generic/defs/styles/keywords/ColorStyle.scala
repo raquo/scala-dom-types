@@ -8,17 +8,31 @@ trait ColorStyle[T] extends StyleStringValueBuilder[T] {
   def rgb(red: Int, green: Int, blue: Int): T =
     buildStringValue(s"rgb($red, $green, $blue)")
 
-  /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba() */
-  def rgba(red: Int, green: Int, blue: Int, alphaFraction: Float): T =
-    buildStringValue(s"rgba($red, $green, $blue, $alphaFraction)")
+  /** @param alpha fraction from 0 to 1 indicating opacity
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba()
+    */
+  def rgba(red: Int, green: Int, blue: Int, alpha: Float): T =
+    buildStringValue(s"rgba($red, $green, $blue, $alpha)")
 
-  /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl() */
-  def hsl(hueDegrees: Float, saturationPercent: Float, lightnessPercent: Float): T =
-    buildStringValue(s"hsl($hueDegrees, $saturationPercent%, $lightnessPercent%)")
+  /** @param hue in degrees
+    * @param saturation in percent
+    * @param lightness in percent
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl()
+    */
+  def hsl(hue: Float, saturation: Float, lightness: Float): T =
+    buildStringValue(s"hsl($hue, $saturation%, $lightness%)")
 
-  /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsla() */
-  def hsla(hueDegrees: Float, saturationPercent: Float, lightnessPercent: Float, alphaFraction: Float): T =
-    buildStringValue(s"hsla($hueDegrees, $saturationPercent%, $lightnessPercent%, $alphaFraction)")
+  /** @param hue in degrees
+    * @param saturation in percent
+    * @param lightness in percent
+    * @param alpha fraction from 0 to 1 indicating opacity
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsla()
+    */
+  def hsla(hue: Float, saturation: Float, lightness: Float, alpha: Float): T =
+    buildStringValue(s"hsla($hue, $saturation%, $lightness%, $alpha)")
 
 
 

@@ -11,7 +11,7 @@ trait MinMaxLengthStyle[T, DerivedProp[_], Num] extends LengthUnits[DerivedProp,
   /** The intrinsic minimum length.  --MDN */
   lazy val minContent: T = buildStringValue("min-content")
 
-  /** Defined as min(max-content, max(min-content, fill-available).  --MDN */
+  /** Defined as min(max-content, max(min-content, fill-available)).  --MDN */
   lazy val fitContent: T = buildStringValue("fit-content")
 
   /** The containing block width minus margin, border and padding.  --MDN */

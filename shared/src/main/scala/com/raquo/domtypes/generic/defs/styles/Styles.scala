@@ -639,7 +639,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     * The column-rule-style CSS property lets you set the style of the rule drawn
     * between columns in multi-column layouts.  --MDN
     */
-  lazy val columnRuleStyle: LineStyle = lineStyle("hidden")
+  lazy val columnRuleStyle: LineStyle = lineStyle("column-rule-style")
 
 
 
