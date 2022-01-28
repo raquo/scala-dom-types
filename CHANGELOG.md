@@ -2,6 +2,10 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### master
+
+* New: `labelAttr` reflected attribute (for `optgroup` elements) 
+
 #### v0.16-RC1 – Jan 2022
 
 * **API: Remove canonical implementations of various builders, as well as concreate types like Tag, Element, HtmlAttr, Modifier, etc.**

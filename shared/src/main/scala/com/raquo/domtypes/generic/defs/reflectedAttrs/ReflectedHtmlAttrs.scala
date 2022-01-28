@@ -332,6 +332,16 @@ trait ReflectedHtmlAttrs[RA[_, _]] { this: ReflectedHtmlAttrBuilder[RA] =>
   lazy val inputMode: RA[String, String] = stringReflectedAttr(attrKey = "inputmode", propKey = "inputMode")
 
   /**
+    * For `optgroup` elements, specifies the name of the group of options, which the browser can
+    * use when labeling the options in the user interface.
+    *
+    * MDN
+    *
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
+    */
+  lazy val labelAttr: RA[String, String] = stringReflectedAttr("label")
+
+  /**
     * This attribute participates in defining the language of the element, the
     * language that non-editable elements are written in or the language that
     * editable elements should be written in. The tag contains one single entry

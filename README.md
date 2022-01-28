@@ -250,6 +250,7 @@ We try to make the native HTML & DOM API a bit saner to work with in Scala.
 * `style` attribute is renamed to `styleAttr` to let you implement a custom `style` attribute if you want.
 * `content` attribute is renamed to `contentAttr` to avoid using a common name
 * `form` attribute is renamed to `formId` to avoid conflict with `form` tag
+* `label` attribute is renamed to `labelAttr` to avoid conflict with `label` tag
 * `height` attribute is renamed to `heightAttr` to avoid conflict with `height` CSS property
 * `width` attribute is renamed to `widthAttr` to avoid conflict with `width` CSS property
 * `list` attribute is renamed to `listId` for clarity and consistency
