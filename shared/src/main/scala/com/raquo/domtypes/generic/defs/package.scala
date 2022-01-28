@@ -4,10 +4,7 @@ import com.raquo.domtypes.generic
 
 package object defs {
 
-  /** Use these types if you don't care to distinguish between dom.Element subclasses.
-    *
-    * For example, that is what Snabbdom.scala does.
-    */
+  /** Use these types if you don't care to distinguish between dom.Element subclasses. */
   object sameRefTags {
     type DocumentTags[T[_ <: N], N] = generic.defs.tags.DocumentTags[T, N, N, N, N, N, N, N, N]
     type GroupingTags[T[_ <: N], N] = generic.defs.tags.GroupingTags[T, N, N, N, N, N, N, N, N, N, N, N]

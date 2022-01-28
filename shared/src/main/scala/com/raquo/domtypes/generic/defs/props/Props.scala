@@ -3,7 +3,7 @@ package com.raquo.domtypes.generic.defs.props
 import com.raquo.domtypes.generic.builders.PropBuilder
 import com.raquo.domtypes.generic.codecs.BooleanAsIsCodec
 
-/** @tparam P DOM Property, canonically [[com.raquo.domtypes.generic.keys.Prop]] */
+/** @tparam P Prop[ScalaValue, RawDomValue] - representation of DOM Property such as "selected" */
 trait Props[P[_, _]] { this: PropBuilder[P] =>
 
   /**

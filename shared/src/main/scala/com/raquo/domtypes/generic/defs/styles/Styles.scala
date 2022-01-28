@@ -1,50 +1,169 @@
 package com.raquo.domtypes.generic.defs.styles
 
-import com.raquo.domtypes.generic.builders.StyleBuilders
-import com.raquo.domtypes.generic.keys.Style
+import com.raquo.domtypes.generic.builders.StylePropBuilder
 
-/**
-  * Trait that contains the contents of the `Styles` object, so they can
-  * be mixed in to other objects if needed.
-  *
-  * For type params docs, see [[StyleBuilders]]
-  */
-trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[StyleSetter] =>
+/** @tparam SP   StyleProp[Value] */
+trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuilder[SP, Setter, DerivedProp, LengthNum] =>
+
 
   /**
-    * If a background-image is specified, the background-attachment CSS
-    * property determines whether that image's position is fixed within
-    * the viewport, or scrolls along with its containing block.
+    * The all shorthand CSS property resets all of an element's properties except
+    * unicode-bidi, direction, and CSS Custom Properties. It can set properties to
+    * their initial or inherited values, or to the values specified in another
+    * stylesheet origin.  --MDN
     *
-    * MDN
+    * Note: IE does not support this property
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/all
     */
-  object backgroundAttachment extends Style[String]("background-attachment") {
+  lazy val all: SP[String] = stringStyle("all")
 
-    /**
-      * This keyword means that the background image will scroll within the
-      * viewport along with the block the image is contained within.
-      *
-      * MDN
-      */
-    lazy val scroll: StyleSetter = buildStringStyleSetter(this, "scroll")
 
-    /**
-      * This keyword means that the background image will not scroll with its
-      * containing element, instead remaining stationary within the viewport.
-      *
-      * MDN
-      */
-    lazy val fixed: StyleSetter = buildStringStyleSetter(this, "fixed")
 
-    /**
-      * This keyword means that the background image will not scroll with its
-      * containing element, but will scroll when the element's content scrolls:
-      * it is fixed regarding the element's content.
-      *
-      * MDN
-      */
-    lazy val local: StyleSetter = buildStringStyleSetter(this, "local")
-  }
+
+  /**
+    * The animation CSS property is a shorthand property for animation-name,
+    * animation-duration, animation-timing-function, animation-delay,
+    * animation-iteration-count and animation-direction.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+    */
+  lazy val animation: SP[String] = stringStyle("animation")
+
+  /**
+    * The animation-delay CSS property specifies when the animation should start.
+    * This lets the animation sequence begin some time after it's applied to an
+    * element.
+    *
+    * A value of 0s, which is the default value of the property, indicates that
+    * the animation should begin as soon as it's applied. Otherwise, the value
+    * specifies an offset from the moment the animation is applied to the element;
+    * animation will begin that amount of time after being applied.
+    *
+    * Specifying a negative value for the animation delay causes the animation to
+    * begin executing immediately. However, it will appear to have begun executing
+    * partway through its cycle. For example, if you specify -1s as the animation
+    * delay time, the animation will begin immediately but will start 1 second
+    * into the animation sequence.
+    *
+    * If you specify a negative value for the animation delay, but the starting
+    * value is implicit, the starting value is taken from the moment the animation
+    * is applied to the element.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay
+    */
+  lazy val animationDelay: TimeStyle = timeStyle("animation-delay")
+
+  /**
+    * The animation-direction CSS property indicates whether the animation should
+    * play in reverse on alternate cycles.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction
+    */
+  lazy val animationDirection: SP[String] = stringStyle("animation-direction")
+
+  /**
+    * The animation-duration CSS property specifies the Length of time that an
+    * animation should take to complete one cycle.
+    *
+    * A value of 0s, which is the default value, indicates that no animation should
+    * occur.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration
+    */
+  lazy val animationDuration: TimeStyle = timeStyle("animation-duration")
+
+  /**
+    * The animation-fill-mode CSS property specifies how a CSS animation should
+    * apply styles to its target before and after it is executing.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode
+    */
+  lazy val animationFillMode: SP[String] = stringStyle("animation-fill-mode")
+
+  /**
+    * The animation-iteration-count CSS property defines the number of times an
+    * animation cycle should be played before stopping.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count
+    */
+  lazy val animationIterationCount: SP[Double] = doubleStyle("animation-iteration-count")
+
+  /**
+    * The animation-name CSS property specifies a list of animations that should
+    * be applied to the selected element. Each name indicates a @keyframes at-rule
+    * that defines the property values for the animation sequence.
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name
+    */
+  lazy val animationName: SP[String] = stringStyle("animation-name")
+
+  /**
+    * The animation-play-state CSS property determines whether an animation is
+    * running or paused. You can query this property's value to determine whether
+    * or not the animation is currently running; in addition, you can set its
+    * value to pause and resume playback of an animation.
+    *
+    * Resuming a paused animation will start the animation from where it left off
+    * at the time it was paused, rather than starting over from the beginning of
+    * the animation sequence.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state
+    */
+  lazy val animationPlayState: SP[String] = stringStyle("animation-play-state")
+
+  /**
+    * The CSS animation-timing-function property specifies how a CSS animation
+    * should progress over the duration of each cycle. The possible values are
+    * one or several <timing-function>.
+    *
+    * For keyframed animations, the timing function applies between keyframes
+    * rather than over the entire animation. In other words, the timing function
+    * is applied at the start of the keyframe and at the end of the keyframe.
+    *
+    * An animation timing function defined within a keyframe block applies to that
+    * keyframe; otherwise. If no timing function is specified for the keyframe,
+    * the timing function specified for the overall animation is used.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+    */
+  lazy val animationTimingFunction: SP[String] = stringStyle("animation-timing-function")
+
+
+
+
+  /**
+    * The CSS align-content property sets the distribution of space between and
+    * around content items along a flexbox's cross-axis or a grid's block axis.
+    * --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/align-content
+    * @see https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    */
+  lazy val alignContent: AlignContentStyle = alignContentStyle("align-content")
+
+  /**
+    * The CSS align-items property sets the align-self value on all direct children
+    * as a group. In Flexbox, it controls the alignment of items on the Cross Axis.
+    * In Grid Layout, it controls the alignment of items on the Block Axis within
+    * their grid area.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/align-items
+    * @see https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    */
+  lazy val alignItems: FlexPositionStyle = flexPositionStyle("align-items")
+
+  /**
+    * The align-self CSS property overrides a grid or flex item's align-items
+    * value. In Grid, it aligns the item inside the grid area. In Flexbox,
+    * it aligns the item on the cross axis.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/align-self
+    * @see https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    */
+  lazy val alignSelf: FlexPositionStyle = flexPositionStyle("align-self")
+
+
 
 
   /**
@@ -52,11 +171,72 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     * background values in a single place in the style sheet. background can be
     * used to set the values for one or more of: background-clip, background-color,
     * background-image, background-origin, background-position, background-repeat,
-    * background-size, and background-attachment.
+    * background-size, and background-attachment.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background
     */
-  lazy val background: Style[String] = style("background")
+  lazy val background: ColorStyle with UrlStyle = colorUrlStyle("background")
+
+  /**
+    * If a background-image is specified, the background-attachment CSS
+    * property determines whether that image's position is fixed within
+    * the viewport, or scrolls along with its containing block. --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment
+    */
+  lazy val backgroundAttachment: BackgroundAttachmentStyle = backgroundAttachmentStyle("background-attachment")
+
+  /**
+    * The background-clip CSS property specifies whether an element's background,
+    * either the color or image, extends underneath its border.
+    *
+    * If there is no background image, this property has only visual effect when
+    * the border has transparent regions (because of border-style) or partially
+    * opaque regions; otherwise the border covers up the difference.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip
+    */
+  lazy val backgroundClip: PaddingBoxSizingStyle = paddingBoxSizingStyle("background-clip")
+
+  /**
+    * The background-color CSS property sets the background color of an element,
+    * either through a color value or the keyword transparent.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-color
+    */
+  lazy val backgroundColor: ColorStyle = colorStyle("background-color")
+
+  /**
+    * The background-image CSS property sets one or more background images on an
+    * element. The background images are drawn on stacking context layers on top
+    * of each other. The first layer specified is drawn as if it is closest to
+    * the user. The borders of the element are then drawn on top of them, and the
+    * background-color is drawn beneath them.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-image
+    */
+  lazy val backgroundImage: UrlStyle = urlStyle("background-image")
+
+  /**
+    * The background-origin CSS property determines the background positioning
+    * area, that is the position of the origin of an image specified using the
+    * background-image CSS property.
+    *
+    * Note that background-origin is ignored when background-attachment is fixed.
+    * --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin
+    */
+  lazy val backgroundOrigin: PaddingBoxSizingStyle = paddingBoxSizingStyle("background-origin")
+
+  /**
+    * The background-position CSS property sets the initial position, relative to
+    * the background position layer defined by background-origin for each defined
+    * background image.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-position
+    */
+  lazy val backgroundPosition: SP[String] = stringStyle("background-position")
 
   /**
     * The background-repeat CSS property defines how background images are repeated.
@@ -65,717 +245,438 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     * doesn't let them exactly cover the background, the way adjustments are done
     * can be controlled by the author: by default, the last image is clipped, but
     * the different tiles can instead be re-sized, or space can be inserted
-    * between the tiles.
+    * between the tiles.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat
     */
-  lazy val backgroundRepeat: Style[String] = style("background-repeat")
-
-
-  /**
-    * The background-position CSS property sets the initial position, relative to
-    * the background position layer defined by background-origin for each defined
-    * background image.
-    *
-    * MDN
-    */
-  lazy val backgroundPosition: Style[String] = style("background-position")
-
-  /**
-    * The background-color CSS property sets the background color of an element,
-    * either through a color value or the keyword transparent.
-    *
-    * MDN
-    */
-  lazy val backgroundColor: Style[String] = style("background-color")
-
-  /**
-    * The background-origin CSS property determines the background positioning
-    * area, that is the position of the origin of an image specified using the
-    * background-image CSS property.
-    *
-    * Note that background-origin is ignored when background-attachment is fixed.
-    *
-    * MDN
-    */
-  object backgroundOrigin extends Style[String]("background-origin") {
-
-    /**
-      * The background extends to the outside edge of the border (but underneath
-      * the border in z-ordering).
-      *
-      * MDN
-      */
-    lazy val borderBox: StyleSetter = buildStringStyleSetter(this, "border-box")
-
-    /**
-      * No background is drawn below the border (background extends to the
-      * outside edge of the padding).
-      *
-      * MDN
-      */
-    lazy val paddingBox: StyleSetter = buildStringStyleSetter(this, "border-box")
-
-    /**
-      * The background is painted within (clipped to) the content box.
-      *
-      * MDN
-      */
-    lazy val contentBox: StyleSetter = buildStringStyleSetter(this, "content-box")
-  }
-
-  /**
-    * The background-clip CSS property specifies whether an element's background,
-    * either the color or image, extends underneath its border.
-    *
-    * If there is no background image, this property has only visual effect when
-    * the border has transparent regions (because of border-style) or partially
-    * opaque regions; otherwise the border covers up the difference.
-    *
-    * MDN
-    */
-  object backgroundClip extends Style[String]("background-clip") {
-
-    /**
-      * The background extends to the outside edge of the border (but underneath
-      * the border in z-ordering).
-      *
-      * MDN
-      */
-    lazy val borderBox: StyleSetter = buildStringStyleSetter(this, "border-box")
-
-    /**
-      * No background is drawn below the border (background extends to the
-      * outside edge of the padding).
-      *
-      * MDN
-      */
-    lazy val paddingBox: StyleSetter = buildStringStyleSetter(this, "padding-box")
-
-    /**
-      * The background is painted within (clipped to) the content box.
-      *
-      * MDN
-      */
-    lazy val contentBox: StyleSetter = buildStringStyleSetter(this, "content-box")
-  }
+  lazy val backgroundRepeat: SP[String] = stringStyle("background-repeat")
 
   /**
     * The background-size CSS property specifies the size of the background
     * images. The size of the image can be fully constrained or only partially in
-    * order to preserve its intrinsic ratio.
+    * order to preserve its intrinsic ratio.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-size
     */
-  object backgroundSize extends Style[String]("background-size") {
+  lazy val backgroundSize: BackgroundSizeStyle = backgroundSizeStyle("background-size")
 
-    /**
-      * The auto keyword that scales the background image in the corresponding
-      * direction such that its intrinsic proportion is maintained.
-      *
-      * MDN
-      */
-    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
 
-    /**
-      * This keyword specifies that the background image should be scaled to be
-      * as small as possible while ensuring both its dimensions are greater than
-      * or equal to the corresponding dimensions of the background positioning
-      * area.
-      *
-      * MDN
-      */
-    lazy val cover: StyleSetter = buildStringStyleSetter(this, "cover")
 
-    /**
-      * This keyword specifies that the background image should be scaled to be
-      * as large as possible while ensuring both its dimensions are less than or
-      * equal to the corresponding dimensions of the background positioning area.
-      *
-      * MDN
-      */
-    lazy val contain: StyleSetter = buildStringStyleSetter(this, "contain")
-  }
 
   /**
-    * The CSS background-image property sets one or several background images for
-    * an element. The images are drawn on successive stacking context layers, with
-    * the first specified being drawn as if it is the closest to the user. The
-    * borders of the element are then drawn on top of them, and the background-color
-    * is drawn beneath them.
+    * The CSS backface-visibility property determines whether or not the back
+    * face of the element is visible when facing the user. The back face of an
+    * element always is a transparent background, letting, when visible, a mirror
+    * image of the front face be displayed.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility
     */
-  lazy val backgroundImage = new MultiImageStyle("background-image")
+  lazy val backfaceVisibility: BackfaceVisibilityStyle = backfaceVisibilityStyle("backface-visibility")
 
-  /**
-    * The border-top-color CSS property sets the color of the top border of an
-    * element. Note that in many cases the shorthand CSS properties border-color
-    * or border-top are more convenient and preferable.
-    *
-    * MDN
-    */
-  lazy val borderTopColor: Style[String] = style("border-top-color")
 
-  /**
-    * The border-style CSS property is a shorthand property for setting the line
-    * style for all four sides of the elements border.
-    *
-    * MDN
-    */
-  lazy val borderStyle: Style[String] = style("border-style")
 
-  /**
-    * The border-top-style CSS property sets the line style of the top border of a box.
-    *
-    * MDN
-    */
-  lazy val borderTopStyle = new BorderStyle("border-top-style")
-
-  /**
-    * The border-right-style CSS property sets the line style of the right border
-    * of a box.
-    *
-    * MDN
-    */
-  lazy val borderRightStyle = new BorderStyle("border-right-style")
-
-  /**
-    * The border-right-width CSS property sets the width of the right border of
-    * a box.
-    *
-    * MDN
-    */
-  lazy val borderRightWidth = new BorderWidth("border-right-width")
-
-  /**
-    * The border-top-right-radius CSS property sets the rounding of the top-right
-    * corner of the element. The rounding can be a circle or an ellipse, or if
-    * one of the value is 0 no rounding is done and the corner is square.
-    *
-    * MDN
-    */
-  lazy val borderTopRightRadius = new BorderRadius("border-top-right-radius")
-
-  /**
-    * The border-bottom-left-radius CSS property sets the rounding of the
-    * bottom-left corner of the element. The rounding can be a circle or an
-    * ellipse, or if one of the value is 0 no rounding is done and the corner is
-    * square.
-    *
-    * MDN
-    */
-  lazy val borderBottomLeftRadius = new BorderRadius("border-bottom-left-radius")
-
-  /**
-    * The border-right-color CSS property sets the color of the top border of an
-    * element. Note that in many cases the shorthand CSS properties border-color
-    * or border-right are more convenient and preferable.
-    *
-    * MDN
-    */
-  lazy val borderRightColor: Style[String] = style("border-right-color")
-
-  /**
-    * The border-bottom CSS property is a shorthand that sets the values of
-    * border-bottom-color, border-bottom-style, and border-bottom-width. These
-    * properties describe the bottom border of elements.
-    *
-    * MDN
-    */
-  lazy val borderBottom: Style[String] = style("border-bottom")
 
   /**
     * The border CSS property is a shorthand property for setting the individual
     * border property values in a single place in the style sheet. border can be
     * used to set the values for one or more of: border-width, border-style,
-    * border-color.
+    * border-color.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border
     */
-  lazy val border: Style[String] = style("border")
-
-  /**
-    * The border-bottom-width CSS property sets the width of the bottom border of
-    * a box.
-    *
-    * MDN
-    */
-  lazy val borderBottomWidth = new BorderWidth("border-bottom-width")
-
-  /**
-    * The border-right-color CSS property sets the color of the right border of
-    * an element. Note that in many cases the shorthand CSS properties
-    * border-color or border-right are more convenient and preferable.
-    *
-    * MDN
-    */
-  lazy val borderLeftColor: Style[String] = style("border-left-color")
-
-  /**
-    * The border-bottom-color CSS property sets the color of the bottom border of
-    * an element. Note that in many cases the shorthand CSS properties border-color
-    * or border-bottom are more convenient and preferable.
-    *
-    * MDN
-    */
-  lazy val borderBottomColor: Style[String] = style("border-bottom-color")
-
-  /**
-    * The border-collapse CSS property selects a table's border model. This has
-    * a big influence on the look and style of the table cells.
-    *
-    * MDN
-    */
-  object borderCollapse extends Style[String]("border-collapse") {
-
-    /**
-      * Is a keyword requesting the use of the separated-border table rendering
-      * model. It is the default value.
-      *
-      * MDN
-      */
-    lazy val separate: StyleSetter = buildStringStyleSetter(this, "separate")
-
-    /**
-      * Is a keyword requesting the use of the collapsed-border table rendering
-      * model.
-      *
-      * MDN
-      */
-    lazy val collapse: StyleSetter = buildStringStyleSetter(this, "collapse")
-  }
-
-  /**
-    * The border-left CSS property is a shorthand that sets the values of
-    * border-left-color, border-left-style, and border-left-width. These
-    * properties describe the left border of elements.
-    *
-    * The three values of the shorthand property can be specified in any order,
-    * and one or two of them may be omitted.
-    *
-    * MDN
-    */
-  lazy val borderLeft: Style[String] = style("border-left")
-
-  /**
-    * The border-left-style CSS property sets the line style of the left border
-    * of a box.
-    *
-    * MDN
-    */
-  lazy val borderLeftStyle = new BorderStyle("border-left-style")
-
-  /**
-    * The border-right CSS property is a shorthand that sets the values of
-    * border-right-color, border-right-style, and border-right-width. These
-    * properties describe the right border of elements.
-    *
-    * MDN
-    */
-  lazy val borderRight: Style[String] = style("border-right")
-
-  /**
-    * The border-bottom-style CSS property sets the line style of the bottom
-    * border of a box.
-    *
-    * MDN
-    */
-  lazy val borderBottomStyle = new BorderStyle("border-bottom-style")
-
-  /**
-    * The border-left-width CSS property sets the width of the left border of a box.
-    *
-    * MDN
-    */
-  lazy val borderLeftWidth = new BorderWidth("border-left-width")
-
-  /**
-    * The border-top-width CSS property sets the width of the top border of a box.
-    *
-    * MDN
-    */
-  lazy val borderTopWidth = new BorderWidth("border-top-width")
+  lazy val border: SP[String] = stringStyle("border")
 
   /**
     * The border-top CSS property is a shorthand that sets the values of
     * border-top-color, border-top-style, and border-top-width. These
-    * properties describe the top border of elements.
+    * properties describe the top border of elements.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-top
     */
-  lazy val borderTop: Style[String] = style("border-top")
+  lazy val borderTop: SP[String] = stringStyle("border-top")
 
   /**
-    * The border-spacing CSS property specifies the distance between the borders
-    * of adjacent cells (only for the separated borders model). This is equivalent
-    * to the cellspacing attribute in presentational HTML, but an optional second
-    * value can be used to set different horizontal and vertical spacing.
+    * The border-right CSS property is a shorthand that sets the values of
+    * border-right-color, border-right-style, and border-right-width. These
+    * properties describe the right border of elements.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-right
     */
-  object borderSpacing extends Style[String]("border-spacing") {
-    def apply(horizontal: String, vertical: String): StyleSetter = buildStringStyleSetter(this, s"$horizontal $vertical")
-  }
+  lazy val borderRight: SP[String] = stringStyle("border-right")
+
+  /**
+    * The border-bottom CSS property is a shorthand that sets the values of
+    * border-bottom-color, border-bottom-style, and border-bottom-width. These
+    * properties describe the bottom border of elements.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom
+    */
+  lazy val borderBottom: SP[String] = stringStyle("border-bottom")
+
+  /**
+    * The border-left CSS property is a shorthand that sets the values of
+    * border-left-color, border-left-style, and border-left-width. These
+    * properties describe the left border of elements.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-left
+    */
+  lazy val borderLeft: SP[String] = stringStyle("border-left")
+
+
+
+
+  /**
+    * The border-color CSS property is a shorthand for setting the color of the
+    * four sides of an element's border: border-top-color, border-right-color,
+    * border-bottom-color, border-left-color.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-color
+    */
+  lazy val borderColor: ColorStyle = colorStyle("border-color")
+
+  /** The border-top-color CSS property sets the color of the top border of an element.  --MDN */
+  lazy val borderTopColor: ColorStyle = colorStyle("border-top-color")
+
+  /** The border-right-color CSS property sets the color of the right border of an element.  --MDN */
+  lazy val borderRightColor: ColorStyle = colorStyle("border-right-color")
+
+  /** The border-bottom-color CSS property sets the color of the bottom border of an element.  --MDN */
+  lazy val borderBottomColor: ColorStyle = colorStyle("border-bottom-color")
+
+  /** The border-left-color CSS property sets the color of the left border of an element.  --MDN */
+  lazy val borderLeftColor: ColorStyle = colorStyle("border-left-color")
+
+
+
+
+  /**
+    * The border-image CSS property draws an image around a given element.
+    * It replaces the element's regular border.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-image
+    */
+  lazy val borderImage: UrlStyle = urlStyle("border-image")
+
+
+
+
+  /**
+    * The border-style CSS property is a shorthand property for setting the line
+    * style for all four sides of the element's border.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-style
+    */
+  lazy val borderStyle: LineStyle = lineStyle("border-style")
+
+  /** The border-top-style CSS property sets the line style of the top border of a box.  --MDN */
+  lazy val borderTopStyle: LineStyle = lineStyle("border-top-style")
+
+  /** The border-right-style CSS property sets the line style of the right border of a box.  --MDN */
+  lazy val borderRightStyle: LineStyle = lineStyle("border-right-style")
+
+  /** The border-bottom-style CSS property sets the line style of the bottom border of a box.  --MDN */
+  lazy val borderBottomStyle: LineStyle = lineStyle("border-bottom-style")
+
+  /** The border-left-style CSS property sets the line style of the left border of a box.  --MDN */
+  lazy val borderLeftStyle: LineStyle = lineStyle("border-left-style")
+
+
+
+
+  /**
+    * The border-width CSS property is a shorthand property for setting the width
+    * for all four sides of the element's border.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-width
+    */
+  lazy val borderWidth: LengthStyle = lengthStyle("border-width")
+
+  /** The border-top-width CSS property sets the line width of the top border of a box.  --MDN */
+  lazy val borderTopWidth: LengthStyle = lengthStyle("border-top-width")
+
+  /** The border-right-width CSS property sets the line width of the right border of a box.  --MDN */
+  lazy val borderRightWidth: LengthStyle = lengthStyle("border-right-width")
+
+  /** The border-bottom-width CSS property sets the line width of the bottom border of a box.  --MDN */
+  lazy val borderBottomWidth: LengthStyle = lengthStyle("border-bottom-width")
+
+  /** The border-left-width CSS property sets the line width of the left border of a box.  --MDN */
+  lazy val borderLeftWidth: LengthStyle = lengthStyle("border-left-width")
+
+
+
 
   /**
     * The border-radius CSS property allows Web authors to define how rounded
     * border corners are. The curve of each corner is defined using one or two
-    * radii, defining its shape: circle or ellipse.
+    * radii, defining its shape: circle or ellipse.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
     */
-  lazy val borderRadius: Style[String] = style("border-radius")
-
-  /**
-    * The border-width CSS property sets the width of the border of a box. Using
-    * the shorthand property border is often more convenient.
-    *
-    * MDN
-    */
-  lazy val borderWidth: Style[String] = style("border-width")
-
-  /**
-    * The border-bottom-right-radius CSS property sets the rounding of the
-    * bottom-right corner of the element. The rounding can be a circle or an
-    * ellipse, or if one of the value is 0 no rounding is done and the corner is
-    * square.
-    *
-    * MDN
-    */
-  lazy val borderBottomRightRadius = new BorderRadius("border-bottom-right-radius")
+  lazy val borderRadius: LengthStyle = lengthStyle("border-radius")
 
   /**
     * The border-top-left-radius CSS property sets the rounding of the
     * top-left corner of the element. The rounding can be a circle or an
     * ellipse, or if one of the value is 0 no rounding is done and the corner is
-    * square.
-    *
-    * MDN
+    * square.  --MDN
     */
-  lazy val borderTopLeftRadius = new BorderRadius("border-top-left-radius")
+  lazy val borderTopLeftRadius: LengthStyle = lengthStyle("border-top-left-radius")
 
   /**
-    * The border-color CSS property is a shorthand for setting the color of the
-    * four sides of an element's border: border-top-color, border-right-color,
-    * border-bottom-color, border-left-color
-    *
-    * MDN
+    * The border-top-right-radius CSS property sets the rounding of the top-right
+    * corner of the element. The rounding can be a circle or an ellipse, or if
+    * one of the value is 0 no rounding is done and the corner is square.  --MDN
     */
-  lazy val borderColor: Style[String] = style("border-color")
+  lazy val borderTopRightRadius: LengthStyle = lengthStyle("border-top-right-radius")
+
+  /**
+    * The border-bottom-right-radius CSS property sets the rounding of the
+    * bottom-right corner of the element. The rounding can be a circle or an
+    * ellipse, or if one of the value is 0 no rounding is done and the corner is
+    * square.  --MDN
+    */
+  lazy val borderBottomRightRadius: LengthStyle = lengthStyle("border-bottom-right-radius")
+
+  /**
+    * The border-bottom-left-radius CSS property sets the rounding of the
+    * bottom-left corner of the element. The rounding can be a circle or an
+    * ellipse, or if one of the value is 0 no rounding is done and the corner is
+    * square.  --MDN
+    */
+  lazy val borderBottomLeftRadius: LengthStyle = lengthStyle("border-bottom-left-radius")
+
+
+
+
+  /**
+    * The border-collapse CSS property selects a table's border model. This has
+    * a big influence on the look and style of the table cells.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse
+    */
+  lazy val borderCollapse: BorderCollapseStyle = borderCollapse("border-collapse")
+
+  /**
+    * The border-spacing CSS property specifies the distance between the borders
+    * of adjacent cells (only for the separated borders model). This is equivalent
+    * to the cellspacing attribute in presentational HTML, but an optional second
+    * value can be used to set different horizontal and vertical spacing.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing
+    */
+  lazy val borderSpacing: LengthStyle = lengthStyle("border-spacing")
+
+
+
+
+  /**
+    * The bottom CSS property participates in specifying the position of
+    * positioned elements.
+    *
+    * For absolutely positioned elements, that is those with position: absolute
+    * or position: fixed, it specifies the distance between the bottom margin edge
+    * of the element and the bottom edge of its containing block.
+    *
+    * For relatively positioned elements, that is those with position: relative,
+    * it specifies the distance the element is moved above its normal position.
+    *
+    * However, the top property overrides the bottom property, so if top is not
+    * auto, the computed value of bottom is the negative of the computed value of
+    * top.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/bottom
+    */
+  lazy val bottom: LengthStyle with AutoStyle[String] = lengthAutoStyle("bottom")
+
+  /**
+    * The box-shadow CSS property describes one or more shadow effects as a
+    * comma-separated list. It allows casting a drop shadow from the frame of
+    * almost any element. If a border-radius is specified on the element with a
+    * box shadow, the box shadow takes on the same rounded corners. The z-ordering
+    * of multiple box shadows is the same as multiple text shadows (the first
+    * specified shadow is on top).  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow
+    */
+  lazy val boxShadow: SP[String] = stringStyle("box-shadow")
 
   /**
     * The box-sizing CSS property is used to alter the default CSS box model used
     * to calculate widths and heights of elements. It is possible to use this
     * property to emulate the behavior of browsers that do not correctly support
-    * the CSS box model specification.
+    * the CSS box model specification.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
     */
-  object boxSizing extends Style[String]("box-sizing") {
+  lazy val boxSizing: BoxSizingStyle = boxSizingStyle("box-sizing")
 
-    /**
-      * This is the default style as specified by the CSS standard. The width and
-      * height properties are measured including only the content, but not the
-      * border, margin, or padding.
-      *
-      * MDN
-      */
-    lazy val contentBox: StyleSetter = buildStringStyleSetter(this, "content-box")
+  /**
+    * The caption-side CSS property positions the content of a table's caption
+    * on the specified side (top or bottom).
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/caption-side
+    */
+  lazy val captionSide: SP[String] = stringStyle("caption-side")
 
-    /**
-      * The width and height properties include the padding and border, but not
-      * the margin. This is the box model used by Internet Explorer when the
-      * document is in Quirks mode.
-      *
-      * MDN
-      */
-    lazy val borderBox: StyleSetter = buildStringStyleSetter(this, "border-box")
-  }
+  /**
+    * The clear CSS property specifies whether an element can be next to floating
+    * elements that precede it or must be moved down (cleared) below them.
+    *
+    * The clear property applies to both floating and non-floating elements.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/clear
+    */
+  lazy val clear: ClearStyle = clearStyle("clear")
+
+  /**
+    * The clip CSS property defines what portion of an element is visible. The
+    * clip property applies only to elements with position:absolute.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/clip
+    */
+  lazy val clip: SP[String] = stringStyle("clip")
 
   /**
     * The CSS color property sets the foreground color of an element's text
     * content, and its decorations. It doesn't affect any other characteristic of
     * the element; it should really be called text-color and would have been
-    * named so, save for historical reasons and its appearance in CSS Level 1.
+    * named so, save for historical reasons.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/color
     */
-  object color extends Style[String]("color") {
-    lazy val black: StyleSetter = buildStringStyleSetter(this, "black")
-    lazy val silver: StyleSetter = buildStringStyleSetter(this, "silver")
-    lazy val gray: StyleSetter = buildStringStyleSetter(this, "gray")
-    lazy val white: StyleSetter = buildStringStyleSetter(this, "white")
-    lazy val maroon: StyleSetter = buildStringStyleSetter(this, "maroon")
-    lazy val red: StyleSetter = buildStringStyleSetter(this, "red")
-    lazy val purple: StyleSetter = buildStringStyleSetter(this, "purple")
-    lazy val fuschia: StyleSetter = buildStringStyleSetter(this, "fuschia")
-    lazy val green: StyleSetter = buildStringStyleSetter(this, "green")
-    lazy val lime: StyleSetter = buildStringStyleSetter(this, "lime")
-    lazy val olive: StyleSetter = buildStringStyleSetter(this, "olive")
-    lazy val yellow: StyleSetter = buildStringStyleSetter(this, "yellow")
-    lazy val navy: StyleSetter = buildStringStyleSetter(this, "navy")
-    lazy val blue: StyleSetter = buildStringStyleSetter(this, "blue")
-    lazy val teal: StyleSetter = buildStringStyleSetter(this, "teal")
-    lazy val aqua: StyleSetter = buildStringStyleSetter(this, "aqua")
-  }
+  lazy val color: ColorStyle = colorStyle("color")
+
+
+
 
   /**
-    * The clip CSS property defines what portion of an element is visible. The
-    * clip property applies only to elements with position:absolute.
+    * The columns CSS property is a shorthand property allowing to set both the
+    * column-width and the column-count properties at the same time.  --MDN
     *
-    * MDN
+    * https://developer.mozilla.org/en-US/docs/Web/CSS/columns
     */
-  object clip extends AutoStyle[String]("clip") {
-    def rect(top: String, right: String, bottom: String, left: String): StyleSetter = {
-      buildStringStyleSetter(this, s"rect($top, $right, $bottom, $left)")
-    }
-  }
+  lazy val columns: SP[String] = stringStyle("columns")
+
+  /**
+    * The column-count CSS property describes the number of columns of the element.
+    * --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-count
+    */
+  lazy val columnCount: AutoStyle[Int] = autoStyle("column-count")
+
+  /**
+    * The column-fill CSS property controls how contents are partitioned into
+    * columns. Contents are either balanced, which means that contents in all
+    * columns will have the same height or, when using auto, just take up the
+    * room the content needs.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill
+    */
+  lazy val columnFill: SP[String] = stringStyle("column-fill")
+
+  /**
+    * The column-gap CSS property sets the size of the gap between columns for
+    * elements which are specified to display as a multi-column element.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap
+    */
+  lazy val columnGap: LengthStyle = lengthStyle("column-gap")
+
+  /**
+    * The column-span CSS property makes it possible for an element to span across
+    * all columns when its value is set to `all`. An element that spans more than
+    * one column is called a spanning element.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-span
+    */
+  lazy val columnSpan: SP[Int] = intStyle("column-span")
+
+  /**
+    * The column-width CSS property suggests an optimal column width. This is not
+    * a absolute value but a mere hint. Browser will adjust the width of the
+    * column around that suggested value, allowing to achieve scalable designs
+    * that fit different screen size. Especially in presence of the column-count
+    * CSS property which has precedence, to set an exact column width, all Length
+    * values must be specified. In horizontal text these are width, column-width,
+    * column-gap, and column-rule-width  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-width
+    */
+  lazy val columnWidth: LengthStyle with AutoStyle[String] = lengthAutoStyle("column-width")
+
+
+
+
+  /**
+    * In multi-column layouts, the column-rule CSS property specifies a straight
+    * line, or "rule", to be drawn between each column. It is a convenient
+    * shorthand to avoid setting each of the individual column-rule-* properties
+    * separately : column-rule-width, column-rule-style and column-rule-color.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule
+    */
+  lazy val columnRule: SP[String] = stringStyle("column-rule")
+
+  /**
+    * The column-rule-color CSS property lets you set the color of the rule drawn
+    * between columns in multi-column layouts.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-color
+    */
+  lazy val columnRuleColor: ColorStyle = colorStyle("column-rule-color")
+
+  /**
+    * The column-rule-width CSS property lets you set the width of the rule drawn
+    * between columns in multi-column layouts.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-width
+    */
+  lazy val columnRuleWidth: LengthStyle = lengthStyle("column-rule-width")
+
+  /**
+    * The column-rule-style CSS property lets you set the style of the rule drawn
+    * between columns in multi-column layouts.  --MDN
+    */
+  lazy val columnRuleStyle: LineStyle = lineStyle("column-rule-style")
+
+
+
+
+  /**
+    * The `content` CSS property is used with the ::before and ::after pseudo-elements
+    * to generate content in an element. Objects inserted using the content
+    * property are anonymous replaced elements.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/content
+    */
+  lazy val contentCss: UrlStyle with NoneStyle[String] = urlNoneStyle("content")
+
+  /**
+    * The counter-increment CSS property is used to increase the value of CSS
+    * Counters by a given value. The counter's value can be reset using the
+    * counter-reset CSS property.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/counter-increment
+    */
+  lazy val counterIncrement: SP[String] = stringStyle("counter-increment")
+
+  /**
+    * The counter-reset CSS property is used to reset CSS Counters to a given
+    * value.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/counter-reset
+    */
+  lazy val counterReset: SP[String] = stringStyle("counter-reset")
 
   /**
     * The cursor CSS property specifies the mouse cursor displayed when the mouse
-    * pointer is over an element.
+    * pointer is over an element.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
     */
-  object cursor extends Style[String]("cursor") {
-
-    /**
-      * The browser determines the cursor to display based on the current context.
-      * E.g. equivalent to text when hovering text.
-      *
-      * MDN
-      */
-    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
-    /**
-      * Default cursor, typically an arrow.
-      *
-      * MDN
-      */
-    lazy val default: StyleSetter = buildStringStyleSetter(this, "default")
-    /**
-      * No cursor is rendered.
-      *
-      * MDN
-      */
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
-    /**
-      * A context menu is available under the cursor.
-      *
-      * MDN
-      */
-    lazy val contextMenu: StyleSetter = buildStringStyleSetter(this, "context-menu")
-    /**
-      * Indicating help is available.
-      *
-      * MDN
-      */
-    lazy val help: StyleSetter = buildStringStyleSetter(this, "help")
-    /**
-      * E.g. used when hovering over links, typically a hand.
-      *
-      * MDN
-      */
-    lazy val pointer: StyleSetter = buildStringStyleSetter(this, "pointer")
-    /**
-      * The program is busy in the background but the user can still interact
-      * with the interface (unlike for wait).
-      *
-      * MDN
-      */
-    lazy val progress: StyleSetter = buildStringStyleSetter(this, "progress")
-    /**
-      * The program is busy (sometimes an hourglass or a watch).
-      *
-      * MDN
-      */
-    lazy val cssWait: StyleSetter = buildStringStyleSetter(this, "wait")
-    /**
-      * Indicating that cells can be selected.
-      *
-      * MDN
-      */
-    lazy val cell: StyleSetter = buildStringStyleSetter(this, "cell")
-    /**
-      * Cross cursor, often used to indicate selection in a bitmap.
-      *
-      * MDN
-      */
-    lazy val crosshair: StyleSetter = buildStringStyleSetter(this, "crosshair")
-    /**
-      * Indicating text can be selected, typically an I-beam.
-      *
-      * MDN
-      */
-    lazy val text: StyleSetter = buildStringStyleSetter(this, "text")
-    /**
-      * Indicating that vertical text can be selected, typically a sideways I-beam
-      *
-      * MDN
-      */
-    lazy val verticalText: StyleSetter = buildStringStyleSetter(this, "vertical-text")
-    /**
-      * Indicating an alias or shortcut is to be created.
-      *
-      * MDN
-      */
-    lazy val alias: StyleSetter = buildStringStyleSetter(this, "alias")
-    /**
-      * Indicating that something can be copied
-      *
-      * MDN
-      */
-    lazy val copy: StyleSetter = buildStringStyleSetter(this, "copy")
-    /**
-      * The hoevered object may be moved.
-      *
-      * MDN
-      */
-    lazy val move: StyleSetter = buildStringStyleSetter(this, "move")
-    /**
-      * Cursor showing that a drop is not allowed at the current location.
-      *
-      * MDN
-      */
-    lazy val noDrop: StyleSetter = buildStringStyleSetter(this, "no-drop")
-    /**
-      * Cursor showing that something cannot be done.
-      *
-      * MDN
-      */
-    lazy val notAllowed: StyleSetter = buildStringStyleSetter(this, "not-allowed")
-    /**
-      * Cursor showing that something can be scrolled in any direction (panned).
-      *
-      * MDN
-      */
-    lazy val allScroll: StyleSetter = buildStringStyleSetter(this, "all-scroll")
-    /**
-      * The item/column can be resized horizontally. Often rendered as arrows
-      * pointing left and right with a vertical separating.
-      *
-      * MDN
-      */
-    lazy val colResize: StyleSetter = buildStringStyleSetter(this, "col-resize")
-    /**
-      * The item/row can be resized vertically. Often rendered as arrows pointing
-      * up and down with a horizontal bar separating them.
-      *
-      * MDN
-      */
-    lazy val rowResize: StyleSetter = buildStringStyleSetter(this, "row-resize")
-    /**
-      * The top edge is to be moved.
-      *
-      * MDN
-      */
-    lazy val nResize: StyleSetter = buildStringStyleSetter(this, "n-resize")
-    /**
-      * The right edge is to be moved.
-      *
-      * MDN
-      */
-    lazy val eResize: StyleSetter = buildStringStyleSetter(this, "e-resize")
-    /**
-      * The bottom edge is to be moved.
-      *
-      * MDN
-      */
-    lazy val sResize: StyleSetter = buildStringStyleSetter(this, "s-resize")
-    /**
-      * The left edge is to be moved.
-      *
-      * MDN
-      */
-    lazy val wResize: StyleSetter = buildStringStyleSetter(this, "w-resize")
-    /**
-      * The top-right corner is to be moved.
-      *
-      * MDN
-      */
-    lazy val neResize: StyleSetter = buildStringStyleSetter(this, "ne-resize")
-    /**
-      * The top-left corner is to be moved.
-      *
-      * MDN
-      */
-    lazy val nwResize: StyleSetter = buildStringStyleSetter(this, "nw-resize")
-    /**
-      * The bottom-right corner is to be moved.
-      *
-      * MDN
-      */
-    lazy val seResize: StyleSetter = buildStringStyleSetter(this, "se-resize")
-    /**
-      * The bottom-left corner is to be moved.
-      *
-      * MDN
-      */
-    lazy val swResize: StyleSetter = buildStringStyleSetter(this, "sw-resize")
-
-    lazy val ewResize: StyleSetter = buildStringStyleSetter(this, "ew-resize")
-    lazy val nsResize: StyleSetter = buildStringStyleSetter(this, "ns-resize")
-    lazy val neswResize: StyleSetter = buildStringStyleSetter(this, "nesw-resize")
-    lazy val nwseResize: StyleSetter = buildStringStyleSetter(this, "nwse-resize")
-
-    /**
-      * Indicates that something can be zoomed (magnified) in.
-      *
-      * MDN
-      */
-    lazy val zoomIn: StyleSetter = buildStringStyleSetter(this, "zoom-in")
-    /**
-      * Indicates that something can be zoomed (magnified) out.
-      *
-      * MDN
-      */
-    lazy val zoomOut: StyleSetter = buildStringStyleSetter(this, "zoom-out")
-    /**
-      * Indicates that something can be grabbed (dragged to be moved).
-      *
-      * MDN
-      */
-    lazy val grab: StyleSetter = buildStringStyleSetter(this, "grab")
-    /**
-      * Indicates that something can be grabbed (dragged to be moved).
-      *
-      * MDN
-      */
-    lazy val grabbing: StyleSetter = buildStringStyleSetter(this, "grabbing")
-  }
-
-
-  /**
-    * The float CSS property specifies that an element should be taken from the
-    * normal flow and placed along the left or right side of its container, where
-    * text and inline elements will wrap around it. A floating element is one
-    * where the computed value of float is not none.
-    *
-    * MDN
-    */
-  object float extends Style[String]("float") {
-    /**
-      * Is a keyword indicating that the element must float on the left side of
-      * its containing block.
-      *
-      * MDN
-      */
-    lazy val left: StyleSetter = buildStringStyleSetter(this, "left")
-    /**
-      * Is a keyword indicating that the element must float on the right side of
-      * its containing block.
-      *
-      * MDN
-      */
-    lazy val right: StyleSetter = buildStringStyleSetter(this, "right")
-    /**
-      * Is a keyword indicating that the element must not float
-      *
-      * MDN
-      */
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
-  }
-
+  lazy val cursor: CursorStyle = cursorStyle("cursor")
 
   /**
     * Set the direction CSS property to match the direction of the text: rtl for
@@ -794,25 +695,11 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     * columns.
     *
     * The direction and unicode-bidi properties are the two only properties which
-    * are not affected by the all shorthand.
+    * are not affected by the all shorthand.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/direction
     */
-  object direction extends Style[String]("direction") {
-    /**
-      * The initial value of direction (that is, if not otherwise specified). Text
-      * and other elements go from left to right.
-      *
-      * MDN
-      */
-    lazy val ltr: StyleSetter = buildStringStyleSetter(this, "ltr")
-    /**
-      * Text and other elements go from right to left
-      *
-      * MDN
-      */
-    lazy val rtl: StyleSetter = buildStringStyleSetter(this, "rtl")
-  }
+  lazy val direction: DirectionStyle = directionStyle("direction")
 
   /**
     * The display CSS property specifies the type of rendering box used for an
@@ -823,305 +710,366 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     * In addition to the many different display box types, the value none lets
     * you turn off the display of an element; when you use none, all descendant
     * elements also have their display turned off. The document is rendered as
-    * though the element doesn't exist in the document tree.
+    * though the element doesn't exist in the document tree.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/display
     */
-  object display extends Style[String]("display") {
-    /**
-      * Turns off the display of an element (it has no effect on layout); all
-      * descendant elements also have their display turned off. The document is
-      * rendered as though the element did not exist.
-      *
-      * To render an element box's dimensions, yet have its contents be invisible,
-      * see the visibility property.
-      *
-      * MDN
-      */
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
-    /**
-      * The element generates one or more inline element boxes.
-      *
-      * MDN
-      */
-    lazy val inline: StyleSetter = buildStringStyleSetter(this, "inline")
-    /**
-      * The element generates a block element box.
-      *
-      * MDN
-      */
-    lazy val block: StyleSetter = buildStringStyleSetter(this, "block")
-    /**
-      * The element generates a block box for the content and a separate
-      * list-item inline box.
-      *
-      * MDN
-      */
-    lazy val listItem: StyleSetter = buildStringStyleSetter(this, "list-item")
-    /**
-      * The element generates a block element box that will be flowed with
-      * surrounding content as if it were a single inline box.
-      *
-      * MDN
-      */
-    lazy val inlineBlock: StyleSetter = buildStringStyleSetter(this, "inline-block")
-    /**
-      * The inline-table value does not have a direct mapping in HTML. It behaves
-      * like a table HTML element, but as an inline box, rather than a
-      * block-level box. Inside the table box is a block-level context
-      *
-      * MDN
-      */
-    lazy val inlineTable: StyleSetter = buildStringStyleSetter(this, "inline-table")
-    /**
-      * Behaves like the table HTML element. It defines a block-level box.
-      *
-      * MDN
-      */
-    lazy val table: StyleSetter = buildStringStyleSetter(this, "table")
-    /**
-      * Behaves like the caption HTML element.
-      *
-      * MDN
-      */
-    lazy val tableCaption: StyleSetter = buildStringStyleSetter(this, "table-caption")
-    /**
-      * Behaves like the td HTML element
-      *
-      * MDN
-      */
-    lazy val tableCell: StyleSetter = buildStringStyleSetter(this, "table-cell")
-    /**
-      * These elements behave like the corresponding col HTML elements.
-      *
-      * MDN
-      */
-    lazy val tableColumn: StyleSetter = buildStringStyleSetter(this, "table-column")
-    /**
-      * These elements behave like the corresponding colgroup HTML elements.
-      *
-      * MDN
-      */
-    lazy val tableColumnGroup: StyleSetter = buildStringStyleSetter(this, "table-column-group")
-    /**
-      * These elements behave like the corresponding tfoot HTML elements
-      *
-      * MDN
-      */
-    lazy val tableFooterGroup: StyleSetter = buildStringStyleSetter(this, "table-footer-group")
-    /**
-      * These elements behave like the corresponding thead HTML elements
-      *
-      * MDN
-      */
-    lazy val tableHeaderGroup: StyleSetter = buildStringStyleSetter(this, "table-header-group")
-    /**
-      * Behaves like the tr HTML element
-      *
-      * MDN
-      */
-    lazy val tableRow: StyleSetter = buildStringStyleSetter(this, "table-row")
-    /**
-      * These elements behave like the corresponding tbody HTML elements
-      *
-      * MDN
-      */
-    lazy val tableRowGroup: StyleSetter = buildStringStyleSetter(this, "table-row-group")
-    /**
-      * The element behaves like a block element and lays out its content according
-      * to the flexbox model.
-      *
-      * MDN
-      */
-    lazy val flex: StyleSetter = buildStringStyleSetter(this, "flex")
-    /**
-      * The element behaves like an inline element and lays out its content
-      * according to the flexbox model.
-      *
-      * MDN
-      */
-    lazy val inlineFlex: StyleSetter = buildStringStyleSetter(this, "inline-flex")
-  }
+  lazy val display: DisplayStyle = displayStyle("display")
+
+  /**
+    * The empty-cells CSS property specifies how user agents should render borders
+    * and backgrounds around cells that have no visible content.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/empty-cells
+    */
+  lazy val emptyCells: EmptyCellsStyle = emptyCellsStyle("empty-cells")
+
+
 
 
   /**
-    * The CSS property pointer-events allows authors to control under what
-    * circumstances (if any) a particular graphic element can become the target
-    * of mouse events. When this property is unspecified, the same characteristics
-    * of the visiblePainted value apply to SVG content.
+    * The flex CSS property is a shorthand property specifying the ability of a
+    * flex item to alter its dimensions to fill available space. Flex items can
+    * be stretched to use available space proportional to their flex grow factor
+    * or their flex shrink factor to prevent overflow.  --MDN
     *
-    * In addition to indicating that the element is not the target of mouse events,
-    * the value none instructs the mouse event to go "through" the element and
-    * target whatever is "underneath" that element instead.
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+    * @see https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    */
+  lazy val flex: SP[String] = stringStyle("flex")
+
+  /**
+    * The CSS flex-basis property specifies the flex basis which is the initial
+    * main size of a flex item. The property determines the size of the
+    * content-box unless specified otherwise using box-sizing.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis
+    * @see https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    */
+  lazy val flexBasis: LengthStyle with AutoStyle[String] = lengthAutoStyle("flex-basis")
+
+  /**
+    * The CSS flex-direction property specifies how flex items are placed in the
+    * flex container defining the main axis and the direction (normal or reversed).
+    *
+    * Note that the value row and row-reverse are affected by the directionality
+    * of the flex container. If its dir attribute is ltr, row represents the
+    * horizontal axis oriented from the left to the right, and row-reverse from
+    * the right to the left; if the dir attribute is rtl, row represents the axis
+    * oriented from the right to the left, and row-reverse from the left to the
+    * right.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction
+    * @see https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    */
+  lazy val flexDirection: FlexDirectionStyle = flexDirectionStyle("flex-direction")
+
+  /**
+    * The CSS flex-grow property specifies the flex grow factor of a flex item.
+    *
+    * Default value is 0.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow
+    * @see https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    */
+  lazy val flexGrow: SP[Double] = doubleStyle("flex-grow")
+
+  /**
+    * The CSS flex-shrink property specifies the flex shrink factor of a flex item.
+    *
+    * Default value is 1.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink
+    * @see https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    */
+  lazy val flexShrink: SP[Double] = doubleStyle("flex-shrink")
+
+  /**
+    * The CSS flex-wrap property specifies whether the children are forced into
+    * a single line or if the items can be flowed on multiple lines.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap
+    * @see https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    */
+  lazy val flexWrap: FlexWrapStyle = flexWrapStyle("flex-wrap")
+
+
+
+
+  /**
+    * The float CSS property specifies that an element should be taken from the
+    * normal flow and placed along the left or right side of its container, where
+    * text and inline elements will wrap around it. A floating element is one
+    * where the computed value of float is not `none`.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/float
+    */
+  lazy val float: FloatStyle = floatStyle("float")
+
+
+
+
+  /**
+    * The font CSS property is either a shorthand property for setting font-style,
+    * font-variant, font-weight, font-size, line-height and font-family, or a way
+    * to set the element's font to a system font, using specific keywords.  --MDN
+    */
+  lazy val font: SP[String] = stringStyle("font")
+
+  /**
+    * The font-family CSS property allows for a prioritized list of font family
+    * names and/or generic family names to be specified for the selected element.
+    * Unlike most other CSS properties, values are separated by a comma to indicate
+    * that they are alternatives. The browser will select the first font on the
+    * list that is installed on the computer, or that can be downloaded using the
+    * information provided by a @font-face at-rule.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-family
+    */
+  lazy val fontFamily: SP[String] = stringStyle("font-family")
+
+  /**
+    * The font-feature-settings CSS property allows control over advanced
+    * typographic features in OpenType fonts.
     *
     * MDN
     */
-  object pointerEvents extends Style[String]("pointer-events") {
-    /**
-      * The element behaves as it would if the pointer-events property was not
-      * specified. In SVG content, this value and the value visiblePainted have
-      * the same effect.
-      *
-      * MDN
-      */
-    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
-    /**
-      * The element is never the target of mouse events; however, mouse events
-      * may target its descendant elements if those descendants have pointer-events
-      * set to some other value. In these circumstances, mouse events will trigger
-      * event listeners on this parent element as appropriate on their way to/from
-      * the descendant during the event capture/bubble phases.
-      *
-      * MDN
-      */
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
-    /**
-      * SVG only. The element can only be the target of a mouse event when the
-      * visibility property is set to visible and when the mouse cursor is over
-      * the interior (i.e., 'fill') of the element and the fill property is set
-      * to a value other than none, or when the mouse cursor is over the perimeter
-      * (i.e., 'stroke') of the element and the stroke property is set to a value
-      * other than none.
-      *
-      * MDN
-      */
-    lazy val visiblePainted: StyleSetter = buildStringStyleSetter(this, "visiblePainted")
-    /**
-      * SVG only. The element can only be the target of a mouse event when the
-      * visibility property is set to visible and when the mouse cursor is over
-      * the interior (i.e., fill) of the element. The value of the fill property
-      * does not effect event processing.
-      *
-      * MDN
-      */
-    lazy val visibleFill: StyleSetter = buildStringStyleSetter(this, "visibleFill")
-    /**
-      * SVG only. The element can only be the target of a mouse event when the
-      * visibility property is set to visible and when the mouse cursor is over
-      * the perimeter (i.e., stroke) of the element. The value of the stroke
-      * property does not effect event processing.
-      *
-      * MDN
-      */
-    lazy val visibleStroke: StyleSetter = buildStringStyleSetter(this, "visibleStroke")
-    /**
-      * SVG only. The element can be the target of a mouse event when the
-      * visibility property is set to visible and the mouse cursor is over either
-      * the interior (i.e., fill) or the perimeter (i.e., stroke) of the element.
-      * The values of the fill and stroke do not effect event processing.
-      *
-      * MDN
-      */
-    lazy val visible: StyleSetter = buildStringStyleSetter(this, "visible")
-    /**
-      * SVG only. The element can only be the target of a mouse event when the
-      * mouse cursor is over the interior (i.e., 'fill') of the element and the
-      * fill property is set to a value other than none, or when the mouse cursor
-      * is over the perimeter (i.e., 'stroke') of the element and the stroke
-      * property is set to a value other than none. The value of the visibility
-      * property does not effect event processing.
-      *
-      * MDN
-      */
-    lazy val painted: StyleSetter = buildStringStyleSetter(this, "painted")
-    /**
-      * SVG only. The element can only be the target of a mouse event when the
-      * pointer is over the interior (i.e., fill) of the element. The values of
-      * the fill and visibility properties do not effect event processing.
-      *
-      * MDN
-      */
-    lazy val fill: StyleSetter = buildStringStyleSetter(this, "fill")
-    /**
-      * SVG only. The element can only be the target of a mouse event when the
-      * pointer is over the perimeter (i.e., stroke) of the element. The values
-      * of the stroke and visibility properties do not effect event processing.
-      *
-      * MDN
-      */
-    lazy val stroke: StyleSetter = buildStringStyleSetter(this, "stroke")
-    /**
-      * SVG only. The element can only be the target of a mouse event when the
-      * pointer is over the interior (i.e., fill) or the perimeter (i.e., stroke)
-      * of the element. The values of the fill, stroke and visibility properties
-      * do not effect event processing.
-      *
-      * MDN
-      */
-    lazy val all: StyleSetter = buildStringStyleSetter(this, "all")
-  }
+  lazy val fontFeatureSettings: SP[String] = stringStyle("font-feature-settings")
 
+  /**
+    * The font-size CSS property specifies the size of the font – specifically
+    * the desired height of glyphs from the font. Setting the font size may, in
+    * turn, change the size of other items, since it is used to compute the value
+    * of em and ex Length units.
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
+    */
+  lazy val fontSize: FontSizeStyle = fontSizeStyle("font-size")
+
+  /**
+    * The font-size-adjust CSS property sets the size of lower-case letters
+    * relative to the current font size (which defines the size of upper-case
+    * letters).  --MDN
+    *
+    * This is useful since the legibility of fonts, especially at small sizes, is
+    * determined more by the size of lowercase letters than by the size of capital
+    * letters. This can cause problems when the first-choice font-family is
+    * unavailable and its replacement has a significantly different aspect ratio
+    * (the ratio of the size of lowercase letters to the size of the font).
+    *
+    * Note: As of Dec 2021, only Firefox supports this
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-size-adjust
+    */
+  lazy val fontSizeAdjust: NoneStyle[Double] = noneStyle("font-size-adjust")
+
+  /**
+    * The font-style CSS property allows italic or oblique faces to be selected
+    * within a font-family.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-style
+    */
+  lazy val fontStyle: FontStyleStyle = fontStyleStyle("font-style")
+
+  /**
+    * The font-weight CSS property specifies the weight or boldness of the font.
+    * However, some fonts are not available in all weights; some are available
+    * only on normal and bold.
+    *
+    * Numeric font weights for fonts that provide more than just normal and bold.
+    * If the exact weight given is unavailable, then 600-900 use the closest
+    * available darker weight (or, if there is none, the closest available
+    * lighter weight), and 100-500 use the closest available lighter weight (or,
+    * if there is none, the closest available darker weight). This means that for
+    * fonts that provide only normal and bold, 100-500 are normal, and 600-900
+    * are bold.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
+    */
+  lazy val fontWeight: FontWeightStyle = fontWeightStyle("font-weight")
+
+
+
+
+  /**
+    * The height CSS property specifies the height of the content area of an
+    * element. The content area is inside the padding, border, and margin of the
+    * element.
+    *
+    * The min-height and max-height properties override height.  --MDN
+    *
+    * @see @see https://developer.mozilla.org/en-US/docs/Web/CSS/height
+    */
+  lazy val height: LengthStyle with AutoStyle[String] = lengthAutoStyle("height")
+
+  /**
+    * The CSS justify-content property defines how a browser distributes available
+    * space between and around elements when aligning flex items in the main-axis
+    * of the current line. The alignment is done after the lengths and auto margins
+    * are applied, meaning that, if there is at least one flexible element, with
+    * flex-grow different than 0, it will have no effect as there won't be any
+    * available space.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
+    * @see https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    */
+  lazy val justifyContent: JustifyContentStyle = justifyContentStyle("justify-content")
+
+  /**
+    * The left CSS property specifies part of the position of positioned elements.
+    *
+    * For absolutely positioned elements (those with position: absolute or
+    * position: fixed), it specifies the distance between the left margin edge of
+    * the element and the left edge of its containing block.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/left
+    */
+  lazy val left: LengthStyle with AutoStyle[String] = lengthAutoStyle("left")
+
+  /**
+    * The letter-spacing CSS property specifies spacing behavior between text
+    * characters.  --MDN
+    *
+    * https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing
+    */
+  lazy val letterSpacing: NormalStyle[String] = normalStyle("letter-spacing")
+
+  /**
+    * On block level elements, the line-height CSS property specifies the minimal
+    * height of line boxes within the element.
+    *
+    * On non-replaced inline elements, line-height specifies the height that is
+    * used in the calculation of the line box height.
+    *
+    * On replaced inline elements, like buttons or other input element,
+    * line-height has no effect.  --MDN
+    */
+  lazy val lineHeight: LengthStyle with NormalStyle[String] = lengthNormalStyle("line-height")
+
+
+
+
+  /**
+    * The list-style CSS property is a shorthand property for setting
+    * list-style-type, list-style-image and list-style-position.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/list-style
+    */
+  lazy val listStyle: SP[String] = stringStyle("list-style")
 
   /**
     * The list-style-image CSS property sets the image that will be used as the
-    * list item marker. It is often more convenient to use the shorthand
-    * list-style.
+    * list item marker.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image
     */
-  object listStyleImage extends Style[String]("list-style-image") {
-
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
-  }
-
+  lazy val listStyleImage: UrlStyle with NoneStyle[String] = urlNoneStyle("list-style-image")
 
   /**
     * The list-style-position CSS property specifies the position of the marker
-    * box in the principal block box. It is often more convenient to use the
-    * shortcut list-style.
+    * box in the principal block box.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position
     */
-  object listStylePosition extends Style[String]("list-style-position") {
-    /**
-      * The marker box is outside the principal block box.
-      *
-      * MDN
-      */
-    lazy val outside: StyleSetter = buildStringStyleSetter(this, "outside")
-    /**
-      * The marker box is the first inline box in the principal block box, after
-      * which the element's content flows.
-      *
-      * MDN
-      */
-    lazy val inside: StyleSetter = buildStringStyleSetter(this, "inside")
-  }
+  lazy val listStylePosition: ListStylePositionStyle = listStylePositionStyle("list-style-position")
 
-  class OverflowWrap(name: String) extends Style[String](name) {
-    /**
-      * Indicates that lines may only break at normal word break points.
-      *
-      * MDN
-      */
-    lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
-    /**
-      * Indicates that normally unbreakable words may be broken at arbitrary
-      * points if there are no otherwise acceptable break points in the line.
-      *
-      * MDN
-      */
-    lazy val breakWord: StyleSetter = buildStringStyleSetter(this, "break-word")
-  }
+
+
 
   /**
-    * The overflow-wrap CSS property specifies whether or not the browser should
-    * insert line breaks within words to prevent text from overflowing its
-    * content box.
+    * The margin CSS property sets the margin for all four sides. It is a
+    * shorthand to avoid setting each side separately with the other margin
+    * properties: margin-top, margin-right, margin-bottom and margin-left.
     *
-    * See also: [[wordWrap]]
+    * Negative values are also allowed.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/margin
     */
-  lazy val overflowWrap = new OverflowWrap("overflow-wrap")
+  lazy val margin: LengthStyle with AutoStyle[String] = lengthAutoStyle("margin")
 
   /**
-    * The original non-standard property that was eventually standardized as
-    * "overflow-wrap".
-    *
-    * See also: [[overflowWrap]]
+    * The margin-top CSS property of an element sets the margin space required on
+    * the top of an element. A negative value is also allowed.  --MDN
     */
-  lazy val wordWrap = new OverflowWrap("word-wrap")
+  lazy val marginTop: LengthStyle with AutoStyle[String] = lengthAutoStyle("margin-top")
+
+  /**
+    * The margin-right CSS property of an element sets the margin space required on
+    * the right of an element. A negative value is also allowed.  --MDN
+    */
+  lazy val marginRight: LengthStyle with AutoStyle[String] = lengthAutoStyle("margin-right")
+
+  /**
+    * The margin-bottom CSS property of an element sets the margin space required on
+    * the bottom of an element. A negative value is also allowed.  --MDN
+    */
+  lazy val marginBottom: LengthStyle with AutoStyle[String] = lengthAutoStyle("margin-bottom")
+
+  /**
+    * The margin-left CSS property of an element sets the margin space required on
+    * the left of an element. A negative value is also allowed.  --MDN
+    */
+  lazy val marginLeft: LengthStyle with AutoStyle[String] = lengthAutoStyle("margin-left")
+
+
+
+
+  /**
+    * If the value is a URI value, the element pointed to by the URI is used as
+    * an SVG mask.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/mask
+    */
+  lazy val mask: UrlStyle with NoneStyle[String] = urlNoneStyle("mask")
+
+
+
+
+  /**
+    * The max-height CSS property is used to set the maximum height of a given
+    * element. It prevents the used value of the height property from becoming
+    * larger than the value specified for max-height.
+    *
+    * max-height overrides height, but min-height overrides max-height.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/max-height
+    */
+  lazy val maxHeight: MaxLengthStyle =  maxLengthStyle("max-height")
+
+  /**
+    * The max-width CSS property is used to set the maximum width of a given
+    * element. It prevents the used value of the width property from becoming
+    * larger than the value specified for max-width.
+    *
+    * max-width overrides width, but min-width overrides max-width.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/max-width
+    */
+  lazy val maxWidth: MaxLengthStyle = maxLengthStyle("max-width")
+
+  /**
+    * The min-height CSS property is used to set the minimum height of a given
+    * element. It prevents the used value of the height property from becoming
+    * smaller than the value specified for min-height.
+    *
+    * The value of min-height overrides both max-height and height.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/min-height
+    */
+  lazy val minHeight: MinLengthStyle = minLengthStyle("min-height")
+
+  /**
+    * The min-width CSS property is used to set the minimum width of a given
+    * element. It prevents the used value of the width property from becoming
+    * smaller than the value specified for min-width.
+    *
+    * The value of min-width overrides both max-width and width.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/min-width
+    */
+  lazy val minWidth: MinLengthStyle = minLengthStyle("min-width")
+
+
 
 
   /**
@@ -1135,162 +1083,109 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     * relative to one another.
     *
     * Using this property with a value different than 1 places the element in a
-    * new stacking context.
+    * new stacking context.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/opacity
     */
-  lazy val opacity: Style[Double] = style("opacity")
-
+  lazy val opacity: SP[Double] = doubleStyle("opacity")
 
   /**
-    * The max-width CSS property is used to set the maximum width of a given
-    * element. It prevents the used value of the width property from becoming
-    * larger than the value specified for max-width.
+    * The orphans CSS property refers to the minimum number of lines in a block
+    * container that must be left at the bottom of the page. This property is
+    * normally used to control how page breaks occur.  --MDN
     *
-    * max-width overrides width, but min-width overrides max-width.
+    * Note: Firefox does not support this property
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/orphans
     */
-  lazy val maxWidth = new MaxLengthStyle("max-width")
-
+  lazy val orphans: SP[Int] = intStyle("orphans")
 
   /**
-    * The vertical-align CSS property specifies the vertical alignment of an
-    * inline or table-cell box.
+    * The CSS outline property is a shorthand property for setting one or more of
+    * the individual outline properties outline-style, outline-width and
+    * outline-color in a single rule. In most cases the use of this shortcut is
+    * preferable and more convenient.
     *
-    * MDN
+    * Outlines do not take up space, they are drawn above the content.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/outline
     */
-  object verticalAlign extends Style[String]("vertical-align") {
-    /**
-      * Aligns the baseline of the element with the baseline of its parent. The
-      * baseline of some replaced elements, like textarea is not specified by
-      * the HTML specification, meaning that their behavior with this keyword may
-      * change from one browser to the other.
-      *
-      * MDN
-      */
-    lazy val baseline: StyleSetter = buildStringStyleSetter(this, "baseline")
-    /**
-      * Aligns the baseline of the element with the subscript-baseline of its
-      * parent.
-      *
-      * MDN
-      */
-    lazy val sub: StyleSetter = buildStringStyleSetter(this, "sub")
-    /**
-      * Aligns the baseline of the element with the superscript-baseline of its
-      * parent.
-      *
-      * MDN
-      */
-    lazy val `super`: StyleSetter = buildStringStyleSetter(this, "super")
-    /**
-      * Aligns the top of the element with the top of the parent element's font.
-      *
-      * MDN
-      */
-    lazy val textTop: StyleSetter = buildStringStyleSetter(this, "text-top")
-    /**
-      * Aligns the bottom of the element with the bottom of the parent element's
-      * font.
-      *
-      * MDN
-      */
-    lazy val textBottom: StyleSetter = buildStringStyleSetter(this, "text-bottom")
-    /**
-      * Aligns the middle of the element with the middle of lowercase letters in
-      * the parent.
-      *
-      * MDN
-      */
-    lazy val middle: StyleSetter = buildStringStyleSetter(this, "middle")
-  }
+  lazy val outline: SP[String] = stringStyle("outline")
+
+  /**
+    * The outline-style CSS property is used to set the style of the outline of
+    * an element. An outline is a line that is drawn around elements, outside the
+    * border edge, to make the element stand out.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style
+    */
+  lazy val outlineStyle: LineStyle = lineStyle("outline-style")
+
+  /**
+    * The outline-width CSS property is used to set the width of the outline of
+    * an element. An outline is a line that is drawn around elements, outside the
+    * border edge, to make the element stand out.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width
+    */
+  lazy val outlineWidth: LengthStyle = lengthStyle("outline-width")
+
+  /**
+    * The outline-color CSS property sets the color of the outline of an element.
+    * An outline is a line that is drawn around elements, outside the border edge,
+    * to make the element stand out.  --MDN
+    *
+    * Note: "invert" is a special outline color you can use for high contrast.
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color
+    */
+  lazy val outlineColor: ColorStyle = colorStyle("outline-color")
+
+
 
 
   /**
     * The overflow CSS property specifies whether to clip content, render scroll
-    * bars or display overflow content of a block-level element.
+    * bars or display overflow content of a block-level element.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/overflow
     */
-  object overflow extends Overflow("overflow")
+  lazy val overflow: OverflowStyle = overflowStyle("overflow")
 
   /**
-    * If the value is a URI value, the element pointed to by the URI is used as
-    * an SVG mask.
+    * The overflow-x CSS property specifies whether to clip content, render a
+    * scroll bar or display overflow content of a block-level element, when it
+    * overflows at the left and right edges.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x
     */
-  object mask extends Style[String]("mask") {
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
-
-    def uri(s: String): StyleSetter = buildStringStyleSetter(this, s"uri($s)")
-  }
-
+  lazy val overflowX: OverflowStyle = overflowStyle("overflow-x")
 
   /**
-    * he empty-cells CSS property specifies how user agents should render borders
-    * and backgrounds around cells that have no visible content.
+    * The overflow-y CSS property specifies whether to clip content, render a
+    * scroll bar, or display overflow content of a block-level element, when it
+    * overflows at the top and bottom edges.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y
     */
-  object emptyCells extends Style[String]("empty-cells") {
-    /**
-      * Is a keyword indicating that borders and backgrounds should be drawn like
-      * in a normal cells.
-      *
-      * MDN
-      */
-    lazy val show: StyleSetter = buildStringStyleSetter(this, "show")
-    /**
-      * Is a keyword indicating that no border or backgrounds should be drawn.
-      *
-      * MDN
-      */
-    lazy val hide: StyleSetter = buildStringStyleSetter(this, "hide")
-  }
+  lazy val overflowY: OverflowStyle = overflowStyle("overflow-y")
+
+
 
 
   /**
-    * The height CSS property specifies the height of the content area of an
-    * element. The content area is inside the padding, border, and margin of the
-    * element.
+    * The overflow-wrap CSS property specifies whether or not the browser should
+    * insert line breaks within words to prevent text from overflowing its
+    * content box.  --MDN
     *
-    * The min-height and max-height properties override height.
+    * Alias for: [[wordWrap]]
     *
-    * MDN
+    * https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap
     */
-  lazy val height = new AutoStyle[String]("height")
+  lazy val overflowWrap: OverflowWrapStyle = overflowWrapStyle("overflow-wrap")
 
 
-  /**
-    * The padding-right CSS property of an element sets the padding space
-    * required on the right side of an element. The padding area is the space
-    * between the content of the element and its border. Negative values are not
-    * allowed.
-    *
-    * MDN
-    */
-  lazy val paddingRight: Style[String] = style("padding-right")
 
-  /**
-    * The padding-top CSS property of an element sets the padding space required
-    * on the top of an element. The padding area is the space between the content
-    * of the element and its border. Contrary to margin-top values, negative
-    * values of padding-top are invalid.
-    *
-    * MDN
-    */
-  lazy val paddingTop: Style[String] = style("padding-top")
-
-  /**
-    * The padding-left CSS property of an element sets the padding space required
-    * on the left side of an element. The padding area is the space between the
-    * content of the element and it's border. A negative value is not allowed.
-    *
-    * MDN
-    */
-  lazy val paddingLeft: Style[String] = style("padding-left")
 
   /**
     * The padding CSS property sets the required padding space on all sides of an
@@ -1298,21 +1193,137 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     * and its border. Negative values are not allowed.
     *
     * The padding property is a shorthand to avoid setting each side separately
-    * (padding-top, padding-right, padding-bottom, padding-left).
+    * (padding-top, padding-right, padding-bottom, padding-left).  --MDN
     *
-    * MDN
+    * https://developer.mozilla.org/en-US/docs/Web/CSS/padding
     */
-  lazy val padding: Style[String] = style("padding")
+  lazy val padding: LengthStyle = lengthStyle("padding")
+
+  /**
+    * The padding-top CSS property of an element sets the padding space required
+    * on the top of an element. The padding area is the space between the content
+    * of the element and its border. Contrary to margin-top values, negative
+    * values of padding-top are invalid.  --MDN
+    */
+  lazy val paddingTop: LengthStyle = lengthStyle("padding-top")
+
+  /**
+    * The padding-right CSS property of an element sets the padding space
+    * required on the right side of an element. The padding area is the space
+    * between the content of the element and its border. Negative values are not
+    * allowed.  --MDN
+    */
+  lazy val paddingRight: LengthStyle = lengthStyle("padding-right")
 
   /**
     * The padding-bottom CSS property of an element sets the height of the padding
     * area at the bottom of an element. The padding area is the space between the
     * content of the element and it's border. Contrary to margin-bottom values,
-    * negative values of padding-bottom are invalid.
-    *
-    * MDN
+    * negative values of padding-bottom are invalid.  --MDN
     */
-  lazy val paddingBottom: Style[String] = style("padding-bottom")
+  lazy val paddingBottom: LengthStyle = lengthStyle("padding-bottom")
+
+  /**
+    * The padding-left CSS property of an element sets the padding space required
+    * on the left side of an element. The padding area is the space between the
+    * content of the element and it's border. A negative value is not allowed.  --MDN
+    */
+  lazy val paddingLeft: LengthStyle = lengthStyle("padding-left")
+
+
+
+
+  /**
+    * The page-break-after CSS property adjusts page breaks after the current
+    * element.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-after
+    */
+  lazy val pageBreakAfter: PageBreakStyle = pageBreakStyle("page-break-after")
+
+  /**
+    * The page-break-before CSS property adjusts page breaks before the current
+    * element.
+    *
+    * This properties applies to block elements that generate a box. It won't
+    * apply on an empty div that won't generate a box.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-before
+    */
+  lazy val pageBreakBefore: PageBreakStyle = pageBreakStyle("page-break-before")
+
+  /**
+    * The page-break-inside CSS property adjusts page breaks inside the current
+    * element.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-inside
+    */
+  lazy val pageBreakInside: PageBreakStyle = pageBreakStyle("page-break-inside")
+
+
+
+
+  /**
+    * The perspective CSS property determines the distance between the z=0 plane
+    * and the user in order to give to the 3D-positioned element some perspective.
+    * Each 3D element with z>0 becomes larger; each 3D-element with z<0 becomes
+    * smaller. The strength of the effect is determined by the value of this
+    * property.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/perspective
+    */
+  lazy val perspective: NoneStyle[String] = noneStyle("perspective")
+
+  /**
+    * The perspective-origin CSS property determines the position the viewer is
+    * looking at. It is used as the vanishing point by the perspective property.
+    * --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin
+    */
+  lazy val perspectiveOrigin: SP[String] = noneStyle("perspective-origin")
+
+
+
+
+  /**
+    * The CSS property pointer-events allows authors to control under what
+    * circumstances (if any) a particular graphic element can become the target
+    * of mouse events. When this property is unspecified, the same characteristics
+    * of the visiblePainted value apply to SVG content.
+    *
+    * In addition to indicating that the element is not the target of mouse events,
+    * the value none instructs the mouse event to go "through" the element and
+    * target whatever is "underneath" that element instead.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+    */
+  lazy val pointerEvents: PointerEventsStyle = pointerEventsStyle("pointer-events")
+
+  /**
+    * The position CSS property chooses alternative rules for positioning elements,
+    * designed to be useful for scripted animation effects.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/position
+    */
+  lazy val position: PositionStyle = positionStyle("position")
+
+  /**
+    * The quotes CSS property sets how the browser should render quotation marks
+    * that are added using the open-quotes or close-quotes values of the CSS
+    * content property.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/quotes
+    */
+  lazy val quotes: SP[String] = stringStyle("quotes")
+
+  /**
+    * The resize CSS property sets whether an element is resizable, and if so,
+    * in which direction(s).  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/resize
+    */
+  lazy val resize: SP[String] = stringStyle("resize")
 
   /**
     * The right CSS property specifies part of the position of positioned elements.
@@ -1328,553 +1339,103 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     * precedence when the container is left-to-right (that is that the right
     * computed value is set to -left), and the right value has precedence when
     * the container is right-to-left (that is that the left computed value is set
-    * to -right).
+    * to -right).  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/right
     */
-  lazy val right = new AutoStyle[String]("right")
+  lazy val right: LengthStyle with AutoStyle[String] = lengthAutoStyle("right")
+
+  /**
+    * The table-layout CSS property sets the algorithm used to lay out <table>
+    * cells, rows, and columns.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout
+    */
+  lazy val tableLayout: TableLayoutStyle = tableLayoutStyle("table-layout")
+
+
 
 
   /**
-    * On block level elements, the line-height CSS property specifies the minimal
-    * height of line boxes within the element.
+    * The text-align CSS property describes how inline content like text is
+    * aligned in its parent block element. text-align does not control the
+    * alignment of block elements itself, only their inline content.  --MDN
     *
-    * On non-replaced inline elements, line-height specifies the height that is
-    * used in the calculation of the line box height.
-    *
-    * On replaced inline elements, like buttons or other input element, line-height has no effect.
-    *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
     */
-  lazy val lineHeight = new NormalOpenStyle[String]("line-height")
+  lazy val textAlign: TextAlignStyle = textAlignStyle("text-align")
 
   /**
-    * The left CSS property specifies part of the position of positioned elements.
+    * The text-align-last CSS property describes how the last line of a block or
+    * a line, right before a forced line break, is aligned.  --MDN
     *
-    * For absolutely positioned elements (those with position: absolute or
-    * position: fixed), it specifies the distance between the left margin edge of
-    * the element and the left edge of its containing block.
-    *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-align-last
     */
-  lazy val left = new AutoStyle[String]("left")
-
+  lazy val textAlignLast: TextAlignStyle = textAlignStyle("text-align-last")
 
   /**
-    * The list-style-type CSS property specifies appearance of a list item element.
-    * As it is the only one who defaults to display:list-item, this is usually a
-    * li element, but can be any element with this display value.
+    * The text-decoration CSS property is used to set the text formatting to
+    * underline, overline, line-through or blink.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
     */
-  object listStyleType extends Style[String]("list-style-type") {
-    /**
-      * No item marker is shown
-      *
-      * MDN
-      */
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
-    /**
-      * A filled circle (default value)
-      *
-      * MDN
-      */
-    lazy val disc: StyleSetter = buildStringStyleSetter(this, "disc")
-    /**
-      * A hollow circle
-      *
-      * MDN
-      */
-    lazy val circle: StyleSetter = buildStringStyleSetter(this, "circle")
-    /**
-      * A filled square
-      *
-      * MDN
-      */
-    lazy val square: StyleSetter = buildStringStyleSetter(this, "square")
-    /**
-      * Decimal numbers begining with 1
-      *
-      * MDN
-      */
-    lazy val decimal: StyleSetter = buildStringStyleSetter(this, "decimal")
-    /**
-      * Han decimal numbers
-      *
-      * MDN
-      */
-    lazy val cjkDecimal: StyleSetter = buildStringStyleSetter(this, "cjk-decimal")
-    /**
-      * Decimal numbers padded by initial zeros
-      *
-      * MDN
-      */
-    lazy val decimalLeadingZero: StyleSetter = buildStringStyleSetter(this, "decimal-leading-zero")
-    /**
-      * Lowercase roman numerals
-      *
-      * MDN
-      */
-    lazy val lowerRoman: StyleSetter = buildStringStyleSetter(this, "lower-roman")
-    /**
-      * Uppercase roman numerals
-      *
-      * MDN
-      */
-    lazy val upperRoman: StyleSetter = buildStringStyleSetter(this, "upper-roman")
-    /**
-      * Lowercase classical greek
-      *
-      * MDN
-      */
-    lazy val lowerGreek: StyleSetter = buildStringStyleSetter(this, "lower-greek")
-    /**
-      * Lowercase ASCII letters
-      *
-      * MDN
-      */
-    lazy val lowerAlpha: StyleSetter = buildStringStyleSetter(this, "lower-alpha")
-    /**
-      * Lowercase ASCII letters
-      *
-      * MDN
-      */
-    lazy val lowerLatin: StyleSetter = buildStringStyleSetter(this, "lower-latin")
-    /**
-      * Uppercase ASCII letters
-      *
-      * MDN
-      */
-    lazy val upperAlpha: StyleSetter = buildStringStyleSetter(this, "upper-alpha")
-    /**
-      * Uppercase ASCII letters
-      *
-      * MDN
-      */
-    lazy val upperLatin: StyleSetter = buildStringStyleSetter(this, "upper-latin")
-    /**
-      * Traditional Armenian numbering
-      *
-      * MDN
-      */
-    lazy val armenian: StyleSetter = buildStringStyleSetter(this, "armenian")
-    /**
-      * Traditional Georgian numbering
-      *
-      * MDN
-      */
-    lazy val georgian: StyleSetter = buildStringStyleSetter(this, "georgian")
-    /**
-      * Traditional Hebrew numbering
-      *
-      * MDN
-      */
-    lazy val hebrew: StyleSetter = buildStringStyleSetter(this, "hebrew")
-    /**
-      * Japanese Hiragana
-      *
-      * MDN
-      */
-    lazy val hiragana: StyleSetter = buildStringStyleSetter(this, "hiragana")
-    /**
-      * Japanese Hiragana
-      *
-      * Iroha is the old japanese ordering of syllabs
-      *
-      * MDN
-      */
-    lazy val hiraganaIroha: StyleSetter = buildStringStyleSetter(this, "hiragana-iroha")
-    /**
-      * Japanese Katakana
-      *
-      * MDN
-      */
-    lazy val katakana: StyleSetter = buildStringStyleSetter(this, "katakana")
-    /**
-      * Japanese Katakana
-      *
-      * Iroha is the old japanese ordering of syllabs
-      *
-      * MDN
-      */
-    lazy val katakanaIroha: StyleSetter = buildStringStyleSetter(this, "katakana-iroha")
-  }
-
+  lazy val textDecoration: TextDecorationStyle = textDecorationStyle("text-decoration")
 
   /**
-    * The list-style CSS property is a shorthand property for setting
-    * list-style-type, list-style-image and list-style-position.
+    * The text-indent CSS property specifies how much horizontal space should be
+    * left before the beginning of the first line of the text content of an element.
+    * Horizontal spacing is with respect to the left (or right, for right-to-left
+    * layout) edge of the containing block element's box.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent
     */
-  lazy val listStyle: Style[String] = style("list-style")
+  lazy val textIndent: SP[String] = stringStyle("text-indent")
 
   /**
-    * The overflow-y CSS property specifies whether to clip content, render a
-    * scroll bar, or display overflow content of a block-level element, when it
-    * overflows at the top and bottom edges.
+    * The text-overflow CSS property determines how overflowed content that is
+    * not displayed is signaled to the users. It can be clipped, or display an
+    * ellipsis ('…', U+2026 HORIZONTAL ELLIPSIS) or a Web author-defined string.
+    * --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
     */
-  lazy val overflowY = new Overflow("overflow-y")
+  lazy val textOverflow: TextOverflowStyle = textOverflowStyle("text-overflow")
 
   /**
-    * The caption-side CSS property positions the content of a table's caption
-    * on the specified side.
+    * The text-shadow CSS property adds shadows to text. It accepts a comma-separated
+    * list of shadows to be applied to the text and text-decorations of the element.
     *
-    * MDN
+    * Each shadow is specified as an offset from the text, along with optional
+    * color and blur radius values.
+    *
+    * Multiple shadows are applied front-to-back, with the first-specified shadow
+    * on top.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow
     */
-  object captionSide extends Style[String]("caption-side") {
-    /**
-      * The caption box will be above the table.
-      *
-      * MDN
-      */
-    lazy val top: StyleSetter = buildStringStyleSetter(this, "top")
-    /**
-      * The caption box will be below the table.
-      *
-      * MDN
-      */
-    lazy val bottom: StyleSetter = buildStringStyleSetter(this, "bottom")
-  }
+  lazy val textShadow: NoneStyle[String] = noneStyle("text-shadow")
 
   /**
-    * The box-shadow CSS property describes one or more shadow effects as a
-    * comma-separated list. It allows casting a drop shadow from the frame of
-    * almost any element. If a border-radius is specified on the element with a
-    * box shadow, the box shadow takes on the same rounded corners. The z-ordering
-    * of multiple box shadows is the same as multiple text shadows (the first
-    * specified shadow is on top).
+    * The text-transform CSS property specifies how to capitalize an element's
+    * text. It can be used to make text appear in all-uppercase or all-lowercase,
+    * or with each word capitalized.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform
     */
-  lazy val boxShadow: Style[String] = style("box-shadow")
-
+  lazy val textTransform: TextTransformStyle = textTransformStyle("text-transform")
 
   /**
-    * The position CSS property chooses alternative rules for positioning elements,
-    * designed to be useful for scripted animation effects.
+    * The CSS text-underline-position property specifies the position of the
+    * underline which is set using the text-decoration property underline value.
     *
-    * MDN
+    * This property inherits and is not reset by the text-decoration shorthand,
+    * allowing to easily set it globally for a given document.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-position
     */
-  object position extends Style[String]("position") {
-    /**
-      * This keyword let the element use the normal behavior, that is it is laid
-      * out in its current position in the flow.  The top, right, bottom, and left
-      * properties do not apply.
-      *
-      * MDN
-      */
-    lazy val static: StyleSetter = buildStringStyleSetter(this, "static")
-    /**
-      * This keyword lays out all elements as though the element were not
-      * positioned, and then adjust the element's position, without changing
-      * layout (and thus leaving a gap for the element where it would have been
-      * had it not been positioned). The effect of position:relative on
-      * table-*-group, table-row, table-column, table-cell, and table-caption
-      * elements is undefined.
-      *
-      * MDN
-      */
-    lazy val relative: StyleSetter = buildStringStyleSetter(this, "relative")
-    /**
-      * Do not leave space for the element. Instead, position it at a specified
-      * position relative to its closest positioned ancestor or to the containing
-      * block. Absolutely positioned boxes can have margins, they do not collapse
-      * with any other margins.
-      *
-      * MDN
-      */
-    lazy val absolute: StyleSetter = buildStringStyleSetter(this, "absolute")
-    /**
-      * Do not leave space for the element. Instead, position it at a specified
-      * position relative to the screen's viewport and doesn't move when scrolled.
-      * When printing, position it at that fixed position on every page.
-      *
-      * MDN
-      */
-    lazy val fixed: StyleSetter = buildStringStyleSetter(this, "fixed")
-  }
+  lazy val textUnderlinePosition: TextUnderlinePositionStyle = textUnderlinePositionStyle("text-underline-position")
 
 
-  object quotes extends Style[String]("quotes") {
-    /**
-      * The open-quote and close-quote values of the content property produce no
-      * quotation marks.
-      *
-      * MDN
-      */
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
-
-    def ~(pairs: (String, String)*): StyleSetter = {
-      buildStringStyleSetter(this, pairs.flatMap(x => Seq(x._1, x._2)).map(n => s""""$n"""").mkString(" "))
-    }
-
-  }
-
-  object tableLayout extends Style[String]("table-layout") {
-    /**
-      * An automatic table layout algorithm is commonly used by most browsers for
-      * table layout. The width of the table and its cells depends on the content
-      * thereof.
-      *
-      * MDN
-      */
-    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
-    /**
-      * Table and column widths are set by the widths of table and col elements
-      * or by the width of the first row of cells. Cells in subsequent rows do
-      * not affect column widths.
-      *
-      * MDN
-      */
-    lazy val fixed: StyleSetter = buildStringStyleSetter(this, "fixed")
-  }
-
-
-  /**
-    * The font-size CSS property specifies the size of the font – specifically
-    * the desired height of glyphs from the font. Setting the font size may, in
-    * turn, change the size of other items, since it is used to compute the value
-    * of em and ex Length units.
-    *
-    * MDN
-    */
-  object fontSize extends Style[String]("font-size") {
-    lazy val xxSmall: StyleSetter = buildStringStyleSetter(this, "xx-small")
-    lazy val xSmall: StyleSetter = buildStringStyleSetter(this, "x-small")
-    lazy val small: StyleSetter = buildStringStyleSetter(this, "small")
-    lazy val medium: StyleSetter = buildStringStyleSetter(this, "medium")
-    lazy val large: StyleSetter = buildStringStyleSetter(this, "large")
-    lazy val xLarge: StyleSetter = buildStringStyleSetter(this, "x-large")
-    lazy val xxLarge: StyleSetter = buildStringStyleSetter(this, "xx-large")
-    /**
-      * Larger than the parent element's font size, by roughly the ratio used to
-      * separate the absolute size keywords above.
-      *
-      * MDN
-      */
-    lazy val larger: StyleSetter = buildStringStyleSetter(this, "larger")
-    /**
-      * Smaller than the parent element's font size, by roughly the ratio used to
-      * separate the absolute size keywords above.
-      *
-      * MDN
-      */
-    lazy val smaller: StyleSetter = buildStringStyleSetter(this, "smaller")
-  }
-
-
-  /**
-    * The font-size-adjust CSS property specifies that font size should be chosen
-    * based on the height of lowercase letters rather than the height of capital
-    * letters.
-    *
-    * This is useful since the legibility of fonts, especially at small sizes, is
-    * determined more by the size of lowercase letters than by the size of capital
-    * letters. This can cause problems when the first-choice font-family is
-    * unavailable and its replacement has a significantly different aspect ratio
-    * (the ratio of the size of lowercase letters to the size of the font).
-    *
-    * MDN
-    */
-  lazy val fontSizeAdjust: Style[Double] = style("font-size-adjust")
-
-  /**
-    * The font-family CSS property allows for a prioritized list of font family
-    * names and/or generic family names to be specified for the selected element.
-    * Unlike most other CSS properties, values are separated by a comma to indicate
-    * that they are alternatives. The browser will select the first font on the
-    * list that is installed on the computer, or that can be downloaded using the
-    * information provided by a @font-face at-rule.
-    *
-    * MDN
-    */
-  lazy val fontFamily: Style[String] = style("font-family")
-
-  /**
-    * The font-weight CSS property specifies the weight or boldness of the font.
-    * However, some fonts are not available in all weights; some are available
-    * only on normal and bold.
-    *
-    * Numeric font weights for fonts that provide more than just normal and bold.
-    * If the exact weight given is unavailable, then 600-900 use the closest
-    * available darker weight (or, if there is none, the closest available
-    * lighter weight), and 100-500 use the closest available lighter weight (or,
-    * if there is none, the closest available darker weight). This means that for
-    * fonts that provide only normal and bold, 100-500 are normal, and 600-900
-    * are bold.
-    *
-    * MDN
-    */
-  object fontWeight extends Style[Int]("font-weight") {
-    /**
-      * Normal font weight. Same as 400.
-      *
-      * MDN
-      */
-
-    lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
-    /**
-      * Bold font weight. Same as 700.
-      *
-      * MDN
-      */
-    lazy val bold: StyleSetter = buildStringStyleSetter(this, "bold")
-    /**
-      * One font weight lighter than the parent element (among the available
-      * weights of the font).
-      *
-      * MDN
-      */
-    lazy val lighter: StyleSetter = buildStringStyleSetter(this, "lighter")
-    /**
-      * One font weight darker than the parent element (among the available
-      * weights of the font)
-      *
-      * MDN
-      */
-    lazy val bolder: StyleSetter = buildStringStyleSetter(this, "bolder")
-
-  }
-
-  /**
-    * The font CSS property is either a shorthand property for setting font-style,
-    * font-variant, font-weight, font-size, line-height and font-family, or a way
-    * to set the element's font to a system font, using specific keywords.
-    *
-    * MDN
-    */
-  lazy val font: Style[String] = style("font")
-
-  /**
-    * The font-feature-settings CSS property allows control over advanced
-    * typographic features in OpenType fonts.
-    *
-    * MDN
-    */
-  lazy val fontFeatureSettings: Style[String] = style("font-feature-settings")
-
-  /**
-    * The font-style CSS property allows italic or oblique faces to be selected
-    * within a font-family.
-    *
-    * MDN
-    */
-  object fontStyle extends Style[String]("font-style") {
-    /**
-      * Selects a font that is classified as normal within a font-family
-      *
-      * MDN
-      */
-    lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
-    /**
-      * Selects a font that is labeled italic, if that is not available, one labeled oblique
-      *
-      * MDN
-      */
-    lazy val italic: StyleSetter = buildStringStyleSetter(this, "italic")
-    /**
-      * Selects a font that is labeled oblique
-      *
-      * MDN
-      */
-    lazy val oblique: StyleSetter = buildStringStyleSetter(this, "oblique")
-  }
-
-  /**
-    * The clear CSS property specifies whether an element can be next to floating
-    * elements that precede it or must be moved down (cleared) below them.
-    *
-    * The clear property applies to both floating and non-floating elements.
-    *
-    * MDN
-    */
-  object clear extends Style[String]("clear") {
-    /**
-      * The element is not moved down to clear past floating elements.
-      *
-      * MDN
-      */
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
-    /**
-      * The element is moved down to clear past left floats.
-      *
-      * MDN
-      */
-    lazy val left: StyleSetter = buildStringStyleSetter(this, "left")
-    /**
-      * The element is moved down to clear past right floats.
-      *
-      * MDN
-      */
-    lazy val right: StyleSetter = buildStringStyleSetter(this, "right")
-    /**
-      * The element is moved down to clear past both left and right floats.
-      *
-      * MDN
-      */
-    lazy val both: StyleSetter = buildStringStyleSetter(this, "both")
-  }
-
-  /**
-    * The margin-bottom CSS property of an element sets the margin space required
-    * on the bottom of an element. A negative value is also allowed.
-    *
-    * MDN
-    */
-  lazy val marginBottom = new AutoStyle[String]("margin-bottom")
-
-  /**
-    * The margin-right CSS property of an element sets the margin space required
-    * on the bottom of an element. A negative value is also allowed.
-    *
-    * MDN
-    */
-  lazy val marginRight = new Style[String]("margin-right") with MarginAuto
-
-
-  /**
-    * The margin-top CSS property of an element sets the margin space required on
-    * the top of an element. A negative value is also allowed.
-    *
-    * MDN
-    */
-  lazy val marginTop = new Style[String]("margin-top") with MarginAuto
-
-
-  /**
-    * The margin-left CSS property of an element sets the margin space required
-    * on the left side of a box associated with an element. A negative value is
-    * also allowed.
-    *
-    * The vertical margins of two adjacent boxes may fuse. This is called margin
-    * collapsing.
-    *
-    * MDN
-    */
-  lazy val marginLeft = new Style[String]("margin-left") with MarginAuto
-
-  /**
-    * The margin CSS property sets the margin for all four sides. It is a
-    * shorthand to avoid setting each side separately with the other margin
-    * properties: margin-top, margin-right, margin-bottom and margin-left.
-    *
-    * Negative values are also allowed.
-    *
-    * MDN
-    */
-  object margin extends Style[String]("margin") {
-    /**
-      * auto is replaced by some suitable value, e.g. it can be used for
-      * centering of blocks.
-      *
-      * MDN
-      */
-    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
-
-  }
 
 
   /**
@@ -1890,392 +1451,63 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     *
     * When both top and bottom are specified, the element position is
     * over-constrained and the top property has precedence: the computed value
-    * of bottom is set to -top, while its specified value is ignored.
+    * of bottom is set to -top, while its specified value is ignored.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/top
     */
-  lazy val top = new AutoStyle[String]("top")
+  lazy val top: LengthStyle with AutoStyle[String] = lengthAutoStyle("top")
+
+
 
 
   /**
-    * The width CSS property specifies the width of the content area of an element.
-    * The content area is inside the padding, border, and margin of the element.
+    * The CSS transform property lets you modify the coordinate space of the CSS
+    * visual formatting model. Using it, elements can be translated, rotated,
+    * scaled, and skewed according to the values set.
     *
-    * The min-width and max-width properties override width.
+    * If the property has a value different than none, a stacking context will be
+    * created. In that case the object will act as a containing block for
+    * position: fixed elements that it contains.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/transform
     */
-  lazy val width = new AutoStyle[String]("width")
+  lazy val transform: SP[String] = stringStyle("transform")
 
   /**
-    * The bottom CSS property participates in specifying the position of
-    * positioned elements.
+    * The transform-origin CSS property lets you modify the origin for
+    * transformations of an element. For example, the transform-origin of the
+    * rotate() function is the centre of rotation. (This property is applied by
+    * first translating the element by the negated value of the property, then
+    * applying the element's transform, then translating by the property value.)
     *
-    * For absolutely positioned elements, that is those with position: absolute
-    * or position: fixed, it specifies the distance between the bottom margin edge
-    * of the element and the bottom edge of its containing block.
+    * Not explicitly set values are reset to their corresponding values.  --MDN
     *
-    * For relatively positioned elements, that is those with position: relative,
-    * it specifies the distance the element is moved above its normal position.
-    *
-    * However, the top property overrides the bottom property, so if top is not
-    * auto, the computed value of bottom is the negative of the computed value of
-    * top.
-    *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
     */
-  lazy val bottom = new AutoStyle[String]("bottom")
+  lazy val transformOrigin: SP[String] = stringStyle("transform-origin")
 
   /**
-    * The letter-spacing CSS property specifies spacing behavior between text
-    * characters.
+    * The transform-style CSS property determines if the children of the element
+    * are positioned in the 3D-space or are flattened in the plane of the element.
+    * --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style
     */
-  lazy val letterSpacing = new NormalOpenStyle[String]("letter-spacing")
+  lazy val transformStyle: SP[String] = stringStyle("transform-style")
 
 
-  /**
-    * The max-height CSS property is used to set the maximum height of a given
-    * element. It prevents the used value of the height property from becoming
-    * larger than the value specified for max-height.
-    *
-    * max-height overrides height, but min-height overrides max-height.
-    *
-    * MDN
-    */
-  lazy val maxHeight = new MaxLengthStyle("max-height")
-
-  /**
-    * The min-width CSS property is used to set the minimum width of a given
-    * element. It prevents the used value of the width property from becoming
-    * smaller than the value specified for min-width.
-    *
-    * The value of min-width overrides both max-width and width.
-    *
-    * MDN
-    */
-  lazy val minWidth = new MinLengthStyle("min-width")
 
 
   /**
-    * The min-height CSS property is used to set the minimum height of a given
-    * element. It prevents the used value of the height property from becoming
-    * smaller than the value specified for min-height.
+    * The CSS transition property is a shorthand property for transition-property,
+    * transition-duration, transition-timing-function, and transition-delay. It
+    * allows to define the transition between two states of an element. Different
+    * states may be defined using pseudo-classes like :hover or :active or
+    * dynamically set using JavaScript.  --MDN
     *
-    * The value of min-height overrides both max-height and height.
-    *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/transition
     */
-  lazy val minHeight = new MinLengthStyle("min-height")
-
-
-  /**
-    * The CSS outline property is a shorthand property for setting one or more of
-    * the individual outline properties outline-style, outline-width and
-    * outline-color in a single rule. In most cases the use of this shortcut is
-    * preferable and more convenient.
-    *
-    * Outlines do not take up space, they are drawn above the content.
-    *
-    * MDN
-    */
-  lazy val outline: Style[String] = style("outline")
-
-  /**
-    * The outline-style CSS property is used to set the style of the outline of
-    * an element. An outline is a line that is drawn around elements, outside the
-    * border edge, to make the element stand out.
-    *
-    * MDN
-    */
-  lazy val outlineStyle = new OutlineStyle("outline-style")
-
-  /**
-    * The outline-width CSS property is used to set the width of the outline of
-    * an element. An outline is a line that is drawn around elements, outside the
-    * border edge, to make the element stand out.
-    *
-    * MDN
-    */
-  object outlineWidth extends Style[String]("outline-width") {
-    /**
-      * Typically 1px in desktop browsers like Firefox.
-      *
-      * MDN
-      */
-    lazy val thin: StyleSetter = buildStringStyleSetter(this, "thin")
-    /**
-      * Typically 3px in desktop browsers like Firefox.
-      *
-      * MDN
-      */
-    lazy val medium: StyleSetter = buildStringStyleSetter(this, "medium")
-    /**
-      * Typically 5px in desktop browsers like Firefox.
-      *
-      * MDN
-      */
-    lazy val thick: StyleSetter = buildStringStyleSetter(this, "thick")
-  }
-
-  /**
-    * The outline-color CSS property sets the color of the outline of an element.
-    * An outline is a line that is drawn around elements, outside the border edge,
-    * to make the element stand out.
-    *
-    * MDN
-    */
-  object outlineColor extends Style[String]("outline-color") {
-    /**
-      * To ensure the outline is visible, performs a color inversion of the
-      * background. This makes the focus border more salient, regardless of the
-      * color in the background. Note that browser are not required to support
-      * it. If not, they just consider the statement as invalid
-      *
-      * MDN
-      */
-    lazy val invert: StyleSetter = buildStringStyleSetter(this, "invert")
-  }
-
-
-  /**
-    * The overflow-x CSS property specifies whether to clip content, render a
-    * scroll bar or display overflow content of a block-level element, when it
-    * overflows at the left and right edges.
-    *
-    * MDN
-    */
-  lazy val overflowX = new Overflow("overflow-x")
-
-
-  /**
-    * The text-align-last CSS property describes how the last line of a block or
-    * a line, right before a forced line break, is aligned.
-    *
-    * MDN
-    */
-  lazy val textAlignLast = new Style[String]("text-align-last") with TextAlign
-
-  trait TextAlign extends Style[String] {
-    /**
-      * The same as left if direction is left-to-right and right if direction is
-      * right-to-left.
-      *
-      * MDN
-      */
-    lazy val start: StyleSetter = buildStringStyleSetter(this, "start")
-    /**
-      * The same as right if direction is left-to-right and left if direction is
-      * right-to-left.
-      *
-      * MDN
-      */
-    lazy val end: StyleSetter = buildStringStyleSetter(this, "end")
-    /**
-      * The inline contents are aligned to the left edge of the line box.
-      *
-      * MDN
-      */
-    lazy val left: StyleSetter = buildStringStyleSetter(this, "left")
-    /**
-      * The inline contents are aligned to the right edge of the line box.
-      *
-      * MDN
-      */
-    lazy val right: StyleSetter = buildStringStyleSetter(this, "right")
-    /**
-      * The inline contents are centered within the line box.
-      *
-      * MDN
-      */
-    lazy val center: StyleSetter = buildStringStyleSetter(this, "center")
-    /**
-      * The text is justified. Text should line up their left and right edges to
-      * the left and right content edges of the paragraph.
-      *
-      * MDN
-      */
-    lazy val justify: StyleSetter = buildStringStyleSetter(this, "justify")
-  }
-
-  /**
-    * The text-align CSS property describes how inline content like text is
-    * aligned in its parent block element. text-align does not control the
-    * alignment of block elements itself, only their inline content.
-    *
-    * MDN
-    */
-  lazy val textAlign = new Style[String]("text-align") with TextAlign
-
-  /**
-    * The text-decoration CSS property is used to set the text formatting to
-    * underline, overline, line-through or blink.
-    *
-    * MDN
-    */
-  object textDecoration extends Style[String]("text-decoration") {
-    /**
-      * Produces no text decoration.
-      *
-      * MDN
-      */
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
-    /**
-      * Each line of text is underlined.
-      *
-      * MDN
-      */
-    lazy val underline: StyleSetter = buildStringStyleSetter(this, "underline")
-    /**
-      * Each line of text has a line above it.
-      *
-      * MDN
-      */
-    lazy val overline: StyleSetter = buildStringStyleSetter(this, "overline")
-    /**
-      * Each line of text has a line through the middle.
-      *
-      * MDN
-      */
-    lazy val lineThrough: StyleSetter = buildStringStyleSetter(this, "line-through")
-  }
-
-  /**
-    * The text-indent CSS property specifies how much horizontal space should be
-    * left before the beginning of the first line of the text content of an element.
-    * Horizontal spacing is with respect to the left (or right, for right-to-left
-    * layout) edge of the containing block element's box.
-    *
-    * MDN
-    */
-  lazy val textIndent: Style[String] = style("text-indent")
-
-  /**
-    * The text-overflow CSS property determines how overflowed content that is
-    * not displayed is signaled to the users. It can be clipped, or display an
-    * ellipsis ('…', U+2026 HORIZONTAL ELLIPSIS) or a Web author-defined string.
-    *
-    * MDN
-    */
-  object textOverflow extends Style[String]("text-overflow") {
-    /**
-      * This keyword value indicates to truncate the text at the limit of the
-      * content area, therefore the truncation can happen in the middle of a
-      * character. To truncate at the transition between two characters, the
-      * empty string value must be used. The value clip is the default for
-      * this property.
-      *
-      * MDN
-      */
-    lazy val clip: StyleSetter = buildStringStyleSetter(this, "clip")
-    /**
-      * This keyword value indicates to display an ellipsis ('…', U+2026 HORIZONTAL
-      * ELLIPSIS) to represent clipped text. The ellipsis is displayed inside the
-      * content area, decreasing the amount of text displayed. If there is not
-      * enough space to display the ellipsis, it is clipped.
-      *
-      * MDN
-      */
-    lazy val ellipsis: StyleSetter = buildStringStyleSetter(this, "ellipsis")
-  }
-
-  /**
-    * The CSS text-underline-position property specifies the position of the
-    * underline which is set using the text-decoration property underline value.
-    *
-    * This property inherits and is not reset by the text-decoration shorthand,
-    * allowing to easily set it globally for a given document.
-    *
-    * MDN
-    */
-  object textUnderlinePosition extends Style[String]("text-underline-position") {
-    /**
-      * This keyword allows the browser to use an algorithm to choose between
-      * under and alphabetic.
-      *
-      * MDN
-      */
-    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
-    /**
-      * This keyword forces the line to be set below the alphabetic baseline, at
-      * a position where it won't cross any descender. This is useful to prevent
-      * chemical or mathematical formulas, which make a large use of subscripts,
-      * to be illegible.
-      *
-      * MDN
-      */
-    lazy val under: StyleSetter = buildStringStyleSetter(this, "under")
-    /**
-      * In vertical writing-modes, this keyword forces the line to be placed on
-      * the left of the characters. In horizontal writing-modes, it is a synonym
-      * of under.
-      *
-      * MDN
-      */
-    lazy val left: StyleSetter = buildStringStyleSetter(this, "left")
-    /**
-      * In vertical writing-modes, this keyword forces the line to be placed on
-      * the right of the characters. In horizontal writing-modes, it is a synonym
-      * of under.
-      *
-      * MDN
-      */
-    lazy val right: StyleSetter = buildStringStyleSetter(this, "right")
-    lazy val underLeft: StyleSetter = buildStringStyleSetter(this, "under left")
-    lazy val underRight: StyleSetter = buildStringStyleSetter(this, "under right")
-  }
-
-  /**
-    * The text-transform CSS property specifies how to capitalize an element's
-    * text. It can be used to make text appear in all-uppercase or all-lowercase,
-    * or with each word capitalized.
-    *
-    * MDN
-    */
-  object textTransform extends Style[String]("text-transform") {
-    /**
-      * Forces the first letter of each word to be converted to
-      * uppercase. Other characters are unchanged.
-      *
-      * MDN
-      */
-    lazy val capitalize: StyleSetter = buildStringStyleSetter(this, "capitalize")
-    /**
-      * Forces all characters to be converted to uppercase.
-      *
-      * MDN
-      */
-    lazy val uppercase: StyleSetter = buildStringStyleSetter(this, "uppercase")
-    /**
-      * Forces all characters to be converted to lowercase.
-      *
-      * MDN
-      */
-    lazy val lowercase: StyleSetter = buildStringStyleSetter(this, "lowercase")
-    /**
-      * Prevents the case of all characters from being changed
-      *
-      * MDN
-      */
-    lazy val none: StyleSetter = buildStringStyleSetter(this, "none")
-  }
-
-
-  /**
-    * The text-shadow CSS property adds shadows to text. It accepts a comma-separated
-    * list of shadows to be applied to the text and text-decorations of the element.
-    *
-    * Each shadow is specified as an offset from the text, along with optional
-    * color and blur radius values.
-    *
-    * Multiple shadows are applied front-to-back, with the first-specified shadow
-    * on top.
-    *
-    * MDN
-    */
-  lazy val textShadow = new NoneOpenStyle[String]("text-shadow")
-
+  lazy val transition: SP[String] = stringStyle("transition")
 
   /**
     * The transition-delay CSS property specifies the amount of time to wait
@@ -2293,32 +1525,11 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     * which acts as a master list. If there are fewer delays specified than in the
     * master list, missing values are set to the initial value (0s). If there are
     * more delays, the list is simply truncated to the right size. In both case
-    * the CSS declaration stays valid.
+    * the CSS declaration stays valid.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay
     */
-  lazy val transitionDelay = new MultiTimeStyle("transition-delay")
-
-  /**
-    * The CSS transition property is a shorthand property for transition-property,
-    * transition-duration, transition-timing-function, and transition-delay. It
-    * allows to define the transition between two states of an element. Different
-    * states may be defined using pseudo-classes like :hover or :active or
-    * dynamically set using JavaScript.
-    *
-    * MDN
-    */
-  lazy val transition: Style[String] = style("transition")
-
-  /**
-    * The CSS transition-timing-function property is used to describe how the
-    * intermediate values of the CSS properties being affected by a transition
-    * effect are calculated. This in essence lets you establish an acceleration
-    * curve, so that the speed of the transition can vary over its duration.
-    *
-    * MDN
-    */
-  lazy val transitionTimingFunction: Style[String] = style("transition-timing-function")
+  lazy val transitionDelay: TimeStyle = timeStyle("transition-delay")
 
   /**
     * The transition-duration CSS property specifies the number of seconds or
@@ -2330,535 +1541,129 @@ trait Styles[StyleSetter] extends StylesMisc[StyleSetter] { this: StyleBuilders[
     * which acts as a master list. If there are fewer durations specified than in
     * the master list, the user agent repeat the list of durations. If there are
     * more durations, the list is simply truncated to the right size. In both
-    * case the CSS declaration stays valid.
+    * case the CSS declaration stays valid.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration
     */
-  lazy val transitionDuration = new MultiTimeStyle("transition-duration")
+  lazy val transitionDuration: TimeStyle = timeStyle("transition-duration")
+
+  /**
+    * The CSS transition-timing-function property is used to describe how the
+    * intermediate values of the CSS properties being affected by a transition
+    * effect are calculated. This in essence lets you establish an acceleration
+    * curve, so that the speed of the transition can vary over its duration.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function
+    */
+  lazy val transitionTimingFunction: SP[String] = stringStyle("transition-timing-function")
 
   /**
     * The transition-property CSS property is used to specify the names of CSS
-    * properties to which a transition effect should be applied.
+    * properties to which a transition effect should be applied.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property
     */
-  lazy val transitionProperty: Style[String] = style("transition-property")
+  lazy val transitionProperty: SP[String] = stringStyle("transition-property")
 
 
-  object visibility extends Style[String]("visibility") {
-    /**
-      * Default value, the box is visible
-      *
-      * MDN
-      */
-    lazy val visible: StyleSetter = buildStringStyleSetter(this, "visible")
-    /**
-      * The box is invisible (fully transparent, nothing is drawn), but still
-      * affects layout.  Descendants of the element will be visible if they have
-      * visibility:visible
-      *
-      * MDN
-      */
-    lazy val hidden: StyleSetter = buildStringStyleSetter(this, "hidden")
-    /**
-      * For table rows, columns, column groups, and row groups the row(s) or
-      * column(s) are hidden and the space they would have occupied is (as if
-      * display: none were applied to the column/row of the table)
-      *
-      * MDN
-      */
-    lazy val collapse: StyleSetter = buildStringStyleSetter(this, "collapse")
-  }
 
+
+  /**
+    * The unicode-bidi CSS property together with the `direction` property relates
+    * to the handling of bidirectional text in a document. For example, if a block
+    * of text contains both left-to-right and right-to-left text then the
+    * user-agent uses a complex Unicode algorithm to decide how to display the
+    * text. This property overrides this algorithm and allows the developer to
+    * control the text embedding.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi
+    */
+  lazy val unicodeBidi: SP[String] = stringStyle("unicode-bidi")
+
+  /**
+    * The vertical-align CSS property specifies the vertical alignment of an
+    * inline or table-cell box. It does not apply to block-level elements.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align
+    */
+  lazy val verticalAlign: VerticalAlignStyle = verticalAlignStyle("vertical-align")
+
+  /**
+    * The visibility CSS property shows or hides an element without changing the
+    * layout of a document. The property can also hide rows or columns in a <table>.
+    * --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/visibility
+    */
+  lazy val visibility: VisibilityStyle = visibilityStyle("visibility")
+
+  /**
+    * The width CSS property specifies the width of the content area of an element.
+    * The content area is inside the padding, border, and margin of the element.
+    *
+    * The min-width and max-width properties override width. --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/width
+    */
+  lazy val width: LengthStyle with AutoStyle[String] = lengthAutoStyle("width")
 
   /**
     * The white-space CSS property is used to to describe how whitespace inside
-    * the element is handled.
+    * the element is handled.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/white-space
     */
-  object whiteSpace extends Style[String]("white-space") {
-    /**
-      * Sequences of whitespace are collapsed. Newline characters in the source
-      * are handled as other whitespace. Breaks lines as necessary to fill line
-      * boxes.
-      *
-      * MDN
-      */
-    lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
-    /**
-      * Collapses whitespace as for normal, but suppresses line breaks (text
-      * wrapping) within text.
-      *
-      * MDN
-      */
-    lazy val nowrap: StyleSetter = buildStringStyleSetter(this, "nowrap")
-    /**
-      * Sequences of whitespace are preserved, lines are only broken at newline
-      * characters in the source and at br elements.
-      *
-      * MDN
-      */
-    lazy val pre: StyleSetter = buildStringStyleSetter(this, "pre")
-    /**
-      * Sequences of whitespace are preserved. Lines are broken at newline
-      * characters, at br, and as necessary to fill line boxes.
-      *
-      * MDN
-      */
-    lazy val preWrap: StyleSetter = buildStringStyleSetter(this, "pre-wrap")
-    /**
-      * Sequences of whitespace are collapsed. Lines are broken at newline
-      * characters, at br, and as necessary to fill line boxes.
-      *
-      * MDN
-      */
-    lazy val preLine: StyleSetter = buildStringStyleSetter(this, "pre-line")
-  }
+  lazy val whiteSpace: WhiteSpaceStyle = whiteSpaceStyle("white-space")
+
+  /**
+    * The widows CSS property defines how many minimum lines must be left on top
+    * of a new page, on a paged media. In typography, a widow is the last line of
+    * a paragraph appearing alone at the top of a page. Setting the widows property
+    * allows to prevent widows to be left.
+    *
+    * On a non-paged media, like screen, the widows CSS property has no effect.  --MDN
+    *
+    * Note: Firefox does not support this property.
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/widows
+    */
+  lazy val widows: SP[Int] = intStyle("widows")
+
+  /**
+    * The word-break CSS property specifies whether or not the browser should
+    * insert line breaks wherever the text would otherwise overflow its content
+    * box.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
+    */
+  lazy val wordBreak: WordBreakStyle = wordBreakStyle("word-break")
 
   /**
     * The word-spacing CSS property specifies spacing behavior between tags and
-    * words.
+    * words.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing
     */
-  lazy val wordSpacing = new NormalOpenStyle[String]("word-spacing")
+  lazy val wordSpacing: NormalStyle[String] = normalStyle("word-spacing")
+
+  /**
+    * The word-wrap CSS property specifies whether or not the browser should
+    * insert line breaks within words to prevent text from overflowing its
+    * content box.  --MDN
+    *
+    * Alias for: [[overflowWrap]]
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap
+    */
+  @inline def wordWrap: OverflowWrapStyle = overflowWrap
+
   /**
     * The z-index CSS property specifies the z-order of an element and its
     * descendants. When elements overlap, z-order determines which one covers the
     * other. An element with a larger z-index generally covers an element with a
-    * lower one.
+    * lower one.  --MDN
     *
-    * MDN
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/z-index
     */
-  lazy val zIndex = new AutoStyle[Int]("z-index")
-
-
-  /**
-    * The flex CSS property is a shorthand property specifying the ability of a flex item to alter its dimensions to
-    * fill available space. Flex items can be stretched to use available space proportional to their flex grow factor
-    * or their flex shrink factor to prevent overflow.
-    *
-    * MDN
-    */
-  final lazy val flex: Style[String] = style("flex")
-
-  /**
-    * The CSS flex-basis property specifies the flex basis which is the initial main size of a flex item.
-    * The property determines the size of the content-box unless specified otherwise using box-sizing.
-    *
-    * MDN
-    */
-  final lazy val flexBasis: Style[String] = style("flex-basis")
-
-  /**
-    * The CSS flex-grow property specifies the flex grow factor of a flex item.
-    *
-    * MDN
-    */
-  final lazy val flexGrow = style[Double]("flex-grow")
-
-  /**
-    * The CSS flex-shrink property specifies the flex shrink factor of a flex item.
-    *
-    * MDN
-    */
-  final lazy val flexShrink = style[Double]("flex-shrink")
-
-  /**
-    * The CSS align-content property aligns a flex container's lines within the flex container when there is extra
-    * space on the cross-axis. This property has no effect on single line flexible boxes.
-    *
-    * MDN
-    */
-  object alignContent extends Style[String]("align-content") {
-
-    /**
-      * Lines are packed starting from the cross-start. Cross-start edge of the first line and cross-start edge of
-      * the flex container are flushed together. Each following line is flush with the preceding.
-      *
-      * MDN
-      */
-    lazy val flexStart: StyleSetter = buildStringStyleSetter(this, "flex-start")
-
-    /**
-      * Lines are packed starting from the cross-end. Cross-end of the last line and cross-end of the flex container
-      * are flushed together. Each preceding line is flushed with the following line.
-      *
-      * MDN
-      */
-    lazy val flexEnd: StyleSetter = buildStringStyleSetter(this, "flex-end")
-
-    /**
-      * Lines are packed toward the center of the flex container. The lines are flushed with each other and aligned
-      * in the center of the flex container. Space between the cross-start edge of the flex container and first line
-      * and between cross-end of the flex container and the last line is the same.
-      *
-      * MDN
-      */
-    lazy val center: StyleSetter = buildStringStyleSetter(this, "center")
-
-    /**
-      * Lines are evenly distributed in the flex container. The spacing is done such as the space between two
-      * adjacent items is the same. Cross-start edge and cross-end edge of the flex container are flushed with
-      * respectively first and last line edges.
-      *
-      * MDN
-      */
-    lazy val spaceBetween: StyleSetter = buildStringStyleSetter(this, "space-between")
-
-    /**
-      * Lines are evenly distributed so that the space between two adjacent lines is the same. The empty space before
-      * the first and after the last lines equals half of the space between two adjacent lines.
-      *
-      * MDN
-      */
-    lazy val spaceAround: StyleSetter = buildStringStyleSetter(this, "space-around")
-
-    /**
-      * Lines stretch to use the remaining space. The free-space is split equally between all the lines.
-      *
-      * MDN
-      */
-    lazy val stretch: StyleSetter = buildStringStyleSetter(this, "stretch")
-  }
-
-  /**
-    * The align-self CSS property aligns flex items of the current flex line overriding the align-items value. If any
-    * of the flex item's cross-axis margin is set to auto, then align-self is ignored.
-    *
-    * MDN
-    */
-  object alignSelf extends Style[String]("align-self") {
-    /**
-      * Computes to parent's align-items value or stretch if the element has no parent.
-      *
-      * MDN
-      */
-    lazy val auto: StyleSetter = buildStringStyleSetter(this, "auto")
-
-    /**
-      * The cross-start margin edge of the flex item is flushed with the cross-start edge of the line.
-      *
-      * MDN
-      */
-    lazy val flexStart: StyleSetter = buildStringStyleSetter(this, "flex-start")
-
-    /**
-      * The cross-end margin edge of the flex item is flushed with the cross-end edge of the line.
-      *
-      * MDN
-      */
-    lazy val flexEnd: StyleSetter = buildStringStyleSetter(this, "flex-end")
-
-    /**
-      * The flex item's margin box is centered within the line on the cross-axis. If the cross-size of the item is
-      * larger than the flex container, it will overflow equally in both directions.
-      *
-      * MDN
-      */
-    lazy val center: StyleSetter = buildStringStyleSetter(this, "center")
-
-    /**
-      * All flex items are aligned such that their baselines align. The item with the largest distance between its
-      * cross-start margin edge and its baseline is flushed with the cross-start edge of the line.
-      *
-      * MDN
-      */
-    lazy val baseline: StyleSetter = buildStringStyleSetter(this, "baseline")
-
-    /**
-      * Flex items are stretched such as the cross-size of the item's margin box is the same as the line while
-      * respecting width and height constraints.
-      *
-      * MDN
-      */
-    lazy val stretch: StyleSetter = buildStringStyleSetter(this, "stretch")
-  }
-
-  /**
-    * The CSS flex-wrap property specifies whether the children are forced into a single line or if the items can be
-    * flowed on multiple lines.
-    *
-    * MDN
-    */
-  object flexWrap extends Style[String]("flex-wrap") {
-
-    /**
-      * The flex items are laid out in a single line which may cause the flex container to overflow. The cross-start
-      * is either equivalent to start or before depending flex-direction value.
-      *
-      * MDN
-      */
-    lazy val nowrap: StyleSetter = buildStringStyleSetter(this, "nowrap")
-
-    /**
-      * The flex items break into multiple lines. The cross-start is either equivalent to start or before depending
-      * flex-direction value and the cross-end is the opposite of the specified cross-start.
-      *
-      * MDN
-      */
-    lazy val wrap: StyleSetter = buildStringStyleSetter(this, "wrap")
-
-    /**
-      * Behaves the same as wrap but cross-start and cross-end are permuted.
-      *
-      * MDN
-      */
-    lazy val wrapReverse: StyleSetter = buildStringStyleSetter(this, "wrap-reverse")
-
-  }
-
-  /**
-    * The CSS align-items property aligns flex items of the current flex line the same way as justify-content
-    * but in the perpendicular direction.
-    *
-    * MDN
-    */
-  object alignItems extends Style[String]("align-items") {
-
-    /**
-      * The cross-start margin edge of the flex item is flushed with the cross-start edge of the line.
-      *
-      * MDN
-      */
-    lazy val flexStart: StyleSetter = buildStringStyleSetter(this, "flex-start")
-
-    /**
-      * The cross-end margin edge of the flex item is flushed with the cross-end edge of the line.
-      *
-      * MDN
-      */
-    lazy val flexEnd: StyleSetter = buildStringStyleSetter(this, "flex-end")
-
-    /**
-      * The flex item's margin box is centered within the line on the cross-axis. If the cross-size of the item
-      * is larger than the flex container, it will overflow equally in both directions.
-      *
-      * MDN
-      */
-    lazy val center: StyleSetter = buildStringStyleSetter(this, "center")
-
-    /**
-      * All flex items are aligned such that their baselines align. The item with the largest distance between its
-      * cross-start margin edge and its baseline is flushed with the cross-start edge of the line.
-      *
-      * MDN
-      */
-    lazy val baseline: StyleSetter = buildStringStyleSetter(this, "baseline")
-
-    /**
-      * Flex items are stretched such as the cross-size of the item's margin box is the same as the line while
-      * respecting width and height constraints.
-      *
-      * MDN
-      */
-    lazy val stretch: StyleSetter = buildStringStyleSetter(this, "stretch")
-
-  }
-
-
-  /**
-    * The CSS justify-content property defines how a browser distributes available space between and around elements
-    * when aligning flex items in the main-axis of the current line. The alignment is done after the lengths and auto
-    * margins are applied, meaning that, if there is at least one flexible element, with flex-grow different than 0, it
-    * will have no effect as there won't be any available space.
-    *
-    * MDN
-    */
-  object justifyContent extends Style[String]("justify-content") {
-
-    /**
-      * The items are packed flush to each other toward the start edge of the
-      * alignment container in the main axis.
-      *
-      * MDN
-      */
-    lazy val start: StyleSetter = buildStringStyleSetter(this, "start")
-
-    /**
-      * The items are packed flush to each other toward the end edge of the
-      * alignment container in the main axis.
-      *
-      * MDN
-      */
-    lazy val end: StyleSetter = buildStringStyleSetter(this, "end")
-
-    /**
-      * The items are packed flush to each other toward the edge of the
-      * alignment container depending on the flex container's main-start side.
-      * This only applies to flex layout items. For items that are not children
-      * of a flex container, this value is treated like start.
-      *
-      * MDN
-      */
-    lazy val flexStart: StyleSetter = buildStringStyleSetter(this, "flex-start")
-
-    /**
-      * The items are packed flush to each other toward the edge of the
-      * alignment container depending on the flex container's main-end side.
-      * This only applies to flex layout items. For items that are not children
-      * of a flex container, this value is treated like end.
-      *
-      * MDN
-      */
-    lazy val flexEnd: StyleSetter = buildStringStyleSetter(this, "flex-end")
-
-    /**
-      * The items are packed flush to each other toward the center of the of
-      * the alignment container along the main axis.
-      *
-      * MDN
-      */
-    lazy val center: StyleSetter = buildStringStyleSetter(this, "center")
-
-    /**
-      * The items are packed flush to each other toward the left edge of the
-      * alignment container. If the property’s axis is not parallel with the
-      * inline axis, this value behaves like start.
-      *
-      * MDN
-      */
-    lazy val left: StyleSetter = buildStringStyleSetter(this, "left")
-
-    /**
-      * The items are packed flush to each other toward the right edge of the
-      * alignment container in the appropriate axis. If the property’s axis is
-      * not parallel with the inline axis, this value behaves like start.
-      *
-      * MDN
-      */
-    lazy val right: StyleSetter = buildStringStyleSetter(this, "right")
-
-    /**
-      * The items are packed in their default position as if no justify-content
-      * value was set.
-      *
-      * MDN
-      */
-    lazy val normal: StyleSetter = buildStringStyleSetter(this, "normal")
-
-    /**
-      * Specifies participation in first- or last-baseline alignment: aligns
-      * the alignment baseline of the box’s first or last baseline set with the
-      * corresponding baseline in the shared first or last baseline set of all
-      * the boxes in its baseline-sharing group. The fallback alignment for
-      * first baseline is start, the one for last baseline is end.
-      *
-      * MDN
-      */
-    lazy val baseline: StyleSetter = buildStringStyleSetter(this, "baseline")
-    lazy val firstBaseline: StyleSetter = buildStringStyleSetter(this, "first-baseline")
-    lazy val lastBaseline: StyleSetter = buildStringStyleSetter(this, "last-baseline")
-
-    /**
-      * The items are evenly distributed within the alignment container along
-      * the main axis. The spacing between each pair of adjacent items is the
-      * same. The first item is flush with the main-start edge, and the last
-      * item is flush with the main-end edge.
-      *
-      * MDN
-      */
-    lazy val spaceBetween: StyleSetter = buildStringStyleSetter(this, "space-between")
-
-    /**
-      * The items are evenly distributed within the alignment container along
-      * the main axis. The spacing between each pair of adjacent items is the
-      * same. The empty space before the first and after the last item equals
-      * half of the space between each pair of adjacent items.
-      *
-      * MDN
-      */
-    lazy val spaceAround: StyleSetter = buildStringStyleSetter(this, "space-around")
-
-    /**
-      * The items are evenly distributed within the alignment container along
-      * the main axis. The spacing between each pair of adjacent items, the
-      * main-start edge and the first item, and the main-end edge and the last
-      * item, are all exactly the same.
-      *
-      * MDN
-      */
-    lazy val spaceEvenly: StyleSetter = buildStringStyleSetter(this, "space-evenly")
-
-    /**
-      * If the combined size of the items is less than the size of the
-      * alignment container, any auto-sized items have their size increased
-      * equally (not proportionally), while still respecting the constraints
-      * imposed by max-height/max-width (or equivalent functionality), so that
-      * the combined size exactly fills the alignment container along the main
-      * axis.
-      *
-      * MDN
-      */
-    lazy val stretch: StyleSetter = buildStringStyleSetter(this, "stretch")
-
-    /**
-      * If the size of the item overflows the alignment container, the item is
-      * instead aligned as if the alignment mode were start.
-      *
-      * MDN
-      */
-    lazy val safe: StyleSetter = buildStringStyleSetter(this, "safe")
-
-    /**
-      * Regardless of the relative sizes of the item and alignment container,
-      * the given alignment value is honored.
-      *
-      * MDN
-      */
-    lazy val unsafe: StyleSetter = buildStringStyleSetter(this, "unsafe")
-  }
-
-  /**
-    * The CSS flex-direction property specifies how flex items are placed in the flex container defining the main
-    * axis and the direction (normal or reversed).
-    *
-    * Note that the value row and row-reverse are affected by the directionality of the flex container.
-    * If its dir attribute is ltr, row represents the horizontal axis oriented from the left to the right, and
-    * row-reverse from the right to the left; if the dir attribute is rtl, row represents the axis oriented from the
-    * right to the left, and row-reverse from the left to the right.
-    *
-    * MDN
-    */
-  object flexDirection extends Style[String]("flex-direction") {
-
-    /**
-      * The flex container's main-axis is the same as the block-axis.
-      * The main-start and main-end points are the same as the before and after points of the writing-mode.
-      *
-      * MDN
-      */
-    lazy val column: StyleSetter = buildStringStyleSetter(this, "column")
-
-    /**
-      * Behaves the same as column but the main-start and main-end are permuted.
-      *
-      * MDN
-      */
-    lazy val columnReverse: StyleSetter = buildStringStyleSetter(this, "column-reverse")
-
-    /**
-      * The flex container's main-axis is defined to be the same as the text direction.
-      * The main-start and main-end points are the same as the content direction.
-      *
-      * MDN
-      */
-    lazy val row: StyleSetter = buildStringStyleSetter(this, "row")
-
-    /**
-      * Behaves the same as row but the main-start and main-end points are permuted.
-      *
-      * MDN
-      */
-    lazy val rowReverse: StyleSetter = buildStringStyleSetter(this, "row-reverse")
-  }
-
-  /**
-    * The resize CSS property sets whether an element is resizable, and if so,
-    * in which direction(s).
-    *
-    * MDN
-    */
-  lazy val resize: Style[String] = style("resize")
+  lazy val zIndex: AutoStyle[Int] = autoStyle("z-index")
 }
