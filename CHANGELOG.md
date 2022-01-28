@@ -12,6 +12,7 @@
 * **Naming: `content` style prop is renamed to `contentCss` to avoid using a common name**
 * **Naming: `cssWait` value for CSS `cursor` property renamed to `waitCss` for consistency.**
   * (`wait` is an unrelated final method on Java objects so we can't use that name) 
+* **Build: Bump to Scala 3 version to 3.1.0 and scala-js-dom to 2.1.0**
 * New: `download` reflected attribute (thanks, [@ioleo](https://github.com/ioleo)!)
 * New: `VendorPrefixes` object with string constants
 
