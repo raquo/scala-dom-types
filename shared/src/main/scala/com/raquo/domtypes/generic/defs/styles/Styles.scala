@@ -973,6 +973,14 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     */
   lazy val listStylePosition: ListStylePositionStyle = listStylePositionStyle("list-style-position")
 
+  /**
+    * The list-style-type CSS property sets the marker (such as a disc, character,
+    * or custom counter style) of a list item element.  --MDN
+    *
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type
+    */
+  lazy val listStyleType: ListStyleTypeStyle = listStyleTypeStyle("list-style-type")
+
 
 
 

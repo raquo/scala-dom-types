@@ -146,6 +146,9 @@ trait ExampleStylePropBuilder extends StylePropBuilder[
   override protected def listStylePositionStyle(key: String): ListStylePositionStyle =
     new ExampleStyleProp[String](key) with keywords.ListStylePositionStyle[ExampleStyleSetter[String]]
 
+  override protected def listStyleTypeStyle(key: String): ListStyleTypeStyle =
+    new ExampleStyleProp[String](key) with keywords.ListStyleTypeStyle[ExampleStyleSetter[String]]
+
   override protected def overflowWrapStyle(key: String): OverflowWrapStyle =
     new ExampleStyleProp[String](key) with keywords.OverflowWrapStyle[ExampleStyleSetter[String]]
 

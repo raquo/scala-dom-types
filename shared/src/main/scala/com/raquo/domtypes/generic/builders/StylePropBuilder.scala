@@ -58,6 +58,8 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_], LengthNum] {
 
   type ListStylePositionStyle = Prop[String] with keywords.ListStylePositionStyle[Setter[String]]
 
+  type ListStyleTypeStyle = Prop[String] with keywords.ListStyleTypeStyle[Setter[String]]
+
   type MaxLengthStyle = Prop[String] with keywords.MinMaxLengthStyle[Setter[String], DerivedProp, LengthNum] with keywords.NoneStyle[Setter[String]]
 
   type MinLengthStyle = Prop[String] with keywords.MinMaxLengthStyle[Setter[String], DerivedProp, LengthNum] with keywords.AutoStyle[Setter[String]]
@@ -198,6 +200,8 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_], LengthNum] {
   protected def justifyContentStyle(key: String): JustifyContentStyle
 
   protected def listStylePositionStyle(key: String): ListStylePositionStyle
+
+  protected def listStyleTypeStyle(key: String): ListStyleTypeStyle
 
   protected def overflowWrapStyle(key: String): OverflowWrapStyle
 
