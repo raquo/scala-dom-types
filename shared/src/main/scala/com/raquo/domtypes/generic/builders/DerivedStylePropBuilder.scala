@@ -6,4 +6,10 @@ package com.raquo.domtypes.generic.builders
 trait DerivedStylePropBuilder[T[_]] {
 
   protected def derivedStyle[A](encode: (A => String)): T[A]
+
+  /** Encode / sanitize value to put inside `url()` function */
+  protected def encodeUrlValue(url: String): String
+
+  /** Encode / sanitize value to put inside `calc()` function */
+  protected def encodeCalcValue(exp: String): String
 }

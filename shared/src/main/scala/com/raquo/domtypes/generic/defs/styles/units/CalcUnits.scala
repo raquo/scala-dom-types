@@ -8,5 +8,5 @@ trait CalcUnits[T[_]] extends DerivedStylePropBuilder[T] {
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/calc()
     */
-  lazy val calc: T[String] = derivedStyle(exp => s"calc($exp)")
+  lazy val calc: T[String] = derivedStyle(exp => s"calc(${encodeCalcValue(exp)})")
 }

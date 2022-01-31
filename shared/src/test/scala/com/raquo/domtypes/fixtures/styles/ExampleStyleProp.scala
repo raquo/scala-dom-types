@@ -22,6 +22,16 @@ class ExampleStyleProp[V](
     new ExampleDerivedStyleProp[InputV, V](this, encode)
   }
 
+  override protected def encodeUrlValue(url: String): String = {
+    // #Note: I haven't tested this, Laminar has a different, JS-specific implementation
+    s"\"${url.replace("\\", "%5C").replace("\"", "%22").replace("\n", " ").replace("\r", " ").replace("\f", " ")}\""
+  }
+
+  override protected def encodeCalcValue(exp: String): String = {
+    // #Note: I haven't tested this, Laminar has a different, JS-specific implementation
+    exp.replace("\\", " ").replace(";", " ").replace("\n", " ").replace("\r", " ").replace("\f", " ")
+  }
+
   def withPrefixes(ps: String*): ExampleStyleProp[V] = {
     new ExampleStyleProp[V](name, ps)
   }
