@@ -2,11 +2,7 @@
 
 **Bolded items** in the log are breaking changes.
 
-#### master
-
-* New: `labelAttr` reflected attribute (for `optgroup` elements) 
-
-#### v0.16-RC1 – Jan 2022
+#### v0.16.0-RC2 – Jan 2022
 
 * **API: Remove canonical implementations of various builders, as well as concreate types like Tag, Element, HtmlAttr, Modifier, etc.**
   * Moved them to test fixtures since there is essentially no benefit for otherwise incompatible UI libraries to share these exact types.
@@ -18,6 +14,7 @@
   * (`wait` is an unrelated final method on Java objects so we can't use that name) 
 * **Build: Bump to Scala 3 version to 3.1.0 and scala-js-dom to 2.1.0**
 * New: `download` reflected attribute (thanks, [@ioleo](https://github.com/ioleo)!)
+* New: `labelAttr` reflected attribute (for `optgroup` elements)
 * New: `VendorPrefixes` object with string constants
 
 #### v0.15.1 – Nov 2021
