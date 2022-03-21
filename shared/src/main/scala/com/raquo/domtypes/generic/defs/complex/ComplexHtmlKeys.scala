@@ -6,7 +6,7 @@ package com.raquo.domtypes.generic.defs.complex
   * If your opinions are too strong to use this trait – don't! You can implement
   * any subset of these keys yourself with whatever names you like.
   */
-trait ComplexHtmlKeys[ClassNameRA, RelRA, RoleRA, DataA, StyleA, TextContentP] {
+trait ComplexHtmlKeys[ClassNameRA, RelRA, RoleRA, DataA, StyleA] {
 
   /**
     * This attribute is a space-separated list of the classes of the element.

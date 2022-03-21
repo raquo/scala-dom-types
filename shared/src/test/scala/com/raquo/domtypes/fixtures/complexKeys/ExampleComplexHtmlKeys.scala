@@ -9,7 +9,6 @@ trait ExampleComplexHtmlKeys[RA[_, _], A[_], P[_, _]] extends ComplexHtmlKeys[
   RA[String, String],
   A[String],
   A[String],
-  P[String, String]
 ] { this: ReflectedHtmlAttrBuilder[RA] with HtmlAttrBuilder[A] with PropBuilder[P] =>
 
   override lazy val className: RA[String, String] = stringReflectedAttr(attrKey = "class", propKey = "className")
