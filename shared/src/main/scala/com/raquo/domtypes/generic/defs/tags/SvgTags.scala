@@ -701,7 +701,7 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
     * 
     * MDN
     */
-  lazy val title: T[SvgTextPath] = svgTag("title")
+  lazy val titleTag: T[SvgTextPath] = svgTag("title")
   
   /**
     * The textual content for a text can be either character data directly
