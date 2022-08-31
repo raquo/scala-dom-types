@@ -20,7 +20,6 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
   *            - Similarly for `onChange` and `onSelect` – these could also fire on an `HTMLTextAreaElement`.
   * @tparam DomInputEvent
   *            DOM InputEvent https://developer.mozilla.org/en-US/docs/Web/API/InputEvent
-  *            Note: This type is not implemented in scala-js-dom
   */
 trait FormEventProps[
   EP[_ <: DomEvent],
