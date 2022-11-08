@@ -40,7 +40,8 @@ package object defs {
       dom.Event,
       dom.MouseEvent,
       TypedTargetMouseEvent[dom.Element],
-      dom.DragEvent
+      dom.DragEvent,
+      dom.WheelEvent
     ]
 
     type PointerEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.PointerEventProps[
