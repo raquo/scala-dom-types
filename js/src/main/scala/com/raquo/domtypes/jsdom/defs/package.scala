@@ -58,7 +58,7 @@ package object defs {
       dom.BeforeUnloadEvent,
       dom.HashChangeEvent,
       dom.MessageEvent,
-      PageTransitionEvent, // @TODO contribute this type to scala-js-dom
+      dom.PageTransitionEvent,
       dom.PopStateEvent,
       dom.StorageEvent
     ]
