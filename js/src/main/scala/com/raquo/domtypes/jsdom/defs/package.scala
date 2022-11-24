@@ -16,7 +16,7 @@ package object defs {
       EP,
       dom.Event,
       TypedTargetFocusEvent[dom.Element],
-      dom.Event,
+      dom.InputEvent,
       TypedTargetEvent[dom.Element],
       TypedTargetEvent[dom.html.Element],
       TypedTargetEvent[dom.html.Form],

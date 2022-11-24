@@ -20,7 +20,6 @@ import com.raquo.domtypes.generic.builders.EventPropBuilder
   *            - Similarly for `onChange` and `onSelect` – these could also fire on an `HTMLTextAreaElement`.
   * @tparam DomInputEvent
   *            DOM InputEvent https://developer.mozilla.org/en-US/docs/Web/API/InputEvent
-  *            Note: This type is not implemented in scala-js-dom
   */
 trait FormEventProps[
   EP[_ <: DomEvent],
@@ -48,6 +47,17 @@ trait FormEventProps[
     * MDN
     */
   lazy val onSelect: EP[DomHtmlElementTargetEvent] = eventProp("select")
+
+  /**
+    * The DOM beforeinput event fires when the value of an <input>, or <textarea>
+    * element is about to be modified. The event also applies to elements with
+    * contenteditable enabled, and to any element when designMode is turned on.
+    *
+    * MDN
+    *
+    * @note IE does not support this event.
+    */
+  lazy val onBeforeInput: EP[DomInputEvent] = eventProp("beforeinput")
 
   /**
     * The input event is fired for input, select, textarea, and

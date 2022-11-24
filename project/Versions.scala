@@ -8,5 +8,5 @@ object Versions {
 
   val Scala_3 = "3.2.0"
 
-  val ScalaJsDom = "2.1.0"
+  val ScalaJsDom = "2.3.0"
 }
