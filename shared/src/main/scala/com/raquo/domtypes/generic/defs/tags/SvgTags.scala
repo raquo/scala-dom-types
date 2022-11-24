@@ -691,6 +691,19 @@ trait SvgTags[T[_ <: SvgElement], SvgElement,
   lazy val textPath: T[SvgTextPath] = svgTag("textPath")
 
   /**
+    * Each container element or graphics element in an SVG drawing can supply a
+    * title description string where the description is text-only. When the
+    * current SVG document fragment is rendered as SVG on visual media, title
+    * elements are not rendered as part of the graphics. Alternate presentations
+    * are possible, both visual and aural, which display the title element but do
+    * not display path elements or other graphics elements. The title element
+    * generally improve accessibility of SVG documents.
+    * 
+    * MDN
+    */
+  lazy val titleTag: T[SvgTextPath] = svgTag("title")
+  
+  /**
     * The textual content for a text can be either character data directly
     * embedded within the text element or the character data content of a
     * referenced element, where the referencing is specified with a tref element.
