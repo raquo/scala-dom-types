@@ -66,6 +66,17 @@ trait AriaAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
   lazy val controls: A[String] = stringHtmlAttr("aria-controls")
 
   /**
+   * Indicates the element that represents the current item within a container
+   * or set of related elements.
+   *
+   * Enumerated:
+   * "page" | "step" | "location" | "date" | "time" | "true" | "false" (default)
+   *
+   * https://www.w3.org/TR/wai-aria/#aria-current
+   */
+  lazy val current: A[String] = stringHtmlAttr("aria-current")
+
+  /**
     * Identifies the element (or elements) that describes the object.
     * See related [[labelledBy]].
     *
