@@ -16,7 +16,7 @@ package object defs {
       EP,
       dom.Event,
       TypedTargetFocusEvent[dom.Element],
-      dom.Event,
+      dom.InputEvent,
       TypedTargetEvent[dom.Element],
       TypedTargetEvent[dom.html.Element],
       TypedTargetEvent[dom.html.Form],
@@ -40,7 +40,8 @@ package object defs {
       dom.Event,
       dom.MouseEvent,
       TypedTargetMouseEvent[dom.Element],
-      dom.DragEvent
+      dom.DragEvent,
+      dom.WheelEvent
     ]
 
     type PointerEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.PointerEventProps[
@@ -57,7 +58,7 @@ package object defs {
       dom.BeforeUnloadEvent,
       dom.HashChangeEvent,
       dom.MessageEvent,
-      PageTransitionEvent, // @TODO contribute this type to scala-js-dom
+      dom.PageTransitionEvent,
       dom.PopStateEvent,
       dom.StorageEvent
     ]

@@ -13,7 +13,8 @@ trait MouseEventProps[
   DomEvent,
   DomMouseEvent <: DomEvent,
   DomElementMouseEvent <: DomMouseEvent,
-  DomDragEvent <: DomMouseEvent
+  DomDragEvent <: DomMouseEvent,
+  DomWheelEvent <: DomMouseEvent
 ] { this: EventPropBuilder[EP, DomEvent] =>
 
   /**
@@ -103,7 +104,7 @@ trait MouseEventProps[
   /**
     * Fires when the mouse wheel rolls up or down over an element
     */
-  lazy val onWheel: EP[DomMouseEvent] = eventProp("wheel")
+  lazy val onWheel: EP[DomWheelEvent] = eventProp("wheel")
 
   /**
     * Script to be run when a context menu is triggered
