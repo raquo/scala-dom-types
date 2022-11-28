@@ -1,4 +1,4 @@
-package com.raquo.domtypes.generators
+package com.raquo.domtypes.temp.generators
 
 case class ListingParams(
   defType: DefType.type => String = _.LazyVal,

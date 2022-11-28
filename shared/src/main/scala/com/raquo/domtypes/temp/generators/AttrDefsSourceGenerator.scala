@@ -1,4 +1,4 @@
-package com.raquo.domtypes.generators
+package com.raquo.domtypes.temp.generators
 
 import com.raquo.domtypes.common.AttrDef
 

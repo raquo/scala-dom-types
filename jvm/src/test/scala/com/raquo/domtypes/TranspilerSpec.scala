@@ -1,7 +1,7 @@
 package com.raquo.domtypes
 
 import com.raquo.domtypes.common.{HtmlTagType, SvgTagType}
-import com.raquo.domtypes.generators.{AttrDefsSourceGenerator, EventPropDefsSourceGenerator, ListingParams, ReflectedHtmlAttrDefsSourceGenerator, StylePropDefsSourceGenerator, StyleTraitDefsSourceGenerator, TagDefsSourceGenerator}
+import com.raquo.domtypes.temp.generators.{AttrDefsSourceGenerator, EventPropDefsSourceGenerator, ListingParams, ReflectedHtmlAttrDefsSourceGenerator, StylePropDefsSourceGenerator, StyleTraitDefsSourceGenerator, TagDefsSourceGenerator}
 import com.raquo.domtypes.temp.parsers.{AttrTraitParser, EventPropTraitParser, ReflectedHtmlAttrTraitParser, StylePropTraitParser, StyleTraitTraitParser, TagTraitParser}
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
