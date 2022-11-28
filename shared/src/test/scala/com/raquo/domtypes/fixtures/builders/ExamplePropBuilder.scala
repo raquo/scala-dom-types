@@ -1,8 +1,8 @@
 package com.raquo.domtypes.fixtures.builders
 
-import com.raquo.domtypes.generic.builders.PropBuilder
-import com.raquo.domtypes.generic.codecs.Codec
 import com.raquo.domtypes.fixtures.keys.Prop
+import com.raquo.domtypes.old.builders.PropBuilder
+import com.raquo.domtypes.old.codecs.Codec
 
 /** Example implementation of [[PropBuilder]], using our own [[Prop]] class.
   *

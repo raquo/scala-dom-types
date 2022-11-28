@@ -1,8 +1,8 @@
 package com.raquo.domtypes.fixtures.builders
 
-import com.raquo.domtypes.generic.builders.HtmlAttrBuilder
-import com.raquo.domtypes.generic.codecs.Codec
 import com.raquo.domtypes.fixtures.keys.HtmlAttr
+import com.raquo.domtypes.old.builders.HtmlAttrBuilder
+import com.raquo.domtypes.old.codecs.Codec
 
 /** Example implementation of [[HtmlAttrBuilder]], using our own [[HtmlAttr]] class.
   *

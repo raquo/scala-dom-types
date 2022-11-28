@@ -1,7 +1,7 @@
 package com.raquo.domtypes.fixtures.styles
 
-import com.raquo.domtypes.generic.builders.StylePropBuilder
-import com.raquo.domtypes.generic.defs.styles.{keywords, units}
+import com.raquo.domtypes.old.builders.StylePropBuilder
+import com.raquo.domtypes.old.defs.styles.{keywords, units}
 
 trait ExampleStylePropBuilder extends StylePropBuilder[
   ExampleStyleProp,

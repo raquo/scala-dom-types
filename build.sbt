@@ -63,6 +63,11 @@ lazy val root = project.in(file("."))
 lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
   .settings(commonSettings)
   .settings(
+    libraryDependencies ++= Seq(
+      "org.scalatest" %%% "scalatest" % Versions.ScalaTest % Test
+    )
+  )
+  .settings(
     scalacOptions ~= (_.filterNot(Set(
       "-Wunused:params",
       "-Ywarn-unused:params",

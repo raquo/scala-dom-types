@@ -1,7 +1,7 @@
 package com.raquo.domtypes.fixtures.builders
 
-import com.raquo.domtypes.generic.builders.EventPropBuilder
 import com.raquo.domtypes.fixtures.keys.EventProp
+import com.raquo.domtypes.old.builders.EventPropBuilder
 
 /** Example implementation of [[EventPropBuilder]], using our own [[EventProp]] class.
   *

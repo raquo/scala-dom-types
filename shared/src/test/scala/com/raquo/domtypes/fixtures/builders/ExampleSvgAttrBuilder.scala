@@ -1,8 +1,8 @@
 package com.raquo.domtypes.fixtures.builders
 
-import com.raquo.domtypes.generic.builders.SvgAttrBuilder
-import com.raquo.domtypes.generic.codecs.Codec
 import com.raquo.domtypes.fixtures.keys.SvgAttr
+import com.raquo.domtypes.old.builders.SvgAttrBuilder
+import com.raquo.domtypes.old.codecs.Codec
 
 /** Example implementation of [[SvgAttrBuilder]], using our own [[SvgAttr]] class.
   *

@@ -1,6 +1,6 @@
 package com.raquo.domtypes.fixtures.keys
 
-import com.raquo.domtypes.generic.codecs.Codec
+import com.raquo.domtypes.old.codecs.Codec
 
 /**
   * This class represents an Svg Element Attribute. Meaning the key that can be set, not the whole a key-value pair.

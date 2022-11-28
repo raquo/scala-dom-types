@@ -1,8 +1,8 @@
 package com.raquo.domtypes.fixtures.builders
 
-import com.raquo.domtypes.generic.builders.ReflectedHtmlAttrBuilder
-import com.raquo.domtypes.generic.codecs.Codec
 import com.raquo.domtypes.fixtures.keys.Prop
+import com.raquo.domtypes.old.builders.ReflectedHtmlAttrBuilder
+import com.raquo.domtypes.old.codecs.Codec
 
 /** Example implementation of [[ReflectedHtmlAttrBuilder]], using our own [[Prop]] class.
   *
