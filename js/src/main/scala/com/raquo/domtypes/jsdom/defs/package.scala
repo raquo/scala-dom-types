@@ -1,6 +1,6 @@
 package com.raquo.domtypes.jsdom
 
-import com.raquo.domtypes.generic
+import com.raquo.domtypes.old
 import com.raquo.domtypes.jsdom.defs.events._
 import org.scalajs.dom
 
@@ -8,11 +8,11 @@ package object defs {
 
   object eventProps {
 
-    type ClipboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ClipboardEventProps[EP, dom.Event, dom.ClipboardEvent]
+    type ClipboardEventProps[EP[_ <: dom.Event]] = old.defs.eventProps.ClipboardEventProps[EP, dom.Event, dom.ClipboardEvent]
 
-    type ErrorEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.ErrorEventProps[EP, dom.Event, dom.ErrorEvent]
+    type ErrorEventProps[EP[_ <: dom.Event]] = old.defs.eventProps.ErrorEventProps[EP, dom.Event, dom.ErrorEvent]
 
-    type FormEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.FormEventProps[
+    type FormEventProps[EP[_ <: dom.Event]] = old.defs.eventProps.FormEventProps[
       EP,
       dom.Event,
       TypedTargetFocusEvent[dom.Element],
@@ -23,11 +23,11 @@ package object defs {
       TypedTargetEvent[dom.html.Input]
     ]
 
-    type KeyboardEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.KeyboardEventProps[EP, dom.Event, dom.KeyboardEvent]
+    type KeyboardEventProps[EP[_ <: dom.Event]] = old.defs.eventProps.KeyboardEventProps[EP, dom.Event, dom.KeyboardEvent]
 
-    type MediaEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MediaEventProps[EP, dom.Event]
+    type MediaEventProps[EP[_ <: dom.Event]] = old.defs.eventProps.MediaEventProps[EP, dom.Event]
 
-    type MiscellaneousEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MiscellaneousEventProps[
+    type MiscellaneousEventProps[EP[_ <: dom.Event]] = old.defs.eventProps.MiscellaneousEventProps[
       EP,
       dom.Event,
       dom.AnimationEvent,
@@ -35,7 +35,7 @@ package object defs {
       dom.UIEvent
     ]
 
-    type MouseEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.MouseEventProps[
+    type MouseEventProps[EP[_ <: dom.Event]] = old.defs.eventProps.MouseEventProps[
       EP,
       dom.Event,
       dom.MouseEvent,
@@ -44,14 +44,14 @@ package object defs {
       dom.WheelEvent
     ]
 
-    type PointerEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.PointerEventProps[
+    type PointerEventProps[EP[_ <: dom.Event]] = old.defs.eventProps.PointerEventProps[
       EP,
       dom.Event,
       dom.PointerEvent,
       TypedTargetPointerEvent[dom.Element]
     ]
 
-    type WindowOnlyEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.WindowOnlyEventProps[
+    type WindowOnlyEventProps[EP[_ <: dom.Event]] = old.defs.eventProps.WindowOnlyEventProps[
       EP,
       dom.Event,
       dom.UIEvent,
@@ -63,7 +63,7 @@ package object defs {
       dom.StorageEvent
     ]
 
-    type DocumentOnlyEventProps[EP[_ <: dom.Event]] = generic.defs.eventProps.DocumentOnlyEventProps[
+    type DocumentOnlyEventProps[EP[_ <: dom.Event]] = old.defs.eventProps.DocumentOnlyEventProps[
       EP,
       dom.Event
     ]
@@ -78,46 +78,46 @@ package object defs {
       with MediaEventProps[EP]
       with MiscellaneousEventProps[EP]
       with MouseEventProps[EP]
-      with PointerEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+      with PointerEventProps[EP] { this: old.builders.EventPropBuilder[EP, dom.Event] => }
 
     /** Matches WindowEventHandlers: https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers */
     trait WindowEventProps[EP[_ <: dom.Event]]
       extends GlobalEventProps[EP]
-      with WindowOnlyEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+      with WindowOnlyEventProps[EP] { this: old.builders.EventPropBuilder[EP, dom.Event] => }
 
     trait DocumentEventProps[EP[_ <: dom.Event]]
       extends GlobalEventProps[EP]
       with DocumentOnlyEventProps[EP]
-      with ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+      with ClipboardEventProps[EP] { this: old.builders.EventPropBuilder[EP, dom.Event] => }
 
     trait ElementEventProps[EP[_ <: dom.Event]]
-      extends GlobalEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+      extends GlobalEventProps[EP] { this: old.builders.EventPropBuilder[EP, dom.Event] => }
 
     trait HTMLElementEventProps[EP[_ <: dom.Event]]
       extends ElementEventProps[EP]
-      with ClipboardEventProps[EP] { this: generic.builders.EventPropBuilder[EP, dom.Event] => }
+      with ClipboardEventProps[EP] { this: old.builders.EventPropBuilder[EP, dom.Event] => }
 
   }
 
   object tags {
 
-    type DocumentTags[T[_ <: dom.html.Element]] = generic.defs.tags.DocumentTags[T, dom.html.Element, dom.html.Html, dom.html.Head, dom.html.Base, dom.html.Link, dom.html.Meta, dom.html.Script, dom.html.Element]
+    type DocumentTags[T[_ <: dom.html.Element]] = old.defs.tags.DocumentTags[T, dom.html.Element, dom.html.Html, dom.html.Head, dom.html.Base, dom.html.Link, dom.html.Meta, dom.html.Script, dom.html.Element]
 
-    type GroupingTags[T[_ <: dom.html.Element]] = generic.defs.tags.GroupingTags[T, dom.html.Element, dom.html.Paragraph, dom.html.HR, dom.html.Pre, dom.html.Quote, dom.html.OList, dom.html.UList, dom.html.LI, dom.html.DList, dom.html.Element, dom.html.Div]
+    type GroupingTags[T[_ <: dom.html.Element]] = old.defs.tags.GroupingTags[T, dom.html.Element, dom.html.Paragraph, dom.html.HR, dom.html.Pre, dom.html.Quote, dom.html.OList, dom.html.UList, dom.html.LI, dom.html.DList, dom.html.Element, dom.html.Div]
 
-    type TextTags[T[_ <: dom.html.Element]] = generic.defs.tags.TextTags[T, dom.html.Element, dom.html.Anchor, dom.html.Element, dom.html.Span, dom.html.BR, dom.html.Mod]
+    type TextTags[T[_ <: dom.html.Element]] = old.defs.tags.TextTags[T, dom.html.Element, dom.html.Anchor, dom.html.Element, dom.html.Span, dom.html.BR, dom.html.Mod]
 
-    type FormTags[T[_ <: dom.html.Element]] = generic.defs.tags.FormTags[T, dom.html.Element, dom.html.Form, dom.html.FieldSet, dom.html.Legend, dom.html.Label, dom.html.Input, dom.html.Button, dom.html.Select, dom.html.DataList, dom.html.OptGroup, dom.html.Option, dom.html.TextArea]
+    type FormTags[T[_ <: dom.html.Element]] = old.defs.tags.FormTags[T, dom.html.Element, dom.html.Form, dom.html.FieldSet, dom.html.Legend, dom.html.Label, dom.html.Input, dom.html.Button, dom.html.Select, dom.html.DataList, dom.html.OptGroup, dom.html.Option, dom.html.TextArea]
 
-    type SectionTags[T[_ <: dom.html.Element]] = generic.defs.tags.SectionTags[T, dom.html.Element, dom.html.Body, dom.html.Element, dom.html.Heading]
+    type SectionTags[T[_ <: dom.html.Element]] = old.defs.tags.SectionTags[T, dom.html.Element, dom.html.Body, dom.html.Element, dom.html.Heading]
 
-    type EmbedTags[T[_ <: dom.html.Element]] = generic.defs.tags.EmbedTags[T, dom.html.Element, dom.html.Image, dom.html.IFrame, dom.html.Embed, dom.html.Object, dom.html.Param, dom.html.Video, dom.html.Audio, dom.html.Source, dom.html.Track, dom.html.Canvas, dom.html.Map, dom.html.Area]
+    type EmbedTags[T[_ <: dom.html.Element]] = old.defs.tags.EmbedTags[T, dom.html.Element, dom.html.Image, dom.html.IFrame, dom.html.Embed, dom.html.Object, dom.html.Param, dom.html.Video, dom.html.Audio, dom.html.Source, dom.html.Track, dom.html.Canvas, dom.html.Map, dom.html.Area]
 
-    type TableTags[T[_ <: dom.html.Element]] = generic.defs.tags.TableTags[T, dom.html.Element, dom.html.Table, dom.html.TableCaption, dom.html.TableCol, dom.html.TableSection, dom.html.TableRow, dom.html.TableCell]
+    type TableTags[T[_ <: dom.html.Element]] = old.defs.tags.TableTags[T, dom.html.Element, dom.html.Table, dom.html.TableCaption, dom.html.TableCol, dom.html.TableSection, dom.html.TableRow, dom.html.TableCell]
 
-    type MiscTags[T[_ <: dom.html.Element]] = generic.defs.tags.MiscTags[T, dom.html.Element, dom.html.Title, dom.html.Style, dom.html.Element, dom.html.Quote, dom.html.Progress, dom.html.Menu]
+    type MiscTags[T[_ <: dom.html.Element]] = old.defs.tags.MiscTags[T, dom.html.Element, dom.html.Title, dom.html.Style, dom.html.Element, dom.html.Quote, dom.html.Progress, dom.html.Menu]
 
-    type SvgTags[T[_ <: dom.svg.Element]] = generic.defs.tags.SvgTags[
+    type SvgTags[T[_ <: dom.svg.Element]] = old.defs.tags.SvgTags[
       T,
       dom.svg.Element,
       dom.svg.A,

@@ -1,6 +1,6 @@
 package com.raquo.domtypes.fixtures.keys
 
-import com.raquo.domtypes.generic.codecs.Codec
+import com.raquo.domtypes.old.codecs.Codec
 
 /**
   * This class represents a DOM Element Property. Meaning the key that can be set, not a key-value pair.

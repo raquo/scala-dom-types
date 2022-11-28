@@ -1,7 +1,7 @@
 package com.raquo.domtypes.fixtures.complexKeys
 
-import com.raquo.domtypes.generic.builders.{HtmlAttrBuilder, PropBuilder, ReflectedHtmlAttrBuilder}
-import com.raquo.domtypes.generic.defs.complex.ComplexHtmlKeys
+import com.raquo.domtypes.old.builders.{HtmlAttrBuilder, PropBuilder, ReflectedHtmlAttrBuilder}
+import com.raquo.domtypes.old.defs.complex.ComplexHtmlKeys
 
 trait ExampleComplexHtmlKeys[RA[_, _], A[_], P[_, _]] extends ComplexHtmlKeys[
   RA[String, String],
@@ -13,9 +13,9 @@ trait ExampleComplexHtmlKeys[RA[_, _], A[_], P[_, _]] extends ComplexHtmlKeys[
 
   override lazy val className: RA[String, String] = stringReflectedAttr(attrKey = "class", propKey = "className")
 
-  override lazy val rel: RA[String, String] = stringReflectedAttr("rel")
+  override lazy val rel: RA[String, String] = stringReflectedAttr("rel", "rel")
 
-  override lazy val role: RA[String, String] = stringReflectedAttr("role")
+  override lazy val role: RA[String, String] = stringReflectedAttr("role", "role")
 
   override def dataAttr(suffix: String): A[String] = stringHtmlAttr(s"data-$suffix")
 

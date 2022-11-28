@@ -6,13 +6,13 @@ import com.raquo.domtypes.fixtures.complexKeys._
 import com.raquo.domtypes.fixtures.keys._
 import com.raquo.domtypes.fixtures.styles._
 import com.raquo.domtypes.fixtures.tags._
-import com.raquo.domtypes.generic.builders.{HtmlTagBuilder, SvgTagBuilder}
-import com.raquo.domtypes.generic.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
-import com.raquo.domtypes.generic.defs.props.Props
-import com.raquo.domtypes.generic.defs.reflectedAttrs.ReflectedHtmlAttrs
-import com.raquo.domtypes.generic.defs.styles.Styles
 import com.raquo.domtypes.jsdom.defs.eventProps.{ClipboardEventProps, DocumentOnlyEventProps, ErrorEventProps, FormEventProps, HTMLElementEventProps, KeyboardEventProps, MediaEventProps, MiscellaneousEventProps, MouseEventProps, PointerEventProps, WindowOnlyEventProps}
 import com.raquo.domtypes.jsdom.defs.tags.{DocumentTags, EmbedTags, FormTags, GroupingTags, MiscTags, SectionTags, SvgTags, TableTags, TextTags}
+import com.raquo.domtypes.old.builders.{HtmlTagBuilder, SvgTagBuilder}
+import com.raquo.domtypes.old.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
+import com.raquo.domtypes.old.defs.props.Props
+import com.raquo.domtypes.old.defs.reflectedAttrs.ReflectedHtmlAttrs
+import com.raquo.domtypes.old.defs.styles.Styles
 import org.scalajs.dom
 
 /** We just want to make sure that this compiles. */

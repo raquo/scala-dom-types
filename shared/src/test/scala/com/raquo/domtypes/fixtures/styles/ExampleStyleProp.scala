@@ -1,7 +1,7 @@
 package com.raquo.domtypes.fixtures.styles
 
 import com.raquo.domtypes.fixtures.keys.Key
-import com.raquo.domtypes.generic.builders.{DerivedStylePropBuilder, StyleStringValueBuilder}
+import com.raquo.domtypes.old.builders.{DerivedStylePropBuilder, StyleStringValueBuilder}
 
 class ExampleStyleProp[V](
   override val name: String,
@@ -21,6 +21,9 @@ class ExampleStyleProp[V](
   override protected def derivedStyle[InputV](encode: InputV => String): ExampleDerivedStyleProp[InputV, V] = {
     new ExampleDerivedStyleProp[InputV, V](this, encode)
   }
+
+  // #TODO[Performance] We could use JavaScript native string replace, don't need to bring in java.lang machinery for that
+  //  Although it's kinda inevitable in any real user code anyway, so not much of a problem in practice.
 
   override protected def encodeUrlValue(url: String): String = {
     // #Note: I haven't tested this, Laminar has a different, JS-specific implementation
