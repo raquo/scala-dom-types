@@ -23,9 +23,9 @@ case class EventPropDef(
   domName: String,
   scalaJsEventType: String,
   javascriptEventType: String,
-  commentLines: List[String],
-  docUrls: List[String],
-) {
+  override val commentLines: List[String],
+  override val docUrls: List[String],
+) extends KeyDef {
 
   def fullScalaJsDomEventType: String = {
     s"org.scalajs.$scalaJsEventType"

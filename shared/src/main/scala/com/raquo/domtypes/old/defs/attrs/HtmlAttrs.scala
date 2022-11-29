@@ -101,7 +101,9 @@ trait HtmlAttrs[A[_]] { this: HtmlAttrBuilder[A] =>
 
   // lazy val tpe: A[String] = `type`
 
-  /** IE-specific property to prevent user selection */
+  /**
+    * IE-specific property to prevent user selection
+    */
   lazy val unselectable: A[Boolean] = boolOnOffHtmlAttr("unselectable")
 
   /**

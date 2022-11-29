@@ -1,13 +1,14 @@
 package com.raquo.domtypes.temp.generators
 
+import com.raquo.domtypes.codegen.CodeFormatting
 import com.raquo.domtypes.common.AttrDef
 
 class AttrDefsSourceGenerator(
   objectName: String,
   objectCommentLines: List[String],
   defs: Array[AttrDef],
-  params: ListingParams
-) extends SourceGenerator(params.format) {
+  format: CodeFormatting
+) extends TempSourceGenerator(format) {
 
   override protected def apply(): Unit = {
     line("package com.raquo.domtypes.defs.attrs")
@@ -35,7 +36,6 @@ class AttrDefsSourceGenerator(
       classParamLine("domName", domName)
       classParamLine("namespace", namespace)
       classParamLine("scalaValueType", scalaValueType)
-      classParamLine("implName", implName)
       classParamLine("codec", codec)
       classParamLine("commentLines", commentLines)
       classParamLine("docUrls", docUrls)

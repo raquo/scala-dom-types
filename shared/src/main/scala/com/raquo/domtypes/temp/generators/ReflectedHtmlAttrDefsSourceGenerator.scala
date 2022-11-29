@@ -1,13 +1,14 @@
 package com.raquo.domtypes.temp.generators
 
+import com.raquo.domtypes.codegen.CodeFormatting
 import com.raquo.domtypes.common.ReflectedHtmlAttrDef
 
 class ReflectedHtmlAttrDefsSourceGenerator(
   objectName: String,
   objectCommentLines: List[String],
   defs: Array[ReflectedHtmlAttrDef],
-  params: ListingParams
-) extends SourceGenerator(params.format) {
+  format: CodeFormatting
+) extends TempSourceGenerator(format) {
 
   override protected def apply(): Unit = {
     line("package com.raquo.domtypes.defs.reflectedAttrs")

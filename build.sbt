@@ -56,7 +56,7 @@ lazy val noPublish = Seq(
 )
 
 lazy val root = project.in(file("."))
-  .aggregate(domtypesJS, domtypesJVM)
+  .aggregate(domtypesJVM, domtypesJS) // order is important: first, generate sample traits, then try to compile them on the frontend
   .settings(commonSettings)
   .settings(noPublish)
 

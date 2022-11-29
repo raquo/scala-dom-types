@@ -165,7 +165,6 @@ object AttrTraitParser {
       namespace = namespace,
       scalaValueType = concreteTypeName,
       codec = codec(fullDomAttrName, implName, inputFileName),
-      implName = implName,
       commentLines = accumulatedCommentLines,
       docUrls = docUrls(fullDomAttrName, defName, inputFileName)
     )

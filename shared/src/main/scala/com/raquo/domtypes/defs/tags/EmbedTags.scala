@@ -13,7 +13,6 @@ object EmbedTags {
       isVoid = true,
       scalaJsElementType = "dom.html.Image",
       javascriptElementType = "HTMLImageElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents an image.",
       ),
@@ -28,15 +27,14 @@ object EmbedTags {
       scalaName = "iframe",
       domName = "iframe",
       isVoid = false,
-      scalaJsElementType = "dom.html.Iframe",
-      javascriptElementType = "HTMLIframeElement",
-      implName = "htmlTag",
+      scalaJsElementType = "dom.html.IFrame",
+      javascriptElementType = "HTMLIFrameElement",
       commentLines = List(
         "Represents a nested browsing context, that is an embedded HTML document.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe",
-        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLIframeElement",
+        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement",
       ),
     ),
 
@@ -47,7 +45,6 @@ object EmbedTags {
       isVoid = true,
       scalaJsElementType = "dom.html.Embed",
       javascriptElementType = "HTMLEmbedElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a integration point for an external, often non-HTML, application",
         "or interactive content.",
@@ -65,7 +62,6 @@ object EmbedTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Object",
       javascriptElementType = "HTMLObjectElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents an external resource, which is treated as an image, an HTML",
         "sub-document, or an external resource to be processed by a plug-in.",
@@ -83,7 +79,6 @@ object EmbedTags {
       isVoid = true,
       scalaJsElementType = "dom.html.Param",
       javascriptElementType = "HTMLParamElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines parameters for use by plug-ins invoked by object elements.",
       ),
@@ -100,7 +95,6 @@ object EmbedTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Video",
       javascriptElementType = "HTMLVideoElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a video, and its associated audio files and captions, with the",
         "necessary interface to play it.",
@@ -118,7 +112,6 @@ object EmbedTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Audio",
       javascriptElementType = "HTMLAudioElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a sound or an audio stream.",
       ),
@@ -135,7 +128,6 @@ object EmbedTags {
       isVoid = true,
       scalaJsElementType = "dom.html.Source",
       javascriptElementType = "HTMLSourceElement",
-      implName = "htmlTag",
       commentLines = List(
         "Allows the authors to specify alternate media resources for media elements",
         "like video or audio",
@@ -153,7 +145,6 @@ object EmbedTags {
       isVoid = true,
       scalaJsElementType = "dom.html.Track",
       javascriptElementType = "HTMLTrackElement",
-      implName = "htmlTag",
       commentLines = List(
         "Allows authors to specify timed text track for media elements like video or",
         "audio",
@@ -171,7 +162,6 @@ object EmbedTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Canvas",
       javascriptElementType = "HTMLCanvasElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a bitmap area that scripts can use to render graphics like graphs,",
         "games or any visual images on the fly.",
@@ -189,7 +179,6 @@ object EmbedTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Map",
       javascriptElementType = "HTMLMapElement",
-      implName = "htmlTag",
       commentLines = List(
         "In conjunction with area, defines an image map.",
       ),
@@ -206,7 +195,6 @@ object EmbedTags {
       isVoid = true,
       scalaJsElementType = "dom.html.Area",
       javascriptElementType = "HTMLAreaElement",
-      implName = "htmlTag",
       commentLines = List(
         "In conjunction with map, defines an image map",
       ),

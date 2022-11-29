@@ -1,13 +1,14 @@
 package com.raquo.domtypes.temp.generators
 
+import com.raquo.domtypes.codegen.CodeFormatting
 import com.raquo.domtypes.common.TagDef
 
 class TagDefsSourceGenerator(
   objectName: String,
   objectCommentLines: List[String],
   defs: Array[TagDef],
-  params: ListingParams
-) extends SourceGenerator(params.format) {
+  format: CodeFormatting
+) extends TempSourceGenerator(format) {
 
   override protected def apply(): Unit = {
     val importTagType = defs(0).tagType // Assuming they're all the same in the file
@@ -37,7 +38,6 @@ class TagDefsSourceGenerator(
       classParamLine("isVoid", isVoid)
       classParamLine("scalaJsElementType", scalaJsElementType)
       classParamLine("javascriptElementType", javascriptElementType)
-      classParamLine("implName", implName)
       classParamLine("commentLines", commentLines)
       classParamLine("docUrls", docUrls)
     }

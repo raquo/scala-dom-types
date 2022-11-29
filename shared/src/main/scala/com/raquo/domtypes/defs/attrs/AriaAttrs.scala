@@ -23,7 +23,6 @@ object AriaAttrs {
       domName = "aria-activedescendant",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Identifies the currently active descendant of a composite widget.",
@@ -39,7 +38,6 @@ object AriaAttrs {
       domName = "aria-atomic",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates whether assistive technologies will present all, or only parts of, the",
@@ -57,7 +55,6 @@ object AriaAttrs {
       domName = "aria-autocomplete",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Indicates whether user input completion suggestions are provided.",
@@ -75,7 +72,6 @@ object AriaAttrs {
       domName = "aria-busy",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates whether an element, and its subtree, are currently being updated.",
@@ -91,7 +87,6 @@ object AriaAttrs {
       domName = "aria-checked",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Indicates the current \"checked\" state of checkboxes, radio buttons, and other",
@@ -111,7 +106,6 @@ object AriaAttrs {
       domName = "aria-controls",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Identifies the element (or elements) whose contents or presence are controlled",
@@ -128,7 +122,6 @@ object AriaAttrs {
       domName = "aria-current",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Indicates the element that represents the current item within a container",
@@ -148,7 +141,6 @@ object AriaAttrs {
       domName = "aria-describedby",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Identifies the element (or elements) that describes the object.",
@@ -165,7 +157,6 @@ object AriaAttrs {
       domName = "aria-disabled",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates that the element is perceivable but disabled, so it is not editable",
@@ -182,7 +173,6 @@ object AriaAttrs {
       domName = "aria-dropeffect",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Indicates what functions can be performed when the dragged object is released",
@@ -205,7 +195,6 @@ object AriaAttrs {
       domName = "aria-expanded",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates whether the element, or another grouping element it controls, is",
@@ -222,7 +211,6 @@ object AriaAttrs {
       domName = "aria-flowto",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Identifies the next element (or elements) in an alternate reading order of",
@@ -240,7 +228,6 @@ object AriaAttrs {
       domName = "aria-grabbed",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates an element's \"grabbed\" state in a drag-and-drop operation.",
@@ -256,7 +243,6 @@ object AriaAttrs {
       domName = "aria-haspopup",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates that the element has a popup context menu or sub-level menu.",
@@ -272,7 +258,6 @@ object AriaAttrs {
       domName = "aria-hidden",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates that the element and all of its descendants are not visible or",
@@ -290,7 +275,6 @@ object AriaAttrs {
       domName = "aria-invalid",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Indicates the entered value does not conform to the format expected by the",
@@ -309,7 +293,6 @@ object AriaAttrs {
       domName = "aria-label",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Defines a string value that labels the current element.",
@@ -326,7 +309,6 @@ object AriaAttrs {
       domName = "aria-labelledby",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Identifies the element (or elements) that labels the current element.",
@@ -343,7 +325,6 @@ object AriaAttrs {
       domName = "aria-level",
       namespace = None,
       scalaValueType = "Int",
-      implName = "intHtmlAttr",
       codec = "IntAsString",
       commentLines = List(
         "Defines the hierarchical level of an element within a structure.",
@@ -359,7 +340,6 @@ object AriaAttrs {
       domName = "aria-live",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Indicates that an element will be updated, and describes the types of updates the",
@@ -378,7 +358,6 @@ object AriaAttrs {
       domName = "aria-multiline",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates whether a text box accepts multiple lines of input or only a single line.",
@@ -394,7 +373,6 @@ object AriaAttrs {
       domName = "aria-multiselectable",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates that the user may select more than one item from the current selectable descendants.",
@@ -410,7 +388,6 @@ object AriaAttrs {
       domName = "aria-orientation",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Indicates whether the element and orientation is horizontal or vertical.",
@@ -428,7 +405,6 @@ object AriaAttrs {
       domName = "aria-owns",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Identifies an element (or elements) in order to define a visual, functional, or",
@@ -446,7 +422,6 @@ object AriaAttrs {
       domName = "aria-posinset",
       namespace = None,
       scalaValueType = "Int",
-      implName = "intHtmlAttr",
       codec = "IntAsString",
       commentLines = List(
         "Defines an element's number or position in the current set of listitems or treeitems.",
@@ -463,7 +438,6 @@ object AriaAttrs {
       domName = "aria-pressed",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Indicates the current \"pressed\" state of toggle buttons. See related [[checked]] and [[selected]].",
@@ -482,7 +456,6 @@ object AriaAttrs {
       domName = "aria-readonly",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates that the element is not editable, but is otherwise operable. See related [[disabled]].",
@@ -498,7 +471,6 @@ object AriaAttrs {
       domName = "aria-relevant",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Indicates what user agent change notifications (additions, removals, etc.)",
@@ -517,7 +489,6 @@ object AriaAttrs {
       domName = "aria-required",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates that user input is required on the element before a form may be submitted.",
@@ -533,7 +504,6 @@ object AriaAttrs {
       domName = "aria-selected",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates the current \"selected\" state of various widgets.",
@@ -550,7 +520,6 @@ object AriaAttrs {
       domName = "aria-setsize",
       namespace = None,
       scalaValueType = "Int",
-      implName = "intHtmlAttr",
       codec = "IntAsString",
       commentLines = List(
         "Defines the number of items in the current set of listitems or treeitems.",
@@ -568,7 +537,6 @@ object AriaAttrs {
       domName = "aria-sort",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Indicates if items in a table or grid are sorted in ascending or descending order.",
@@ -586,7 +554,6 @@ object AriaAttrs {
       domName = "aria-valuemax",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleHtmlAttr",
       codec = "DoubleAsString",
       commentLines = List(
         "Defines the maximum allowed value for a range widget.",
@@ -602,7 +569,6 @@ object AriaAttrs {
       domName = "aria-valuemin",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleHtmlAttr",
       codec = "DoubleAsString",
       commentLines = List(
         "Defines the minimum allowed value for a range widget.",
@@ -618,7 +584,6 @@ object AriaAttrs {
       domName = "aria-valuenow",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleHtmlAttr",
       codec = "DoubleAsString",
       commentLines = List(
         "Defines the current value for a range widget. See related [[valueText]].",
@@ -634,7 +599,6 @@ object AriaAttrs {
       domName = "aria-valuetext",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Defines the human readable text alternative of aria-valuenow for a range widget.",

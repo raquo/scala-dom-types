@@ -5,6 +5,6 @@ case class ComplexKeyDef(
   scalaName: String,
   domAttrName: String,
   domPropName: Option[String],
-  commentLines: List[String],
-  docUrls: List[String]
-)
+  override val commentLines: List[String],
+  override val docUrls: List[String]
+) extends KeyDef
