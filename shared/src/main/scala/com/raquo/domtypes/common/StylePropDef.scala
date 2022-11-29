@@ -26,6 +26,6 @@ case class StylePropDef(
   valueType: String,
   valueTraits: List[String], // Normal, Calc, TextTransform, Base, etc.
   implName: String,
-  commentLines: List[String],
-  docUrls: List[String]
-)
+  override val commentLines: List[String],
+  override val docUrls: List[String]
+) extends KeyDef

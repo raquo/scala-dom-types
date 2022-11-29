@@ -15,7 +15,6 @@ package com.raquo.domtypes.common
   * @param scalaJsElementType    - Type of corresponding elements in scalajs-dom project
   *                                See [[fullScalaJsDomElementType]] for the full path
   * @param javascriptElementType - Type of corresponding elements in raw Javascript
-  * @param implName              - Method name used to create this key from the old SDT codebase
   * @param commentLines          - Scaladoc comment lines for this key
   * @param docUrls               - Scaladoc documentation URLs for this key
   */
@@ -26,10 +25,9 @@ case class TagDef(
   isVoid: Boolean,
   scalaJsElementType: String,
   javascriptElementType: String,
-  implName: String,
-  commentLines: List[String],
-  docUrls: List[String]
-) {
+  override val commentLines: List[String],
+  override val docUrls: List[String]
+) extends KeyDef {
 
   def fullScalaJsDomElementType: String = {
     s"org.scalajs.$scalaJsElementType"

@@ -13,7 +13,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Anchor",
       javascriptElementType = "HTMLAnchorElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a hyperlink, linking to another resource.",
       ),
@@ -30,7 +29,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents emphasized text.",
       ),
@@ -46,7 +44,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents especially important text.",
       ),
@@ -62,7 +59,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a side comment; text like a disclaimer or copyright, which is not",
         "essential to the comprehension of the document.",
@@ -79,7 +75,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Strikethrough element, used for that is no longer accurate or relevant.",
       ),
@@ -95,7 +90,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents the title of a work being cited.",
       ),
@@ -111,7 +105,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents computer code.",
       ),
@@ -127,7 +120,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Subscript tag",
       ),
@@ -143,7 +135,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Superscript tag.",
       ),
@@ -159,7 +150,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Italicized text.",
       ),
@@ -175,7 +165,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Bold text.",
       ),
@@ -191,7 +180,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Underlined text.",
       ),
@@ -207,7 +195,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Span",
       javascriptElementType = "HTMLSpanElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents text with no specific meaning. This has to be used when no other",
         "text-semantic element conveys an adequate meaning, which, in this case, is",
@@ -224,9 +211,8 @@ object TextTags {
       scalaName = "br",
       domName = "br",
       isVoid = true,
-      scalaJsElementType = "dom.html.Br",
+      scalaJsElementType = "dom.html.BR",
       javascriptElementType = "HTMLBRElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a line break.",
       ),
@@ -243,7 +229,6 @@ object TextTags {
       isVoid = true,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a line break opportunity, that is a suggested point for wrapping",
         "text in order to improve readability of text split on several lines.",
@@ -260,7 +245,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Mod",
       javascriptElementType = "HTMLModElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines an addition to the document.",
       ),
@@ -277,7 +261,6 @@ object TextTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Mod",
       javascriptElementType = "HTMLModElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines a remolazy val from the document.",
       ),

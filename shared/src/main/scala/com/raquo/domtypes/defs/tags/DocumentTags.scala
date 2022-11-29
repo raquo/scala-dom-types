@@ -13,7 +13,6 @@ object DocumentTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Html",
       javascriptElementType = "HTMLHtmlElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents the root of an HTML or XHTML document. All other elements must",
         "be descendants of this element.",
@@ -31,7 +30,6 @@ object DocumentTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Head",
       javascriptElementType = "HTMLHeadElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a collection of metadata about the document, including links to,",
         "or definitions of, scripts and style sheets.",
@@ -49,7 +47,6 @@ object DocumentTags {
       isVoid = true,
       scalaJsElementType = "dom.html.Base",
       javascriptElementType = "HTMLBaseElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines the base URL for relative URLs in the page.",
       ),
@@ -66,7 +63,6 @@ object DocumentTags {
       isVoid = true,
       scalaJsElementType = "dom.html.Link",
       javascriptElementType = "HTMLLinkElement",
-      implName = "htmlTag",
       commentLines = List(
         "Used to link JavaScript and external CSS with the current HTML document.",
       ),
@@ -83,7 +79,6 @@ object DocumentTags {
       isVoid = true,
       scalaJsElementType = "dom.html.Meta",
       javascriptElementType = "HTMLMetaElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines metadata that can't be defined using another HTML element.",
       ),
@@ -100,7 +95,6 @@ object DocumentTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Script",
       javascriptElementType = "HTMLScriptElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines either an internal script or a link to an external script. The",
         "script language is JavaScript.",
@@ -118,7 +112,6 @@ object DocumentTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines alternative content to display when the browser doesn't support",
         "scripting.",

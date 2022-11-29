@@ -36,6 +36,28 @@ case class ReflectedHtmlAttrDef(
   domPropValueType: String,
   attrCodec: String,
   propCodec: String,
-  commentLines: List[String],
-  docUrls: List[String]
-)
+  override val commentLines: List[String],
+  override val docUrls: List[String]
+) extends KeyDef {
+
+  def toPropDef: PropDef = PropDef(
+    scalaName = scalaName,
+    domName = domPropName,
+    scalaValueType = scalaValueType,
+    domValueType = domPropValueType,
+    codec = propCodec,
+    commentLines = commentLines,
+    docUrls = docUrls
+  )
+
+  def toAttrDef: AttrDef = AttrDef(
+    tagType = HtmlTagType,
+    scalaName = scalaName,
+    domName = domAttrName,
+    namespace = None,
+    scalaValueType = scalaValueType,
+    codec = attrCodec,
+    commentLines = commentLines,
+    docUrls = docUrls
+  )
+}

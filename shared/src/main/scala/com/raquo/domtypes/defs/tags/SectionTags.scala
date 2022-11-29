@@ -13,7 +13,6 @@ object SectionTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Body",
       javascriptElementType = "HTMLBodyElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents the content of an HTML document. There is only one body",
         "  element in a document.",
@@ -31,7 +30,6 @@ object SectionTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines the header of a page or section. It often contains a logo, the",
         "title of the Web site, and a navigational table of content.",
@@ -48,7 +46,6 @@ object SectionTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines the footer for a page or section. It often contains a copyright",
         "notice, some links to legal information, or addresses to give feedback.",
@@ -65,7 +62,6 @@ object SectionTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
-      implName = "htmlTag",
       commentLines = List(
         "Heading level 1",
       ),
@@ -82,7 +78,6 @@ object SectionTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
-      implName = "htmlTag",
       commentLines = List(
         "Heading level 2",
       ),
@@ -99,7 +94,6 @@ object SectionTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
-      implName = "htmlTag",
       commentLines = List(
         "Heading level 3",
       ),
@@ -116,7 +110,6 @@ object SectionTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
-      implName = "htmlTag",
       commentLines = List(
         "Heading level 4",
       ),
@@ -133,7 +126,6 @@ object SectionTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
-      implName = "htmlTag",
       commentLines = List(
         "Heading level 5",
       ),
@@ -150,7 +142,6 @@ object SectionTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
-      implName = "htmlTag",
       commentLines = List(
         "Heading level 6",
       ),

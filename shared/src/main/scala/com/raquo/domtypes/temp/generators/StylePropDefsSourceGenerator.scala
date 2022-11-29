@@ -1,13 +1,14 @@
 package com.raquo.domtypes.temp.generators
 
+import com.raquo.domtypes.codegen.CodeFormatting
 import com.raquo.domtypes.common.StylePropDef
 
 class StylePropDefsSourceGenerator(
   objectName: String,
   objectCommentLines: List[String],
   defs: Array[StylePropDef],
-  params: ListingParams
-) extends SourceGenerator(params.format) {
+  format: CodeFormatting
+) extends TempSourceGenerator(format) {
 
   override protected def apply(): Unit = {
     line("package com.raquo.domtypes.defs.styles")

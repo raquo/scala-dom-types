@@ -12,7 +12,6 @@ object HtmlAttrs {
       domName = "charset",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Declares the character encoding of the page or script. Used on meta and",
@@ -29,7 +28,6 @@ object HtmlAttrs {
       domName = "contenteditable",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolTrueFalseHtmlAttr",
       codec = "BooleanAsTrueFalseString",
       commentLines = List(
         "Indicates whether the element should be editable by the user.",
@@ -46,7 +44,6 @@ object HtmlAttrs {
       domName = "contextmenu",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Specifies a context menu for an element by its element id.",
@@ -63,7 +60,6 @@ object HtmlAttrs {
       domName = "dropzone",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Specifies whether the dragged data is copied, moved, or linked, when dropped",
@@ -78,7 +74,6 @@ object HtmlAttrs {
       domName = "form",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The form attribute specifies an ID of the form an `<input>` element belongs to.",
@@ -92,7 +87,6 @@ object HtmlAttrs {
       domName = "height",
       namespace = None,
       scalaValueType = "Int",
-      implName = "intHtmlAttr",
       codec = "IntAsString",
       commentLines = List(
         "The `height` attribute specifies the pixel height of the following elements:",
@@ -109,7 +103,6 @@ object HtmlAttrs {
       domName = "list",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "Identifies a list of pre-defined options to suggest to the user. The value must be",
@@ -127,7 +120,6 @@ object HtmlAttrs {
       domName = "max",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The max attribute specifies the maximum value for an <input> element of type",
@@ -144,7 +136,6 @@ object HtmlAttrs {
       domName = "min",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The min attribute specifies the minimum value for an <input> element of type",
@@ -161,7 +152,6 @@ object HtmlAttrs {
       domName = "step",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The step attribute specifies the numeric intervals for an <input> element",
@@ -183,7 +173,6 @@ object HtmlAttrs {
       domName = "type",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringHtmlAttr",
       codec = "StringAsIs",
       commentLines = List(
         "This attribute is used to define the type of the content linked to. The",
@@ -204,10 +193,9 @@ object HtmlAttrs {
       domName = "unselectable",
       namespace = None,
       scalaValueType = "Boolean",
-      implName = "boolOnOffHtmlAttr",
       codec = "BooleanAsOnOffString",
       commentLines = List(
-        "IE-specific property to prevent user selection */",
+        "IE-specific property to prevent user selection",
       ),
       docUrls = Nil,
     ),
@@ -218,7 +206,6 @@ object HtmlAttrs {
       domName = "width",
       namespace = None,
       scalaValueType = "Int",
-      implName = "intHtmlAttr",
       codec = "IntAsString",
       commentLines = List(
         "The `width` attribute specifies the pixel width of the following elements:",

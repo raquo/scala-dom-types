@@ -26,11 +26,10 @@ case class AttrDef(
   domName: String,
   namespace: Option[String],
   scalaValueType: String,
-  implName: String,
   codec: String,
-  commentLines: List[String],
-  docUrls: List[String]
-) {
+  override val commentLines: List[String],
+  override val docUrls: List[String]
+) extends KeyDef {
 
   def namespaceQualifiedDomName: String = {
     namespace match {

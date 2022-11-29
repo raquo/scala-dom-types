@@ -12,7 +12,6 @@ object SvgAttrs {
       domName = "accent-height",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = List(
         "This attribute defines the distance from the origin to the top of accent characters,",
@@ -33,7 +32,6 @@ object SvgAttrs {
       domName = "accumulate",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "This attribute controls whether or not the animation is cumulative.",
@@ -54,7 +52,6 @@ object SvgAttrs {
       domName = "additive",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "This attribute controls whether or not the animation is additive.",
@@ -76,7 +73,6 @@ object SvgAttrs {
       domName = "alignment-baseline",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The alignment-baseline attribute specifies how an object is aligned",
@@ -103,7 +99,6 @@ object SvgAttrs {
       domName = "ascent",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = List(
         "This attribute defines the maximum unaccented depth of the font",
@@ -124,7 +119,6 @@ object SvgAttrs {
       domName = "attributeName",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "This attribute indicates the name of the attribute in the parent element",
@@ -143,7 +137,6 @@ object SvgAttrs {
       domName = "attributeType",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "This attribute specifies the namespace in which the target attribute",
@@ -162,7 +155,6 @@ object SvgAttrs {
       domName = "azimuth",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = List(
         "The azimuth attribute represent the direction angle for the light",
@@ -183,7 +175,6 @@ object SvgAttrs {
       domName = "baseFrequency",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The baseFrequency attribute represent The base frequencies parameter",
@@ -208,7 +199,6 @@ object SvgAttrs {
       domName = "baseline-shift",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The baseline-shift attribute allows repositioning of the dominant-baseline",
@@ -230,7 +220,6 @@ object SvgAttrs {
       domName = "begin",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "This attribute defines when an animation should begin.",
@@ -253,7 +242,6 @@ object SvgAttrs {
       domName = "bias",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = List(
         "The bias attribute shifts the range of the filter. After applying the kernelMatrix",
@@ -275,7 +263,6 @@ object SvgAttrs {
       domName = "calcMode",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "This attribute specifies the interpolation mode for the animation. The default",
@@ -295,7 +282,6 @@ object SvgAttrs {
       domName = "clip",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The clip attribute has the same parameter values as defined for the css clip property.",
@@ -318,7 +304,6 @@ object SvgAttrs {
       domName = "clip-path",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The clip-path attribute bind the element is applied to with a given <clipPath> element",
@@ -337,7 +322,6 @@ object SvgAttrs {
       domName = "clipPathUnits",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The clipPathUnits attribute defines the coordinate system for the contents",
@@ -361,7 +345,6 @@ object SvgAttrs {
       domName = "clip-rule",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The clip-rule attribute only applies to graphics elements that are contained within a",
@@ -381,7 +364,6 @@ object SvgAttrs {
       domName = "color",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The color attribute is used to provide a potential indirect value (currentColor)",
@@ -402,7 +384,6 @@ object SvgAttrs {
       domName = "color-interpolation",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The color-interpolation attribute specifies the color space for gradient interpolations,",
@@ -430,7 +411,6 @@ object SvgAttrs {
       domName = "color-interpolation-filters",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The color-interpolation-filters attribute specifies the color space for imaging operations",
@@ -455,7 +435,6 @@ object SvgAttrs {
       domName = "color-profile",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The color-profile attribute is used to define which color profile a raster image",
@@ -476,7 +455,6 @@ object SvgAttrs {
       domName = "color-rendering",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The color-rendering attribute provides a hint to the SVG user agent about how to",
@@ -502,7 +480,6 @@ object SvgAttrs {
       domName = "contentScriptType",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The contentScriptType attribute on the <svg> element specifies the default scripting",
@@ -525,7 +502,6 @@ object SvgAttrs {
       domName = "contentStyleType",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "This attribute specifies the style sheet language for the given document fragment.",
@@ -545,7 +521,6 @@ object SvgAttrs {
       domName = "cursor",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The cursor attribute specifies the mouse cursor displayed when the mouse pointer",
@@ -569,7 +544,6 @@ object SvgAttrs {
       domName = "cx",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "For the <circle> and the <ellipse> element, this attribute define the x-axis coordinate",
@@ -593,7 +567,6 @@ object SvgAttrs {
       domName = "cy",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "For the <circle> and the <ellipse> element, this attribute define the y-axis coordinate",
@@ -617,7 +590,6 @@ object SvgAttrs {
       domName = "d",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -631,7 +603,6 @@ object SvgAttrs {
       domName = "diffuseConstant",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -645,7 +616,6 @@ object SvgAttrs {
       domName = "direction",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -659,7 +629,6 @@ object SvgAttrs {
       domName = "display",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -673,7 +642,6 @@ object SvgAttrs {
       domName = "divisor",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -687,7 +655,6 @@ object SvgAttrs {
       domName = "dominant-baseline",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -701,7 +668,6 @@ object SvgAttrs {
       domName = "dur",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -715,7 +681,6 @@ object SvgAttrs {
       domName = "dx",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -729,7 +694,6 @@ object SvgAttrs {
       domName = "dy",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -743,7 +707,6 @@ object SvgAttrs {
       domName = "edgeMode",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -757,7 +720,6 @@ object SvgAttrs {
       domName = "elevation",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = Nil,
       docUrls = List(
@@ -771,7 +733,6 @@ object SvgAttrs {
       domName = "end",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -785,7 +746,6 @@ object SvgAttrs {
       domName = "externalResourcesRequired",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -799,7 +759,6 @@ object SvgAttrs {
       domName = "fill",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -813,7 +772,6 @@ object SvgAttrs {
       domName = "fill-opacity",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -827,7 +785,6 @@ object SvgAttrs {
       domName = "fill-rule",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -841,7 +798,6 @@ object SvgAttrs {
       domName = "filter",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -855,7 +811,6 @@ object SvgAttrs {
       domName = "filterRes",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -869,7 +824,6 @@ object SvgAttrs {
       domName = "filterUnits",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -883,7 +837,6 @@ object SvgAttrs {
       domName = "flood-color",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -897,7 +850,6 @@ object SvgAttrs {
       domName = "flood-opacity",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -911,7 +863,6 @@ object SvgAttrs {
       domName = "font-family",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -925,7 +876,6 @@ object SvgAttrs {
       domName = "font-size",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -939,7 +889,6 @@ object SvgAttrs {
       domName = "font-size-adjust",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -953,7 +902,6 @@ object SvgAttrs {
       domName = "font-stretch",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -967,7 +915,6 @@ object SvgAttrs {
       domName = "font-variant",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -981,7 +928,6 @@ object SvgAttrs {
       domName = "font-weight",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -995,7 +941,6 @@ object SvgAttrs {
       domName = "from",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1009,7 +954,6 @@ object SvgAttrs {
       domName = "gradientTransform",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1023,7 +967,6 @@ object SvgAttrs {
       domName = "gradientUnits",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1037,7 +980,6 @@ object SvgAttrs {
       domName = "height",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1051,7 +993,6 @@ object SvgAttrs {
       domName = "href",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1065,7 +1006,6 @@ object SvgAttrs {
       domName = "imageRendering",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1079,7 +1019,6 @@ object SvgAttrs {
       domName = "id",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1093,7 +1032,6 @@ object SvgAttrs {
       domName = "in",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1107,7 +1045,6 @@ object SvgAttrs {
       domName = "in2",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1121,7 +1058,6 @@ object SvgAttrs {
       domName = "k1",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = Nil,
       docUrls = List(
@@ -1135,7 +1071,6 @@ object SvgAttrs {
       domName = "k2",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = Nil,
       docUrls = List(
@@ -1149,7 +1084,6 @@ object SvgAttrs {
       domName = "k3",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = Nil,
       docUrls = List(
@@ -1163,7 +1097,6 @@ object SvgAttrs {
       domName = "k4",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = Nil,
       docUrls = List(
@@ -1177,7 +1110,6 @@ object SvgAttrs {
       domName = "kernelMatrix",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1191,7 +1123,6 @@ object SvgAttrs {
       domName = "kernelUnitLength",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1205,7 +1136,6 @@ object SvgAttrs {
       domName = "kerning",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1219,7 +1149,6 @@ object SvgAttrs {
       domName = "keySplines",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1233,7 +1162,6 @@ object SvgAttrs {
       domName = "keyTimes",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1247,7 +1175,6 @@ object SvgAttrs {
       domName = "letter-spacing",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1261,7 +1188,6 @@ object SvgAttrs {
       domName = "lighting-color",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1275,7 +1201,6 @@ object SvgAttrs {
       domName = "limitingConeAngle",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1289,7 +1214,6 @@ object SvgAttrs {
       domName = "local",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1303,7 +1227,6 @@ object SvgAttrs {
       domName = "marker-end",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1317,7 +1240,6 @@ object SvgAttrs {
       domName = "marker-mid",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1331,7 +1253,6 @@ object SvgAttrs {
       domName = "marker-start",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1345,7 +1266,6 @@ object SvgAttrs {
       domName = "markerHeight",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1359,7 +1279,6 @@ object SvgAttrs {
       domName = "markerUnits",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1373,7 +1292,6 @@ object SvgAttrs {
       domName = "markerWidth",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1387,7 +1305,6 @@ object SvgAttrs {
       domName = "maskContentUnits",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1401,7 +1318,6 @@ object SvgAttrs {
       domName = "maskUnits",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1415,7 +1331,6 @@ object SvgAttrs {
       domName = "mask",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1429,7 +1344,6 @@ object SvgAttrs {
       domName = "max",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1443,7 +1357,6 @@ object SvgAttrs {
       domName = "min",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1457,7 +1370,6 @@ object SvgAttrs {
       domName = "mode",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1471,7 +1383,6 @@ object SvgAttrs {
       domName = "numOctaves",
       namespace = None,
       scalaValueType = "Int",
-      implName = "intSvgAttr",
       codec = "IntAsString",
       commentLines = Nil,
       docUrls = List(
@@ -1485,7 +1396,6 @@ object SvgAttrs {
       domName = "offset",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1499,7 +1409,6 @@ object SvgAttrs {
       domName = "orient",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "This attribute defines the orientation of the marker relative to the shape it is attached to.",
@@ -1517,7 +1426,6 @@ object SvgAttrs {
       domName = "opacity",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1531,7 +1439,6 @@ object SvgAttrs {
       domName = "operator",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1545,7 +1452,6 @@ object SvgAttrs {
       domName = "order",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1559,7 +1465,6 @@ object SvgAttrs {
       domName = "overflow",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1573,7 +1478,6 @@ object SvgAttrs {
       domName = "paint-order",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1587,7 +1491,6 @@ object SvgAttrs {
       domName = "pathLength",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1601,7 +1504,6 @@ object SvgAttrs {
       domName = "patternContentUnits",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1615,7 +1517,6 @@ object SvgAttrs {
       domName = "patternTransform",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1629,7 +1530,6 @@ object SvgAttrs {
       domName = "patternUnits",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1643,7 +1543,6 @@ object SvgAttrs {
       domName = "pointer-events",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1657,7 +1556,6 @@ object SvgAttrs {
       domName = "points",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1671,7 +1569,6 @@ object SvgAttrs {
       domName = "pointsAtX",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1685,7 +1582,6 @@ object SvgAttrs {
       domName = "pointsAtY",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1699,7 +1595,6 @@ object SvgAttrs {
       domName = "pointsAtZ",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1713,7 +1608,6 @@ object SvgAttrs {
       domName = "preserveAlpha",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1727,7 +1621,6 @@ object SvgAttrs {
       domName = "preserveAspectRatio",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1741,7 +1634,6 @@ object SvgAttrs {
       domName = "primitiveUnits",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1755,7 +1647,6 @@ object SvgAttrs {
       domName = "r",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1769,7 +1660,6 @@ object SvgAttrs {
       domName = "radius",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1783,7 +1673,6 @@ object SvgAttrs {
       domName = "refX",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The refX attribute is used alongside the refY attribute to provide coordinates for the location on the",
@@ -1802,7 +1691,6 @@ object SvgAttrs {
       domName = "refY",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = List(
         "The refY attribute is used alongside the refY attribute to provide coordinates for the location on the",
@@ -1821,7 +1709,6 @@ object SvgAttrs {
       domName = "repeatCount",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1835,7 +1722,6 @@ object SvgAttrs {
       domName = "repeatDur",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1849,7 +1735,6 @@ object SvgAttrs {
       domName = "requiredFeatures",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1863,7 +1748,6 @@ object SvgAttrs {
       domName = "restart",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1877,7 +1761,6 @@ object SvgAttrs {
       domName = "result",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1891,7 +1774,6 @@ object SvgAttrs {
       domName = "rx",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1905,7 +1787,6 @@ object SvgAttrs {
       domName = "ry",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1919,7 +1800,6 @@ object SvgAttrs {
       domName = "scale",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1933,7 +1813,6 @@ object SvgAttrs {
       domName = "seed",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = Nil,
       docUrls = List(
@@ -1947,7 +1826,6 @@ object SvgAttrs {
       domName = "shape-rendering",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -1961,7 +1839,6 @@ object SvgAttrs {
       domName = "specularConstant",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = Nil,
       docUrls = List(
@@ -1975,7 +1852,6 @@ object SvgAttrs {
       domName = "specularExponent",
       namespace = None,
       scalaValueType = "Double",
-      implName = "doubleSvgAttr",
       codec = "DoubleAsString",
       commentLines = Nil,
       docUrls = List(
@@ -1989,7 +1865,6 @@ object SvgAttrs {
       domName = "spreadMethod",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2003,7 +1878,6 @@ object SvgAttrs {
       domName = "stdDeviation",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2017,7 +1891,6 @@ object SvgAttrs {
       domName = "stitchTiles",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2031,7 +1904,6 @@ object SvgAttrs {
       domName = "stop-color",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2045,7 +1917,6 @@ object SvgAttrs {
       domName = "stop-opacity",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2059,7 +1930,6 @@ object SvgAttrs {
       domName = "stroke",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2073,7 +1943,6 @@ object SvgAttrs {
       domName = "stroke-dasharray",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2087,7 +1956,6 @@ object SvgAttrs {
       domName = "stroke-dashoffset",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2101,7 +1969,6 @@ object SvgAttrs {
       domName = "stroke-linecap",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2115,7 +1982,6 @@ object SvgAttrs {
       domName = "stroke-linejoin",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2129,7 +1995,6 @@ object SvgAttrs {
       domName = "stroke-miterlimit",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2143,7 +2008,6 @@ object SvgAttrs {
       domName = "stroke-opacity",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2157,7 +2021,6 @@ object SvgAttrs {
       domName = "stroke-width",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2171,7 +2034,6 @@ object SvgAttrs {
       domName = "style",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2185,7 +2047,6 @@ object SvgAttrs {
       domName = "surfaceScale",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2199,7 +2060,6 @@ object SvgAttrs {
       domName = "target",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2213,7 +2073,6 @@ object SvgAttrs {
       domName = "targetX",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2227,7 +2086,6 @@ object SvgAttrs {
       domName = "targetY",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2241,7 +2099,6 @@ object SvgAttrs {
       domName = "text-anchor",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2255,7 +2112,6 @@ object SvgAttrs {
       domName = "text-decoration",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2269,7 +2125,6 @@ object SvgAttrs {
       domName = "text-rendering",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2283,7 +2138,6 @@ object SvgAttrs {
       domName = "to",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2297,7 +2151,6 @@ object SvgAttrs {
       domName = "transform",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2311,7 +2164,6 @@ object SvgAttrs {
       domName = "type",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2325,7 +2177,6 @@ object SvgAttrs {
       domName = "values",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2339,7 +2190,6 @@ object SvgAttrs {
       domName = "viewBox",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2353,7 +2203,6 @@ object SvgAttrs {
       domName = "visibility",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2367,7 +2216,6 @@ object SvgAttrs {
       domName = "width",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2381,7 +2229,6 @@ object SvgAttrs {
       domName = "word-spacing",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2395,7 +2242,6 @@ object SvgAttrs {
       domName = "writing-mode",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2409,7 +2255,6 @@ object SvgAttrs {
       domName = "x",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2423,7 +2268,6 @@ object SvgAttrs {
       domName = "x1",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2437,7 +2281,6 @@ object SvgAttrs {
       domName = "x2",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2451,7 +2294,6 @@ object SvgAttrs {
       domName = "xChannelSelector",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2465,7 +2307,6 @@ object SvgAttrs {
       domName = "href",
       namespace = Some("xlink"),
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2479,7 +2320,6 @@ object SvgAttrs {
       domName = "role",
       namespace = Some("xlink"),
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2493,7 +2333,6 @@ object SvgAttrs {
       domName = "title",
       namespace = Some("xlink"),
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2507,7 +2346,6 @@ object SvgAttrs {
       domName = "space",
       namespace = Some("xml"),
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2521,7 +2359,6 @@ object SvgAttrs {
       domName = "xmlns",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2535,7 +2372,6 @@ object SvgAttrs {
       domName = "xlink",
       namespace = Some("xmlns"),
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2549,7 +2385,6 @@ object SvgAttrs {
       domName = "y",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2563,7 +2398,6 @@ object SvgAttrs {
       domName = "y1",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2577,7 +2411,6 @@ object SvgAttrs {
       domName = "y2",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2591,7 +2424,6 @@ object SvgAttrs {
       domName = "yChannelSelector",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
@@ -2605,7 +2437,6 @@ object SvgAttrs {
       domName = "z",
       namespace = None,
       scalaValueType = "String",
-      implName = "stringSvgAttr",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(

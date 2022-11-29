@@ -13,7 +13,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.A",
       javascriptElementType = "SVGAElement",
-      implName = "svgTag",
       commentLines = List(
         "Represents a hyperlink, linking to another resource.",
       ),
@@ -30,7 +29,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The altGlyph element allows sophisticated selection of the glyphs used to",
         "render its child character data.",
@@ -47,7 +45,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The altGlyphDef element defines a substitution representation for glyphs.",
       ),
@@ -63,7 +60,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The altGlyphItem element provides a set of candidates for glyph substitution",
         "by the altGlyph element.",
@@ -80,7 +76,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The animate element is put inside a shape element and defines how an",
         "attribute of an element changes over the animation",
@@ -97,7 +92,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The animateMotion element causes a referenced element to move along a",
         "motion path.",
@@ -114,7 +108,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The animateTransform element animates a transformation attribute on a target",
         "element, thereby allowing animations to control translation, scaling,",
@@ -132,7 +125,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Circle",
       javascriptElementType = "SVGCircleElement",
-      implName = "svgTag",
       commentLines = List(
         "The circle element is an SVG basic shape, used to create circles based on a",
         "center point and a radius.",
@@ -150,7 +142,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.ClipPath",
       javascriptElementType = "SVGClipPathElement",
-      implName = "svgTag",
       commentLines = List(
         "The clipping path restricts the region to which paint can be applied.",
         "Conceptually, any parts of the drawing that lie outside of the region",
@@ -169,7 +160,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The element allows describing the color profile used for the image.",
       ),
@@ -185,7 +175,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The cursor element can be used to define a platform-independent custom",
         "cursor. A recommended approach for defining a platform-independent custom",
@@ -205,7 +194,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Defs",
       javascriptElementType = "SVGDefsElement",
-      implName = "svgTag",
       commentLines = List(
         "SVG allows graphical objects to be defined for later reuse. It is",
         "recommended that, wherever possible, referenced elements be defined inside",
@@ -228,7 +216,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Desc",
       javascriptElementType = "SVGDescElement",
-      implName = "svgTag",
       commentLines = List(
         "Each container element or graphics element in an SVG drawing can supply a",
         "desc description string where the description is text-only. When the",
@@ -251,7 +238,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Ellipse",
       javascriptElementType = "SVGEllipseElement",
-      implName = "svgTag",
       commentLines = List(
         "The ellipse element is an SVG basic shape, used to create ellipses based",
         "on a center coordinate, and both their x and y radius.",
@@ -273,7 +259,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEBlend",
       javascriptElementType = "SVGFEBlendElement",
-      implName = "svgTag",
       commentLines = List(
         "The feBlend filter composes two objects together ruled by a certain blending",
         "mode. This is similar to what is known from image editing software when",
@@ -292,7 +277,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEColorMatrix",
       javascriptElementType = "SVGFEColorMatrixElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter changes colors based on a transformation matrix. Every pixel's",
         "color value (represented by an [R,G,B,A] vector) is matrix multiplied to",
@@ -311,7 +295,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.ComponentTransferFunction",
       javascriptElementType = "SVGComponentTransferFunctionElement",
-      implName = "svgTag",
       commentLines = List(
         "The color of each pixel is modified by changing each channel (R, G, B, and",
         "A) to the result of what the children feFuncR, feFuncB, feFuncG,",
@@ -330,7 +313,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEComposite",
       javascriptElementType = "SVGFECompositeElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter primitive performs the combination of two input images pixel-wise",
         "in image space using one of the Porter-Duff compositing operations: over,",
@@ -350,7 +332,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEConvolveMatrix",
       javascriptElementType = "SVGFEConvolveMatrixElement",
-      implName = "svgTag",
       commentLines = List(
         "the feConvolveMatrix element applies a matrix convolution filter effect.",
         "A convolution combines pixels in the input image with neighboring pixels",
@@ -371,7 +352,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEDiffuseLighting",
       javascriptElementType = "SVGFEDiffuseLightingElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter primitive lights an image using the alpha channel as a bump map.",
         "The resulting image, which is an RGBA opaque image, depends on the light",
@@ -390,7 +370,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEDisplacementMap",
       javascriptElementType = "SVGFEDisplacementMapElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter primitive uses the pixels values from the image from in2 to",
         "spatially displace the image from in.",
@@ -408,7 +387,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEDistantLight",
       javascriptElementType = "SVGFEDistantLightElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter primitive define a distant light source that can be used",
         "within a lighting filter primitive: feDiffuseLighting or",
@@ -427,7 +405,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEFlood",
       javascriptElementType = "SVGFEFloodElement",
-      implName = "svgTag",
       commentLines = List(
         "The filter fills the filter subregion with the color and opacity defined by",
         "flood-color and flood-opacity.",
@@ -445,7 +422,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEFuncA",
       javascriptElementType = "SVGFEFuncAElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter primitive defines the transfer function for the alpha component",
         "of the input graphic of its parent feComponentTransfer element.",
@@ -463,7 +439,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEFuncB",
       javascriptElementType = "SVGFEFuncBElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter primitive defines the transfer function for the blue component",
         "of the input graphic of its parent feComponentTransfer element.",
@@ -481,7 +456,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEFuncG",
       javascriptElementType = "SVGFEFuncGElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter primitive defines the transfer function for the green component",
         "of the input graphic of its parent feComponentTransfer element.",
@@ -499,7 +473,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEFuncR",
       javascriptElementType = "SVGFEFuncRElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter primitive defines the transfer function for the red component",
         "of the input graphic of its parent feComponentTransfer element.",
@@ -517,7 +490,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEGaussianBlur",
       javascriptElementType = "SVGFEGaussianBlurElement",
-      implName = "svgTag",
       commentLines = List(
         "The filter blurs the input image by the amount specified in stdDeviation,",
         "which defines the bell-curve.",
@@ -535,7 +507,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEImage",
       javascriptElementType = "SVGFEImageElement",
-      implName = "svgTag",
       commentLines = List(
         "The feImage filter fetches image data from an external source and provides",
         "the pixel data as output (meaning, if the external source is an SVG image,",
@@ -554,7 +525,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEMerge",
       javascriptElementType = "SVGFEMergeElement",
-      implName = "svgTag",
       commentLines = List(
         "The feMerge filter allows filter effects to be applied concurrently",
         "instead of sequentially. This is achieved by other filters storing their",
@@ -574,7 +544,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEMergeNode",
       javascriptElementType = "SVGFEMergeNodeElement",
-      implName = "svgTag",
       commentLines = List(
         "The feMergeNode takes the result of another filter to be processed by its",
         "parent feMerge.",
@@ -592,7 +561,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEMorphology",
       javascriptElementType = "SVGFEMorphologyElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter is used to erode or dilate the input image. It's usefulness",
         "lies especially in fattening or thinning effects.",
@@ -610,7 +578,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEOffset",
       javascriptElementType = "SVGFEOffsetElement",
-      implName = "svgTag",
       commentLines = List(
         "The input image as a whole is offset by the values specified in the dx",
         "and dy attributes. It's used in creating drop-shadows.",
@@ -628,7 +595,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FEPointLight",
       javascriptElementType = "SVGFEPointLightElement",
-      implName = "svgTag",
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Element/fePointLight",
@@ -643,7 +609,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FESpecularLighting",
       javascriptElementType = "SVGFESpecularLightingElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter primitive lights a source graphic using the alpha channel as a",
         "bump map. The resulting image is an RGBA image based on the light color.",
@@ -666,7 +631,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FESpotLight",
       javascriptElementType = "SVGFESpotLightElement",
-      implName = "svgTag",
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feSpotlight",
@@ -681,7 +645,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FETile",
       javascriptElementType = "SVGFETileElement",
-      implName = "svgTag",
       commentLines = List(
         "An input image is tiled and the result used to fill a target. The effect",
         "is similar to the one of a pattern.",
@@ -699,7 +662,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.FETurbulence",
       javascriptElementType = "SVGFETurbulenceElement",
-      implName = "svgTag",
       commentLines = List(
         "This filter primitive creates an image using the Perlin turbulence",
         "function. It allows the synthesis of artificial textures like clouds or",
@@ -718,7 +680,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Filter",
       javascriptElementType = "SVGFilterElement",
-      implName = "svgTag",
       commentLines = List(
         "The filter element serves as container for atomic filter operations. It is",
         "never rendered directly. A filter is referenced by using the filter",
@@ -737,7 +698,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The font element defines a font to be used for text layout.",
       ),
@@ -753,7 +713,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The font-face element corresponds to the CSS @font-face declaration. It",
         "defines a font's outer properties.",
@@ -770,7 +729,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The font-face-format element describes the type of font referenced by its",
         "parent font-face-uri.",
@@ -787,7 +745,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The font-face-name element points to a locally installed copy of this font,",
         "identified by its name.",
@@ -804,7 +761,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The font-face-src element corresponds to the src property in CSS @font-face",
         "descriptions. It serves as container for font-face-name, pointing to",
@@ -823,7 +779,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The font-face-uri element points to a remote definition of the current font.",
       ),
@@ -839,7 +794,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The foreignObject element allows for inclusion of a foreign XML namespace",
         "which has its graphical content drawn by a different user agent. The",
@@ -858,7 +812,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.G",
       javascriptElementType = "SVGGElement",
-      implName = "svgTag",
       commentLines = List(
         "The g element is a container used to group objects. Transformations applied",
         "to the g element are performed on all of its child elements. Attributes",
@@ -878,7 +831,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "A glyph defines a single glyph in an SVG font.",
       ),
@@ -894,7 +846,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The glyphRef element provides a single possible glyph to the referencing",
         "altGlyph substitution.",
@@ -911,7 +862,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The horizontal distance between two glyphs can be fine-tweaked with an",
         "hkern Element. This process is known as Kerning.",
@@ -928,7 +878,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Image",
       javascriptElementType = "SVGImageElement",
-      implName = "svgTag",
       commentLines = List(
         "The SVG Image Element (image) allows a raster image into be included in",
         "an SVG document.",
@@ -946,7 +895,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Line",
       javascriptElementType = "SVGLineElement",
-      implName = "svgTag",
       commentLines = List(
         "The line element is an SVG basic shape, used to create a line connecting",
         "two points.",
@@ -964,7 +912,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.LinearGradient",
       javascriptElementType = "SVGLinearGradientElement",
-      implName = "svgTag",
       commentLines = List(
         "linearGradient lets authors define linear gradients to fill or stroke",
         "graphical elements.",
@@ -982,7 +929,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Marker",
       javascriptElementType = "SVGMarkerElement",
-      implName = "svgTag",
       commentLines = List(
         "The marker element defines the graphics that is to be used for drawing",
         "arrowheads or polymarkers on a given path, line, polyline or",
@@ -1001,7 +947,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Mask",
       javascriptElementType = "SVGMaskElement",
-      implName = "svgTag",
       commentLines = List(
         "In SVG, you can specify that any other graphics object or g element can",
         "be used as an alpha mask for compositing the current object into the",
@@ -1021,7 +966,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Metadata",
       javascriptElementType = "SVGMetadataElement",
-      implName = "svgTag",
       commentLines = List(
         "Metadata is structured data about data. Metadata which is included with SVG",
         "content should be specified within metadata elements. The contents of the",
@@ -1041,7 +985,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The missing-glyph's content is rendered, if for a given character the font",
         "doesn't define an appropriate glyph.",
@@ -1058,7 +1001,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "the mpath sub-element for the animateMotion element provides the ability",
         "to reference an external path element as the definition of a motion path.",
@@ -1075,7 +1017,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Path",
       javascriptElementType = "SVGPathElement",
-      implName = "svgTag",
       commentLines = List(
         "The path element is the generic element to define a shape. All the basic",
         "shapes can be created with a path element.",
@@ -1093,7 +1034,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Pattern",
       javascriptElementType = "SVGPatternElement",
-      implName = "svgTag",
       commentLines = List(
         "A pattern is used to fill or stroke an object using a pre-defined graphic",
         "object which can be replicated (\"tiled\") at fixed intervals in x and y to",
@@ -1115,7 +1055,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Polygon",
       javascriptElementType = "SVGPolygonElement",
-      implName = "svgTag",
       commentLines = List(
         "The polygon element defines a closed shape consisting of a set of connected",
         "straight line segments.",
@@ -1133,7 +1072,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Polyline",
       javascriptElementType = "SVGPolylineElement",
-      implName = "svgTag",
       commentLines = List(
         "The polyline element is an SVG basic shape, used to create a series of",
         "straight lines connecting several points. Typically a polyline is used to",
@@ -1152,7 +1090,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.RadialGradient",
       javascriptElementType = "SVGRadialGradientElement",
-      implName = "svgTag",
       commentLines = List(
         "radialGradient lets authors define radial gradients to fill or stroke",
         "graphical elements.",
@@ -1170,7 +1107,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.RectElement",
       javascriptElementType = "SVGRectElementElement",
-      implName = "svgTag",
       commentLines = List(
         "The rect element is an SVG basic shape, used to create rectangles based on",
         "the position of a corner and their width and height. It may also be used to",
@@ -1189,7 +1125,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The set element provides a simple means of just setting the value of an",
         "attribute for a specified duration. It supports all attribute types,",
@@ -1209,7 +1144,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Stop",
       javascriptElementType = "SVGStopElement",
-      implName = "svgTag",
       commentLines = List(
         "The ramp of colors to use on a gradient is defined by the stop elements",
         "that are child elements to either the lineargradient element or the",
@@ -1226,9 +1160,8 @@ object SvgTags {
       scalaName = "svg",
       domName = "svg",
       isVoid = false,
-      scalaJsElementType = "dom.svg.",
-      javascriptElementType = "SVGElement",
-      implName = "svgTag",
+      scalaJsElementType = "dom.svg.SVG",
+      javascriptElementType = "SVGSVGElement",
       commentLines = List(
         "When it is not the root element, the svg element can be used to nest a",
         "standalone SVG fragment inside the current document (which can be an HTML",
@@ -1237,6 +1170,7 @@ object SvgTags {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg",
+        "https://developer.mozilla.org/en-US/docs/Web/API/SVGSVGElement",
       ),
     ),
 
@@ -1247,7 +1181,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Switch",
       javascriptElementType = "SVGSwitchElement",
-      implName = "svgTag",
       commentLines = List(
         "The switch element evaluates the requiredFeatures, requiredExtensions and",
         "systemLanguage attributes on its direct child elements in order, and then",
@@ -1269,7 +1202,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Symbol",
       javascriptElementType = "SVGSymbolElement",
-      implName = "svgTag",
       commentLines = List(
         "The symbol element is used to define graphical template objects which can",
         "be instantiated by a use element. The use of symbol elements for",
@@ -1293,7 +1225,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Text",
       javascriptElementType = "SVGTextElement",
-      implName = "svgTag",
       commentLines = List(
         "The text element defines a graphics element consisting of text. Note that",
         "it is possible to apply a gradient, pattern, clipping path, mask or filter",
@@ -1312,7 +1243,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.TextPath",
       javascriptElementType = "SVGTextPathElement",
-      implName = "svgTag",
       commentLines = List(
         "In addition to text drawn in a straight line, SVG also includes the",
         "ability to place text along the shape of a path element. To specify that",
@@ -1333,7 +1263,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.TextPath",
       javascriptElementType = "SVGTextPathElement",
-      implName = "svgTag",
       commentLines = List(
         "Each container element or graphics element in an SVG drawing can supply a",
         "title description string where the description is text-only. When the",
@@ -1356,7 +1285,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The textual content for a text can be either character data directly",
         "embedded within the text element or the character data content of a",
@@ -1374,7 +1302,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.TSpan",
       javascriptElementType = "SVGTSpanElement",
-      implName = "svgTag",
       commentLines = List(
         "Within a text element, text and font properties and the current text",
         "position can be adjusted with absolute or relative coordinate values by",
@@ -1393,7 +1320,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Use",
       javascriptElementType = "SVGUseElement",
-      implName = "svgTag",
       commentLines = List(
         "The use element takes nodes from within the SVG document, and duplicates",
         "them somewhere else. The effect is the same as if the nodes were deeply",
@@ -1416,7 +1342,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.View",
       javascriptElementType = "SVGViewElement",
-      implName = "svgTag",
       commentLines = List(
         "A view is a defined way to view the image, like a zoom level or a detail",
         "view.",
@@ -1434,7 +1359,6 @@ object SvgTags {
       isVoid = false,
       scalaJsElementType = "dom.svg.Element",
       javascriptElementType = "SVGElement",
-      implName = "svgTag",
       commentLines = List(
         "The vertical distance between two glyphs in top-to-bottom fonts can be",
         "fine-tweaked with an vkern Element. This process is known as Kerning.",

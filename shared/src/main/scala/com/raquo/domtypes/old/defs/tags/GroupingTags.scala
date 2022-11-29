@@ -2,7 +2,7 @@ package com.raquo.domtypes.old.defs.tags
 
 import com.raquo.domtypes.old.builders.HtmlTagBuilder
 
-trait GroupingTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlParagraph <: DomHtmlElement, HtmlHr <: DomHtmlElement, HtmlPre <: DomHtmlElement, HtmlQuote <: DomHtmlElement, HtmlOList <: DomHtmlElement, HtmlUList <: DomHtmlElement, HtmlLI <: DomHtmlElement, HtmlDList <: DomHtmlElement, HtmlElement <: DomHtmlElement, HtmlDiv <: DomHtmlElement] {
+trait GroupingTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlParagraph <: DomHtmlElement, HtmlHR <: DomHtmlElement, HtmlPre <: DomHtmlElement, HtmlQuote <: DomHtmlElement, HtmlOList <: DomHtmlElement, HtmlUList <: DomHtmlElement, HtmlLI <: DomHtmlElement, HtmlDList <: DomHtmlElement, HtmlElement <: DomHtmlElement, HtmlDiv <: DomHtmlElement] {
   this: HtmlTagBuilder[T, DomHtmlElement] =>
 
   // @TODO[Docs] add links to canonical ScalaJS types in comments
@@ -20,7 +20,7 @@ trait GroupingTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlParagraph <: DomH
     *
     *  MDN
     */
-  lazy val hr: T[HtmlHr] = htmlTag("hr", void = true)
+  lazy val hr: T[HtmlHR] = htmlTag("hr", void = true)
 
   /**
     * Indicates that its content is preformatted and that this format must be

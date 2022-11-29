@@ -1,8 +1,8 @@
 package com.raquo.domtypes
 
 import com.raquo.domtypes.common.{HtmlTagType, SvgTagType}
-import com.raquo.domtypes.temp.generators.{AttrDefsSourceGenerator, EventPropDefsSourceGenerator, ListingParams, ReflectedHtmlAttrDefsSourceGenerator, StylePropDefsSourceGenerator, StyleTraitDefsSourceGenerator, TagDefsSourceGenerator}
-import com.raquo.domtypes.temp.parsers.{AttrTraitParser, EventPropTraitParser, ReflectedHtmlAttrTraitParser, StylePropTraitParser, StyleTraitTraitParser, TagTraitParser}
+import com.raquo.domtypes.temp.generators._
+import com.raquo.domtypes.temp.parsers._
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
@@ -22,7 +22,7 @@ class TranspilerSpec extends AnyFunSpec with Matchers {
 
   private val baseTargetDirPath = "shared/src/main/scala/com/raquo/domtypes/defs"
 
-  private val params = ListingParams()
+  private val format = codegen.CodeFormatting()
 
 
   it("Generate new style trait defs") {
@@ -56,7 +56,7 @@ class TranspilerSpec extends AnyFunSpec with Matchers {
     val fileContent = new StyleTraitDefsSourceGenerator(
       objectName = "StyleTraits",
       defs,
-      params = params
+      format = format
     ).generate()
 
     outputPrintStream.print(fileContent)
@@ -92,7 +92,7 @@ class TranspilerSpec extends AnyFunSpec with Matchers {
       objectName = "StyleProps",
       objectCommentLines = globalCommentLines,
       styleDefs,
-      params = params
+      format = format
     ).generate()
 
     outputPrintStream.print(fileContent)
@@ -127,9 +127,13 @@ class TranspilerSpec extends AnyFunSpec with Matchers {
 
       val fileContent = new ReflectedHtmlAttrDefsSourceGenerator(
         objectName = inputFile.getName.replace(".scala", ""),
-        objectCommentLines = globalCommentLines,
+        objectCommentLines = globalCommentLines ++ List(
+          "",
+          "@see https://developer.mozilla.org/en-US/docs/Glossary/Attribute#reflection_of_an_attribute",
+          "@see https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes"
+        ),
         attrDefs,
-        params = params
+        format = format
       ).generate()
 
       outputPrintStream.print(fileContent)
@@ -167,7 +171,7 @@ class TranspilerSpec extends AnyFunSpec with Matchers {
         objectName = inputFile.getName.replace(".scala", ""),
         objectCommentLines = globalCommentLines,
         attrDefs,
-        params = params
+        format = format
       ).generate()
 
       outputPrintStream.print(fileContent)
@@ -205,7 +209,7 @@ class TranspilerSpec extends AnyFunSpec with Matchers {
         objectName = inputFile.getName.replace(".scala", ""),
         objectCommentLines = globalCommentLines,
         eventPropDefs,
-        params = params
+        format = format
       ).generate()
 
       outputPrintStream.print(fileContent)
@@ -247,7 +251,7 @@ class TranspilerSpec extends AnyFunSpec with Matchers {
         objectName = tagsFile.getName.replace(".scala", ""),
         objectCommentLines = globalCommentLines,
         tagDefs,
-        params = params
+        format = format
       ).generate()
 
       outputPrintStream.print(fileContent)

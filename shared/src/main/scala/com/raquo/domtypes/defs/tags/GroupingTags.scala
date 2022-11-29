@@ -13,7 +13,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Paragraph",
       javascriptElementType = "HTMLParagraphElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines a portion that should be displayed as a paragraph.",
       ),
@@ -28,9 +27,8 @@ object GroupingTags {
       scalaName = "hr",
       domName = "hr",
       isVoid = true,
-      scalaJsElementType = "dom.html.Hr",
+      scalaJsElementType = "dom.html.HR",
       javascriptElementType = "HTMLHRElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a thematic break between paragraphs of a section or article or",
         "any longer content.",
@@ -48,7 +46,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Pre",
       javascriptElementType = "HTMLPreElement",
-      implName = "htmlTag",
       commentLines = List(
         "Indicates that its content is preformatted and that this format must be",
         "preserved.",
@@ -66,7 +63,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Quote",
       javascriptElementType = "HTMLQuoteElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a content that is quoted from another source.",
       ),
@@ -83,7 +79,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.OList",
       javascriptElementType = "HTMLOListElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines an ordered list of items.",
       ),
@@ -100,7 +95,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.UList",
       javascriptElementType = "HTMLUListElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines an unordered list of items.",
       ),
@@ -117,7 +111,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.LI",
       javascriptElementType = "HTMLLIElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines an item of an list.",
       ),
@@ -134,7 +127,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.DList",
       javascriptElementType = "HTMLDListElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines a definition list; a list of terms and their associated definitions.",
       ),
@@ -151,7 +143,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a term defined by the next dd",
       ),
@@ -167,7 +158,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents the definition of the terms immediately listed before it.",
       ),
@@ -183,7 +173,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a figure illustrated as part of the document.",
       ),
@@ -199,7 +188,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents the legend of a figure.",
       ),
@@ -215,7 +203,6 @@ object GroupingTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Div",
       javascriptElementType = "HTMLDivElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a generic container with no special meaning.",
       ),

@@ -18,7 +18,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Title",
       javascriptElementType = "HTMLTitleElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines the title of the document, shown in a browser's title bar or on the",
         "page's tab. It can only contain text and any contained tags are not",
@@ -37,7 +36,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Style",
       javascriptElementType = "HTMLStyleElement",
-      implName = "htmlTag",
       commentLines = List(
         "Used to write inline CSS.",
       ),
@@ -54,7 +52,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a generic section of a document, i.e., a thematic grouping of",
         "content, typically with a heading.",
@@ -71,7 +68,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a section of a page that links to other pages or to parts within",
         "the page: a section with navigation links.",
@@ -88,7 +84,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines self-contained content that could exist independently of the rest",
         "of the content.",
@@ -105,7 +100,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines some content loosely related to the page content. If it is removed,",
         "the remaining content still makes sense.",
@@ -122,7 +116,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines a section containing contact information.",
       ),
@@ -138,7 +131,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines the main or important content in the document. There is only one",
         "main element in the document.",
@@ -155,7 +147,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Quote",
       javascriptElementType = "HTMLQuoteElement",
-      implName = "htmlTag",
       commentLines = List(
         "An inline quotation.",
       ),
@@ -172,7 +163,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a term whose definition is contained in its nearest ancestor",
         "content.",
@@ -189,7 +179,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "An abbreviation or acronym; the expansion of the abbreviation can be",
         "represented in the title attribute.",
@@ -206,7 +195,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Associates to its content a machine-readable equivalent.",
       ),
@@ -222,7 +210,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a date and time value; the machine-readable equivalent can be",
         "represented in the datetime attribute",
@@ -239,7 +226,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a variable.",
       ),
@@ -255,7 +241,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents the output of a program or a computer.",
       ),
@@ -271,7 +256,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents user input, often from a keyboard, but not necessarily.",
       ),
@@ -287,7 +271,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Defines a mathematical formula.",
       ),
@@ -303,7 +286,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents text highlighted for reference purposes, that is for its",
         "relevance in another context.",
@@ -320,7 +302,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents content to be marked with ruby annotations, short runs of text",
         "presented alongside the text. This is often used in conjunction with East",
@@ -339,7 +320,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents the text of a ruby annotation.",
       ),
@@ -355,7 +335,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents parenthesis around a ruby annotation, used to display the",
         "annotation in an alternate way by browsers not supporting the standard",
@@ -373,7 +352,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents text that must be isolated from its surrounding for bidirectional",
         "text formatting. It allows embedding a span of text with a different, or",
@@ -391,7 +369,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents the directionality of its children, in order to explicitly",
         "override the Unicode bidirectional algorithm.",
@@ -408,7 +385,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "A key-pair generator control.",
       ),
@@ -424,7 +400,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "The result of a calculation",
       ),
@@ -440,7 +415,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Progress",
       javascriptElementType = "HTMLProgressElement",
-      implName = "htmlTag",
       commentLines = List(
         "A progress completion bar",
       ),
@@ -457,7 +431,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "A scalar measurement within a known range.",
       ),
@@ -473,7 +446,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "A widget from which the user can obtain additional information",
         "or controls.",
@@ -490,7 +462,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "A summary, caption, or legend for a given details.",
       ),
@@ -506,7 +477,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Element",
       javascriptElementType = "HTMLElement",
-      implName = "htmlTag",
       commentLines = List(
         "A command that the user can invoke.",
       ),
@@ -522,7 +492,6 @@ object MiscTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Menu",
       javascriptElementType = "HTMLMenuElement",
-      implName = "htmlTag",
       commentLines = List(
         "A list of commands",
       ),

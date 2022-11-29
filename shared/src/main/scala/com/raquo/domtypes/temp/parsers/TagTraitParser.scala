@@ -161,6 +161,7 @@ object TagTraitParser {
       case "dom.html.Element" => "HTMLElement"
       case "dom.svg.Element" => "SVGElement"
       case "dom.svg.A" => "SVGAElement"
+      case "dom.svg.SVG" => "SVGSVGElement"
       case el if el.startsWith("dom.html.") =>
         el.replace("dom.html.", "HTML") + "Element"
       case el if el.startsWith("dom.svg.") =>
@@ -191,7 +192,6 @@ object TagTraitParser {
       isVoid = isVoid,
       scalaJsElementType = concreteTypeName,
       javascriptElementType = javascriptElementType,
-      implName = implName,
       commentLines = accumulatedCommentLines,
       docUrls = docUrls
     )
@@ -202,6 +202,8 @@ object TagTraitParser {
       "dom.html.Html"
     } else if (typeParamName == "SvgAnchor") {
       "dom.svg.A"
+    } else if (typeParamName == "Svg") {
+      "dom.svg.SVG"
     } else if (typeParamName.startsWith("Html")) {
       typeParamName.replace("Html", "dom.html.")
     } else if (typeParamName.startsWith("Svg")) {

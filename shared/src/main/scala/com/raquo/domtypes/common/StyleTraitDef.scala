@@ -17,4 +17,9 @@ case class StyleTraitDef(
   extendsTraits: List[String],
   extendsUnits: List[String],
   keywords: List[StyleKeywordDef]
-)
+) extends KeyDef {
+
+  override def commentLines: List[String] = Nil
+
+  override def docUrls: List[String] = Nil
+}

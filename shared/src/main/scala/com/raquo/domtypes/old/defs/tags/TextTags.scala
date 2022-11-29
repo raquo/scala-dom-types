@@ -2,7 +2,7 @@ package com.raquo.domtypes.old.defs.tags
 
 import com.raquo.domtypes.old.builders.HtmlTagBuilder
 
-trait TextTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlAnchor <: DomHtmlElement, HtmlElement <: DomHtmlElement, HtmlSpan <: DomHtmlElement, HtmlBr <: DomHtmlElement, HtmlMod <: DomHtmlElement] {
+trait TextTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlAnchor <: DomHtmlElement, HtmlElement <: DomHtmlElement, HtmlSpan <: DomHtmlElement, HtmlBR <: DomHtmlElement, HtmlMod <: DomHtmlElement] {
   this: HtmlTagBuilder[T, DomHtmlElement] =>
 
   /**
@@ -104,7 +104,7 @@ trait TextTags[T[_ <: DomHtmlElement], DomHtmlElement, HtmlAnchor <: DomHtmlElem
     *
     *  MDN  [[org.scalajs.dom.html.BR]]
     */
-  lazy val br: T[HtmlBr] = htmlTag("br", void = true)
+  lazy val br: T[HtmlBR] = htmlTag("br", void = true)
 
   /**
     * Represents a line break opportunity, that is a suggested point for wrapping

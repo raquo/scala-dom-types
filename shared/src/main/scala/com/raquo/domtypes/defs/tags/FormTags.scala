@@ -13,7 +13,6 @@ object FormTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Form",
       javascriptElementType = "HTMLFormElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents a form, consisting of controls, that can be submitted to a",
         "server for processing.",
@@ -31,7 +30,6 @@ object FormTags {
       isVoid = false,
       scalaJsElementType = "dom.html.FieldSet",
       javascriptElementType = "HTMLFieldSetElement",
-      implName = "htmlTag",
       commentLines = List(
         "A set of fields.",
       ),
@@ -48,7 +46,6 @@ object FormTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Legend",
       javascriptElementType = "HTMLLegendElement",
-      implName = "htmlTag",
       commentLines = List(
         "The caption for a fieldset.",
       ),
@@ -65,7 +62,6 @@ object FormTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Label",
       javascriptElementType = "HTMLLabelElement",
-      implName = "htmlTag",
       commentLines = List(
         "The caption of a single field",
       ),
@@ -82,7 +78,6 @@ object FormTags {
       isVoid = true,
       scalaJsElementType = "dom.html.Input",
       javascriptElementType = "HTMLInputElement",
-      implName = "htmlTag",
       commentLines = List(
         "A typed data field allowing the user to input data.",
       ),
@@ -99,7 +94,6 @@ object FormTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Button",
       javascriptElementType = "HTMLButtonElement",
-      implName = "htmlTag",
       commentLines = List(
         "A button",
       ),
@@ -116,7 +110,6 @@ object FormTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Select",
       javascriptElementType = "HTMLSelectElement",
-      implName = "htmlTag",
       commentLines = List(
         "A control that allows the user to select one of a set of options.",
       ),
@@ -133,7 +126,6 @@ object FormTags {
       isVoid = false,
       scalaJsElementType = "dom.html.DataList",
       javascriptElementType = "HTMLDataListElement",
-      implName = "htmlTag",
       commentLines = List(
         "A set of predefined options for other controls.",
       ),
@@ -150,7 +142,6 @@ object FormTags {
       isVoid = false,
       scalaJsElementType = "dom.html.OptGroup",
       javascriptElementType = "HTMLOptGroupElement",
-      implName = "htmlTag",
       commentLines = List(
         "A set of options, logically grouped.",
       ),
@@ -167,7 +158,6 @@ object FormTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Option",
       javascriptElementType = "HTMLOptionElement",
-      implName = "htmlTag",
       commentLines = List(
         "An option in a select element.",
       ),
@@ -184,7 +174,6 @@ object FormTags {
       isVoid = false,
       scalaJsElementType = "dom.html.TextArea",
       javascriptElementType = "HTMLTextAreaElement",
-      implName = "htmlTag",
       commentLines = List(
         "A multiline text edit control.",
       ),

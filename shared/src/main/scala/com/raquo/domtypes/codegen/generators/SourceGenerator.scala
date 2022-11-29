@@ -1,17 +1,13 @@
-package com.raquo.domtypes.temp.generators
+package com.raquo.domtypes.codegen.generators
 
+import com.raquo.domtypes.codegen.{CodeFormatting, SourceRepr}
 import com.raquo.domtypes.common.TagType
 
 import scala.collection.mutable
 
-abstract class SourceGenerator(/*outputFile: File,*/ format: IndentationParams) {
+abstract class SourceGenerator(format: CodeFormatting) extends SourceRepr {
 
   private val output: mutable.StringBuilder = new mutable.StringBuilder
-
-  // private lazy val printStream = {
-  //   outputFile.getParentFile.mkdirs()
-  //   new PrintStream(new FileOutputStream(outputFile))
-  // }
 
   private var currentIndent = format.printIndentChars(0)
 
@@ -22,13 +18,6 @@ abstract class SourceGenerator(/*outputFile: File,*/ format: IndentationParams) 
 
   /** Override this to implement the generator. */
   protected def apply(): Unit
-
-  /** Call this to run the generator. */
-  // final def run(): List[File] = {
-  //   apply()
-  //   printStream.close()
-  //   List(outputFile)
-  // }
 
   protected def enter(prefix: String, suffix: String = "")(inside: => Unit): Unit = {
     line(prefix)
@@ -45,13 +34,10 @@ abstract class SourceGenerator(/*outputFile: File,*/ format: IndentationParams) 
     output.append(currentIndent)
     output.append(str)
     output.append("\n")
-    // printStream.print(currentIndent)
-    // printStream.println(str)
   }
 
   protected def line(): Unit = {
     output.append("\n")
-    // printStream.println()
   }
 
   protected def classParamLine(name: String, value: String): Unit = {
@@ -59,7 +45,7 @@ abstract class SourceGenerator(/*outputFile: File,*/ format: IndentationParams) 
   }
 
   protected def classParamLine(name: String, value: TagType): Unit = {
-    line(s"${name} = ${repr(value)},")
+    line(s"${name} = ${repr(value.sourceStr)},")
   }
 
   protected def classParamLine(name: String, value: Boolean): Unit = {
@@ -70,15 +56,7 @@ abstract class SourceGenerator(/*outputFile: File,*/ format: IndentationParams) 
     if (list.isEmpty) {
       line(s"${name} = Nil,")
     } else {
-      if ((name == "docUrls" || name == "commentLines")) {
-        enter(s"${name} = List(", "),") {
-          list.foreach { l =>
-            line(repr(l) + ",")
-          }
-        }
-      } else {
-        line(s"${name} = List(${list.map(repr).mkString(", ")}),")
-      }
+      line(s"${name} = List(${list.map(repr).mkString(", ")}),")
     }
   }
 
@@ -91,7 +69,7 @@ abstract class SourceGenerator(/*outputFile: File,*/ format: IndentationParams) 
   }
 
   protected def classParamLine(name: String, option: Option[String]): Unit = {
-    line(s"${name} = ${option.map(repr(_)).toString},")
+    line(s"${name} = ${option.map(repr).toString},")
   }
 
   protected def blockCommentLines(commentLines: List[String]): Unit = {
@@ -107,37 +85,6 @@ abstract class SourceGenerator(/*outputFile: File,*/ format: IndentationParams) 
       }
 
     }
-  }
-
-  protected def repr(str: String): String = {
-    // if (tripleQuotes) {
-    //   s"\"\"\"${str.replace("\\", "\\\\").replace("\"", "\\\"")}\"\"\""
-    // } else {
-      s"\"${str.replace("\\", "\\\\").replace("\"", "\\\"")}\""
-    // }
-  }
-
-  protected def repr(tagType: TagType): String = {
-    tagType.sourceStr
-  }
-
-  protected def repr(value: Boolean): String = {
-    if (value) "true" else "false"
-  }
-
-  protected def tupleType(size: Int, prefix: String = "T", suffix: String = "", separator: String = ", "): String =
-    tupleTypeRaw(size, prefix, suffix).mkString(separator)
-
-  protected def tupleAccess(size: Int, varName: String): String = {
-    tupleAccessRaw(size, varName).mkString(", ")
-  }
-
-  private def tupleTypeRaw(size: Int, prefix: String = "T", suffix: String = ""): Seq[String] = {
-    (1 to size).map(i => s"${prefix}${i}${suffix}")
-  }
-
-  private def tupleAccessRaw(size: Int, varName: String): Seq[String] = {
-    (1 to size).map(i => s"${varName}._${i}")
   }
 
 }

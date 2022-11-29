@@ -10,10 +10,8 @@ package com.raquo.domtypes.common
   *                           (e.g. `title` tag vs `title` attribute)
   *                         - avoid using up popular names for unpopular keys*
   * @param domName        - Native attribute name in the DOM.
-  *                         Note: Does not include SVG namespace. See [[namespaceQualifiedDomName]]
   * @param scalaValueType - Type of values you can write to this attribute in Scala
   * @param domValueType   - Type of values that this property holds in the DOM
-  * @param implName       - Method name used to create this key from the old SDT codebase
   * @param codec          - Codec needed to convert between `scalaValueType` and `domValueType`
   * @param commentLines   - Scaladoc comment lines for this key
   * @param docUrls        - Scaladoc documentation URLs for this key
@@ -23,8 +21,7 @@ case class PropDef(
   domName: String,
   scalaValueType: String,
   domValueType: String,
-  implName: String,
   codec: String,
-  commentLines: List[String],
-  docUrls: List[String]
-)
+  override val commentLines: List[String],
+  override val docUrls: List[String]
+) extends KeyDef

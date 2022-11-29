@@ -20,6 +20,9 @@ import com.raquo.domtypes.common.ReflectedHtmlAttrDef
   * 
   * @tparam RA ReflectedAttribute[ScalaValue, PropRawDomValue]
   * 
+  * 
+  * @see https://developer.mozilla.org/en-US/docs/Glossary/Attribute#reflection_of_an_attribute
+  * @see https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes
   */
 object ReflectedHtmlAttrs {
   

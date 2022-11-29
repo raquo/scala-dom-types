@@ -16,7 +16,7 @@ import com.raquo.domtypes.old.defs.styles.Styles
 import org.scalajs.dom
 
 /** We just want to make sure that this compiles. */
-class CompileTest {
+class OldCompileTest {
 
   object Bundle
     // Attrs

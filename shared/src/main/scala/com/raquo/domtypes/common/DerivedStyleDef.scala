@@ -6,6 +6,6 @@ case class DerivedStyleDef(
   scalaName: String,
   scalaInputType: String,
   encodeFn: String,
-  commentLines: List[String],
-  docUrls: List[String]
-)
+  override val commentLines: List[String],
+  override val docUrls: List[String]
+) extends KeyDef

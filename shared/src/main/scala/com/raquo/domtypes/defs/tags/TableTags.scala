@@ -13,7 +13,6 @@ object TableTags {
       isVoid = false,
       scalaJsElementType = "dom.html.Table",
       javascriptElementType = "HTMLTableElement",
-      implName = "htmlTag",
       commentLines = List(
         "Represents data with more than one dimension.",
       ),
@@ -30,7 +29,6 @@ object TableTags {
       isVoid = false,
       scalaJsElementType = "dom.html.TableCaption",
       javascriptElementType = "HTMLTableCaptionElement",
-      implName = "htmlTag",
       commentLines = List(
         "The title of a table.",
       ),
@@ -47,7 +45,6 @@ object TableTags {
       isVoid = false,
       scalaJsElementType = "dom.html.TableCol",
       javascriptElementType = "HTMLTableColElement",
-      implName = "htmlTag",
       commentLines = List(
         "A set of columns.",
       ),
@@ -64,7 +61,6 @@ object TableTags {
       isVoid = true,
       scalaJsElementType = "dom.html.TableCol",
       javascriptElementType = "HTMLTableColElement",
-      implName = "htmlTag",
       commentLines = List(
         "A single column.",
       ),
@@ -81,7 +77,6 @@ object TableTags {
       isVoid = false,
       scalaJsElementType = "dom.html.TableSection",
       javascriptElementType = "HTMLTableSectionElement",
-      implName = "htmlTag",
       commentLines = List(
         "The table body.",
       ),
@@ -98,7 +93,6 @@ object TableTags {
       isVoid = false,
       scalaJsElementType = "dom.html.TableSection",
       javascriptElementType = "HTMLTableSectionElement",
-      implName = "htmlTag",
       commentLines = List(
         "The table headers.",
       ),
@@ -115,7 +109,6 @@ object TableTags {
       isVoid = false,
       scalaJsElementType = "dom.html.TableSection",
       javascriptElementType = "HTMLTableSectionElement",
-      implName = "htmlTag",
       commentLines = List(
         "The table footer.",
       ),
@@ -132,7 +125,6 @@ object TableTags {
       isVoid = false,
       scalaJsElementType = "dom.html.TableRow",
       javascriptElementType = "HTMLTableRowElement",
-      implName = "htmlTag",
       commentLines = List(
         "A single row in a table.",
       ),
@@ -149,7 +141,6 @@ object TableTags {
       isVoid = false,
       scalaJsElementType = "dom.html.TableCell",
       javascriptElementType = "HTMLTableCellElement",
-      implName = "htmlTag",
       commentLines = List(
         "A single cell in a table.",
       ),
@@ -166,7 +157,6 @@ object TableTags {
       isVoid = false,
       scalaJsElementType = "dom.html.TableCell",
       javascriptElementType = "HTMLTableCellElement",
-      implName = "htmlTag",
       commentLines = List(
         "A header cell in a table.",
       ),

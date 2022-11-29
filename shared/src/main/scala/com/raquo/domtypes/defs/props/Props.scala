@@ -11,7 +11,6 @@ object Props {
       domName = "indeterminate",
       scalaValueType = "Boolean",
       domValueType = "Boolean",
-      implName = "prop",
       codec = "BooleanAsIs",
       commentLines = List(
         "In addition to the checked and unchecked states, there is a third state",
@@ -28,7 +27,6 @@ object Props {
       domName = "checked",
       scalaValueType = "Boolean",
       domValueType = "Boolean",
-      implName = "prop",
       codec = "BooleanAsIs",
       commentLines = List(
         "When the value of the type attribute is \"radio\" or \"checkbox\", this property",
@@ -48,7 +46,6 @@ object Props {
       domName = "selected",
       scalaValueType = "Boolean",
       domValueType = "Boolean",
-      implName = "prop",
       codec = "BooleanAsIs",
       commentLines = List(
         "Indicates whether an <option> element is _currently_ selected.",
@@ -67,7 +64,6 @@ object Props {
       domName = "value",
       scalaValueType = "String",
       domValueType = "String",
-      implName = "prop",
       codec = "StringAsIs",
       commentLines = List(
         "Current value of the element. This is different from `value` _attribute_,",
