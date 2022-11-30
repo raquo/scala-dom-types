@@ -3,15 +3,15 @@ package com.raquo.domtypes
 import com.raquo.domtypes.codegen.DefType.LazyVal
 import com.raquo.domtypes.codegen._
 import com.raquo.domtypes.common.{HtmlTagType, SvgTagType}
+import com.raquo.domtypes.defs.styles.StyleTraits
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
 class GeneratorSpec extends AnyFunSpec with Matchers {
 
-  private val targetDirPath = "js/src/test/scala/com/thirdparty/defs"
-
   private val generator = new CanonicalGenerator(
-    basePackageName = "com.thirdparty",
+    baseOutputDirectoryPath = "js/src/test/scala/com/thirdparty",
+    basePackagePath = "com.thirdparty",
     standardTraitCommentLines = List(
       "!!! #Note: This code is generated from the data in Scala DOM Types !!!"
     ),
@@ -36,8 +36,9 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     )
 
     generator.writeToFile(
-      s"${targetDirPath}/${traitName}.scala",
-      fileContent
+      packagePath = generator.tagsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
     )
   }
 
@@ -57,8 +58,9 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     )
 
     generator.writeToFile(
-      s"${targetDirPath}/${traitName}.scala",
-      fileContent
+      packagePath = generator.tagsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
     )
   }
 
@@ -78,8 +80,9 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     )
 
     generator.writeToFile(
-      s"${targetDirPath}/${traitName}.scala",
-      fileContent
+      packagePath = generator.attrsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
     )
   }
 
@@ -99,8 +102,9 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     )
 
     generator.writeToFile(
-      s"${targetDirPath}/${traitName}.scala",
-      fileContent
+      packagePath = generator.attrsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
     )
   }
 
@@ -120,8 +124,9 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     )
 
     generator.writeToFile(
-      s"${targetDirPath}/${traitName}.scala",
-      fileContent
+      packagePath = generator.attrsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
     )
   }
 
@@ -141,8 +146,9 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     )
 
     generator.writeToFile(
-      s"${targetDirPath}/${traitName}.scala",
-      fileContent
+      packagePath = generator.propsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
     )
   }
 
@@ -161,9 +167,56 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     )
 
     generator.writeToFile(
-      s"${targetDirPath}/${traitName}.scala",
-      fileContent
+      packagePath = generator.eventPropsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
     )
+  }
+
+  it("Generate Style Props") {
+    println("=== Style Props ===")
+
+    val traitName = "StyleProps"
+
+    val fileContent = generator.generateStylePropsTrait(
+      defSources = defGroups.stylePropDefGroups,
+      printDefGroupComments = true,
+      traitName = traitName,
+      keyKind = "StyleProp",
+      baseImplName = "styleProp",
+      defType = LazyVal
+    )
+
+    generator.writeToFile(
+      packagePath = generator.stylePropsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
+    )
+  }
+
+  it("Generate Style Keywords") {
+    println("=== Style Keywords ===")
+
+    StyleTraits.defs.foreach { styleTrait =>
+      val keywordDefGroups = List(
+        "Keywords" -> styleTrait.keywords  // #TODO this should be in the defs
+      )
+      val fileContent = generator.generateStyleKeywordsTrait(
+        defSources = keywordDefGroups,
+        printDefGroupComments = false,
+        traitName = styleTrait.scalaName,
+        extendsTraits = styleTrait.extendsTraits,
+        propKind = "StyleProp",
+        keywordKind = "StyleSetter",
+        defType = LazyVal
+      )
+
+      generator.writeToFile(
+        packagePath = generator.styleTraitsPackagePath(),
+        fileName = styleTrait.scalaName,
+        fileContent = fileContent
+      )
+    }
   }
 
 }

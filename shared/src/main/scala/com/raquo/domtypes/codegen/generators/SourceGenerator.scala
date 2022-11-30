@@ -11,13 +11,16 @@ abstract class SourceGenerator(format: CodeFormatting) extends SourceRepr {
 
   private var currentIndent = format.printIndentChars(0)
 
-  final def generate(): String = {
-    apply()
-    output.mkString
+  def clearOutput(): Unit = {
+    output.clear()
   }
 
-  /** Override this to implement the generator. */
-  protected def apply(): Unit
+  /** Also clears the output */
+  def getOutput(): String = {
+    val str = output.mkString
+    output.clear()
+    str
+  }
 
   protected def enter(prefix: String, suffix: String = "")(inside: => Unit): Unit = {
     line(prefix)
@@ -34,6 +37,10 @@ abstract class SourceGenerator(format: CodeFormatting) extends SourceRepr {
     output.append(currentIndent)
     output.append(str)
     output.append("\n")
+  }
+
+  protected def line(strs: String*): Unit = {
+    line(strs.mkString)
   }
 
   protected def line(): Unit = {

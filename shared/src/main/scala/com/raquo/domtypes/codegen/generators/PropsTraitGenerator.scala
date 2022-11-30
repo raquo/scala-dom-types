@@ -40,7 +40,7 @@ class PropsTraitGenerator(
 
   override protected def printDef(keyDef: PropDef): Unit = {
     blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
-    line(List[String](
+    line(
       defType(keyDef).codeStr,
       " ",
       keyDef.scalaName,
@@ -52,10 +52,10 @@ class PropsTraitGenerator(
       keyDef.domValueType,
       "] = ",
       impl(keyDef)
-    ).mkString)
+    )
   }
 
-  override protected def impl(keyDef: PropDef): String = {
+  protected def impl(keyDef: PropDef): String = {
     List[String](
       keyImplName(keyDef),
       "(",
@@ -70,7 +70,7 @@ class PropsTraitGenerator(
     line()
 
     distinctImplNames().foreach { implName =>
-      line(List[String](
+      line(
         InlineProtectedDef.codeStr,
         " ",
         implName,
@@ -85,7 +85,7 @@ class PropsTraitGenerator(
         " = ",
         baseImplName,
         s"(key, ${transformCodecName(codecByImplName(implName))})",
-      ).mkString)
+      )
       line()
     }
   }

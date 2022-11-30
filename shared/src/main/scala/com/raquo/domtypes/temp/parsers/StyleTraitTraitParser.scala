@@ -175,10 +175,13 @@ object StyleTraitTraitParser {
       throw new Exception(s"[$inputFileName] Failed to parse `$line`. Remaining unparsed impl params: ${rest}")
     }
 
+    val isOverride = List("auto", "normal", "none").contains(domName) && !inputFileName.toLowerCase.startsWith(domName)
+
     StyleKeywordDef(
       scalaOverride = scalaOverride,
       scalaName = defName,
       domName = domName,
+      isOverride = isOverride,
       commentLines = accumulatedCommentLines,
       docUrls = Nil
     )

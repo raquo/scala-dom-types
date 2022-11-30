@@ -5,6 +5,7 @@ import com.raquo.domtypes.defs.attrs._
 import com.raquo.domtypes.defs.eventProps._
 import com.raquo.domtypes.defs.props.Props
 import com.raquo.domtypes.defs.reflectedAttrs.ReflectedHtmlAttrs
+import com.raquo.domtypes.defs.styles._
 import com.raquo.domtypes.defs.tags._
 
 class CanonicalDefGroups {
@@ -52,5 +53,9 @@ class CanonicalDefGroups {
     "Document-only Events" -> DocumentOnlyEventProps.defs,
     "Window-only Events" -> WindowOnlyEventProps.defs,
     "Error Events" -> ErrorEventProps.defs,
+  )
+
+  val stylePropDefGroups: List[(String, List[StylePropDef])] = List(
+    "Style Props" -> StyleProps.defs
   )
 }

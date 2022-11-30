@@ -1,4 +1,4 @@
-package com.thirdparty.defs
+package com.thirdparty.defs.props
 
 import com.thirdparty.keys.Prop
 import com.thirdparty.codecs._
@@ -21,6 +21,7 @@ trait Props {
 
 
   // -- Props --
+
 
   /**
     * In addition to the checked and unchecked states, there is a third state
@@ -66,6 +67,7 @@ trait Props {
 
 
   // -- Reflected Attributes --
+
 
   /**
     * If the value of the type attribute is file, this attribute indicates the

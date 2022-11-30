@@ -50,7 +50,7 @@ object StylePropTraitParser {
                     // ignore
                   } else {
                     // println("// " + trimmedCommentLine)
-                    val cleanedCommentLine = commentLine.replace("--MDN", "").replaceAll("^\\s", "").replaceAll("\\s+$", "") // trimLeft(one) + trimRight
+                    val cleanedCommentLine = commentLine.replace("*/", "").replace("--MDN", "").replaceAll("^\\s", "").replaceAll("\\s+$", "") // trimLeft(one) + trimRight
                     accumulatedCommentLines = accumulatedCommentLines :+ cleanedCommentLine
                   }
                 case _ =>
@@ -138,14 +138,30 @@ object StylePropTraitParser {
         (typeParam, valueTraits)
       case ParseFailed(_, _) =>
         val _ = extract(rest.takePrefix(": "))
-        val typeParam = "String"
-        val valueTraits = extract(rest.takeUntil(" = ")).split(" with ").map(_.replaceAll("\\[[A-Za-z]+]", "").replaceAll("Style$", ""))
+        // val typeParam = "String"
+        val rawTypes = extract(rest.takeUntil(" = "))
+        val r = """\[[A-Za-z]+\]""".r
+        val typeParam = r.findFirstIn(rawTypes).getOrElse("String").replace("[", "").replace("]", "")
+        val valueTraits = rawTypes.split(" with ").map(_.replaceAll("\\[[A-Za-z]+]", "[_]").replaceAll("Style$", "").replaceAll("""Style\[_\]$""", "[_]"))
         (typeParam, valueTraits)
     }
 
     // val concreteTypeName = concreteTypeParamName(typeParam, inputFileName)
     val _ = extract(rest.takePrefix(" = "))
-    val implName = extract(rest.takeCallableName)
+    val implName = extract(rest.takeCallableName) match {
+      case "noneStyle" => "noneStyle[_]"
+      case "autoStyle" => "autoStyle[_]"
+      case "normalStyle" => "normalStyle[_]"
+      case other => other
+    }
+    // val implName = {
+    //       val rawName = extract(rest.takeCallableName)
+    //       if (valueTraits.exists(_.contains("[_]"))) {
+    //         rawName + "[_]"
+    //       } else {
+    //         rawName
+    //       }
+    //     }
     val implParams = extract(rest.takeParams)
     if (rest.nonEmpty) {
       throw new Exception(s"[$inputFileName] Failed to parse `$line`. Remaining unparsed after all is done: ${rest}")

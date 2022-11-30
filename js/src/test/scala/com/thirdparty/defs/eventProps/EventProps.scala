@@ -1,4 +1,4 @@
-package com.thirdparty.defs
+package com.thirdparty.defs.eventProps
 
 import com.thirdparty.keys.EventProp
 import org.scalajs.dom
@@ -11,6 +11,7 @@ trait EventProps {
 
 
   // -- Mouse Events --
+
 
   /**
     * The click event is raised when the user clicks on an element. The click
@@ -195,6 +196,7 @@ trait EventProps {
 
   // -- Pointer Events --
 
+
   /**
     * fired when a pointing device is moved into an element's hit test boundaries.
     * 
@@ -295,6 +297,7 @@ trait EventProps {
 
   // -- Form Events --
 
+
   /**
     * The change event is fired for input, select, and textarea elements
     * when a change to the element's value is committed by the user.
@@ -389,6 +392,7 @@ trait EventProps {
 
   // -- Keyboard Events --
 
+
   /**
     * The keydown event is raised when the user presses a keyboard key.
     * 
@@ -422,6 +426,7 @@ trait EventProps {
 
   // -- Clipboard Events --
 
+
   /**
     * Fires when the user copies the content of an element
     * 
@@ -450,6 +455,7 @@ trait EventProps {
 
 
   // -- Media Events --
+
 
   /**
     * Script to be run on abort
@@ -629,6 +635,7 @@ trait EventProps {
 
   // -- Misc Events --
 
+
   /**
     * The animationend event is event fires when a CSS animation reaches the end of its active period.
     * 
@@ -721,6 +728,7 @@ trait EventProps {
 
   // -- Document-only Events --
 
+
   /**
     * The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed,
     * without waiting for stylesheets, images, and subframes to finish loading. A very different event `load`
@@ -759,6 +767,7 @@ trait EventProps {
 
 
   // -- Window-only Events --
+
 
   /**
     * Script to be run after the document is printed
@@ -875,6 +884,7 @@ trait EventProps {
 
 
   // -- Error Events --
+
 
   /**
     * Script to be run when an error occurs when the file is being loaded

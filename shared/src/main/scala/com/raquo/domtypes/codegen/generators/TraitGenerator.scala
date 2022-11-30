@@ -1,9 +1,8 @@
 package com.raquo.domtypes.codegen.generators
 
 import com.raquo.domtypes.codegen.CodeFormatting
-import com.raquo.domtypes.common.KeyDef
 
-abstract class TraitGenerator[Def <: KeyDef](format: CodeFormatting) extends SourceGenerator(format) {
+abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerator(format) {
 
   protected val defs: List[Def]
 
@@ -20,11 +19,11 @@ abstract class TraitGenerator[Def <: KeyDef](format: CodeFormatting) extends Sou
   protected val outputImplDefs: Boolean
 
 
-  override protected def apply(): Unit = {
+  def printTrait(): this.type = {
     headerLines.foreach(line)
     line()
     blockCommentLines(traitCommentLines)
-    enter(s"trait $traitName {", "}") {
+    printTraitDef {
       printBeforeAllDefs()
       defs.foreach { keyDef =>
         printBeforeDefGroupComments(keyDef)
@@ -36,6 +35,11 @@ abstract class TraitGenerator[Def <: KeyDef](format: CodeFormatting) extends Sou
       }
       printAfterAllDefs()
     }
+    this
+  }
+
+  protected def printTraitDef(inside: => Unit): Unit = {
+    enter(s"trait $traitName {", "}")(inside)
   }
 
   protected def printBeforeAllDefs(): Unit = {
@@ -65,9 +69,7 @@ abstract class TraitGenerator[Def <: KeyDef](format: CodeFormatting) extends Sou
   protected def printAfterDefGroupComments(keyDef: Def): Unit = {
     if (defGroupComments(keyDef).nonEmpty) {
       line()
-      if (keyDef.commentLines.isEmpty && keyDef.docUrls.isEmpty) {
-        line()
-      }
+      line()
     }
   }
 
@@ -78,8 +80,6 @@ abstract class TraitGenerator[Def <: KeyDef](format: CodeFormatting) extends Sou
   }
 
   protected def printDef(keyDef: Def): Unit
-
-  protected def impl(keyDef: Def): String
 
   protected def printImplDefs(): Unit
 

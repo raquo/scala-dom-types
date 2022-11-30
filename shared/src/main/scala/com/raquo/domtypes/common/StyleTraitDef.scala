@@ -5,7 +5,7 @@ package com.raquo.domtypes.common
   * and units ("px", "ms", etc.) that can be used with a particular
   * CSS style property.
   *
-  * @param scalaName     - suggested core name for this trait
+  * @param scalaName     - suggested core name for this trait.
   * @param extendsTraits - [[scalaName]]-s of `StyleTraitDef`-s that this trait extends
   * @param extendsUnits  - list of types of units that form valid values for style
   *                        properties extending this trait. #TODO
