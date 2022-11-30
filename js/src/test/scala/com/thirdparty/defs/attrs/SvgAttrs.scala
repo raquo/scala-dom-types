@@ -1,4 +1,4 @@
-package com.thirdparty.defs
+package com.thirdparty.defs.attrs
 
 import com.thirdparty.keys.SvgAttr
 import com.thirdparty.codecs._

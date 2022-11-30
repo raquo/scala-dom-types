@@ -6,32 +6,69 @@ import com.raquo.domtypes.common._
 import java.io.{File, FileOutputStream, PrintStream}
 
 class CanonicalGenerator(
-  val basePackageName: String,
+  val baseOutputDirectoryPath: String,
+  val basePackagePath: String,
   val standardTraitCommentLines: List[String],
   val format: CodeFormatting
 ) {
 
-  val defsPackageName: String = s"${basePackageName}.defs"
+  def defsPackagePath: String = basePackagePath + ".defs"
 
-  val scalaJsDomImport: String = "import org.scalajs.dom"
+  def tagsPackagePath: String = defsPackagePath + ".tags"
 
-  val codecsImport: String = s"import ${basePackageName}.codecs._"
+  def attrsPackagePath: String = defsPackagePath + ".attrs"
 
-  val baseScalaJsHtmlElementType: String = "dom.html.Element"
+  def propsPackagePath: String = defsPackagePath + ".props"
 
-  val baseScalaJsSvgElementType: String = "dom.svg.Element"
+  def eventPropsPackagePath: String = defsPackagePath + ".eventProps"
 
-  val baseScalaJsElementType: String = "dom.Element"
+  def stylePropsPackagePath: String = defsPackagePath + ".styles"
 
-  val baseScalaJsEventType: String = "dom.Event"
+  def keysPackagePath: String = basePackagePath + ".keys"
 
-  def keyTypeImport(keyType: String) = s"import ${basePackageName}.keys.${keyType}"
+  def settersPackagePath: String = basePackagePath + ".setters"
 
+  def styleTraitsPackageName: String = "traits"
+
+  def styleTraitsPackagePath(renameTo: Option[String] = None): String = {
+    renameTo match {
+      case Some(newName) =>
+        if (styleTraitsPackageName.isEmpty) {
+          throw new Exception("Unable to rename empty styleTraitsPackageName package name")
+        }
+        stylePropsPackagePath + "." + "{" + styleTraitsPackageName + " => " + newName + "}"
+      case None =>
+        concatPackageNames(stylePropsPackagePath, styleTraitsPackageName)
+    }
+  }
+
+  def scalaJsDomImport: String = "import org.scalajs.dom"
+
+  def codecsImport: String = s"import ${basePackagePath}.codecs._"
+
+  def baseScalaJsHtmlElementType: String = "dom.html.Element"
+
+  def baseScalaJsSvgElementType: String = "dom.svg.Element"
+
+  def baseScalaJsEventType: String = "dom.Event"
+
+  def keyTypeImport(keyType: String) = s"import ${keysPackagePath}.${keyType}"
+
+  def setterTypeImport(setterType: String) = s"import ${settersPackagePath}.${setterType}"
+
+  def directoryPath(baseDirectoryPath: String, packagePath: String): String = {
+    baseDirectoryPath + "/" + packagePath.replace(".", "/")
+  }
+
+  def concatPackageNames(names: String*): String = {
+    names.filter(_.nonEmpty).mkString(".")
+  }
 
 
   // --
 
-  def writeToFile(filePath: String, fileContent: String): Unit = {
+  def writeToFile(packagePath: String, fileName: String, fileContent: String): Unit = {
+    val filePath = baseOutputDirectoryPath + "/" + packagePath.replace(basePackagePath + ".", "").replace(".", "/") + "/" + fileName.replaceAll(".scala$", "") + ".scala"
     val outputFile = new File(filePath)
     outputFile.getParentFile.mkdirs()
 
@@ -67,7 +104,7 @@ class CanonicalGenerator(
       defs = defs,
       defGroupComments = defGroupComments,
       headerLines = List(
-        s"package $defsPackageName",
+        s"package $tagsPackagePath",
         "",
         keyTypeImport(keyKind),
         scalaJsDomImport
@@ -80,7 +117,7 @@ class CanonicalGenerator(
       baseImplDef = baseImplDef,
       outputImplDefs = true,
       format = format
-    ).generate()
+    ).printTrait().getOutput()
   }
 
   def generateAttrsTrait(
@@ -114,7 +151,7 @@ class CanonicalGenerator(
       defs = defs,
       defGroupComments = defGroupComments,
       headerLines = List(
-        s"package $defsPackageName",
+        s"package $attrsPackagePath",
         "",
         keyTypeImport(keyKind),
         codecsImport
@@ -130,7 +167,7 @@ class CanonicalGenerator(
       transformNamespace = SourceRepr(_),
       outputImplDefs = true,
       format = format
-    ).generate()
+    ).printTrait().getOutput()
   }
 
   def generatePropsTrait(
@@ -152,7 +189,7 @@ class CanonicalGenerator(
       defs = defs,
       defGroupComments = defGroupComments,
       headerLines = List(
-        s"package $defsPackageName",
+        s"package $propsPackagePath",
         "",
         keyTypeImport(keyKind),
         codecsImport
@@ -167,7 +204,7 @@ class CanonicalGenerator(
       transformCodecName = _ + "Codec",
       outputImplDefs = true,
       format = format
-    ).generate()
+    ).printTrait().getOutput()
   }
 
   def generateEventPropsTrait(
@@ -188,7 +225,7 @@ class CanonicalGenerator(
       defs = defs,
       defGroupComments = defGroupComments,
       headerLines = List(
-        s"package $defsPackageName",
+        s"package $eventPropsPackagePath",
         "",
         keyTypeImport(keyKind),
         scalaJsDomImport
@@ -201,7 +238,92 @@ class CanonicalGenerator(
       baseImplDef = baseImplDef,
       outputImplDefs = true,
       format = format
-    ).generate()
+    ).printTrait().getOutput()
+  }
+
+  def generateStylePropsTrait(
+    defSources: List[(String, List[StylePropDef])],
+    printDefGroupComments: Boolean,
+    traitName: String,
+    keyKind: String,
+    baseImplName: String,
+    defType: DefType
+  ): String = {
+    val (defs, defGroupComments) = defsAndGroupComments(defSources, printDefGroupComments)
+
+    val baseImplDef = List(
+      s"def ${baseImplName}[V](key: String): ${keyKind}[V] = ${keyKind}(key)"
+    )
+
+    val styleTraitsPackageAlias = "s"
+
+    val generator = new StylePropsTraitGenerator(
+      defs = defs,
+      defGroupComments = defGroupComments,
+      headerLines = List(
+        s"package $stylePropsPackagePath",
+        "",
+        keyTypeImport(keyKind),
+        "import " + styleTraitsPackagePath(Some(styleTraitsPackageAlias))
+      ),
+      traitCommentLines = standardTraitCommentLines,
+      traitName = traitName,
+      defType = _ => defType,
+      keyKind = keyKind,
+      keyImplName = _.implName,
+      baseImplName = baseImplName,
+      baseImplDef = baseImplDef,
+      transformTraitName = styleTraitsPackageAlias + "." + _,
+      outputImplDefs = true,
+      format = format
+    )
+
+    generator.printTrait().getOutput()
+  }
+
+  def generateStyleKeywordsTrait(
+    defSources: List[(String, List[StyleKeywordDef])],
+    printDefGroupComments: Boolean,
+    traitName: String,
+    extendsTraits: List[String],
+    propKind: String,
+    keywordKind: String,
+    defType: DefType
+  ): String = {
+    val (defs, defGroupComments) = defsAndGroupComments(defSources, printDefGroupComments)
+
+    def keyImpl(k: StyleKeywordDef): String = {
+      if (k.isOverride) {
+        s"super.${k.scalaName}"
+      } else {
+        val keywordStr = SourceRepr(k.domName)
+        s"""this := $keywordStr"""
+      }
+    }
+
+    val generator = new StyleKeywordsTraitGenerator(
+      defs = defs,
+      defGroupComments = defGroupComments,
+      headerLines = List(
+        s"package ${styleTraitsPackagePath()}",
+        "",
+        keyTypeImport(propKind),
+        setterTypeImport(keywordKind),
+      ),
+      traitCommentLines = standardTraitCommentLines,
+      traitName = traitName,
+      extendsTraits = extendsTraits,
+      keyImplName = _ => ???, // unused, the implementation is not function-based for keywords
+      keywordImpl = keyImpl,
+      keywordKind = keywordKind,
+      propKind = propKind,
+      defType = _ => defType,
+      // transformTraitName = styleTraitsPackageAlias + "." + _,
+      format = format
+    )
+
+    generator.printTrait().getOutput()
+
   }
 
   // --

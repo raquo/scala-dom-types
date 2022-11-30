@@ -1,4 +1,4 @@
-package com.thirdparty.defs
+package com.thirdparty.defs.tags
 
 import com.thirdparty.keys.HtmlTag
 import org.scalajs.dom
@@ -11,6 +11,7 @@ trait HtmlTags {
 
 
   // -- Document Tags --
+
 
   /**
     * Represents the root of an HTML or XHTML document. All other elements must
@@ -79,6 +80,7 @@ trait HtmlTags {
 
 
   // -- Embed Tags --
+
 
   /**
     * Represents an image.
@@ -196,6 +198,7 @@ trait HtmlTags {
 
   // -- Section Tags --
 
+
   /**
     * Represents the content of an HTML document. There is only one body
     *   element in a document.
@@ -279,6 +282,7 @@ trait HtmlTags {
 
 
   // -- Text Tags --
+
 
   /**
     * Represents a hyperlink, linking to another resource.
@@ -427,6 +431,7 @@ trait HtmlTags {
 
   // -- Form Tags --
 
+
   /**
     * Represents a form, consisting of controls, that can be submitted to a
     * server for processing.
@@ -528,6 +533,7 @@ trait HtmlTags {
 
 
   // -- Grouping Tags --
+
 
   /**
     * Defines a portion that should be displayed as a paragraph.
@@ -646,6 +652,7 @@ trait HtmlTags {
 
   // -- Table Tags --
 
+
   /**
     * Represents data with more than one dimension.
     * 
@@ -737,6 +744,7 @@ trait HtmlTags {
 
 
   // -- Misc Tags --
+
 
   /**
     * Defines the title of the document, shown in a browser's title bar or on the

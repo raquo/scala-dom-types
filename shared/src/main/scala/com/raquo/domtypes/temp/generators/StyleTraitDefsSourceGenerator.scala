@@ -42,6 +42,7 @@ class StyleTraitDefsSourceGenerator(
       import styleDef._
       classParamLine("scalaName", scalaName)
       classParamLine("domName", domName)
+      classParamLine("isOverride", isOverride)
       classParamLine("commentLines", commentLines)
       classParamLine("docUrls", docUrls)
     }

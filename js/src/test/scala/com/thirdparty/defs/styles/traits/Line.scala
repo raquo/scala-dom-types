@@ -1,0 +1,55 @@
+package com.thirdparty.defs.styles.traits
+
+import com.thirdparty.keys.StyleProp
+import com.thirdparty.setters.StyleSetter
+
+/** !!! #Note: This code is generated from the data in Scala DOM Types !!! */
+trait Line { this: StyleProp[_] => 
+
+  /**
+    * Displays a series of rounded dots. The spacing of the dots are not
+    * defined by the specification and are implementation-specific. The radius
+    * of the dots is half the calculated border-right-width.
+    */
+  lazy val dotted: StyleSetter[_] = this := "dotted"
+
+  /**
+    * Displays a series of short square-ended dashes or line segments. The exact
+    * size and Length of the segments are not defined by the specification and
+    * are implementation-specific.
+    */
+  lazy val dashed: StyleSetter[_] = this := "dashed"
+
+  /** Displays a single, straight, solid line. */
+  lazy val solid: StyleSetter[_] = this := "solid"
+
+  /**
+    * Displays two straight lines that add up to the pixel amount defined as
+    * border-width or border-right-width.
+    */
+  lazy val double: StyleSetter[_] = this := "double"
+
+  /** Displays a border leading to a carved effect. It is the opposite of ridge. */
+  lazy val groove: StyleSetter[_] = this := "groove"
+
+  /**
+    * Displays a border with a 3D effect, like if it is coming out of the page.
+    * It is the opposite of groove.
+    */
+  lazy val ridge: StyleSetter[_] = this := "ridge"
+
+  /**
+    * Displays a border that makes the box appear embedded. It is the opposite
+    * of outset. When applied to a table cell with border-collapse set to
+    * collapsed, this value behaves like groove.
+    */
+  lazy val inset: StyleSetter[_] = this := "inset"
+
+  /**
+    * Displays a border that makes the box appear in 3D, embossed. It is the
+    * opposite of inset. When applied to a table cell with border-collapse set
+    * to collapsed, this value behaves like ridge.
+    */
+  lazy val outset: StyleSetter[_] = this := "outset"
+
+}

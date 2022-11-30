@@ -455,7 +455,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse
     */
-  lazy val borderCollapse: BorderCollapseStyle = borderCollapse("border-collapse")
+  lazy val borderCollapse: BorderCollapseStyle = borderCollapseStyle("border-collapse")
 
   /**
     * The border-spacing CSS property specifies the distance between the borders
@@ -1042,7 +1042,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/max-height
     */
-  lazy val maxHeight: MaxLengthStyle =  maxLengthStyle("max-height")
+  lazy val maxHeight: MaxLengthStyle = maxLengthStyle("max-height")
 
   /**
     * The max-width CSS property is used to set the maximum width of a given
@@ -1289,7 +1289,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin
     */
-  lazy val perspectiveOrigin: SP[String] = noneStyle("perspective-origin")
+  lazy val perspectiveOrigin: SP[String] = stringStyle("perspective-origin")
 
 
 

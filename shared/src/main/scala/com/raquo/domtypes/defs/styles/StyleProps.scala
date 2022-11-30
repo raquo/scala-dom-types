@@ -528,7 +528,7 @@ object StyleProps {
       valueTraits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
-        "The border-top-color CSS property sets the color of the top border of an element.   */",
+        "The border-top-color CSS property sets the color of the top border of an element.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-color",
@@ -542,7 +542,7 @@ object StyleProps {
       valueTraits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
-        "The border-right-color CSS property sets the color of the right border of an element.   */",
+        "The border-right-color CSS property sets the color of the right border of an element.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-color",
@@ -556,7 +556,7 @@ object StyleProps {
       valueTraits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
-        "The border-bottom-color CSS property sets the color of the bottom border of an element.   */",
+        "The border-bottom-color CSS property sets the color of the bottom border of an element.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-color",
@@ -570,7 +570,7 @@ object StyleProps {
       valueTraits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
-        "The border-left-color CSS property sets the color of the left border of an element.   */",
+        "The border-left-color CSS property sets the color of the left border of an element.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-color",
@@ -614,7 +614,7 @@ object StyleProps {
       valueTraits = List("Line"),
       implName = "lineStyle",
       commentLines = List(
-        "The border-top-style CSS property sets the line style of the top border of a box.   */",
+        "The border-top-style CSS property sets the line style of the top border of a box.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-style",
@@ -628,7 +628,7 @@ object StyleProps {
       valueTraits = List("Line"),
       implName = "lineStyle",
       commentLines = List(
-        "The border-right-style CSS property sets the line style of the right border of a box.   */",
+        "The border-right-style CSS property sets the line style of the right border of a box.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-style",
@@ -642,7 +642,7 @@ object StyleProps {
       valueTraits = List("Line"),
       implName = "lineStyle",
       commentLines = List(
-        "The border-bottom-style CSS property sets the line style of the bottom border of a box.   */",
+        "The border-bottom-style CSS property sets the line style of the bottom border of a box.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-style",
@@ -656,7 +656,7 @@ object StyleProps {
       valueTraits = List("Line"),
       implName = "lineStyle",
       commentLines = List(
-        "The border-left-style CSS property sets the line style of the left border of a box.   */",
+        "The border-left-style CSS property sets the line style of the left border of a box.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-style",
@@ -685,7 +685,7 @@ object StyleProps {
       valueTraits = List("Length"),
       implName = "lengthStyle",
       commentLines = List(
-        "The border-top-width CSS property sets the line width of the top border of a box.   */",
+        "The border-top-width CSS property sets the line width of the top border of a box.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width",
@@ -699,7 +699,7 @@ object StyleProps {
       valueTraits = List("Length"),
       implName = "lengthStyle",
       commentLines = List(
-        "The border-right-width CSS property sets the line width of the right border of a box.   */",
+        "The border-right-width CSS property sets the line width of the right border of a box.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width",
@@ -713,7 +713,7 @@ object StyleProps {
       valueTraits = List("Length"),
       implName = "lengthStyle",
       commentLines = List(
-        "The border-bottom-width CSS property sets the line width of the bottom border of a box.   */",
+        "The border-bottom-width CSS property sets the line width of the bottom border of a box.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width",
@@ -727,7 +727,7 @@ object StyleProps {
       valueTraits = List("Length"),
       implName = "lengthStyle",
       commentLines = List(
-        "The border-left-width CSS property sets the line width of the left border of a box.   */",
+        "The border-left-width CSS property sets the line width of the left border of a box.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width",
@@ -822,7 +822,7 @@ object StyleProps {
       domName = "border-collapse",
       valueType = "String",
       valueTraits = List("BorderCollapse"),
-      implName = "borderCollapse",
+      implName = "borderCollapseStyle",
       commentLines = List(
         "The border-collapse CSS property selects a table's border model. This has",
         "a big influence on the look and style of the table cells.",
@@ -853,7 +853,7 @@ object StyleProps {
       scalaName = "bottom",
       domName = "bottom",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The bottom CSS property participates in specifying the position of",
@@ -993,9 +993,9 @@ object StyleProps {
     StylePropDef(
       scalaName = "columnCount",
       domName = "column-count",
-      valueType = "String",
-      valueTraits = List("Auto"),
-      implName = "autoStyle",
+      valueType = "Int",
+      valueTraits = List("Auto[_]"),
+      implName = "autoStyle[_]",
       commentLines = List(
         "The column-count CSS property describes the number of columns of the element.",
       ),
@@ -1056,7 +1056,7 @@ object StyleProps {
       scalaName = "columnWidth",
       domName = "column-width",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The column-width CSS property suggests an optimal column width. This is not",
@@ -1138,7 +1138,7 @@ object StyleProps {
       scalaName = "contentCss",
       domName = "content",
       valueType = "String",
-      valueTraits = List("Url", "None"),
+      valueTraits = List("Url", "None[_]"),
       implName = "urlNoneStyle",
       commentLines = List(
         "The `content` CSS property is used with the ::before and ::after pseudo-elements",
@@ -1286,7 +1286,7 @@ object StyleProps {
       scalaName = "flexBasis",
       domName = "flex-basis",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The CSS flex-basis property specifies the flex basis which is the initial",
@@ -1464,9 +1464,9 @@ object StyleProps {
     StylePropDef(
       scalaName = "fontSizeAdjust",
       domName = "font-size-adjust",
-      valueType = "String",
-      valueTraits = List("None"),
-      implName = "noneStyle",
+      valueType = "Double",
+      valueTraits = List("None[_]"),
+      implName = "noneStyle[_]",
       commentLines = List(
         "The font-size-adjust CSS property sets the size of lower-case letters",
         "relative to the current font size (which defines the size of upper-case",
@@ -1528,7 +1528,7 @@ object StyleProps {
       scalaName = "height",
       domName = "height",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The height CSS property specifies the height of the content area of an",
@@ -1569,7 +1569,7 @@ object StyleProps {
       scalaName = "left",
       domName = "left",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The left CSS property specifies part of the position of positioned elements.",
@@ -1587,8 +1587,8 @@ object StyleProps {
       scalaName = "letterSpacing",
       domName = "letter-spacing",
       valueType = "String",
-      valueTraits = List("Normal"),
-      implName = "normalStyle",
+      valueTraits = List("Normal[_]"),
+      implName = "normalStyle[_]",
       commentLines = List(
         "The letter-spacing CSS property specifies spacing behavior between text",
         "characters.",
@@ -1602,7 +1602,7 @@ object StyleProps {
       scalaName = "lineHeight",
       domName = "line-height",
       valueType = "String",
-      valueTraits = List("Length", "Normal"),
+      valueTraits = List("Length", "Normal[_]"),
       implName = "lengthNormalStyle",
       commentLines = List(
         "On block level elements, the line-height CSS property specifies the minimal",
@@ -1638,7 +1638,7 @@ object StyleProps {
       scalaName = "listStyleImage",
       domName = "list-style-image",
       valueType = "String",
-      valueTraits = List("Url", "None"),
+      valueTraits = List("Url", "None[_]"),
       implName = "urlNoneStyle",
       commentLines = List(
         "The list-style-image CSS property sets the image that will be used as the",
@@ -1683,7 +1683,7 @@ object StyleProps {
       scalaName = "margin",
       domName = "margin",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The margin CSS property sets the margin for all four sides. It is a",
@@ -1701,7 +1701,7 @@ object StyleProps {
       scalaName = "marginTop",
       domName = "margin-top",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The margin-top CSS property of an element sets the margin space required on",
@@ -1716,7 +1716,7 @@ object StyleProps {
       scalaName = "marginRight",
       domName = "margin-right",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The margin-right CSS property of an element sets the margin space required on",
@@ -1731,7 +1731,7 @@ object StyleProps {
       scalaName = "marginBottom",
       domName = "margin-bottom",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The margin-bottom CSS property of an element sets the margin space required on",
@@ -1746,7 +1746,7 @@ object StyleProps {
       scalaName = "marginLeft",
       domName = "margin-left",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The margin-left CSS property of an element sets the margin space required on",
@@ -1761,7 +1761,7 @@ object StyleProps {
       scalaName = "mask",
       domName = "mask",
       valueType = "String",
-      valueTraits = List("Url", "None"),
+      valueTraits = List("Url", "None[_]"),
       implName = "urlNoneStyle",
       commentLines = List(
         "If the value is a URI value, the element pointed to by the URI is used as",
@@ -1777,7 +1777,7 @@ object StyleProps {
       domName = "max-height",
       valueType = "String",
       valueTraits = List("MaxLength"),
-      implName = " maxLengthStyle",
+      implName = "maxLengthStyle",
       commentLines = List(
         "The max-height CSS property is used to set the maximum height of a given",
         "element. It prevents the used value of the height property from becoming",
@@ -2158,8 +2158,8 @@ object StyleProps {
       scalaName = "perspective",
       domName = "perspective",
       valueType = "String",
-      valueTraits = List("None"),
-      implName = "noneStyle",
+      valueTraits = List("None[_]"),
+      implName = "noneStyle[_]",
       commentLines = List(
         "The perspective CSS property determines the distance between the z=0 plane",
         "and the user in order to give to the 3D-positioned element some perspective.",
@@ -2177,7 +2177,7 @@ object StyleProps {
       domName = "perspective-origin",
       valueType = "String",
       valueTraits = Nil,
-      implName = "noneStyle",
+      implName = "stringStyle",
       commentLines = List(
         "The perspective-origin CSS property determines the position the viewer is",
         "looking at. It is used as the vanishing point by the perspective property.",
@@ -2258,7 +2258,7 @@ object StyleProps {
       scalaName = "right",
       domName = "right",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The right CSS property specifies part of the position of positioned elements.",
@@ -2379,8 +2379,8 @@ object StyleProps {
       scalaName = "textShadow",
       domName = "text-shadow",
       valueType = "String",
-      valueTraits = List("None"),
-      implName = "noneStyle",
+      valueTraits = List("None[_]"),
+      implName = "noneStyle[_]",
       commentLines = List(
         "The text-shadow CSS property adds shadows to text. It accepts a comma-separated",
         "list of shadows to be applied to the text and text-decorations of the element.",
@@ -2434,7 +2434,7 @@ object StyleProps {
       scalaName = "top",
       domName = "top",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The top CSS property specifies part of the position of positioned elements.",
@@ -2666,7 +2666,7 @@ object StyleProps {
       scalaName = "width",
       domName = "width",
       valueType = "String",
-      valueTraits = List("Length", "Auto"),
+      valueTraits = List("Length", "Auto[_]"),
       implName = "lengthAutoStyle",
       commentLines = List(
         "The width CSS property specifies the width of the content area of an element.",
@@ -2735,8 +2735,8 @@ object StyleProps {
       scalaName = "wordSpacing",
       domName = "word-spacing",
       valueType = "String",
-      valueTraits = List("Normal"),
-      implName = "normalStyle",
+      valueTraits = List("Normal[_]"),
+      implName = "normalStyle[_]",
       commentLines = List(
         "The word-spacing CSS property specifies spacing behavior between tags and",
         "words.",
@@ -2749,9 +2749,9 @@ object StyleProps {
     StylePropDef(
       scalaName = "zIndex",
       domName = "z-index",
-      valueType = "String",
-      valueTraits = List("Auto"),
-      implName = "autoStyle",
+      valueType = "Int",
+      valueTraits = List("Auto[_]"),
+      implName = "autoStyle[_]",
       commentLines = List(
         "The z-index CSS property specifies the z-order of an element and its",
         "descendants. When elements overlap, z-order determines which one covers the",

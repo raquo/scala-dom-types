@@ -1,4 +1,4 @@
-package com.thirdparty.defs
+package com.thirdparty.defs.tags
 
 import com.thirdparty.keys.SvgTag
 import org.scalajs.dom

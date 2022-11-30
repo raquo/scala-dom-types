@@ -1,6 +1,6 @@
 package com.raquo.domtypes.codegen
 
-sealed abstract class DefType(val codeStr: String) {
+abstract class DefType(val codeStr: String) {
   override def toString: String = codeStr
 }
 
@@ -15,6 +15,8 @@ object DefType {
   object Def extends DefType("def")
 
   object InlineDef extends DefType("@inline def")
+
+  object ProtectedDef extends DefType("protected def")
 
   object InlineProtectedDef extends DefType("@inline protected def")
 

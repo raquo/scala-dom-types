@@ -35,7 +35,7 @@ class AttrsTraitGenerator(
 
   override protected def printDef(keyDef: AttrDef): Unit = {
     blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
-    line(List[String](
+    line(
       defType(keyDef).codeStr,
       " ",
       keyDef.scalaName,
@@ -45,10 +45,10 @@ class AttrsTraitGenerator(
       keyDef.scalaValueType,
       "] = ",
       impl(keyDef)
-    ).mkString)
+    )
   }
 
-  override protected def impl(keyDef: AttrDef): String = {
+  protected def impl(keyDef: AttrDef): String = {
     List[String](
       keyImplName(keyDef),
       "(",
@@ -71,7 +71,7 @@ class AttrsTraitGenerator(
         } else {
           ""
         }
-        line(List[String](
+        line(
           InlineProtectedDef.codeStr,
           " ",
           implName,
@@ -93,7 +93,7 @@ class AttrsTraitGenerator(
           transformCodecName(codecByImplName(implName)),
           maybeNamespaceParam,
           ")"
-        ).mkString)
+        )
         line()
       }
     }

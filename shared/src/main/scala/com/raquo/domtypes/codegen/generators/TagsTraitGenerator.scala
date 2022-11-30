@@ -19,7 +19,7 @@ class TagsTraitGenerator(
 
   override protected def printDef(keyDef: TagDef): Unit = {
     blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
-    line(List[String](
+    line(
       defType(keyDef).codeStr,
       " ",
       keyDef.scalaName,
@@ -29,10 +29,10 @@ class TagsTraitGenerator(
       keyDef.scalaJsElementType,
       "] = ",
       impl(keyDef)
-    ).mkString)
+    )
   }
 
-  override protected def impl(keyDef: TagDef): String = {
+  def impl(keyDef: TagDef): String = {
     List[String](
       keyImplName(keyDef),
       "(",

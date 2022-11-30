@@ -101,7 +101,7 @@ trait ExampleStylePropBuilder extends StylePropBuilder[
   override protected def backfaceVisibilityStyle(key: String): BackfaceVisibilityStyle =
     new ExampleStyleProp[String](key) with keywords.BackfaceVisibilityStyle[ExampleStyleSetter[String]]
 
-  override protected def borderCollapse(key: String): BorderCollapseStyle =
+  override protected def borderCollapseStyle(key: String): BorderCollapseStyle =
     new ExampleStyleProp[String](key) with keywords.BorderCollapseStyle[ExampleStyleSetter[String]]
 
   override protected def boxSizingStyle(key: String): BoxSizingStyle =

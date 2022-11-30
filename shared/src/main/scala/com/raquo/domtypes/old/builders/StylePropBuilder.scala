@@ -172,7 +172,7 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_], LengthNum] {
 
   protected def backfaceVisibilityStyle(key: String): BackfaceVisibilityStyle
 
-  protected def borderCollapse(key: String): BorderCollapseStyle
+  protected def borderCollapseStyle(key: String): BorderCollapseStyle
 
   protected def boxSizingStyle(key: String): BoxSizingStyle
 

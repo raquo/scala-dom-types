@@ -19,7 +19,7 @@ class EventPropsTraitGenerator(
 
   override protected def printDef(keyDef: EventPropDef): Unit = {
     blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
-    line(List[String](
+    line(
       defType(keyDef).codeStr,
       " ",
       keyDef.scalaName,
@@ -29,10 +29,10 @@ class EventPropsTraitGenerator(
       keyDef.scalaJsEventType,
       "] = ",
       impl(keyDef)
-    ).mkString)
+    )
   }
 
-  override protected def impl(keyDef: EventPropDef): String = {
+  protected def impl(keyDef: EventPropDef): String = {
     List[String](
       keyImplName(keyDef),
       "(",
