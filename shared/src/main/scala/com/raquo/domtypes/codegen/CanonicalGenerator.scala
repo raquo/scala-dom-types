@@ -1,5 +1,6 @@
 package com.raquo.domtypes.codegen
 
+import com.raquo.domtypes.codegen.DefType.LazyVal
 import com.raquo.domtypes.codegen.generators._
 import com.raquo.domtypes.common._
 
@@ -365,12 +366,13 @@ class CanonicalGenerator(
     keywordKind: String,
     derivedKeyKind: String,
     defType: DefType,
-    outputUnitTypes: Boolean
+    outputUnitTypes: Boolean,
+    allowSuperCallInOverride: Boolean
   ): String = {
     val (defs, defGroupComments) = defsAndGroupComments(defSources, printDefGroupComments)
 
     def keyImpl(k: StyleKeywordDef): String = {
-      if (k.isOverride) {
+      if (k.isOverride && allowSuperCallInOverride) {
         s"super.${k.scalaName}"
       } else {
         val keywordStr = SourceRepr(k.domName)

@@ -15,7 +15,7 @@ trait PointerEvents extends None with Auto { this: StyleProp[_] =>
     * specified. In SVG content, this value and the value visiblePainted have
     * the same effect.
     */
-  override lazy val auto: StyleSetter[_] = super.auto
+  override lazy val auto: StyleSetter[_] = this := "auto"
 
   /**
     * The element is never the target of mouse events; however, mouse events
@@ -24,7 +24,7 @@ trait PointerEvents extends None with Auto { this: StyleProp[_] =>
     * event listeners on this parent element as appropriate on their way to/from
     * the descendant during the event capture/bubble phases.
     */
-  override lazy val none: StyleSetter[_] = super.none
+  override lazy val none: StyleSetter[_] = this := "none"
 
   /**
     * SVG only. The element can only be the target of a mouse event when the

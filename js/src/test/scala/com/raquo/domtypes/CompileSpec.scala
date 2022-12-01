@@ -1,6 +1,11 @@
 package com.raquo.domtypes
 
-import com.thirdparty.defs._
+import com.thirdparty.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
+import com.thirdparty.defs.eventProps.EventProps
+import com.thirdparty.defs.props.Props
+import com.thirdparty.defs.styles.StyleProps
+import com.thirdparty.defs.styles.units.{Calc, Length, Time, Url}
+import com.thirdparty.defs.tags.{HtmlTags, SvgTags}
 import com.thirdparty.keys.{DerivedStyleProp, DerivedStylePropBuilder, StyleProp}
 import com.thirdparty.setters.StyleSetter
 import org.scalatest.funspec.AnyFunSpec
@@ -21,26 +26,26 @@ class CompileSpec extends AnyFunSpec with Matchers {
   //   names don't have conflicts in them.
 
   object html
-    extends tags.HtmlTags
-    with attrs.HtmlAttrs
-    with props.Props
-    with eventProps.EventProps
-    with styles.StyleProps
+    extends HtmlTags
+    with HtmlAttrs
+    with Props
+    with EventProps
+    with StyleProps
 
   object svg
-    extends tags.SvgTags
-    with attrs.SvgAttrs
+    extends SvgTags
+    with SvgAttrs
 
   object aria
-    extends attrs.AriaAttrs
+    extends AriaAttrs
 
   type StyleEncoder[A] = A => String
 
   object style
-    extends styles.units.Url[StyleEncoder]
-    with styles.units.Length[StyleEncoder, Int]
-    with styles.units.Time[StyleEncoder]
-    with styles.units.Calc[StyleEncoder]
+    extends Url[StyleEncoder]
+    with Length[StyleEncoder, Int]
+    with Time[StyleEncoder]
+    with Calc[StyleEncoder]
     with DerivedStylePropBuilder[StyleEncoder] {
 
     override protected def derivedStyle[A](encode: A => String): StyleEncoder[A] = encode
@@ -60,16 +65,16 @@ class CompileSpec extends AnyFunSpec with Matchers {
     // CSS keywords
 
     html.display.none: StyleSetter[_]
-    html.display.none.value: String
+    val _: String = html.display.none.value
     assert(html.display.none.value == "none")
 
     // Derived CSS props (units)
 
-    html.padding: StyleProp[String]
-    html.padding.px: DerivedStyleProp[Int]
+    val _: StyleProp[String] = html.padding
+    val _: DerivedStyleProp[Int] = html.padding.px
     assert((html.padding.px := 12).value == "12px")
 
-    html.maxHeight
+    html.maxHeight.calc := "12px + 20em" // Length inherits Calc
 
     html.background.url: DerivedStyleProp[String]
     (html.background.url := "https://laminar.dev").value == """url("https://laminar.dev")"""

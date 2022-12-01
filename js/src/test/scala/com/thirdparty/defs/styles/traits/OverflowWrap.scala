@@ -11,7 +11,7 @@ import com.thirdparty.setters.StyleSetter
 trait OverflowWrap extends Normal { this: StyleProp[_] => 
 
   /** Indicates that lines may only break at normal word break points. */
-  override lazy val normal: StyleSetter[_] = super.normal
+  override lazy val normal: StyleSetter[_] = this := "normal"
 
   /**
     * Indicates that normally unbreakable words may be broken at arbitrary

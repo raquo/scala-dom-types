@@ -1,7 +1,6 @@
 package com.raquo.domtypes.old.jsdom
 
 import com.raquo.domtypes.old
-import com.raquo.domtypes.jsdom.defs.events._
 import com.raquo.domtypes.old.jsdom.defs.events.{TypedTargetEvent, TypedTargetFocusEvent, TypedTargetMouseEvent, TypedTargetPointerEvent}
 import org.scalajs.dom
 
