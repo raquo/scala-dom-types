@@ -73,7 +73,7 @@ class TranspilerSpec extends AnyFunSpec with Matchers {
 
     val targetDir = new File(baseTargetDirPath + "/styles")
 
-    val inputFile = new File(sourceDir + "/Styles.scala")
+    val inputFile = new File(sourceDir.getPath + "/Styles.scala")
 
     val (styleDefs, globalCommentLines) = StylePropTraitParser(
       inputFileName = inputFile.getName,
