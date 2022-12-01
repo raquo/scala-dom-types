@@ -88,7 +88,7 @@ trait Display extends None { this: StyleProp[_] =>
     * To render an element box's dimensions, yet have its contents be invisible,
     * see the visibility property.
     */
-  override lazy val none: StyleSetter[_] = super.none
+  override lazy val none: StyleSetter[_] = this := "none"
 
   /**
     * These elements don't produce a specific box by themselves.

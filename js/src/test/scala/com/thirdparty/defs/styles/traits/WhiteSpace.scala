@@ -15,7 +15,7 @@ trait WhiteSpace extends Normal { this: StyleProp[_] =>
     * are handled as other whitespace. Breaks lines as necessary to fill line
     * boxes.
     */
-  override lazy val normal: StyleSetter[_] = super.normal
+  override lazy val normal: StyleSetter[_] = this := "normal"
 
   /**
     * Collapses whitespace as for normal, but suppresses line breaks (text

@@ -11,7 +11,7 @@ import com.thirdparty.setters.StyleSetter
 trait FontWeight extends Normal { this: StyleProp[_] => 
 
   /** Normal font weight. Same as 400. */
-  override lazy val normal: StyleSetter[_] = super.normal
+  override lazy val normal: StyleSetter[_] = this := "normal"
 
   /** Bold font weight. Same as 700. */
   lazy val bold: StyleSetter[_] = this := "bold"

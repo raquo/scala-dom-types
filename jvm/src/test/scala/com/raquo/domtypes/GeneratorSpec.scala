@@ -249,7 +249,8 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
         keywordKind = "StyleSetter",
         derivedKeyKind = "DerivedStyleProp",
         defType = LazyVal,
-        outputUnitTypes = true
+        outputUnitTypes = true,
+        allowSuperCallInOverride = false // can't access lazy val from `super`
       )
 
       generator.writeToFile(

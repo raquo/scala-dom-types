@@ -15,7 +15,7 @@ trait TableLayout extends Auto { this: StyleProp[_] =>
     * table layout. The width of the table and its cells depends on the content
     * thereof.
     */
-  override lazy val auto: StyleSetter[_] = super.auto
+  override lazy val auto: StyleSetter[_] = this := "auto"
 
   /**
     * Table and column widths are set by the widths of table and col elements

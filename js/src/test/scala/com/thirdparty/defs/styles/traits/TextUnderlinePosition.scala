@@ -14,7 +14,7 @@ trait TextUnderlinePosition extends Auto { this: StyleProp[_] =>
     * This keyword allows the browser to use an algorithm to choose between
     * under and alphabetic.
     */
-  override lazy val auto: StyleSetter[_] = super.auto
+  override lazy val auto: StyleSetter[_] = this := "auto"
 
   /**
     * This keyword forces the line to be set below the alphabetic baseline, at
