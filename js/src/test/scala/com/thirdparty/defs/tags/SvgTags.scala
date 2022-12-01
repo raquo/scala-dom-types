@@ -3,7 +3,11 @@ package com.thirdparty.defs.tags
 import com.thirdparty.keys.SvgTag
 import org.scalajs.dom
 
-/** !!! #Note: This code is generated from the data in Scala DOM Types !!! */
+// #NOTE: GENERATED CODE
+//  - This file is generated at compile time from the data in Scala DOM Types
+//  - See `GeneratorSpec.scala` for code generation params
+//  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
+
 trait SvgTags {
 
 

@@ -9,11 +9,28 @@ import org.scalatest.matchers.should.Matchers
 
 class GeneratorSpec extends AnyFunSpec with Matchers {
 
+  // This file is an example of how you can use Scala DOM Types to generate
+  // typed traits for your library. This is implemented as a test here, but
+  // in your own project you can make your build depend on Scala DOM types
+  // at compile time only, and call the generators at compile time.
+  //
+  // If you're using SBT, you'll need to put this code under the `project`
+  // directory, and require Scala DOM Types as a dependency in
+  // `project/build.sbt`.
+  //
+  // The generated output of this GeneratorSpec is used in CompileSpec
+  //
+  // See SDT docs for details, and the Laminar repo for a more fleshed out
+  // usage example.
+
   private val generator = new CanonicalGenerator(
     baseOutputDirectoryPath = "js/src/test/scala/com/thirdparty",
     basePackagePath = "com.thirdparty",
     standardTraitCommentLines = List(
-      "!!! #Note: This code is generated from the data in Scala DOM Types !!!"
+      "#NOTE: GENERATED CODE",
+      " - This file is generated at compile time from the data in Scala DOM Types",
+      " - See `GeneratorSpec.scala` for code generation params",
+      " - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.",
     ),
     format = CodeFormatting()
   )
@@ -29,6 +46,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       tagType = HtmlTagType,
       defGroups = defGroups.htmlTagsDefGroups,
       printDefGroupComments = true,
+      traitCommentLines = Nil,
       traitName = traitName,
       keyKind = "HtmlTag",
       keyImplName = "htmlTag",
@@ -51,6 +69,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       tagType = SvgTagType,
       defGroups = defGroups.svgTagsDefGroups,
       printDefGroupComments = false,
+      traitCommentLines = Nil,
       traitName = traitName,
       keyKind = "SvgTag",
       keyImplName = "svgTag",
@@ -72,6 +91,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     val fileContent = generator.generateAttrsTrait(
       defGroups = defGroups.htmlAttrDefGroups,
       printDefGroupComments = false,
+      traitCommentLines = Nil,
       traitName = traitName,
       keyKind = "HtmlAttr",
       implNameSuffix = "HtmlAttr",
@@ -95,6 +115,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       defGroups = defGroups.svgAttrDefGroups,
       printDefGroupComments = false,
       traitName = traitName,
+      traitCommentLines = Nil,
       keyKind = "SvgAttr",
       implNameSuffix = "SvgAttr",
       baseImplName = "svgAttr",
@@ -117,6 +138,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       defGroups = defGroups.ariaAttrDefGroups,
       printDefGroupComments = false,
       traitName = traitName,
+      traitCommentLines = Nil,
       keyKind = "AriaAttr",
       implNameSuffix = "AriaAttr",
       baseImplName = "ariaAttr",
@@ -138,6 +160,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     val fileContent = generator.generatePropsTrait(
       defGroups = defGroups.propDefGroups,
       printDefGroupComments = true,
+      traitCommentLines = Nil,
       traitName = traitName,
       keyKind = "Prop",
       implNameSuffix = "Prop",
@@ -160,6 +183,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     val fileContent = generator.generateEventPropsTrait(
       defSources = defGroups.eventPropDefGroups,
       printDefGroupComments = true,
+      traitCommentLines = Nil,
       traitName = traitName,
       keyKind = "EventProp",
       keyImplName = "eventProp",
@@ -181,6 +205,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     val fileContent = generator.generateStylePropsTrait(
       defSources = defGroups.stylePropDefGroups,
       printDefGroupComments = true,
+      traitCommentLines = Nil,
       traitName = traitName,
       keyKind = "StyleProp",
       keyKindAlias = "StyleProp",
@@ -216,6 +241,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       val fileContent = generator.generateStyleKeywordsTrait(
         defSources = keywordDefGroups,
         printDefGroupComments = false,
+        traitCommentLines = Nil,
         traitName = styleTrait.scalaName,
         extendsTraits = styleTrait.extendsTraits,
         extendsUnitTraits = styleTrait.extendsUnits.map(transformUnitTraitName),

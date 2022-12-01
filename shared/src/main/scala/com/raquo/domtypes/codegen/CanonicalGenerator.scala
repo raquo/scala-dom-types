@@ -106,6 +106,7 @@ class CanonicalGenerator(
     tagType: TagType,
     defGroups: List[(String, List[TagDef])],
     printDefGroupComments: Boolean,
+    traitCommentLines: List[String],
     traitName: String,
     keyKind: String,
     keyImplName: String,
@@ -123,16 +124,19 @@ class CanonicalGenerator(
       )
     }
 
+    val headerLines = List(
+      s"package $tagsPackagePath",
+      "",
+      keyTypeImport(keyKind),
+      scalaJsDomImport,
+      "",
+    ) ++ standardTraitCommentLines.map("// " + _)
+
     new TagsTraitGenerator(
       defs = defs,
       defGroupComments = defGroupComments,
-      headerLines = List(
-        s"package $tagsPackagePath",
-        "",
-        keyTypeImport(keyKind),
-        scalaJsDomImport
-      ),
-      traitCommentLines = standardTraitCommentLines,
+      headerLines = headerLines,
+      traitCommentLines = traitCommentLines,
       traitName = traitName,
       defType = _ => defType,
       keyKind = _ => keyKind,
@@ -146,6 +150,7 @@ class CanonicalGenerator(
   def generateAttrsTrait(
     defGroups: List[(String, List[AttrDef])],
     printDefGroupComments: Boolean,
+    traitCommentLines: List[String],
     traitName: String,
     keyKind: String,
     implNameSuffix: String,
@@ -170,16 +175,19 @@ class CanonicalGenerator(
       )
     }
 
+    val headerLines = List(
+      s"package $attrsPackagePath",
+      "",
+      keyTypeImport(keyKind),
+      codecsImport,
+      ""
+    ) ++ standardTraitCommentLines.map("// " + _)
+
     new AttrsTraitGenerator(
       defs = defs,
       defGroupComments = defGroupComments,
-      headerLines = List(
-        s"package $attrsPackagePath",
-        "",
-        keyTypeImport(keyKind),
-        codecsImport
-      ),
-      traitCommentLines = standardTraitCommentLines,
+      headerLines = headerLines,
+      traitCommentLines = traitCommentLines,
       traitName = traitName,
       defType = _ => defType,
       keyKind = keyKind,
@@ -196,6 +204,7 @@ class CanonicalGenerator(
   def generatePropsTrait(
     defGroups: List[(String, List[PropDef])],
     printDefGroupComments: Boolean,
+    traitCommentLines: List[String],
     traitName: String,
     keyKind: String,
     implNameSuffix: String,
@@ -208,16 +217,19 @@ class CanonicalGenerator(
       s"def ${baseImplName}[Value, DomValue](key: String, codec: Codec[Value, DomValue]): ${keyKind}[Value, DomValue] = ${keyKind}(key, codec)"
     )
 
+    val headerLines = List(
+      s"package $propsPackagePath",
+      "",
+      keyTypeImport(keyKind),
+      codecsImport,
+      ""
+    ) ++ standardTraitCommentLines.map("// " + _)
+
     new PropsTraitGenerator(
       defs = defs,
       defGroupComments = defGroupComments,
-      headerLines = List(
-        s"package $propsPackagePath",
-        "",
-        keyTypeImport(keyKind),
-        codecsImport
-      ),
-      traitCommentLines = standardTraitCommentLines,
+      headerLines = headerLines,
+      traitCommentLines = traitCommentLines,
       traitName = traitName,
       defType = _ => defType,
       keyKind = keyKind,
@@ -233,6 +245,7 @@ class CanonicalGenerator(
   def generateEventPropsTrait(
     defSources: List[(String, List[EventPropDef])],
     printDefGroupComments: Boolean,
+    traitCommentLines: List[String],
     traitName: String,
     keyKind: String,
     keyImplName: String,
@@ -244,16 +257,19 @@ class CanonicalGenerator(
       s"def ${keyImplName}[Ev <: ${baseScalaJsEventType}](key: String): ${keyKind}[Ev] = ${keyKind}(key)"
     )
 
+    val headerLines = List(
+      s"package $eventPropsPackagePath",
+      "",
+      keyTypeImport(keyKind),
+      scalaJsDomImport,
+      ""
+    ) ++ standardTraitCommentLines.map("// " + _)
+
     new EventPropsTraitGenerator(
       defs = defs,
       defGroupComments = defGroupComments,
-      headerLines = List(
-        s"package $eventPropsPackagePath",
-        "",
-        keyTypeImport(keyKind),
-        scalaJsDomImport
-      ),
-      traitCommentLines = standardTraitCommentLines,
+      headerLines = headerLines,
+      traitCommentLines = traitCommentLines,
       traitName = traitName,
       defType = _ => defType,
       keyKind = keyKind,
@@ -267,6 +283,7 @@ class CanonicalGenerator(
   def generateStylePropsTrait(
     defSources: List[(String, List[StylePropDef])],
     printDefGroupComments: Boolean,
+    traitCommentLines: List[String],
     traitName: String,
     keyKind: String,
     keyKindAlias: String,
@@ -294,28 +311,30 @@ class CanonicalGenerator(
       }
     }
 
+    val headerLines = List(
+      s"package $stylePropsPackagePath",
+      "",
+      if (outputUnitTraits) {
+        keyTypeImport(keyKind, derivedKeyKind)
+      } else {
+        keyTypeImport(keyKind)
+      },
+      "import " + styleTraitsPackagePath(Some(styleTraitsPackageAlias))
+    ) ++ (
+      if (outputUnitTraits) {
+        List(
+          "import " + styleUnitTraitsPackagePath(Some(styleUnitTraitsPackageAlias))
+        )
+      } else {
+        Nil
+      }
+    ) ++ List("") ++ standardTraitCommentLines.map("// " + _)
+
     val generator = new StylePropsTraitGenerator(
       defs = defs,
       defGroupComments = defGroupComments,
-      headerLines = List(
-        s"package $stylePropsPackagePath",
-        "",
-        if (outputUnitTraits) {
-          keyTypeImport(keyKind, derivedKeyKind)
-        } else {
-          keyTypeImport(keyKind)
-        },
-        "import " + styleTraitsPackagePath(Some(styleTraitsPackageAlias))
-      ) ++ (
-        if (outputUnitTraits) {
-          List(
-            "import " + styleUnitTraitsPackagePath(Some(styleUnitTraitsPackageAlias))
-          )
-        } else {
-          Nil
-        }
-      ),
-      traitCommentLines = standardTraitCommentLines,
+      headerLines = headerLines,
+      traitCommentLines = traitCommentLines,
       traitName = traitName,
       defType = _ => defType,
       keyKind = keyKind,
@@ -338,6 +357,7 @@ class CanonicalGenerator(
   def generateStyleKeywordsTrait(
     defSources: List[(String, List[StyleKeywordDef])],
     printDefGroupComments: Boolean,
+    traitCommentLines: List[String],
     traitName: String,
     extendsTraits: List[String],
     extendsUnitTraits: List[String],
@@ -358,21 +378,25 @@ class CanonicalGenerator(
       }
     }
 
-    val generator = new StyleKeywordsTraitGenerator(
-      defs = defs,
-      defGroupComments = defGroupComments,
-      headerLines = List(
-        s"package ${styleTraitsPackagePath()}",
-        "",
-        keyTypeImport(propKind),
-        setterTypeImport(keywordKind),
-      ) ++ (if (outputUnitTypes && extendsUnitTraits.nonEmpty) {
+    val headerLines = List(
+      s"package ${styleTraitsPackagePath()}",
+      "",
+      keyTypeImport(propKind),
+      setterTypeImport(keywordKind),
+    ) ++ (
+      if (outputUnitTypes && extendsUnitTraits.nonEmpty) {
         List(
           "import " + styleUnitTraitsPackagePath(),
           "import " + derivedStylePropPackagePath + "." + derivedKeyKind
         )
-      } else Nil),
-      traitCommentLines = standardTraitCommentLines,
+      } else Nil
+    ) ++ List("") ++ standardTraitCommentLines.map("// " + _)
+
+    val generator = new StyleKeywordsTraitGenerator(
+      defs = defs,
+      defGroupComments = defGroupComments,
+      headerLines = headerLines,
+      traitCommentLines = traitCommentLines,
       traitName = traitName,
       extendsTraits = extendsTraits,
       extendsUnitTraits = if (outputUnitTypes) extendsUnitTraits.map(styleUnitTraitsPackageName + "." + _) else Nil,
