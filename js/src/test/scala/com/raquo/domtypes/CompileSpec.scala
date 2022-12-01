@@ -64,9 +64,14 @@ class CompileSpec extends AnyFunSpec with Matchers {
 
     // CSS keywords
 
-    html.display.none: StyleSetter[_]
+    val s1: StyleSetter[_] = html.display.none
     val v1: String = html.display.none.value
     assert(html.display.none.value == "none")
+
+    // Base CSS keywords
+    val s2: StyleSetter[_] = html.padding.inherit
+    val v2: String = html.padding.inherit.value
+    assert(html.display.none.value == "inherit")
 
     // Derived CSS props (units)
 
