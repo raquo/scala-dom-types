@@ -128,12 +128,18 @@ object AttrTraitParser {
       }
     }
 
-    val _ = extract(rest.takePrefix("lazy val "))
+    // extract and ignore
+    def skip(result: ParseResult): Unit = {
+      extract(result)
+      ()
+    }
+
+    skip(rest.takePrefix("lazy val "))
     val defName = extract(rest.takeDefName)
-    val _ = extract(rest.takePrefix(": A"))
+    skip(rest.takePrefix(": A"))
     val typeParam = extract(rest.takeTypeParams)
     val concreteTypeName = concreteTypeParamName(typeParam, inputFileName)
-    val _ = extract(rest.takePrefix(" = "))
+    skip(rest.takePrefix(" = "))
     val implName = extract(rest.takeCallableName)
     val implParams = extract(rest.takeParams)
     if (rest.nonEmpty) {

@@ -128,22 +128,28 @@ object ReflectedHtmlAttrTraitParser {
       }
     }
 
-    val _ = extract(rest.takePrefix("lazy val "))
+    // extract and ignore
+    def skip(result: ParseResult): Unit = {
+      extract(result)
+      ()
+    }
+
+    skip(rest.takePrefix("lazy val "))
     val defName = extract(rest.takeDefName)
-    val _ = extract(rest.takePrefix(": RA"))
+    skip(rest.takePrefix(": RA"))
     val typeParams = extract(rest.takeTypeParams).split(", ")
     assert(typeParams.length == 2)
     val scalaType = typeParams(0)
     val domPropType = typeParams(1)
     // val concreteTypeName = concreteTypeParamName(typeParam, inputFileName)
-    val _ = extract(rest.takePrefix(" = "))
+    skip(rest.takePrefix(" = "))
     val implName = extract(rest.takeCallableName)
     val implParams = extract(rest.takeParams)
     if (rest.nonEmpty) {
       throw new Exception(s"[$inputFileName] Failed to parse `$line`. Remaining unparsed after all is done: ${rest}")
     }
     val domAttrName = extract(implParams.takeStringLiteral)
-    val _ = extract(rest.takePrefix(", "))
+    skip(rest.takePrefix(", "))
     val domPropName = extract(rest.takeStringLiteral)
 
     if (rest.nonEmpty) {

@@ -6,7 +6,7 @@ trait SourceRepr {
     // if (tripleQuotes) {
     //   s"\"\"\"${str.replace("\\", "\\\\").replace("\"", "\\\"")}\"\"\""
     // } else {
-    s"\"${str.replace("\\", "\\\\").replace("\"", "\\\"")}\""
+    "\"" + str.replace("\\", "\\\\").replace("\"", "\\\"") + "\""
     // }
   }
 

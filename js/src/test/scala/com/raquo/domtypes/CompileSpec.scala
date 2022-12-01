@@ -65,13 +65,13 @@ class CompileSpec extends AnyFunSpec with Matchers {
     // CSS keywords
 
     html.display.none: StyleSetter[_]
-    val _: String = html.display.none.value
+    val v1: String = html.display.none.value
     assert(html.display.none.value == "none")
 
     // Derived CSS props (units)
 
-    val _: StyleProp[String] = html.padding
-    val _: DerivedStyleProp[Int] = html.padding.px
+    val p1: StyleProp[String] = html.padding
+    val p2: DerivedStyleProp[Int] = html.padding.px
     assert((html.padding.px := 12).value == "12px")
 
     html.maxHeight.calc := "12px + 20em" // Length inherits Calc

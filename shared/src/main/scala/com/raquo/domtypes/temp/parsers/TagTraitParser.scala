@@ -127,12 +127,18 @@ object TagTraitParser {
       }
     }
 
-    val _ = extract(rest.takePrefix("lazy val "))
+    // extract and ignore
+    def skip(result: ParseResult): Unit = {
+      extract(result)
+      ()
+    }
+
+    skip(rest.takePrefix("lazy val "))
     val defName = extract(rest.takeDefName)
-    val _ = extract(rest.takePrefix(": T"))
+    skip(rest.takePrefix(": T"))
     val typeParam = extract(rest.takeTypeParams)
     val concreteTypeName = concreteTypeParamName(typeParam)
-    val _ = extract(rest.takePrefix(" = "))
+    skip(rest.takePrefix(" = "))
     val implName = extract(rest.takeCallableName)
     val implParams = extract(rest.takeParams)
     if (rest.nonEmpty) {
