@@ -156,19 +156,25 @@ object StyleTraitTraitParser {
       }
     }
 
-    val _ = extract(rest.takePrefix("lazy val "))
+    // extract and ignore
+    def skip(result: ParseResult): Unit = {
+      extract(result)
+      ()
+    }
+
+    skip(rest.takePrefix("lazy val "))
     val defName = extract(rest.takeDefName)
-    val _ = extract(rest.takePrefix(": T"))
+    skip(rest.takePrefix(": T"))
 
     // val concreteTypeName = concreteTypeParamName(typeParam, inputFileName)
-    val _ = extract(rest.takePrefix(" = "))
+    skip(rest.takePrefix(" = "))
     val implName = extract(rest.takeCallableName)
     val implParams = extract(rest.takeParams)
     if (rest.nonEmpty) {
       throw new Exception(s"[$inputFileName] Failed to parse `$line`. Remaining unparsed after all is done: ${rest}")
     }
     val domName = extract(implParams.takeStringLiteral)
-    // val _ = extract(rest.takePrefix(", "))
+    // skip(rest.takePrefix(", "))
     // val domPropName = extract(rest.takeStringLiteral)
 
     if (rest.nonEmpty) {
