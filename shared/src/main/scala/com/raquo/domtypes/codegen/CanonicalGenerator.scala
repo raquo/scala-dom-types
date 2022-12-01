@@ -26,9 +26,13 @@ class CanonicalGenerator(
 
   def keysPackagePath: String = basePackagePath + ".keys"
 
+  def derivedStylePropPackagePath: String = keysPackagePath
+
   def settersPackagePath: String = basePackagePath + ".setters"
 
   def styleTraitsPackageName: String = "traits"
+
+  def styleUnitTraitsPackageName: String = "units"
 
   def styleTraitsPackagePath(renameTo: Option[String] = None): String = {
     renameTo match {
@@ -42,6 +46,18 @@ class CanonicalGenerator(
     }
   }
 
+  def styleUnitTraitsPackagePath(renameTo: Option[String] = None): String = {
+    renameTo match {
+      case Some(newName) =>
+        if (styleUnitTraitsPackageName.isEmpty) {
+          throw new Exception("Unable to rename empty styleUnitTraitsPackageName package name")
+        }
+        stylePropsPackagePath + "." + "{" + styleUnitTraitsPackageName + " => " + newName + "}"
+      case None =>
+        concatPackageNames(stylePropsPackagePath, styleUnitTraitsPackageName)
+    }
+  }
+
   def scalaJsDomImport: String = "import org.scalajs.dom"
 
   def codecsImport: String = s"import ${basePackagePath}.codecs._"
@@ -52,7 +68,14 @@ class CanonicalGenerator(
 
   def baseScalaJsEventType: String = "dom.Event"
 
-  def keyTypeImport(keyType: String) = s"import ${keysPackagePath}.${keyType}"
+  def keyTypeImport(keyTypes: String*): String = {
+    val keyTypesStr = if (keyTypes.size == 1) {
+      keyTypes.head
+    } else {
+      s"{${keyTypes.sorted.mkString(", ")}}"
+    }
+    s"import ${keysPackagePath}.${keyTypesStr}"
+  }
 
   def setterTypeImport(setterType: String) = s"import ${settersPackagePath}.${setterType}"
 
@@ -246,8 +269,13 @@ class CanonicalGenerator(
     printDefGroupComments: Boolean,
     traitName: String,
     keyKind: String,
+    keyKindAlias: String,
+    derivedKeyKind: String,
+    derivedKeyKindAlias: String,
     baseImplName: String,
-    defType: DefType
+    defType: DefType,
+    lengthUnitsNumType: String,
+    outputUnitTraits: Boolean
   ): String = {
     val (defs, defGroupComments) = defsAndGroupComments(defSources, printDefGroupComments)
 
@@ -256,6 +284,15 @@ class CanonicalGenerator(
     )
 
     val styleTraitsPackageAlias = "s"
+    val styleUnitTraitsPackageAlias = "u"
+
+    def transformUnitTraitName(unitTraitName: String): String = {
+      if (unitTraitName == "Length") {
+        styleUnitTraitsPackageAlias + "." + unitTraitName + s"[$derivedKeyKindAlias, $lengthUnitsNumType]"
+      } else {
+        styleUnitTraitsPackageAlias + "." + unitTraitName + s"[$derivedKeyKindAlias]"
+      }
+    }
 
     val generator = new StylePropsTraitGenerator(
       defs = defs,
@@ -263,17 +300,34 @@ class CanonicalGenerator(
       headerLines = List(
         s"package $stylePropsPackagePath",
         "",
-        keyTypeImport(keyKind),
+        if (outputUnitTraits) {
+          keyTypeImport(keyKind, derivedKeyKind)
+        } else {
+          keyTypeImport(keyKind)
+        },
         "import " + styleTraitsPackagePath(Some(styleTraitsPackageAlias))
+      ) ++ (
+        if (outputUnitTraits) {
+          List(
+            "import " + styleUnitTraitsPackagePath(Some(styleUnitTraitsPackageAlias))
+          )
+        } else {
+          Nil
+        }
       ),
       traitCommentLines = standardTraitCommentLines,
       traitName = traitName,
       defType = _ => defType,
       keyKind = keyKind,
+      keyKindAlias = keyKindAlias,
+      derivedKeyKind = derivedKeyKind,
+      derivedKeyKindAlias = derivedKeyKindAlias,
       keyImplName = _.implName,
       baseImplName = baseImplName,
       baseImplDef = baseImplDef,
       transformTraitName = styleTraitsPackageAlias + "." + _,
+      transformUnitTraitName = transformUnitTraitName,
+      outputUnitTraits = outputUnitTraits,
       outputImplDefs = true,
       format = format
     )
@@ -286,9 +340,12 @@ class CanonicalGenerator(
     printDefGroupComments: Boolean,
     traitName: String,
     extendsTraits: List[String],
+    extendsUnitTraits: List[String],
     propKind: String,
     keywordKind: String,
-    defType: DefType
+    derivedKeyKind: String,
+    defType: DefType,
+    outputUnitTypes: Boolean
   ): String = {
     val (defs, defGroupComments) = defsAndGroupComments(defSources, printDefGroupComments)
 
@@ -309,16 +366,22 @@ class CanonicalGenerator(
         "",
         keyTypeImport(propKind),
         setterTypeImport(keywordKind),
-      ),
+      ) ++ (if (outputUnitTypes && extendsUnitTraits.nonEmpty) {
+        List(
+          "import " + styleUnitTraitsPackagePath(),
+          "import " + derivedStylePropPackagePath + "." + derivedKeyKind
+        )
+      } else Nil),
       traitCommentLines = standardTraitCommentLines,
       traitName = traitName,
       extendsTraits = extendsTraits,
+      extendsUnitTraits = if (outputUnitTypes) extendsUnitTraits.map(styleUnitTraitsPackageName + "." + _) else Nil,
       keyImplName = _ => ???, // unused, the implementation is not function-based for keywords
       keywordImpl = keyImpl,
       keywordKind = keywordKind,
+      derivedKeyKind = derivedKeyKind,
       propKind = propKind,
       defType = _ => defType,
-      // transformTraitName = styleTraitsPackageAlias + "." + _,
       format = format
     )
 

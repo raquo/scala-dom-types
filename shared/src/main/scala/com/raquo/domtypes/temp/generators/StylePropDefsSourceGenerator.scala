@@ -35,6 +35,7 @@ class StylePropDefsSourceGenerator(
       classParamLine("domName", domName)
       classParamLine("valueType", valueType)
       classParamLine("valueTraits", valueTraits)
+      classParamLine("valueUnits", valueUnits)
       classParamLine("implName", implName)
       classParamLine("commentLines", commentLines)
       classParamLine("docUrls", docUrls)

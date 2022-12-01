@@ -10,5 +10,7 @@ object Versions {
 
   val ScalaJsDom = "2.3.0"
 
+  val Ew = "0.1.1"
+
   val ScalaTest = "3.2.10"
 }

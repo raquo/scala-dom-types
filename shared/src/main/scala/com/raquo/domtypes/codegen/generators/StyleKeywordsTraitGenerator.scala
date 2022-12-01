@@ -10,9 +10,11 @@ class StyleKeywordsTraitGenerator(
   override protected val traitCommentLines: List[String],
   override protected val traitName: String,
   extendsTraits: List[String],
+  extendsUnitTraits: List[String],
   override protected val keyImplName: StyleKeywordDef => String,
   keywordImpl: StyleKeywordDef => String,
   keywordKind: String,
+  derivedKeyKind: String,
   propKind: String,
   defType: StyleKeywordDef => DefType,
   format: CodeFormatting
@@ -21,8 +23,10 @@ class StyleKeywordsTraitGenerator(
   override protected val outputImplDefs: Boolean = false
 
   override protected def printTraitDef(inside: => Unit): Unit = {
-    val withTraits = if (extendsTraits.nonEmpty) {
-      s"extends ${extendsTraits.head}" + extendsTraits.tail.map(" with " + _).mkString + " "
+    val allTraits = extendsTraits ++ extendsUnitTraits.map(_.replace("[_", "[" + derivedKeyKind).replace("_]", derivedKeyKind + "]"))
+
+    val withTraits = if (allTraits.nonEmpty) {
+      s"extends ${allTraits.head}" + allTraits.tail.map(" with " + _).mkString + " "
     } else ""
     enter(s"trait $traitName $withTraits{ this: ${propKind}[_] => ", "}")(inside)
   }

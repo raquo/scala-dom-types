@@ -61,9 +61,7 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_], LengthNum] {
 
   type ListStyleTypeStyle = Prop[String] with keywords.ListStyleTypeStyle[Setter[String]]
 
-  type MaxLengthStyle = Prop[String] with keywords.MinMaxLengthStyle[Setter[String], DerivedProp, LengthNum] with keywords.NoneStyle[Setter[String]]
-
-  type MinLengthStyle = Prop[String] with keywords.MinMaxLengthStyle[Setter[String], DerivedProp, LengthNum] with keywords.AutoStyle[Setter[String]]
+  type MinMaxLengthStyle = Prop[String] with keywords.MinMaxLengthStyle[Setter[String], DerivedProp, LengthNum]
 
   type NoneStyle[V] = Prop[V] with keywords.NoneStyle[Setter[V]]
 
@@ -137,9 +135,9 @@ trait StylePropBuilder[Prop[_], Setter[_], DerivedProp[_], LengthNum] {
 
   protected def lineStyle(key: String): LineStyle
 
-  protected def maxLengthStyle(key: String): MaxLengthStyle
+  protected def maxLengthStyle(key: String): MinMaxLengthStyle with NoneStyle[String]
 
-  protected def minLengthStyle(key: String): MinLengthStyle
+  protected def minLengthStyle(key: String): MinMaxLengthStyle with AutoStyle[String]
 
   protected def noneStyle[V](key: String): NoneStyle[V]
 

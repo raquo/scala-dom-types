@@ -1,177 +1,188 @@
 package com.thirdparty.defs.styles
 
-import com.thirdparty.keys.StyleProp
+import com.thirdparty.keys.{DerivedStyleProp, StyleProp}
 import com.thirdparty.defs.styles.{traits => s}
+import com.thirdparty.defs.styles.{units => u}
 
 /** !!! #Note: This code is generated from the data in Scala DOM Types !!! */
 trait StyleProps {
 
 
+  type DSP[V] = DerivedStyleProp[V]
+
+
   def styleProp[V](key: String): StyleProp[V] = StyleProp(key)
 
 
+  // -- Basic types --
+
   protected def doubleStyle(key: String): StyleProp[Double] = 
-    new StyleProp(key)
+    new StyleProp[Double](key)
 
   protected def intStyle(key: String): StyleProp[Int] = 
-    new StyleProp(key)
+    new StyleProp[Int](key)
 
   protected def stringStyle(key: String): StyleProp[String] = 
-    new StyleProp(key)
+    new StyleProp[String](key)
 
 
-  protected def alignContentStyle(key: String): StyleProp[String] with s.AlignContent = 
-    new StyleProp(key) with s.AlignContent
+  // -- Shared types --
 
   protected def autoStyle[V](key: String): StyleProp[V] with s.Auto = 
-    new StyleProp(key) with s.Auto
-
-  protected def backfaceVisibilityStyle(key: String): StyleProp[String] with s.BackfaceVisibility = 
-    new StyleProp(key) with s.BackfaceVisibility
-
-  protected def backgroundAttachmentStyle(key: String): StyleProp[String] with s.BackgroundAttachment = 
-    new StyleProp(key) with s.BackgroundAttachment
-
-  protected def backgroundSizeStyle(key: String): StyleProp[String] with s.BackgroundSize = 
-    new StyleProp(key) with s.BackgroundSize
-
-  protected def borderCollapseStyle(key: String): StyleProp[String] with s.BorderCollapse = 
-    new StyleProp(key) with s.BorderCollapse
-
-  protected def boxSizingStyle(key: String): StyleProp[String] with s.BoxSizing = 
-    new StyleProp(key) with s.BoxSizing
-
-  protected def clearStyle(key: String): StyleProp[String] with s.Clear = 
-    new StyleProp(key) with s.Clear
+    new StyleProp[V](key) with s.Auto
 
   protected def colorStyle(key: String): StyleProp[String] with s.Color = 
-    new StyleProp(key) with s.Color
-
-  protected def colorUrlStyle(key: String): StyleProp[String] with s.Color with s.Url = 
-    new StyleProp(key) with s.Color with s.Url
-
-  protected def cursorStyle(key: String): StyleProp[String] with s.Cursor = 
-    new StyleProp(key) with s.Cursor
-
-  protected def directionStyle(key: String): StyleProp[String] with s.Direction = 
-    new StyleProp(key) with s.Direction
-
-  protected def displayStyle(key: String): StyleProp[String] with s.Display = 
-    new StyleProp(key) with s.Display
-
-  protected def emptyCellsStyle(key: String): StyleProp[String] with s.EmptyCells = 
-    new StyleProp(key) with s.EmptyCells
-
-  protected def flexDirectionStyle(key: String): StyleProp[String] with s.FlexDirection = 
-    new StyleProp(key) with s.FlexDirection
+    new StyleProp[String](key) with s.Color
 
   protected def flexPositionStyle(key: String): StyleProp[String] with s.FlexPosition = 
-    new StyleProp(key) with s.FlexPosition
+    new StyleProp[String](key) with s.FlexPosition
 
-  protected def flexWrapStyle(key: String): StyleProp[String] with s.FlexWrap = 
-    new StyleProp(key) with s.FlexWrap
+  protected def lengthAutoStyle(key: String): StyleProp[String] with s.Auto with u.Length[DSP, Int] = 
+    new StyleProp[String](key) with s.Auto with u.Length[DSP, Int]
 
-  protected def floatStyle(key: String): StyleProp[String] with s.Float = 
-    new StyleProp(key) with s.Float
-
-  protected def fontSizeStyle(key: String): StyleProp[String] with s.FontSize = 
-    new StyleProp(key) with s.FontSize
-
-  protected def fontStyleStyle(key: String): StyleProp[String] with s.FontStyle = 
-    new StyleProp(key) with s.FontStyle
-
-  protected def fontWeightStyle(key: String): StyleProp[String] with s.FontWeight = 
-    new StyleProp(key) with s.FontWeight
-
-  protected def justifyContentStyle(key: String): StyleProp[String] with s.JustifyContent = 
-    new StyleProp(key) with s.JustifyContent
-
-  protected def lengthAutoStyle(key: String): StyleProp[String] with s.Length with s.Auto = 
-    new StyleProp(key) with s.Length with s.Auto
-
-  protected def lengthNormalStyle(key: String): StyleProp[String] with s.Length with s.Normal = 
-    new StyleProp(key) with s.Length with s.Normal
-
-  protected def lengthStyle(key: String): StyleProp[String] with s.Length = 
-    new StyleProp(key) with s.Length
+  protected def lengthStyle(key: String): StyleProp[String] with u.Length[DSP, Int] = 
+    new StyleProp[String](key) with u.Length[DSP, Int]
 
   protected def lineStyle(key: String): StyleProp[String] with s.Line = 
-    new StyleProp(key) with s.Line
+    new StyleProp[String](key) with s.Line
 
-  protected def listStylePositionStyle(key: String): StyleProp[String] with s.ListStylePosition = 
-    new StyleProp(key) with s.ListStylePosition
+  protected def maxLengthStyle(key: String): StyleProp[String] with s.MinMaxLength with s.None = 
+    new StyleProp[String](key) with s.MinMaxLength with s.None
 
-  protected def listStyleTypeStyle(key: String): StyleProp[String] with s.ListStyleType = 
-    new StyleProp(key) with s.ListStyleType
-
-  protected def maxLengthStyle(key: String): StyleProp[String] with s.MaxLength = 
-    new StyleProp(key) with s.MaxLength
-
-  protected def minLengthStyle(key: String): StyleProp[String] with s.MinLength = 
-    new StyleProp(key) with s.MinLength
+  protected def minLengthStyle(key: String): StyleProp[String] with s.MinMaxLength with s.Auto = 
+    new StyleProp[String](key) with s.MinMaxLength with s.Auto
 
   protected def noneStyle[V](key: String): StyleProp[V] with s.None = 
-    new StyleProp(key) with s.None
+    new StyleProp[V](key) with s.None
 
   protected def normalStyle[V](key: String): StyleProp[V] with s.Normal = 
-    new StyleProp(key) with s.Normal
+    new StyleProp[V](key) with s.Normal
 
   protected def overflowStyle(key: String): StyleProp[String] with s.Overflow = 
-    new StyleProp(key) with s.Overflow
-
-  protected def overflowWrapStyle(key: String): StyleProp[String] with s.OverflowWrap = 
-    new StyleProp(key) with s.OverflowWrap
+    new StyleProp[String](key) with s.Overflow
 
   protected def paddingBoxSizingStyle(key: String): StyleProp[String] with s.PaddingBoxSizing = 
-    new StyleProp(key) with s.PaddingBoxSizing
+    new StyleProp[String](key) with s.PaddingBoxSizing
 
   protected def pageBreakStyle(key: String): StyleProp[String] with s.PageBreak = 
-    new StyleProp(key) with s.PageBreak
-
-  protected def pointerEventsStyle(key: String): StyleProp[String] with s.PointerEvents = 
-    new StyleProp(key) with s.PointerEvents
-
-  protected def positionStyle(key: String): StyleProp[String] with s.Position = 
-    new StyleProp(key) with s.Position
-
-  protected def tableLayoutStyle(key: String): StyleProp[String] with s.TableLayout = 
-    new StyleProp(key) with s.TableLayout
+    new StyleProp[String](key) with s.PageBreak
 
   protected def textAlignStyle(key: String): StyleProp[String] with s.TextAlign = 
-    new StyleProp(key) with s.TextAlign
+    new StyleProp[String](key) with s.TextAlign
+
+  protected def timeStyle(key: String): StyleProp[String] with u.Time[DSP] = 
+    new StyleProp[String](key) with u.Time[DSP]
+
+  protected def urlNoneStyle(key: String): StyleProp[String] with s.None with u.Url[DSP] = 
+    new StyleProp[String](key) with s.None with u.Url[DSP]
+
+  protected def urlStyle(key: String): StyleProp[String] with u.Url[DSP] = 
+    new StyleProp[String](key) with u.Url[DSP]
+
+
+  // -- Unique types --
+
+  protected def alignContentStyle(key: String): StyleProp[String] with s.AlignContent = 
+    new StyleProp[String](key) with s.AlignContent
+
+  protected def backfaceVisibilityStyle(key: String): StyleProp[String] with s.BackfaceVisibility = 
+    new StyleProp[String](key) with s.BackfaceVisibility
+
+  protected def backgroundAttachmentStyle(key: String): StyleProp[String] with s.BackgroundAttachment = 
+    new StyleProp[String](key) with s.BackgroundAttachment
+
+  protected def backgroundSizeStyle(key: String): StyleProp[String] with s.BackgroundSize = 
+    new StyleProp[String](key) with s.BackgroundSize
+
+  protected def borderCollapseStyle(key: String): StyleProp[String] with s.BorderCollapse = 
+    new StyleProp[String](key) with s.BorderCollapse
+
+  protected def boxSizingStyle(key: String): StyleProp[String] with s.BoxSizing = 
+    new StyleProp[String](key) with s.BoxSizing
+
+  protected def clearStyle(key: String): StyleProp[String] with s.Clear = 
+    new StyleProp[String](key) with s.Clear
+
+  protected def colorUrlStyle(key: String): StyleProp[String] with s.Color with u.Url[DSP] = 
+    new StyleProp[String](key) with s.Color with u.Url[DSP]
+
+  protected def cursorStyle(key: String): StyleProp[String] with s.Cursor = 
+    new StyleProp[String](key) with s.Cursor
+
+  protected def directionStyle(key: String): StyleProp[String] with s.Direction = 
+    new StyleProp[String](key) with s.Direction
+
+  protected def displayStyle(key: String): StyleProp[String] with s.Display = 
+    new StyleProp[String](key) with s.Display
+
+  protected def emptyCellsStyle(key: String): StyleProp[String] with s.EmptyCells = 
+    new StyleProp[String](key) with s.EmptyCells
+
+  protected def flexDirectionStyle(key: String): StyleProp[String] with s.FlexDirection = 
+    new StyleProp[String](key) with s.FlexDirection
+
+  protected def flexWrapStyle(key: String): StyleProp[String] with s.FlexWrap = 
+    new StyleProp[String](key) with s.FlexWrap
+
+  protected def floatStyle(key: String): StyleProp[String] with s.Float = 
+    new StyleProp[String](key) with s.Float
+
+  protected def fontSizeStyle(key: String): StyleProp[String] with s.FontSize = 
+    new StyleProp[String](key) with s.FontSize
+
+  protected def fontStyleStyle(key: String): StyleProp[String] with s.FontStyle = 
+    new StyleProp[String](key) with s.FontStyle
+
+  protected def fontWeightStyle(key: String): StyleProp[String] with s.FontWeight = 
+    new StyleProp[String](key) with s.FontWeight
+
+  protected def justifyContentStyle(key: String): StyleProp[String] with s.JustifyContent = 
+    new StyleProp[String](key) with s.JustifyContent
+
+  protected def lengthNormalStyle(key: String): StyleProp[String] with s.Normal with u.Length[DSP, Int] = 
+    new StyleProp[String](key) with s.Normal with u.Length[DSP, Int]
+
+  protected def listStylePositionStyle(key: String): StyleProp[String] with s.ListStylePosition = 
+    new StyleProp[String](key) with s.ListStylePosition
+
+  protected def listStyleTypeStyle(key: String): StyleProp[String] with s.ListStyleType = 
+    new StyleProp[String](key) with s.ListStyleType
+
+  protected def overflowWrapStyle(key: String): StyleProp[String] with s.OverflowWrap = 
+    new StyleProp[String](key) with s.OverflowWrap
+
+  protected def pointerEventsStyle(key: String): StyleProp[String] with s.PointerEvents = 
+    new StyleProp[String](key) with s.PointerEvents
+
+  protected def positionStyle(key: String): StyleProp[String] with s.Position = 
+    new StyleProp[String](key) with s.Position
+
+  protected def tableLayoutStyle(key: String): StyleProp[String] with s.TableLayout = 
+    new StyleProp[String](key) with s.TableLayout
 
   protected def textDecorationStyle(key: String): StyleProp[String] with s.TextDecoration = 
-    new StyleProp(key) with s.TextDecoration
+    new StyleProp[String](key) with s.TextDecoration
 
   protected def textOverflowStyle(key: String): StyleProp[String] with s.TextOverflow = 
-    new StyleProp(key) with s.TextOverflow
+    new StyleProp[String](key) with s.TextOverflow
 
   protected def textTransformStyle(key: String): StyleProp[String] with s.TextTransform = 
-    new StyleProp(key) with s.TextTransform
+    new StyleProp[String](key) with s.TextTransform
 
   protected def textUnderlinePositionStyle(key: String): StyleProp[String] with s.TextUnderlinePosition = 
-    new StyleProp(key) with s.TextUnderlinePosition
-
-  protected def timeStyle(key: String): StyleProp[String] with s.Time = 
-    new StyleProp(key) with s.Time
-
-  protected def urlNoneStyle(key: String): StyleProp[String] with s.Url with s.None = 
-    new StyleProp(key) with s.Url with s.None
-
-  protected def urlStyle(key: String): StyleProp[String] with s.Url = 
-    new StyleProp(key) with s.Url
+    new StyleProp[String](key) with s.TextUnderlinePosition
 
   protected def verticalAlignStyle(key: String): StyleProp[String] with s.VerticalAlign = 
-    new StyleProp(key) with s.VerticalAlign
+    new StyleProp[String](key) with s.VerticalAlign
 
   protected def visibilityStyle(key: String): StyleProp[String] with s.Visibility = 
-    new StyleProp(key) with s.Visibility
+    new StyleProp[String](key) with s.Visibility
 
   protected def whiteSpaceStyle(key: String): StyleProp[String] with s.WhiteSpace = 
-    new StyleProp(key) with s.WhiteSpace
+    new StyleProp[String](key) with s.WhiteSpace
 
   protected def wordBreakStyle(key: String): StyleProp[String] with s.WordBreak = 
-    new StyleProp(key) with s.WordBreak
+    new StyleProp[String](key) with s.WordBreak
 
 
 
@@ -223,7 +234,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay
     */
-  lazy val animationDelay: StyleProp[String] with s.Time = timeStyle("animation-delay")
+  lazy val animationDelay: StyleProp[String] with u.Time[DSP] = timeStyle("animation-delay")
 
 
   /**
@@ -244,7 +255,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration
     */
-  lazy val animationDuration: StyleProp[String] with s.Time = timeStyle("animation-duration")
+  lazy val animationDuration: StyleProp[String] with u.Time[DSP] = timeStyle("animation-duration")
 
 
   /**
@@ -354,7 +365,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background
     */
-  lazy val background: StyleProp[String] with s.Color with s.Url = colorUrlStyle("background")
+  lazy val background: StyleProp[String] with s.Color with u.Url[DSP] = colorUrlStyle("background")
 
 
   /**
@@ -398,7 +409,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-image
     */
-  lazy val backgroundImage: StyleProp[String] with s.Url = urlStyle("background-image")
+  lazy val backgroundImage: StyleProp[String] with u.Url[DSP] = urlStyle("background-image")
 
 
   /**
@@ -557,7 +568,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-image
     */
-  lazy val borderImage: StyleProp[String] with s.Url = urlStyle("border-image")
+  lazy val borderImage: StyleProp[String] with u.Url[DSP] = urlStyle("border-image")
 
 
   /**
@@ -607,7 +618,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-width
     */
-  lazy val borderWidth: StyleProp[String] with s.Length = lengthStyle("border-width")
+  lazy val borderWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("border-width")
 
 
   /**
@@ -615,7 +626,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width
     */
-  lazy val borderTopWidth: StyleProp[String] with s.Length = lengthStyle("border-top-width")
+  lazy val borderTopWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("border-top-width")
 
 
   /**
@@ -623,7 +634,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width
     */
-  lazy val borderRightWidth: StyleProp[String] with s.Length = lengthStyle("border-right-width")
+  lazy val borderRightWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("border-right-width")
 
 
   /**
@@ -631,7 +642,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width
     */
-  lazy val borderBottomWidth: StyleProp[String] with s.Length = lengthStyle("border-bottom-width")
+  lazy val borderBottomWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("border-bottom-width")
 
 
   /**
@@ -639,7 +650,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width
     */
-  lazy val borderLeftWidth: StyleProp[String] with s.Length = lengthStyle("border-left-width")
+  lazy val borderLeftWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("border-left-width")
 
 
   /**
@@ -649,7 +660,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
     */
-  lazy val borderRadius: StyleProp[String] with s.Length = lengthStyle("border-radius")
+  lazy val borderRadius: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("border-radius")
 
 
   /**
@@ -660,7 +671,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-left-radius
     */
-  lazy val borderTopLeftRadius: StyleProp[String] with s.Length = lengthStyle("border-top-left-radius")
+  lazy val borderTopLeftRadius: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("border-top-left-radius")
 
 
   /**
@@ -670,7 +681,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-right-radius
     */
-  lazy val borderTopRightRadius: StyleProp[String] with s.Length = lengthStyle("border-top-right-radius")
+  lazy val borderTopRightRadius: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("border-top-right-radius")
 
 
   /**
@@ -681,7 +692,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-right-radius
     */
-  lazy val borderBottomRightRadius: StyleProp[String] with s.Length = lengthStyle("border-bottom-right-radius")
+  lazy val borderBottomRightRadius: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("border-bottom-right-radius")
 
 
   /**
@@ -692,7 +703,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-left-radius
     */
-  lazy val borderBottomLeftRadius: StyleProp[String] with s.Length = lengthStyle("border-bottom-left-radius")
+  lazy val borderBottomLeftRadius: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("border-bottom-left-radius")
 
 
   /**
@@ -712,7 +723,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing
     */
-  lazy val borderSpacing: StyleProp[String] with s.Length = lengthStyle("border-spacing")
+  lazy val borderSpacing: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("border-spacing")
 
 
   /**
@@ -732,7 +743,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/bottom
     */
-  lazy val bottom: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("bottom")
+  lazy val bottom: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("bottom")
 
 
   /**
@@ -833,7 +844,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap
     */
-  lazy val columnGap: StyleProp[String] with s.Length = lengthStyle("column-gap")
+  lazy val columnGap: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("column-gap")
 
 
   /**
@@ -857,7 +868,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-width
     */
-  lazy val columnWidth: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("column-width")
+  lazy val columnWidth: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("column-width")
 
 
   /**
@@ -886,7 +897,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-width
     */
-  lazy val columnRuleWidth: StyleProp[String] with s.Length = lengthStyle("column-rule-width")
+  lazy val columnRuleWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("column-rule-width")
 
 
   /**
@@ -905,7 +916,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/content
     */
-  lazy val contentCss: StyleProp[String] with s.Url with s.None = urlNoneStyle("content")
+  lazy val contentCss: StyleProp[String] with s.None with u.Url[DSP] = urlNoneStyle("content")
 
 
   /**
@@ -1007,7 +1018,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis
     */
-  lazy val flexBasis: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("flex-basis")
+  lazy val flexBasis: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("flex-basis")
 
 
   /**
@@ -1173,7 +1184,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/height
     */
-  lazy val height: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("height")
+  lazy val height: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("height")
 
 
   /**
@@ -1200,7 +1211,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/left
     */
-  lazy val left: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("left")
+  lazy val left: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("left")
 
 
   /**
@@ -1224,7 +1235,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
     */
-  lazy val lineHeight: StyleProp[String] with s.Length with s.Normal = lengthNormalStyle("line-height")
+  lazy val lineHeight: StyleProp[String] with s.Normal with u.Length[DSP, Int] = lengthNormalStyle("line-height")
 
 
   /**
@@ -1242,7 +1253,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image
     */
-  lazy val listStyleImage: StyleProp[String] with s.Url with s.None = urlNoneStyle("list-style-image")
+  lazy val listStyleImage: StyleProp[String] with s.None with u.Url[DSP] = urlNoneStyle("list-style-image")
 
 
   /**
@@ -1272,7 +1283,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/margin
     */
-  lazy val margin: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("margin")
+  lazy val margin: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("margin")
 
 
   /**
@@ -1281,7 +1292,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top
     */
-  lazy val marginTop: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("margin-top")
+  lazy val marginTop: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("margin-top")
 
 
   /**
@@ -1290,7 +1301,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right
     */
-  lazy val marginRight: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("margin-right")
+  lazy val marginRight: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("margin-right")
 
 
   /**
@@ -1299,7 +1310,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom
     */
-  lazy val marginBottom: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("margin-bottom")
+  lazy val marginBottom: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("margin-bottom")
 
 
   /**
@@ -1308,7 +1319,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left
     */
-  lazy val marginLeft: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("margin-left")
+  lazy val marginLeft: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("margin-left")
 
 
   /**
@@ -1317,7 +1328,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/mask
     */
-  lazy val mask: StyleProp[String] with s.Url with s.None = urlNoneStyle("mask")
+  lazy val mask: StyleProp[String] with s.None with u.Url[DSP] = urlNoneStyle("mask")
 
 
   /**
@@ -1329,7 +1340,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/max-height
     */
-  lazy val maxHeight: StyleProp[String] with s.MaxLength = maxLengthStyle("max-height")
+  lazy val maxHeight: StyleProp[String] with s.MinMaxLength with s.None = maxLengthStyle("max-height")
 
 
   /**
@@ -1341,7 +1352,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/max-width
     */
-  lazy val maxWidth: StyleProp[String] with s.MaxLength = maxLengthStyle("max-width")
+  lazy val maxWidth: StyleProp[String] with s.MinMaxLength with s.None = maxLengthStyle("max-width")
 
 
   /**
@@ -1353,7 +1364,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/min-height
     */
-  lazy val minHeight: StyleProp[String] with s.MinLength = minLengthStyle("min-height")
+  lazy val minHeight: StyleProp[String] with s.MinMaxLength with s.Auto = minLengthStyle("min-height")
 
 
   /**
@@ -1365,7 +1376,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/min-width
     */
-  lazy val minWidth: StyleProp[String] with s.MinLength = minLengthStyle("min-width")
+  lazy val minWidth: StyleProp[String] with s.MinMaxLength with s.Auto = minLengthStyle("min-width")
 
 
   /**
@@ -1428,7 +1439,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width
     */
-  lazy val outlineWidth: StyleProp[String] with s.Length = lengthStyle("outline-width")
+  lazy val outlineWidth: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("outline-width")
 
 
   /**
@@ -1494,7 +1505,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/padding
     */
-  lazy val padding: StyleProp[String] with s.Length = lengthStyle("padding")
+  lazy val padding: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("padding")
 
 
   /**
@@ -1505,7 +1516,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top
     */
-  lazy val paddingTop: StyleProp[String] with s.Length = lengthStyle("padding-top")
+  lazy val paddingTop: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("padding-top")
 
 
   /**
@@ -1516,7 +1527,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right
     */
-  lazy val paddingRight: StyleProp[String] with s.Length = lengthStyle("padding-right")
+  lazy val paddingRight: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("padding-right")
 
 
   /**
@@ -1527,7 +1538,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom
     */
-  lazy val paddingBottom: StyleProp[String] with s.Length = lengthStyle("padding-bottom")
+  lazy val paddingBottom: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("padding-bottom")
 
 
   /**
@@ -1537,7 +1548,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left
     */
-  lazy val paddingLeft: StyleProp[String] with s.Length = lengthStyle("padding-left")
+  lazy val paddingLeft: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("padding-left")
 
 
   /**
@@ -1652,7 +1663,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/right
     */
-  lazy val right: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("right")
+  lazy val right: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("right")
 
 
   /**
@@ -1767,7 +1778,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/top
     */
-  lazy val top: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("top")
+  lazy val top: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("top")
 
 
   /**
@@ -1839,7 +1850,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay
     */
-  lazy val transitionDelay: StyleProp[String] with s.Time = timeStyle("transition-delay")
+  lazy val transitionDelay: StyleProp[String] with u.Time[DSP] = timeStyle("transition-delay")
 
 
   /**
@@ -1856,7 +1867,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration
     */
-  lazy val transitionDuration: StyleProp[String] with s.Time = timeStyle("transition-duration")
+  lazy val transitionDuration: StyleProp[String] with u.Time[DSP] = timeStyle("transition-duration")
 
 
   /**
@@ -1918,7 +1929,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/width
     */
-  lazy val width: StyleProp[String] with s.Length with s.Auto = lengthAutoStyle("width")
+  lazy val width: StyleProp[String] with s.Auto with u.Length[DSP, Int] = lengthAutoStyle("width")
 
 
   /**

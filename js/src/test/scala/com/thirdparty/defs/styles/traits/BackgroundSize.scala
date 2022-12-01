@@ -2,9 +2,11 @@ package com.thirdparty.defs.styles.traits
 
 import com.thirdparty.keys.StyleProp
 import com.thirdparty.setters.StyleSetter
+import com.thirdparty.defs.styles.units
+import com.thirdparty.keys.DerivedStyleProp
 
 /** !!! #Note: This code is generated from the data in Scala DOM Types !!! */
-trait BackgroundSize extends Auto { this: StyleProp[_] => 
+trait BackgroundSize extends Auto with units.Length[DerivedStyleProp, Int] { this: StyleProp[_] => 
 
   /**
     * This keyword specifies that the background image should be scaled to be
