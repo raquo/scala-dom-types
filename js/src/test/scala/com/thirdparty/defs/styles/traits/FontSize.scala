@@ -2,9 +2,11 @@ package com.thirdparty.defs.styles.traits
 
 import com.thirdparty.keys.StyleProp
 import com.thirdparty.setters.StyleSetter
+import com.thirdparty.defs.styles.units
+import com.thirdparty.keys.DerivedStyleProp
 
 /** !!! #Note: This code is generated from the data in Scala DOM Types !!! */
-trait FontSize { this: StyleProp[_] => 
+trait FontSize extends units.Length[DerivedStyleProp, Int] { this: StyleProp[_] => 
 
   lazy val xxSmall: StyleSetter[_] = this := "xx-small"
 

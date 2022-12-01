@@ -2,9 +2,11 @@ package com.thirdparty.defs.styles.traits
 
 import com.thirdparty.keys.StyleProp
 import com.thirdparty.setters.StyleSetter
+import com.thirdparty.defs.styles.units
+import com.thirdparty.keys.DerivedStyleProp
 
 /** !!! #Note: This code is generated from the data in Scala DOM Types !!! */
-trait MinMaxLength { this: StyleProp[_] => 
+trait MinMaxLength extends units.Length[DerivedStyleProp, Int] { this: StyleProp[_] => 
 
   /** The intrinsic preferred length. */
   lazy val maxContent: StyleSetter[_] = this := "max-content"

@@ -25,6 +25,7 @@ case class StylePropDef(
   domName: String,
   valueType: String,
   valueTraits: List[String], // Normal, Calc, TextTransform, Base, etc.
+  valueUnits: List[String],
   implName: String,
   override val commentLines: List[String],
   override val docUrls: List[String]

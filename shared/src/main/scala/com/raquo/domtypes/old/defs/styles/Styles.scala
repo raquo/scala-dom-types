@@ -1042,7 +1042,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/max-height
     */
-  lazy val maxHeight: MaxLengthStyle = maxLengthStyle("max-height")
+  lazy val maxHeight: MinMaxLengthStyle with NoneStyle[String] = maxLengthStyle("max-height")
 
   /**
     * The max-width CSS property is used to set the maximum width of a given
@@ -1053,7 +1053,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/max-width
     */
-  lazy val maxWidth: MaxLengthStyle = maxLengthStyle("max-width")
+  lazy val maxWidth: MinMaxLengthStyle with NoneStyle[String] = maxLengthStyle("max-width")
 
   /**
     * The min-height CSS property is used to set the minimum height of a given
@@ -1064,7 +1064,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/min-height
     */
-  lazy val minHeight: MinLengthStyle = minLengthStyle("min-height")
+  lazy val minHeight: MinMaxLengthStyle with AutoStyle[String] = minLengthStyle("min-height")
 
   /**
     * The min-width CSS property is used to set the minimum width of a given
@@ -1075,7 +1075,7 @@ trait Styles[SP[_], Setter[_], DerivedProp[_], LengthNum] { this: StylePropBuild
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/min-width
     */
-  lazy val minWidth: MinLengthStyle = minLengthStyle("min-width")
+  lazy val minWidth: MinMaxLengthStyle with AutoStyle[String] = minLengthStyle("min-width")
 
 
 

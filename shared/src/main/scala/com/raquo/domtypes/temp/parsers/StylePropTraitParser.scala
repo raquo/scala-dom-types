@@ -174,11 +174,14 @@ object StylePropTraitParser {
       throw new Exception(s"[$inputFileName] Failed to parse `$line`. Remaining unparsed impl params: ${rest}")
     }
 
+    val possibleUnitTraits = List("Calc", "Length", "Time", "Url")
+
     StylePropDef(
       scalaName = defName,
       domName = domName,
       valueType = typeParam,
-      valueTraits = valueTraits.toList,
+      valueTraits = valueTraits.filterNot(possibleUnitTraits.contains).toList,
+      valueUnits = valueTraits.filter(possibleUnitTraits.contains).toList,
       implName = implName,
       commentLines = accumulatedCommentLines,
       docUrls = List(

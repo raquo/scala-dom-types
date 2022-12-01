@@ -183,8 +183,13 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       printDefGroupComments = true,
       traitName = traitName,
       keyKind = "StyleProp",
+      keyKindAlias = "StyleProp",
+      derivedKeyKind = "DerivedStyleProp",
+      derivedKeyKindAlias = "DSP",
       baseImplName = "styleProp",
-      defType = LazyVal
+      defType = LazyVal,
+      lengthUnitsNumType = "Int",
+      outputUnitTraits = true
     )
 
     generator.writeToFile(
@@ -197,6 +202,13 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
   it("Generate Style Keywords") {
     println("=== Style Keywords ===")
 
+    def transformUnitTraitName(unitType: String): String = {
+      unitType match {
+        case "Length" => "Length[_, Int]"
+        case other => other + "[_]"
+      }
+    }
+
     StyleTraits.defs.foreach { styleTrait =>
       val keywordDefGroups = List(
         "Keywords" -> styleTrait.keywords  // #TODO this should be in the defs
@@ -206,9 +218,12 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
         printDefGroupComments = false,
         traitName = styleTrait.scalaName,
         extendsTraits = styleTrait.extendsTraits,
+        extendsUnitTraits = styleTrait.extendsUnits.map(transformUnitTraitName),
         propKind = "StyleProp",
         keywordKind = "StyleSetter",
-        defType = LazyVal
+        derivedKeyKind = "DerivedStyleProp",
+        defType = LazyVal,
+        outputUnitTypes = true
       )
 
       generator.writeToFile(

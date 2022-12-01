@@ -81,7 +81,8 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
   .jsSettings(
     scalaJSLinkerConfig ~= { _.withSourceMap(false) },
     libraryDependencies ++= Seq(
-      "org.scala-js" %%% "scalajs-dom" % Versions.ScalaJsDom
+      "org.scala-js" %%% "scalajs-dom" % Versions.ScalaJsDom,
+      "com.raquo" %%% "ew" % Versions.Ew % Test
     ),
     scalacOptions ++= {
       val sourcesUrl = s"https://raw.githubusercontent.com/raquo/scala-dom-types/${git.gitHeadCommit.value.get}"

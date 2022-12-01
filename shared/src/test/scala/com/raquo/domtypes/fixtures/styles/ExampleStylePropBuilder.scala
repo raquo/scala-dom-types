@@ -51,10 +51,10 @@ trait ExampleStylePropBuilder extends StylePropBuilder[
   override protected def lineStyle(key: String): LineStyle =
     new ExampleStyleProp[String](key) with keywords.LineStyle[ExampleStyleSetter[String]]
 
-  override protected def maxLengthStyle(key: String): MaxLengthStyle =
+  override protected def maxLengthStyle(key: String): MinMaxLengthStyle with NoneStyle[String] =
     new ExampleStyleProp[String](key) with keywords.MinMaxLengthStyle[ExampleStyleSetter[String], ExampleDerivedStyleProp.Base, Int] with keywords.NoneStyle[ExampleStyleSetter[String]]
 
-  override protected def minLengthStyle(key: String): MinLengthStyle =
+  override protected def minLengthStyle(key: String): MinMaxLengthStyle with AutoStyle[String] =
     new ExampleStyleProp[String](key) with keywords.MinMaxLengthStyle[ExampleStyleSetter[String], ExampleDerivedStyleProp.Base, Int] with keywords.AutoStyle[ExampleStyleSetter[String]]
 
   override protected def noneStyle[V](key: String): NoneStyle[V] =
