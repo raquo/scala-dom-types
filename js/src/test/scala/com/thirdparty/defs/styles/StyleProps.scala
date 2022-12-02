@@ -3,6 +3,7 @@ package com.thirdparty.defs.styles
 import com.thirdparty.keys.{DerivedStyleProp, StyleProp}
 import com.thirdparty.defs.styles.{traits => s}
 import com.thirdparty.defs.styles.{units => u}
+import com.thirdparty.setters.StyleSetter
 
 // #NOTE: GENERATED CODE
 //  - This file is generated at compile time from the data in Scala DOM Types
@@ -12,7 +13,9 @@ import com.thirdparty.defs.styles.{units => u}
 trait StyleProps {
 
 
-  type DSP[V] = DerivedStyleProp[V]
+  protected type DSP[V] = DerivedStyleProp[V]
+
+  protected type SS = StyleSetter[_]
 
 
   def styleProp[V](key: String): StyleProp[V] = StyleProp(key)
@@ -35,8 +38,8 @@ trait StyleProps {
   protected def autoStyle[V](key: String): StyleProp[V] with s.Auto = 
     new StyleProp[V](key) with s.Auto
 
-  protected def colorStyle(key: String): StyleProp[String] with s.Color = 
-    new StyleProp[String](key) with s.Color
+  protected def colorStyle(key: String): StyleProp[String] with s.Color with u.Color[SS, DSP] = 
+    new StyleProp[String](key) with s.Color with u.Color[SS, DSP]
 
   protected def flexPositionStyle(key: String): StyleProp[String] with s.FlexPosition = 
     new StyleProp[String](key) with s.FlexPosition
@@ -107,8 +110,8 @@ trait StyleProps {
   protected def clearStyle(key: String): StyleProp[String] with s.Clear = 
     new StyleProp[String](key) with s.Clear
 
-  protected def colorUrlStyle(key: String): StyleProp[String] with s.Color with u.Url[DSP] = 
-    new StyleProp[String](key) with s.Color with u.Url[DSP]
+  protected def colorUrlStyle(key: String): StyleProp[String] with s.Color with u.Color[SS, DSP] with u.Url[DSP] = 
+    new StyleProp[String](key) with s.Color with u.Color[SS, DSP] with u.Url[DSP]
 
   protected def cursorStyle(key: String): StyleProp[String] with s.Cursor = 
     new StyleProp[String](key) with s.Cursor
@@ -369,7 +372,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background
     */
-  lazy val background: StyleProp[String] with s.Color with u.Url[DSP] = colorUrlStyle("background")
+  lazy val background: StyleProp[String] with s.Color with u.Color[SS, DSP] with u.Url[DSP] = colorUrlStyle("background")
 
 
   /**
@@ -401,7 +404,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-color
     */
-  lazy val backgroundColor: StyleProp[String] with s.Color = colorStyle("background-color")
+  lazy val backgroundColor: StyleProp[String] with s.Color with u.Color[SS, DSP] = colorStyle("background-color")
 
 
   /**
@@ -531,7 +534,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-color
     */
-  lazy val borderColor: StyleProp[String] with s.Color = colorStyle("border-color")
+  lazy val borderColor: StyleProp[String] with s.Color with u.Color[SS, DSP] = colorStyle("border-color")
 
 
   /**
@@ -539,7 +542,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-color
     */
-  lazy val borderTopColor: StyleProp[String] with s.Color = colorStyle("border-top-color")
+  lazy val borderTopColor: StyleProp[String] with s.Color with u.Color[SS, DSP] = colorStyle("border-top-color")
 
 
   /**
@@ -547,7 +550,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-color
     */
-  lazy val borderRightColor: StyleProp[String] with s.Color = colorStyle("border-right-color")
+  lazy val borderRightColor: StyleProp[String] with s.Color with u.Color[SS, DSP] = colorStyle("border-right-color")
 
 
   /**
@@ -555,7 +558,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-color
     */
-  lazy val borderBottomColor: StyleProp[String] with s.Color = colorStyle("border-bottom-color")
+  lazy val borderBottomColor: StyleProp[String] with s.Color with u.Color[SS, DSP] = colorStyle("border-bottom-color")
 
 
   /**
@@ -563,7 +566,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-color
     */
-  lazy val borderLeftColor: StyleProp[String] with s.Color = colorStyle("border-left-color")
+  lazy val borderLeftColor: StyleProp[String] with s.Color with u.Color[SS, DSP] = colorStyle("border-left-color")
 
 
   /**
@@ -811,7 +814,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/color
     */
-  lazy val color: StyleProp[String] with s.Color = colorStyle("color")
+  lazy val color: StyleProp[String] with s.Color with u.Color[SS, DSP] = colorStyle("color")
 
 
   /**
@@ -892,7 +895,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-color
     */
-  lazy val columnRuleColor: StyleProp[String] with s.Color = colorStyle("column-rule-color")
+  lazy val columnRuleColor: StyleProp[String] with s.Color with u.Color[SS, DSP] = colorStyle("column-rule-color")
 
 
   /**
@@ -1455,7 +1458,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color
     */
-  lazy val outlineColor: StyleProp[String] with s.Color = colorStyle("outline-color")
+  lazy val outlineColor: StyleProp[String] with s.Color with u.Color[SS, DSP] = colorStyle("outline-color")
 
 
   /**

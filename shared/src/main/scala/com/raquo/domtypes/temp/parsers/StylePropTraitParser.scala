@@ -187,7 +187,7 @@ object StylePropTraitParser {
       domName = domName,
       valueType = typeParam,
       valueTraits = valueTraits.filterNot(possibleUnitTraits.contains).toList,
-      valueUnits = valueTraits.filter(possibleUnitTraits.contains).toList,
+      valueUnits = valueTraits.filter((possibleUnitTraits :+ "Color").contains).toList,
       implName = implName,
       commentLines = accumulatedCommentLines,
       docUrls = List(

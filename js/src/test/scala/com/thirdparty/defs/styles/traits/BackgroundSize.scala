@@ -2,7 +2,7 @@ package com.thirdparty.defs.styles.traits
 
 import com.thirdparty.keys.StyleProp
 import com.thirdparty.setters.StyleSetter
-import com.thirdparty.defs.styles.units
+import com.thirdparty.defs.styles.{units => u}
 import com.thirdparty.keys.DerivedStyleProp
 
 // #NOTE: GENERATED CODE
@@ -10,7 +10,7 @@ import com.thirdparty.keys.DerivedStyleProp
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait BackgroundSize extends Auto with units.Length[DerivedStyleProp, Int] { this: StyleProp[_] => 
+trait BackgroundSize extends Auto with u.Length[DerivedStyleProp, Int] { this: StyleProp[_] => 
 
   /**
     * This keyword specifies that the background image should be scaled to be

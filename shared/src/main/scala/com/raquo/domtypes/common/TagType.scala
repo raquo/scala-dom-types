@@ -1,6 +1,6 @@
 package com.raquo.domtypes.common
 
-// #TODO Maybe just use strings. Everything else is strings.
+// #TODO[API] Maybe just use strings. Everything else is strings.
 
 trait TagType {
 

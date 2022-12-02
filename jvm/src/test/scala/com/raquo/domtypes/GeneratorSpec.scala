@@ -209,6 +209,8 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       traitName = traitName,
       keyKind = "StyleProp",
       keyKindAlias = "StyleProp",
+      setterType = "StyleSetter[_]",
+      setterTypeAlias = "SS",
       derivedKeyKind = "DerivedStyleProp",
       derivedKeyKindAlias = "DSP",
       baseImplName = "styleProp",
@@ -227,13 +229,6 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
   it("Generate Style Keywords") {
     println("=== Style Keywords ===")
 
-    def transformUnitTraitName(unitType: String): String = {
-      unitType match {
-        case "Length" => "Length[_, Int]"
-        case other => other + "[_]"
-      }
-    }
-
     StyleTraits.defs.foreach { styleTrait =>
       val keywordDefGroups = List(
         "Keywords" -> styleTrait.keywords  // #TODO this should be in the defs
@@ -244,10 +239,11 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
         traitCommentLines = Nil,
         traitName = styleTrait.scalaName,
         extendsTraits = styleTrait.extendsTraits,
-        extendsUnitTraits = styleTrait.extendsUnits.map(transformUnitTraitName),
+        extendsUnitTraits = styleTrait.extendsUnits,
         propKind = "StyleProp",
         keywordKind = "StyleSetter",
         derivedKeyKind = "DerivedStyleProp",
+        lengthUnitsNumType = "Int",
         defType = LazyVal,
         outputUnitTypes = true,
         allowSuperCallInOverride = false // can't access lazy val from `super`
