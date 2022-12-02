@@ -175,6 +175,8 @@ class CanonicalGenerator(
     keyKind: String,
     implNameSuffix: String,
     baseImplName: String,
+    namespaceImports: List[String],
+    namespaceImpl: String => String,
     defType: DefType
   ): String = {
     val (defs, defGroupComments) = defsAndGroupComments(defGroups, printDefGroupComments)
@@ -200,8 +202,7 @@ class CanonicalGenerator(
       "",
       keyTypeImport(keyKind),
       codecsImport,
-      ""
-    ) ++ standardTraitCommentLines.map("// " + _)
+    ) ++ namespaceImports ++ List("") ++ standardTraitCommentLines.map("// " + _)
 
     new AttrsTraitGenerator(
       defs = defs,
@@ -215,7 +216,7 @@ class CanonicalGenerator(
       baseImplName = baseImplName,
       baseImplDef = baseImplDef,
       transformCodecName = _ + "Codec",
-      transformNamespace = SourceRepr(_),
+      namespaceImpl = namespaceImpl,
       outputImplDefs = true,
       format = format
     ).printTrait().getOutput()

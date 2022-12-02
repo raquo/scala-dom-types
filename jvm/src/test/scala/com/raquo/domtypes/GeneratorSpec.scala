@@ -96,6 +96,8 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       keyKind = "HtmlAttr",
       implNameSuffix = "HtmlAttr",
       baseImplName = "htmlAttr",
+      namespaceImports = Nil,
+      namespaceImpl = _ => ???,
       defType = LazyVal
     )
 
@@ -119,6 +121,8 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       keyKind = "SvgAttr",
       implNameSuffix = "SvgAttr",
       baseImplName = "svgAttr",
+      namespaceImports = Nil,
+      namespaceImpl = SourceRepr(_),
       defType = LazyVal
     )
 
@@ -142,6 +146,8 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       keyKind = "AriaAttr",
       implNameSuffix = "AriaAttr",
       baseImplName = "ariaAttr",
+      namespaceImports = Nil,
+      namespaceImpl = _ => ???,
       defType = LazyVal
     )
 
