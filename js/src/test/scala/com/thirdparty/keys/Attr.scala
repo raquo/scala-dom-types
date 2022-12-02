@@ -1,24 +1,28 @@
 package com.thirdparty.keys
 
 import com.thirdparty.codecs.Codec
+import com.thirdparty.setters.HtmlAttrSetter
 
-trait Attr[A] {
+trait Attr[V] {
   val domName: String
-  val codec: Codec[A, String]
+  val codec: Codec[V, String]
 }
 
-case class HtmlAttr[A](
+case class HtmlAttr[V](
   override val domName: String,
-  override val codec: Codec[A, String]
-) extends Attr[A]
+  override val codec: Codec[V, String]
+) extends Attr[V] {
 
-case class SvgAttr[A](
+  def := (value: V): HtmlAttrSetter[V] = HtmlAttrSetter(this, value)
+}
+
+case class SvgAttr[V](
   override val domName: String,
-  override val codec: Codec[A, String],
+  override val codec: Codec[V, String],
   namespace: Option[String]
-) extends Attr[A]
+) extends Attr[V]
 
-case class AriaAttr[A](
+case class AriaAttr[V](
   override val domName: String,
-  override val codec: Codec[A, String]
-) extends Attr[A]
+  override val codec: Codec[V, String]
+) extends Attr[V]

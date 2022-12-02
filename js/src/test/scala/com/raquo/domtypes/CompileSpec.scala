@@ -1,6 +1,7 @@
 package com.raquo.domtypes
 
 import com.thirdparty.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
+import com.thirdparty.defs.complex.{ComplexHtmlKeys, ComplexSvgKeys}
 import com.thirdparty.defs.eventProps.EventProps
 import com.thirdparty.defs.props.Props
 import com.thirdparty.defs.styles.StyleProps
@@ -29,12 +30,14 @@ class CompileSpec extends AnyFunSpec with Matchers {
     extends HtmlTags
     with HtmlAttrs
     with Props
+    with ComplexHtmlKeys
     with EventProps
     with StyleProps
 
   object svg
     extends SvgTags
     with SvgAttrs
+    with ComplexSvgKeys
 
   object aria
     extends AriaAttrs
@@ -54,7 +57,7 @@ class CompileSpec extends AnyFunSpec with Matchers {
     override protected def derivedStyle[A](encode: A => String): StyleEncoder[A] = encode
   }
 
-  it("standard features") {
+  it("typical usage") {
 
     // Simple types
 
@@ -64,6 +67,11 @@ class CompileSpec extends AnyFunSpec with Matchers {
     assert(html.idAttr.domName == "id")
     assert(html.charset.domName == "charset")
     assert(html.display.domName == "display")
+
+    // Complex keys
+
+    assert(html.cls.domName == "className")
+    assert((html.cls := List("class1", "class2")).domValue == "class1 class2")
 
     // CSS keywords
 
