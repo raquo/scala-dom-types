@@ -236,12 +236,9 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     println("=== Style Keywords ===")
 
     StyleTraits.defs.foreach { styleTrait =>
-      val keywordDefGroups = List(
-        "Keywords" -> styleTrait.keywords  // #TODO this should be in the defs
-      )
       val fileContent = generator.generateStyleKeywordsTrait(
-        defSources = keywordDefGroups,
-        printDefGroupComments = false,
+        defSources = styleTrait.keywordDefGroups,
+        printDefGroupComments = styleTrait.keywordDefGroups.length > 1,
         traitCommentLines = Nil,
         traitName = styleTrait.scalaName,
         extendsTraits = styleTrait.extendsTraits,

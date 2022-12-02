@@ -10,11 +10,17 @@ import com.thirdparty.setters.StyleSetter
 
 trait Display extends None { this: StyleProp[_] => 
 
+
+  // -- Outside values --
+
   /** The element generates a block element box */
   lazy val block: StyleSetter[_] = this := "block"
 
   /** The element generates one or more inline element boxes */
   lazy val inline: StyleSetter[_] = this := "inline"
+
+
+  // -- Inside values (except `table`, see below) --
 
   /**
     * The element lays out its contents using flow layout (block-and-inline layout).
@@ -55,6 +61,9 @@ trait Display extends None { this: StyleProp[_] =>
     */
   lazy val ruby: StyleSetter[_] = this := "ruby"
 
+
+  // -- Legacy values --
+
   /**
     * The element generates a block element box that will be flowed with
     * surrounding content as if it were a single inline box.
@@ -80,6 +89,9 @@ trait Display extends None { this: StyleProp[_] =>
     */
   lazy val inlineTable: StyleSetter[_] = this := "inline-table"
 
+
+  // -- Box generation --
+
   /**
     * Turns off the display of an element (it has no effect on layout); all
     * descendant elements also have their display turned off. The document is
@@ -96,11 +108,17 @@ trait Display extends None { this: StyleProp[_] =>
     */
   lazy val contents: StyleSetter[_] = this := "contents"
 
+
+  // -- List item --
+
   /**
     * The element generates a block box for the content and a separate list-item
     * inline box
     */
   lazy val listItem: StyleSetter[_] = this := "list-item"
+
+
+  // -- Table --
 
   /** Behaves like the table HTML element. It defines a block-level box */
   lazy val table: StyleSetter[_] = this := "table"

@@ -442,7 +442,9 @@ class CanonicalGenerator(
 
     val defGroupComments = if (printDefGroupComments) {
       defSources.map { case (groupName, defs) =>
-        defs.head -> List(s"-- ${groupName} --")
+        defs.head -> List(
+          if (groupName.isEmpty) "" else s"-- ${groupName} --"
+        )
       }.toMap
     } else {
       Map.empty[Def, List[String]]

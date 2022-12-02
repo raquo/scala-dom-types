@@ -3,14 +3,20 @@ package com.raquo.domtypes.defs.styles
 import com.raquo.domtypes.common.{StyleKeywordDef, StyleTraitDef}
 
 object StyleTraits {
-  
+
+  def OneList(list: StyleKeywordDef*): List[(String, List[StyleKeywordDef])] = {
+    List(
+      "All" -> list.toList
+    )
+  }
+
   val defs: List[StyleTraitDef] = List(
-    
+
     StyleTraitDef(
       scalaName = "AlignContent",
       extendsTraits = List("FlexPosition"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "spaceBetween",
           domName = "space-between",
@@ -34,15 +40,15 @@ object StyleTraits {
           commentLines = Nil,
           docUrls = Nil,
         ),
-
       ),
+
     ),
 
     StyleTraitDef(
       scalaName = "Auto",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "auto",
           domName = "auto",
@@ -58,7 +64,7 @@ object StyleTraits {
       scalaName = "BackfaceVisibility",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "visible",
           domName = "visible",
@@ -86,7 +92,7 @@ object StyleTraits {
       scalaName = "BackgroundAttachment",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "fixed",
           domName = "fixed",
@@ -131,7 +137,7 @@ object StyleTraits {
       scalaName = "BackgroundSize",
       extendsTraits = List("Auto"),
       extendsUnits = List("Length"),
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "cover",
           domName = "cover",
@@ -164,7 +170,7 @@ object StyleTraits {
       scalaName = "Base",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "initial",
           domName = "initial",
@@ -220,7 +226,7 @@ object StyleTraits {
       scalaName = "BorderCollapse",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "separate",
           domName = "separate",
@@ -248,7 +254,7 @@ object StyleTraits {
       scalaName = "BoxSizing",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "borderBox",
           domName = "border-box",
@@ -272,7 +278,7 @@ object StyleTraits {
       scalaName = "Clear",
       extendsTraits = List("None"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "left",
           domName = "left",
@@ -310,7 +316,7 @@ object StyleTraits {
       scalaName = "Color",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "black",
           domName = "black",
@@ -398,7 +404,7 @@ object StyleTraits {
       scalaName = "Cursor",
       extendsTraits = List("Auto", "None"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "default",
           domName = "default",
@@ -749,7 +755,7 @@ object StyleTraits {
       scalaName = "Direction",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "ltr",
           domName = "ltr",
@@ -777,271 +783,290 @@ object StyleTraits {
       scalaName = "Display",
       extendsTraits = List("None"),
       extendsUnits = Nil,
-      keywords = List(
-        StyleKeywordDef(
-          scalaName = "block",
-          domName = "block",
-          isOverride = false,
-          commentLines = List(
-            "The element generates a block element box",
-          ),
-          docUrls = Nil,
-        ),
+      keywordDefGroups =
+        List(
+          "Outside values" -> List(
 
-        StyleKeywordDef(
-          scalaName = "inline",
-          domName = "inline",
-          isOverride = false,
-          commentLines = List(
-            "The element generates one or more inline element boxes",
-          ),
-          docUrls = Nil,
-        ),
+            StyleKeywordDef(
+              scalaName = "block",
+              domName = "block",
+              isOverride = false,
+              commentLines = List(
+                "The element generates a block element box",
+              ),
+              docUrls = Nil,
+            ),
 
-        StyleKeywordDef(
-          scalaName = "flow",
-          domName = "flow",
-          isOverride = false,
-          commentLines = List(
-            "The element lays out its contents using flow layout (block-and-inline layout).",
-            "",
-            "If its outer display type is inline or run-in, and it is participating in a",
-            "block or inline formatting context, then it generates an inline box.",
-            "Otherwise it generates a block container box.",
-            "",
-            "Depending on the value of other properties (such as position, float, or overflow)",
-            "and whether it is itself participating in a block or inline formatting context,",
-            "it either establishes a new block formatting context (BFC) for its contents or",
-            "integrates its contents into its parent formatting context.",
+            StyleKeywordDef(
+              scalaName = "inline",
+              domName = "inline",
+              isOverride = false,
+              commentLines = List(
+                "The element generates one or more inline element boxes",
+              ),
+              docUrls = Nil,
+            ),
           ),
-          docUrls = Nil,
-        ),
 
-        StyleKeywordDef(
-          scalaName = "flowRoot",
-          domName = "flow-root",
-          isOverride = false,
-          commentLines = List(
-            "The element generates a block element box that establishes a new block",
-            "formatting context, defining where the formatting root lies",
+          "Inside values (except `table`, see below)" -> List(
+
+            StyleKeywordDef(
+              scalaName = "flow",
+              domName = "flow",
+              isOverride = false,
+              commentLines = List(
+                "The element lays out its contents using flow layout (block-and-inline layout).",
+                "",
+                "If its outer display type is inline or run-in, and it is participating in a",
+                "block or inline formatting context, then it generates an inline box.",
+                "Otherwise it generates a block container box.",
+                "",
+                "Depending on the value of other properties (such as position, float, or overflow)",
+                "and whether it is itself participating in a block or inline formatting context,",
+                "it either establishes a new block formatting context (BFC) for its contents or",
+                "integrates its contents into its parent formatting context.",
+              ),
+              docUrls = Nil,
+            ),
+
+            StyleKeywordDef(
+              scalaName = "flowRoot",
+              domName = "flow-root",
+              isOverride = false,
+              commentLines = List(
+                "The element generates a block element box that establishes a new block",
+                "formatting context, defining where the formatting root lies",
+              ),
+              docUrls = Nil,
+            ),
+
+            StyleKeywordDef(
+              scalaName = "flex",
+              domName = "flex",
+              isOverride = false,
+              commentLines = List(
+                "The element behaves like a block element and lays out its content according",
+                "to the flexbox model",
+              ),
+              docUrls = Nil,
+            ),
+
+            StyleKeywordDef(
+              scalaName = "grid",
+              domName = "grid",
+              isOverride = false,
+              commentLines = List(
+                "The element behaves like a block element and lays out its content according",
+                "to the grid model",
+              ),
+              docUrls = Nil,
+            ),
+
+            StyleKeywordDef(
+              scalaName = "ruby",
+              domName = "ruby",
+              isOverride = false,
+              commentLines = List(
+                "The element behaves like an inline element and lays out its content according",
+                "to the ruby formatting model. It behaves like the corresponding HTML <ruby>",
+                "elements.",
+              ),
+              docUrls = Nil,
+            ),
           ),
-          docUrls = Nil,
-        ),
 
-        StyleKeywordDef(
-          scalaName = "flex",
-          domName = "flex",
-          isOverride = false,
-          commentLines = List(
-            "The element behaves like a block element and lays out its content according",
-            "to the flexbox model",
+          "Legacy values" -> List(
+
+            StyleKeywordDef(
+              scalaName = "inlineBlock",
+              domName = "inline-block",
+              isOverride = false,
+              commentLines = List(
+                "The element generates a block element box that will be flowed with",
+                "surrounding content as if it were a single inline box.",
+              ),
+              docUrls = Nil,
+            ),
+
+            StyleKeywordDef(
+              scalaName = "inlineFlex",
+              domName = "inline-flex",
+              isOverride = false,
+              commentLines = List(
+                "The element behaves like an inline element and lays out its content",
+                "according to the flexbox model",
+              ),
+              docUrls = Nil,
+            ),
+
+            StyleKeywordDef(
+              scalaName = "inlineGrid",
+              domName = "inline-grid",
+              isOverride = false,
+              commentLines = List(
+                "The element behaves like an inline element and lays out its content",
+                "according to the grid model",
+              ),
+              docUrls = Nil,
+            ),
+
+            StyleKeywordDef(
+              scalaName = "inlineTable",
+              domName = "inline-table",
+              isOverride = false,
+              commentLines = List(
+                "The inline-table value does not have a direct mapping in HTML. It behaves",
+                "like a table HTML element, but as an inline box, rather than a",
+                "block-level box. Inside the table box is a block-level context",
+              ),
+              docUrls = Nil,
+            ),
           ),
-          docUrls = Nil,
-        ),
 
-        StyleKeywordDef(
-          scalaName = "grid",
-          domName = "grid",
-          isOverride = false,
-          commentLines = List(
-            "The element behaves like a block element and lays out its content according",
-            "to the grid model",
+          "Box generation" -> List(
+
+            StyleKeywordDef(
+              scalaName = "none",
+              domName = "none",
+              isOverride = true,
+              commentLines = List(
+                "Turns off the display of an element (it has no effect on layout); all",
+                "descendant elements also have their display turned off. The document is",
+                "rendered as though the element did not exist.",
+                "",
+                "To render an element box's dimensions, yet have its contents be invisible,",
+                "see the visibility property.",
+              ),
+              docUrls = Nil,
+            ),
+
+            StyleKeywordDef(
+              scalaName = "contents",
+              domName = "contents",
+              isOverride = false,
+              commentLines = List(
+                "These elements don't produce a specific box by themselves.",
+                "They are replaced by their pseudo-box and their child boxes.",
+              ),
+              docUrls = Nil,
+            ),
           ),
-          docUrls = Nil,
-        ),
 
-        StyleKeywordDef(
-          scalaName = "ruby",
-          domName = "ruby",
-          isOverride = false,
-          commentLines = List(
-            "The element behaves like an inline element and lays out its content according",
-            "to the ruby formatting model. It behaves like the corresponding HTML <ruby>",
-            "elements.",
+          "List item" -> List(
+
+            StyleKeywordDef(
+              scalaName = "listItem",
+              domName = "list-item",
+              isOverride = false,
+              commentLines = List(
+                "The element generates a block box for the content and a separate list-item",
+                "inline box",
+              ),
+              docUrls = Nil,
+            ),
           ),
-          docUrls = Nil,
-        ),
 
-        StyleKeywordDef(
-          scalaName = "inlineBlock",
-          domName = "inline-block",
-          isOverride = false,
-          commentLines = List(
-            "The element generates a block element box that will be flowed with",
-            "surrounding content as if it were a single inline box.",
-          ),
-          docUrls = Nil,
-        ),
+          "Table" -> List(
 
-        StyleKeywordDef(
-          scalaName = "inlineFlex",
-          domName = "inline-flex",
-          isOverride = false,
-          commentLines = List(
-            "The element behaves like an inline element and lays out its content",
-            "according to the flexbox model",
-          ),
-          docUrls = Nil,
-        ),
+            StyleKeywordDef(
+              scalaName = "table",
+              domName = "table",
+              isOverride = false,
+              commentLines = List(
+                "Behaves like the table HTML element. It defines a block-level box",
+              ),
+              docUrls = Nil,
+            ),
 
-        StyleKeywordDef(
-          scalaName = "inlineGrid",
-          domName = "inline-grid",
-          isOverride = false,
-          commentLines = List(
-            "The element behaves like an inline element and lays out its content",
-            "according to the grid model",
-          ),
-          docUrls = Nil,
-        ),
+            StyleKeywordDef(
+              scalaName = "tableCaption",
+              domName = "table-caption",
+              isOverride = false,
+              commentLines = List(
+                "Behaves like the caption HTML element",
+              ),
+              docUrls = Nil,
+            ),
 
-        StyleKeywordDef(
-          scalaName = "inlineTable",
-          domName = "inline-table",
-          isOverride = false,
-          commentLines = List(
-            "The inline-table value does not have a direct mapping in HTML. It behaves",
-            "like a table HTML element, but as an inline box, rather than a",
-            "block-level box. Inside the table box is a block-level context",
-          ),
-          docUrls = Nil,
-        ),
+            StyleKeywordDef(
+              scalaName = "tableCell",
+              domName = "table-cell",
+              isOverride = false,
+              commentLines = List(
+                "Behaves like the td HTML element",
+              ),
+              docUrls = Nil,
+            ),
 
-        StyleKeywordDef(
-          scalaName = "none",
-          domName = "none",
-          isOverride = true,
-          commentLines = List(
-            "Turns off the display of an element (it has no effect on layout); all",
-            "descendant elements also have their display turned off. The document is",
-            "rendered as though the element did not exist.",
-            "",
-            "To render an element box's dimensions, yet have its contents be invisible,",
-            "see the visibility property.",
-          ),
-          docUrls = Nil,
-        ),
+            StyleKeywordDef(
+              scalaName = "tableColumn",
+              domName = "table-column",
+              isOverride = false,
+              commentLines = List(
+                "These elements behave like the corresponding col HTML elements",
+              ),
+              docUrls = Nil,
+            ),
 
-        StyleKeywordDef(
-          scalaName = "contents",
-          domName = "contents",
-          isOverride = false,
-          commentLines = List(
-            "These elements don't produce a specific box by themselves.",
-            "They are replaced by their pseudo-box and their child boxes.",
-          ),
-          docUrls = Nil,
-        ),
+            StyleKeywordDef(
+              scalaName = "tableColumnGroup",
+              domName = "table-column-group",
+              isOverride = false,
+              commentLines = List(
+                "These elements behave like the corresponding colgroup HTML elements",
+              ),
+              docUrls = Nil,
+            ),
 
-        StyleKeywordDef(
-          scalaName = "listItem",
-          domName = "list-item",
-          isOverride = false,
-          commentLines = List(
-            "The element generates a block box for the content and a separate list-item",
-            "inline box",
-          ),
-          docUrls = Nil,
-        ),
+            StyleKeywordDef(
+              scalaName = "tableFooterGroup",
+              domName = "table-footer-group",
+              isOverride = false,
+              commentLines = List(
+                "These elements behave like the corresponding tfoot HTML elements",
+              ),
+              docUrls = Nil,
+            ),
 
-        StyleKeywordDef(
-          scalaName = "table",
-          domName = "table",
-          isOverride = false,
-          commentLines = List(
-            "Behaves like the table HTML element. It defines a block-level box",
-          ),
-          docUrls = Nil,
-        ),
+            StyleKeywordDef(
+              scalaName = "tableHeaderGroup",
+              domName = "table-header-group",
+              isOverride = false,
+              commentLines = List(
+                "These elements behave like the corresponding thead HTML elements",
+              ),
+              docUrls = Nil,
+            ),
 
-        StyleKeywordDef(
-          scalaName = "tableCaption",
-          domName = "table-caption",
-          isOverride = false,
-          commentLines = List(
-            "Behaves like the caption HTML element",
-          ),
-          docUrls = Nil,
-        ),
+            StyleKeywordDef(
+              scalaName = "tableRow",
+              domName = "table-row",
+              isOverride = false,
+              commentLines = List(
+                "Behaves like the tr HTML element",
+              ),
+              docUrls = Nil,
+            ),
 
-        StyleKeywordDef(
-          scalaName = "tableCell",
-          domName = "table-cell",
-          isOverride = false,
-          commentLines = List(
-            "Behaves like the td HTML element",
-          ),
-          docUrls = Nil,
-        ),
+            StyleKeywordDef(
+              scalaName = "tableRowGroup",
+              domName = "table-row-group",
+              isOverride = false,
+              commentLines = List(
+                "These elements behave like the corresponding tbody HTML elements",
+              ),
+              docUrls = Nil,
+            ),
+          )
 
-        StyleKeywordDef(
-          scalaName = "tableColumn",
-          domName = "table-column",
-          isOverride = false,
-          commentLines = List(
-            "These elements behave like the corresponding col HTML elements",
-          ),
-          docUrls = Nil,
         ),
-
-        StyleKeywordDef(
-          scalaName = "tableColumnGroup",
-          domName = "table-column-group",
-          isOverride = false,
-          commentLines = List(
-            "These elements behave like the corresponding colgroup HTML elements",
-          ),
-          docUrls = Nil,
-        ),
-
-        StyleKeywordDef(
-          scalaName = "tableFooterGroup",
-          domName = "table-footer-group",
-          isOverride = false,
-          commentLines = List(
-            "These elements behave like the corresponding tfoot HTML elements",
-          ),
-          docUrls = Nil,
-        ),
-
-        StyleKeywordDef(
-          scalaName = "tableHeaderGroup",
-          domName = "table-header-group",
-          isOverride = false,
-          commentLines = List(
-            "These elements behave like the corresponding thead HTML elements",
-          ),
-          docUrls = Nil,
-        ),
-
-        StyleKeywordDef(
-          scalaName = "tableRow",
-          domName = "table-row",
-          isOverride = false,
-          commentLines = List(
-            "Behaves like the tr HTML element",
-          ),
-          docUrls = Nil,
-        ),
-
-        StyleKeywordDef(
-          scalaName = "tableRowGroup",
-          domName = "table-row-group",
-          isOverride = false,
-          commentLines = List(
-            "These elements behave like the corresponding tbody HTML elements",
-          ),
-          docUrls = Nil,
-        ),
-
-      ),
     ),
 
     StyleTraitDef(
       scalaName = "EmptyCells",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "show",
           domName = "show",
@@ -1069,7 +1094,7 @@ object StyleTraits {
       scalaName = "FlexDirection",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "column",
           domName = "column",
@@ -1120,7 +1145,7 @@ object StyleTraits {
       scalaName = "FlexPosition",
       extendsTraits = List("Normal"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "flexStart",
           domName = "flex-start",
@@ -1216,7 +1241,7 @@ object StyleTraits {
       scalaName = "FlexWrap",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "nowrap",
           domName = "nowrap",
@@ -1260,7 +1285,7 @@ object StyleTraits {
       scalaName = "Float",
       extendsTraits = List("None"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "left",
           domName = "left",
@@ -1288,7 +1313,7 @@ object StyleTraits {
       scalaName = "FontSize",
       extendsTraits = Nil,
       extendsUnits = List("Length"),
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "xxSmall",
           domName = "xx-small",
@@ -1374,7 +1399,7 @@ object StyleTraits {
       scalaName = "FontStyle",
       extendsTraits = List("Normal"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "italic",
           domName = "italic",
@@ -1403,7 +1428,7 @@ object StyleTraits {
       scalaName = "FontWeight",
       extendsTraits = List("Normal"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "normal",
           domName = "normal",
@@ -1453,7 +1478,7 @@ object StyleTraits {
       scalaName = "JustifyContent",
       extendsTraits = List("AlignContent"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "left",
           domName = "left",
@@ -1477,96 +1502,112 @@ object StyleTraits {
       scalaName = "Line",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
-        StyleKeywordDef(
-          scalaName = "dotted",
-          domName = "dotted",
-          isOverride = false,
-          commentLines = List(
-            "Displays a series of rounded dots. The spacing of the dots are not",
-            "defined by the specification and are implementation-specific. The radius",
-            "of the dots is half the calculated border-right-width.",
+      keywordDefGroups = List(
+        "" -> List(
+
+          StyleKeywordDef(
+            scalaName = "dotted",
+            domName = "dotted",
+            isOverride = false,
+            commentLines = List(
+              "Displays a series of rounded dots. The spacing of the dots are not",
+              "defined by the specification and are implementation-specific. The radius",
+              "of the dots is half the calculated border-right-width.",
+            ),
+            docUrls = Nil,
           ),
-          docUrls = Nil,
+
+          StyleKeywordDef(
+            scalaName = "dashed",
+            domName = "dashed",
+            isOverride = false,
+            commentLines = List(
+              "Displays a series of short square-ended dashes or line segments. The exact",
+              "size and Length of the segments are not defined by the specification and",
+              "are implementation-specific.",
+            ),
+            docUrls = Nil,
+          ),
+
+          StyleKeywordDef(
+            scalaName = "solid",
+            domName = "solid",
+            isOverride = false,
+            commentLines = List(
+              "Displays a single, straight, solid line.",
+            ),
+            docUrls = Nil,
+          ),
+
         ),
 
-        StyleKeywordDef(
-          scalaName = "dashed",
-          domName = "dashed",
-          isOverride = false,
-          commentLines = List(
-            "Displays a series of short square-ended dashes or line segments. The exact",
-            "size and Length of the segments are not defined by the specification and",
-            "are implementation-specific.",
+        "" -> List(
+
+          StyleKeywordDef(
+            scalaName = "double",
+            domName = "double",
+            isOverride = false,
+            commentLines = List(
+              "Displays two straight lines that add up to the pixel amount defined as",
+              "border-width or border-right-width.",
+            ),
+            docUrls = Nil,
           ),
-          docUrls = Nil,
+
         ),
 
-        StyleKeywordDef(
-          scalaName = "solid",
-          domName = "solid",
-          isOverride = false,
-          commentLines = List(
-            "Displays a single, straight, solid line.",
+        "" -> List(
+
+          StyleKeywordDef(
+            scalaName = "groove",
+            domName = "groove",
+            isOverride = false,
+            commentLines = List(
+              "Displays a border leading to a carved effect. It is the opposite of ridge.",
+            ),
+            docUrls = Nil,
           ),
-          docUrls = Nil,
+
+          StyleKeywordDef(
+            scalaName = "ridge",
+            domName = "ridge",
+            isOverride = false,
+            commentLines = List(
+              "Displays a border with a 3D effect, like if it is coming out of the page.",
+              "It is the opposite of groove.",
+            ),
+            docUrls = Nil,
+          ),
+
         ),
 
-        StyleKeywordDef(
-          scalaName = "double",
-          domName = "double",
-          isOverride = false,
-          commentLines = List(
-            "Displays two straight lines that add up to the pixel amount defined as",
-            "border-width or border-right-width.",
-          ),
-          docUrls = Nil,
-        ),
+        "" -> List(
 
-        StyleKeywordDef(
-          scalaName = "groove",
-          domName = "groove",
-          isOverride = false,
-          commentLines = List(
-            "Displays a border leading to a carved effect. It is the opposite of ridge.",
+          StyleKeywordDef(
+            scalaName = "inset",
+            domName = "inset",
+            isOverride = false,
+            commentLines = List(
+              "Displays a border that makes the box appear embedded. It is the opposite",
+              "of outset. When applied to a table cell with border-collapse set to",
+              "collapsed, this value behaves like groove.",
+            ),
+            docUrls = Nil,
           ),
-          docUrls = Nil,
-        ),
 
-        StyleKeywordDef(
-          scalaName = "ridge",
-          domName = "ridge",
-          isOverride = false,
-          commentLines = List(
-            "Displays a border with a 3D effect, like if it is coming out of the page.",
-            "It is the opposite of groove.",
+          StyleKeywordDef(
+            scalaName = "outset",
+            domName = "outset",
+            isOverride = false,
+            commentLines = List(
+              "Displays a border that makes the box appear in 3D, embossed. It is the",
+              "opposite of inset. When applied to a table cell with border-collapse set",
+              "to collapsed, this value behaves like ridge.",
+            ),
+            docUrls = Nil,
           ),
-          docUrls = Nil,
-        ),
 
-        StyleKeywordDef(
-          scalaName = "inset",
-          domName = "inset",
-          isOverride = false,
-          commentLines = List(
-            "Displays a border that makes the box appear embedded. It is the opposite",
-            "of outset. When applied to a table cell with border-collapse set to",
-            "collapsed, this value behaves like groove.",
-          ),
-          docUrls = Nil,
-        ),
-
-        StyleKeywordDef(
-          scalaName = "outset",
-          domName = "outset",
-          isOverride = false,
-          commentLines = List(
-            "Displays a border that makes the box appear in 3D, embossed. It is the",
-            "opposite of inset. When applied to a table cell with border-collapse set",
-            "to collapsed, this value behaves like ridge.",
-          ),
-          docUrls = Nil,
-        ),
+        )
 
       ),
     ),
@@ -1575,7 +1616,7 @@ object StyleTraits {
       scalaName = "LineWidth",
       extendsTraits = Nil,
       extendsUnits = List("Length"),
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "thin",
           domName = "thin",
@@ -1613,7 +1654,7 @@ object StyleTraits {
       scalaName = "ListStylePosition",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "outside",
           domName = "outside",
@@ -1642,7 +1683,7 @@ object StyleTraits {
       scalaName = "ListStyleType",
       extendsTraits = List("None"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "disc",
           domName = "disc",
@@ -1850,7 +1891,7 @@ object StyleTraits {
       scalaName = "MinMaxLength",
       extendsTraits = Nil,
       extendsUnits = List("Length"),
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "maxContent",
           domName = "max-content",
@@ -1898,7 +1939,7 @@ object StyleTraits {
       scalaName = "None",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "none",
           domName = "none",
@@ -1914,7 +1955,7 @@ object StyleTraits {
       scalaName = "Normal",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "normal",
           domName = "normal",
@@ -1930,7 +1971,7 @@ object StyleTraits {
       scalaName = "Overflow",
       extendsTraits = List("Auto"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "visible",
           domName = "visible",
@@ -1972,7 +2013,7 @@ object StyleTraits {
       scalaName = "OverflowWrap",
       extendsTraits = List("Normal"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "normal",
           domName = "normal",
@@ -2001,7 +2042,7 @@ object StyleTraits {
       scalaName = "PaddingBoxSizing",
       extendsTraits = List("BoxSizing"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "paddingBox",
           domName = "padding-box",
@@ -2017,7 +2058,7 @@ object StyleTraits {
       scalaName = "PageBreak",
       extendsTraits = List("Auto"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "always",
           domName = "always",
@@ -2065,7 +2106,7 @@ object StyleTraits {
       scalaName = "PointerEvents",
       extendsTraits = List("None", "Auto"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "auto",
           domName = "auto",
@@ -2205,7 +2246,7 @@ object StyleTraits {
       scalaName = "Position",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "static",
           domName = "static",
@@ -2265,7 +2306,7 @@ object StyleTraits {
       scalaName = "TableLayout",
       extendsTraits = List("Auto"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "auto",
           domName = "auto",
@@ -2297,7 +2338,7 @@ object StyleTraits {
       scalaName = "TextAlign",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "start",
           domName = "start",
@@ -2366,7 +2407,7 @@ object StyleTraits {
       scalaName = "TextDecoration",
       extendsTraits = List("None"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "underline",
           domName = "underline",
@@ -2404,7 +2445,7 @@ object StyleTraits {
       scalaName = "TextOverflow",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "clip",
           domName = "clip",
@@ -2439,7 +2480,7 @@ object StyleTraits {
       scalaName = "TextTransform",
       extendsTraits = List("None"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "capitalize",
           domName = "capitalize",
@@ -2478,7 +2519,7 @@ object StyleTraits {
       scalaName = "TextUnderlinePosition",
       extendsTraits = List("Auto"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "auto",
           domName = "auto",
@@ -2550,7 +2591,7 @@ object StyleTraits {
       scalaName = "VerticalAlign",
       extendsTraits = Nil,
       extendsUnits = List("Length"),
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "baseline",
           domName = "baseline",
@@ -2647,7 +2688,7 @@ object StyleTraits {
       scalaName = "Visibility",
       extendsTraits = Nil,
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "visible",
           domName = "visible",
@@ -2689,7 +2730,7 @@ object StyleTraits {
       scalaName = "WhiteSpace",
       extendsTraits = List("Normal"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "normal",
           domName = "normal",
@@ -2753,7 +2794,7 @@ object StyleTraits {
       scalaName = "WordBreak",
       extendsTraits = List("Normal"),
       extendsUnits = Nil,
-      keywords = List(
+      keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "breakAll",
           domName = "break-all",
@@ -2794,5 +2835,5 @@ object StyleTraits {
     ),
 
   )
-  
+
 }
