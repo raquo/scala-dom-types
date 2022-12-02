@@ -1,4 +1,4 @@
-package com.raquo.domtypes
+package com.thirdparty
 
 import com.thirdparty.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
 import com.thirdparty.defs.complex.{ComplexHtmlKeys, ComplexSvgKeys}
