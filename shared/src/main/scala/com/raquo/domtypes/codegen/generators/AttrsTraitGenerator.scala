@@ -16,7 +16,7 @@ class AttrsTraitGenerator(
   baseImplName: String,
   baseImplDef: List[String],
   transformCodecName: String => String,
-  transformNamespace: String => String,
+  namespaceImpl: String => String,
   override protected val outputImplDefs: Boolean,
   format: CodeFormatting
 ) extends TraitGenerator[AttrDef](format) {
@@ -53,7 +53,7 @@ class AttrsTraitGenerator(
       keyImplName(keyDef),
       "(",
       repr(keyDef.domName),
-      keyDef.namespace.map(", namespace = " + transformNamespace(_)).getOrElse(""),
+      keyDef.namespace.map(", namespace = " + namespaceImpl(_)).getOrElse(""),
       ")"
     ).mkString
   }
