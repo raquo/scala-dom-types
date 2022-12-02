@@ -10,6 +10,8 @@ import com.thirdparty.setters.StyleSetter
 
 trait Line { this: StyleProp[_] => 
 
+
+
   /**
     * Displays a series of rounded dots. The spacing of the dots are not
     * defined by the specification and are implementation-specific. The radius
@@ -27,11 +29,15 @@ trait Line { this: StyleProp[_] =>
   /** Displays a single, straight, solid line. */
   lazy val solid: StyleSetter[_] = this := "solid"
 
+
+
   /**
     * Displays two straight lines that add up to the pixel amount defined as
     * border-width or border-right-width.
     */
   lazy val double: StyleSetter[_] = this := "double"
+
+
 
   /** Displays a border leading to a carved effect. It is the opposite of ridge. */
   lazy val groove: StyleSetter[_] = this := "groove"
@@ -41,6 +47,8 @@ trait Line { this: StyleProp[_] =>
     * It is the opposite of groove.
     */
   lazy val ridge: StyleSetter[_] = this := "ridge"
+
+
 
   /**
     * Displays a border that makes the box appear embedded. It is the opposite

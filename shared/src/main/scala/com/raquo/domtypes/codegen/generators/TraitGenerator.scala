@@ -77,15 +77,23 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
   protected def printBeforeDefGroupComments(keyDef: Def): Unit = {}
 
   protected def printAfterDefGroupComments(keyDef: Def): Unit = {
-    if (defGroupComments(keyDef).nonEmpty) {
-      line()
+    val comments = defGroupComments(keyDef)
+    if (comments.nonEmpty) {
+      if (!(comments.size == 1 && comments.head.isEmpty)) {
+        line()
+      }
       line()
     }
   }
 
   protected def printDefGroupComment(keyDef: Def): Unit = {
-    defGroupComments(keyDef).foreach { l =>
-      line("// " + l)
+    val groupComments = defGroupComments(keyDef)
+    if (groupComments.size == 1 && groupComments.head.isEmpty) {
+      line()
+    } else {
+      groupComments.foreach { l =>
+        line("// " + l)
+      }
     }
   }
 

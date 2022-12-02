@@ -58,6 +58,22 @@ class StyleKeywordsTraitGenerator(
     line()
   }
 
+  override protected def printBeforeDefGroupComments(keyDef: StyleKeywordDef): Unit = {
+    val comments = defGroupComments(keyDef)
+    if (comments.nonEmpty) {
+      line()
+    }
+  }
+
+  override protected def printAfterDefGroupComments(keyDef: StyleKeywordDef): Unit = {
+    val comments = defGroupComments(keyDef)
+    if (comments.nonEmpty) {
+      if (!(comments.size == 1 && comments.head.isEmpty)) {
+        line()
+      }
+    }
+  }
+
   override protected def printImplDefs(): Unit = {}
 
 }
