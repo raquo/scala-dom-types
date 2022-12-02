@@ -23,7 +23,7 @@ class StyleKeywordsTraitGenerator(
   override protected val outputImplDefs: Boolean = false
 
   override protected def printTraitDef(inside: => Unit): Unit = {
-    val allTraits = extendsTraits ++ extendsUnitTraits.map(_.replace("[_", "[" + derivedKeyKind).replace("_]", derivedKeyKind + "]"))
+    val allTraits = extendsTraits ++ extendsUnitTraits //.map(_.replace("[_", "[" + derivedKeyKind).replace("_]", derivedKeyKind + "]"))
 
     val withTraits = if (allTraits.nonEmpty) {
       s"extends ${allTraits.head}" + allTraits.tail.map(" with " + _).mkString + " "

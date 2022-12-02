@@ -59,6 +59,25 @@ class CanonicalGenerator(
     }
   }
 
+  def styleTraitsPackageAlias = "s"
+
+  def styleUnitTraitsPackageAlias = "u"
+
+  def transformUnitTraitName(
+    setterTypeAlias: String,
+    derivedKeyKindAlias: String,
+    lengthUnitsNumType: String
+  )(
+    unitTraitName: String
+  ): String = {
+    val typeParams = unitTraitName match {
+      case "Length" => s"$derivedKeyKindAlias, $lengthUnitsNumType"
+      case "Color" => s"$setterTypeAlias, $derivedKeyKindAlias[_]"
+      case _ => derivedKeyKindAlias
+    }
+    styleUnitTraitsPackageAlias + "." + unitTraitName + "[" + typeParams + "]"
+  }
+
   def scalaJsDomImport: String = "import org.scalajs.dom"
 
   def codecsImport: String = s"import ${basePackagePath}.codecs._"
@@ -288,6 +307,8 @@ class CanonicalGenerator(
     traitName: String,
     keyKind: String,
     keyKindAlias: String,
+    setterType: String,
+    setterTypeAlias: String,
     derivedKeyKind: String,
     derivedKeyKindAlias: String,
     baseImplName: String,
@@ -301,17 +322,6 @@ class CanonicalGenerator(
       s"def ${baseImplName}[V](key: String): ${keyKind}[V] = ${keyKind}(key)"
     )
 
-    val styleTraitsPackageAlias = "s"
-    val styleUnitTraitsPackageAlias = "u"
-
-    def transformUnitTraitName(unitTraitName: String): String = {
-      if (unitTraitName == "Length") {
-        styleUnitTraitsPackageAlias + "." + unitTraitName + s"[$derivedKeyKindAlias, $lengthUnitsNumType]"
-      } else {
-        styleUnitTraitsPackageAlias + "." + unitTraitName + s"[$derivedKeyKindAlias]"
-      }
-    }
-
     val headerLines = List(
       s"package $stylePropsPackagePath",
       "",
@@ -324,7 +334,8 @@ class CanonicalGenerator(
     ) ++ (
       if (outputUnitTraits) {
         List(
-          "import " + styleUnitTraitsPackagePath(Some(styleUnitTraitsPackageAlias))
+          "import " + styleUnitTraitsPackagePath(Some(styleUnitTraitsPackageAlias)),
+          setterTypeImport(setterType.replace("[_]", "")),
         )
       } else {
         Nil
@@ -340,13 +351,15 @@ class CanonicalGenerator(
       defType = _ => defType,
       keyKind = keyKind,
       keyKindAlias = keyKindAlias,
+      setterType = setterType,
+      setterTypeAlias = setterTypeAlias,
       derivedKeyKind = derivedKeyKind,
       derivedKeyKindAlias = derivedKeyKindAlias,
       keyImplName = _.implName,
       baseImplName = baseImplName,
       baseImplDef = baseImplDef,
       transformTraitName = styleTraitsPackageAlias + "." + _,
-      transformUnitTraitName = transformUnitTraitName,
+      transformUnitTraitName = transformUnitTraitName(setterTypeAlias, derivedKeyKindAlias, lengthUnitsNumType),
       outputUnitTraits = outputUnitTraits,
       outputImplDefs = true,
       format = format
@@ -365,6 +378,7 @@ class CanonicalGenerator(
     propKind: String,
     keywordKind: String,
     derivedKeyKind: String,
+    lengthUnitsNumType: String,
     defType: DefType,
     outputUnitTypes: Boolean,
     allowSuperCallInOverride: Boolean
@@ -388,7 +402,7 @@ class CanonicalGenerator(
     ) ++ (
       if (outputUnitTypes && extendsUnitTraits.nonEmpty) {
         List(
-          "import " + styleUnitTraitsPackagePath(),
+          "import " + styleUnitTraitsPackagePath(renameTo = Some(styleUnitTraitsPackageAlias)),
           "import " + derivedStylePropPackagePath + "." + derivedKeyKind
         )
       } else Nil
@@ -401,7 +415,9 @@ class CanonicalGenerator(
       traitCommentLines = traitCommentLines,
       traitName = traitName,
       extendsTraits = extendsTraits,
-      extendsUnitTraits = if (outputUnitTypes) extendsUnitTraits.map(styleUnitTraitsPackageName + "." + _) else Nil,
+      extendsUnitTraits = if (outputUnitTypes) extendsUnitTraits.map(
+        transformUnitTraitName(keywordKind + "[_]", derivedKeyKind, lengthUnitsNumType)
+      ) else Nil,
       keyImplName = _ => ???, // unused, the implementation is not function-based for keywords
       keywordImpl = keyImpl,
       keywordKind = keywordKind,

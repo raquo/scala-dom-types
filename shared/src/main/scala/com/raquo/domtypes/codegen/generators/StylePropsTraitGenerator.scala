@@ -14,6 +14,8 @@ class StylePropsTraitGenerator(
   defType: StylePropDef => DefType,
   keyKind: String,
   keyKindAlias: String,
+  setterType: String,
+  setterTypeAlias: String,
   derivedKeyKind: String,
   derivedKeyKindAlias: String,
   baseImplName: String,
@@ -87,18 +89,20 @@ class StylePropsTraitGenerator(
   override protected def printBeforeAllDefs(): Unit = {
     val shouldAliasKeyKind = keyKindAlias != keyKind
     val shouldAliasDerivedKeyKind = (derivedKeyKindAlias != derivedKeyKind) && outputUnitTraits
-    if (shouldAliasKeyKind || shouldAliasDerivedKeyKind) {
+    val setterKind = setterType.replace("[_]", "")
+    val shouldAliasSetterType = (setterTypeAlias != setterKind) && !setterTypeAlias.startsWith(setterKind + "[") && outputUnitTraits
+
+    val typeAliases = List(
+      Option.when(shouldAliasKeyKind)(s"protected type ${keyKindAlias}[V] = $keyKind[V]"),
+      Option.when(shouldAliasDerivedKeyKind)(s"protected type ${derivedKeyKindAlias}[V] = $derivedKeyKind[V]"),
+      Option.when(shouldAliasSetterType)(s"protected type $setterTypeAlias = $setterType")
+    ).flatten
+
+    if (typeAliases.nonEmpty) {
       line()
-      line()
-      if (shouldAliasKeyKind) {
-        line(s"type ${keyKindAlias}[V] = $keyKind[V]")
-      }
-      if (shouldAliasKeyKind && shouldAliasDerivedKeyKind) {
+      typeAliases.foreach { l =>
         line()
-        line()
-      }
-      if (shouldAliasDerivedKeyKind) {
-        line(s"type ${derivedKeyKindAlias}[V] = $derivedKeyKind[V]")
+        line(l)
       }
     }
     super.printBeforeAllDefs()
@@ -149,7 +153,7 @@ class StylePropsTraitGenerator(
   // }
 
   def mainKeyType(typeParam: String): String = {
-    keyKind + s"[$typeParam]"
+    keyKindAlias + s"[$typeParam]"
   }
 
   def traitTypeMixins(valueTraits: List[String], typeParam: Option[String]): String = {

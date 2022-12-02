@@ -4,9 +4,9 @@ import com.thirdparty.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
 import com.thirdparty.defs.eventProps.EventProps
 import com.thirdparty.defs.props.Props
 import com.thirdparty.defs.styles.StyleProps
-import com.thirdparty.defs.styles.units.{Calc, Length, Time, Url}
+import com.thirdparty.defs.styles.units.{Calc, Color, Length, Time, Url}
 import com.thirdparty.defs.tags.{HtmlTags, SvgTags}
-import com.thirdparty.keys.{DerivedStyleProp, DerivedStylePropBuilder, StyleProp}
+import com.thirdparty.keys.{DerivedStyleBuilder, DerivedStyleProp, StyleProp}
 import com.thirdparty.setters.StyleSetter
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
@@ -42,11 +42,14 @@ class CompileSpec extends AnyFunSpec with Matchers {
   type StyleEncoder[A] = A => String
 
   object style
-    extends Url[StyleEncoder]
+    extends DerivedStyleBuilder[String, StyleEncoder]
+    with Color[String, StyleEncoder]
+    with Url[StyleEncoder]
     with Length[StyleEncoder, Int]
     with Time[StyleEncoder]
-    with Calc[StyleEncoder]
-    with DerivedStylePropBuilder[StyleEncoder] {
+    with Calc[StyleEncoder] {
+
+    override protected def styleSetter(value: String): String = value
 
     override protected def derivedStyle[A](encode: A => String): StyleEncoder[A] = encode
   }
@@ -71,7 +74,7 @@ class CompileSpec extends AnyFunSpec with Matchers {
     // Base CSS keywords
     val s2: StyleSetter[_] = html.padding.inherit
     val v2: String = html.padding.inherit.value
-    assert(html.display.none.value == "inherit")
+    assert(html.display.inherit.value == "inherit")
 
     // Derived CSS props (units)
 
@@ -86,5 +89,13 @@ class CompileSpec extends AnyFunSpec with Matchers {
 
     assert(style.percent(55) == "55%")
     assert(style.calc("12px + 20em") == "calc(12px + 20em)")
+
+    // Multi-parameter derived CSS props (units)
+
+    val p3: StyleProp[String] = html.color
+    val s3: StyleSetter[_] = html.color.rgb(200, 100, 0)
+    assert(html.color.rgb(200, 100, 0).value == "rgb(200, 100, 0)")
+
+    assert(style.rgb(200, 100, 0) == "rgb(200, 100, 0)")
   }
 }

@@ -269,7 +269,7 @@ object StyleProps {
       domName = "background",
       valueType = "String",
       valueTraits = List("Color"),
-      valueUnits = List("Url"),
+      valueUnits = List("Color", "Url"),
       implName = "colorUrlStyle",
       commentLines = List(
         "The background CSS property is a shorthand for setting the individual",
@@ -325,7 +325,7 @@ object StyleProps {
       domName = "background-color",
       valueType = "String",
       valueTraits = List("Color"),
-      valueUnits = Nil,
+      valueUnits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
         "The background-color CSS property sets the background color of an element,",
@@ -538,7 +538,7 @@ object StyleProps {
       domName = "border-color",
       valueType = "String",
       valueTraits = List("Color"),
-      valueUnits = Nil,
+      valueUnits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
         "The border-color CSS property is a shorthand for setting the color of the",
@@ -555,7 +555,7 @@ object StyleProps {
       domName = "border-top-color",
       valueType = "String",
       valueTraits = List("Color"),
-      valueUnits = Nil,
+      valueUnits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
         "The border-top-color CSS property sets the color of the top border of an element.",
@@ -570,7 +570,7 @@ object StyleProps {
       domName = "border-right-color",
       valueType = "String",
       valueTraits = List("Color"),
-      valueUnits = Nil,
+      valueUnits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
         "The border-right-color CSS property sets the color of the right border of an element.",
@@ -585,7 +585,7 @@ object StyleProps {
       domName = "border-bottom-color",
       valueType = "String",
       valueTraits = List("Color"),
-      valueUnits = Nil,
+      valueUnits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
         "The border-bottom-color CSS property sets the color of the bottom border of an element.",
@@ -600,7 +600,7 @@ object StyleProps {
       domName = "border-left-color",
       valueType = "String",
       valueTraits = List("Color"),
-      valueUnits = Nil,
+      valueUnits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
         "The border-left-color CSS property sets the color of the left border of an element.",
@@ -1020,7 +1020,7 @@ object StyleProps {
       domName = "color",
       valueType = "String",
       valueTraits = List("Color"),
-      valueUnits = Nil,
+      valueUnits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
         "The CSS color property sets the foreground color of an element's text",
@@ -1159,7 +1159,7 @@ object StyleProps {
       domName = "column-rule-color",
       valueType = "String",
       valueTraits = List("Color"),
-      valueUnits = Nil,
+      valueUnits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
         "The column-rule-color CSS property lets you set the color of the rule drawn",
@@ -2055,7 +2055,7 @@ object StyleProps {
       domName = "outline-color",
       valueType = "String",
       valueTraits = List("Color"),
-      valueUnits = Nil,
+      valueUnits = List("Color"),
       implName = "colorStyle",
       commentLines = List(
         "The outline-color CSS property sets the color of the outline of an element.",
