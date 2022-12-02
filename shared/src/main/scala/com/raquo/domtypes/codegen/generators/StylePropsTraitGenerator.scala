@@ -92,10 +92,13 @@ class StylePropsTraitGenerator(
     val setterKind = setterType.replace("[_]", "")
     val shouldAliasSetterType = (setterTypeAlias != setterKind) && !setterTypeAlias.startsWith(setterKind + "[") && outputUnitTraits
 
+    // Option.when is not supported by Scala 2.12
+    def when[A](cond: Boolean)(a: => A): Option[A] = if (cond) Some(a) else None
+
     val typeAliases = List(
-      Option.when(shouldAliasKeyKind)(s"protected type ${keyKindAlias}[V] = $keyKind[V]"),
-      Option.when(shouldAliasDerivedKeyKind)(s"protected type ${derivedKeyKindAlias}[V] = $derivedKeyKind[V]"),
-      Option.when(shouldAliasSetterType)(s"protected type $setterTypeAlias = $setterType")
+      when(shouldAliasKeyKind)(s"protected type ${keyKindAlias}[V] = $keyKind[V]"),
+      when(shouldAliasDerivedKeyKind)(s"protected type ${derivedKeyKindAlias}[V] = $derivedKeyKind[V]"),
+      when(shouldAliasSetterType)(s"protected type $setterTypeAlias = $setterType")
     ).flatten
 
     if (typeAliases.nonEmpty) {
