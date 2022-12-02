@@ -6,6 +6,8 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
 
   protected val defs: List[Def]
 
+  protected val defAliases: Def => List[String]
+
   protected val defGroupComments: Def => List[String]
 
   protected val headerLines: List[String]
@@ -30,8 +32,16 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
         printDefGroupComment(keyDef)
         printAfterDefGroupComments(keyDef)
         printBeforeDef()
-        printDef(keyDef)
+        printDef(keyDef, alias = None)
         printAfterDef()
+        val aliases = defAliases(keyDef)
+        if (aliases.nonEmpty) {
+          aliases.foreach { alias =>
+            printBeforeDef()
+            printDef(keyDef, Some(alias))
+            printAfterDef()
+          }
+        }
       }
       printAfterAllDefs()
     }
@@ -79,7 +89,7 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
     }
   }
 
-  protected def printDef(keyDef: Def): Unit
+  protected def printDef(keyDef: Def, alias: Option[String]): Unit
 
   protected def printImplDefs(): Unit
 

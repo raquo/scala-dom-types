@@ -39,6 +39,8 @@ class StylePropsTraitGenerator(
       .toMap
   }
 
+  override protected val defAliases: StylePropDef => List[String] = _.scalaAliases
+
   def hasSpecialTraits(implName: String): Boolean = {
     valueTraitsByImplName(implName).nonEmpty || valueUnitTraitsByImplName(implName).nonEmpty
   }
@@ -111,19 +113,21 @@ class StylePropsTraitGenerator(
     super.printBeforeAllDefs()
   }
 
-  override protected def printDef(keyDef: StylePropDef): Unit = {
-    blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+  override protected def printDef(keyDef: StylePropDef, alias: Option[String]): Unit = {
+    if (alias.isEmpty) {
+      blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+    }
     line(
       defType(keyDef).codeStr,
       " ",
-      keyDef.scalaName,
+      alias.getOrElse(keyDef.scalaName),
       ": ",
       mainKeyType(keyDef.valueType),
       traitTypeMixins(keyDef.valueTraits, typeParam = None),
       unitTraitTypeMixins(keyDef.valueUnits, typeParam = None),
       // keyTypeForImplName(keyDef.valueTraits).replace("[_]", s"[${keyDef.valueType}]"),
       " = ",
-      impl(keyDef)
+      if (alias.isEmpty) impl(keyDef) else keyDef.scalaName
     )
   }
 

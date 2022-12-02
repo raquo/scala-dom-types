@@ -9,7 +9,8 @@ package com.raquo.domtypes.common
   *                                - match Scala naming style (e.g. camelCase)
   *                                - avoid name collisions between different types of keys
   *                                  (e.g. `title` tag vs `title` attribute)
-  *                                - avoid using up popular names for unpopular keys*
+  *                                - avoid using up popular names for unpopular keys
+  * @param scalaAliases          - Aliases that should be defined linking to the main `scalaName`
   * @param domName               - Native tag name in the DOM
   * @param isVoid                - If true, elements of this type can have no children
   * @param scalaJsElementType    - Type of corresponding elements in scalajs-dom project
@@ -21,6 +22,7 @@ package com.raquo.domtypes.common
 case class TagDef(
   tagType: TagType,
   scalaName: String,
+  scalaAliases: List[String] = Nil,
   domName: String,
   isVoid: Boolean,
   scalaJsElementType: String,

@@ -1502,6 +1502,9 @@ trait StyleProps {
   lazy val overflowWrap: StyleProp[String] with s.OverflowWrap = overflowWrapStyle("overflow-wrap")
 
 
+  lazy val wordWrap: StyleProp[String] with s.OverflowWrap = overflowWrap
+
+
   /**
     * The padding CSS property sets the required padding space on all sides of an
     * element. The padding area is the space between the content of the element

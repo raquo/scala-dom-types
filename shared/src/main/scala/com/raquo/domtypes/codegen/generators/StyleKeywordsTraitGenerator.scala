@@ -20,6 +20,8 @@ class StyleKeywordsTraitGenerator(
   format: CodeFormatting
 ) extends TraitGenerator[StyleKeywordDef](format) {
 
+  override protected val defAliases: StyleKeywordDef => List[String] = _.scalaAliases
+
   override protected val outputImplDefs: Boolean = false
 
   override protected def printTraitDef(inside: => Unit): Unit = {
@@ -31,18 +33,20 @@ class StyleKeywordsTraitGenerator(
     enter(s"trait $traitName $withTraits{ this: ${propKind}[_] => ", "}")(inside)
   }
 
-  override protected def printDef(keyDef: StyleKeywordDef): Unit = {
-    blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+  override protected def printDef(keyDef: StyleKeywordDef, alias: Option[String]): Unit = {
+    if (alias.isEmpty) {
+      blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+    }
     line(
       if (keyDef.isOverride) "override " else "",
       defType(keyDef).codeStr,
       " ",
-      keyDef.scalaName,
+      alias.getOrElse(keyDef.scalaName),
       ": ",
       keywordKind,
       "[_]",
       " = ",
-      keywordImpl(keyDef)
+      if (alias.isEmpty) keywordImpl(keyDef) else keyDef.scalaName
     )
   }
 

@@ -17,18 +17,22 @@ class EventPropsTraitGenerator(
   format: CodeFormatting
 ) extends TraitGenerator[EventPropDef](format) {
 
-  override protected def printDef(keyDef: EventPropDef): Unit = {
-    blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+  override protected val defAliases: EventPropDef => List[String] = _.scalaAliases
+
+  override protected def printDef(keyDef: EventPropDef, alias: Option[String]): Unit = {
+    if (alias.isEmpty) {
+      blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+    }
     line(
       defType(keyDef).codeStr,
       " ",
-      keyDef.scalaName,
+      alias.getOrElse(keyDef.scalaName),
       ": ",
       keyKind,
       "[",
       keyDef.scalaJsEventType,
       "] = ",
-      impl(keyDef)
+      if (alias.isEmpty) impl(keyDef) else keyDef.scalaName
     )
   }
 

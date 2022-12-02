@@ -6,6 +6,7 @@ package com.raquo.domtypes.common
 case class StyleKeywordDef(
   scalaOverride: Boolean = false,
   scalaName: String,
+  scalaAliases: List[String] = Nil,
   domName: String,
   isOverride: Boolean,
   override val commentLines: List[String],

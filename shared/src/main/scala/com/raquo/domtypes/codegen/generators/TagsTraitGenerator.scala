@@ -17,18 +17,22 @@ class TagsTraitGenerator(
   format: CodeFormatting
 ) extends TraitGenerator[TagDef](format) {
 
-  override protected def printDef(keyDef: TagDef): Unit = {
-    blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+  override protected val defAliases: TagDef => List[String] = _.scalaAliases
+
+  override protected def printDef(keyDef: TagDef, alias: Option[String]): Unit = {
+    if (alias.isEmpty) {
+      blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+    }
     line(
       defType(keyDef).codeStr,
       " ",
-      keyDef.scalaName,
+      alias.getOrElse(keyDef.scalaName),
       ": ",
       keyKind(keyDef),
       "[",
       keyDef.scalaJsElementType,
       "] = ",
-      impl(keyDef)
+      if (alias.isEmpty) impl(keyDef) else keyDef.scalaName
     )
   }
 

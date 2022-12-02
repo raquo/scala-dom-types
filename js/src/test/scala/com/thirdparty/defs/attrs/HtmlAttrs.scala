@@ -126,6 +126,12 @@ trait HtmlAttrs {
   lazy val `type`: HtmlAttr[String] = stringHtmlAttr("type")
 
 
+  lazy val typ: HtmlAttr[String] = `type`
+
+
+  lazy val tpe: HtmlAttr[String] = `type`
+
+
   /** IE-specific property to prevent user selection */
   lazy val unselectable: HtmlAttr[Boolean] = boolAsOnOffHtmlAttr("unselectable")
 

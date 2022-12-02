@@ -917,6 +917,12 @@ trait SvgAttrs {
   lazy val `type`: SvgAttr[String] = stringSvgAttr("type")
 
 
+  lazy val typ: SvgAttr[String] = `type`
+
+
+  lazy val tpe: SvgAttr[String] = `type`
+
+
   /** @see https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/values */
   lazy val values: SvgAttr[String] = stringSvgAttr("values")
 
