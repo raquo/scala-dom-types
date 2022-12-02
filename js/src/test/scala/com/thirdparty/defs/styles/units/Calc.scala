@@ -4,12 +4,6 @@ import com.thirdparty.keys.DerivedStyleBuilder
 
 trait Calc[DSP[_]] { this: DerivedStyleBuilder[_, DSP] =>
 
-  /** Encode / sanitize value to put inside `url()` function */
-  protected def encodeUrlValue(url: String): String
-
-  /** Encode / sanitize value to put inside `calc()` function */
-  protected def encodeCalcValue(exp: String): String
-
   /** Wrap the provided expression in CSS calc() function.
     *
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/calc()
