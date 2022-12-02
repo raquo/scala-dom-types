@@ -74,6 +74,14 @@ class CompileSpec extends AnyFunSpec with Matchers {
     assert(svg.xlinkHref.qualifiedName == "xlink:href")
     assert(SvgAttr.namespaceUrl(svg.xlinkHref.namespace.get) == "http://www.w3.org/1999/xlink")
 
+    // Aliases
+
+    assert(html.typ == html.`type`)
+    assert(html.typ.domName == "type")
+
+    assert(svg.typ == svg.`type`)
+    assert(svg.typ.domName == "type")
+
     // Complex keys
 
     assert(html.cls.domName == "className")

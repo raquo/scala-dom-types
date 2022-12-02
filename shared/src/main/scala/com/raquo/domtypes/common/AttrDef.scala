@@ -10,6 +10,7 @@ package com.raquo.domtypes.common
   *                         - avoid name collisions between different types of keys
   *                           (e.g. `title` tag vs `title` attribute)
   *                         - avoid using up popular names for unpopular keys
+  * @param scalaAliases   - Aliases that should be defined linking to the main `scalaName`
   * @param domName        - Native attribute name in the DOM.
   *                         Note: Does not include SVG namespace. See [[namespaceQualifiedDomName]]
   * @param namespace      - Defined for certain SVG attributes
@@ -23,6 +24,7 @@ package com.raquo.domtypes.common
 case class AttrDef(
   tagType: TagType,
   scalaName: String,
+  scalaAliases: List[String] = Nil,
   domName: String,
   namespace: Option[String],
   scalaValueType: String,

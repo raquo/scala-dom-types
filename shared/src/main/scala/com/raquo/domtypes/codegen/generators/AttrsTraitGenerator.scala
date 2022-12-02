@@ -33,18 +33,22 @@ class AttrsTraitGenerator(
       .toMap
   }
 
-  override protected def printDef(keyDef: AttrDef): Unit = {
-    blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+  override protected val defAliases: AttrDef => List[String] = _.scalaAliases
+
+  override protected def printDef(keyDef: AttrDef, alias: Option[String]): Unit = {
+    if (alias.isEmpty) {
+      blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+    }
     line(
       defType(keyDef).codeStr,
       " ",
-      keyDef.scalaName,
+      alias.getOrElse(keyDef.scalaName),
       ": ",
       keyKind,
       "[",
       keyDef.scalaValueType,
       "] = ",
-      impl(keyDef)
+      if (alias.isEmpty) impl(keyDef) else keyDef.scalaName
     )
   }
 

@@ -20,6 +20,8 @@ class PropsTraitGenerator(
   format: CodeFormatting
 ) extends TraitGenerator[PropDef](format) {
 
+  override protected val defAliases: PropDef => List[String] = _.scalaAliases
+
   lazy val codecByImplName: Map[String, String] = {
     distinctImplNames()
       .map(implName => (implName, uniqueValueForImpl(implName, _.codec, clue = "codec")))
@@ -38,12 +40,14 @@ class PropsTraitGenerator(
       .toMap
   }
 
-  override protected def printDef(keyDef: PropDef): Unit = {
-    blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+  override protected def printDef(keyDef: PropDef, alias: Option[String]): Unit = {
+    if (alias.isEmpty) {
+      blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+    }
     line(
       defType(keyDef).codeStr,
       " ",
-      keyDef.scalaName,
+      alias.getOrElse(keyDef.scalaName),
       ": ",
       keyKind,
       "[",
@@ -51,7 +55,7 @@ class PropsTraitGenerator(
       ", ",
       keyDef.domValueType,
       "] = ",
-      impl(keyDef)
+      if (alias.isEmpty) impl(keyDef) else keyDef.scalaName
     )
   }
 

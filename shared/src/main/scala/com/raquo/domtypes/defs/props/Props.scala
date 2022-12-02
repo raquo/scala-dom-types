@@ -35,7 +35,7 @@ object Props {
         "which contains the _initial_ checked status of the element.",
         "More info: https://stackoverflow.com/a/6004028/2601788 (`checked` behaves similar to `value`)",
         "",
-        "See also: defaultChecked prop / attribute" // #nc link to my docs?
+        "See also: defaultChecked prop / attribute" // #TODO[Docs] link to my docs?
       ),
       docUrls = List(
       ),
@@ -53,7 +53,7 @@ object Props {
         "which contains the _initial_ selected status of the element.",
         "More info: https://stackoverflow.com/a/6004028/2601788 (`selected` behaves similar to `value`)",
         "",
-        "See also: defaultSelected prop / attribute" // #nc link to my docs?
+        "See also: defaultSelected prop / attribute" // #TODO[Docs] link to my docs?
       ),
       docUrls = List(
       ),
@@ -70,7 +70,7 @@ object Props {
         "which contains the _initial_ value of the element.",
         "More info: https://stackoverflow.com/a/6004028/2601788",
         "",
-        "See also: defaultValue prop / attribute" // #nc link to my docs?
+        "See also: defaultValue prop / attribute" // #TODO[Docs] link to my docs?
       ),
       docUrls = List(
       ),

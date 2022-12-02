@@ -2121,6 +2121,7 @@ object StyleProps {
 
     StylePropDef(
       scalaName = "overflowWrap",
+      scalaAliases = List("wordWrap"),
       domName = "overflow-wrap",
       valueType = "String",
       valueTraits = List("OverflowWrap"),

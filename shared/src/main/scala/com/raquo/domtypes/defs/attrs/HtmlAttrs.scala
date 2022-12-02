@@ -170,6 +170,7 @@ object HtmlAttrs {
     AttrDef(
       tagType = HtmlTagType,
       scalaName = "`type`",
+      scalaAliases = List("typ", "tpe"),
       domName = "type",
       namespace = None,
       scalaValueType = "String",

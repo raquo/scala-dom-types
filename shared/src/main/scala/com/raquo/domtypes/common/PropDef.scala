@@ -8,7 +8,8 @@ package com.raquo.domtypes.common
   *                         - match Scala naming style (e.g. camelCase)
   *                         - avoid name collisions between different types of keys
   *                           (e.g. `title` tag vs `title` attribute)
-  *                         - avoid using up popular names for unpopular keys*
+  *                         - avoid using up popular names for unpopular keys
+  * @param scalaAliases   - Aliases that should be defined linking to the main `scalaName`
   * @param domName        - Native attribute name in the DOM.
   * @param scalaValueType - Type of values you can write to this attribute in Scala
   * @param domValueType   - Type of values that this property holds in the DOM
@@ -18,6 +19,7 @@ package com.raquo.domtypes.common
   */
 case class PropDef(
   scalaName: String,
+  scalaAliases: List[String] = Nil,
   domName: String,
   scalaValueType: String,
   domValueType: String,
