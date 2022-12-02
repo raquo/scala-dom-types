@@ -7,7 +7,7 @@ import com.thirdparty.defs.props.Props
 import com.thirdparty.defs.styles.StyleProps
 import com.thirdparty.defs.styles.units.{Calc, Color, Length, Time, Url}
 import com.thirdparty.defs.tags.{HtmlTags, SvgTags}
-import com.thirdparty.keys.{DerivedStyleBuilder, DerivedStyleProp, StyleProp}
+import com.thirdparty.keys.{DerivedStyleBuilder, DerivedStyleProp, StyleProp, SvgAttr}
 import com.thirdparty.setters.StyleSetter
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
@@ -67,6 +67,12 @@ class CompileSpec extends AnyFunSpec with Matchers {
     assert(html.idAttr.domName == "id")
     assert(html.charset.domName == "charset")
     assert(html.display.domName == "display")
+
+    // SVG namespaces
+
+    assert(svg.xlinkHref.namespace.contains("xlink"))
+    assert(svg.xlinkHref.qualifiedName == "xlink:href")
+    assert(SvgAttr.namespaceUrl(svg.xlinkHref.namespace.get) == "http://www.w3.org/1999/xlink")
 
     // Complex keys
 
