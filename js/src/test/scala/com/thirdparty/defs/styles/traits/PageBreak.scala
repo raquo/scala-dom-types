@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait PageBreak extends Auto { this: StyleProp[_] => 
+trait PageBreak extends Auto { this: StyleProp[_] =>
 
   /** Always force page breaks. */
   lazy val always: StyleSetter[_] = this := "always"

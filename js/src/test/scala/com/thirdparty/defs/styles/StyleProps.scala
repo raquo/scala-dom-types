@@ -1,6 +1,7 @@
 package com.thirdparty.defs.styles
 
-import com.thirdparty.keys.{DerivedStyleProp, StyleProp}
+import com.thirdparty.keys.StyleProp
+import com.thirdparty.keys.DerivedStyleProp
 import com.thirdparty.defs.styles.{traits => s}
 import com.thirdparty.defs.styles.{units => u}
 import com.thirdparty.setters.StyleSetter
@@ -18,7 +19,7 @@ trait StyleProps {
   protected type SS = StyleSetter[_]
 
 
-  def styleProp[V](key: String): StyleProp[V] = StyleProp(key)
+  def styleProp[V](key: String): StyleProp[V] = new StyleProp(key)
 
 
   // -- Basic types --

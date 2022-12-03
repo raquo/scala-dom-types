@@ -10,7 +10,7 @@ import com.thirdparty.keys.DerivedStyleProp
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait VerticalAlign extends u.Length[DerivedStyleProp, Int] { this: StyleProp[_] => 
+trait VerticalAlign extends u.Length[DerivedStyleProp, Int] { this: StyleProp[_] =>
 
   /**
     * Aligns the baseline of the element with the baseline of its parent. The

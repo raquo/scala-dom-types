@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait PointerEvents extends None with Auto { this: StyleProp[_] => 
+trait PointerEvents extends None with Auto { this: StyleProp[_] =>
 
   /**
     * The element behaves as it would if the pointer-events property was not

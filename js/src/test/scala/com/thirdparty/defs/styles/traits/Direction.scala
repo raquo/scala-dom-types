@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait Direction { this: StyleProp[_] => 
+trait Direction { this: StyleProp[_] =>
 
   /** Text and other elements go from left to right. */
   lazy val ltr: StyleSetter[_] = this := "ltr"

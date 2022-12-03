@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait Normal { this: StyleProp[_] => 
+trait Normal { this: StyleProp[_] =>
 
   lazy val normal: StyleSetter[_] = this := "normal"
 

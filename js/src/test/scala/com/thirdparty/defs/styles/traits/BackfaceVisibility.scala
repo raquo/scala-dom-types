@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait BackfaceVisibility { this: StyleProp[_] => 
+trait BackfaceVisibility { this: StyleProp[_] =>
 
   /** The back face is visible. */
   lazy val visible: StyleSetter[_] = this := "visible"

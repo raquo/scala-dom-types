@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait ListStylePosition { this: StyleProp[_] => 
+trait ListStylePosition { this: StyleProp[_] =>
 
   /** The marker box is outside the principal block box. */
   lazy val outside: StyleSetter[_] = this := "outside"

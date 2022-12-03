@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait WordBreak extends Normal { this: StyleProp[_] => 
+trait WordBreak extends Normal { this: StyleProp[_] =>
 
   /**
     * To prevent overflow, word breaks should be inserted between any two

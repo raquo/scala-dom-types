@@ -42,7 +42,7 @@ class CanonicalDefGroups {
     "Reflected Attributes" -> ReflectedHtmlAttrs.defs.map(_.toPropDef)
   )
 
-  val eventPropDefGroups: List[(String, List[EventPropDef])] = List(
+  val globalEventPropDefGroups: List[(String, List[EventPropDef])] = List(
     "Mouse Events" -> MouseEventProps.defs,
     "Pointer Events" -> PointerEventProps.defs,
     "Form Events" -> FormEventProps.defs,
@@ -50,9 +50,15 @@ class CanonicalDefGroups {
     "Clipboard Events" -> ClipboardEventProps.defs,
     "Media Events" -> MediaEventProps.defs,
     "Misc Events" -> MiscellaneousEventProps.defs,
-    "Document-only Events" -> DocumentOnlyEventProps.defs,
-    "Window-only Events" -> WindowOnlyEventProps.defs,
     "Error Events" -> ErrorEventProps.defs,
+  )
+
+  val documentEventPropDefGroups: List[(String, List[EventPropDef])] = List(
+    "Document-only Events" -> DocumentOnlyEventProps.defs
+  )
+
+  val windowEventPropDefGroups: List[(String, List[EventPropDef])] = List(
+    "Window-only Events" -> WindowOnlyEventProps.defs
   )
 
   val stylePropDefGroups: List[(String, List[StylePropDef])] = List(

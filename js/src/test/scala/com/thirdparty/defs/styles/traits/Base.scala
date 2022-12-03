@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait Base { this: StyleProp[_] => 
+trait Base { this: StyleProp[_] =>
 
   /**
     * The initial CSS keyword applies the initial (or default) value of a

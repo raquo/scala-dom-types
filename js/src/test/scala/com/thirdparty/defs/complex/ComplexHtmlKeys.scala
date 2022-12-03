@@ -10,10 +10,8 @@ trait ComplexHtmlKeys {
     * Classes allows CSS and Javascript to select and access specific elements]
     * via the class selectors or functions like the DOM method]
     * document.getElementsByClassName.]
-    *
-    * MDN
     */
-  val className: Prop[Iterable[String], String] = Prop("className", IterableAsSpaceSeparatedStringCodec)
+  val className: Prop[Iterable[String], String] = new Prop("className", IterableAsSpaceSeparatedStringCodec)
 
   val cls: Prop[Iterable[String], String] = className
 
@@ -23,11 +21,8 @@ trait ComplexHtmlKeys {
     * values. The most common use of this attribute is to specify a link to an
     * external style sheet: the rel attribute is set to stylesheet, and the href
     * attribute is set to the URL of an external style sheet to format the page.
-    *
-    *
-    * MDN
     */
-  lazy val rel: HtmlAttr[Iterable[String]] = HtmlAttr("rel", IterableAsSpaceSeparatedStringCodec)
+  lazy val rel: HtmlAttr[Iterable[String]] = new HtmlAttr("rel", IterableAsSpaceSeparatedStringCodec)
 
   /**
     * The attribute describes the role(s) the current element plays in the
@@ -44,7 +39,7 @@ trait ComplexHtmlKeys {
     *
     * See: [[http://www.w3.org/TR/role-attribute/#s_role_module_attributes]]
     */
-  lazy val role: HtmlAttr[Iterable[String]] = HtmlAttr("role", IterableAsSpaceSeparatedStringCodec)
+  lazy val role: HtmlAttr[Iterable[String]] = new HtmlAttr("role", IterableAsSpaceSeparatedStringCodec)
 
   /**
     * This class of attributes, called custom data attributes, allows proprietary
@@ -63,19 +58,15 @@ trait ComplexHtmlKeys {
     * custom data attribute data-test-value will be accessible via
     * HTMLElement.dataset.testValue as any dash (U+002D) is replaced by the capitalization
     * of the next letter (camelcase).
-    *
-    * MDN
     */
-  def dataAttr(suffix: String): HtmlAttr[String] = HtmlAttr(s"data-$suffix", StringAsIsCodec)
+  def dataAttr(suffix: String): HtmlAttr[String] = new HtmlAttr(s"data-$suffix", StringAsIsCodec)
 
   /**
     * This attribute contains CSS styling declarations to be applied to the
     * element. Note that it is recommended for styles to be defined in a separate
     * file or files. This attribute and the style element have mainly the
     * purpose of allowing for quick styling, for example for testing purposes.
-    *
-    * MDN
     */
-  lazy val styleAttr: HtmlAttr[String] = HtmlAttr("style", StringAsIsCodec)
+  lazy val styleAttr: HtmlAttr[String] = new HtmlAttr("style", StringAsIsCodec)
 
 }

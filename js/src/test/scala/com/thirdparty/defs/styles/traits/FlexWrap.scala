@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait FlexWrap { this: StyleProp[_] => 
+trait FlexWrap { this: StyleProp[_] =>
 
   /**
     * The flex items are laid out in a single line which may cause the

@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait Position { this: StyleProp[_] => 
+trait Position { this: StyleProp[_] =>
 
   /**
     * This keyword let the element use the normal behavior, that is it is laid

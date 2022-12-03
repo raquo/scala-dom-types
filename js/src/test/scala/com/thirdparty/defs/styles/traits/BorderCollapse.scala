@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait BorderCollapse { this: StyleProp[_] => 
+trait BorderCollapse { this: StyleProp[_] =>
 
   /** Use separated-border table rendering model. This is the default. */
   lazy val separate: StyleSetter[_] = this := "separate"

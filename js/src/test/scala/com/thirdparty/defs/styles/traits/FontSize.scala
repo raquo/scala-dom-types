@@ -10,7 +10,7 @@ import com.thirdparty.keys.DerivedStyleProp
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait FontSize extends u.Length[DerivedStyleProp, Int] { this: StyleProp[_] => 
+trait FontSize extends u.Length[DerivedStyleProp, Int] { this: StyleProp[_] =>
 
   lazy val xxSmall: StyleSetter[_] = this := "xx-small"
 

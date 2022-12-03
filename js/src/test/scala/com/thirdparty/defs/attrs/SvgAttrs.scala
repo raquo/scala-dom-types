@@ -11,7 +11,7 @@ import com.thirdparty.codecs._
 trait SvgAttrs {
 
 
-  def svgAttr[V](key: String, codec: Codec[V, String], namespace: Option[String]): SvgAttr[V] = SvgAttr(key, codec, namespace)
+  def svgAttr[V](key: String, codec: Codec[V, String], namespace: Option[String]): SvgAttr[V] = new SvgAttr(key, codec, namespace)
 
 
   @inline protected def doubleSvgAttr(key: String): SvgAttr[Double] = svgAttr(key, DoubleAsStringCodec, namespace = None)

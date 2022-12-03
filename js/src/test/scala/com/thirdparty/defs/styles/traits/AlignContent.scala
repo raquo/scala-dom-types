@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait AlignContent extends FlexPosition { this: StyleProp[_] => 
+trait AlignContent extends FlexPosition { this: StyleProp[_] =>
 
   lazy val spaceBetween: StyleSetter[_] = this := "space-between"
 

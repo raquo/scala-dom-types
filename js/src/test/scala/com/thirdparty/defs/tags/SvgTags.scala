@@ -1,6 +1,6 @@
 package com.thirdparty.defs.tags
 
-import com.thirdparty.keys.SvgTag
+import com.thirdparty.tags.SvgTag
 import org.scalajs.dom
 
 // #NOTE: GENERATED CODE
@@ -11,7 +11,7 @@ import org.scalajs.dom
 trait SvgTags {
 
 
-  def svgTag[El <: dom.svg.Element](key: String): SvgTag[El] = SvgTag(key)
+  def svgTag[El <: dom.svg.Element](key: String): SvgTag[El] = new SvgTag(key)
 
 
   /**

@@ -6,7 +6,7 @@ import com.thirdparty.defs.styles
 import scala.scalajs.js.|
 
 case class StyleProp[V](
-  domName: String
+  val domName: String
 ) extends DerivedStyleBuilder[StyleSetter[_], DerivedStyleProp] with styles.traits.Base {
 
   def := (value: V | String): StyleSetter[V] = StyleSetter(this, value.toString)

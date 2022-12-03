@@ -9,10 +9,13 @@ class TagsTraitGenerator(
   override protected val headerLines: List[String],
   override protected val traitCommentLines: List[String],
   override protected val traitName: String,
+  override protected val traitExtends: List[String],
+  override protected val traitThisType: Option[String],
   override protected val keyImplName: TagDef => String,
   defType: TagDef => DefType,
   keyKind: TagDef => String,
   override protected val outputImplDefs: Boolean,
+  baseImplDefComments: List[String],
   baseImplDef: List[String],
   format: CodeFormatting
 ) extends TraitGenerator[TagDef](format) {
@@ -47,6 +50,7 @@ class TagsTraitGenerator(
   }
 
   override protected def printImplDefs(): Unit = {
+    blockCommentLines(baseImplDefComments)
     baseImplDef.foreach(line)
   }
 }

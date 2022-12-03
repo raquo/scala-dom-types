@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait FontStyle extends Normal { this: StyleProp[_] => 
+trait FontStyle extends Normal { this: StyleProp[_] =>
 
   /**
     * Selects a font that is labeled italic, if that is not available,

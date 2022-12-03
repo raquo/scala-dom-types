@@ -15,12 +15,8 @@ trait ComplexSvgKeys {
     * information to a set of elements.
     * - For general usage by the browser.
     * The class can be used to style SVG content using CSS.
-    *
-    * Value 	<list-of-class-names>
-    *
-    * MDN
     */
-  val className: SvgAttr[Iterable[String]] = SvgAttr("class", IterableAsSpaceSeparatedStringCodec, namespace = None)
+  val className: SvgAttr[Iterable[String]] = new SvgAttr("class", IterableAsSpaceSeparatedStringCodec, namespace = None)
 
   lazy val cls: SvgAttr[Iterable[String]] = className
 }

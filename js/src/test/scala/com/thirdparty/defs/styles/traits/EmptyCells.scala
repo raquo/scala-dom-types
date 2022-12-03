@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait EmptyCells { this: StyleProp[_] => 
+trait EmptyCells { this: StyleProp[_] =>
 
   /** Borders and backgrounds should be drawn like in a normal cells. */
   lazy val show: StyleSetter[_] = this := "show"

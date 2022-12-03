@@ -1,4 +1,4 @@
-package com.thirdparty.keys
+package com.thirdparty.tags
 
 import org.scalajs.dom
 

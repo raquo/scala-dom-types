@@ -8,10 +8,11 @@ import org.scalajs.dom
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait EventProps {
+/** Events that are available on both Window, Document, and HTML elements */
+trait GlobalEventProps {
 
 
-  def eventProp[Ev <: dom.Event](key: String): EventProp[Ev] = EventProp(key)
+  def eventProp[Ev <: dom.Event](key: String): EventProp[Ev] = new EventProp(key)
 
 
   // -- Mouse Events --
@@ -728,163 +729,6 @@ trait EventProps {
     * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/transitionend_event
     */
   lazy val onTransitionEnd: EventProp[dom.Event] = eventProp("transitionend")
-
-
-  // -- Document-only Events --
-
-
-  /**
-    * The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed,
-    * without waiting for stylesheets, images, and subframes to finish loading. A very different event `load`
-    * should be used only to detect a fully-loaded page.
-    * 
-    * It is an incredibly common mistake to use load where DOMContentLoaded would be much more appropriate,
-    * so be cautious.
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
-    */
-  lazy val onDomContentLoaded: EventProp[dom.Event] = eventProp("DOMContentLoaded")
-
-
-  /**
-    * The fullscreenchange event is fired immediately after the browser switches into or out of full-screen mode.
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/fullscreenchange_event
-    */
-  lazy val onFullScreenChange: EventProp[dom.Event] = eventProp("fullscreenchange")
-
-
-  /**
-    * The fullscreenerror event is fired when the browser cannot switch to full-screen mode.
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/fullscreenerror_event
-    */
-  lazy val onFullScreenError: EventProp[dom.Event] = eventProp("fullscreenerror")
-
-
-  /**
-    * The visibilitychange event is fired when the content of a tab has become visible or has been hidden.
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilitychange_event
-    */
-  lazy val onVisibilityChange: EventProp[dom.Event] = eventProp("visibilitychange")
-
-
-  // -- Window-only Events --
-
-
-  /**
-    * Script to be run after the document is printed
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/afterprint_event
-    */
-  lazy val onAfterPrint: EventProp[dom.Event] = eventProp("afterprint")
-
-
-  /**
-    * Script to be run before the document is printed
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeprint_event
-    */
-  lazy val onBeforePrint: EventProp[dom.Event] = eventProp("beforeprint")
-
-
-  /**
-    * Script to be run when the document is about to be unloaded
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/BeforeUnloadEvent
-    */
-  lazy val onBeforeUnload: EventProp[dom.BeforeUnloadEvent] = eventProp("beforeunload")
-
-
-  /**
-    * Script to be run when there has been changes to the anchor part of the a URL
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/HashChangeEvent
-    */
-  lazy val onHashChange: EventProp[dom.HashChangeEvent] = eventProp("hashchange")
-
-
-  /**
-    * Script to be run when an object receives a message
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/message_event
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/MessageEvent
-    */
-  lazy val onMessage: EventProp[dom.MessageEvent] = eventProp("message")
-
-
-  /**
-    * Script to be run when an object receives a message that cannot be
-    * deserialized and therefore raises an error
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/messageerror_event
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/MessageEvent
-    */
-  lazy val onMessageError: EventProp[dom.MessageEvent] = eventProp("messageerror")
-
-
-  /**
-    * Script to be run when the browser starts to work offline
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/offline_event
-    */
-  lazy val onOffline: EventProp[dom.Event] = eventProp("offline")
-
-
-  /**
-    * Script to be run when the browser starts to work online
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/online_event
-    */
-  lazy val onOnline: EventProp[dom.Event] = eventProp("online")
-
-
-  /**
-    * Script to be run when a user navigates away from a page
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/pagehide_event
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/PageTransitionEvent
-    */
-  lazy val onPageHide: EventProp[dom.PageTransitionEvent] = eventProp("pagehide")
-
-
-  /**
-    * Script to be run when a user navigates to a page
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/pageshow_event
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/PageTransitionEvent
-    */
-  lazy val onPageShow: EventProp[dom.PageTransitionEvent] = eventProp("pageshow")
-
-
-  /**
-    * Script to be run when the window's history changes
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/popstate_event
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/PopStateEvent
-    */
-  lazy val onPopState: EventProp[dom.PopStateEvent] = eventProp("popstate")
-
-
-  /**
-    * Script to be run when a Web Storage area is updated
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/storage_event
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/StorageEvent
-    */
-  lazy val onStorage: EventProp[dom.StorageEvent] = eventProp("storage")
-
-
-  /**
-    * Fires once a page has unloaded (or the browser window has been closed)
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/unload_event
-    * @see https://developer.mozilla.org/en-US/docs/Web/API/UIEvent
-    */
-  lazy val onUnload: EventProp[dom.UIEvent] = eventProp("unload")
 
 
   // -- Error Events --

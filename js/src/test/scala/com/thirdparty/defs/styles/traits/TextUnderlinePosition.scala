@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait TextUnderlinePosition extends Auto { this: StyleProp[_] => 
+trait TextUnderlinePosition extends Auto { this: StyleProp[_] =>
 
   /**
     * This keyword allows the browser to use an algorithm to choose between

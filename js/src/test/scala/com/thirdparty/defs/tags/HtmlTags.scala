@@ -1,6 +1,6 @@
 package com.thirdparty.defs.tags
 
-import com.thirdparty.keys.HtmlTag
+import com.thirdparty.tags.HtmlTag
 import org.scalajs.dom
 
 // #NOTE: GENERATED CODE
@@ -11,7 +11,7 @@ import org.scalajs.dom
 trait HtmlTags {
 
 
-  def htmlTag[El <: dom.html.Element](key: String, void: Boolean = false): HtmlTag[El] = HtmlTag(key, void)
+  def htmlTag[El <: dom.html.Element](key: String, void: Boolean = false): HtmlTag[El] = new HtmlTag(key, void)
 
 
   // -- Document Tags --

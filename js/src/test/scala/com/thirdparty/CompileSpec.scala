@@ -2,7 +2,7 @@ package com.thirdparty
 
 import com.thirdparty.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
 import com.thirdparty.defs.complex.{ComplexHtmlKeys, ComplexSvgKeys}
-import com.thirdparty.defs.eventProps.EventProps
+import com.thirdparty.defs.eventProps.{DocumentEventProps, GlobalEventProps, WindowEventProps}
 import com.thirdparty.defs.props.Props
 import com.thirdparty.defs.styles.StyleProps
 import com.thirdparty.defs.styles.units.{Calc, Color, Length, Time, Url}
@@ -31,8 +31,16 @@ class CompileSpec extends AnyFunSpec with Matchers {
     with HtmlAttrs
     with Props
     with ComplexHtmlKeys
-    with EventProps
+    with GlobalEventProps
     with StyleProps
+
+  object documentEvents
+    extends GlobalEventProps
+    with DocumentEventProps
+
+  object windowEvents
+    extends GlobalEventProps
+    with WindowEventProps
 
   object svg
     extends SvgTags
@@ -67,6 +75,18 @@ class CompileSpec extends AnyFunSpec with Matchers {
     assert(html.idAttr.domName == "id")
     assert(html.charset.domName == "charset")
     assert(html.display.domName == "display")
+
+    // Event props
+
+    assert(html.onClick.domName == "click") // elements - global
+    assert(html.onCopy.domName == "copy") // elements - clipboard
+
+    assert(documentEvents.onClick.domName == "click") // document - global
+    assert(documentEvents.onCopy.domName == "copy") // document - clipboard
+    assert(documentEvents.onDomContentLoaded.domName == "DOMContentLoaded") // document
+
+    assert(windowEvents.onClick.domName == "click") // window - global
+    assert(windowEvents.onOnline.domName == "online") // window
 
     // SVG namespaces
 
