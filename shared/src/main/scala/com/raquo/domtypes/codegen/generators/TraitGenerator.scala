@@ -16,6 +16,10 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
 
   protected val traitName: String
 
+  protected val traitExtends: List[String]
+
+  protected val traitThisType: Option[String]
+
   protected val keyImplName: Def => String
 
   protected val outputImplDefs: Boolean
@@ -49,7 +53,16 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
   }
 
   protected def printTraitDef(inside: => Unit): Unit = {
-    enter(s"trait $traitName {", "}")(inside)
+    val withTraits = if (traitExtends.nonEmpty) {
+      s"extends ${traitExtends.head}" + traitExtends.tail.map(" with " + _).mkString + " "
+    } else ""
+
+    val traitThisTypeStr = traitThisType match {
+      case Some(thisType) => s" this: $thisType =>"
+      case None => ""
+    }
+
+    enter(s"trait $traitName $withTraits{$traitThisTypeStr", "}")(inside)
   }
 
   protected def printBeforeAllDefs(): Unit = {

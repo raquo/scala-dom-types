@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait Cursor extends Auto with None { this: StyleProp[_] => 
+trait Cursor extends Auto with None { this: StyleProp[_] =>
 
   /** Default cursor, typically an arrow. */
   lazy val default: StyleSetter[_] = this := "default"

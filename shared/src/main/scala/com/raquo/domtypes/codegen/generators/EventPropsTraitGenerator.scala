@@ -9,9 +9,12 @@ class EventPropsTraitGenerator(
   override protected val headerLines: List[String],
   override protected val traitCommentLines: List[String],
   override protected val traitName: String,
+  override protected val traitExtends: List[String],
+  override protected val traitThisType: Option[String],
   override protected val keyImplName: EventPropDef => String,
   defType: EventPropDef => DefType,
   keyKind: String,
+  baseImplDefComments: List[String],
   baseImplDef: List[String],
   override protected val outputImplDefs: Boolean,
   format: CodeFormatting
@@ -46,6 +49,7 @@ class EventPropsTraitGenerator(
   }
 
   override protected def printImplDefs(): Unit = {
+    blockCommentLines(baseImplDefComments)
     baseImplDef.foreach(line)
   }
 

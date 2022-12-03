@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait TextOverflow { this: StyleProp[_] => 
+trait TextOverflow { this: StyleProp[_] =>
 
   /**
     * This keyword value indicates to truncate the text at the limit of the

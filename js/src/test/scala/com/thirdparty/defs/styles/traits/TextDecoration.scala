@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait TextDecoration extends None { this: StyleProp[_] => 
+trait TextDecoration extends None { this: StyleProp[_] =>
 
   /** Each line of text is underlined. */
   lazy val underline: StyleSetter[_] = this := "underline"

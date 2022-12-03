@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait PaddingBoxSizing extends BoxSizing { this: StyleProp[_] => 
+trait PaddingBoxSizing extends BoxSizing { this: StyleProp[_] =>
 
   lazy val paddingBox: StyleSetter[_] = this := "padding-box"
 

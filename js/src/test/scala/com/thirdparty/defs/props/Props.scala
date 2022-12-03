@@ -11,7 +11,7 @@ import com.thirdparty.codecs._
 trait Props {
 
 
-  def prop[Value, DomValue](key: String, codec: Codec[Value, DomValue]): Prop[Value, DomValue] = Prop(key, codec)
+  def prop[V, DomV](key: String, codec: Codec[V, DomV]): Prop[V, DomV] = new Prop(key, codec)
 
 
   @inline protected def boolProp(key: String): Prop[Boolean, Boolean] = prop(key, BooleanAsIsCodec)

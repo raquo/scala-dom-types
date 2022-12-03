@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait FontWeight extends Normal { this: StyleProp[_] => 
+trait FontWeight extends Normal { this: StyleProp[_] =>
 
   /** Normal font weight. Same as 400. */
   override lazy val normal: StyleSetter[_] = this := "normal"

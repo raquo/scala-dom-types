@@ -11,7 +11,7 @@ import com.thirdparty.codecs._
 trait AriaAttrs {
 
 
-  def ariaAttr[V](key: String, codec: Codec[V, String]): AriaAttr[V] = AriaAttr(key, codec)
+  def ariaAttr[V](key: String, codec: Codec[V, String]): AriaAttr[V] = new AriaAttr(key, codec)
 
 
   @inline protected def boolAsTrueFalseAriaAttr(key: String): AriaAttr[Boolean] = ariaAttr(key, BooleanAsTrueFalseStringCodec)

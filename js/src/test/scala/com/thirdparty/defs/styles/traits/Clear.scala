@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait Clear extends None { this: StyleProp[_] => 
+trait Clear extends None { this: StyleProp[_] =>
 
   /** The element is moved down to clear past left floats. */
   lazy val left: StyleSetter[_] = this := "left"

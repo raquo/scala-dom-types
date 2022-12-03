@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait WhiteSpace extends Normal { this: StyleProp[_] => 
+trait WhiteSpace extends Normal { this: StyleProp[_] =>
 
   /**
     * Sequences of whitespace are collapsed. Newline characters in the source

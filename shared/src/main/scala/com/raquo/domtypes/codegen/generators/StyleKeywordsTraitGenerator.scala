@@ -9,11 +9,11 @@ class StyleKeywordsTraitGenerator(
   override protected val headerLines: List[String],
   override protected val traitCommentLines: List[String],
   override protected val traitName: String,
-  extendsTraits: List[String],
+  extendsFeatureTraits: List[String],
   extendsUnitTraits: List[String],
   override protected val keyImplName: StyleKeywordDef => String,
   keywordImpl: StyleKeywordDef => String,
-  keywordKind: String,
+  keywordType: String,
   derivedKeyKind: String,
   propKind: String,
   defType: StyleKeywordDef => DefType,
@@ -24,14 +24,11 @@ class StyleKeywordsTraitGenerator(
 
   override protected val outputImplDefs: Boolean = false
 
-  override protected def printTraitDef(inside: => Unit): Unit = {
-    val allTraits = extendsTraits ++ extendsUnitTraits //.map(_.replace("[_", "[" + derivedKeyKind).replace("_]", derivedKeyKind + "]"))
-
-    val withTraits = if (allTraits.nonEmpty) {
-      s"extends ${allTraits.head}" + allTraits.tail.map(" with " + _).mkString + " "
-    } else ""
-    enter(s"trait $traitName $withTraits{ this: ${propKind}[_] => ", "}")(inside)
+  override protected val traitExtends: List[String] = {
+    extendsFeatureTraits ++ extendsUnitTraits //.map(_.replace("[_", "[" + derivedKeyKind).replace("_]", derivedKeyKind + "]"))
   }
+
+  override protected val traitThisType: Option[String] = Some(s"${propKind}[_]")
 
   override protected def printDef(keyDef: StyleKeywordDef, alias: Option[String]): Unit = {
     if (alias.isEmpty) {
@@ -43,8 +40,7 @@ class StyleKeywordsTraitGenerator(
       " ",
       alias.getOrElse(keyDef.scalaName),
       ": ",
-      keywordKind,
-      "[_]",
+      keywordType,
       " = ",
       if (alias.isEmpty) keywordImpl(keyDef) else keyDef.scalaName
     )

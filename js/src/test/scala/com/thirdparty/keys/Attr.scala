@@ -8,7 +8,7 @@ trait Attr[V] {
   val codec: Codec[V, String]
 }
 
-case class HtmlAttr[V](
+class HtmlAttr[V](
   override val domName: String,
   override val codec: Codec[V, String]
 ) extends Attr[V] {
@@ -16,10 +16,10 @@ case class HtmlAttr[V](
   def := (value: V): HtmlAttrSetter[V] = HtmlAttrSetter(this, value)
 }
 
-case class SvgAttr[V](
+class SvgAttr[V](
   override val domName: String,
   override val codec: Codec[V, String],
-  namespace: Option[String]
+  val namespace: Option[String]
 ) extends Attr[V] {
 
   def qualifiedName: String = namespace.map(_ + ":" + domName).getOrElse(domName)
@@ -37,7 +37,7 @@ object SvgAttr {
   }
 }
 
-case class AriaAttr[V](
+class AriaAttr[V](
   override val domName: String,
   override val codec: Codec[V, String]
 ) extends Attr[V]

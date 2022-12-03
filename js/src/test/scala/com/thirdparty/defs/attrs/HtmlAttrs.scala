@@ -11,7 +11,7 @@ import com.thirdparty.codecs._
 trait HtmlAttrs {
 
 
-  def htmlAttr[V](key: String, codec: Codec[V, String]): HtmlAttr[V] = HtmlAttr(key, codec)
+  def htmlAttr[V](key: String, codec: Codec[V, String]): HtmlAttr[V] = new HtmlAttr(key, codec)
 
 
   @inline protected def boolAsOnOffHtmlAttr(key: String): HtmlAttr[Boolean] = htmlAttr(key, BooleanAsOnOffStringCodec)

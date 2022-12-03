@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait BackgroundAttachment { this: StyleProp[_] => 
+trait BackgroundAttachment { this: StyleProp[_] =>
 
   /**
     * The background is fixed relative to the viewport. Even if an element has

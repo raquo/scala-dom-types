@@ -1,6 +1,6 @@
 package com.raquo.domtypes.defs.attrs
 
-import com.raquo.domtypes.common.{AttrDef, SvgTagType, HtmlTagType}
+import com.raquo.domtypes.common.{AttrDef, HtmlTagType}
 
 /**
   * ARIA is a set of special accessibility attributes which can be added
@@ -8,10 +8,6 @@ import com.raquo.domtypes.common.{AttrDef, SvgTagType, HtmlTagType}
   * defines what the general type of object is (such as an article, alert,
   * or slider). Additional ARIA attributes provide other useful properties,
   * such as a description for a form or the current value of a progressbar.
-  * 
-  * 
-  * @tparam A Attribute[Value]
-  * 
   */
 object AriaAttrs {
   

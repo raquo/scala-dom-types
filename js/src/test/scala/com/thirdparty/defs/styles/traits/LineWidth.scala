@@ -10,7 +10,7 @@ import com.thirdparty.keys.DerivedStyleProp
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait LineWidth extends u.Length[DerivedStyleProp, Int] { this: StyleProp[_] => 
+trait LineWidth extends u.Length[DerivedStyleProp, Int] { this: StyleProp[_] =>
 
   /** Typically 1px in desktop browsers like Firefox. */
   lazy val thin: StyleSetter[_] = this := "thin"

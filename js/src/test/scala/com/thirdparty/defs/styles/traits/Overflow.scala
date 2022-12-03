@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait Overflow extends Auto { this: StyleProp[_] => 
+trait Overflow extends Auto { this: StyleProp[_] =>
 
   /**
     * Default value. Content is not clipped, it may be rendered outside the

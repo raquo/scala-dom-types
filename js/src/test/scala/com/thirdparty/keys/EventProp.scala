@@ -2,6 +2,6 @@ package com.thirdparty.keys
 
 import org.scalajs.dom
 
-case class EventProp[Ev <: dom.Event](
-  domName: String
+class EventProp[Ev <: dom.Event](
+  val domName: String
 )

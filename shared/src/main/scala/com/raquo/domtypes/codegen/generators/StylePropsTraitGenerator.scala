@@ -10,6 +10,8 @@ class StylePropsTraitGenerator(
   override protected val headerLines: List[String],
   override protected val traitCommentLines: List[String],
   override protected val traitName: String,
+  override protected val traitExtends: List[String],
+  override protected val traitThisType: Option[String],
   override protected val keyImplName: StylePropDef => String,
   defType: StylePropDef => DefType,
   keyKind: String,
@@ -19,6 +21,7 @@ class StylePropsTraitGenerator(
   derivedKeyKind: String,
   derivedKeyKindAlias: String,
   baseImplName: String,
+  baseImplDefComments: List[String],
   baseImplDef: List[String],
   transformTraitName: String => String,
   transformUnitTraitName: String => String,
@@ -198,6 +201,7 @@ class StylePropsTraitGenerator(
     // printStyleTypes()
     // line()
     // line()
+    blockCommentLines(baseImplDefComments)
     baseImplDef.foreach(line)
     line()
     line()

@@ -8,7 +8,7 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait OverflowWrap extends Normal { this: StyleProp[_] => 
+trait OverflowWrap extends Normal { this: StyleProp[_] =>
 
   /** Indicates that lines may only break at normal word break points. */
   override lazy val normal: StyleSetter[_] = this := "normal"

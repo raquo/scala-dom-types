@@ -23,7 +23,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
   // See SDT docs for details, and the Laminar repo for a more fleshed out
   // usage example.
 
-  private val generator = new CanonicalGenerator(
+  object generator extends CanonicalGenerator(
     baseOutputDirectoryPath = "js/src/test/scala/com/thirdparty",
     basePackagePath = "com.thirdparty",
     standardTraitCommentLines = List(
@@ -33,7 +33,10 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       " - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.",
     ),
     format = CodeFormatting()
-  )
+  ) {
+
+    // you can override lots of internals in this scope
+  }
 
   private val defGroups = new CanonicalDefGroups()
 
@@ -49,12 +52,13 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       traitCommentLines = Nil,
       traitName = traitName,
       keyKind = "HtmlTag",
+      baseImplDefComments = Nil,
       keyImplName = "htmlTag",
       defType = LazyVal
     )
 
     generator.writeToFile(
-      packagePath = generator.tagsPackagePath,
+      packagePath = generator.tagDefsPackagePath,
       fileName = traitName,
       fileContent = fileContent
     )
@@ -72,12 +76,13 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       traitCommentLines = Nil,
       traitName = traitName,
       keyKind = "SvgTag",
+      baseImplDefComments = Nil,
       keyImplName = "svgTag",
       defType = LazyVal
     )
 
     generator.writeToFile(
-      packagePath = generator.tagsPackagePath,
+      packagePath = generator.tagDefsPackagePath,
       fileName = traitName,
       fileContent = fileContent
     )
@@ -95,14 +100,16 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       traitName = traitName,
       keyKind = "HtmlAttr",
       implNameSuffix = "HtmlAttr",
+      baseImplDefComments = Nil,
       baseImplName = "htmlAttr",
       namespaceImports = Nil,
       namespaceImpl = _ => ???,
+      transformAttrDomName = identity,
       defType = LazyVal
     )
 
     generator.writeToFile(
-      packagePath = generator.attrsPackagePath,
+      packagePath = generator.attrDefsPackagePath,
       fileName = traitName,
       fileContent = fileContent
     )
@@ -120,14 +127,16 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       traitCommentLines = Nil,
       keyKind = "SvgAttr",
       implNameSuffix = "SvgAttr",
+      baseImplDefComments = Nil,
       baseImplName = "svgAttr",
       namespaceImports = Nil,
       namespaceImpl = SourceRepr(_),
+      transformAttrDomName = identity,
       defType = LazyVal
     )
 
     generator.writeToFile(
-      packagePath = generator.attrsPackagePath,
+      packagePath = generator.attrDefsPackagePath,
       fileName = traitName,
       fileContent = fileContent
     )
@@ -145,14 +154,16 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       traitCommentLines = Nil,
       keyKind = "AriaAttr",
       implNameSuffix = "AriaAttr",
+      baseImplDefComments = Nil,
       baseImplName = "ariaAttr",
       namespaceImports = Nil,
       namespaceImpl = _ => ???,
+      transformAttrDomName = identity,
       defType = LazyVal
     )
 
     generator.writeToFile(
-      packagePath = generator.attrsPackagePath,
+      packagePath = generator.attrDefsPackagePath,
       fileName = traitName,
       fileContent = fileContent
     )
@@ -170,34 +181,91 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       traitName = traitName,
       keyKind = "Prop",
       implNameSuffix = "Prop",
+      baseImplDefComments = Nil,
       baseImplName = "prop",
       defType = LazyVal
     )
 
     generator.writeToFile(
-      packagePath = generator.propsPackagePath,
+      packagePath = generator.propDefsPackagePath,
       fileName = traitName,
       fileContent = fileContent
     )
   }
 
-  it("Generate Event Props") {
-    println("=== Event Props ===")
+  it("Generate Global Event Props") {
+    println("=== Global Event Props ===")
 
-    val traitName = "EventProps"
+    val traitName = "GlobalEventProps"
 
     val fileContent = generator.generateEventPropsTrait(
-      defSources = defGroups.eventPropDefGroups,
+      defSources = defGroups.globalEventPropDefGroups,
       printDefGroupComments = true,
-      traitCommentLines = Nil,
+      traitCommentLines = List("Events that are available on both Window, Document, and HTML elements"),
       traitName = traitName,
+      traitExtends = Nil,
+      traitThisType = None,
+      baseImplDefComments = Nil,
+      outputBaseImpl = true,
       keyKind = "EventProp",
       keyImplName = "eventProp",
       defType = LazyVal
     )
 
     generator.writeToFile(
-      packagePath = generator.eventPropsPackagePath,
+      packagePath = generator.eventPropDefsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
+    )
+  }
+
+  it("Generate Document Event Props") {
+    println("=== Document Event Props ===")
+
+    val traitName = "DocumentEventProps"
+
+    val fileContent = generator.generateEventPropsTrait(
+      defSources = defGroups.documentEventPropDefGroups,
+      printDefGroupComments = false,
+      traitCommentLines = List("Document-only events"),
+      traitName = traitName,
+      traitExtends = Nil,
+      traitThisType = Some("GlobalEventProps"),
+      baseImplDefComments = Nil,
+      outputBaseImpl = false,
+      keyKind = "EventProp",
+      keyImplName = "eventProp",
+      defType = LazyVal
+    )
+
+    generator.writeToFile(
+      packagePath = generator.eventPropDefsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
+    )
+  }
+
+  it("Generate Window Event Props") {
+    println("=== Window Event Props ===")
+
+    val traitName = "WindowEventProps"
+
+    val fileContent = generator.generateEventPropsTrait(
+      defSources = defGroups.windowEventPropDefGroups,
+      printDefGroupComments = false,
+      traitCommentLines = List("Window-only events"),
+      traitName = traitName,
+      traitExtends = Nil,
+      traitThisType = Some("GlobalEventProps"),
+      baseImplDefComments = Nil,
+      outputBaseImpl = false,
+      keyKind = "EventProp",
+      keyImplName = "eventProp",
+      defType = LazyVal
+    )
+
+    generator.writeToFile(
+      packagePath = generator.eventPropDefsPackagePath,
       fileName = traitName,
       fileContent = fileContent
     )
@@ -219,6 +287,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       setterTypeAlias = "SS",
       derivedKeyKind = "DerivedStyleProp",
       derivedKeyKindAlias = "DSP",
+      baseImplDefComments = Nil,
       baseImplName = "styleProp",
       defType = LazyVal,
       lengthUnitsNumType = "Int",
@@ -226,7 +295,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     )
 
     generator.writeToFile(
-      packagePath = generator.stylePropsPackagePath,
+      packagePath = generator.stylePropDefsPackagePath,
       fileName = traitName,
       fileContent = fileContent
     )
@@ -244,7 +313,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
         extendsTraits = styleTrait.extendsTraits,
         extendsUnitTraits = styleTrait.extendsUnits,
         propKind = "StyleProp",
-        keywordKind = "StyleSetter",
+        keywordType = "StyleSetter[_]",
         derivedKeyKind = "DerivedStyleProp",
         lengthUnitsNumType = "Int",
         defType = LazyVal,
