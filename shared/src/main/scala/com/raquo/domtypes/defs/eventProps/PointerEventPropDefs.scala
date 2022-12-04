@@ -2,7 +2,7 @@ package com.raquo.domtypes.defs.eventProps
 
 import com.raquo.domtypes.common.EventPropDef
 
-object PointerEventProps {
+object PointerEventPropDefs {
   
   val defs: List[EventPropDef] = List(
     

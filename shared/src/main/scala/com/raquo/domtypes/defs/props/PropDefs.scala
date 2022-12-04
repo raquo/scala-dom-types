@@ -2,7 +2,7 @@ package com.raquo.domtypes.defs.props
 
 import com.raquo.domtypes.common.PropDef
 
-object Props {
+object PropDefs {
 
   val defs: List[PropDef] = List(
 

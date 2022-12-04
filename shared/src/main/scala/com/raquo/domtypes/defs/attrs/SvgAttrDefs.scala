@@ -2,7 +2,7 @@ package com.raquo.domtypes.defs.attrs
 
 import com.raquo.domtypes.common.{AttrDef, SvgTagType, HtmlTagType}
 
-object SvgAttrs {
+object SvgAttrDefs {
   
   val defs: List[AttrDef] = List(
     

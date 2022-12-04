@@ -6,7 +6,7 @@ import com.raquo.domtypes.common.EventPropDef
   * For type param docs see [[EventPropBuilder]]
   * 
   */
-object ErrorEventProps {
+object ErrorEventPropDefs {
   
   val defs: List[EventPropDef] = List(
     

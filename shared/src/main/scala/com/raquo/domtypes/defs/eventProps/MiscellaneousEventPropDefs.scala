@@ -8,7 +8,7 @@ import com.raquo.domtypes.common.EventPropDef
   * For type param docs see [[EventPropBuilder]]
   * 
   */
-object MiscellaneousEventProps {
+object MiscellaneousEventPropDefs {
   
   val defs: List[EventPropDef] = List(
     

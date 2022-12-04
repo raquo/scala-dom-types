@@ -9,7 +9,7 @@ import com.raquo.domtypes.common.EventPropDef
   *            This event type has no corresponding type in JS DOM. See our own `TypedTargetEvent` trait.
   * 
   */
-object MouseEventProps {
+object MouseEventPropDefs {
   
   val defs: List[EventPropDef] = List(
     

@@ -10,7 +10,7 @@ import com.raquo.domtypes.common.EventPropDef
   * For type param docs see [[EventPropBuilder]]
   * 
   */
-object MediaEventProps {
+object MediaEventPropDefs {
   
   val defs: List[EventPropDef] = List(
     

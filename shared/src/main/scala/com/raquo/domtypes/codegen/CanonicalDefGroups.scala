@@ -3,65 +3,65 @@ package com.raquo.domtypes.codegen
 import com.raquo.domtypes.common._
 import com.raquo.domtypes.defs.attrs._
 import com.raquo.domtypes.defs.eventProps._
-import com.raquo.domtypes.defs.props.Props
-import com.raquo.domtypes.defs.reflectedAttrs.ReflectedHtmlAttrs
+import com.raquo.domtypes.defs.props.PropDefs
+import com.raquo.domtypes.defs.reflectedAttrs.ReflectedHtmlAttrDefs
 import com.raquo.domtypes.defs.styles._
 import com.raquo.domtypes.defs.tags._
 
 class CanonicalDefGroups {
 
   val htmlTagsDefGroups: List[(String, List[TagDef])] = List(
-    "Document Tags" -> DocumentTags.defs,
-    "Embed Tags" -> EmbedTags.defs,
-    "Section Tags" -> SectionTags.defs,
-    "Text Tags" -> TextTags.defs,
-    "Form Tags" -> FormTags.defs,
-    "Grouping Tags" -> GroupingTags.defs,
-    "Table Tags" -> TableTags.defs,
-    "Misc Tags" -> MiscTags.defs,
+    "Document Tags" -> DocumentTagDefs.defs,
+    "Embed Tags" -> EmbedTagDefs.defs,
+    "Section Tags" -> SectionTagDefs.defs,
+    "Text Tags" -> TextTagDefs.defs,
+    "Form Tags" -> FormTagDefs.defs,
+    "Grouping Tags" -> GroupingTagDefs.defs,
+    "Table Tags" -> TableTagDefs.defs,
+    "Misc Tags" -> MiscTagDefs.defs,
   )
 
   val svgTagsDefGroups: List[(String, List[TagDef])] = List(
-    "SVG Tags" -> SvgTags.defs,
+    "SVG Tags" -> SvgTagDefs.defs,
   )
 
   val htmlAttrDefGroups: List[(String, List[AttrDef])] = List(
-    "HTML Attrs" -> HtmlAttrs.defs
+    "HTML Attrs" -> HtmlAttrDefs.defs
   )
 
   val svgAttrDefGroups: List[(String, List[AttrDef])] = List(
-    "SVG Attrs" -> SvgAttrs.defs
+    "SVG Attrs" -> SvgAttrDefs.defs
   )
 
   val ariaAttrDefGroups: List[(String, List[AttrDef])] = List(
-    "Aria Attrs" -> AriaAttrs.defs
+    "Aria Attrs" -> AriaAttrDefs.defs
   )
 
   val propDefGroups: List[(String, List[PropDef])] = List(
-    "Props" -> Props.defs,
-    "Reflected Attributes" -> ReflectedHtmlAttrs.defs.map(_.toPropDef)
+    "Props" -> PropDefs.defs,
+    "Reflected Attributes" -> ReflectedHtmlAttrDefs.defs.map(_.toPropDef)
   )
 
   val globalEventPropDefGroups: List[(String, List[EventPropDef])] = List(
-    "Mouse Events" -> MouseEventProps.defs,
-    "Pointer Events" -> PointerEventProps.defs,
-    "Form Events" -> FormEventProps.defs,
-    "Keyboard Events" -> KeyboardEventProps.defs,
-    "Clipboard Events" -> ClipboardEventProps.defs,
-    "Media Events" -> MediaEventProps.defs,
-    "Misc Events" -> MiscellaneousEventProps.defs,
-    "Error Events" -> ErrorEventProps.defs,
+    "Mouse Events" -> MouseEventPropDefs.defs,
+    "Pointer Events" -> PointerEventPropDefs.defs,
+    "Form Events" -> FormEventPropDefs.defs,
+    "Keyboard Events" -> KeyboardEventPropDefs.defs,
+    "Clipboard Events" -> ClipboardEventPropDefs.defs,
+    "Media Events" -> MediaEventPropDefs.defs,
+    "Misc Events" -> MiscellaneousEventPropDefs.defs,
+    "Error Events" -> ErrorEventPropDefs.defs,
   )
 
   val documentEventPropDefGroups: List[(String, List[EventPropDef])] = List(
-    "Document-only Events" -> DocumentOnlyEventProps.defs
+    "Document-only Events" -> DocumentOnlyEventPropDefs.defs
   )
 
   val windowEventPropDefGroups: List[(String, List[EventPropDef])] = List(
-    "Window-only Events" -> WindowOnlyEventProps.defs
+    "Window-only Events" -> WindowOnlyEventPropDefs.defs
   )
 
   val stylePropDefGroups: List[(String, List[StylePropDef])] = List(
-    "Style Props" -> StyleProps.defs
+    "Style Props" -> StylePropDefs.defs
   )
 }

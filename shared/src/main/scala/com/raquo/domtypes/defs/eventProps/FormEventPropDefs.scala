@@ -22,7 +22,7 @@ import com.raquo.domtypes.common.EventPropDef
   *            DOM InputEvent https://developer.mozilla.org/en-US/docs/Web/API/InputEvent
   * 
   */
-object FormEventProps {
+object FormEventPropDefs {
   
   val defs: List[EventPropDef] = List(
     
