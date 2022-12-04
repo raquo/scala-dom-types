@@ -2,12 +2,7 @@ package com.raquo.domtypes.defs.eventProps
 
 import com.raquo.domtypes.common.EventPropDef
 
-/**
-  * Document Events
-  * 
-  * For type param docs see [[EventPropBuilder]]
-  * 
-  */
+/** Events that work only on dom.document */
 object DocumentOnlyEventPropDefs {
   
   val defs: List[EventPropDef] = List(

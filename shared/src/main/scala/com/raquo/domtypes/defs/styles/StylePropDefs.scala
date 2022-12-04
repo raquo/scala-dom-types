@@ -3,6 +3,9 @@ package com.raquo.domtypes.defs.styles
 import com.raquo.domtypes.common.StylePropDef
 import com.raquo.domtypes.defs.styles.StyleDefs.{implNames, valueTraits, valueTypes, valueUnits}
 
+// #TODO – split this into several traits, like we do with events?
+
+/** CSS style properties */
 object StylePropDefs {
   
   val defs: List[StylePropDef] = List(

@@ -4,6 +4,7 @@ import com.raquo.domtypes.common.{StyleKeywordDef, StyleTraitDef}
 
 import StyleDefs.{valueTraits, valueUnits}
 
+/** Feature traits defining keywords and units corresponding to CSS style properties */
 object StyleTraitDefs {
   
   def OneList(list: StyleKeywordDef*): List[(String, List[StyleKeywordDef])] = {

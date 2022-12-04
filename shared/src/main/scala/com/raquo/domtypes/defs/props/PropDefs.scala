@@ -2,6 +2,7 @@ package com.raquo.domtypes.defs.props
 
 import com.raquo.domtypes.common.PropDef
 
+/** HTML element properties. See also: ReflectedHtmlAttrDefs */
 object PropDefs {
 
   val defs: List[PropDef] = List(

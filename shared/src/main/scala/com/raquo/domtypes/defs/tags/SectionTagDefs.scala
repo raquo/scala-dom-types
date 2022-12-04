@@ -8,10 +8,10 @@ object SectionTagDefs {
     
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "body",
+      scalaName = "bodyTag",
       domName = "body",
       isVoid = false,
-      scalaJsElementType = "dom.html.Body",
+      scalaJsElementTypeAlias = "dom.html.Body",
       javascriptElementType = "HTMLBodyElement",
       commentLines = List(
         "Represents the content of an HTML document. There is only one body",
@@ -25,10 +25,10 @@ object SectionTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "header",
+      scalaName = "headerTag",
       domName = "header",
       isVoid = false,
-      scalaJsElementType = "dom.html.Element",
+      scalaJsElementTypeAlias = "dom.html.Element",
       javascriptElementType = "HTMLElement",
       commentLines = List(
         "Defines the header of a page or section. It often contains a logo, the",
@@ -41,10 +41,10 @@ object SectionTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "footer",
+      scalaName = "footerTag",
       domName = "footer",
       isVoid = false,
-      scalaJsElementType = "dom.html.Element",
+      scalaJsElementTypeAlias = "dom.html.Element",
       javascriptElementType = "HTMLElement",
       commentLines = List(
         "Defines the footer for a page or section. It often contains a copyright",
@@ -60,7 +60,7 @@ object SectionTagDefs {
       scalaName = "h1",
       domName = "h1",
       isVoid = false,
-      scalaJsElementType = "dom.html.Heading",
+      scalaJsElementTypeAlias = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
       commentLines = List(
         "Heading level 1",
@@ -76,7 +76,7 @@ object SectionTagDefs {
       scalaName = "h2",
       domName = "h2",
       isVoid = false,
-      scalaJsElementType = "dom.html.Heading",
+      scalaJsElementTypeAlias = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
       commentLines = List(
         "Heading level 2",
@@ -92,7 +92,7 @@ object SectionTagDefs {
       scalaName = "h3",
       domName = "h3",
       isVoid = false,
-      scalaJsElementType = "dom.html.Heading",
+      scalaJsElementTypeAlias = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
       commentLines = List(
         "Heading level 3",
@@ -108,7 +108,7 @@ object SectionTagDefs {
       scalaName = "h4",
       domName = "h4",
       isVoid = false,
-      scalaJsElementType = "dom.html.Heading",
+      scalaJsElementTypeAlias = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
       commentLines = List(
         "Heading level 4",
@@ -124,7 +124,7 @@ object SectionTagDefs {
       scalaName = "h5",
       domName = "h5",
       isVoid = false,
-      scalaJsElementType = "dom.html.Heading",
+      scalaJsElementTypeAlias = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
       commentLines = List(
         "Heading level 5",
@@ -140,7 +140,7 @@ object SectionTagDefs {
       scalaName = "h6",
       domName = "h6",
       isVoid = false,
-      scalaJsElementType = "dom.html.Heading",
+      scalaJsElementTypeAlias = "dom.html.Heading",
       javascriptElementType = "HTMLHeadingElement",
       commentLines = List(
         "Heading level 6",

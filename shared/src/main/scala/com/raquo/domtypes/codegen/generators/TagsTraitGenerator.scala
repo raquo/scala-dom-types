@@ -13,7 +13,7 @@ class TagsTraitGenerator(
   override protected val traitThisType: Option[String],
   override protected val keyImplName: TagDef => String,
   defType: TagDef => DefType,
-  keyKind: TagDef => String,
+  keyType: TagDef => String,
   override protected val outputImplDefs: Boolean,
   baseImplDefComments: List[String],
   baseImplDef: List[String],
@@ -31,10 +31,8 @@ class TagsTraitGenerator(
       " ",
       alias.getOrElse(keyDef.scalaName),
       ": ",
-      keyKind(keyDef),
-      "[",
-      keyDef.scalaJsElementType,
-      "] = ",
+      keyType(keyDef),
+      " = ",
       if (alias.isEmpty) impl(keyDef) else keyDef.scalaName
     )
   }

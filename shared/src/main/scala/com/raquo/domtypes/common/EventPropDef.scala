@@ -11,9 +11,8 @@ package com.raquo.domtypes.common
   *                                (e.g. `title` tag vs `title` attribute)
   *                              - avoid using up popular names for unpopular keys
   * @param scalaAliases        - Aliases that should be defined linking to the main `scalaName`
-  * @param domName             - Native attribute name in the DOM.
-  *                              Note: Does not include SVG namespace. See [[namespaceQualifiedDomName]]
-  * @param scalaJsEventType    - Type of corresponding event in scalajs-dom project
+  * @param domName             - Native event name in the DOM, e.g. "click"
+  * @param scalaJsEventType    - Type alias of corresponding event in scalajs-dom project
   *                              See [[fullScalaJsDomEventType]] for the full path
   * @param javascriptEventType - Type of corresponding event in raw Javascript
   * @param commentLines        - Scaladoc comment lines for this key
@@ -29,7 +28,5 @@ case class EventPropDef(
   override val docUrls: List[String],
 ) extends KeyDef {
 
-  def fullScalaJsDomEventType: String = {
-    s"org.scalajs.$scalaJsEventType"
-  }
+  def fullScalaJsDomEventType: String = s"org.scalajs.$scalaJsEventType"
 }
