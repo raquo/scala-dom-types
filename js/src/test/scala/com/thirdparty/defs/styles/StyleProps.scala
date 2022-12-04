@@ -156,6 +156,9 @@ trait StyleProps {
   protected def listStyleTypeStyle(key: String): StyleProp[String] with s.ListStyleType = 
     new StyleProp[String](key) with s.ListStyleType
 
+  protected def mixBlendModeStyle(key: String): StyleProp[String] with s.MixBlendMode = 
+    new StyleProp[String](key) with s.MixBlendMode
+
   protected def overflowWrapStyle(key: String): StyleProp[String] with s.OverflowWrap = 
     new StyleProp[String](key) with s.OverflowWrap
 
@@ -1406,7 +1409,7 @@ trait StyleProps {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode
     */
-  lazy val mixBlendMode: StyleProp[String] with s.Normal = normalStyle("mix-blend-mode")
+  lazy val mixBlendMode: StyleProp[String] with s.MixBlendMode = mixBlendModeStyle("mix-blend-mode")
 
 
   /**

@@ -2,8 +2,10 @@ package com.raquo.domtypes.defs.styles
 
 import com.raquo.domtypes.common.{StyleKeywordDef, StyleTraitDef}
 
-object StyleTraitDefs {
+import StyleDefs.{valueTraits, valueUnits}
 
+object StyleTraitDefs {
+  
   def OneList(list: StyleKeywordDef*): List[(String, List[StyleKeywordDef])] = {
     List(
       "All" -> list.toList
@@ -13,150 +15,7 @@ object StyleTraitDefs {
   val defs: List[StyleTraitDef] = List(
 
     StyleTraitDef(
-      scalaName = "AlignContent",
-      extendsTraits = List("FlexPosition"),
-      extendsUnits = Nil,
-      keywordDefGroups = OneList(
-        StyleKeywordDef(
-          scalaName = "spaceBetween",
-          domName = "space-between",
-          commentLines = Nil,
-          docUrls = Nil,
-        ),
-
-        StyleKeywordDef(
-          scalaName = "spaceAround",
-          domName = "space-around",
-          commentLines = Nil,
-          docUrls = Nil,
-        ),
-
-        StyleKeywordDef(
-          scalaName = "spaceEvenly",
-          domName = "space-evenly",
-          commentLines = Nil,
-          docUrls = Nil,
-        ),
-      ),
-
-    ),
-
-    StyleTraitDef(
-      scalaName = "Auto",
-      extendsTraits = Nil,
-      extendsUnits = Nil,
-      keywordDefGroups = OneList(
-        StyleKeywordDef(
-          scalaName = "auto",
-          domName = "auto",
-          commentLines = Nil,
-          docUrls = Nil,
-        ),
-
-      ),
-    ),
-
-    StyleTraitDef(
-      scalaName = "BackfaceVisibility",
-      extendsTraits = Nil,
-      extendsUnits = Nil,
-      keywordDefGroups = OneList(
-        StyleKeywordDef(
-          scalaName = "visible",
-          domName = "visible",
-          commentLines = List(
-            "The back face is visible.",
-          ),
-          docUrls = Nil,
-        ),
-
-        StyleKeywordDef(
-          scalaName = "hidden",
-          domName = "hidden",
-          commentLines = List(
-            "The back face is not visible.",
-          ),
-          docUrls = Nil,
-        ),
-
-      ),
-    ),
-
-    StyleTraitDef(
-      scalaName = "BackgroundAttachment",
-      extendsTraits = Nil,
-      extendsUnits = Nil,
-      keywordDefGroups = OneList(
-        StyleKeywordDef(
-          scalaName = "fixed",
-          domName = "fixed",
-          commentLines = List(
-            "The background is fixed relative to the viewport. Even if an element has",
-            "a scrolling mechanism, the background doesn't move with the element.",
-            "(This is not compatible with background-clip: text.)",
-          ),
-          docUrls = Nil,
-        ),
-
-        StyleKeywordDef(
-          scalaName = "local",
-          domName = "local",
-          commentLines = List(
-            "The background is fixed relative to the element's contents. If the element",
-            "has a scrolling mechanism, the background scrolls with the element's",
-            "contents, and the background painting area and background positioning area",
-            "are relative to the scrollable area of the element rather than to the",
-            "border framing them.",
-          ),
-          docUrls = Nil,
-        ),
-
-        StyleKeywordDef(
-          scalaName = "scroll",
-          domName = "scroll",
-          commentLines = List(
-            "The background is fixed relative to the element itself and does not scroll",
-            "with its contents. (It is effectively attached to the element's border.)",
-          ),
-          docUrls = Nil,
-        ),
-
-      ),
-    ),
-
-    StyleTraitDef(
-      scalaName = "BackgroundSize",
-      extendsTraits = List("Auto"),
-      extendsUnits = List("Length"),
-      keywordDefGroups = OneList(
-        StyleKeywordDef(
-          scalaName = "cover",
-          domName = "cover",
-          commentLines = List(
-            "This keyword specifies that the background image should be scaled to be",
-            "as small as possible while ensuring both its dimensions are greater than",
-            "or equal to the corresponding dimensions of the background positioning",
-            "area.",
-          ),
-          docUrls = Nil,
-        ),
-
-        StyleKeywordDef(
-          scalaName = "contain",
-          domName = "contain",
-          commentLines = List(
-            "This keyword specifies that the background image should be scaled to be",
-            "as large as possible while ensuring both its dimensions are less than or",
-            "equal to the corresponding dimensions of the background positioning area.",
-          ),
-          docUrls = Nil,
-        ),
-
-      ),
-    ),
-
-    StyleTraitDef(
-      scalaName = "Base",
+      scalaName = valueTraits.GlobalKeywords,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -208,7 +67,150 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "BorderCollapse",
+      scalaName = valueTraits.AlignContent,
+      extendsTraits = List(valueTraits.FlexPosition),
+      extendsUnits = Nil,
+      keywordDefGroups = OneList(
+        StyleKeywordDef(
+          scalaName = "spaceBetween",
+          domName = "space-between",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "spaceAround",
+          domName = "space-around",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "spaceEvenly",
+          domName = "space-evenly",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+      ),
+
+    ),
+
+    StyleTraitDef(
+      scalaName = valueTraits.Auto_,
+      extendsTraits = Nil,
+      extendsUnits = Nil,
+      keywordDefGroups = OneList(
+        StyleKeywordDef(
+          scalaName = "auto",
+          domName = "auto",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+      ),
+    ),
+
+    StyleTraitDef(
+      scalaName = valueTraits.BackfaceVisibility,
+      extendsTraits = Nil,
+      extendsUnits = Nil,
+      keywordDefGroups = OneList(
+        StyleKeywordDef(
+          scalaName = "visible",
+          domName = "visible",
+          commentLines = List(
+            "The back face is visible.",
+          ),
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "hidden",
+          domName = "hidden",
+          commentLines = List(
+            "The back face is not visible.",
+          ),
+          docUrls = Nil,
+        ),
+
+      ),
+    ),
+
+    StyleTraitDef(
+      scalaName = valueTraits.BackgroundAttachment,
+      extendsTraits = Nil,
+      extendsUnits = Nil,
+      keywordDefGroups = OneList(
+        StyleKeywordDef(
+          scalaName = "fixed",
+          domName = "fixed",
+          commentLines = List(
+            "The background is fixed relative to the viewport. Even if an element has",
+            "a scrolling mechanism, the background doesn't move with the element.",
+            "(This is not compatible with background-clip: text.)",
+          ),
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "local",
+          domName = "local",
+          commentLines = List(
+            "The background is fixed relative to the element's contents. If the element",
+            "has a scrolling mechanism, the background scrolls with the element's",
+            "contents, and the background painting area and background positioning area",
+            "are relative to the scrollable area of the element rather than to the",
+            "border framing them.",
+          ),
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "scroll",
+          domName = "scroll",
+          commentLines = List(
+            "The background is fixed relative to the element itself and does not scroll",
+            "with its contents. (It is effectively attached to the element's border.)",
+          ),
+          docUrls = Nil,
+        ),
+
+      ),
+    ),
+
+    StyleTraitDef(
+      scalaName = valueTraits.BackgroundSize,
+      extendsTraits = List(valueTraits.Auto_),
+      extendsUnits = List(valueUnits.Length),
+      keywordDefGroups = OneList(
+        StyleKeywordDef(
+          scalaName = "cover",
+          domName = "cover",
+          commentLines = List(
+            "This keyword specifies that the background image should be scaled to be",
+            "as small as possible while ensuring both its dimensions are greater than",
+            "or equal to the corresponding dimensions of the background positioning",
+            "area.",
+          ),
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "contain",
+          domName = "contain",
+          commentLines = List(
+            "This keyword specifies that the background image should be scaled to be",
+            "as large as possible while ensuring both its dimensions are less than or",
+            "equal to the corresponding dimensions of the background positioning area.",
+          ),
+          docUrls = Nil,
+        ),
+
+      ),
+    ),
+
+    StyleTraitDef(
+      scalaName = valueTraits.BorderCollapse,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -234,7 +236,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "BoxSizing",
+      scalaName = valueTraits.BoxSizing,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -256,8 +258,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "Clear",
-      extendsTraits = List("None"),
+      scalaName = valueTraits.Clear,
+      extendsTraits = List(valueTraits.None_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -291,7 +293,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "Color",
+      scalaName = valueTraits.Color,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -369,8 +371,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "Cursor",
-      extendsTraits = List("Auto", "None"),
+      scalaName = valueTraits.Cursor,
+      extendsTraits = List(valueTraits.Auto_, valueTraits.None_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -686,7 +688,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "Direction",
+      scalaName = valueTraits.Direction,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -712,8 +714,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "Display",
-      extendsTraits = List("None"),
+      scalaName = valueTraits.Display,
+      extendsTraits = List(valueTraits.None_),
       extendsUnits = Nil,
       keywordDefGroups =
         List(
@@ -973,7 +975,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "EmptyCells",
+      scalaName = valueTraits.EmptyCells,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -999,7 +1001,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "FlexDirection",
+      scalaName = valueTraits.FlexDirection,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -1046,8 +1048,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "FlexPosition",
-      extendsTraits = List("Normal"),
+      scalaName = valueTraits.FlexPosition,
+      extendsTraits = List(valueTraits.Normal_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -1131,7 +1133,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "FlexWrap",
+      scalaName = valueTraits.FlexWrap,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -1172,8 +1174,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "Float",
-      extendsTraits = List("None"),
+      scalaName = valueTraits.Float,
+      extendsTraits = List(valueTraits.None_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -1198,9 +1200,9 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "FontSize",
+      scalaName = valueTraits.FontSize,
       extendsTraits = Nil,
-      extendsUnits = List("Length"),
+      extendsUnits = List(valueUnits.Length),
       keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "xxSmall",
@@ -1275,8 +1277,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "FontStyle",
-      extendsTraits = List("Normal"),
+      scalaName = valueTraits.FontStyle,
+      extendsTraits = List(valueTraits.Normal_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -1302,8 +1304,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "FontWeight",
-      extendsTraits = List("Normal"),
+      scalaName = valueTraits.FontWeight,
+      extendsTraits = List(valueTraits.Normal_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -1349,8 +1351,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "JustifyContent",
-      extendsTraits = List("AlignContent"),
+      scalaName = valueTraits.JustifyContent,
+      extendsTraits = List(valueTraits.AlignContent),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -1371,7 +1373,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "Line",
+      scalaName = valueTraits.Line,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = List(
@@ -1477,9 +1479,9 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "LineWidth",
+      scalaName = valueTraits.LineWidth,
       extendsTraits = Nil,
-      extendsUnits = List("Length"),
+      extendsUnits = List(valueUnits.Length),
       keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "thin",
@@ -1512,7 +1514,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "ListStylePosition",
+      scalaName = valueTraits.ListStylePosition,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -1539,8 +1541,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "ListStyleType",
-      extendsTraits = List("None"),
+      scalaName = valueTraits.ListStyleType,
+      extendsTraits = List(valueTraits.None_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -1727,9 +1729,9 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "MinMaxLength",
+      scalaName = valueTraits.MinMaxLength,
       extendsTraits = Nil,
-      extendsUnits = List("Length"),
+      extendsUnits = List(valueUnits.Length),
       keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "maxContent",
@@ -1771,8 +1773,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "MixBlendMode",
-      extendsTraits = List("Normal"),
+      scalaName = valueTraits.MixBlendMode,
+      extendsTraits = List(valueTraits.Normal_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -1884,7 +1886,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "None",
+      scalaName = valueTraits.None_,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -1899,7 +1901,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "Normal",
+      scalaName = valueTraits.Normal_,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -1914,8 +1916,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "Overflow",
-      extendsTraits = List("Auto"),
+      scalaName = valueTraits.Overflow,
+      extendsTraits = List(valueTraits.Auto_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -1953,8 +1955,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "OverflowWrap",
-      extendsTraits = List("Normal"),
+      scalaName = valueTraits.OverflowWrap,
+      extendsTraits = List(valueTraits.Normal_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -1981,8 +1983,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "PaddingBoxSizing",
-      extendsTraits = List("BoxSizing"),
+      scalaName = valueTraits.PaddingBoxSizing,
+      extendsTraits = List(valueTraits.BoxSizing),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -1996,8 +1998,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "PageBreak",
-      extendsTraits = List("Auto"),
+      scalaName = valueTraits.PageBreak,
+      extendsTraits = List(valueTraits.Auto_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -2040,8 +2042,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "PointerEvents",
-      extendsTraits = List("None", "Auto"),
+      scalaName = valueTraits.PointerEvents,
+      extendsTraits = List(valueTraits.None_, valueTraits.Auto_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -2172,7 +2174,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "Position",
+      scalaName = valueTraits.Position,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -2228,8 +2230,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "TableLayout",
-      extendsTraits = List("Auto"),
+      scalaName = valueTraits.TableLayout,
+      extendsTraits = List(valueTraits.Auto_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -2259,7 +2261,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "TextAlign",
+      scalaName = valueTraits.TextAlign,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -2322,8 +2324,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "TextDecoration",
-      extendsTraits = List("None"),
+      scalaName = valueTraits.TextDecoration,
+      extendsTraits = List(valueTraits.None_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -2357,7 +2359,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "TextOverflow",
+      scalaName = valueTraits.TextOverflow,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -2390,8 +2392,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "TextTransform",
-      extendsTraits = List("None"),
+      scalaName = valueTraits.TextTransform,
+      extendsTraits = List(valueTraits.None_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -2426,8 +2428,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "TextUnderlinePosition",
-      extendsTraits = List("Auto"),
+      scalaName = valueTraits.TextUnderlinePosition,
+      extendsTraits = List(valueTraits.Auto_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -2493,9 +2495,9 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "VerticalAlign",
+      scalaName = valueTraits.VerticalAlign,
       extendsTraits = Nil,
-      extendsUnits = List("Length"),
+      extendsUnits = List(valueUnits.Length),
       keywordDefGroups = OneList(
         StyleKeywordDef(
           scalaName = "baseline",
@@ -2582,7 +2584,7 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "Visibility",
+      scalaName = valueTraits.Visibility,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(
@@ -2621,8 +2623,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "WhiteSpace",
-      extendsTraits = List("Normal"),
+      scalaName = valueTraits.WhiteSpace,
+      extendsTraits = List(valueTraits.Normal_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
@@ -2681,8 +2683,8 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
-      scalaName = "WordBreak",
-      extendsTraits = List("Normal"),
+      scalaName = valueTraits.WordBreak,
+      extendsTraits = List(valueTraits.Normal_),
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(

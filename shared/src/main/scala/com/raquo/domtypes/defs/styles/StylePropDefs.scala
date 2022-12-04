@@ -1,6 +1,7 @@
 package com.raquo.domtypes.defs.styles
 
 import com.raquo.domtypes.common.StylePropDef
+import com.raquo.domtypes.defs.styles.StyleDefs.{implNames, valueTraits, valueTypes, valueUnits}
 
 object StylePropDefs {
   
@@ -9,10 +10,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "all",
       domName = "all",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The all shorthand CSS property resets all of an element's properties except",
         "unicode-bidi, direction, and CSS Custom Properties. It can set properties to",
@@ -29,10 +30,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "animation",
       domName = "animation",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The animation CSS property is a shorthand property for animation-name,",
         "animation-duration, animation-timing-function, animation-delay,",
@@ -46,10 +47,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "animationDelay",
       domName = "animation-delay",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Time"),
-      implName = "timeStyle",
+      valueUnits = List(valueUnits.Time),
+      implName = implNames.timeStyle,
       commentLines = List(
         "The animation-delay CSS property specifies when the animation should start.",
         "This lets the animation sequence begin some time after it's applied to an",
@@ -78,10 +79,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "animationDirection",
       domName = "animation-direction",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The animation-direction CSS property indicates whether the animation should",
         "play in reverse on alternate cycles.",
@@ -94,10 +95,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "animationDuration",
       domName = "animation-duration",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Time"),
-      implName = "timeStyle",
+      valueUnits = List(valueUnits.Time),
+      implName = implNames.timeStyle,
       commentLines = List(
         "The animation-duration CSS property specifies the Length of time that an",
         "animation should take to complete one cycle.",
@@ -113,10 +114,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "animationFillMode",
       domName = "animation-fill-mode",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The animation-fill-mode CSS property specifies how a CSS animation should",
         "apply styles to its target before and after it is executing.",
@@ -132,7 +133,7 @@ object StylePropDefs {
       valueType = "Double",
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "doubleStyle",
+      implName = implNames.doubleStyle,
       commentLines = List(
         "The animation-iteration-count CSS property defines the number of times an",
         "animation cycle should be played before stopping.",
@@ -145,10 +146,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "animationName",
       domName = "animation-name",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The animation-name CSS property specifies a list of animations that should",
         "be applied to the selected element. Each name indicates a @keyframes at-rule",
@@ -162,10 +163,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "animationPlayState",
       domName = "animation-play-state",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The animation-play-state CSS property determines whether an animation is",
         "running or paused. You can query this property's value to determine whether",
@@ -184,10 +185,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "animationTimingFunction",
       domName = "animation-timing-function",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The CSS animation-timing-function property specifies how a CSS animation",
         "should progress over the duration of each cycle. The possible values are",
@@ -209,10 +210,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "alignContent",
       domName = "align-content",
-      valueType = "String",
-      valueTraits = List("AlignContent"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.AlignContent),
       valueUnits = Nil,
-      implName = "alignContentStyle",
+      implName = implNames.alignContentStyle,
       commentLines = List(
         "The CSS align-content property sets the distribution of space between and",
         "around content items along a flexbox's cross-axis or a grid's block axis.",
@@ -228,10 +229,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "alignItems",
       domName = "align-items",
-      valueType = "String",
-      valueTraits = List("FlexPosition"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.FlexPosition),
       valueUnits = Nil,
-      implName = "flexPositionStyle",
+      implName = implNames.flexPositionStyle,
       commentLines = List(
         "The CSS align-items property sets the align-self value on all direct children",
         "as a group. In Flexbox, it controls the alignment of items on the Cross Axis.",
@@ -248,10 +249,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "alignSelf",
       domName = "align-self",
-      valueType = "String",
-      valueTraits = List("FlexPosition"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.FlexPosition),
       valueUnits = Nil,
-      implName = "flexPositionStyle",
+      implName = implNames.flexPositionStyle,
       commentLines = List(
         "The align-self CSS property overrides a grid or flex item's align-items",
         "value. In Grid, it aligns the item inside the grid area. In Flexbox,",
@@ -267,10 +268,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "background",
       domName = "background",
-      valueType = "String",
-      valueTraits = List("Color"),
-      valueUnits = List("Color", "Url"),
-      implName = "colorUrlStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Color),
+      valueUnits = List(valueUnits.Color, valueUnits.Url),
+      implName = implNames.colorUrlStyle,
       commentLines = List(
         "The background CSS property is a shorthand for setting the individual",
         "background values in a single place in the style sheet. background can be",
@@ -286,10 +287,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "backgroundAttachment",
       domName = "background-attachment",
-      valueType = "String",
-      valueTraits = List("BackgroundAttachment"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.BackgroundAttachment),
       valueUnits = Nil,
-      implName = "backgroundAttachmentStyle",
+      implName = implNames.backgroundAttachmentStyle,
       commentLines = List(
         "If a background-image is specified, the background-attachment CSS",
         "property determines whether that image's position is fixed within",
@@ -303,10 +304,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "backgroundClip",
       domName = "background-clip",
-      valueType = "String",
-      valueTraits = List("PaddingBoxSizing"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.PaddingBoxSizing),
       valueUnits = Nil,
-      implName = "paddingBoxSizingStyle",
+      implName = implNames.paddingBoxSizingStyle,
       commentLines = List(
         "The background-clip CSS property specifies whether an element's background,",
         "either the color or image, extends underneath its border.",
@@ -323,10 +324,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "backgroundColor",
       domName = "background-color",
-      valueType = "String",
-      valueTraits = List("Color"),
-      valueUnits = List("Color"),
-      implName = "colorStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Color),
+      valueUnits = List(valueUnits.Color),
+      implName = implNames.colorStyle,
       commentLines = List(
         "The background-color CSS property sets the background color of an element,",
         "either through a color value or the keyword transparent.",
@@ -339,10 +340,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "backgroundImage",
       domName = "background-image",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Url"),
-      implName = "urlStyle",
+      valueUnits = List(valueUnits.Url),
+      implName = implNames.urlStyle,
       commentLines = List(
         "The background-image CSS property sets one or more background images on an",
         "element. The background images are drawn on stacking context layers on top",
@@ -358,10 +359,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "backgroundOrigin",
       domName = "background-origin",
-      valueType = "String",
-      valueTraits = List("PaddingBoxSizing"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.PaddingBoxSizing),
       valueUnits = Nil,
-      implName = "paddingBoxSizingStyle",
+      implName = implNames.paddingBoxSizingStyle,
       commentLines = List(
         "The background-origin CSS property determines the background positioning",
         "area, that is the position of the origin of an image specified using the",
@@ -377,10 +378,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "backgroundPosition",
       domName = "background-position",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The background-position CSS property sets the initial position, relative to",
         "the background position layer defined by background-origin for each defined",
@@ -394,10 +395,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "backgroundRepeat",
       domName = "background-repeat",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The background-repeat CSS property defines how background images are repeated.",
         "A background image can be repeated along the horizontal axis, the vertical",
@@ -415,10 +416,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "backgroundSize",
       domName = "background-size",
-      valueType = "String",
-      valueTraits = List("BackgroundSize"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.BackgroundSize),
       valueUnits = Nil,
-      implName = "backgroundSizeStyle",
+      implName = implNames.backgroundSizeStyle,
       commentLines = List(
         "The background-size CSS property specifies the size of the background",
         "images. The size of the image can be fully constrained or only partially in",
@@ -432,10 +433,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "backfaceVisibility",
       domName = "backface-visibility",
-      valueType = "String",
-      valueTraits = List("BackfaceVisibility"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.BackfaceVisibility),
       valueUnits = Nil,
-      implName = "backfaceVisibilityStyle",
+      implName = implNames.backfaceVisibilityStyle,
       commentLines = List(
         "The CSS backface-visibility property determines whether or not the back",
         "face of the element is visible when facing the user. The back face of an",
@@ -450,10 +451,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "border",
       domName = "border",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The border CSS property is a shorthand property for setting the individual",
         "border property values in a single place in the style sheet. border can be",
@@ -468,10 +469,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderTop",
       domName = "border-top",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The border-top CSS property is a shorthand that sets the values of",
         "border-top-color, border-top-style, and border-top-width. These",
@@ -485,10 +486,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderRight",
       domName = "border-right",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The border-right CSS property is a shorthand that sets the values of",
         "border-right-color, border-right-style, and border-right-width. These",
@@ -502,10 +503,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderBottom",
       domName = "border-bottom",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The border-bottom CSS property is a shorthand that sets the values of",
         "border-bottom-color, border-bottom-style, and border-bottom-width. These",
@@ -519,10 +520,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderLeft",
       domName = "border-left",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The border-left CSS property is a shorthand that sets the values of",
         "border-left-color, border-left-style, and border-left-width. These",
@@ -536,10 +537,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderColor",
       domName = "border-color",
-      valueType = "String",
-      valueTraits = List("Color"),
-      valueUnits = List("Color"),
-      implName = "colorStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Color),
+      valueUnits = List(valueUnits.Color),
+      implName = implNames.colorStyle,
       commentLines = List(
         "The border-color CSS property is a shorthand for setting the color of the",
         "four sides of an element's border: border-top-color, border-right-color,",
@@ -553,10 +554,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderTopColor",
       domName = "border-top-color",
-      valueType = "String",
-      valueTraits = List("Color"),
-      valueUnits = List("Color"),
-      implName = "colorStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Color),
+      valueUnits = List(valueUnits.Color),
+      implName = implNames.colorStyle,
       commentLines = List(
         "The border-top-color CSS property sets the color of the top border of an element.",
       ),
@@ -568,10 +569,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderRightColor",
       domName = "border-right-color",
-      valueType = "String",
-      valueTraits = List("Color"),
-      valueUnits = List("Color"),
-      implName = "colorStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Color),
+      valueUnits = List(valueUnits.Color),
+      implName = implNames.colorStyle,
       commentLines = List(
         "The border-right-color CSS property sets the color of the right border of an element.",
       ),
@@ -583,10 +584,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderBottomColor",
       domName = "border-bottom-color",
-      valueType = "String",
-      valueTraits = List("Color"),
-      valueUnits = List("Color"),
-      implName = "colorStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Color),
+      valueUnits = List(valueUnits.Color),
+      implName = implNames.colorStyle,
       commentLines = List(
         "The border-bottom-color CSS property sets the color of the bottom border of an element.",
       ),
@@ -598,10 +599,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderLeftColor",
       domName = "border-left-color",
-      valueType = "String",
-      valueTraits = List("Color"),
-      valueUnits = List("Color"),
-      implName = "colorStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Color),
+      valueUnits = List(valueUnits.Color),
+      implName = implNames.colorStyle,
       commentLines = List(
         "The border-left-color CSS property sets the color of the left border of an element.",
       ),
@@ -613,10 +614,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderImage",
       domName = "border-image",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Url"),
-      implName = "urlStyle",
+      valueUnits = List(valueUnits.Url),
+      implName = implNames.urlStyle,
       commentLines = List(
         "The border-image CSS property draws an image around a given element.",
         "It replaces the element's regular border.",
@@ -629,10 +630,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderStyle",
       domName = "border-style",
-      valueType = "String",
-      valueTraits = List("Line"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Line),
       valueUnits = Nil,
-      implName = "lineStyle",
+      implName = implNames.lineStyle,
       commentLines = List(
         "The border-style CSS property is a shorthand property for setting the line",
         "style for all four sides of the element's border.",
@@ -645,10 +646,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderTopStyle",
       domName = "border-top-style",
-      valueType = "String",
-      valueTraits = List("Line"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Line),
       valueUnits = Nil,
-      implName = "lineStyle",
+      implName = implNames.lineStyle,
       commentLines = List(
         "The border-top-style CSS property sets the line style of the top border of a box.",
       ),
@@ -660,10 +661,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderRightStyle",
       domName = "border-right-style",
-      valueType = "String",
-      valueTraits = List("Line"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Line),
       valueUnits = Nil,
-      implName = "lineStyle",
+      implName = implNames.lineStyle,
       commentLines = List(
         "The border-right-style CSS property sets the line style of the right border of a box.",
       ),
@@ -675,10 +676,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderBottomStyle",
       domName = "border-bottom-style",
-      valueType = "String",
-      valueTraits = List("Line"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Line),
       valueUnits = Nil,
-      implName = "lineStyle",
+      implName = implNames.lineStyle,
       commentLines = List(
         "The border-bottom-style CSS property sets the line style of the bottom border of a box.",
       ),
@@ -690,10 +691,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderLeftStyle",
       domName = "border-left-style",
-      valueType = "String",
-      valueTraits = List("Line"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Line),
       valueUnits = Nil,
-      implName = "lineStyle",
+      implName = implNames.lineStyle,
       commentLines = List(
         "The border-left-style CSS property sets the line style of the left border of a box.",
       ),
@@ -705,10 +706,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderWidth",
       domName = "border-width",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The border-width CSS property is a shorthand property for setting the width",
         "for all four sides of the element's border.",
@@ -721,10 +722,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderTopWidth",
       domName = "border-top-width",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The border-top-width CSS property sets the line width of the top border of a box.",
       ),
@@ -736,10 +737,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderRightWidth",
       domName = "border-right-width",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The border-right-width CSS property sets the line width of the right border of a box.",
       ),
@@ -751,10 +752,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderBottomWidth",
       domName = "border-bottom-width",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The border-bottom-width CSS property sets the line width of the bottom border of a box.",
       ),
@@ -766,10 +767,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderLeftWidth",
       domName = "border-left-width",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The border-left-width CSS property sets the line width of the left border of a box.",
       ),
@@ -781,10 +782,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderRadius",
       domName = "border-radius",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The border-radius CSS property allows Web authors to define how rounded",
         "border corners are. The curve of each corner is defined using one or two",
@@ -798,10 +799,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderTopLeftRadius",
       domName = "border-top-left-radius",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The border-top-left-radius CSS property sets the rounding of the",
         "top-left corner of the element. The rounding can be a circle or an",
@@ -816,10 +817,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderTopRightRadius",
       domName = "border-top-right-radius",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The border-top-right-radius CSS property sets the rounding of the top-right",
         "corner of the element. The rounding can be a circle or an ellipse, or if",
@@ -833,10 +834,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderBottomRightRadius",
       domName = "border-bottom-right-radius",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The border-bottom-right-radius CSS property sets the rounding of the",
         "bottom-right corner of the element. The rounding can be a circle or an",
@@ -851,10 +852,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderBottomLeftRadius",
       domName = "border-bottom-left-radius",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The border-bottom-left-radius CSS property sets the rounding of the",
         "bottom-left corner of the element. The rounding can be a circle or an",
@@ -869,10 +870,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderCollapse",
       domName = "border-collapse",
-      valueType = "String",
-      valueTraits = List("BorderCollapse"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.BorderCollapse),
       valueUnits = Nil,
-      implName = "borderCollapseStyle",
+      implName = implNames.borderCollapseStyle,
       commentLines = List(
         "The border-collapse CSS property selects a table's border model. This has",
         "a big influence on the look and style of the table cells.",
@@ -885,10 +886,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "borderSpacing",
       domName = "border-spacing",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The border-spacing CSS property specifies the distance between the borders",
         "of adjacent cells (only for the separated borders model). This is equivalent",
@@ -903,10 +904,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "bottom",
       domName = "bottom",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The bottom CSS property participates in specifying the position of",
         "positioned elements.",
@@ -930,10 +931,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "boxShadow",
       domName = "box-shadow",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The box-shadow CSS property describes one or more shadow effects as a",
         "comma-separated list. It allows casting a drop shadow from the frame of",
@@ -950,10 +951,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "boxSizing",
       domName = "box-sizing",
-      valueType = "String",
-      valueTraits = List("BoxSizing"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.BoxSizing),
       valueUnits = Nil,
-      implName = "boxSizingStyle",
+      implName = implNames.boxSizingStyle,
       commentLines = List(
         "The box-sizing CSS property is used to alter the default CSS box model used",
         "to calculate widths and heights of elements. It is possible to use this",
@@ -968,10 +969,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "captionSide",
       domName = "caption-side",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The caption-side CSS property positions the content of a table's caption",
         "on the specified side (top or bottom).",
@@ -984,10 +985,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "clear",
       domName = "clear",
-      valueType = "String",
-      valueTraits = List("Clear"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Clear),
       valueUnits = Nil,
-      implName = "clearStyle",
+      implName = implNames.clearStyle,
       commentLines = List(
         "The clear CSS property specifies whether an element can be next to floating",
         "elements that precede it or must be moved down (cleared) below them.",
@@ -1002,10 +1003,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "clip",
       domName = "clip",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The clip CSS property defines what portion of an element is visible. The",
         "clip property applies only to elements with position:absolute.",
@@ -1018,10 +1019,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "color",
       domName = "color",
-      valueType = "String",
-      valueTraits = List("Color"),
-      valueUnits = List("Color"),
-      implName = "colorStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Color),
+      valueUnits = List(valueUnits.Color),
+      implName = implNames.colorStyle,
       commentLines = List(
         "The CSS color property sets the foreground color of an element's text",
         "content, and its decorations. It doesn't affect any other characteristic of",
@@ -1036,10 +1037,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "columns",
       domName = "columns",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The columns CSS property is a shorthand property allowing to set both the",
         "column-width and the column-count properties at the same time.",
@@ -1052,10 +1053,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "columnCount",
       domName = "column-count",
-      valueType = "Int",
-      valueTraits = List("Auto[_]"),
+      valueType = valueTypes.Int,
+      valueTraits = List(valueTraits.Auto_),
       valueUnits = Nil,
-      implName = "autoStyle[_]",
+      implName = implNames.autoStyle_,
       commentLines = List(
         "The column-count CSS property describes the number of columns of the element.",
       ),
@@ -1067,10 +1068,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "columnFill",
       domName = "column-fill",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The column-fill CSS property controls how contents are partitioned into",
         "columns. Contents are either balanced, which means that contents in all",
@@ -1085,10 +1086,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "columnGap",
       domName = "column-gap",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The column-gap CSS property sets the size of the gap between columns for",
         "elements which are specified to display as a multi-column element.",
@@ -1101,10 +1102,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "columnSpan",
       domName = "column-span",
-      valueType = "Int",
+      valueType = valueTypes.Int,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "intStyle",
+      implName = implNames.intStyle,
       commentLines = List(
         "The column-span CSS property makes it possible for an element to span across",
         "all columns when its value is set to `all`. An element that spans more than",
@@ -1118,10 +1119,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "columnWidth",
       domName = "column-width",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The column-width CSS property suggests an optimal column width. This is not",
         "a absolute value but a mere hint. Browser will adjust the width of the",
@@ -1139,10 +1140,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "columnRule",
       domName = "column-rule",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "In multi-column layouts, the column-rule CSS property specifies a straight",
         "line, or \"rule\", to be drawn between each column. It is a convenient",
@@ -1157,10 +1158,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "columnRuleColor",
       domName = "column-rule-color",
-      valueType = "String",
-      valueTraits = List("Color"),
-      valueUnits = List("Color"),
-      implName = "colorStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Color),
+      valueUnits = List(valueUnits.Color),
+      implName = implNames.colorStyle,
       commentLines = List(
         "The column-rule-color CSS property lets you set the color of the rule drawn",
         "between columns in multi-column layouts.",
@@ -1173,10 +1174,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "columnRuleWidth",
       domName = "column-rule-width",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The column-rule-width CSS property lets you set the width of the rule drawn",
         "between columns in multi-column layouts.",
@@ -1189,10 +1190,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "columnRuleStyle",
       domName = "column-rule-style",
-      valueType = "String",
-      valueTraits = List("Line"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Line),
       valueUnits = Nil,
-      implName = "lineStyle",
+      implName = implNames.lineStyle,
       commentLines = List(
         "The column-rule-style CSS property lets you set the style of the rule drawn",
         "between columns in multi-column layouts.",
@@ -1205,10 +1206,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "contentCss",
       domName = "content",
-      valueType = "String",
-      valueTraits = List("None[_]"),
-      valueUnits = List("Url"),
-      implName = "urlNoneStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.None_),
+      valueUnits = List(valueUnits.Url),
+      implName = implNames.urlNoneStyle,
       commentLines = List(
         "The `content` CSS property is used with the ::before and ::after pseudo-elements",
         "to generate content in an element. Objects inserted using the content",
@@ -1222,10 +1223,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "counterIncrement",
       domName = "counter-increment",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The counter-increment CSS property is used to increase the value of CSS",
         "Counters by a given value. The counter's value can be reset using the",
@@ -1239,10 +1240,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "counterReset",
       domName = "counter-reset",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The counter-reset CSS property is used to reset CSS Counters to a given",
         "value.",
@@ -1255,10 +1256,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "cursor",
       domName = "cursor",
-      valueType = "String",
-      valueTraits = List("Cursor"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Cursor),
       valueUnits = Nil,
-      implName = "cursorStyle",
+      implName = implNames.cursorStyle,
       commentLines = List(
         "The cursor CSS property specifies the mouse cursor displayed when the mouse",
         "pointer is over an element.",
@@ -1271,10 +1272,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "direction",
       domName = "direction",
-      valueType = "String",
-      valueTraits = List("Direction"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Direction),
       valueUnits = Nil,
-      implName = "directionStyle",
+      implName = implNames.directionStyle,
       commentLines = List(
         "Set the direction CSS property to match the direction of the text: rtl for",
         "Hebrew or Arabic text and ltr for other scripts. This is typically done as",
@@ -1302,10 +1303,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "display",
       domName = "display",
-      valueType = "String",
-      valueTraits = List("Display"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Display),
       valueUnits = Nil,
-      implName = "displayStyle",
+      implName = implNames.displayStyle,
       commentLines = List(
         "The display CSS property specifies the type of rendering box used for an",
         "element. In HTML, default display property values are taken from behaviors",
@@ -1325,10 +1326,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "emptyCells",
       domName = "empty-cells",
-      valueType = "String",
-      valueTraits = List("EmptyCells"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.EmptyCells),
       valueUnits = Nil,
-      implName = "emptyCellsStyle",
+      implName = implNames.emptyCellsStyle,
       commentLines = List(
         "The empty-cells CSS property specifies how user agents should render borders",
         "and backgrounds around cells that have no visible content.",
@@ -1341,10 +1342,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "flex",
       domName = "flex",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The flex CSS property is a shorthand property specifying the ability of a",
         "flex item to alter its dimensions to fill available space. Flex items can",
@@ -1361,10 +1362,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "flexBasis",
       domName = "flex-basis",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The CSS flex-basis property specifies the flex basis which is the initial",
         "main size of a flex item. The property determines the size of the",
@@ -1380,10 +1381,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "flexDirection",
       domName = "flex-direction",
-      valueType = "String",
-      valueTraits = List("FlexDirection"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.FlexDirection),
       valueUnits = Nil,
-      implName = "flexDirectionStyle",
+      implName = implNames.flexDirectionStyle,
       commentLines = List(
         "The CSS flex-direction property specifies how flex items are placed in the",
         "flex container defining the main axis and the direction (normal or reversed).",
@@ -1408,7 +1409,7 @@ object StylePropDefs {
       valueType = "Double",
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "doubleStyle",
+      implName = implNames.doubleStyle,
       commentLines = List(
         "The CSS flex-grow property specifies the flex grow factor of a flex item.",
         "",
@@ -1427,7 +1428,7 @@ object StylePropDefs {
       valueType = "Double",
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "doubleStyle",
+      implName = implNames.doubleStyle,
       commentLines = List(
         "The CSS flex-shrink property specifies the flex shrink factor of a flex item.",
         "",
@@ -1443,10 +1444,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "flexWrap",
       domName = "flex-wrap",
-      valueType = "String",
-      valueTraits = List("FlexWrap"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.FlexWrap),
       valueUnits = Nil,
-      implName = "flexWrapStyle",
+      implName = implNames.flexWrapStyle,
       commentLines = List(
         "The CSS flex-wrap property specifies whether the children are forced into",
         "a single line or if the items can be flowed on multiple lines.",
@@ -1461,10 +1462,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "float",
       domName = "float",
-      valueType = "String",
-      valueTraits = List("Float"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Float),
       valueUnits = Nil,
-      implName = "floatStyle",
+      implName = implNames.floatStyle,
       commentLines = List(
         "The float CSS property specifies that an element should be taken from the",
         "normal flow and placed along the left or right side of its container, where",
@@ -1479,10 +1480,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "font",
       domName = "font",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The font CSS property is either a shorthand property for setting font-style,",
         "font-variant, font-weight, font-size, line-height and font-family, or a way",
@@ -1496,10 +1497,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "fontFamily",
       domName = "font-family",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The font-family CSS property allows for a prioritized list of font family",
         "names and/or generic family names to be specified for the selected element.",
@@ -1516,10 +1517,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "fontFeatureSettings",
       domName = "font-feature-settings",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The font-feature-settings CSS property allows control over advanced",
         "typographic features in OpenType fonts.",
@@ -1532,10 +1533,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "fontSize",
       domName = "font-size",
-      valueType = "String",
-      valueTraits = List("FontSize"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.FontSize),
       valueUnits = Nil,
-      implName = "fontSizeStyle",
+      implName = implNames.fontSizeStyle,
       commentLines = List(
         "The font-size CSS property specifies the size of the font – specifically",
         "the desired height of glyphs from the font. Setting the font size may, in",
@@ -1551,9 +1552,9 @@ object StylePropDefs {
       scalaName = "fontSizeAdjust",
       domName = "font-size-adjust",
       valueType = "Double",
-      valueTraits = List("None[_]"),
+      valueTraits = List(valueTraits.None_),
       valueUnits = Nil,
-      implName = "noneStyle[_]",
+      implName = implNames.noneStyle_,
       commentLines = List(
         "The font-size-adjust CSS property sets the size of lower-case letters",
         "relative to the current font size (which defines the size of upper-case",
@@ -1575,10 +1576,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "fontStyle",
       domName = "font-style",
-      valueType = "String",
-      valueTraits = List("FontStyle"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.FontStyle),
       valueUnits = Nil,
-      implName = "fontStyleStyle",
+      implName = implNames.fontStyleStyle,
       commentLines = List(
         "The font-style CSS property allows italic or oblique faces to be selected",
         "within a font-family.",
@@ -1591,10 +1592,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "fontWeight",
       domName = "font-weight",
-      valueType = "String",
-      valueTraits = List("FontWeight"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.FontWeight),
       valueUnits = Nil,
-      implName = "fontWeightStyle",
+      implName = implNames.fontWeightStyle,
       commentLines = List(
         "The font-weight CSS property specifies the weight or boldness of the font.",
         "However, some fonts are not available in all weights; some are available",
@@ -1616,10 +1617,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "height",
       domName = "height",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The height CSS property specifies the height of the content area of an",
         "element. The content area is inside the padding, border, and margin of the",
@@ -1637,10 +1638,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "isolation",
       domName = "isolation",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
       valueUnits = Nil,
-      implName = "autoStyle[_]",
+      implName = implNames.autoStyle_,
       commentLines = List(
         "This property determines whether an element must create a new stacking context.",
         "It is especially helpful when used in conjunction with mix-blend-mode and z-index.",
@@ -1655,10 +1656,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "justifyContent",
       domName = "justify-content",
-      valueType = "String",
-      valueTraits = List("JustifyContent"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.JustifyContent),
       valueUnits = Nil,
-      implName = "justifyContentStyle",
+      implName = implNames.justifyContentStyle,
       commentLines = List(
         "The CSS justify-content property defines how a browser distributes available",
         "space between and around elements when aligning flex items in the main-axis",
@@ -1677,10 +1678,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "left",
       domName = "left",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The left CSS property specifies part of the position of positioned elements.",
         "",
@@ -1696,10 +1697,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "letterSpacing",
       domName = "letter-spacing",
-      valueType = "String",
-      valueTraits = List("Normal[_]"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Normal_),
       valueUnits = Nil,
-      implName = "normalStyle[_]",
+      implName = implNames.normalStyle_,
       commentLines = List(
         "The letter-spacing CSS property specifies spacing behavior between text",
         "characters.",
@@ -1712,10 +1713,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "lineHeight",
       domName = "line-height",
-      valueType = "String",
-      valueTraits = List("Normal[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthNormalStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Normal_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthNormalStyle,
       commentLines = List(
         "On block level elements, the line-height CSS property specifies the minimal",
         "height of line boxes within the element.",
@@ -1734,10 +1735,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "listStyle",
       domName = "list-style",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The list-style CSS property is a shorthand property for setting",
         "list-style-type, list-style-image and list-style-position.",
@@ -1750,10 +1751,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "listStyleImage",
       domName = "list-style-image",
-      valueType = "String",
-      valueTraits = List("None[_]"),
-      valueUnits = List("Url"),
-      implName = "urlNoneStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.None_),
+      valueUnits = List(valueUnits.Url),
+      implName = implNames.urlNoneStyle,
       commentLines = List(
         "The list-style-image CSS property sets the image that will be used as the",
         "list item marker.",
@@ -1766,10 +1767,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "listStylePosition",
       domName = "list-style-position",
-      valueType = "String",
-      valueTraits = List("ListStylePosition"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.ListStylePosition),
       valueUnits = Nil,
-      implName = "listStylePositionStyle",
+      implName = implNames.listStylePositionStyle,
       commentLines = List(
         "The list-style-position CSS property specifies the position of the marker",
         "box in the principal block box.",
@@ -1782,10 +1783,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "listStyleType",
       domName = "list-style-type",
-      valueType = "String",
-      valueTraits = List("ListStyleType"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.ListStyleType),
       valueUnits = Nil,
-      implName = "listStyleTypeStyle",
+      implName = implNames.listStyleTypeStyle,
       commentLines = List(
         "The list-style-type CSS property sets the marker (such as a disc, character,",
         "or custom counter style) of a list item element.",
@@ -1798,10 +1799,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "margin",
       domName = "margin",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The margin CSS property sets the margin for all four sides. It is a",
         "shorthand to avoid setting each side separately with the other margin",
@@ -1817,10 +1818,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "marginTop",
       domName = "margin-top",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The margin-top CSS property of an element sets the margin space required on",
         "the top of an element. A negative value is also allowed.",
@@ -1833,10 +1834,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "marginRight",
       domName = "margin-right",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The margin-right CSS property of an element sets the margin space required on",
         "the right of an element. A negative value is also allowed.",
@@ -1849,10 +1850,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "marginBottom",
       domName = "margin-bottom",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The margin-bottom CSS property of an element sets the margin space required on",
         "the bottom of an element. A negative value is also allowed.",
@@ -1865,10 +1866,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "marginLeft",
       domName = "margin-left",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The margin-left CSS property of an element sets the margin space required on",
         "the left of an element. A negative value is also allowed.",
@@ -1881,10 +1882,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "mask",
       domName = "mask",
-      valueType = "String",
-      valueTraits = List("None[_]"),
-      valueUnits = List("Url"),
-      implName = "urlNoneStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.None_),
+      valueUnits = List(valueUnits.Url),
+      implName = implNames.urlNoneStyle,
       commentLines = List(
         "If the value is a URI value, the element pointed to by the URI is used as",
         "an SVG mask.",
@@ -1897,10 +1898,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "maxHeight",
       domName = "max-height",
-      valueType = "String",
-      valueTraits = List("MinMaxLength", "None[_]"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.MinMaxLength, valueTraits.None_),
       valueUnits = Nil,
-      implName = "maxLengthStyle",
+      implName = implNames.maxLengthStyle,
       commentLines = List(
         "The max-height CSS property is used to set the maximum height of a given",
         "element. It prevents the used value of the height property from becoming",
@@ -1916,10 +1917,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "maxWidth",
       domName = "max-width",
-      valueType = "String",
-      valueTraits = List("MinMaxLength", "None[_]"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.MinMaxLength, valueTraits.None_),
       valueUnits = Nil,
-      implName = "maxLengthStyle",
+      implName = implNames.maxLengthStyle,
       commentLines = List(
         "The max-width CSS property is used to set the maximum width of a given",
         "element. It prevents the used value of the width property from becoming",
@@ -1935,10 +1936,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "minHeight",
       domName = "min-height",
-      valueType = "String",
-      valueTraits = List("MinMaxLength", "Auto[_]"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.MinMaxLength, valueTraits.Auto_),
       valueUnits = Nil,
-      implName = "minLengthStyle",
+      implName = implNames.minLengthStyle,
       commentLines = List(
         "The min-height CSS property is used to set the minimum height of a given",
         "element. It prevents the used value of the height property from becoming",
@@ -1954,10 +1955,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "minWidth",
       domName = "min-width",
-      valueType = "String",
-      valueTraits = List("MinMaxLength", "Auto[_]"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.MinMaxLength, valueTraits.Auto_),
       valueUnits = Nil,
-      implName = "minLengthStyle",
+      implName = implNames.minLengthStyle,
       commentLines = List(
         "The min-width CSS property is used to set the minimum width of a given",
         "element. It prevents the used value of the width property from becoming",
@@ -1973,10 +1974,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "mixBlendMode",
       domName = "mix-blend-mode",
-      valueType = "String",
-      valueTraits = List("Normal[_]"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.MixBlendMode),
       valueUnits = Nil,
-      implName = "normalStyle[_]",
+      implName = implNames.mixBlendModeStyle,
       commentLines = List(
         "This property sets how an element's content should blend with",
         "the content of the element's parent and the element's background.",
@@ -1994,7 +1995,7 @@ object StylePropDefs {
       valueType = "Double",
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "doubleStyle",
+      implName = implNames.doubleStyle,
       commentLines = List(
         "The opacity CSS property specifies the transparency of an element, that is,",
         "the degree to which the background behind the element is overlaid.",
@@ -2016,10 +2017,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "orphans",
       domName = "orphans",
-      valueType = "Int",
+      valueType = valueTypes.Int,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "intStyle",
+      implName = implNames.intStyle,
       commentLines = List(
         "The orphans CSS property refers to the minimum number of lines in a block",
         "container that must be left at the bottom of the page. This property is",
@@ -2035,10 +2036,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "outline",
       domName = "outline",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The CSS outline property is a shorthand property for setting one or more of",
         "the individual outline properties outline-style, outline-width and",
@@ -2055,10 +2056,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "outlineStyle",
       domName = "outline-style",
-      valueType = "String",
-      valueTraits = List("Line"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Line),
       valueUnits = Nil,
-      implName = "lineStyle",
+      implName = implNames.lineStyle,
       commentLines = List(
         "The outline-style CSS property is used to set the style of the outline of",
         "an element. An outline is a line that is drawn around elements, outside the",
@@ -2072,10 +2073,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "outlineWidth",
       domName = "outline-width",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The outline-width CSS property is used to set the width of the outline of",
         "an element. An outline is a line that is drawn around elements, outside the",
@@ -2089,10 +2090,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "outlineColor",
       domName = "outline-color",
-      valueType = "String",
-      valueTraits = List("Color"),
-      valueUnits = List("Color"),
-      implName = "colorStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Color),
+      valueUnits = List(valueUnits.Color),
+      implName = implNames.colorStyle,
       commentLines = List(
         "The outline-color CSS property sets the color of the outline of an element.",
         "An outline is a line that is drawn around elements, outside the border edge,",
@@ -2108,10 +2109,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "overflow",
       domName = "overflow",
-      valueType = "String",
-      valueTraits = List("Overflow"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Overflow),
       valueUnits = Nil,
-      implName = "overflowStyle",
+      implName = implNames.overflowStyle,
       commentLines = List(
         "The overflow CSS property specifies whether to clip content, render scroll",
         "bars or display overflow content of a block-level element.",
@@ -2124,10 +2125,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "overflowX",
       domName = "overflow-x",
-      valueType = "String",
-      valueTraits = List("Overflow"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Overflow),
       valueUnits = Nil,
-      implName = "overflowStyle",
+      implName = implNames.overflowStyle,
       commentLines = List(
         "The overflow-x CSS property specifies whether to clip content, render a",
         "scroll bar or display overflow content of a block-level element, when it",
@@ -2141,10 +2142,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "overflowY",
       domName = "overflow-y",
-      valueType = "String",
-      valueTraits = List("Overflow"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Overflow),
       valueUnits = Nil,
-      implName = "overflowStyle",
+      implName = implNames.overflowStyle,
       commentLines = List(
         "The overflow-y CSS property specifies whether to clip content, render a",
         "scroll bar, or display overflow content of a block-level element, when it",
@@ -2159,10 +2160,10 @@ object StylePropDefs {
       scalaName = "overflowWrap",
       scalaAliases = List("wordWrap"),
       domName = "overflow-wrap",
-      valueType = "String",
-      valueTraits = List("OverflowWrap"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.OverflowWrap),
       valueUnits = Nil,
-      implName = "overflowWrapStyle",
+      implName = implNames.overflowWrapStyle,
       commentLines = List(
         "The overflow-wrap CSS property specifies whether or not the browser should",
         "insert line breaks within words to prevent text from overflowing its",
@@ -2178,10 +2179,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "padding",
       domName = "padding",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The padding CSS property sets the required padding space on all sides of an",
         "element. The padding area is the space between the content of the element",
@@ -2198,10 +2199,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "paddingTop",
       domName = "padding-top",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The padding-top CSS property of an element sets the padding space required",
         "on the top of an element. The padding area is the space between the content",
@@ -2216,10 +2217,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "paddingRight",
       domName = "padding-right",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The padding-right CSS property of an element sets the padding space",
         "required on the right side of an element. The padding area is the space",
@@ -2234,10 +2235,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "paddingBottom",
       domName = "padding-bottom",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The padding-bottom CSS property of an element sets the height of the padding",
         "area at the bottom of an element. The padding area is the space between the",
@@ -2252,10 +2253,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "paddingLeft",
       domName = "padding-left",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Length"),
-      implName = "lengthStyle",
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
       commentLines = List(
         "The padding-left CSS property of an element sets the padding space required",
         "on the left side of an element. The padding area is the space between the",
@@ -2269,10 +2270,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "pageBreakAfter",
       domName = "page-break-after",
-      valueType = "String",
-      valueTraits = List("PageBreak"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.PageBreak),
       valueUnits = Nil,
-      implName = "pageBreakStyle",
+      implName = implNames.pageBreakStyle,
       commentLines = List(
         "The page-break-after CSS property adjusts page breaks after the current",
         "element.",
@@ -2285,10 +2286,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "pageBreakBefore",
       domName = "page-break-before",
-      valueType = "String",
-      valueTraits = List("PageBreak"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.PageBreak),
       valueUnits = Nil,
-      implName = "pageBreakStyle",
+      implName = implNames.pageBreakStyle,
       commentLines = List(
         "The page-break-before CSS property adjusts page breaks before the current",
         "element.",
@@ -2304,10 +2305,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "pageBreakInside",
       domName = "page-break-inside",
-      valueType = "String",
-      valueTraits = List("PageBreak"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.PageBreak),
       valueUnits = Nil,
-      implName = "pageBreakStyle",
+      implName = implNames.pageBreakStyle,
       commentLines = List(
         "The page-break-inside CSS property adjusts page breaks inside the current",
         "element.",
@@ -2320,10 +2321,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "perspective",
       domName = "perspective",
-      valueType = "String",
-      valueTraits = List("None[_]"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.None_),
       valueUnits = Nil,
-      implName = "noneStyle[_]",
+      implName = implNames.noneStyle_,
       commentLines = List(
         "The perspective CSS property determines the distance between the z=0 plane",
         "and the user in order to give to the 3D-positioned element some perspective.",
@@ -2339,10 +2340,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "perspectiveOrigin",
       domName = "perspective-origin",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The perspective-origin CSS property determines the position the viewer is",
         "looking at. It is used as the vanishing point by the perspective property.",
@@ -2355,10 +2356,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "pointerEvents",
       domName = "pointer-events",
-      valueType = "String",
-      valueTraits = List("PointerEvents"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.PointerEvents),
       valueUnits = Nil,
-      implName = "pointerEventsStyle",
+      implName = implNames.pointerEventsStyle,
       commentLines = List(
         "The CSS property pointer-events allows authors to control under what",
         "circumstances (if any) a particular graphic element can become the target",
@@ -2377,10 +2378,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "position",
       domName = "position",
-      valueType = "String",
-      valueTraits = List("Position"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Position),
       valueUnits = Nil,
-      implName = "positionStyle",
+      implName = implNames.positionStyle,
       commentLines = List(
         "The position CSS property chooses alternative rules for positioning elements,",
         "designed to be useful for scripted animation effects.",
@@ -2393,10 +2394,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "quotes",
       domName = "quotes",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The quotes CSS property sets how the browser should render quotation marks",
         "that are added using the open-quotes or close-quotes values of the CSS",
@@ -2410,10 +2411,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "resize",
       domName = "resize",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The resize CSS property sets whether an element is resizable, and if so,",
         "in which direction(s).",
@@ -2426,10 +2427,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "right",
       domName = "right",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The right CSS property specifies part of the position of positioned elements.",
         "",
@@ -2454,10 +2455,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "tableLayout",
       domName = "table-layout",
-      valueType = "String",
-      valueTraits = List("TableLayout"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.TableLayout),
       valueUnits = Nil,
-      implName = "tableLayoutStyle",
+      implName = implNames.tableLayoutStyle,
       commentLines = List(
         "The table-layout CSS property sets the algorithm used to lay out <table>",
         "cells, rows, and columns.",
@@ -2470,10 +2471,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "textAlign",
       domName = "text-align",
-      valueType = "String",
-      valueTraits = List("TextAlign"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.TextAlign),
       valueUnits = Nil,
-      implName = "textAlignStyle",
+      implName = implNames.textAlignStyle,
       commentLines = List(
         "The text-align CSS property describes how inline content like text is",
         "aligned in its parent block element. text-align does not control the",
@@ -2487,10 +2488,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "textAlignLast",
       domName = "text-align-last",
-      valueType = "String",
-      valueTraits = List("TextAlign"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.TextAlign),
       valueUnits = Nil,
-      implName = "textAlignStyle",
+      implName = implNames.textAlignStyle,
       commentLines = List(
         "The text-align-last CSS property describes how the last line of a block or",
         "a line, right before a forced line break, is aligned.",
@@ -2503,10 +2504,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "textDecoration",
       domName = "text-decoration",
-      valueType = "String",
-      valueTraits = List("TextDecoration"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.TextDecoration),
       valueUnits = Nil,
-      implName = "textDecorationStyle",
+      implName = implNames.textDecorationStyle,
       commentLines = List(
         "The text-decoration CSS property is used to set the text formatting to",
         "underline, overline, line-through or blink.",
@@ -2519,10 +2520,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "textIndent",
       domName = "text-indent",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The text-indent CSS property specifies how much horizontal space should be",
         "left before the beginning of the first line of the text content of an element.",
@@ -2537,10 +2538,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "textOverflow",
       domName = "text-overflow",
-      valueType = "String",
-      valueTraits = List("TextOverflow"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.TextOverflow),
       valueUnits = Nil,
-      implName = "textOverflowStyle",
+      implName = implNames.textOverflowStyle,
       commentLines = List(
         "The text-overflow CSS property determines how overflowed content that is",
         "not displayed is signaled to the users. It can be clipped, or display an",
@@ -2554,10 +2555,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "textShadow",
       domName = "text-shadow",
-      valueType = "String",
-      valueTraits = List("None[_]"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.None_),
       valueUnits = Nil,
-      implName = "noneStyle[_]",
+      implName = implNames.noneStyle_,
       commentLines = List(
         "The text-shadow CSS property adds shadows to text. It accepts a comma-separated",
         "list of shadows to be applied to the text and text-decorations of the element.",
@@ -2576,10 +2577,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "textTransform",
       domName = "text-transform",
-      valueType = "String",
-      valueTraits = List("TextTransform"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.TextTransform),
       valueUnits = Nil,
-      implName = "textTransformStyle",
+      implName = implNames.textTransformStyle,
       commentLines = List(
         "The text-transform CSS property specifies how to capitalize an element's",
         "text. It can be used to make text appear in all-uppercase or all-lowercase,",
@@ -2593,10 +2594,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "textUnderlinePosition",
       domName = "text-underline-position",
-      valueType = "String",
-      valueTraits = List("TextUnderlinePosition"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.TextUnderlinePosition),
       valueUnits = Nil,
-      implName = "textUnderlinePositionStyle",
+      implName = implNames.textUnderlinePositionStyle,
       commentLines = List(
         "The CSS text-underline-position property specifies the position of the",
         "underline which is set using the text-decoration property underline value.",
@@ -2612,10 +2613,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "top",
       domName = "top",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The top CSS property specifies part of the position of positioned elements.",
         "It has no effect on non-positioned elements.",
@@ -2639,10 +2640,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "transform",
       domName = "transform",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The CSS transform property lets you modify the coordinate space of the CSS",
         "visual formatting model. Using it, elements can be translated, rotated,",
@@ -2660,10 +2661,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "transformOrigin",
       domName = "transform-origin",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The transform-origin CSS property lets you modify the origin for",
         "transformations of an element. For example, the transform-origin of the",
@@ -2681,10 +2682,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "transformStyle",
       domName = "transform-style",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The transform-style CSS property determines if the children of the element",
         "are positioned in the 3D-space or are flattened in the plane of the element.",
@@ -2697,10 +2698,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "transition",
       domName = "transition",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The CSS transition property is a shorthand property for transition-property,",
         "transition-duration, transition-timing-function, and transition-delay. It",
@@ -2716,10 +2717,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "transitionDelay",
       domName = "transition-delay",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Time"),
-      implName = "timeStyle",
+      valueUnits = List(valueUnits.Time),
+      implName = implNames.timeStyle,
       commentLines = List(
         "The transition-delay CSS property specifies the amount of time to wait",
         "between a change being requested to a property that is to be transitioned",
@@ -2746,10 +2747,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "transitionDuration",
       domName = "transition-duration",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
-      valueUnits = List("Time"),
-      implName = "timeStyle",
+      valueUnits = List(valueUnits.Time),
+      implName = implNames.timeStyle,
       commentLines = List(
         "The transition-duration CSS property specifies the number of seconds or",
         "milliseconds a transition animation should take to complete. By default,",
@@ -2770,10 +2771,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "transitionTimingFunction",
       domName = "transition-timing-function",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The CSS transition-timing-function property is used to describe how the",
         "intermediate values of the CSS properties being affected by a transition",
@@ -2788,10 +2789,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "transitionProperty",
       domName = "transition-property",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The transition-property CSS property is used to specify the names of CSS",
         "properties to which a transition effect should be applied.",
@@ -2804,10 +2805,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "unicodeBidi",
       domName = "unicode-bidi",
-      valueType = "String",
+      valueType = valueTypes.String,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "stringStyle",
+      implName = implNames.stringStyle,
       commentLines = List(
         "The unicode-bidi CSS property together with the `direction` property relates",
         "to the handling of bidirectional text in a document. For example, if a block",
@@ -2824,10 +2825,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "verticalAlign",
       domName = "vertical-align",
-      valueType = "String",
-      valueTraits = List("VerticalAlign"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.VerticalAlign),
       valueUnits = Nil,
-      implName = "verticalAlignStyle",
+      implName = implNames.verticalAlignStyle,
       commentLines = List(
         "The vertical-align CSS property specifies the vertical alignment of an",
         "inline or table-cell box. It does not apply to block-level elements.",
@@ -2840,10 +2841,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "visibility",
       domName = "visibility",
-      valueType = "String",
-      valueTraits = List("Visibility"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Visibility),
       valueUnits = Nil,
-      implName = "visibilityStyle",
+      implName = implNames.visibilityStyle,
       commentLines = List(
         "The visibility CSS property shows or hides an element without changing the",
         "layout of a document. The property can also hide rows or columns in a <table>.",
@@ -2856,10 +2857,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "width",
       domName = "width",
-      valueType = "String",
-      valueTraits = List("Auto[_]"),
-      valueUnits = List("Length"),
-      implName = "lengthAutoStyle",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Auto_),
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthAutoStyle,
       commentLines = List(
         "The width CSS property specifies the width of the content area of an element.",
         "The content area is inside the padding, border, and margin of the element.",
@@ -2874,10 +2875,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "whiteSpace",
       domName = "white-space",
-      valueType = "String",
-      valueTraits = List("WhiteSpace"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.WhiteSpace),
       valueUnits = Nil,
-      implName = "whiteSpaceStyle",
+      implName = implNames.whiteSpaceStyle,
       commentLines = List(
         "The white-space CSS property is used to to describe how whitespace inside",
         "the element is handled.",
@@ -2890,10 +2891,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "widows",
       domName = "widows",
-      valueType = "Int",
+      valueType = valueTypes.Int,
       valueTraits = Nil,
       valueUnits = Nil,
-      implName = "intStyle",
+      implName = implNames.intStyle,
       commentLines = List(
         "The widows CSS property defines how many minimum lines must be left on top",
         "of a new page, on a paged media. In typography, a widow is the last line of",
@@ -2912,10 +2913,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "wordBreak",
       domName = "word-break",
-      valueType = "String",
-      valueTraits = List("WordBreak"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.WordBreak),
       valueUnits = Nil,
-      implName = "wordBreakStyle",
+      implName = implNames.wordBreakStyle,
       commentLines = List(
         "The word-break CSS property specifies whether or not the browser should",
         "insert line breaks wherever the text would otherwise overflow its content",
@@ -2929,10 +2930,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "wordSpacing",
       domName = "word-spacing",
-      valueType = "String",
-      valueTraits = List("Normal[_]"),
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Normal_),
       valueUnits = Nil,
-      implName = "normalStyle[_]",
+      implName = implNames.normalStyle_,
       commentLines = List(
         "The word-spacing CSS property specifies spacing behavior between tags and",
         "words.",
@@ -2945,10 +2946,10 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "zIndex",
       domName = "z-index",
-      valueType = "Int",
-      valueTraits = List("Auto[_]"),
+      valueType = valueTypes.Int,
+      valueTraits = List(valueTraits.Auto_),
       valueUnits = Nil,
-      implName = "autoStyle[_]",
+      implName = implNames.autoStyle_,
       commentLines = List(
         "The z-index CSS property specifies the z-order of an element and its",
         "descendants. When elements overlap, z-order determines which one covers the",

@@ -310,7 +310,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
         printDefGroupComments = styleTrait.keywordDefGroups.length > 1,
         traitCommentLines = Nil,
         traitName = styleTrait.scalaName,
-        extendsTraits = styleTrait.extendsTraits,
+        extendsTraits = styleTrait.extendsTraits.map(_.replace("[_]", "")),
         extendsUnitTraits = styleTrait.extendsUnits,
         propKind = "StyleProp",
         keywordType = "StyleSetter[_]",
@@ -323,7 +323,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
 
       generator.writeToFile(
         packagePath = generator.styleTraitsPackagePath(),
-        fileName = styleTrait.scalaName,
+        fileName = styleTrait.scalaName.replace("[_]", ""),
         fileContent = fileContent
       )
     }
