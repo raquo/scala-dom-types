@@ -1196,6 +1196,17 @@ trait StyleProps {
 
 
   /**
+    * This property determines whether an element must create a new stacking context.
+    * It is especially helpful when used in conjunction with mix-blend-mode and z-index.
+    * 
+    * Allowed values: "isolate", "auto"
+    * 
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/isolation
+    */
+  lazy val isolation: StyleProp[String] with s.Auto = autoStyle("isolation")
+
+
+  /**
     * The CSS justify-content property defines how a browser distributes available
     * space between and around elements when aligning flex items in the main-axis
     * of the current line. The alignment is done after the lengths and auto margins
@@ -1385,6 +1396,17 @@ trait StyleProps {
     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/min-width
     */
   lazy val minWidth: StyleProp[String] with s.MinMaxLength with s.Auto = minLengthStyle("min-width")
+
+
+  /**
+    * This property sets how an element's content should blend with
+    * the content of the element's parent and the element's background.
+    * 
+    * Note: not supported by Chrome on Android and Safari
+    * 
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode
+    */
+  lazy val mixBlendMode: StyleProp[String] with s.Normal = normalStyle("mix-blend-mode")
 
 
   /**

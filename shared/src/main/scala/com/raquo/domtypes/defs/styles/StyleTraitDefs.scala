@@ -20,7 +20,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "spaceBetween",
           domName = "space-between",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -28,7 +27,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "spaceAround",
           domName = "space-around",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -36,7 +34,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "spaceEvenly",
           domName = "space-evenly",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -52,7 +49,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "auto",
           domName = "auto",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -68,7 +64,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "visible",
           domName = "visible",
-          isOverride = false,
           commentLines = List(
             "The back face is visible.",
           ),
@@ -78,7 +73,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "hidden",
           domName = "hidden",
-          isOverride = false,
           commentLines = List(
             "The back face is not visible.",
           ),
@@ -96,7 +90,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "fixed",
           domName = "fixed",
-          isOverride = false,
           commentLines = List(
             "The background is fixed relative to the viewport. Even if an element has",
             "a scrolling mechanism, the background doesn't move with the element.",
@@ -108,7 +101,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "local",
           domName = "local",
-          isOverride = false,
           commentLines = List(
             "The background is fixed relative to the element's contents. If the element",
             "has a scrolling mechanism, the background scrolls with the element's",
@@ -122,7 +114,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "scroll",
           domName = "scroll",
-          isOverride = false,
           commentLines = List(
             "The background is fixed relative to the element itself and does not scroll",
             "with its contents. (It is effectively attached to the element's border.)",
@@ -141,7 +132,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "cover",
           domName = "cover",
-          isOverride = false,
           commentLines = List(
             "This keyword specifies that the background image should be scaled to be",
             "as small as possible while ensuring both its dimensions are greater than",
@@ -154,7 +144,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "contain",
           domName = "contain",
-          isOverride = false,
           commentLines = List(
             "This keyword specifies that the background image should be scaled to be",
             "as large as possible while ensuring both its dimensions are less than or",
@@ -174,7 +163,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "initial",
           domName = "initial",
-          isOverride = false,
           commentLines = List(
             "The initial CSS keyword applies the initial (or default) value of a",
             "property to an element.",
@@ -185,7 +173,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "inherit",
           domName = "inherit",
-          isOverride = false,
           commentLines = List(
             "The inherit CSS keyword causes the element for which it is specified to",
             "take the computed value of the property from its parent element.",
@@ -196,7 +183,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "revert",
           domName = "revert",
-          isOverride = false,
           commentLines = List(
             "The revert CSS keyword reverts the cascaded value of the property from its",
             "current value to the value the property would have had if no changes had",
@@ -208,7 +194,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "unset",
           domName = "unset",
-          isOverride = false,
           commentLines = List(
             "The unset CSS keyword resets a property to its inherited value if the",
             "property naturally inherits from its parent, and to its initial value if",
@@ -230,7 +215,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "separate",
           domName = "separate",
-          isOverride = false,
           commentLines = List(
             "Use separated-border table rendering model. This is the default.",
           ),
@@ -240,7 +224,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "collapse",
           domName = "collapse",
-          isOverride = false,
           commentLines = List(
             "Use collapsed-border table rendering model.",
           ),
@@ -258,7 +241,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "borderBox",
           domName = "border-box",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -266,7 +248,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "contentBox",
           domName = "content-box",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -282,7 +263,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "left",
           domName = "left",
-          isOverride = false,
           commentLines = List(
             "The element is moved down to clear past left floats.",
           ),
@@ -292,7 +272,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "right",
           domName = "right",
-          isOverride = false,
           commentLines = List(
             "The element is moved down to clear past right floats.",
           ),
@@ -302,7 +281,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "both",
           domName = "both",
-          isOverride = false,
           commentLines = List(
             "The element is moved down to clear past both left and right floats.",
           ),
@@ -320,7 +298,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "black",
           domName = "black",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -328,7 +305,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "blue",
           domName = "blue",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -336,7 +312,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "cyan",
           domName = "cyan",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -344,7 +319,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "gray",
           domName = "gray",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -352,7 +326,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "green",
           domName = "green",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -360,7 +333,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "purple",
           domName = "purple",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -368,7 +340,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "silver",
           domName = "silver",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -376,7 +347,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "red",
           domName = "red",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -384,7 +354,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "white",
           domName = "white",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -392,7 +361,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "yellow",
           domName = "yellow",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -408,7 +376,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "default",
           domName = "default",
-          isOverride = false,
           commentLines = List(
             "Default cursor, typically an arrow.",
           ),
@@ -418,7 +385,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "contextMenu",
           domName = "context-menu",
-          isOverride = false,
           commentLines = List(
             "A context menu is available under the cursor.",
           ),
@@ -428,7 +394,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "help",
           domName = "help",
-          isOverride = false,
           commentLines = List(
             "Indicating help is available.",
           ),
@@ -438,7 +403,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "pointer",
           domName = "pointer",
-          isOverride = false,
           commentLines = List(
             "E.g. used when hovering over links, typically a hand.",
           ),
@@ -448,7 +412,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "progress",
           domName = "progress",
-          isOverride = false,
           commentLines = List(
             "The program is busy in the background but the user can still interact",
             "with the interface (unlike for wait).",
@@ -459,7 +422,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "waitCss",
           domName = "wait",
-          isOverride = false,
           commentLines = List(
             "The program is busy (sometimes an hourglass or a watch).",
           ),
@@ -469,7 +431,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "cell",
           domName = "cell",
-          isOverride = false,
           commentLines = List(
             "Indicating that cells can be selected.",
           ),
@@ -479,7 +440,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "crosshair",
           domName = "crosshair",
-          isOverride = false,
           commentLines = List(
             "Cross cursor, often used to indicate selection in a bitmap.",
           ),
@@ -489,7 +449,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "text",
           domName = "text",
-          isOverride = false,
           commentLines = List(
             "Indicating text can be selected, typically an I-beam.",
           ),
@@ -499,7 +458,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "verticalText",
           domName = "vertical-text",
-          isOverride = false,
           commentLines = List(
             "Indicating that vertical text can be selected, typically a sideways I-beam",
           ),
@@ -509,7 +467,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "alias",
           domName = "alias",
-          isOverride = false,
           commentLines = List(
             "Indicating an alias or shortcut is to be created.",
           ),
@@ -519,7 +476,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "copy",
           domName = "copy",
-          isOverride = false,
           commentLines = List(
             "Indicating that something can be copied",
           ),
@@ -529,7 +485,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "move",
           domName = "move",
-          isOverride = false,
           commentLines = List(
             "The hovered object may be moved.",
           ),
@@ -539,7 +494,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "noDrop",
           domName = "no-drop",
-          isOverride = false,
           commentLines = List(
             "Cursor showing that a drop is not allowed at the current location.",
           ),
@@ -549,7 +503,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "notAllowed",
           domName = "not-allowed",
-          isOverride = false,
           commentLines = List(
             "Cursor showing that something cannot be done.",
           ),
@@ -559,7 +512,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "allScroll",
           domName = "all-scroll",
-          isOverride = false,
           commentLines = List(
             "Cursor showing that something can be scrolled in any direction (panned).",
           ),
@@ -569,7 +521,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "colResize",
           domName = "col-resize",
-          isOverride = false,
           commentLines = List(
             "The item/column can be resized horizontally. Often rendered as arrows",
             "pointing left and right with a vertical separating.",
@@ -580,7 +531,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "rowResize",
           domName = "row-resize",
-          isOverride = false,
           commentLines = List(
             "The item/row can be resized vertically. Often rendered as arrows pointing",
             "up and down with a horizontal bar separating them.",
@@ -591,7 +541,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "nResize",
           domName = "n-resize",
-          isOverride = false,
           commentLines = List(
             "The top edge is to be moved.",
           ),
@@ -601,7 +550,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "eResize",
           domName = "e-resize",
-          isOverride = false,
           commentLines = List(
             "The right edge is to be moved.",
           ),
@@ -611,7 +559,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "sResize",
           domName = "s-resize",
-          isOverride = false,
           commentLines = List(
             "The bottom edge is to be moved.",
           ),
@@ -621,7 +568,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "wResize",
           domName = "w-resize",
-          isOverride = false,
           commentLines = List(
             "The left edge is to be moved.",
           ),
@@ -631,7 +577,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "neResize",
           domName = "ne-resize",
-          isOverride = false,
           commentLines = List(
             "The top-right corner is to be moved.",
           ),
@@ -641,7 +586,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "nwResize",
           domName = "nw-resize",
-          isOverride = false,
           commentLines = List(
             "The top-left corner is to be moved.",
           ),
@@ -651,7 +595,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "seResize",
           domName = "se-resize",
-          isOverride = false,
           commentLines = List(
             "The bottom-right corner is to be moved.",
           ),
@@ -661,7 +604,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "swResize",
           domName = "sw-resize",
-          isOverride = false,
           commentLines = List(
             "The bottom-left corner is to be moved.",
           ),
@@ -671,7 +613,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "ewResize",
           domName = "ew-resize",
-          isOverride = false,
           commentLines = List(
             "The left and right edges are to be moved.",
           ),
@@ -681,7 +622,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "nsResize",
           domName = "ns-resize",
-          isOverride = false,
           commentLines = List(
             "The top and bottom edges are to be moved.",
           ),
@@ -691,7 +631,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "neswResize",
           domName = "nesw-resize",
-          isOverride = false,
           commentLines = List(
             "The top right and bottom left corners are to be moved.",
           ),
@@ -701,7 +640,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "nwseResize",
           domName = "nwse-resize",
-          isOverride = false,
           commentLines = List(
             "The top left and bottom right corners are to be moved.",
           ),
@@ -711,7 +649,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "zoomIn",
           domName = "zoom-in",
-          isOverride = false,
           commentLines = List(
             "Indicates that something can be zoomed (magnified) in.",
           ),
@@ -721,7 +658,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "zoomOut",
           domName = "zoom-out",
-          isOverride = false,
           commentLines = List(
             "Indicates that something can be zoomed (magnified) out.",
           ),
@@ -731,7 +667,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "grab",
           domName = "grab",
-          isOverride = false,
           commentLines = List(
             "Indicates that something can be grabbed (dragged to be moved).",
           ),
@@ -741,7 +676,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "grabbing",
           domName = "grabbing",
-          isOverride = false,
           commentLines = List(
             "Indicates that something can be grabbed (dragged to be moved).",
           ),
@@ -759,7 +693,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "ltr",
           domName = "ltr",
-          isOverride = false,
           commentLines = List(
             "Text and other elements go from left to right.",
           ),
@@ -769,7 +702,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "rtl",
           domName = "rtl",
-          isOverride = false,
           commentLines = List(
             "Text and other elements go from right to left.",
           ),
@@ -790,8 +722,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "block",
               domName = "block",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The element generates a block element box",
               ),
               docUrls = Nil,
@@ -800,8 +731,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "inline",
               domName = "inline",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The element generates one or more inline element boxes",
               ),
               docUrls = Nil,
@@ -813,8 +743,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "flow",
               domName = "flow",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The element lays out its contents using flow layout (block-and-inline layout).",
                 "",
                 "If its outer display type is inline or run-in, and it is participating in a",
@@ -832,8 +761,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "flowRoot",
               domName = "flow-root",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The element generates a block element box that establishes a new block",
                 "formatting context, defining where the formatting root lies",
               ),
@@ -843,8 +771,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "flex",
               domName = "flex",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The element behaves like a block element and lays out its content according",
                 "to the flexbox model",
               ),
@@ -854,8 +781,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "grid",
               domName = "grid",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The element behaves like a block element and lays out its content according",
                 "to the grid model",
               ),
@@ -865,8 +791,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "ruby",
               domName = "ruby",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The element behaves like an inline element and lays out its content according",
                 "to the ruby formatting model. It behaves like the corresponding HTML <ruby>",
                 "elements.",
@@ -880,8 +805,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "inlineBlock",
               domName = "inline-block",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The element generates a block element box that will be flowed with",
                 "surrounding content as if it were a single inline box.",
               ),
@@ -891,8 +815,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "inlineFlex",
               domName = "inline-flex",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The element behaves like an inline element and lays out its content",
                 "according to the flexbox model",
               ),
@@ -902,8 +825,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "inlineGrid",
               domName = "inline-grid",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The element behaves like an inline element and lays out its content",
                 "according to the grid model",
               ),
@@ -913,8 +835,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "inlineTable",
               domName = "inline-table",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The inline-table value does not have a direct mapping in HTML. It behaves",
                 "like a table HTML element, but as an inline box, rather than a",
                 "block-level box. Inside the table box is a block-level context",
@@ -943,8 +864,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "contents",
               domName = "contents",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "These elements don't produce a specific box by themselves.",
                 "They are replaced by their pseudo-box and their child boxes.",
               ),
@@ -957,8 +877,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "listItem",
               domName = "list-item",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "The element generates a block box for the content and a separate list-item",
                 "inline box",
               ),
@@ -971,8 +890,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "table",
               domName = "table",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "Behaves like the table HTML element. It defines a block-level box",
               ),
               docUrls = Nil,
@@ -981,8 +899,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "tableCaption",
               domName = "table-caption",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "Behaves like the caption HTML element",
               ),
               docUrls = Nil,
@@ -991,8 +908,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "tableCell",
               domName = "table-cell",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "Behaves like the td HTML element",
               ),
               docUrls = Nil,
@@ -1001,8 +917,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "tableColumn",
               domName = "table-column",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "These elements behave like the corresponding col HTML elements",
               ),
               docUrls = Nil,
@@ -1011,8 +926,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "tableColumnGroup",
               domName = "table-column-group",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "These elements behave like the corresponding colgroup HTML elements",
               ),
               docUrls = Nil,
@@ -1021,8 +935,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "tableFooterGroup",
               domName = "table-footer-group",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "These elements behave like the corresponding tfoot HTML elements",
               ),
               docUrls = Nil,
@@ -1031,8 +944,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "tableHeaderGroup",
               domName = "table-header-group",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "These elements behave like the corresponding thead HTML elements",
               ),
               docUrls = Nil,
@@ -1041,8 +953,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "tableRow",
               domName = "table-row",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "Behaves like the tr HTML element",
               ),
               docUrls = Nil,
@@ -1051,8 +962,7 @@ object StyleTraitDefs {
             StyleKeywordDef(
               scalaName = "tableRowGroup",
               domName = "table-row-group",
-              isOverride = false,
-              commentLines = List(
+                  commentLines = List(
                 "These elements behave like the corresponding tbody HTML elements",
               ),
               docUrls = Nil,
@@ -1070,7 +980,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "show",
           domName = "show",
-          isOverride = false,
           commentLines = List(
             "Borders and backgrounds should be drawn like in a normal cells.",
           ),
@@ -1080,7 +989,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "hide",
           domName = "hide",
-          isOverride = false,
           commentLines = List(
             "No border or backgrounds of empty cells should be drawn.",
           ),
@@ -1098,7 +1006,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "column",
           domName = "column",
-          isOverride = false,
           commentLines = List(
             "The flex container's main-axis is the same as the block-axis.",
             "The main-start and main-end points are the same as the before",
@@ -1110,7 +1017,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "columnReverse",
           domName = "column-reverse",
-          isOverride = false,
           commentLines = List(
             "Behaves the same as column but the main-start and main-end are permuted.",
           ),
@@ -1120,7 +1026,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "row",
           domName = "row",
-          isOverride = false,
           commentLines = List(
             "The flex container's main-axis is defined to be the same as the text direction.",
             "The main-start and main-end points are the same as the content direction.",
@@ -1131,7 +1036,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "rowReverse",
           domName = "row-reverse",
-          isOverride = false,
           commentLines = List(
             "Behaves the same as row but the main-start and main-end points are permuted.",
           ),
@@ -1149,7 +1053,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "flexStart",
           domName = "flex-start",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1157,7 +1060,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "flexEnd",
           domName = "flex-end",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1165,7 +1067,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "center",
           domName = "center",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1173,7 +1074,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "start",
           domName = "start",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1181,7 +1081,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "end",
           domName = "end",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1189,7 +1088,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "selfStart",
           domName = "self-start",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1197,7 +1095,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "selfEnd",
           domName = "self-end",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1205,7 +1102,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "baseline",
           domName = "baseline",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1213,7 +1109,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "firstBaseline",
           domName = "first baseline",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1221,7 +1116,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "lastBaseline",
           domName = "last baseline",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1229,7 +1123,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "stretch",
           domName = "stretch",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1245,7 +1138,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "nowrap",
           domName = "nowrap",
-          isOverride = false,
           commentLines = List(
             "The flex items are laid out in a single line which may cause the",
             "flex container to overflow. The cross-start is either equivalent",
@@ -1257,7 +1149,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "wrap",
           domName = "wrap",
-          isOverride = false,
           commentLines = List(
             "The flex items break into multiple lines. The cross-start is",
             "either equivalent to start or before depending flex-direction",
@@ -1270,7 +1161,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "wrapReverse",
           domName = "wrap-reverse",
-          isOverride = false,
           commentLines = List(
             "Behaves the same as wrap but cross-start and cross-end are",
             "permuted.",
@@ -1289,7 +1179,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "left",
           domName = "left",
-          isOverride = false,
           commentLines = List(
             "Element must float on the left side of its containing block.",
           ),
@@ -1299,7 +1188,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "right",
           domName = "right",
-          isOverride = false,
           commentLines = List(
             "Element must float on the right side of its containing block.",
           ),
@@ -1317,7 +1205,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "xxSmall",
           domName = "xx-small",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1325,7 +1212,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "xSmall",
           domName = "x-small",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1333,7 +1219,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "small",
           domName = "small",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1341,7 +1226,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "medium",
           domName = "medium",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1349,7 +1233,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "large",
           domName = "large",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1357,7 +1240,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "xLarge",
           domName = "x-large",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1365,7 +1247,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "xxLarge",
           domName = "xx-large",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1373,7 +1254,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "larger",
           domName = "larger",
-          isOverride = false,
           commentLines = List(
             "Larger than the parent element's font size, by roughly the ratio used to",
             "separate the absolute size keywords above.",
@@ -1384,7 +1264,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "smaller",
           domName = "smaller",
-          isOverride = false,
           commentLines = List(
             "Smaller than the parent element's font size, by roughly the ratio used to",
             "separate the absolute size keywords above.",
@@ -1403,7 +1282,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "italic",
           domName = "italic",
-          isOverride = false,
           commentLines = List(
             "Selects a font that is labeled italic, if that is not available,",
             "one labeled oblique",
@@ -1414,7 +1292,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "oblique",
           domName = "oblique",
-          isOverride = false,
           commentLines = List(
             "Selects a font that is labeled oblique",
           ),
@@ -1442,7 +1319,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "bold",
           domName = "bold",
-          isOverride = false,
           commentLines = List(
             "Bold font weight. Same as 700.",
           ),
@@ -1452,7 +1328,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "lighter",
           domName = "lighter",
-          isOverride = false,
           commentLines = List(
             "One font weight lighter than the parent element (among the available",
             "weights of the font).",
@@ -1463,7 +1338,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "bolder",
           domName = "bolder",
-          isOverride = false,
           commentLines = List(
             "One font weight darker than the parent element (among the available",
             "weights of the font)",
@@ -1482,7 +1356,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "left",
           domName = "left",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1490,7 +1363,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "right",
           domName = "right",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1508,8 +1380,7 @@ object StyleTraitDefs {
           StyleKeywordDef(
             scalaName = "dotted",
             domName = "dotted",
-            isOverride = false,
-            commentLines = List(
+              commentLines = List(
               "Displays a series of rounded dots. The spacing of the dots are not",
               "defined by the specification and are implementation-specific. The radius",
               "of the dots is half the calculated border-right-width.",
@@ -1520,8 +1391,7 @@ object StyleTraitDefs {
           StyleKeywordDef(
             scalaName = "dashed",
             domName = "dashed",
-            isOverride = false,
-            commentLines = List(
+              commentLines = List(
               "Displays a series of short square-ended dashes or line segments. The exact",
               "size and Length of the segments are not defined by the specification and",
               "are implementation-specific.",
@@ -1532,8 +1402,7 @@ object StyleTraitDefs {
           StyleKeywordDef(
             scalaName = "solid",
             domName = "solid",
-            isOverride = false,
-            commentLines = List(
+              commentLines = List(
               "Displays a single, straight, solid line.",
             ),
             docUrls = Nil,
@@ -1546,8 +1415,7 @@ object StyleTraitDefs {
           StyleKeywordDef(
             scalaName = "double",
             domName = "double",
-            isOverride = false,
-            commentLines = List(
+              commentLines = List(
               "Displays two straight lines that add up to the pixel amount defined as",
               "border-width or border-right-width.",
             ),
@@ -1561,8 +1429,7 @@ object StyleTraitDefs {
           StyleKeywordDef(
             scalaName = "groove",
             domName = "groove",
-            isOverride = false,
-            commentLines = List(
+              commentLines = List(
               "Displays a border leading to a carved effect. It is the opposite of ridge.",
             ),
             docUrls = Nil,
@@ -1571,8 +1438,7 @@ object StyleTraitDefs {
           StyleKeywordDef(
             scalaName = "ridge",
             domName = "ridge",
-            isOverride = false,
-            commentLines = List(
+              commentLines = List(
               "Displays a border with a 3D effect, like if it is coming out of the page.",
               "It is the opposite of groove.",
             ),
@@ -1586,8 +1452,7 @@ object StyleTraitDefs {
           StyleKeywordDef(
             scalaName = "inset",
             domName = "inset",
-            isOverride = false,
-            commentLines = List(
+              commentLines = List(
               "Displays a border that makes the box appear embedded. It is the opposite",
               "of outset. When applied to a table cell with border-collapse set to",
               "collapsed, this value behaves like groove.",
@@ -1598,8 +1463,7 @@ object StyleTraitDefs {
           StyleKeywordDef(
             scalaName = "outset",
             domName = "outset",
-            isOverride = false,
-            commentLines = List(
+              commentLines = List(
               "Displays a border that makes the box appear in 3D, embossed. It is the",
               "opposite of inset. When applied to a table cell with border-collapse set",
               "to collapsed, this value behaves like ridge.",
@@ -1620,7 +1484,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "thin",
           domName = "thin",
-          isOverride = false,
           commentLines = List(
             "Typically 1px in desktop browsers like Firefox.",
           ),
@@ -1630,7 +1493,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "medium",
           domName = "medium",
-          isOverride = false,
           commentLines = List(
             "Typically 3px in desktop browsers like Firefox.",
           ),
@@ -1640,7 +1502,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "thick",
           domName = "thick",
-          isOverride = false,
           commentLines = List(
             "Typically 5px in desktop browsers like Firefox.",
           ),
@@ -1658,7 +1519,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "outside",
           domName = "outside",
-          isOverride = false,
           commentLines = List(
             "The marker box is outside the principal block box.",
           ),
@@ -1668,7 +1528,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "inside",
           domName = "inside",
-          isOverride = false,
           commentLines = List(
             "The marker box is the first inline box in the principal block box, after",
             "which the element's content flows.",
@@ -1687,7 +1546,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "disc",
           domName = "disc",
-          isOverride = false,
           commentLines = List(
             "A filled circle (default value)",
           ),
@@ -1697,7 +1555,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "circle",
           domName = "circle",
-          isOverride = false,
           commentLines = List(
             "A hollow circle",
           ),
@@ -1707,7 +1564,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "square",
           domName = "square",
-          isOverride = false,
           commentLines = List(
             "A filled square",
           ),
@@ -1717,7 +1573,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "decimal",
           domName = "decimal",
-          isOverride = false,
           commentLines = List(
             "Decimal numbers begining with 1",
           ),
@@ -1727,7 +1582,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "cjkDecimal",
           domName = "cjk-decimal",
-          isOverride = false,
           commentLines = List(
             "Han decimal numbers",
           ),
@@ -1737,7 +1591,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "decimalLeadingZero",
           domName = "decimal-leading-zero",
-          isOverride = false,
           commentLines = List(
             "Decimal numbers padded by initial zeros",
           ),
@@ -1747,7 +1600,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "lowerRoman",
           domName = "lower-roman",
-          isOverride = false,
           commentLines = List(
             "Lowercase roman numerals",
           ),
@@ -1757,7 +1609,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "upperRoman",
           domName = "upper-roman",
-          isOverride = false,
           commentLines = List(
             "Uppercase roman numerals",
           ),
@@ -1767,7 +1618,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "lowerGreek",
           domName = "lower-greek",
-          isOverride = false,
           commentLines = List(
             "Lowercase classical greek",
           ),
@@ -1777,7 +1627,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "lowerAlpha",
           domName = "lower-alpha",
-          isOverride = false,
           commentLines = List(
             "Lowercase ASCII letters",
           ),
@@ -1787,7 +1636,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "lowerLatin",
           domName = "lower-latin",
-          isOverride = false,
           commentLines = List(
             "Lowercase ASCII letters",
           ),
@@ -1797,7 +1645,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "upperAlpha",
           domName = "upper-alpha",
-          isOverride = false,
           commentLines = List(
             "Uppercase ASCII letters",
           ),
@@ -1807,7 +1654,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "upperLatin",
           domName = "upper-latin",
-          isOverride = false,
           commentLines = List(
             "Uppercase ASCII letters",
           ),
@@ -1817,7 +1663,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "armenian",
           domName = "armenian",
-          isOverride = false,
           commentLines = List(
             "Traditional Armenian numbering",
           ),
@@ -1827,7 +1672,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "georgian",
           domName = "georgian",
-          isOverride = false,
           commentLines = List(
             "Traditional Georgian numbering",
           ),
@@ -1837,7 +1681,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "hebrew",
           domName = "hebrew",
-          isOverride = false,
           commentLines = List(
             "Traditional Hebrew numbering",
           ),
@@ -1847,7 +1690,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "hiragana",
           domName = "hiragana",
-          isOverride = false,
           commentLines = List(
             "Japanese Hiragana",
           ),
@@ -1857,7 +1699,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "hiraganaIroha",
           domName = "hiragana-iroha",
-          isOverride = false,
           commentLines = List(
             "Japanese Hiragana. Iroha is the old japanese ordering of syllables",
           ),
@@ -1867,7 +1708,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "katakana",
           domName = "katakana",
-          isOverride = false,
           commentLines = List(
             "Japanese Katakana",
           ),
@@ -1877,7 +1717,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "katakanaIroha",
           domName = "katakana-iroha",
-          isOverride = false,
           commentLines = List(
             "Japanese Katakana. Iroha is the old japanese ordering of syllables",
           ),
@@ -1895,7 +1734,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "maxContent",
           domName = "max-content",
-          isOverride = false,
           commentLines = List(
             "The intrinsic preferred length.",
           ),
@@ -1905,7 +1743,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "minContent",
           domName = "min-content",
-          isOverride = false,
           commentLines = List(
             "The intrinsic minimum length.",
           ),
@@ -1915,7 +1752,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "fitContent",
           domName = "fit-content",
-          isOverride = false,
           commentLines = List(
             "Defined as min(max-content, max(min-content, fill-available)).",
           ),
@@ -1925,10 +1761,122 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "fillAvailable",
           domName = "fill-available",
-          isOverride = false,
           commentLines = List(
             "The containing block width minus margin, border and padding.",
           ),
+          docUrls = Nil,
+        ),
+
+      ),
+    ),
+
+    StyleTraitDef(
+      scalaName = "MixBlendMode",
+      extendsTraits = List("Normal"),
+      extendsUnits = Nil,
+      keywordDefGroups = OneList(
+        StyleKeywordDef(
+          scalaName = "multiply",
+          domName = "multiply",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "screen",
+          domName = "screen",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "overlay",
+          domName = "overlay",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "darken",
+          domName = "darken",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "lighten",
+          domName = "lighten",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "colorDodge",
+          domName = "color-dodge",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "colorBurn",
+          domName = "color-burn",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "hardLight",
+          domName = "hard-light",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "softLight",
+          domName = "soft-light",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "difference",
+          domName = "difference",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "exclusion",
+          domName = "exclusion",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "hue",
+          domName = "hue",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "saturation",
+          domName = "saturation",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "color",
+          domName = "color",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "luminosity",
+          domName = "luminosity",
+          commentLines = Nil,
           docUrls = Nil,
         ),
 
@@ -1943,7 +1891,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "none",
           domName = "none",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1959,7 +1906,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "normal",
           domName = "normal",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -1975,7 +1921,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "visible",
           domName = "visible",
-          isOverride = false,
           commentLines = List(
             "Default value. Content is not clipped, it may be rendered outside the",
             "content box.",
@@ -1986,7 +1931,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "hidden",
           domName = "hidden",
-          isOverride = false,
           commentLines = List(
             "The content is clipped and no scrollbars are provided.",
           ),
@@ -1996,7 +1940,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "scroll",
           domName = "scroll",
-          isOverride = false,
           commentLines = List(
             "The content is clipped and desktop browsers use scrollbars, whether or",
             "not any content is clipped. This avoids any problem with scrollbars",
@@ -2027,7 +1970,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "breakWord",
           domName = "break-word",
-          isOverride = false,
           commentLines = List(
             "Indicates that normally unbreakable words may be broken at arbitrary",
             "points if there are no otherwise acceptable break points in the line.",
@@ -2046,7 +1988,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "paddingBox",
           domName = "padding-box",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -2062,7 +2003,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "always",
           domName = "always",
-          isOverride = false,
           commentLines = List(
             "Always force page breaks.",
           ),
@@ -2072,7 +2012,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "avoid",
           domName = "avoid",
-          isOverride = false,
           commentLines = List(
             "Avoid page breaks.",
           ),
@@ -2082,7 +2021,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "left",
           domName = "left",
-          isOverride = false,
           commentLines = List(
             "Force page breaks so that the next page is formatted as a left page.",
           ),
@@ -2092,7 +2030,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "right",
           domName = "right",
-          isOverride = false,
           commentLines = List(
             "Force page breaks so that the next page is formatted as a right page.",
           ),
@@ -2136,7 +2073,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "visiblePainted",
           domName = "visiblePainted",
-          isOverride = false,
           commentLines = List(
             "SVG only. The element can only be the target of a mouse event when the",
             "visibility property is set to visible and when the mouse cursor is over",
@@ -2151,7 +2087,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "visibleFill",
           domName = "visibleFill",
-          isOverride = false,
           commentLines = List(
             "SVG only. The element can only be the target of a mouse event when the",
             "visibility property is set to visible and when the mouse cursor is over",
@@ -2164,7 +2099,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "visibleStroke",
           domName = "visibleStroke",
-          isOverride = false,
           commentLines = List(
             "SVG only. The element can only be the target of a mouse event when the",
             "visibility property is set to visible and when the mouse cursor is over",
@@ -2177,7 +2111,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "visible",
           domName = "visible",
-          isOverride = false,
           commentLines = List(
             "SVG only. The element can be the target of a mouse event when the",
             "visibility property is set to visible and the mouse cursor is over either",
@@ -2190,7 +2123,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "painted",
           domName = "painted",
-          isOverride = false,
           commentLines = List(
             "SVG only. The element can only be the target of a mouse event when the",
             "mouse cursor is over the interior (i.e., 'fill') of the element and the",
@@ -2205,7 +2137,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "fill",
           domName = "fill",
-          isOverride = false,
           commentLines = List(
             "SVG only. The element can only be the target of a mouse event when the",
             "pointer is over the interior (i.e., fill) of the element. The values of",
@@ -2217,7 +2148,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "stroke",
           domName = "stroke",
-          isOverride = false,
           commentLines = List(
             "SVG only. The element can only be the target of a mouse event when the",
             "pointer is over the perimeter (i.e., stroke) of the element. The values",
@@ -2229,7 +2159,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "all",
           domName = "all",
-          isOverride = false,
           commentLines = List(
             "SVG only. The element can only be the target of a mouse event when the",
             "pointer is over the interior (i.e., fill) or the perimeter (i.e., stroke)",
@@ -2250,7 +2179,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "static",
           domName = "static",
-          isOverride = false,
           commentLines = List(
             "This keyword let the element use the normal behavior, that is it is laid",
             "out in its current position in the flow.  The top, right, bottom, and left",
@@ -2262,7 +2190,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "relative",
           domName = "relative",
-          isOverride = false,
           commentLines = List(
             "This keyword lays out all elements as though the element were not",
             "positioned, and then adjust the element's position, without changing",
@@ -2277,7 +2204,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "absolute",
           domName = "absolute",
-          isOverride = false,
           commentLines = List(
             "Do not leave space for the element. Instead, position it at a specified",
             "position relative to its closest positioned ancestor or to the containing",
@@ -2290,7 +2216,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "fixed",
           domName = "fixed",
-          isOverride = false,
           commentLines = List(
             "Do not leave space for the element. Instead, position it at a specified",
             "position relative to the screen's viewport and doesn't move when scrolled.",
@@ -2322,7 +2247,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "fixed",
           domName = "fixed",
-          isOverride = false,
           commentLines = List(
             "Table and column widths are set by the widths of table and col elements",
             "or by the width of the first row of cells. Cells in subsequent rows do",
@@ -2342,7 +2266,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "start",
           domName = "start",
-          isOverride = false,
           commentLines = List(
             "`left` if direction is left-to-right and `right` otherwise.",
           ),
@@ -2352,7 +2275,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "end",
           domName = "end",
-          isOverride = false,
           commentLines = List(
             "`right` if direction is left-to-right and `left` otherwise.",
           ),
@@ -2362,7 +2284,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "left",
           domName = "left",
-          isOverride = false,
           commentLines = List(
             "The inline contents are aligned to the left edge of the line box.",
           ),
@@ -2372,7 +2293,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "right",
           domName = "right",
-          isOverride = false,
           commentLines = List(
             "The inline contents are aligned to the right edge of the line box.",
           ),
@@ -2382,7 +2302,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "center",
           domName = "center",
-          isOverride = false,
           commentLines = List(
             "The inline contents are centered within the line box.",
           ),
@@ -2392,7 +2311,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "justify",
           domName = "justify",
-          isOverride = false,
           commentLines = List(
             "The text is justified. Text should line up their left and right edges to",
             "the left and right content edges of the paragraph.",
@@ -2411,7 +2329,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "underline",
           domName = "underline",
-          isOverride = false,
           commentLines = List(
             "Each line of text is underlined.",
           ),
@@ -2421,7 +2338,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "overline",
           domName = "overline",
-          isOverride = false,
           commentLines = List(
             "Each line of text has a line above it.",
           ),
@@ -2431,7 +2347,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "lineThrough",
           domName = "line-through",
-          isOverride = false,
           commentLines = List(
             "Each line of text has a line through the middle.",
           ),
@@ -2449,7 +2364,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "clip",
           domName = "clip",
-          isOverride = false,
           commentLines = List(
             "This keyword value indicates to truncate the text at the limit of the",
             "content area, therefore the truncation can happen in the middle of a",
@@ -2463,7 +2377,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "ellipsis",
           domName = "ellipsis",
-          isOverride = false,
           commentLines = List(
             "This keyword value indicates to display an ellipsis ('…', U+2026 HORIZONTAL",
             "ELLIPSIS) to represent clipped text. The ellipsis is displayed inside the",
@@ -2484,7 +2397,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "capitalize",
           domName = "capitalize",
-          isOverride = false,
           commentLines = List(
             "Forces the first letter of each word to be converted to",
             "uppercase. Other characters are unchanged.",
@@ -2495,7 +2407,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "uppercase",
           domName = "uppercase",
-          isOverride = false,
           commentLines = List(
             "Forces all characters to be converted to uppercase.",
           ),
@@ -2505,7 +2416,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "lowercase",
           domName = "lowercase",
-          isOverride = false,
           commentLines = List(
             "Forces all characters to be converted to lowercase.",
           ),
@@ -2534,7 +2444,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "under",
           domName = "under",
-          isOverride = false,
           commentLines = List(
             "This keyword forces the line to be set below the alphabetic baseline, at",
             "a position where it won't cross any descender. This is useful to prevent",
@@ -2547,7 +2456,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "left",
           domName = "left",
-          isOverride = false,
           commentLines = List(
             "In vertical writing-modes, this keyword forces the line to be placed on",
             "the left of the characters. In horizontal writing-modes, it is a synonym",
@@ -2559,7 +2467,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "right",
           domName = "right",
-          isOverride = false,
           commentLines = List(
             "In vertical writing-modes, this keyword forces the line to be placed on",
             "the right of the characters. In horizontal writing-modes, it is a synonym",
@@ -2571,7 +2478,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "underLeft",
           domName = "under left",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -2579,7 +2485,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "underRight",
           domName = "under right",
-          isOverride = false,
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -2595,7 +2500,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "baseline",
           domName = "baseline",
-          isOverride = false,
           commentLines = List(
             "Aligns the baseline of the element with the baseline of its parent. The",
             "baseline of some replaced elements, like textarea is not specified by",
@@ -2608,7 +2512,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "sub",
           domName = "sub",
-          isOverride = false,
           commentLines = List(
             "Aligns the baseline of the element with the subscript-baseline of its",
             "parent.",
@@ -2619,7 +2522,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "`super`",
           domName = "super",
-          isOverride = false,
           commentLines = List(
             "Aligns the baseline of the element with the superscript-baseline of its",
             "parent.",
@@ -2630,7 +2532,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "textTop",
           domName = "text-top",
-          isOverride = false,
           commentLines = List(
             "Aligns the top of the element with the top of the parent element's font.",
           ),
@@ -2640,7 +2541,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "textBottom",
           domName = "text-bottom",
-          isOverride = false,
           commentLines = List(
             "Aligns the bottom of the element with the bottom of the parent element's",
             "font.",
@@ -2651,7 +2551,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "middle",
           domName = "middle",
-          isOverride = false,
           commentLines = List(
             "Aligns the middle of the element with the middle of lowercase letters in",
             "the parent.",
@@ -2662,7 +2561,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "top",
           domName = "top",
-          isOverride = false,
           commentLines = List(
             "Aligns the top of the element and its descendants with the top of the",
             "entire line.",
@@ -2673,7 +2571,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "bottom",
           domName = "bottom",
-          isOverride = false,
           commentLines = List(
             "Aligns the bottom of the element and its descendants with the bottom of",
             "the entire line.",
@@ -2692,7 +2589,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "visible",
           domName = "visible",
-          isOverride = false,
           commentLines = List(
             "Default value, the box is visible",
           ),
@@ -2702,7 +2598,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "hidden",
           domName = "hidden",
-          isOverride = false,
           commentLines = List(
             "The box is invisible (fully transparent, nothing is drawn), but still",
             "affects layout.  Descendants of the element will be visible if they have",
@@ -2714,7 +2609,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "collapse",
           domName = "collapse",
-          isOverride = false,
           commentLines = List(
             "For table rows, columns, column groups, and row groups the row(s) or",
             "column(s) are hidden and the space they would have occupied is (as if",
@@ -2746,7 +2640,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "nowrap",
           domName = "nowrap",
-          isOverride = false,
           commentLines = List(
             "Collapses whitespace as for normal, but suppresses line breaks (text",
             "wrapping) within text.",
@@ -2757,7 +2650,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "pre",
           domName = "pre",
-          isOverride = false,
           commentLines = List(
             "Sequences of whitespace are preserved, lines are only broken at newline",
             "characters in the source and at br elements.",
@@ -2768,7 +2660,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "preWrap",
           domName = "pre-wrap",
-          isOverride = false,
           commentLines = List(
             "Sequences of whitespace are preserved. Lines are broken at newline",
             "characters, at br, and as necessary to fill line boxes.",
@@ -2779,7 +2670,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "preLine",
           domName = "pre-line",
-          isOverride = false,
           commentLines = List(
             "Sequences of whitespace are collapsed. Lines are broken at newline",
             "characters, at br, and as necessary to fill line boxes.",
@@ -2798,7 +2688,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "breakAll",
           domName = "break-all",
-          isOverride = false,
           commentLines = List(
             "To prevent overflow, word breaks should be inserted between any two",
             "characters (excluding Chinese/Japanese/Korean text).",
@@ -2809,7 +2698,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "keepAll",
           domName = "keep-all",
-          isOverride = false,
           commentLines = List(
             "Word breaks should not be used for Chinese/Japanese/Korean (CJK) text.",
             "Non-CJK text behavior is the same as for normal.",
@@ -2820,7 +2708,6 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "breakWord",
           domName = "break-word",
-          isOverride = false,
           commentLines = List(
             "To prevent overflow, normally unbreakable words may be broken at",
             "arbitrary points if there are no otherwise acceptable break points",
