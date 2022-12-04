@@ -8,7 +8,7 @@ import com.raquo.domtypes.common.EventPropDef
   * For type param docs see [[EventPropBuilder]]
   * 
   */
-object ClipboardEventProps {
+object ClipboardEventPropDefs {
   
   val defs: List[EventPropDef] = List(
     

@@ -3,7 +3,7 @@ package com.raquo.domtypes.defs.attrs
 import com.raquo.domtypes.common.{AttrDef, HtmlTagType}
 
 /** HTML attributes that don't reflect onto props. See also: Props, ReflectedHtmlAttrs, SvgAttrs */
-object HtmlAttrs {
+object HtmlAttrDefs {
   
   val defs: List[AttrDef] = List(
     

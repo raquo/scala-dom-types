@@ -7,7 +7,7 @@ import com.raquo.domtypes.common.{HtmlTagType, TagDef}
   * imported individually as needed.
   * 
   */
-object MiscTags {
+object MiscTagDefs {
   
   val defs: List[TagDef] = List(
     

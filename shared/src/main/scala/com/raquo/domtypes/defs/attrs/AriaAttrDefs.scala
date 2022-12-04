@@ -9,7 +9,7 @@ import com.raquo.domtypes.common.{AttrDef, HtmlTagType}
   * or slider). Additional ARIA attributes provide other useful properties,
   * such as a description for a form or the current value of a progressbar.
   */
-object AriaAttrs {
+object AriaAttrDefs {
   
   val defs: List[AttrDef] = List(
     

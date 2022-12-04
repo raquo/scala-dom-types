@@ -2,7 +2,7 @@ package com.raquo.domtypes.defs.styles
 
 import com.raquo.domtypes.common.{StyleKeywordDef, StyleTraitDef}
 
-object StyleTraits {
+object StyleTraitDefs {
 
   def OneList(list: StyleKeywordDef*): List[(String, List[StyleKeywordDef])] = {
     List(

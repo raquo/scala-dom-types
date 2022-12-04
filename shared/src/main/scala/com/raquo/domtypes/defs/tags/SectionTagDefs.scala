@@ -2,7 +2,7 @@ package com.raquo.domtypes.defs.tags
 
 import com.raquo.domtypes.common.{HtmlTagType, TagDef}
 
-object SectionTags {
+object SectionTagDefs {
   
   val defs: List[TagDef] = List(
     

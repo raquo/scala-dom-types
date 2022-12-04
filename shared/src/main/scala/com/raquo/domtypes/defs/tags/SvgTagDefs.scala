@@ -2,7 +2,7 @@ package com.raquo.domtypes.defs.tags
 
 import com.raquo.domtypes.common.{SvgTagType, TagDef}
 
-object SvgTags {
+object SvgTagDefs {
   
   val defs: List[TagDef] = List(
     

@@ -2,7 +2,7 @@ package com.raquo.domtypes.defs.styles
 
 import com.raquo.domtypes.common.StylePropDef
 
-object StyleProps {
+object StylePropDefs {
   
   val defs: List[StylePropDef] = List(
     
