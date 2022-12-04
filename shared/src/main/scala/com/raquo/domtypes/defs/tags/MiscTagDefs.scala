@@ -501,6 +501,26 @@ object MiscTagDefs {
       ),
     ),
 
+    TagDef(
+      tagType = HtmlTagType,
+      scalaName = "dialogTag",
+      scalaAliases = Nil,
+      domName = "dialog",
+      isVoid = false,
+      scalaJsElementType = "dom.HTMLDialogElement", // #TODO this should be dom.html.Dialog once the alias is added to scalajs-dom
+      javascriptElementType = "HTMLDialogElement",
+      commentLines = List(
+        "Dialog box or other interactive component, such as a dismissible alert,",
+        "inspector, or subwindow.",
+        "",
+        "Note: The tabindex attribute must not be used on the <dialog> element"
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog",
+        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement"
+      )
+    ),
+
   )
   
 }
