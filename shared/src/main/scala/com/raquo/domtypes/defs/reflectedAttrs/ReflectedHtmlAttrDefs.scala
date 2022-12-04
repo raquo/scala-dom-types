@@ -8,19 +8,14 @@ import com.raquo.domtypes.common.ReflectedHtmlAttrDef
   * and attrs for these properties, using just one would be enough as they are
   * interchangeable.
   * 
-  * Note that in JS browser engines, using props is faster than attributes.
+  * Note that in JS browser engines, using props has better performance than using attributes.
   * 
   * For more background on reflected attributes, see:
   * - Our own README file.
   * - https://stackoverflow.com/a/6004028/2601788
   * - https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes
   *   (NOTE: The specification calls DOM properties "IDL attributes" and HTML attributes "Content attributes")
-  * 
-  * For type param docs, see [[ReflectedHtmlAttrBuilder]]
-  * 
-  * @tparam RA ReflectedAttribute[ScalaValue, PropRawDomValue]
-  * 
-  * 
+  *
   * @see https://developer.mozilla.org/en-US/docs/Glossary/Attribute#reflection_of_an_attribute
   * @see https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes
   */

@@ -29,6 +29,7 @@ As well as by:
 * [Design Goals](#design-goals)
 * [Documentation](#documentation)
   * [How to Use _Scala DOM Types_ in Your Library](#how-to-use-scala-dom-types-in-your-library) 
+  * [Migrating from an older version of _Scala DOM Types_](#migrating-to-code-generation-from-an-older-version-of-scala-dom-types)
   * [Codecs](#codecs)
   * [Reflected Attributes](#reflected-attributes)
   * [Complex Keys](#complex-keys)
@@ -295,11 +296,8 @@ Here is what the DOM attributes / props / etc. are called in `scalaName`:
 * `content` prop is named `contentCss` to avoid using a common name
 
 #### Tags
-* Scala tag names used to free up good names for end user code:
-  * `style` -> `styleTag`, `link` -> `linkTag`, `param` -> `paramTag`, `map` -> `mapTag`, `dialog` -> `dialogTag`
-* Other tag renamings:
-  * `title` -> `titleTag` to avoid conflict with `title` reflected attribute
-  * `object` -> `objectTag` to avoid Scala reserved word
+* Many tag names have a "Tag" suffix, usually to free up good names for end user code, or avoid some conflict, e.g.:
+  * `style` -> `styleTag`, `link` -> `linkTag`, `param` -> `paramTag`, `map` -> `mapTag`, `title` -> `titleTag`, etc.
 
 #### Aliases
 * Attribute `type` == `typ` == `tpe` to avoid Scala reserved word

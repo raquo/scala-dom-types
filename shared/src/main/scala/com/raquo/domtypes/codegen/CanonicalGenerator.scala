@@ -179,7 +179,7 @@ class CanonicalGenerator(
       traitExtends = Nil,
       traitThisType = None,
       defType = _ => defType,
-      keyKind = _ => keyKind,
+      keyType = tag => keyKind + "[" + tag.scalaJsElementType + "]",
       keyImplName = _ => keyImplName,
       baseImplDefComments = baseImplDefComments,
       baseImplDef = baseImplDef,

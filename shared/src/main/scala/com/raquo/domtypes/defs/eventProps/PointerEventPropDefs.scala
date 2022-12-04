@@ -2,6 +2,7 @@ package com.raquo.domtypes.defs.eventProps
 
 import com.raquo.domtypes.common.EventPropDef
 
+/** Pointer events work for both mouse actions and touch input */
 object PointerEventPropDefs {
   
   val defs: List[EventPropDef] = List(

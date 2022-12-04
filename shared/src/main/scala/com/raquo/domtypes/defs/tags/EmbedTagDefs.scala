@@ -11,7 +11,7 @@ object EmbedTagDefs {
       scalaName = "img",
       domName = "img",
       isVoid = true,
-      scalaJsElementType = "dom.html.Image",
+      scalaJsElementTypeAlias = "dom.html.Image",
       javascriptElementType = "HTMLImageElement",
       commentLines = List(
         "Represents an image.",
@@ -27,7 +27,7 @@ object EmbedTagDefs {
       scalaName = "iframe",
       domName = "iframe",
       isVoid = false,
-      scalaJsElementType = "dom.html.IFrame",
+      scalaJsElementTypeAlias = "dom.html.IFrame",
       javascriptElementType = "HTMLIFrameElement",
       commentLines = List(
         "Represents a nested browsing context, that is an embedded HTML document.",
@@ -40,10 +40,10 @@ object EmbedTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "embed",
+      scalaName = "embedTag",
       domName = "embed",
       isVoid = true,
-      scalaJsElementType = "dom.html.Embed",
+      scalaJsElementTypeAlias = "dom.html.Embed",
       javascriptElementType = "HTMLEmbedElement",
       commentLines = List(
         "Represents a integration point for an external, often non-HTML, application",
@@ -60,7 +60,7 @@ object EmbedTagDefs {
       scalaName = "objectTag",
       domName = "object",
       isVoid = false,
-      scalaJsElementType = "dom.html.Object",
+      scalaJsElementTypeAlias = "dom.html.Object",
       javascriptElementType = "HTMLObjectElement",
       commentLines = List(
         "Represents an external resource, which is treated as an image, an HTML",
@@ -77,7 +77,7 @@ object EmbedTagDefs {
       scalaName = "paramTag",
       domName = "param",
       isVoid = true,
-      scalaJsElementType = "dom.html.Param",
+      scalaJsElementTypeAlias = "dom.html.Param",
       javascriptElementType = "HTMLParamElement",
       commentLines = List(
         "Defines parameters for use by plug-ins invoked by object elements.",
@@ -90,10 +90,10 @@ object EmbedTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "video",
+      scalaName = "videoTag",
       domName = "video",
       isVoid = false,
-      scalaJsElementType = "dom.html.Video",
+      scalaJsElementTypeAlias = "dom.html.Video",
       javascriptElementType = "HTMLVideoElement",
       commentLines = List(
         "Represents a video, and its associated audio files and captions, with the",
@@ -107,10 +107,10 @@ object EmbedTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "audio",
+      scalaName = "audioTag",
       domName = "audio",
       isVoid = false,
-      scalaJsElementType = "dom.html.Audio",
+      scalaJsElementTypeAlias = "dom.html.Audio",
       javascriptElementType = "HTMLAudioElement",
       commentLines = List(
         "Represents a sound or an audio stream.",
@@ -123,10 +123,10 @@ object EmbedTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "source",
+      scalaName = "sourceTag",
       domName = "source",
       isVoid = true,
-      scalaJsElementType = "dom.html.Source",
+      scalaJsElementTypeAlias = "dom.html.Source",
       javascriptElementType = "HTMLSourceElement",
       commentLines = List(
         "Allows the authors to specify alternate media resources for media elements",
@@ -140,10 +140,10 @@ object EmbedTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "track",
+      scalaName = "trackTag",
       domName = "track",
       isVoid = true,
-      scalaJsElementType = "dom.html.Track",
+      scalaJsElementTypeAlias = "dom.html.Track",
       javascriptElementType = "HTMLTrackElement",
       commentLines = List(
         "Allows authors to specify timed text track for media elements like video or",
@@ -157,10 +157,10 @@ object EmbedTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "canvas",
+      scalaName = "canvasTag",
       domName = "canvas",
       isVoid = false,
-      scalaJsElementType = "dom.html.Canvas",
+      scalaJsElementTypeAlias = "dom.html.Canvas",
       javascriptElementType = "HTMLCanvasElement",
       commentLines = List(
         "Represents a bitmap area that scripts can use to render graphics like graphs,",
@@ -177,7 +177,7 @@ object EmbedTagDefs {
       scalaName = "mapTag",
       domName = "map",
       isVoid = false,
-      scalaJsElementType = "dom.html.Map",
+      scalaJsElementTypeAlias = "dom.html.Map",
       javascriptElementType = "HTMLMapElement",
       commentLines = List(
         "In conjunction with area, defines an image map.",
@@ -190,10 +190,10 @@ object EmbedTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "area",
+      scalaName = "areaTag",
       domName = "area",
       isVoid = true,
-      scalaJsElementType = "dom.html.Area",
+      scalaJsElementTypeAlias = "dom.html.Area",
       javascriptElementType = "HTMLAreaElement",
       commentLines = List(
         "In conjunction with map, defines an image map",

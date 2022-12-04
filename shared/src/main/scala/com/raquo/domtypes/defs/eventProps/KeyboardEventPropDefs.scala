@@ -2,12 +2,7 @@ package com.raquo.domtypes.defs.eventProps
 
 import com.raquo.domtypes.common.EventPropDef
 
-/**
-  * Keyboard Events - triggered by user actions on the keyboard
-  * 
-  * For type param docs see [[EventPropBuilder]]
-  * 
-  */
+/** Keyboard Events - triggered by user actions on the keyboard */
 object KeyboardEventPropDefs {
   
   val defs: List[EventPropDef] = List(

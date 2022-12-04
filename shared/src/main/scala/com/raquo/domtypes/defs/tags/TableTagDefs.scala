@@ -11,7 +11,7 @@ object TableTagDefs {
       scalaName = "table",
       domName = "table",
       isVoid = false,
-      scalaJsElementType = "dom.html.Table",
+      scalaJsElementTypeAlias = "dom.html.Table",
       javascriptElementType = "HTMLTableElement",
       commentLines = List(
         "Represents data with more than one dimension.",
@@ -27,7 +27,7 @@ object TableTagDefs {
       scalaName = "caption",
       domName = "caption",
       isVoid = false,
-      scalaJsElementType = "dom.html.TableCaption",
+      scalaJsElementTypeAlias = "dom.html.TableCaption",
       javascriptElementType = "HTMLTableCaptionElement",
       commentLines = List(
         "The title of a table.",
@@ -43,7 +43,7 @@ object TableTagDefs {
       scalaName = "colGroup",
       domName = "colgroup",
       isVoid = false,
-      scalaJsElementType = "dom.html.TableCol",
+      scalaJsElementTypeAlias = "dom.html.TableCol",
       javascriptElementType = "HTMLTableColElement",
       commentLines = List(
         "A set of columns.",
@@ -59,7 +59,7 @@ object TableTagDefs {
       scalaName = "col",
       domName = "col",
       isVoid = true,
-      scalaJsElementType = "dom.html.TableCol",
+      scalaJsElementTypeAlias = "dom.html.TableCol",
       javascriptElementType = "HTMLTableColElement",
       commentLines = List(
         "A single column.",
@@ -75,7 +75,7 @@ object TableTagDefs {
       scalaName = "tbody",
       domName = "tbody",
       isVoid = false,
-      scalaJsElementType = "dom.html.TableSection",
+      scalaJsElementTypeAlias = "dom.html.TableSection",
       javascriptElementType = "HTMLTableSectionElement",
       commentLines = List(
         "The table body.",
@@ -91,7 +91,7 @@ object TableTagDefs {
       scalaName = "thead",
       domName = "thead",
       isVoid = false,
-      scalaJsElementType = "dom.html.TableSection",
+      scalaJsElementTypeAlias = "dom.html.TableSection",
       javascriptElementType = "HTMLTableSectionElement",
       commentLines = List(
         "The table headers.",
@@ -107,7 +107,7 @@ object TableTagDefs {
       scalaName = "tfoot",
       domName = "tfoot",
       isVoid = false,
-      scalaJsElementType = "dom.html.TableSection",
+      scalaJsElementTypeAlias = "dom.html.TableSection",
       javascriptElementType = "HTMLTableSectionElement",
       commentLines = List(
         "The table footer.",
@@ -123,7 +123,7 @@ object TableTagDefs {
       scalaName = "tr",
       domName = "tr",
       isVoid = false,
-      scalaJsElementType = "dom.html.TableRow",
+      scalaJsElementTypeAlias = "dom.html.TableRow",
       javascriptElementType = "HTMLTableRowElement",
       commentLines = List(
         "A single row in a table.",
@@ -139,7 +139,7 @@ object TableTagDefs {
       scalaName = "td",
       domName = "td",
       isVoid = false,
-      scalaJsElementType = "dom.html.TableCell",
+      scalaJsElementTypeAlias = "dom.html.TableCell",
       javascriptElementType = "HTMLTableCellElement",
       commentLines = List(
         "A single cell in a table.",
@@ -155,7 +155,7 @@ object TableTagDefs {
       scalaName = "th",
       domName = "th",
       isVoid = false,
-      scalaJsElementType = "dom.html.TableCell",
+      scalaJsElementTypeAlias = "dom.html.TableCell",
       javascriptElementType = "HTMLTableCellElement",
       commentLines = List(
         "A header cell in a table.",

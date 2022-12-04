@@ -6,9 +6,6 @@ import com.raquo.domtypes.common.EventPropDef
   * Media Events - triggered by media like videos, images and audio. These apply to
   * all HTML elements, but they are most common in media elements, like <audio>,
   * <embed>, <img>, <object>, and <video>.
-  * 
-  * For type param docs see [[EventPropBuilder]]
-  * 
   */
 object MediaEventPropDefs {
   

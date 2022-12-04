@@ -8,10 +8,10 @@ object DocumentTagDefs {
     
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "html",
+      scalaName = "htmlTag",
       domName = "html",
       isVoid = false,
-      scalaJsElementType = "dom.html.Html",
+      scalaJsElementTypeAlias = "dom.html.Html",
       javascriptElementType = "HTMLHtmlElement",
       commentLines = List(
         "Represents the root of an HTML or XHTML document. All other elements must",
@@ -25,10 +25,10 @@ object DocumentTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "head",
+      scalaName = "headTag",
       domName = "head",
       isVoid = false,
-      scalaJsElementType = "dom.html.Head",
+      scalaJsElementTypeAlias = "dom.html.Head",
       javascriptElementType = "HTMLHeadElement",
       commentLines = List(
         "Represents a collection of metadata about the document, including links to,",
@@ -42,10 +42,10 @@ object DocumentTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "base",
+      scalaName = "baseTag",
       domName = "base",
       isVoid = true,
-      scalaJsElementType = "dom.html.Base",
+      scalaJsElementTypeAlias = "dom.html.Base",
       javascriptElementType = "HTMLBaseElement",
       commentLines = List(
         "Defines the base URL for relative URLs in the page.",
@@ -61,7 +61,7 @@ object DocumentTagDefs {
       scalaName = "linkTag",
       domName = "link",
       isVoid = true,
-      scalaJsElementType = "dom.html.Link",
+      scalaJsElementTypeAlias = "dom.html.Link",
       javascriptElementType = "HTMLLinkElement",
       commentLines = List(
         "Used to link JavaScript and external CSS with the current HTML document.",
@@ -74,10 +74,10 @@ object DocumentTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "meta",
+      scalaName = "metaTag",
       domName = "meta",
       isVoid = true,
-      scalaJsElementType = "dom.html.Meta",
+      scalaJsElementTypeAlias = "dom.html.Meta",
       javascriptElementType = "HTMLMetaElement",
       commentLines = List(
         "Defines metadata that can't be defined using another HTML element.",
@@ -90,10 +90,10 @@ object DocumentTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "script",
+      scalaName = "scriptTag",
       domName = "script",
       isVoid = false,
-      scalaJsElementType = "dom.html.Script",
+      scalaJsElementTypeAlias = "dom.html.Script",
       javascriptElementType = "HTMLScriptElement",
       commentLines = List(
         "Defines either an internal script or a link to an external script. The",
@@ -107,10 +107,10 @@ object DocumentTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "noScript",
+      scalaName = "noScriptTag",
       domName = "noscript",
       isVoid = false,
-      scalaJsElementType = "dom.html.Element",
+      scalaJsElementTypeAlias = "dom.html.Element",
       javascriptElementType = "HTMLElement",
       commentLines = List(
         "Defines alternative content to display when the browser doesn't support",

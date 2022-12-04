@@ -2,12 +2,7 @@ package com.raquo.domtypes.defs.eventProps
 
 import com.raquo.domtypes.common.EventPropDef
 
-/**
-  * Window Events
-  * 
-  * For type param docs see [[EventPropBuilder]]
-  * 
-  */
+/** Events that work only on dom.window */
 object WindowOnlyEventPropDefs {
   
   val defs: List[EventPropDef] = List(

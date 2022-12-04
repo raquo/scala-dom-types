@@ -1,5 +1,6 @@
 package com.raquo.domtypes.defs.styles
 
+/** Constants to be used in StylePropDefs and StyleTraitDefs */
 object StyleDefs {
 
   object valueTypes {

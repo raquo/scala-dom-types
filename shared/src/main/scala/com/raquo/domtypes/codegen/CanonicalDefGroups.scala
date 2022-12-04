@@ -49,6 +49,7 @@ class CanonicalDefGroups {
     "Keyboard Events" -> KeyboardEventPropDefs.defs,
     "Clipboard Events" -> ClipboardEventPropDefs.defs,
     "Media Events" -> MediaEventPropDefs.defs,
+    "Animation Events" -> AnimationEventPropDefs.defs,
     "Misc Events" -> MiscellaneousEventPropDefs.defs,
     "Error Events" -> ErrorEventPropDefs.defs,
   )

@@ -2,6 +2,15 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### ??? – Dec 2022
+
+* **API: Complete refactor of the whole library to provide the types via code generation instead of via hardcoded traits. See the new README for details.**
+
+* New: `isolation` and `mixBlendMode` style props
+* New: `dialogTag` HTML tag
+* Tag naming: `html` -> `htmlTag`, `time` -> `timeTag`, and many other tags now have a "Tag" suffix in their name by default.
+  * Note that with the new code generation tools, you can undo / customize these changes for your library.
+
 #### v0.16.0-RC2 – Jan 2022
 
 * **API: Remove canonical implementations of various builders, as well as concreate types like Tag, Element, HtmlAttr, Modifier, etc.**
@@ -11,7 +20,7 @@
   * Library authors: as a migration guide, see example diff from Laminar referenced in [#75](https://github.com/raquo/scala-dom-types/pull/75)
 * **Naming: `content` style prop is renamed to `contentCss` to avoid using a common name**
 * **Naming: `cssWait` value for CSS `cursor` property renamed to `waitCss` for consistency.**
-  * (`wait` is an unrelated final method on Java objects so we can't use that name) 
+  * (`wait` is an unrelated final method on Java objects, so we can't use that name) 
 * **Build: Bump to Scala 3 version to 3.1.0 and scala-js-dom to 2.1.0**
 * New: `download` reflected attribute (thanks, [@ioleo](https://github.com/ioleo)!)
 * New: `labelAttr` reflected attribute (for `optgroup` elements)

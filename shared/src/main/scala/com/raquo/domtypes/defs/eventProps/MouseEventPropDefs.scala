@@ -2,13 +2,7 @@ package com.raquo.domtypes.defs.eventProps
 
 import com.raquo.domtypes.common.EventPropDef
 
-/**
-  * Mouse Events: triggered by a mouse, or similar user actions.
-  * @tparam DomElementMouseEvent
-  *            A DomMouseEvent that has an Element as `target`.
-  *            This event type has no corresponding type in JS DOM. See our own `TypedTargetEvent` trait.
-  * 
-  */
+/** Mouse Events: triggered by a mouse, or similar user actions. */
 object MouseEventPropDefs {
   
   val defs: List[EventPropDef] = List(
