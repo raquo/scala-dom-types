@@ -1635,6 +1635,24 @@ object StylePropDefs {
     ),
 
     StylePropDef(
+      scalaName = "isolation",
+      domName = "isolation",
+      valueType = "String",
+      valueTraits = List("Auto[_]"),
+      valueUnits = Nil,
+      implName = "autoStyle[_]",
+      commentLines = List(
+        "This property determines whether an element must create a new stacking context.",
+        "It is especially helpful when used in conjunction with mix-blend-mode and z-index.",
+        "",
+        "Allowed values: \"isolate\", \"auto\""
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/isolation",
+      ),
+    ),
+
+    StylePropDef(
       scalaName = "justifyContent",
       domName = "justify-content",
       valueType = "String",
@@ -1949,6 +1967,24 @@ object StylePropDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/min-width",
+      ),
+    ),
+
+    StylePropDef(
+      scalaName = "mixBlendMode",
+      domName = "mix-blend-mode",
+      valueType = "String",
+      valueTraits = List("Normal[_]"),
+      valueUnits = Nil,
+      implName = "normalStyle[_]",
+      commentLines = List(
+        "This property sets how an element's content should blend with",
+        "the content of the element's parent and the element's background.",
+        "",
+        "Note: not supported by Chrome on Android and Safari"
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode",
       ),
     ),
 
