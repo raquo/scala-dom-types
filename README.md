@@ -1,11 +1,11 @@
 # Scala DOM Types
-[![Build Status](https://circleci.com/gh/raquo/scala-dom-types.svg?style=svg)](https://circleci.com/gh/raquo/Airstream)
+[![Build Status](https://circleci.com/gh/raquo/scala-dom-types.svg?style=svg)](https://circleci.com/gh/raquo/scala-dom-types)
 ![Maven Central](https://img.shields.io/maven-central/v/com.raquo/domtypes_sjs1_2.13.svg)
 
 _Scala DOM Types_ provides listings of Javascript HTML and SVG tags as well as their attributes, DOM properties, and CSS styles, including the corresponding type information.
 
-    "com.raquo" %%% "domtypes" % "<version>"    // Scala.js 1.7.1+
-    "com.raquo" %% "domtypes" % "<version>"     // JVM
+    "com.raquo" %% "domtypes" % "<version>"     // JVM & SBT
+    "com.raquo" %%% "domtypes" % "<version>"    // Scala.js 1.9.0+
 
 _Scala DOM Types_ is used by the following Scala.js UI libraries:
 
@@ -40,20 +40,20 @@ As well as by:
 
 ## Community
 
-Please use [Github issues](https://github.com/raquo/scala-dom-types/issues) for bugs, feature requests, as well as all kinds of discussions, including questions on usage and integrations. You can _watch_ this project on github to get issue updates if you're interested in following discussions.
+Please use [Github issues](https://github.com/raquo/scala-dom-types/issues) for bugs, feature requests, as well as all kinds of discussions, including questions on usage and integrations. You can _watch_ this project on Github to get issue updates if you're interested in following discussions.
 
 
 ## Contributing
 
 **Q: I want to add an element tag / attribute / prop / etc.**
 
-**A:** Awesome! Please open an issue, and we will either add it, ask you to PR it, or explain why adding this particular key might not be a good idea.
+**A:** Awesome! Please open an issue, and we will either ask you to PR it, add it ourselves, or discuss why adding this particular key might not be a good idea.
 
 So far we are focused on HTML5 attributes and read-writeable DOM props, but it doesn't have to stay that way. There is value in providing listings for popular non-standard attributes as well (e.g. `autoCapitalize`, `unSelectable`) but we haven't decided how to deal with those yet. Don't hesitate to trigger this discussion though.
 
 The raw definitions that you need to update are found in the [shared/main/.../defs](#TODO) folder. The sample code generated from those definitions is found in [js/test/.../defs](#TODO).
 
-If making a PR, make sure to run the GeneratorSpec test locally, so that the sample generated code is updated before you commit.
+If making a PR, please make sure to run the `GeneratorSpec` test locally, so that the sample generated code is updated before you commit.
 
 
 ## Why use _Scala DOM Types_
@@ -295,8 +295,8 @@ Here is what the DOM attributes / props / etc. are called in `scalaName`:
 * `content` prop is named `contentCss` to avoid using a common name
 
 #### Tags
-* Scala tags names used to free up good names for end user code:
-  * `style` -> `styleTag`, `link` -> `linkTag`, `param` -> `paramTag`, `map` -> `mapTag`
+* Scala tag names used to free up good names for end user code:
+  * `style` -> `styleTag`, `link` -> `linkTag`, `param` -> `paramTag`, `map` -> `mapTag`, `dialog` -> `dialogTag`
 * Other tag renamings:
   * `title` -> `titleTag` to avoid conflict with `title` reflected attribute
   * `object` -> `objectTag` to avoid Scala reserved word
