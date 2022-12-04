@@ -466,7 +466,7 @@ class CanonicalGenerator(
       defGroupComments = defGroupComments,
       headerLines = headerLines,
       traitCommentLines = traitCommentLines,
-      traitName = traitName,
+      traitName = traitName.replace("[_]", ""),
       extendsFeatureTraits = extendsTraits,
       extendsUnitTraits = if (outputUnitTypes) extendsUnitTraits.map(
         transformUnitTraitName(keywordType, derivedKeyKind, lengthUnitsNumType)

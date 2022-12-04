@@ -1,13 +1,13 @@
 package com.thirdparty.keys
 
+import com.thirdparty.defs.styles.traits.GlobalKeywords
 import com.thirdparty.setters.StyleSetter
-import com.thirdparty.defs.styles
 
 import scala.scalajs.js.|
 
 case class StyleProp[V](
   val domName: String
-) extends DerivedStyleBuilder[StyleSetter[_], DerivedStyleProp] with styles.traits.Base {
+) extends DerivedStyleBuilder[StyleSetter[_], DerivedStyleProp] with GlobalKeywords {
 
   def := (value: V | String): StyleSetter[V] = StyleSetter(this, value.toString)
 
