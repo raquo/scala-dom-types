@@ -37,6 +37,7 @@ abstract class SourceGenerator(format: CodeFormatting) extends SourceRepr {
     output.append(currentIndent)
     output.append(str)
     output.append("\n")
+    ()
   }
 
   protected def line(strs: String*): Unit = {
@@ -45,6 +46,7 @@ abstract class SourceGenerator(format: CodeFormatting) extends SourceRepr {
 
   protected def line(): Unit = {
     output.append("\n")
+    ()
   }
 
   protected def classParamLine(name: String, value: String): Unit = {
