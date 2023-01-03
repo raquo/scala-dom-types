@@ -131,6 +131,10 @@ This is not to say that we are content with the level of type safety we currentl
 
 _Scala DOM Types_ is a low level library that is used by other libraries. As such, its API should be unopinionated and focused solely on providing useful data about DOM elements / attributes / etc. to consuming libraries in a way that is easy for them to implement.
 
+We achieve this with a code generation approach. Instead of providing Scala traits in a predefined format, we give you tools to generate such traits in your own library, with your desired data structures, types, naming conventions, etc.
+
+You can also use the raw element / attribute / etc. data contained _Scala DOM Types_ yourself, whether at compile time or at runtime.
+
 
 #### Sanity Preservation Measures
 
