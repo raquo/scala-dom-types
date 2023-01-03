@@ -51,7 +51,12 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
     (Compile / doc / scalacOptions) ~= (_.filter(_.startsWith("-Xplugin"))), // https://github.com/DavidGregory084/sbt-tpolecat/issues/36
     (Compile / doc / scalacOptions) ++= Seq(
       "-no-link-warnings" // Suppress scaladoc "Could not find any member to link for" warnings
-    )
+    ),
+    (Test / scalacOptions) ~= { options: Seq[String] =>
+      options.filterNot { o =>
+        o.startsWith("-Ywarn-unused") || o.startsWith("-Wunused")
+      }
+    }
   )
   .jsSettings(
     scalaJSLinkerConfig ~= { _.withSourceMap(false) },

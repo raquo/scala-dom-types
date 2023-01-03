@@ -1,6 +1,6 @@
 package com.raquo.domtypes.defs.attrs
 
-import com.raquo.domtypes.common.{AttrDef, SvgTagType, HtmlTagType}
+import com.raquo.domtypes.common.{AttrDef, SvgTagType}
 
 object SvgAttrDefs {
   

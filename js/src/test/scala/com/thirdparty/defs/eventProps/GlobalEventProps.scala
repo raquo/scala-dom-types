@@ -673,10 +673,10 @@ trait GlobalEventProps {
   /**
     * The `transitionend` event is sent to when a CSS transition completes.
     * 
-    * @note If the transition is removed from its target node before the transition completes execution, the
-    *       `transitionend` event won't be generated. One way this can happen is by changing the value of the
-    *       `transition-property` attribute which applies to the target. Another is if the `display` attribute is set to
-    *       `none`.
+    * Note: If the transition is removed from its target node before the transition completes execution, the
+    * `transitionend` event won't be generated. One way this can happen is by changing the value of the
+    * `transition-property` attribute which applies to the target. Another is if the `display` attribute is set to
+    * `none`.
     * 
     * @see [[https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/ontransitionend MDN]]
     * 

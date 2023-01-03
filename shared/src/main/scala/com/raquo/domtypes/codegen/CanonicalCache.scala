@@ -70,7 +70,9 @@ class CanonicalCache(
     val file = new File(filePath);
     if (file.exists()) {
       if (file.isFile) {
-        file.delete()
+        if (!file.delete()) {
+          throw new Exception(s"Did not delete file `${filePath}` – not sure why")
+        }
       } else {
         throw new Exception(s"Can't delete file `${filePath}` – it's not a file (must be a directory?)")
       }
