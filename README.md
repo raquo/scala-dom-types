@@ -1,6 +1,7 @@
 # Scala DOM Types
-[![Build Status](https://circleci.com/gh/raquo/scala-dom-types.svg?style=svg)](https://circleci.com/gh/raquo/scala-dom-types)
-![Maven Central](https://img.shields.io/maven-central/v/com.raquo/domtypes_sjs1_2.13.svg)
+[![Build status](https://github.com/raquo/scala-dom-types/actions/workflows/test.yml/badge.svg)](https://github.com/raquo/scala-dom-types/actions/workflows/test.yml)
+[![Chat on https://discord.gg/JTrUxhq7sj](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/JTrUxhq7sj)
+[![Maven Central](https://img.shields.io/maven-central/v/com.raquo/domtypes_sjs1_3.svg)](https://search.maven.org/artifact/com.raquo/domtypes_sjs1_3)
 
 _Scala DOM Types_ provides listings of Javascript HTML and SVG tags as well as their attributes, DOM properties, and CSS styles, including the corresponding type information.
 

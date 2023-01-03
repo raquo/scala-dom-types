@@ -1,3 +1,6 @@
+// Lets me depend on Maven Central artifacts immediately without waiting
+resolvers ++= Resolver.sonatypeOssRepos("public")
+
 (ThisBuild / scalaVersion) := Versions.Scala_2_13
 
 (ThisBuild / crossScalaVersions) := Seq(
@@ -5,9 +8,6 @@
   Versions.Scala_2_13,
   Versions.Scala_2_12
 )
-
-// @TODO Does this need to be here too?
-releaseCrossBuild := true
 
 lazy val commonSettings = Seq(
   name := "Scala DOM Types",
@@ -21,37 +21,13 @@ lazy val commonSettings = Seq(
   developers := List(
     Developer(id = "raquo", name = "Nikita Gazarov", email = "nikita@raquo.com", url = url("https://github.com/raquo"))
   ),
-  sonatypeProfileName := "com.raquo",
-  publishMavenStyle := true,
   (Test / publishArtifact) := false,
-  publishTo := sonatypePublishToBundle.value,
-  releaseCrossBuild := true,
-  pomIncludeRepository := { _ => false },
-  releasePublishArtifactsAction := PgpKeys.publishSigned.value
+  pomIncludeRepository := { _ => false }
 )
-
-releaseProcess := {
-  import ReleaseTransformations._
-  Seq[ReleaseStep](
-    checkSnapshotDependencies,
-    inquireVersions,
-    runClean,
-    runTest,
-    setReleaseVersion,
-    commitReleaseVersion,
-    tagRelease,
-    releaseStepCommandAndRemaining("+publishSigned"),
-    releaseStepCommand("sonatypeBundleRelease"),
-    setNextVersion,
-    commitNextVersion,
-    pushChanges
-  )
-}
 
 lazy val noPublish = Seq(
   publishLocal / skip := true,
-  publish / skip := true,
-  publishTo := Some(Resolver.file("Unused transient repository", file("target/unusedrepo")))
+  publish / skip := true
 )
 
 lazy val root = project.in(file("."))
