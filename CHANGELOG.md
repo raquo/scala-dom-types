@@ -2,7 +2,11 @@
 
 **Bolded items** in the log are breaking changes.
 
-#### ??? – Dec 2022
+#### v17.0.0-M2 – Jan 2023
+
+* API: Return file object from `def writeToFile` (thanks, [@armanbilge](https://github.com/armanbilge)!
+
+#### v17.0.0-M1 – Jan 2023
 
 * **API: Complete refactor of the whole library to provide the types via code generation instead of via hardcoded traits. See the new README for details.**
 
