@@ -169,7 +169,7 @@ trait HtmlTags {
     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTrackElement
     */
-  lazy val track: HtmlTag[dom.HTMLTrackElement] = htmlTag("track", void = true)
+  lazy val trackTag: HtmlTag[dom.HTMLTrackElement] = htmlTag("track", void = true)
 
 
   /**
