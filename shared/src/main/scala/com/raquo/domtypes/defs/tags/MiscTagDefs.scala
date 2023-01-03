@@ -507,7 +507,7 @@ object MiscTagDefs {
       scalaAliases = Nil,
       domName = "dialog",
       isVoid = false,
-      scalaJsElementTypeAlias = "dom.HTMLDialogElement",
+      scalaJsElementTypeAlias = "dom.HTMLDialogElement", // #TODO this should be dom.html.Dialog, but it's currently missing from scala-js-dom
       javascriptElementType = "HTMLDialogElement",
       commentLines = List(
         "Dialog box or other interactive component, such as a dismissible alert,",
