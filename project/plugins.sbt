@@ -8,4 +8,5 @@ addSbtPlugin("com.github.sbt" % "sbt-ci-release" % "1.5.11")
 
 addSbtPlugin("com.github.sbt" % "sbt-git" % "2.0.1")
 
-addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.4.1")
+// #TODO[Scala3] - removed pending https://github.com/typelevel/sbt-tpolecat/issues/102
+// addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.4.1")
