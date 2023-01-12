@@ -126,7 +126,7 @@ class CanonicalGenerator(
 
   // --
 
-  def writeToFile(packagePath: String, fileName: String, fileContent: String): Unit = {
+  def writeToFile(packagePath: String, fileName: String, fileContent: String): File = {
     val filePath = baseOutputDirectoryPath + "/" + packagePath.replace(basePackagePath + ".", "").replace(".", "/") + "/" + fileName.replaceAll(".scala$", "") + ".scala"
     val outputFile = new File(filePath)
     outputFile.getParentFile.mkdirs()
@@ -135,6 +135,8 @@ class CanonicalGenerator(
 
     outputPrintStream.print(fileContent)
     outputPrintStream.close()
+
+    outputFile
   }
 
   // --
