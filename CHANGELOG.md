@@ -2,6 +2,10 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v17.0.0-M3 – Jan 2023
+
+* API: Bring back color keywords that were removed in 17.0.0-M1. 
+
 #### v17.0.0-M2 – Jan 2023
 
 * API: Return file object from `def writeToFile` (thanks, [@armanbilge](https://github.com/armanbilge)!
