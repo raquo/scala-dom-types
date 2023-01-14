@@ -10,19 +10,33 @@ import com.thirdparty.setters.StyleSetter
 
 trait Color { this: StyleProp[_] =>
 
+  lazy val aqua: StyleSetter[_] = this := "aqua"
+
   lazy val black: StyleSetter[_] = this := "black"
 
   lazy val blue: StyleSetter[_] = this := "blue"
 
   lazy val cyan: StyleSetter[_] = this := "cyan"
 
+  lazy val fuschia: StyleSetter[_] = this := "fuschia"
+
   lazy val gray: StyleSetter[_] = this := "gray"
 
   lazy val green: StyleSetter[_] = this := "green"
 
+  lazy val lime: StyleSetter[_] = this := "lime"
+
+  lazy val maroon: StyleSetter[_] = this := "maroon"
+
+  lazy val navy: StyleSetter[_] = this := "navy"
+
+  lazy val olive: StyleSetter[_] = this := "olive"
+
   lazy val purple: StyleSetter[_] = this := "purple"
 
   lazy val silver: StyleSetter[_] = this := "silver"
+
+  lazy val teal: StyleSetter[_] = this := "teal"
 
   lazy val red: StyleSetter[_] = this := "red"
 

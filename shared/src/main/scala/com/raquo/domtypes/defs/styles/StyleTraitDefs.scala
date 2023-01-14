@@ -299,6 +299,13 @@ object StyleTraitDefs {
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
+          scalaName = "aqua",
+          domName = "aqua",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
           scalaName = "black",
           domName = "black",
           commentLines = Nil,
@@ -320,6 +327,13 @@ object StyleTraitDefs {
         ),
 
         StyleKeywordDef(
+          scalaName = "fuschia",
+          domName = "fuschia",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
           scalaName = "gray",
           domName = "gray",
           commentLines = Nil,
@@ -329,6 +343,34 @@ object StyleTraitDefs {
         StyleKeywordDef(
           scalaName = "green",
           domName = "green",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "lime",
+          domName = "lime",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "maroon",
+          domName = "maroon",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "navy",
+          domName = "navy",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
+          scalaName = "olive",
+          domName = "olive",
           commentLines = Nil,
           docUrls = Nil,
         ),
@@ -346,6 +388,14 @@ object StyleTraitDefs {
           commentLines = Nil,
           docUrls = Nil,
         ),
+
+        StyleKeywordDef(
+          scalaName = "teal",
+          domName = "teal",
+          commentLines = Nil,
+          docUrls = Nil,
+        ),
+
 
         StyleKeywordDef(
           scalaName = "red",
