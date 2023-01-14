@@ -14,6 +14,8 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
 
   protected val traitCommentLines: List[String]
 
+  protected val traitModifiers: List[String]
+
   protected val traitName: String
 
   protected val traitExtends: List[String]
@@ -53,6 +55,8 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
   }
 
   protected def printTraitDef(inside: => Unit): Unit = {
+    val modifiers = traitModifiers.map(_ + " ").mkString
+
     val withTraits = if (traitExtends.nonEmpty) {
       s"extends ${traitExtends.head}" + traitExtends.tail.map(" with " + _).mkString + " "
     } else ""
@@ -62,7 +66,7 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
       case None => ""
     }
 
-    enter(s"trait $traitName $withTraits{$traitThisTypeStr", "}")(inside)
+    enter(s"${modifiers}trait $traitName $withTraits{$traitThisTypeStr", "}")(inside)
   }
 
   protected def printBeforeAllDefs(): Unit = {

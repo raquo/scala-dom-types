@@ -8,6 +8,7 @@ class StyleKeywordsTraitGenerator(
   override protected val defGroupComments: StyleKeywordDef => List[String],
   override protected val headerLines: List[String],
   override protected val traitCommentLines: List[String],
+  override protected val traitModifiers: List[String],
   override protected val traitName: String,
   extendsFeatureTraits: List[String],
   extendsUnitTraits: List[String],
