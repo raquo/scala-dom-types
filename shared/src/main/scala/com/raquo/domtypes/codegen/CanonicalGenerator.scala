@@ -131,9 +131,16 @@ class CanonicalGenerator(
     val outputFile = new File(filePath)
     outputFile.getParentFile.mkdirs()
 
-    val outputPrintStream = new PrintStream(new FileOutputStream(outputFile))
+    val fileOutputStream = new FileOutputStream(outputFile)
+    val outputPrintStream = new PrintStream(fileOutputStream)
 
     outputPrintStream.print(fileContent)
+    outputPrintStream.flush()
+
+    // Flush written file contents to disk https://stackoverflow.com/a/4072895/2601788
+    fileOutputStream.flush()
+    fileOutputStream.getFD.sync()
+
     outputPrintStream.close()
 
     outputFile

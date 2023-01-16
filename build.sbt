@@ -21,6 +21,7 @@ lazy val commonSettings = Seq(
   developers := List(
     Developer(id = "raquo", name = "Nikita Gazarov", email = "nikita@raquo.com", url = url("https://github.com/raquo"))
   ),
+  (Test / parallelExecution) := false,
   (Test / publishArtifact) := false,
   pomIncludeRepository := { _ => false }
 )
