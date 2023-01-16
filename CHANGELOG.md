@@ -2,8 +2,10 @@
 
 **Bolded items** in the log are breaking changes.
 
-#### v17.0.0-M3 – Jan 2024
+#### v17.0.0-M4 – Jan 2023
 
+* **New: Support Scala access modifiers for generated traits (Thanks, [@armanbilge](https://github.com/armanbilge)!)**
+* Fix: Wait for file write to flush before returning
 * Fix: SVG xmlns attribute namespace
 
 #### v17.0.0-M3 – Jan 2023
