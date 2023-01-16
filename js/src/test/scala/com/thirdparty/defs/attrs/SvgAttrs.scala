@@ -980,7 +980,7 @@ trait SvgAttrs {
 
 
   /** @see https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xmlns */
-  lazy val xmlns: SvgAttr[String] = stringSvgAttr("xmlns")
+  lazy val xmlns: SvgAttr[String] = stringSvgAttr("xmlns", namespace = "xmlns")
 
 
   /** @see https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xmlns:xlink */

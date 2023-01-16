@@ -2358,7 +2358,7 @@ object SvgAttrDefs {
       tagType = SvgTagType,
       scalaName = "xmlns",
       domName = "xmlns",
-      namespace = None,
+      namespace = Some("xmlns"),
       scalaValueType = "String",
       codec = "StringAsIs",
       commentLines = Nil,
