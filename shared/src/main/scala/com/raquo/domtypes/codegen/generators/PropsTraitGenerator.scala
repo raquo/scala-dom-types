@@ -10,6 +10,7 @@ class PropsTraitGenerator(
   override protected val headerLines: List[String],
   override protected val traitCommentLines: List[String],
   override protected val traitName: String,
+  override protected val traitModifiers: List[String],
   override protected val traitExtends: List[String],
   override protected val traitThisType: Option[String],
   override protected val keyImplName: PropDef => String,
