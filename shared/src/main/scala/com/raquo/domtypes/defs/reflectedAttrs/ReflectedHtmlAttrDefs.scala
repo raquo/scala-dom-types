@@ -164,7 +164,7 @@ object ReflectedHtmlAttrDefs {
       attrCodec = "IntAsString",
       propCodec = "IntAsIs",
       commentLines = List(
-        "The visible width of text input or <textArea>, in average character widths.",
+        "The visible width of text input or `<textArea>`, in average character widths.",
         "If it is specified, it must be a positive integer.",
         "If it is not specified, the default value is 20 (HTML5).",
       ),
@@ -184,7 +184,7 @@ object ReflectedHtmlAttrDefs {
       commentLines = List(
         "This attribute contains a non-negative integer value that indicates for",
         "how many columns the cell extends. Its default value is 1; if its value",
-        "is set to 0, it extends until the end of the <colgroup>, even if implicitly",
+        "is set to 0, it extends until the end of the `<colgroup>`, even if implicitly",
         "defined, that the cell belongs to. Values higher than 1000 will be considered",
         "as incorrect and will be set to the default value (1).",
       ),
@@ -203,7 +203,7 @@ object ReflectedHtmlAttrDefs {
       propCodec = "StringAsIs",
       commentLines = List(
         "This attribute gives the value associated with the [[name]] or [[httpEquiv]] attribute,",
-        "of a <meta> element, depending on which of those attributes is defined on that element.",
+        "of a `<meta>` element, depending on which of those attributes is defined on that element.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-content",
@@ -239,8 +239,8 @@ object ReflectedHtmlAttrDefs {
       attrCodec = "BooleanAsAttrPresence",
       propCodec = "BooleanAsIs",
       commentLines = List(
-        "Indicates whether this <option> is initially selected",
-        "in an option list of a <select> element.",
+        "Indicates whether this `<option>` is initially selected",
+        "in an option list of a `<select>` element.",
         "",
         "See [[Props.selected]]",
       ),
@@ -778,8 +778,8 @@ object ReflectedHtmlAttrDefs {
       propCodec = "BooleanAsIs",
       commentLines = List(
         "This Boolean attribute specifies, when present/true, that the user is allowed",
-        "to enter more than one value for the <input> element for types \"email\" or \"file\".",
-        "It can also be provided to the <select> element to allow selecting more than one",
+        "to enter more than one value for the `<input>` element for types \"email\" or \"file\".",
+        "It can also be provided to the `<select>` element to allow selecting more than one",
         "option.",
       ),
       docUrls = List(
@@ -822,7 +822,7 @@ object ReflectedHtmlAttrDefs {
         "This Boolean attribute indicates that the form is not to be validated when",
         "submitted. If this attribute is not specified (and therefore the form is",
         "validated), this default setting can be overridden by a formnovalidate",
-        "attribute on a <button> or <input> element belonging to the form.",
+        "attribute on a `<button>` or `<input>` element belonging to the form.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-novalidate",
@@ -948,7 +948,7 @@ object ReflectedHtmlAttrDefs {
       commentLines = List(
         "This attribute contains a non-negative integer value that indicates for how many",
         "rows the cell extends. Its default value is 1; if its value is set to 0, it extends",
-        "until the end of the table section (<thead>, <tbody>, <tfoot>, even if implicitly",
+        "until the end of the table section (`<thead>`, `<tbody>`, `<tfoot>`, even if implicitly",
         "defined, that the cell belongs to. Values higher than 65534 are clipped down to 65534.",
       ),
       docUrls = List(

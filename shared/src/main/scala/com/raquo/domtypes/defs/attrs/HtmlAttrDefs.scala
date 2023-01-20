@@ -123,7 +123,7 @@ object HtmlAttrDefs {
       scalaValueType = "String",
       codec = "StringAsIs",
       commentLines = List(
-        "The max attribute specifies the maximum value for an <input> element of type",
+        "The max attribute specifies the maximum value for an `<input>` element of type",
         "number, range, date, datetime, datetime-local, month, time, or week.",
       ),
       docUrls = List(
@@ -139,7 +139,7 @@ object HtmlAttrDefs {
       scalaValueType = "String",
       codec = "StringAsIs",
       commentLines = List(
-        "The min attribute specifies the minimum value for an <input> element of type",
+        "The min attribute specifies the minimum value for an `<input>` element of type",
         "number, range, date, datetime, datetime-local, month, time, or week.",
       ),
       docUrls = List(
@@ -155,12 +155,12 @@ object HtmlAttrDefs {
       scalaValueType = "String",
       codec = "StringAsIs",
       commentLines = List(
-        "The step attribute specifies the numeric intervals for an <input> element",
+        "The step attribute specifies the numeric intervals for an `<input>` element",
         "that should be considered legal for the input. For example, if step is 2",
-        "on a number typed <input> then the legal numbers could be -2, 0, 2, 4, 6",
+        "on a number typed `<input>` then the legal numbers could be -2, 0, 2, 4, 6",
         "etc. The step attribute should be used in conjunction with the min and",
         "max attributes to specify the full range and interval of the legal values.",
-        "The step attribute is applicable to <input> elements of the following",
+        "The step attribute is applicable to `<input>` elements of the following",
         "types: number, range, date, datetime, datetime-local, month, time and week.",
       ),
       docUrls = List(
