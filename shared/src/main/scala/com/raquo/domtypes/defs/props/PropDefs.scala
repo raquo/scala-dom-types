@@ -49,7 +49,7 @@ object PropDefs {
       domValueType = "Boolean",
       codec = "BooleanAsIs",
       commentLines = List(
-        "Indicates whether an <option> element is _currently_ selected.",
+        "Indicates whether an `<option>` element is _currently_ selected.",
         "This is different from `selected` _attribute_,",
         "which contains the _initial_ selected status of the element.",
         "More info: https://stackoverflow.com/a/6004028/2601788 (`selected` behaves similar to `value`)",

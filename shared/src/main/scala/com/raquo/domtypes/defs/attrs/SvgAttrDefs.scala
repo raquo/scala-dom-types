@@ -19,7 +19,7 @@ object SvgAttrDefs {
         "If the attribute is not specified, the effect is as if the attribute",
         "were set to the value of the ascent attribute.",
         "",
-        "Value 	<number>",
+        "Value 	`<number>`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/accent-height",
@@ -106,7 +106,7 @@ object SvgAttrDefs {
         "the effect is as if the attribute were set to the vert-origin-y value",
         "for the corresponding font.",
         "",
-        "Value 	<number>",
+        "Value 	`<number>`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/ascent",
@@ -124,7 +124,7 @@ object SvgAttrDefs {
         "This attribute indicates the name of the attribute in the parent element",
         "that is going to be changed during an animation.",
         "",
-        "Value 	<attributeName>",
+        "Value 	`<attributeName>`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/attributeName",
@@ -162,7 +162,7 @@ object SvgAttrDefs {
         "If the attribute is not specified, then the effect is as if a",
         "value of 0 were specified.",
         "",
-        "Value 	<number>",
+        "Value 	`<number>`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/azimuth",
@@ -178,7 +178,7 @@ object SvgAttrDefs {
       codec = "StringAsIs",
       commentLines = List(
         "The baseFrequency attribute represent The base frequencies parameter",
-        "for the noise function of the <feturbulence> primitive. If two <number>s",
+        "for the noise function of the `<feturbulence>` primitive. If two `<number>`s",
         "are provided, the first number represents a base frequency in the X",
         "direction and the second value represents a base frequency in the Y direction.",
         "If one number is provided, then that value is used for both X and Y.",
@@ -186,7 +186,7 @@ object SvgAttrDefs {
         "If the attribute is not specified, then the effect is as if a value",
         "of 0 were specified.",
         "",
-        "Value 	<number-optional-number>",
+        "Value 	`<number-optional-number>`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/baseFrequency",
@@ -226,10 +226,10 @@ object SvgAttrDefs {
         "The attribute value is a semicolon separated list of values. The interpretation",
         "of a list of start times is detailed in the SMIL specification in \"Evaluation",
         "of begin and end time lists\". Each individual value can be one of the following:",
-        "<offset-value>, <syncbase-value>, <event-value>, <repeat-value>, <accessKey-value>,",
-        "<wallclock-sync-value> or the keyword indefinite.",
+        "`<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`,",
+        "`<wallclock-sync-value>` or the keyword indefinite.",
         "",
-        "Value 	<begin-value-list>",
+        "Value 	`<begin-value-list>`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/begin",
@@ -245,12 +245,12 @@ object SvgAttrDefs {
       codec = "DoubleAsString",
       commentLines = List(
         "The bias attribute shifts the range of the filter. After applying the kernelMatrix",
-        "of the <feConvolveMatrix> element to the input image to yield a number and applied",
+        "of the `<feConvolveMatrix>` element to the input image to yield a number and applied",
         "the divisor attribute, the bias attribute is added to each component. This allows",
         "representation of values that would otherwise be clamped to 0 or 1.",
         "If bias is not specified, then the effect is as if a value of 0 were specified.",
         "",
-        "Value 	<number>",
+        "Value 	`<number>`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/bias",
@@ -286,12 +286,12 @@ object SvgAttrDefs {
       commentLines = List(
         "The clip attribute has the same parameter values as defined for the css clip property.",
         "Unitless values, which indicate current user coordinates, are permitted on the coordinate",
-        "values on the <shape>. The value of auto defines a clipping path along the bounds of",
+        "values on the `<shape>`. The value of auto defines a clipping path along the bounds of",
         "the viewport created by the given element.",
         "As a presentation attribute, it also can be used as a property directly inside a",
         "CSS stylesheet, see css clip for further information.",
         "",
-        "Value 	auto | <shape> | inherit",
+        "Value 	`auto | <shape> | inherit`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip",
@@ -306,10 +306,10 @@ object SvgAttrDefs {
       scalaValueType = "String",
       codec = "StringAsIs",
       commentLines = List(
-        "The clip-path attribute bind the element is applied to with a given <clipPath> element",
+        "The clip-path attribute bind the element is applied to with a given `<clipPath>` element",
         "As a presentation attribute, it also can be used as a property directly inside a CSS stylesheet",
         "",
-        "Value 	<FuncIRI> | none | inherit",
+        "Value 	`<FuncIRI> | none | inherit`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-path",
@@ -325,9 +325,9 @@ object SvgAttrDefs {
       codec = "StringAsIs",
       commentLines = List(
         "The clipPathUnits attribute defines the coordinate system for the contents",
-        "of the <clipPath> element. the clipPathUnits attribute is not specified,",
+        "of the `<clipPath>` element. the clipPathUnits attribute is not specified,",
         "then the effect is as if a value of userSpaceOnUse were specified.",
-        "Note that values defined as a percentage inside the content of the <clipPath>",
+        "Note that values defined as a percentage inside the content of the `<clipPath>`",
         "are not affected by this attribute. It means that even if you set the value of",
         "maskContentUnits to objectBoundingBox, percentage values will be calculated as",
         "if the value of the attribute were userSpaceOnUse.",
@@ -348,8 +348,8 @@ object SvgAttrDefs {
       codec = "StringAsIs",
       commentLines = List(
         "The clip-rule attribute only applies to graphics elements that are contained within a",
-        "<clipPath> element. The clip-rule attribute basically works as the fill-rule attribute,",
-        "except that it applies to <clipPath> definitions.",
+        "`<clipPath>` element. The clip-rule attribute basically works as the fill-rule attribute,",
+        "except that it applies to `<clipPath>` definitions.",
         "",
         "Value 	nonezero | evenodd | inherit",
       ),
@@ -371,7 +371,7 @@ object SvgAttrDefs {
         "As a presentation attribute, it also can be used as a property directly inside a CSS",
         "stylesheet, see css color for further information.",
         "",
-        "Value 	<color> | inherit",
+        "Value 	`<color> | inherit`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color",
@@ -438,11 +438,11 @@ object SvgAttrDefs {
       codec = "StringAsIs",
       commentLines = List(
         "The color-profile attribute is used to define which color profile a raster image",
-        "included through the <image> element should use. As a presentation attribute, it",
+        "included through the `<image>` element should use. As a presentation attribute, it",
         "also can be used as a property directly inside a CSS stylesheet, see css color-profile",
         "for further information.",
         "",
-        "Value 	auto | sRGB | <name> | <IRI> | inherit",
+        "Value 	`auto | sRGB | <name> | <IRI> | inherit`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-profile",
@@ -482,14 +482,14 @@ object SvgAttrDefs {
       scalaValueType = "String",
       codec = "StringAsIs",
       commentLines = List(
-        "The contentScriptType attribute on the <svg> element specifies the default scripting",
+        "The contentScriptType attribute on the `<svg>` element specifies the default scripting",
         "language for the given document fragment.",
         "This attribute sets the default scripting language used to process the value strings",
         "in event attributes. This language must be used for all instances of script that do not",
         "specify their own scripting language. The value content-type specifies a media type,",
         "per MIME Part Two: Media Types [RFC2046]. The default value is application/ecmascript",
         "",
-        "Value 	<content-type>",
+        "Value 	`<content-type>`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/contentScriptType",
@@ -505,10 +505,10 @@ object SvgAttrDefs {
       codec = "StringAsIs",
       commentLines = List(
         "This attribute specifies the style sheet language for the given document fragment.",
-        "The contentStyleType is specified on the <svg> element. By default, if it's not defined,",
+        "The contentStyleType is specified on the `<svg>` element. By default, if it's not defined,",
         "the value is text/css",
         "",
-        "Value 	<content-type>",
+        "Value 	`<content-type>`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/contentStyleType",
@@ -525,8 +525,8 @@ object SvgAttrDefs {
       commentLines = List(
         "The cursor attribute specifies the mouse cursor displayed when the mouse pointer",
         "is over an element.This attribute behave exactly like the css cursor property except",
-        "that if the browser suport the <cursor> element, it should allow to use it with the",
-        "<funciri> notation. As a presentation attribute, it also can be used as a property",
+        "that if the browser suport the `<cursor>` element, it should allow to use it with the",
+        "`<funciri>` notation. As a presentation attribute, it also can be used as a property",
         "directly inside a CSS stylesheet, see css cursor for further information.",
         "",
         "Value 	 auto | crosshair | default | pointer | move | e-resize |",
@@ -546,15 +546,15 @@ object SvgAttrDefs {
       scalaValueType = "String",
       codec = "StringAsIs",
       commentLines = List(
-        "For the <circle> and the <ellipse> element, this attribute define the x-axis coordinate",
+        "For the `<circle>` and the `<ellipse>` element, this attribute define the x-axis coordinate",
         "of the center of the element. If the attribute is not specified, the effect is as if a",
-        "value of \"0\" were specified.For the <radialGradient> element, this attribute define",
+        "value of \"0\" were specified.For the `<radialGradient>` element, this attribute define",
         "the x-axis coordinate of the largest (i.e., outermost) circle for the radial gradient.",
         "The gradient will be drawn such that the 100% gradient stop is mapped to the perimeter",
         "of this largest (i.e., outermost) circle. If the attribute is not specified, the effect",
         "is as if a value of 50% were specified",
         "",
-        "Value 	<coordinate>",
+        "Value 	`<coordinate>`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cx",
@@ -569,15 +569,15 @@ object SvgAttrDefs {
       scalaValueType = "String",
       codec = "StringAsIs",
       commentLines = List(
-        "For the <circle> and the <ellipse> element, this attribute define the y-axis coordinate",
+        "For the `<circle>` and the `<ellipse>` element, this attribute define the y-axis coordinate",
         "of the center of the element. If the attribute is not specified, the effect is as if a",
-        "value of \"0\" were specified.For the <radialGradient> element, this attribute define",
+        "value of \"0\" were specified.For the `<radialGradient>` element, this attribute define",
         "the x-axis coordinate of the largest (i.e., outermost) circle for the radial gradient.",
         "The gradient will be drawn such that the 100% gradient stop is mapped to the perimeter",
         "of this largest (i.e., outermost) circle. If the attribute is not specified, the effect",
         "is as if a value of 50% were specified",
         "",
-        "Value 	<coordinate>",
+        "Value 	`<coordinate>`",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cy",
@@ -1413,7 +1413,7 @@ object SvgAttrDefs {
       commentLines = List(
         "This attribute defines the orientation of the marker relative to the shape it is attached to.",
         "",
-        "Value type: auto|auto-start-reverse|<angle> ; Default value: 0; Animatable: yes",
+        "Value type: `auto|auto-start-reverse|<angle>` ; Default value: 0; Animatable: yes",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/orient",

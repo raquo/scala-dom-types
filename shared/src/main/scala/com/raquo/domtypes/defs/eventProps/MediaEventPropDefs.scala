@@ -56,7 +56,7 @@ object MediaEventPropDefs {
       scalaJsEventType = "dom.Event",
       javascriptEventType = "Event",
       commentLines = List(
-        "Script to be run when the cue changes in a <track> element",
+        "Script to be run when the cue changes in a `<track>` element",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/API/TextTrack/cuechange_event",

@@ -846,7 +846,7 @@ object StyleTraitDefs {
               domName = "ruby",
                   commentLines = List(
                 "The element behaves like an inline element and lays out its content according",
-                "to the ruby formatting model. It behaves like the corresponding HTML <ruby>",
+                "to the ruby formatting model. It behaves like the corresponding HTML `<ruby>`",
                 "elements.",
               ),
               docUrls = Nil,

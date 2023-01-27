@@ -41,7 +41,7 @@ object FormEventPropDefs {
       scalaJsEventType = "dom.InputEvent",
       javascriptEventType = "InputEvent",
       commentLines = List(
-        "The DOM beforeinput event fires when the value of an <input>, or <textarea>",
+        "The DOM beforeinput event fires when the value of an `<input>`, or `<textarea>`",
         "element is about to be modified. The event also applies to elements with",
         "contenteditable enabled, and to any element when designMode is turned on.",
         "",
@@ -103,7 +103,7 @@ object FormEventPropDefs {
       javascriptEventType = "Event",
       commentLines = List(
         "The submit event is fired when the user clicks a submit button in a form",
-        "(<input type=\"submit\"/>).",
+        "(`<input type=\"submit\"/>`).",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event",
@@ -142,7 +142,7 @@ object FormEventPropDefs {
       scalaJsEventType = "dom.Event",
       javascriptEventType = "Event",
       commentLines = List(
-        "Fires when the user writes something in a search field (for <input=\"search\">)",
+        "Fires when the user writes something in a search field (for `<input=\"search\">`)",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/search_event",

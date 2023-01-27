@@ -14,7 +14,7 @@ object MiscellaneousEventPropDefs {
       javascriptEventType = "UIEvent",
       commentLines = List(
         "The onload property of the GlobalEventHandlers mixin is an event handler",
-        "for the load event of a Window, XMLHttpRequest, <img> element, etc.,",
+        "for the load event of a Window, XMLHttpRequest, `<img>` element, etc.,",
         "which fires when the resource has loaded.",
       ),
       docUrls = List(
@@ -58,7 +58,7 @@ object MiscellaneousEventPropDefs {
       scalaJsEventType = "dom.Event",
       javascriptEventType = "Event",
       commentLines = List(
-        "Fires when a <menu> element is shown as a context menu",
+        "Fires when a `<menu>` element is shown as a context menu",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/API/Element/show_event",
@@ -71,7 +71,7 @@ object MiscellaneousEventPropDefs {
       scalaJsEventType = "dom.Event",
       javascriptEventType = "Event",
       commentLines = List(
-        "Fires when the user opens or closes the <details> element",
+        "Fires when the user opens or closes the `<details>` element",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/API/Element/toggle_event",
