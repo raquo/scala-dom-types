@@ -2,6 +2,10 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v17.0.0-M5 – Jan 2023
+
+*  Fix: Escape html tags in scaladoc (Thanks, [@armanbilge](https://github.com/armanbilge)!)
+
 #### v17.0.0-M4 – Jan 2023
 
 * **New: Support Scala access modifiers for generated traits (Thanks, [@armanbilge](https://github.com/armanbilge)!)**
@@ -14,7 +18,7 @@
 
 #### v17.0.0-M2 – Jan 2023
 
-* API: Return file object from `def writeToFile` (thanks, [@armanbilge](https://github.com/armanbilge)!
+* API: Return file object from `def writeToFile` (Thanks, [@armanbilge](https://github.com/armanbilge)!)
 
 #### v17.0.0-M1 – Jan 2023
 
