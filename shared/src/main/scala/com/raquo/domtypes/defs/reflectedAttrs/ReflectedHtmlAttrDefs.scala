@@ -386,25 +386,6 @@ object ReflectedHtmlAttrDefs {
     ),
 
     ReflectedHtmlAttrDef(
-      scalaName = "formAction",
-      domAttrName = "formaction",
-      domPropName = "formAction",
-      scalaValueType = "String",
-      domPropValueType = "String",
-      attrCodec = "StringAsIs",
-      propCodec = "StringAsIs",
-      commentLines = List(
-        "The `formaction` attribute provides the URL that will process the input control",
-        "when the form is submitted and overrides the default `action` attribute of the",
-        "`form` element. This should be used only with `input` elements of `type`",
-        "submit or image.",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#formaction",
-      ),
-    ),
-
-    ReflectedHtmlAttrDef(
       scalaName = "formEncType",
       domAttrName = "formenctype",
       domPropName = "formEnctype",
@@ -518,28 +499,6 @@ object ReflectedHtmlAttrDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter#attr-high",
-      ),
-    ),
-
-    ReflectedHtmlAttrDef(
-      scalaName = "href",
-      domAttrName = "href",
-      domPropName = "href",
-      scalaValueType = "String",
-      domPropValueType = "String",
-      attrCodec = "StringAsIs",
-      propCodec = "StringAsIs",
-      commentLines = List(
-        "This is the single required attribute for anchors defining a hypertext",
-        "source link. It indicates the link target, either a URL or a URL fragment.",
-        "A URL fragment is a name preceded by a hash mark (#), which specifies an",
-        "internal target location (an ID) within the current document. URLs are not",
-        "restricted to Web (HTTP)-based documents. URLs might use any protocol",
-        "supported by the browser. For example, file, ftp, and mailto work in most",
-        "user agents.",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href",
       ),
     ),
 
@@ -1029,26 +988,6 @@ object ReflectedHtmlAttrDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck",
-      ),
-    ),
-
-    ReflectedHtmlAttrDef(
-      scalaName = "src",
-      domAttrName = "src",
-      domPropName = "src",
-      scalaValueType = "String",
-      domPropValueType = "String",
-      attrCodec = "StringAsIs",
-      propCodec = "StringAsIs",
-      commentLines = List(
-        "If the value of the type attribute is image, this attribute specifies a URI",
-        "for the location of an image to display on the graphical submit button;",
-        "otherwise it is ignored.",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-src",
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#src",
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-src",
       ),
     ),
 

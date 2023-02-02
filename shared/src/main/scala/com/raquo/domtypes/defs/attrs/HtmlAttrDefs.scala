@@ -69,6 +69,29 @@ object HtmlAttrDefs {
       docUrls = Nil,
     ),
 
+    // This is NOT a true reflected attribute – the `formAction` prop value does not match the
+    // `formAction` attribute value when reading: the prop contains the full absolute URL,
+    // whereas the attr can have a relative URL if that's what you provide as its value.
+    // Also, if formAction is not set for this input element, the attr value is an empty string,
+    // whereas the prop value contains the value of the form's action property.
+    AttrDef(
+      tagType = HtmlTagType,
+      scalaName = "formAction",
+      domName = "formaction",
+      namespace = None,
+      scalaValueType = "String",
+      codec = "StringAsIs",
+      commentLines = List(
+        "The `formaction` attribute provides the URL that will process the input control ",
+        "when the form is submitted and overrides the default `action` attribute of the ",
+        "`form` element. This should be used only with `input` elements of `type` ",
+        "submit or image.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#formaction",
+      ),
+    ),
+
     AttrDef(
       tagType = HtmlTagType,
       scalaName = "formId",
@@ -95,6 +118,30 @@ object HtmlAttrDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-height",
+      ),
+    ),
+
+    // This is NOT a true reflected attribute – the `href` prop value does not match the
+    // `href` attribute value when reading: the prop contains the full absolute URL,
+    // whereas the attr can have a relative URL if that's what you provide as its value.
+    AttrDef(
+      tagType = HtmlTagType,
+      scalaName = "href",
+      domName = "href",
+      namespace = None,
+      scalaValueType = "String",
+      codec = "StringAsIs",
+      commentLines = List(
+        "This is the single required attribute for anchors defining a hypertext",
+        "source link. It indicates the link target, either a URL or a URL fragment.",
+        "A URL fragment is a name preceded by a hash mark (#), which specifies an",
+        "internal target location (an ID) within the current document. URLs are not",
+        "restricted to Web (HTTP)-based documents. URLs might use any protocol",
+        "supported by the browser. For example, file, ftp, and mailto work in most",
+        "user agents.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href",
       ),
     ),
 
@@ -144,6 +191,27 @@ object HtmlAttrDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/min",
+      ),
+    ),
+
+    // This is NOT a true reflected attribute – the `src` prop value does not match the
+    // `src` attribute value when reading: the prop contains the full absolute URL,
+    // whereas the attr can have a relative URL if that's what you provide as its value.
+    AttrDef(
+      tagType = HtmlTagType,
+      scalaName = "src",
+      domName = "src",
+      namespace = None,
+      scalaValueType = "String",
+      codec = "StringAsIs",
+      commentLines = List(
+        "Specifies the URL of an image for `<img>` tag, for `type=\"image\"` input buttons, ",
+        "or the URL of some other network resources like `<iframe>`.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-src",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#src",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-src",
       ),
     ),
 

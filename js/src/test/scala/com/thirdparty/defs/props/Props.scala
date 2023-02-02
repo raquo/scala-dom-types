@@ -284,17 +284,6 @@ trait Props {
 
 
   /**
-    * The `formaction` attribute provides the URL that will process the input control
-    * when the form is submitted and overrides the default `action` attribute of the
-    * `form` element. This should be used only with `input` elements of `type`
-    * submit or image.
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#formaction
-    */
-  lazy val formAction: Prop[String, String] = stringProp("formAction")
-
-
-  /**
     * The `formenctype` attribute provides the encoding type of the form when it is
     * submitted (for forms with a method of "POST") and overrides the default
     * `enctype` attribute of the `form` element. This should be used only with the
@@ -361,20 +350,6 @@ trait Props {
     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter#attr-high
     */
   lazy val high: Prop[Double, Double] = doubleProp("high")
-
-
-  /**
-    * This is the single required attribute for anchors defining a hypertext
-    * source link. It indicates the link target, either a URL or a URL fragment.
-    * A URL fragment is a name preceded by a hash mark (#), which specifies an
-    * internal target location (an ID) within the current document. URLs are not
-    * restricted to Web (HTTP)-based documents. URLs might use any protocol
-    * supported by the browser. For example, file, ftp, and mailto work in most
-    * user agents.
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href
-    */
-  lazy val href: Prop[String, String] = stringProp("href")
 
 
   /**
@@ -664,18 +639,6 @@ trait Props {
     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck
     */
   lazy val spellCheck: Prop[Boolean, Boolean] = boolProp("spellcheck")
-
-
-  /**
-    * If the value of the type attribute is image, this attribute specifies a URI
-    * for the location of an image to display on the graphical submit button;
-    * otherwise it is ignored.
-    * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-src
-    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#src
-    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-src
-    */
-  lazy val src: Prop[String, String] = stringProp("src")
 
 
   /**
