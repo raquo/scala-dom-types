@@ -58,6 +58,17 @@ trait HtmlAttrs {
   lazy val dropZone: HtmlAttr[String] = stringHtmlAttr("dropzone")
 
 
+  /**
+    * The `formaction` attribute provides the URL that will process the input control 
+    * when the form is submitted and overrides the default `action` attribute of the 
+    * `form` element. This should be used only with `input` elements of `type` 
+    * submit or image.
+    * 
+    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#formaction
+    */
+  lazy val formAction: HtmlAttr[String] = stringHtmlAttr("formaction")
+
+
   /** The form attribute specifies an ID of the form an `<input>` element belongs to. */
   lazy val formId: HtmlAttr[String] = stringHtmlAttr("form")
 
@@ -69,6 +80,20 @@ trait HtmlAttrs {
     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-height
     */
   lazy val heightAttr: HtmlAttr[Int] = intHtmlAttr("height")
+
+
+  /**
+    * This is the single required attribute for anchors defining a hypertext
+    * source link. It indicates the link target, either a URL or a URL fragment.
+    * A URL fragment is a name preceded by a hash mark (#), which specifies an
+    * internal target location (an ID) within the current document. URLs are not
+    * restricted to Web (HTTP)-based documents. URLs might use any protocol
+    * supported by the browser. For example, file, ftp, and mailto work in most
+    * user agents.
+    * 
+    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href
+    */
+  lazy val href: HtmlAttr[String] = stringHtmlAttr("href")
 
 
   /**
@@ -97,6 +122,17 @@ trait HtmlAttrs {
     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/min
     */
   lazy val minAttr: HtmlAttr[String] = stringHtmlAttr("min")
+
+
+  /**
+    * Specifies the URL of an image for `<img>` tag, for `type="image"` input buttons, 
+    * or the URL of some other network resources like `<iframe>`.
+    * 
+    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-src
+    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#src
+    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-src
+    */
+  lazy val src: HtmlAttr[String] = stringHtmlAttr("src")
 
 
   /**
