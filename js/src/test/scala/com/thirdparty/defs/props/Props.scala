@@ -512,7 +512,7 @@ trait Props {
     * 
     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name
     */
-  lazy val name: Prop[String, String] = stringProp("name")
+  lazy val nameAttr: Prop[String, String] = stringProp("name")
 
 
   /**

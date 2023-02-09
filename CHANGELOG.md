@@ -2,6 +2,11 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### (To be released) v17.0.0-M6 – Feb 2023
+
+* **Fix: Move href, src, and formaction from reflected attributes to regular attributes**
+* **Naming: `name` -> `nameAttr`**
+
 #### v17.0.0-M5 – Jan 2023
 
 *  Fix: Escape html tags in scaladoc (Thanks, [@armanbilge](https://github.com/armanbilge)!)
@@ -26,11 +31,12 @@
 
 * New: `isolation` and `mixBlendMode` style props
 * New: `dialogTag` HTML tag
-* Tag naming: `html` -> `htmlTag`, `time` -> `timeTag`, and many other tags now have a "Tag" suffix in their name by default.
+* **Tag naming: `html` -> `htmlTag`, `time` -> `timeTag`, and many other tags now have a "Tag" suffix in their name by default.**
   * Note that with the new code generation tools, you can undo / customize these changes for your library.
 
 #### v0.16.0-RC2 – Jan 2022
 
+* **Note: version 0.16.0 will NOT be released. This branch of development continues in 17.0.0-M1.**
 * **API: Remove canonical implementations of various builders, as well as concreate types like Tag, Element, HtmlAttr, Modifier, etc.**
   * Moved them to test fixtures since there is essentially no benefit for otherwise incompatible UI libraries to share these exact types.
   * Library authors: copy-paste any of the removed code that you need into your own project.

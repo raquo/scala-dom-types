@@ -747,7 +747,7 @@ object ReflectedHtmlAttrDefs {
     ),
 
     ReflectedHtmlAttrDef(
-      scalaName = "name",
+      scalaName = "nameAttr",
       domAttrName = "name",
       domPropName = "name",
       scalaValueType = "String",

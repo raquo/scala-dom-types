@@ -286,6 +286,7 @@ Here is what the DOM attributes / props / etc. are called in `scalaName`:
   * Note that the `selected` **property** retains its name
 * `for` attribute and `htmlFor` property are available as reflected attribute `forId` for consistency and to avoid Scala reserved word
 * `id` reflected attribute is named `idAttr`, `max` attribute is `maxAttr`, `min` is `minAttr`, and `step` is `stepAttr` to free up good names for end user code
+* `name` attribute is named `nameAttr` to free up a good name
 * `offset` and `result` SVG attributes are named `offsetAttr` and `resultAttr` respectively to free up good names for end user code
 * `loading` reflected HTML attribute is named `loadingAttr` to avoid using a good name
 * `content` attribute is named `contentAttr` to avoid using a common name
