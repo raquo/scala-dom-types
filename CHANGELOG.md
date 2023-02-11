@@ -2,10 +2,11 @@
 
 **Bolded items** in the log are breaking changes.
 
-#### (To be released) v17.0.0-M6 – Feb 2023
+#### v17.0.0-M6 – Feb 2023
 
-* **Fix: Move href, src, and formaction from reflected attributes to regular attributes**
+* **Fix: Move `href`, `src`, and `formaction` from reflected attributes to regular attributes ([#95](https://github.com/raquo/scala-dom-types/pull/95))**
 * **Naming: `name` -> `nameAttr`**
+* Build: Version increment helper for local development
 
 #### v17.0.0-M5 – Jan 2023
 
