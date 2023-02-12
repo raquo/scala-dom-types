@@ -14,7 +14,7 @@ ThisBuild / dynver := {
     .mkVersion(out => versionFmt(out, dynverSonatypeSnapshots.value), fallbackVersion(d))
 }
 
-(ThisBuild / scalaVersion) := Versions.Scala_2_13
+(ThisBuild / scalaVersion) := Versions.Scala_2_12
 
 (ThisBuild / crossScalaVersions) := Seq(
   Versions.Scala_3,
