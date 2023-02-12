@@ -17,7 +17,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Tests
-        run: sbt +test
+        run: sbt "project domtypesJVM" test "project domtypesJS" +test
       - name: Release
         run: sbt ci-release
         env:
