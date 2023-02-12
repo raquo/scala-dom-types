@@ -136,8 +136,11 @@ class CompileSpec extends AnyFunSpec with Matchers {
 
     val p3: StyleProp[String] = html.color
     val s3: StyleSetter[_] = html.color.rgb(200, 100, 0)
-    assert(html.color.rgb(200, 100, 0).value == "rgb(200, 100, 0)")
 
-    assert(style.rgb(200, 100, 0) == "rgb(200, 100, 0)")
+    assert(html.color.rgb(200, 100, 0).value == "rgb(200 100 0)")
+    assert(html.color.rgb(200, 100, 0, 0.5).value == "rgb(200 100 0 / 0.5)")
+
+    assert(style.rgb(200, 100, 0) == "rgb(200 100 0)")
+    assert(style.rgb(200, 100, 0, 0.5) == "rgb(200 100 0 / 0.5)")
   }
 }
