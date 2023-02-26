@@ -19,7 +19,7 @@ trait StyleProps {
   protected type SS = StyleSetter[_]
 
 
-  def styleProp[V](key: String): StyleProp[V] = new StyleProp(key)
+  def styleProp[V](name: String): StyleProp[V] = new StyleProp(name)
 
 
   // -- Basic types --

@@ -14,6 +14,7 @@ class StylePropsTraitGenerator(
   override protected val traitExtends: List[String],
   override protected val traitThisType: Option[String],
   override protected val keyImplName: StylePropDef => String,
+  override protected val keyImplNameArgName: String,
   defType: StylePropDef => DefType,
   keyKind: String,
   keyKindAlias: String,

@@ -11,7 +11,7 @@ import org.scalajs.dom
 trait SvgTags {
 
 
-  def svgTag[El <: dom.svg.Element](key: String): SvgTag[El] = new SvgTag(key)
+  def svgTag[El <: dom.svg.Element](name: String): SvgTag[El] = new SvgTag(name)
 
 
   /**

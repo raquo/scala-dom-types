@@ -14,6 +14,7 @@ class AttrsTraitGenerator(
   override protected val traitExtends: List[String],
   override protected val traitThisType: Option[String],
   override protected val keyImplName: AttrDef => String,
+  override protected val keyImplNameArgName: String,
   defType: AttrDef => DefType,
   keyKind: String,
   baseImplDefComments: List[String],
@@ -85,9 +86,9 @@ class AttrsTraitGenerator(
           " ",
           implName,
           if (isNamespaceDefined) {
-            "(key: String, namespace: String)"
+            s"($keyImplNameArgName: String, namespace: String)"
           } else {
-            "(key: String)"
+            s"($keyImplNameArgName: String)"
           },
           ": ",
           keyKind,
@@ -97,7 +98,7 @@ class AttrsTraitGenerator(
           " = ",
           baseImplName,
           s"(",
-          "key",
+          keyImplNameArgName,
           ", ",
           transformCodecName(codecByImplName(implName)),
           maybeNamespaceParam,

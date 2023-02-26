@@ -4,6 +4,9 @@
 
 #### v17.0.0-M7 – Feb 2023
 
+* **API: Ability to customize key/name argument to builder methods**
+  * Switch default arg name from `key` to `name`.
+  * You can override `keyImplNameArgName` on `CanonicalGenerator` to change default.
 * **Naming: `htmlTag` -> `htmlRootTag` to avoid conflict with base `def htmlTag` implementation.**
 
 #### v17.0.0-M6 – Feb 2023

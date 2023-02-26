@@ -95,6 +95,8 @@ class CanonicalGenerator(
 
   def baseScalaJsEventType: String = "dom.Event"
 
+  def keyImplNameArgName: String = "name"
+
   def tagKeyTypeImport(keyTypes: String*): String = {
     val keyTypesStr = if (keyTypes.size == 1) {
       keyTypes.head
@@ -164,11 +166,11 @@ class CanonicalGenerator(
 
     val baseImplDef = if(tagType == HtmlTagType) {
       List(
-        s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsHtmlElementType](key: String, void: Boolean = false): ${keyKind}[$scalaJsElementTypeParam] = ${keyKindConstructor(keyKind)}(key, void)"
+        s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsHtmlElementType]($keyImplNameArgName: String, void: Boolean = false): ${keyKind}[$scalaJsElementTypeParam] = ${keyKindConstructor(keyKind)}($keyImplNameArgName, void)"
       )
     } else {
       List(
-        s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsSvgElementType](key: String): ${keyKind}[$scalaJsElementTypeParam] = ${keyKindConstructor(keyKind)}(key)",
+        s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsSvgElementType]($keyImplNameArgName: String): ${keyKind}[$scalaJsElementTypeParam] = ${keyKindConstructor(keyKind)}($keyImplNameArgName)",
       )
     }
 
@@ -192,6 +194,7 @@ class CanonicalGenerator(
       defType = _ => defType,
       keyType = tag => keyKind + "[" + tag.scalaJsElementType + "]",
       keyImplName = _ => keyImplName,
+      keyImplNameArgName = keyImplNameArgName,
       baseImplDefComments = baseImplDefComments,
       baseImplDef = baseImplDef,
       outputImplDefs = true,
@@ -224,11 +227,11 @@ class CanonicalGenerator(
 
     val baseImplDef = if (tagType == SvgTagType) {
       List(
-        s"def ${baseImplName}[V](key: String, codec: Codec[V, String], namespace: Option[String]): ${keyKind}[V] = ${keyKindConstructor(keyKind)}(key, codec, namespace)"
+        s"def ${baseImplName}[V]($keyImplNameArgName: String, codec: Codec[V, String], namespace: Option[String]): ${keyKind}[V] = ${keyKindConstructor(keyKind)}($keyImplNameArgName, codec, namespace)"
       )
     } else {
       List(
-        s"def ${baseImplName}[V](key: String, codec: Codec[V, String]): ${keyKind}[V] = ${keyKindConstructor(keyKind)}(key, codec)"
+        s"def ${baseImplName}[V]($keyImplNameArgName: String, codec: Codec[V, String]): ${keyKind}[V] = ${keyKindConstructor(keyKind)}($keyImplNameArgName, codec)"
       )
     }
 
@@ -251,6 +254,7 @@ class CanonicalGenerator(
       defType = _ => defType,
       keyKind = keyKind,
       keyImplName = attr => attrImplName(attr.codec, implNameSuffix),
+      keyImplNameArgName = keyImplNameArgName,
       baseImplDefComments = baseImplDefComments,
       baseImplName = baseImplName,
       baseImplDef = baseImplDef,
@@ -276,7 +280,7 @@ class CanonicalGenerator(
     val (defs, defGroupComments) = defsAndGroupComments(defGroups, printDefGroupComments)
 
     val baseImplDef = List(
-      s"def ${baseImplName}[V, DomV](key: String, codec: Codec[V, DomV]): ${keyKind}[V, DomV] = ${keyKindConstructor(keyKind)}(key, codec)"
+      s"def ${baseImplName}[V, DomV]($keyImplNameArgName: String, codec: Codec[V, DomV]): ${keyKind}[V, DomV] = ${keyKindConstructor(keyKind)}($keyImplNameArgName, codec)"
     )
 
     val headerLines = List(
@@ -299,6 +303,7 @@ class CanonicalGenerator(
       defType = _ => defType,
       keyKind = keyKind,
       keyImplName = prop => propImplName(prop.codec, implNameSuffix),
+      keyImplNameArgName = keyImplNameArgName,
       baseImplDefComments = baseImplDefComments,
       baseImplName = baseImplName,
       baseImplDef = baseImplDef,
@@ -325,7 +330,7 @@ class CanonicalGenerator(
     val (defs, defGroupComments) = defsAndGroupComments(defSources, printDefGroupComments)
 
     val baseImplDef = if (outputBaseImpl) List(
-      s"def ${keyImplName}[Ev <: ${baseScalaJsEventType}](key: String): ${keyKind}[Ev] = ${keyKindConstructor(keyKind)}(key)"
+      s"def ${keyImplName}[Ev <: ${baseScalaJsEventType}]($keyImplNameArgName: String): ${keyKind}[Ev] = ${keyKindConstructor(keyKind)}($keyImplNameArgName)"
     ) else {
       Nil
     }
@@ -350,6 +355,7 @@ class CanonicalGenerator(
       defType = _ => defType,
       keyKind = keyKind,
       keyImplName = _ => keyImplName,
+      keyImplNameArgName = keyImplNameArgName,
       baseImplDefComments = baseImplDefComments,
       baseImplDef = baseImplDef,
       outputImplDefs = true,
@@ -378,7 +384,7 @@ class CanonicalGenerator(
     val (defs, defGroupComments) = defsAndGroupComments(defSources, printDefGroupComments)
 
     val baseImplDef = List(
-      s"def ${baseImplName}[V](key: String): ${keyKind}[V] = ${keyKindConstructor(keyKind)}(key)"
+      s"def ${baseImplName}[V]($keyImplNameArgName: String): ${keyKind}[V] = ${keyKindConstructor(keyKind)}($keyImplNameArgName)"
     )
 
     val headerLines = List(
@@ -425,6 +431,7 @@ class CanonicalGenerator(
       derivedKeyKind = derivedKeyKind,
       derivedKeyKindAlias = derivedKeyKindAlias,
       keyImplName = _.implName,
+      keyImplNameArgName = keyImplNameArgName,
       baseImplName = baseImplName,
       baseImplDefComments = baseImplDefComments,
       baseImplDef = baseImplDef,
@@ -493,6 +500,7 @@ class CanonicalGenerator(
         transformUnitTraitName(keywordType, derivedKeyKind, lengthUnitsNumType)
       ) else Nil,
       keyImplName = _ => ???, // unused, the implementation is not function-based for keywords
+      keyImplNameArgName = keyImplNameArgName, // unused, the implementation is not function-based for keywords
       keywordImpl = keyImpl,
       keywordType = keywordType,
       derivedKeyKind = derivedKeyKind,

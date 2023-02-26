@@ -13,6 +13,7 @@ class EventPropsTraitGenerator(
   override protected val traitExtends: List[String],
   override protected val traitThisType: Option[String],
   override protected val keyImplName: EventPropDef => String,
+  override protected val keyImplNameArgName: String,
   defType: EventPropDef => DefType,
   keyKind: String,
   baseImplDefComments: List[String],

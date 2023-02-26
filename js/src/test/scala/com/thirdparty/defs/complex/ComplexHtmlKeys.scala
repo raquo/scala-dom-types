@@ -6,10 +6,10 @@ import com.thirdparty.keys.{HtmlAttr, Prop}
 trait ComplexHtmlKeys {
 
   /**
-    * This attribute is a space-separated list of the classes of the element.]
-    * Classes allows CSS and Javascript to select and access specific elements]
-    * via the class selectors or functions like the DOM method]
-    * document.getElementsByClassName.]
+    * This attribute is a space-separated list of the classes of the element.
+    * Classes allows CSS and Javascript to select and access specific elements
+    * via the class selectors or functions like the DOM method
+    * document.getElementsByClassName.
     */
   val className: Prop[Iterable[String], String] = new Prop("className", IterableAsSpaceSeparatedStringCodec)
 

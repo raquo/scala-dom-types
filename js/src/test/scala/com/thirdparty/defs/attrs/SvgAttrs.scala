@@ -11,16 +11,16 @@ import com.thirdparty.codecs._
 trait SvgAttrs {
 
 
-  def svgAttr[V](key: String, codec: Codec[V, String], namespace: Option[String]): SvgAttr[V] = new SvgAttr(key, codec, namespace)
+  def svgAttr[V](name: String, codec: Codec[V, String], namespace: Option[String]): SvgAttr[V] = new SvgAttr(name, codec, namespace)
 
 
-  @inline protected def doubleSvgAttr(key: String): SvgAttr[Double] = svgAttr(key, DoubleAsStringCodec, namespace = None)
+  @inline protected def doubleSvgAttr(name: String): SvgAttr[Double] = svgAttr(name, DoubleAsStringCodec, namespace = None)
 
-  @inline protected def intSvgAttr(key: String): SvgAttr[Int] = svgAttr(key, IntAsStringCodec, namespace = None)
+  @inline protected def intSvgAttr(name: String): SvgAttr[Int] = svgAttr(name, IntAsStringCodec, namespace = None)
 
-  @inline protected def stringSvgAttr(key: String): SvgAttr[String] = svgAttr(key, StringAsIsCodec, namespace = None)
+  @inline protected def stringSvgAttr(name: String): SvgAttr[String] = svgAttr(name, StringAsIsCodec, namespace = None)
 
-  @inline protected def stringSvgAttr(key: String, namespace: String): SvgAttr[String] = svgAttr(key, StringAsIsCodec, Some(namespace))
+  @inline protected def stringSvgAttr(name: String, namespace: String): SvgAttr[String] = svgAttr(name, StringAsIsCodec, Some(namespace))
 
 
 

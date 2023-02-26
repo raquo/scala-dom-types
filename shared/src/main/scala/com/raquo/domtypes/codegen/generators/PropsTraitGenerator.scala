@@ -14,6 +14,7 @@ class PropsTraitGenerator(
   override protected val traitExtends: List[String],
   override protected val traitThisType: Option[String],
   override protected val keyImplName: PropDef => String,
+  override protected val keyImplNameArgName: String,
   defType: PropDef => DefType,
   keyKind: String,
   baseImplDefComments: List[String],
@@ -83,7 +84,7 @@ class PropsTraitGenerator(
         InlineProtectedDef.codeStr,
         " ",
         implName,
-        "(key: String)",
+        s"($keyImplNameArgName: String)",
         ": ",
         keyKind,
         "[",
@@ -93,7 +94,7 @@ class PropsTraitGenerator(
         "]",
         " = ",
         baseImplName,
-        s"(key, ${transformCodecName(codecByImplName(implName))})",
+        s"($keyImplNameArgName, ${transformCodecName(codecByImplName(implName))})",
       )
       line()
     }

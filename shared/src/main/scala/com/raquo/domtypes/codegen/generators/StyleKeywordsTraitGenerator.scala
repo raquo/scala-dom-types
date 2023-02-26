@@ -13,6 +13,7 @@ class StyleKeywordsTraitGenerator(
   extendsFeatureTraits: List[String],
   extendsUnitTraits: List[String],
   override protected val keyImplName: StyleKeywordDef => String,
+  override protected val keyImplNameArgName: String,
   keywordImpl: StyleKeywordDef => String,
   keywordType: String,
   derivedKeyKind: String,

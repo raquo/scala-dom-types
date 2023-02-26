@@ -12,7 +12,7 @@ import org.scalajs.dom
 trait GlobalEventProps {
 
 
-  def eventProp[Ev <: dom.Event](key: String): EventProp[Ev] = new EventProp(key)
+  def eventProp[Ev <: dom.Event](name: String): EventProp[Ev] = new EventProp(name)
 
 
   // -- Mouse Events --

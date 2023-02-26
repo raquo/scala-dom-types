@@ -11,7 +11,7 @@ import org.scalajs.dom
 trait HtmlTags {
 
 
-  def htmlTag[El <: dom.html.Element](key: String, void: Boolean = false): HtmlTag[El] = new HtmlTag(key, void)
+  def htmlTag[El <: dom.html.Element](name: String, void: Boolean = false): HtmlTag[El] = new HtmlTag(name, void)
 
 
   // -- Document Tags --

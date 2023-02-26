@@ -11,16 +11,16 @@ import com.thirdparty.codecs._
 trait Props {
 
 
-  def prop[V, DomV](key: String, codec: Codec[V, DomV]): Prop[V, DomV] = new Prop(key, codec)
+  def prop[V, DomV](name: String, codec: Codec[V, DomV]): Prop[V, DomV] = new Prop(name, codec)
 
 
-  @inline protected def boolProp(key: String): Prop[Boolean, Boolean] = prop(key, BooleanAsIsCodec)
+  @inline protected def boolProp(name: String): Prop[Boolean, Boolean] = prop(name, BooleanAsIsCodec)
 
-  @inline protected def doubleProp(key: String): Prop[Double, Double] = prop(key, DoubleAsIsCodec)
+  @inline protected def doubleProp(name: String): Prop[Double, Double] = prop(name, DoubleAsIsCodec)
 
-  @inline protected def intProp(key: String): Prop[Int, Int] = prop(key, IntAsIsCodec)
+  @inline protected def intProp(name: String): Prop[Int, Int] = prop(name, IntAsIsCodec)
 
-  @inline protected def stringProp(key: String): Prop[String, String] = prop(key, StringAsIsCodec)
+  @inline protected def stringProp(name: String): Prop[String, String] = prop(name, StringAsIsCodec)
 
 
 

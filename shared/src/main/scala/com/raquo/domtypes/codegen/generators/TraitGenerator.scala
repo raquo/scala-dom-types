@@ -24,6 +24,8 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
 
   protected val keyImplName: Def => String
 
+  protected val keyImplNameArgName: String
+
   protected val outputImplDefs: Boolean
 
 

@@ -11,16 +11,16 @@ import com.thirdparty.codecs._
 trait AriaAttrs {
 
 
-  def ariaAttr[V](key: String, codec: Codec[V, String]): AriaAttr[V] = new AriaAttr(key, codec)
+  def ariaAttr[V](name: String, codec: Codec[V, String]): AriaAttr[V] = new AriaAttr(name, codec)
 
 
-  @inline protected def boolAsTrueFalseAriaAttr(key: String): AriaAttr[Boolean] = ariaAttr(key, BooleanAsTrueFalseStringCodec)
+  @inline protected def boolAsTrueFalseAriaAttr(name: String): AriaAttr[Boolean] = ariaAttr(name, BooleanAsTrueFalseStringCodec)
 
-  @inline protected def doubleAriaAttr(key: String): AriaAttr[Double] = ariaAttr(key, DoubleAsStringCodec)
+  @inline protected def doubleAriaAttr(name: String): AriaAttr[Double] = ariaAttr(name, DoubleAsStringCodec)
 
-  @inline protected def intAriaAttr(key: String): AriaAttr[Int] = ariaAttr(key, IntAsStringCodec)
+  @inline protected def intAriaAttr(name: String): AriaAttr[Int] = ariaAttr(name, IntAsStringCodec)
 
-  @inline protected def stringAriaAttr(key: String): AriaAttr[String] = ariaAttr(key, StringAsIsCodec)
+  @inline protected def stringAriaAttr(name: String): AriaAttr[String] = ariaAttr(name, StringAsIsCodec)
 
 
 

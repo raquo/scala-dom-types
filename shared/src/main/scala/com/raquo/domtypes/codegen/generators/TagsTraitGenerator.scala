@@ -13,6 +13,7 @@ class TagsTraitGenerator(
   override protected val traitExtends: List[String],
   override protected val traitThisType: Option[String],
   override protected val keyImplName: TagDef => String,
+  override protected val keyImplNameArgName: String,
   defType: TagDef => DefType,
   keyType: TagDef => String,
   override protected val outputImplDefs: Boolean,

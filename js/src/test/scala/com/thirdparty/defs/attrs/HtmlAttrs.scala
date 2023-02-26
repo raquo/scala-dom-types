@@ -11,16 +11,16 @@ import com.thirdparty.codecs._
 trait HtmlAttrs {
 
 
-  def htmlAttr[V](key: String, codec: Codec[V, String]): HtmlAttr[V] = new HtmlAttr(key, codec)
+  def htmlAttr[V](name: String, codec: Codec[V, String]): HtmlAttr[V] = new HtmlAttr(name, codec)
 
 
-  @inline protected def boolAsOnOffHtmlAttr(key: String): HtmlAttr[Boolean] = htmlAttr(key, BooleanAsOnOffStringCodec)
+  @inline protected def boolAsOnOffHtmlAttr(name: String): HtmlAttr[Boolean] = htmlAttr(name, BooleanAsOnOffStringCodec)
 
-  @inline protected def boolAsTrueFalseHtmlAttr(key: String): HtmlAttr[Boolean] = htmlAttr(key, BooleanAsTrueFalseStringCodec)
+  @inline protected def boolAsTrueFalseHtmlAttr(name: String): HtmlAttr[Boolean] = htmlAttr(name, BooleanAsTrueFalseStringCodec)
 
-  @inline protected def intHtmlAttr(key: String): HtmlAttr[Int] = htmlAttr(key, IntAsStringCodec)
+  @inline protected def intHtmlAttr(name: String): HtmlAttr[Int] = htmlAttr(name, IntAsStringCodec)
 
-  @inline protected def stringHtmlAttr(key: String): HtmlAttr[String] = htmlAttr(key, StringAsIsCodec)
+  @inline protected def stringHtmlAttr(name: String): HtmlAttr[String] = htmlAttr(name, StringAsIsCodec)
 
 
 
