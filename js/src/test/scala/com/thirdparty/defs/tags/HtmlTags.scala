@@ -24,7 +24,7 @@ trait HtmlTags {
     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLHtmlElement
     */
-  lazy val htmlTag: HtmlTag[dom.HTMLHtmlElement] = htmlTag("html")
+  lazy val htmlRootTag: HtmlTag[dom.HTMLHtmlElement] = htmlTag("html")
 
 
   /**

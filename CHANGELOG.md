@@ -2,6 +2,10 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v17.0.0-M7 – Feb 2023
+
+* **Naming: `htmlTag` -> `htmlRootTag` to avoid conflict with base `def htmlTag` implementation.**
+
 #### v17.0.0-M6 – Feb 2023
 
 * **Fix: Move `href`, `src`, and `formaction` from reflected attributes to regular attributes ([#95](https://github.com/raquo/scala-dom-types/pull/95))**
@@ -10,7 +14,7 @@
 
 #### v17.0.0-M5 – Jan 2023
 
-*  Fix: Escape html tags in scaladoc (Thanks, [@armanbilge](https://github.com/armanbilge)!)
+Fix: Escape html tags in scaladoc (Thanks, [@armanbilge](https://github.com/armanbilge)!)
 
 #### v17.0.0-M4 – Jan 2023
 

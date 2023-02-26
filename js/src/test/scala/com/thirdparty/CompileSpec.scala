@@ -9,6 +9,8 @@ import com.thirdparty.defs.styles.units.{Calc, Color, Length, Time, Url}
 import com.thirdparty.defs.tags.{HtmlTags, SvgTags}
 import com.thirdparty.keys.{DerivedStyleBuilder, DerivedStyleProp, StyleProp, SvgAttr}
 import com.thirdparty.setters.StyleSetter
+import com.thirdparty.tags.HtmlTag
+import org.scalajs.dom
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
@@ -75,6 +77,9 @@ class CompileSpec extends AnyFunSpec with Matchers {
     assert(html.idAttr.domName == "id")
     assert(html.charset.domName == "charset")
     assert(html.display.domName == "display")
+
+    // Make sure there's no name conflict with htmlRootTag
+    html.htmlTag: Function2[String, Boolean, HtmlTag[dom.HTMLHtmlElement]]
 
     // Event props
 

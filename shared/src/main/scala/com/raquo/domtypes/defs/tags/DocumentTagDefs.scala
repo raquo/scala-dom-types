@@ -8,7 +8,7 @@ object DocumentTagDefs {
     
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "htmlTag",
+      scalaName = "htmlRootTag",
       domName = "html",
       isVoid = false,
       scalaJsElementTypeAlias = "dom.html.Html",

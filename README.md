@@ -303,7 +303,7 @@ Here is what the DOM attributes / props / etc. are called in `scalaName`:
 
 #### Tags
 * Many tag names have a "Tag" suffix, usually to free up good names for end user code, or avoid some conflict, e.g.:
-  * `style` -> `styleTag`, `link` -> `linkTag`, `param` -> `paramTag`, `map` -> `mapTag`, `title` -> `titleTag`, etc.
+  * `html` -> `htmlRootTag`, `style` -> `styleTag`, `link` -> `linkTag`, `param` -> `paramTag`, `map` -> `mapTag`, `title` -> `titleTag`, etc.
 
 #### Aliases
 * Attribute `type` == `typ` == `tpe` to avoid Scala reserved word
