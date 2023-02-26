@@ -531,6 +531,7 @@ class CanonicalGenerator(
       case "StringAsIs" => "string" + suffix
       case "IntAsString" => "int" + suffix
       case "DoubleAsString" => "double" + suffix
+      case "BooleanAsAttrPresence" => "boolAsPresence" + suffix
       case "BooleanAsTrueFalseString" => "boolAsTrueFalse" + suffix
       case "BooleanAsYesNoString" => "boolAsYesNo" + suffix
       case "BooleanAsOnOffString" => "boolAsOnOff" + suffix
