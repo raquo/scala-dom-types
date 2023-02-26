@@ -3,7 +3,7 @@ package com.raquo.domtypes.common
 /**
   * This type represents a reflected attribute – that is, a property of an HTML element
   * that is linked to a corresponding HTML attribute, such that their value matches, and
-  * writing to one updates the other as well. Example: `id` property / "id" attribute.
+  * writing to one updates the other as well. Example: `id` property / `id` attribute.
   *
   * Your library can choose to operate on these keys using either the props DOM API
   * (element.id = "newId") or the attributes DOM API (element.setAttribute("id", "newId").

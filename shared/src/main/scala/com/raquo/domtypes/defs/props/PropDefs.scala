@@ -2,7 +2,7 @@ package com.raquo.domtypes.defs.props
 
 import com.raquo.domtypes.common.PropDef
 
-/** HTML element properties. See also: ReflectedHtmlAttrDefs */
+/** HTML element properties that don't reflect onto attributes. See also: ReflectedHtmlAttrDefs */
 object PropDefs {
 
   val defs: List[PropDef] = List(
