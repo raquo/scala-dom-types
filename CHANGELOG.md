@@ -2,6 +2,10 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v17.0.0 – Mar 2023
+
+* M7 milestone release promoted to final with no changes
+
 #### v17.0.0-M7 – Feb 2023
 
 * **API: Ability to customize key/name argument to builder methods**
