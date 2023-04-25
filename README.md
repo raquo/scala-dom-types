@@ -13,6 +13,7 @@ _Scala DOM Types_ is used by the following Scala.js UI libraries:
 * [Laminar](https://github.com/raquo/Laminar)
 * [Outwatch](https://github.com/OutWatch/outwatch)
 * [Calico](https://github.com/armanbilge/calico)
+* [ff4s](https://github.com/buntec/ff4s)
 * Add your own here.
 
 As well as by:
@@ -271,7 +272,7 @@ List of complex keys:
 
 Although each library using _Scala DOM Types_ is free to generate whatever code it wants, we provide a canonical `scalaName` for every key that we recommend using. It is sometimes different from the native DOM name (`domName`).
 
-Here is what the DOM attributes / props / etc. are called in `scalaName`:
+Below are the `scalaName`-s of the DOM attributes / props / etc. For the record, Laminar uses these names verbatim.
 
 #### General
 
