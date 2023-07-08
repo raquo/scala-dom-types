@@ -52,6 +52,20 @@ object DocumentOnlyEventPropDefs {
     ),
 
     EventPropDef(
+      scalaName = "onSelectionChange",
+      domName = "selectionchange",
+      scalaJsEventType = "dom.Event",
+      javascriptEventType = "Event",
+      commentLines = List(
+        "The selectionchange event is fired when the current Selection of a Document is changed.",
+        "This event is not cancelable and does not bubble."
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/API/Document/selectionchange_event",
+      ),
+    ),
+
+    EventPropDef(
       scalaName = "onVisibilityChange",
       domName = "visibilitychange",
       scalaJsEventType = "dom.Event",

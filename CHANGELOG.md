@@ -4,8 +4,8 @@
 
 #### v17.1.0 – Jul 2023
 
-* New: tabIndex SVG attribute
-* 
+* New: `tabIndex` SVG attribute
+* New: `selectStart` and `selectionChange` events
 
 #### v17.0.0 – Mar 2023
 

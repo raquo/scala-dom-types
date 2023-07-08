@@ -53,6 +53,20 @@ object MiscellaneousEventPropDefs {
     ),
 
     EventPropDef(
+      scalaName = "onSelectStart",
+      domName = "selectstart",
+      scalaJsEventType = "dom.Event",
+      javascriptEventType = "Event",
+      commentLines = List(
+        "Fires when a user starts a new selection.",
+        "If the event is canceled, the selection is not changed."
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/API/Node/selectstart_event",
+      ),
+    ),
+
+    EventPropDef(
       scalaName = "onShow",
       domName = "show",
       scalaJsEventType = "dom.Event",
