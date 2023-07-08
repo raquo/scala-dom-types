@@ -4,6 +4,7 @@
 
 #### v17.1.0 – Jul 2023
 
+* Fix: `xmlns` SVG attribute should have no namespace (see [Laminar#143](https://github.com/raquo/Laminar/issues/143))
 * New: `tabIndex` SVG attribute
 * New: `selectStart` and `selectionChange` events
 

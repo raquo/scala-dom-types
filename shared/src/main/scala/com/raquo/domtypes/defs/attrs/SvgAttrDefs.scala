@@ -2371,12 +2371,12 @@ object SvgAttrDefs {
       tagType = SvgTagType,
       scalaName = "xmlns",
       domName = "xmlns",
-      namespace = Some("xmlns"),
+      namespace = None, // https://github.com/raquo/Laminar/issues/143
       scalaValueType = "String",
       codec = "StringAsIs",
       commentLines = Nil,
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xmlns",
+        "https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg",
       ),
     ),
 
