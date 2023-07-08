@@ -2,6 +2,11 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### v17.1.0 – Jul 2023
+
+* New: tabIndex SVG attribute
+* 
+
 #### v17.0.0 – Mar 2023
 
 * M7 milestone release promoted to final with no changes

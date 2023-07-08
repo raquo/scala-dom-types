@@ -2056,6 +2056,19 @@ object SvgAttrDefs {
 
     AttrDef(
       tagType = SvgTagType,
+      scalaName = "tabIndex",
+      domName = "tabindex",
+      namespace = None,
+      scalaValueType = "String",
+      codec = "StringAsIs",
+      commentLines = Nil,
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/tabindex",
+      ),
+    ),
+
+    AttrDef(
+      tagType = SvgTagType,
       scalaName = "target",
       domName = "target",
       namespace = None,
