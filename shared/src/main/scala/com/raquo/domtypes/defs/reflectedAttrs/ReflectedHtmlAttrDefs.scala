@@ -1106,9 +1106,9 @@ object ReflectedHtmlAttrDefs {
     ),
 
     ReflectedHtmlAttrDef(
-      scalaName = "crossorigin",
+      scalaName = "crossOrigin",
       domAttrName = "crossorigin",
-      domPropName = "crossorigin",
+      domPropName = "crossOrigin",
       scalaValueType = "String",
       domPropValueType = "String",
       attrCodec = "StringAsIs",
@@ -1119,7 +1119,9 @@ object ReflectedHtmlAttrDefs {
         "be loaded when requested from a different domain, and how to handle potential",
         "security issues, like CORS (Cross-Origin Resource Sharing) policies.",
         "The value of this attribute determines whether the browser will allow or",
-        "block loading of the resource, helping to enhance web security."
+        "block loading of the resource, helping to enhance web security.",
+        "",
+        """Allowed values: "anonymous" | "use-credentials" | "" (same as "anonymous") """
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin"
