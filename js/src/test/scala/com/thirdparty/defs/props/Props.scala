@@ -713,4 +713,19 @@ trait Props {
   lazy val xmlns: Prop[String, String] = stringProp("xmlns")
 
 
+  /**
+    * This attribute specifies how the browser should handle cross-origin
+    * requests for the associated resource. It controls whether the resource can
+    * be loaded when requested from a different domain, and how to handle potential
+    * security issues, like CORS (Cross-Origin Resource Sharing) policies.
+    * The value of this attribute determines whether the browser will allow or
+    * block loading of the resource, helping to enhance web security.
+    * 
+    * Allowed values: "anonymous" | "use-credentials" | "" (same as "anonymous") 
+    * 
+    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin
+    */
+  lazy val crossOrigin: Prop[String, String] = stringProp("crossOrigin")
+
+
 }
