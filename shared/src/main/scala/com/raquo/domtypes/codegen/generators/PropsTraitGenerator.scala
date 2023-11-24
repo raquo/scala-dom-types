@@ -47,7 +47,7 @@ class PropsTraitGenerator(
 
   override protected def printDef(keyDef: PropDef, alias: Option[String]): Unit = {
     if (alias.isEmpty) {
-      blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+      blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.scalaAliases, keyDef.docUrls))
     }
     line(
       defType(keyDef).codeStr,

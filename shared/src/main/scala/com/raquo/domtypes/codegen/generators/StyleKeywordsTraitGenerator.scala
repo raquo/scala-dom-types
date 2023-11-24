@@ -34,7 +34,7 @@ class StyleKeywordsTraitGenerator(
 
   override protected def printDef(keyDef: StyleKeywordDef, alias: Option[String]): Unit = {
     if (alias.isEmpty) {
-      blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.docUrls))
+      blockCommentLines(commentLinesWithDocs(keyDef.commentLines, keyDef.scalaAliases, keyDef.docUrls))
     }
     line(
       if (keyDef.isOverride) "override " else "",

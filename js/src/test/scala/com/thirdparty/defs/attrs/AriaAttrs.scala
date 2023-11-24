@@ -27,7 +27,7 @@ trait AriaAttrs {
   /**
     * Identifies the currently active descendant of a composite widget.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-activedescendant
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-activedescendant aria-activedescendant @ MDN]]
     */
   lazy val activeDescendant: AriaAttr[String] = stringAriaAttr("aria-activedescendant")
 
@@ -37,7 +37,7 @@ trait AriaAttrs {
     * changed region based on the change notifications defined by the aria-relevant
     * attribute. See related [[relevant]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-atomic
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-atomic aria-atomic @ MDN]]
     */
   lazy val atomic: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-atomic")
 
@@ -47,7 +47,7 @@ trait AriaAttrs {
     * 
     * Enumerated: "inline" | "list" | "both" | "none" (default)
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete aria-autocomplete @ MDN]]
     */
   lazy val autoComplete: AriaAttr[String] = stringAriaAttr("aria-autocomplete")
 
@@ -55,7 +55,7 @@ trait AriaAttrs {
   /**
     * Indicates whether an element, and its subtree, are currently being updated.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-busy
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-busy aria-busy @ MDN]]
     */
   lazy val busy: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-busy")
 
@@ -67,7 +67,7 @@ trait AriaAttrs {
     * Enumerated: Tristate – "true" | "false" | "mixed" | undefined (default)
     * - undefined means the element does not support being checked
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-checked
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-checked aria-checked @ MDN]]
     */
   lazy val checked: AriaAttr[String] = stringAriaAttr("aria-checked")
 
@@ -76,7 +76,7 @@ trait AriaAttrs {
     * Identifies the element (or elements) whose contents or presence are controlled
     * by the current element. See related [[owns]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls aria-controls @ MDN]]
     */
   lazy val controls: AriaAttr[String] = stringAriaAttr("aria-controls")
 
@@ -88,7 +88,7 @@ trait AriaAttrs {
     * Enumerated:
     * "page" | "step" | "location" | "date" | "time" | "true" | "false" (default)
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current aria-current @ MDN]]
     */
   lazy val current: AriaAttr[String] = stringAriaAttr("aria-current")
 
@@ -97,7 +97,7 @@ trait AriaAttrs {
     * Identifies the element (or elements) that describes the object.
     * See related [[labelledBy]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby aria-describedby @ MDN]]
     */
   lazy val describedBy: AriaAttr[String] = stringAriaAttr("aria-describedby")
 
@@ -106,7 +106,7 @@ trait AriaAttrs {
     * Indicates that the element is perceivable but disabled, so it is not editable
     * or otherwise operable. See related [[hidden]] and [[readOnly]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-disabled
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-disabled aria-disabled @ MDN]]
     */
   lazy val disabled: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-disabled")
 
@@ -121,7 +121,7 @@ trait AriaAttrs {
     * 
     * Enumerated: "copy" | "move" | "link" | "execute" | "popup" | "none" (default)
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-dropeffect
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-dropeffect aria-dropeffect @ MDN]]
     */
   lazy val dropEffect: AriaAttr[String] = stringAriaAttr("aria-dropeffect")
 
@@ -130,7 +130,7 @@ trait AriaAttrs {
     * Indicates whether the element, or another grouping element it controls, is
     * currently expanded or collapsed.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded aria-expanded @ MDN]]
     */
   lazy val expanded: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-expanded")
 
@@ -140,7 +140,7 @@ trait AriaAttrs {
     * content which, at the user's discretion, allows assistive technology to
     * override the general default of reading in document source order.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-flowto
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-flowto aria-flowto @ MDN]]
     */
   lazy val flowTo: AriaAttr[String] = stringAriaAttr("aria-flowto")
 
@@ -148,7 +148,7 @@ trait AriaAttrs {
   /**
     * Indicates an element's "grabbed" state in a drag-and-drop operation.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-grabbed
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-grabbed aria-grabbed @ MDN]]
     */
   lazy val grabbed: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-grabbed")
 
@@ -156,7 +156,7 @@ trait AriaAttrs {
   /**
     * Indicates that the element has a popup context menu or sub-level menu.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup aria-haspopup @ MDN]]
     */
   lazy val hasPopup: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-haspopup")
 
@@ -166,7 +166,7 @@ trait AriaAttrs {
     * perceivable to any user as implemented by the author.
     * See related [[disabled]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden aria-hidden @ MDN]]
     */
   lazy val hidden: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-hidden")
 
@@ -177,7 +177,7 @@ trait AriaAttrs {
     * 
     * Enumerated: "grammar" | "spelling" | "true" | "false" (default)
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-invalid
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-invalid aria-invalid @ MDN]]
     */
   lazy val invalid: AriaAttr[String] = stringAriaAttr("aria-invalid")
 
@@ -186,7 +186,7 @@ trait AriaAttrs {
     * Defines a string value that labels the current element.
     * See related [[labelledBy]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label aria-label @ MDN]]
     */
   lazy val label: AriaAttr[String] = stringAriaAttr("aria-label")
 
@@ -195,7 +195,7 @@ trait AriaAttrs {
     * Identifies the element (or elements) that labels the current element.
     * See related [[label]] and [[describedBy]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby aria-labelledby @ MDN]]
     */
   lazy val labelledBy: AriaAttr[String] = stringAriaAttr("aria-labelledby")
 
@@ -203,7 +203,7 @@ trait AriaAttrs {
   /**
     * Defines the hierarchical level of an element within a structure.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-level
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-level aria-level @ MDN]]
     */
   lazy val level: AriaAttr[Int] = intAriaAttr("aria-level")
 
@@ -214,7 +214,7 @@ trait AriaAttrs {
     * 
     * Enumerated: "polite" | "assertive" | "off" (default)
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-live
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-live aria-live @ MDN]]
     */
   lazy val live: AriaAttr[String] = stringAriaAttr("aria-live")
 
@@ -222,7 +222,7 @@ trait AriaAttrs {
   /**
     * Indicates whether a text box accepts multiple lines of input or only a single line.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-multiline
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-multiline aria-multiline @ MDN]]
     */
   lazy val multiLine: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-multiline")
 
@@ -230,7 +230,7 @@ trait AriaAttrs {
   /**
     * Indicates that the user may select more than one item from the current selectable descendants.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable aria-multiselectable @ MDN]]
     */
   lazy val multiSelectable: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-multiselectable")
 
@@ -240,7 +240,7 @@ trait AriaAttrs {
     * 
     * Enumerated: "vertical" | "horizontal" (default)
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-orientation
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-orientation aria-orientation @ MDN]]
     */
   lazy val orientation: AriaAttr[String] = stringAriaAttr("aria-orientation")
 
@@ -250,7 +250,7 @@ trait AriaAttrs {
     * contextual parent/child relationship between DOM elements where the DOM hierarchy
     * cannot be used to represent the relationship. See related [[controls]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-owns
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-owns aria-owns @ MDN]]
     */
   lazy val owns: AriaAttr[String] = stringAriaAttr("aria-owns")
 
@@ -259,7 +259,7 @@ trait AriaAttrs {
     * Defines an element's number or position in the current set of listitems or treeitems.
     * Not required if all elements in the set are present in the DOM. See related [[setSize]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-posinset
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-posinset aria-posinset @ MDN]]
     */
   lazy val posInSet: AriaAttr[Int] = intAriaAttr("aria-posinset")
 
@@ -270,7 +270,7 @@ trait AriaAttrs {
     * Enumerated: Tristate – "true" | "false" | "mixed" | undefined (default)
     * - undefined means the element does not support being pressed
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-pressed
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-pressed aria-pressed @ MDN]]
     */
   lazy val pressed: AriaAttr[String] = stringAriaAttr("aria-pressed")
 
@@ -278,7 +278,7 @@ trait AriaAttrs {
   /**
     * Indicates that the element is not editable, but is otherwise operable. See related [[disabled]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-readonly
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-readonly aria-readonly @ MDN]]
     */
   lazy val readOnly: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-readonly")
 
@@ -289,7 +289,7 @@ trait AriaAttrs {
     * 
     * Enumerated: "additions" | "removals" | "text" | "all" | "additions text" (default)
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-relevant
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-relevant aria-relevant @ MDN]]
     */
   lazy val relevant: AriaAttr[String] = stringAriaAttr("aria-relevant")
 
@@ -297,7 +297,7 @@ trait AriaAttrs {
   /**
     * Indicates that user input is required on the element before a form may be submitted.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-required
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-required aria-required @ MDN]]
     */
   lazy val required: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-required")
 
@@ -306,7 +306,7 @@ trait AriaAttrs {
     * Indicates the current "selected" state of various widgets.
     * See related [[checked]] and [[pressed]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-selected
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-selected aria-selected @ MDN]]
     */
   lazy val selected: AriaAttr[Boolean] = boolAsTrueFalseAriaAttr("aria-selected")
 
@@ -316,7 +316,7 @@ trait AriaAttrs {
     * Not required if all elements in the set are present in the DOM.
     * See related [[posInSet]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-setsize
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-setsize aria-setsize @ MDN]]
     */
   lazy val setSize: AriaAttr[Int] = intAriaAttr("aria-setsize")
 
@@ -326,7 +326,7 @@ trait AriaAttrs {
     * 
     * Enumerated: "ascending" | "descending" | "other" | "none" (default)
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-sort
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-sort aria-sort @ MDN]]
     */
   lazy val sort: AriaAttr[String] = stringAriaAttr("aria-sort")
 
@@ -334,7 +334,7 @@ trait AriaAttrs {
   /**
     * Defines the maximum allowed value for a range widget.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuemax
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuemax aria-valuemax @ MDN]]
     */
   lazy val valueMax: AriaAttr[Double] = doubleAriaAttr("aria-valuemax")
 
@@ -342,7 +342,7 @@ trait AriaAttrs {
   /**
     * Defines the minimum allowed value for a range widget.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin aria-valuemin @ MDN]]
     */
   lazy val valueMin: AriaAttr[Double] = doubleAriaAttr("aria-valuemin")
 
@@ -350,7 +350,7 @@ trait AriaAttrs {
   /**
     * Defines the current value for a range widget. See related [[valueText]].
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuenow
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuenow aria-valuenow @ MDN]]
     */
   lazy val valueNow: AriaAttr[Double] = doubleAriaAttr("aria-valuenow")
 
@@ -358,7 +358,7 @@ trait AriaAttrs {
   /**
     * Defines the human readable text alternative of aria-valuenow for a range widget.
     * 
-    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuetext
+    * [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuetext aria-valuetext @ MDN]]
     */
   lazy val valueText: AriaAttr[String] = stringAriaAttr("aria-valuetext")
 

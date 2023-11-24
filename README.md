@@ -6,7 +6,7 @@
 _Scala DOM Types_ provides listings of Javascript HTML and SVG tags as well as their attributes, DOM properties, and CSS styles, including the corresponding type information.
 
     "com.raquo" %% "domtypes" % "<version>"     // JVM & SBT
-    "com.raquo" %%% "domtypes" % "<version>"    // Scala.js 1.9.0+
+    "com.raquo" %%% "domtypes" % "<version>"    // Scala.js 1.13.2+
 
 _Scala DOM Types_ is used by the following Scala.js UI libraries:
 
@@ -54,7 +54,7 @@ Please use [Github issues](https://github.com/raquo/scala-dom-types/issues) for 
 
 So far we are focused on HTML5 attributes and read-writeable DOM props, but it doesn't have to stay that way. There is value in providing listings for popular non-standard attributes as well (e.g. `autoCapitalize`, `unSelectable`) but we haven't decided how to deal with those yet. Don't hesitate to trigger this discussion though.
 
-The raw definitions that you need to update are found in the [shared/main/.../defs](#TODO) folder. The sample code generated from those definitions is found in [js/test/.../defs](#TODO).
+The raw definitions that you need to update are found in the [shared/main/.../defs](https://github.com/raquo/scala-dom-types/tree/master/shared/src/main/scala/com/raquo/domtypes/defs) folder. The sample code generated from those definitions is found in [js/test/.../defs](https://github.com/raquo/scala-dom-types/tree/master/js/src/test/scala/com/thirdparty/defs).
 
 If making a PR, please make sure to run the `GeneratorSpec` test locally, so that the sample generated code is updated before you commit.
 
@@ -167,15 +167,15 @@ So, you're building a DOM manipulation library such as [Laminar](https://github.
 
 First off, if you're building such a library, you need to know quite a few things about how JS DOM works. _Scala DOM Types_ is just a collection of type information, it's not an abstraction layer for the DOM. _You're_ building the abstraction layer. We can't cover everything about JS DOM here, but we will touch on some of the nastier parts in the following sections.
 
-1. Look at [MouseEventPropDefs](#TODO) in _Scala DOM Types_ – several of such listings contain all the data that this library offers. This particular file lists all the mouse-related events that you can handle in the DOM. We create such listings manually. See discussion in [#87](https://github.com/raquo/scala-dom-types/issues/87#issuecomment-1330332298) and [#47](https://github.com/raquo/scala-dom-types/issues/47) for why we don't generate these listings from some official source.
+1. Look at [MouseEventPropDefs](https://github.com/raquo/scala-dom-types/blob/master/shared/src/main/scala/com/raquo/domtypes/defs/eventProps/MouseEventPropDefs.scala) in _Scala DOM Types_ – several of such listings contain all the data that this library offers. This particular file lists all the mouse-related events that you can handle in the DOM. We create such listings manually. See discussion in [#87](https://github.com/raquo/scala-dom-types/issues/87#issuecomment-1330332298) and [#47](https://github.com/raquo/scala-dom-types/issues/47) for why we don't generate these listings from some official source.
 
-2. The data in `MouseEventPropDefs` can be used as-is in certain cases, but typically we want to transform it into well typed Scala traits that look like [GlobalEventProps](#TODO). In fact, prior to [#87](https://github.com/raquo/scala-dom-types/issues/87), such typed traits were the only format in which _Scala DOM Types_ offered its data. For example, here's the old [MouseEventProps](https://github.com/raquo/scala-dom-types/blob/v0.16.0-RC3/shared/src/main/scala/com/raquo/domtypes/generic/defs/eventProps/MouseEventProps.scala) from _Scala DOM Types_ version 0.16.0-RC3. As you can see, to make such a trait flexible enough for different libraries and runtimes, we had to use a lot of type params – not ideal, especially for end users who just want to see e.g. the type of events a certain key produces.
+2. The data in `MouseEventPropDefs` can be used as-is in certain cases, but typically we want to transform it into well typed Scala traits that look like [GlobalEventProps](https://github.com/raquo/scala-dom-types/blob/master/js/src/test/scala/com/thirdparty/defs/eventProps/GlobalEventProps.scala). In fact, prior to [#87](https://github.com/raquo/scala-dom-types/issues/87), such typed traits were the only format in which _Scala DOM Types_ offered its data. For example, here's the old [MouseEventProps](https://github.com/raquo/scala-dom-types/blob/v0.16.0-RC3/shared/src/main/scala/com/raquo/domtypes/generic/defs/eventProps/MouseEventProps.scala) from _Scala DOM Types_ version 0.16.0-RC3. As you can see, to make such a trait flexible enough for different libraries and runtimes, we had to use a lot of type params – not ideal, especially for end users who just want to see e.g. the type of events a certain key produces.
 
-3. The new version of _Scala DOM Types_ relies on **code generation** to produce simple abstraction-free traits like [GlobalEventProps](#TODO), tailored for a specific UI library like Laminar. That `GlobalEventProps` file was in fact produced by this code generator as part of _Scala DOM Types_ [GeneratorSpec](#TODO) test, and its output is verified in [CompileSpec](#TODO).
+3. The new version of _Scala DOM Types_ relies on **code generation** to produce simple abstraction-free traits like [GlobalEventProps](https://github.com/raquo/scala-dom-types/blob/master/js/src/test/scala/com/thirdparty/defs/eventProps/GlobalEventProps.scala), tailored for a specific UI library like Laminar. That `GlobalEventProps` file was in fact produced by this code generator as part of _Scala DOM Types_ [GeneratorSpec](https://github.com/raquo/scala-dom-types/blob/master/jvm/src/test/scala/com/raquo/domtypes/GeneratorSpec.scala) test, and its output is verified in [CompileSpec](https://github.com/raquo/scala-dom-types/blob/master/js/src/test/scala/com/thirdparty/CompileSpec.scala).
 
     Previously, _Scala DOM Types_ offered highly abstracted traits as a runtime dependency of libraries like Laminar. Now, Laminar uses _Scala DOM Types_ at compile time only, generating similar traits at compile time. 
  
-    In Laminar, the code generation is done in [DomDefsGenerator](#TODO). As you see, the generator is customized with the names of Laminar's own types, package names, and desired folder structure. See Laminar's [build.sbt](#TODO) and [project/build.sbt](#TODO) for the compile-time generator build setup.
+    In Laminar, the code generation is done in [DomDefsGenerator](https://github.com/raquo/Laminar/blob/master/project/DomDefsGenerator.scala). As you see, the generator is customized with the names of Laminar's own types, package names, and desired folder structure. See Laminar's [build.sbt](https://github.com/raquo/Laminar/blob/master/build.sbt) and [project/build.sbt](https://github.com/raquo/Laminar/blob/master/project/build.sbt) for the compile-time generator build setup.
 
     You will need to create a similar generator setup for your library.
 
@@ -199,15 +199,15 @@ First off, if you're building such a library, you need to know quite a few thing
 
 5. Provide the keys that are deliberately missing from _Scala DOM Types_
 
-    We deliberately do not include a small set of "complex" keys that UI libraries tend to have different opinions about, such as the `class` and `style` HTML attributes. See the full list below. Your library needs to provide such keys itself, for example see [ComplexHtmlKeys](#TODO) and [ComplexSvgKeys](#TODO) in Laminar – those are not generated, but manually created.
+    We deliberately do not include a small set of "complex" keys that UI libraries tend to have different opinions about, such as the `class` and `style` HTML attributes. See the full list below. Your library needs to provide such keys itself, for example see [ComplexHtmlKeys](https://github.com/raquo/Laminar/blob/master/src/main/scala/com/raquo/laminar/defs/complex/ComplexHtmlKeys.scala) and [ComplexSvgKeys](https://github.com/raquo/Laminar/blob/master/src/main/scala/com/raquo/laminar/defs/complex/ComplexSvgKeys.scala) in Laminar – those are not generated, but manually created.
 
-6. Provide the Codecs. These are used to translate between Scala values and DOM values. See [codecs](#TODO) in Laminar. Your implementation will be almost identical, depending on whether you talk to the DOM directly or via some virtual DOM library with special needs. See below for more info on the codecs.
+6. Provide the Codecs. These are used to translate between Scala values and DOM values. See [codecs](https://github.com/raquo/Laminar/tree/master/src/main/scala/com/raquo/laminar/codecs) in Laminar. Your implementation will be almost identical, depending on whether you talk to the DOM directly or via some virtual DOM library with special needs. See below for more info on the codecs.
 
 7. Provide concrete types for Tags, Attributes, etc., as well as their functionality (`apply` and `:=` methods, etc.). The type representing StyleProp should extend the `GlobalKeywords` generated style trait, or provide those keywords in some other way.
 
-8. Finally, create "the bundle". You've generated a bunch of well typed traits and created concrete types – now you need to instantiate a single object that will extend all those traits to expose all the keys like `div`, `onClick`, etc. The actual implementation of this might vary based on your preferences and on how you configured the generator, but you can refer to the top of the [Laminar.scala](#TODO) file. As you see, I separate HTML keys from SVG keys and ARIA keys to avoid name collisions and reduce IDE autocomplete pollution. You can choose to do this differently, but that will require some customization on your part.
+8. Finally, create "the bundle". You've generated a bunch of well typed traits and created concrete types – now you need to instantiate a single object that will extend all those traits to expose all the keys like `div`, `onClick`, etc. The actual implementation of this might vary based on your preferences and on how you configured the generator, but you can refer to the top of the [Laminar.scala](https://github.com/raquo/Laminar/blob/master/src/main/scala/com/raquo/laminar/api/Laminar.scala) file. As you see, I separate HTML keys from SVG keys and ARIA keys to avoid name collisions and to reduce IDE autocomplete pollution. You can choose to do this differently, but that will require some customization on your part.
 
-9. With the generator, you're adding comments derived from MDN content into your project – those comments are licensed under CC-BY-SA, so you need to add a corresponding notice to your project file (or customize code generation to not include the comments for every key). See the bottom of this README.
+9. With the generator, you're adding comments derived from [MDN](https://developer.mozilla.org/en-US/) content into your project – those comments are licensed under the CC-BY-SA license, so you need to add a corresponding notice to your project file (or customize code generation to not include the comments for every key). See the bottom of this README.
 
 
 ### Migrating to code generation from an older version of _Scala DOM Types_
@@ -218,7 +218,7 @@ First off, if you're building such a library, you need to know quite a few thing
 
     You can implement / customize that in your project if you wish, but this isn't useful enough IMO.
 
-3. CSS styles now have support for unit helpers – e.g. extensions like `paddingTop.px` or `width.calc("20px + 10%")`, however you need to implement all that behaviour, and copy-paste the unit traits into your code – see the [units](#TODO) in Laminar for example.  
+3. CSS styles now have support for unit helpers – e.g. extensions like `paddingTop.px` or `width.calc("20px + 10%")`, however you need to implement all that behaviour, and copy-paste the unit traits into your code – see the [units](https://github.com/raquo/Laminar/tree/master/src/main/scala/com/raquo/laminar/defs/styles/units) in Laminar for example.  
 
 
 ### Reflected Attributes

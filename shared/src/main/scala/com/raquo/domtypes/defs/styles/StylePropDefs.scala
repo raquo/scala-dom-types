@@ -220,12 +220,10 @@ object StylePropDefs {
       commentLines = List(
         "The CSS align-content property sets the distribution of space between and",
         "around content items along a flexbox's cross-axis or a grid's block axis.",
-        "",
-        "",
-        "@see https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/align-content",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
     ),
 
@@ -241,11 +239,10 @@ object StylePropDefs {
         "as a group. In Flexbox, it controls the alignment of items on the Cross Axis.",
         "In Grid Layout, it controls the alignment of items on the Block Axis within",
         "their grid area.",
-        "",
-        "@see https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/align-items",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
     ),
 
@@ -260,11 +257,10 @@ object StylePropDefs {
         "The align-self CSS property overrides a grid or flex item's align-items",
         "value. In Grid, it aligns the item inside the grid area. In Flexbox,",
         "it aligns the item on the cross axis.",
-        "",
-        "@see https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/align-self",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
     ),
 
@@ -1354,11 +1350,10 @@ object StylePropDefs {
         "flex item to alter its dimensions to fill available space. Flex items can",
         "be stretched to use available space proportional to their flex grow factor",
         "or their flex shrink factor to prevent overflow.",
-        "",
-        "@see https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/flex",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
     ),
 
@@ -1373,11 +1368,10 @@ object StylePropDefs {
         "The CSS flex-basis property specifies the flex basis which is the initial",
         "main size of a flex item. The property determines the size of the",
         "content-box unless specified otherwise using box-sizing.",
-        "",
-        "@see https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
     ),
 
@@ -1398,11 +1392,10 @@ object StylePropDefs {
         "the right to the left; if the dir attribute is rtl, row represents the axis",
         "oriented from the right to the left, and row-reverse from the left to the",
         "right.",
-        "",
-        "@see https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
     ),
 
@@ -1417,11 +1410,10 @@ object StylePropDefs {
         "The CSS flex-grow property specifies the flex grow factor of a flex item.",
         "",
         "Default value is 0.",
-        "",
-        "@see https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
     ),
 
@@ -1436,11 +1428,10 @@ object StylePropDefs {
         "The CSS flex-shrink property specifies the flex shrink factor of a flex item.",
         "",
         "Default value is 1.",
-        "",
-        "@see https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
     ),
 
@@ -1454,11 +1445,10 @@ object StylePropDefs {
       commentLines = List(
         "The CSS flex-wrap property specifies whether the children are forced into",
         "a single line or if the items can be flowed on multiple lines.",
-        "",
-        "@see https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
     ),
 
@@ -1630,8 +1620,6 @@ object StylePropDefs {
         "element.",
         "",
         "The min-height and max-height properties override height.",
-        "",
-        "@see @see https://developer.mozilla.org/en-US/docs/Web/CSS/height",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/height",
@@ -1670,11 +1658,10 @@ object StylePropDefs {
         "are applied, meaning that, if there is at least one flexible element, with",
         "flex-grow different than 0, it will have no effect as there won't be any",
         "available space.",
-        "",
-        "@see https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       ),
     ),
 
@@ -2173,8 +2160,6 @@ object StylePropDefs {
         "The overflow-wrap CSS property specifies whether or not the browser should",
         "insert line breaks within words to prevent text from overflowing its",
         "content box.",
-        "",
-        "Alias for: [[wordWrap]]",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap",

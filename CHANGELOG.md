@@ -2,6 +2,15 @@
 
 **Bolded items** in the log are breaking changes.
 
+#### master
+
+* **New: Output alias links in generated docs**
+* New: Better doc link formatting in generator output
+* New: `scroll-margin-top` CSS property
+* New: `currentcolor` keyword for color props
+* New: `anywhere` keyword for `overflow-wrap` CSS property
+* New: `crossorigin` attribute
+
 #### v17.1.0 – Jul 2023
 
 * Fix: `xmlns` SVG attribute should have no namespace (see [Laminar#143](https://github.com/raquo/Laminar/issues/143))

@@ -120,13 +120,48 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
 
   protected def printImplDefs(): Unit
 
-  protected def commentLinesWithDocs(commentLines: List[String], docUrls: List[String]): List[String] = {
-    (commentLines.nonEmpty, docUrls.nonEmpty) match {
-      case (true, true) =>
-        commentLines ++ List("") ++ docUrls.map("@see " + _)
-      case _ =>
-        commentLines ++ docUrls.map("@see " + _)
+  protected def commentLinesWithDocs(
+    commentLines: List[String],
+    scalaAliases: List[String],
+    docUrls: List[String]
+  ): List[String] = {
+    val aliasLines = if (scalaAliases.isEmpty) {
+      Nil
+    } else {
+      List(s"Aliases: ${scalaAliases.map(alias => s"[[$alias]]").mkString(", ")}")
     }
+    val docLines = if(docUrls.isEmpty) {
+      Nil
+    } else {
+      docUrls.map(urlDocLink(_, prefix = if (docUrls.size > 1) " - " else ""))
+    }
+    // Intersperse with empty lines between sections
+    val lines = List(commentLines, aliasLines, docLines)
+      .filter(_.nonEmpty)
+      .flatMap(list => "" +: list)
+    if (lines.isEmpty) lines else lines.tail
+  }
+
+  protected def urlDocLink(url: String, prefix: String): String = {
+    if (url.startsWith("https://developer.mozilla.org")) {
+      val slashIx = url.lastIndexOf("/")
+      val caption = url.substring(slashIx + 1)
+      s"$prefix[[$url $caption @ MDN]]"
+    } else if (url.startsWith("https://www.w3.org")) {
+      val slashIx = url.lastIndexOf("/")
+      val caption = url.substring(slashIx + 1)
+      s"$prefix[[$url $caption @ W3C]]"
+    } else if (url == "https://css-tricks.com/snippets/css/a-guide-to-flexbox/") {
+      s"$prefix[[$url Guide to Flexbox @ CSS-Tricks]]"
+    } else {
+      fallbackDocLink(url, prefix)
+    }
+  }
+
+  protected def fallbackDocLink(url: String, prefix: String): String = {
+    // Print a warning in generator output.
+    println("WARNING: uncaptioned doc link: " + url)
+    s"$prefix[[$url]]"
   }
 
   def distinctImplNames(): List[String] = {
