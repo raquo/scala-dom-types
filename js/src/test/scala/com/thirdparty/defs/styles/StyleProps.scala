@@ -1705,6 +1705,18 @@ trait StyleProps {
 
 
   /**
+    * The scroll-margin-top property defines the top margin of the scroll snap
+    * area that is used for snapping this box to the snapport. The scroll snap
+    * area is determined by taking the transformed border box, finding its
+    * rectangular bounding box (axis-aligned in the scroll container's coordinate
+    * space), then adding the specified outsets.
+    * 
+    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-top
+    */
+  lazy val scrollMarginTop: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("scroll-margin-top")
+
+
+  /**
     * The table-layout CSS property sets the algorithm used to lay out `<table>`
     * cells, rows, and columns.
     * 

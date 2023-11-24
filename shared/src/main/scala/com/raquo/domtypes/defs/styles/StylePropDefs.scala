@@ -2458,6 +2458,25 @@ object StylePropDefs {
     ),
 
     StylePropDef(
+      scalaName = "scrollMarginTop",
+      domName = "scroll-margin-top",
+      valueType = valueTypes.String,
+      valueTraits = Nil,
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
+      commentLines = List(
+        "The scroll-margin-top property defines the top margin of the scroll snap",
+        "area that is used for snapping this box to the snapport. The scroll snap",
+        "area is determined by taking the transformed border box, finding its",
+        "rectangular bounding box (axis-aligned in the scroll container's coordinate",
+        "space), then adding the specified outsets.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-top",
+      ),
+    ),
+
+    StylePropDef(
       scalaName = "tableLayout",
       domName = "table-layout",
       valueType = valueTypes.String,
