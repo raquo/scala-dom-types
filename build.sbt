@@ -59,6 +59,10 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
     )
   )
   .settings(
+    scalacOptions ++= Seq(
+      "-feature",
+      "-language:higherKinds"
+    ),
     scalacOptions ~= (_.filterNot(Set(
       "-Wunused:params",
       "-Ywarn-unused:params",
