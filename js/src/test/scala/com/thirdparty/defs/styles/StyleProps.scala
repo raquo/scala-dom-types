@@ -1422,6 +1422,8 @@ trait StyleProps {
     * background, even if the element and its children have different opacities
     * relative to one another.
     * 
+    * Accepted values: numbers from 0 (transparent) to 1 (opaque)
+    * 
     * Using this property with a value different than 1 places the element in a
     * new stacking context.
     * 

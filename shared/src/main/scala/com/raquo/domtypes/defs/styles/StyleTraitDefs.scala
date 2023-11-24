@@ -299,6 +299,16 @@ object StyleTraitDefs {
       extendsUnits = Nil,
       keywordDefGroups = OneList(
         StyleKeywordDef(
+          scalaName = "currentColor",
+          domName = "currentcolor",
+          commentLines = List(
+            "The `currentcolor` keyword represents the value of an element's color property.",
+            "This lets you use the color value on properties that do not receive it by default."
+          ),
+          docUrls = Nil,
+        ),
+
+        StyleKeywordDef(
           scalaName = "aqua",
           domName = "aqua",
           commentLines = Nil,
