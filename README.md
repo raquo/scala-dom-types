@@ -50,13 +50,25 @@ Please use [Github issues](https://github.com/raquo/scala-dom-types/issues) for 
 
 **Q: I want to add an element tag / attribute / prop / etc.**
 
-**A:** Awesome! Please open an issue, and we will either ask you to PR it, add it ourselves, or discuss why adding this particular key might not be a good idea.
+**A:** Awesome! It might seem daunting the first time, but it's not hard. Here's how to add a new **key** (i.e. tag / property / attribute / event / etc.):
 
-So far we are focused on HTML5 attributes and read-writeable DOM props, but it doesn't have to stay that way. There is value in providing listings for popular non-standard attributes as well (e.g. `autoCapitalize`, `unSelectable`) but we haven't decided how to deal with those yet. Don't hesitate to trigger this discussion though.
+1. Find the documentation for it on [MDN](https://developer.mozilla.org/en-US/), for example [gap](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
 
-The raw definitions that you need to update are found in the [shared/main/.../defs](https://github.com/raquo/scala-dom-types/tree/master/shared/src/main/scala/com/raquo/domtypes/defs) folder. The sample code generated from those definitions is found in [js/test/.../defs](https://github.com/raquo/scala-dom-types/tree/master/js/src/test/scala/com/thirdparty/defs).
+2. Confirm that it's reasonably well supported by browsers. Support by latest Firefox and Chrome is the bare minimum. [example](https://caniuse.com/?search=gap).
 
-If making a PR, please make sure to run the `GeneratorSpec` test locally, so that the sample generated code is updated before you commit.
+3. If it's a property or an attribute, figure out whether it's: (a) non-reflected attribute, (b) non-reflected property, or (c) reflected property. The latter are pretty common. Read the MDN docs, read the docs below, and see other reflected properties we defined for reference.
+
+4. If applicable, figure out the type of values that this attribute / property / etc. accepts, or the type of events that it fires. See MDN docs for that. Note that we only care about the type that we can write into it, not the type we can read from it (the latter often includes `null` or `js.undefined`). See what codec(s) our other properties of the same type use, it's probably an "as-is" codec like StringAsIsCodec. See the docs on codecs below.
+
+5. You now have enough information to easily test your understanding. For Laminar, try using `htmlAttr` / `htmlProp` / `styleProp` / `eventProp` / etc. locally as [suggested here](https://laminar.dev/documentation#missing-keys). For example: `styleProp("gap") := "20px"`. For other UI libraries using _Scala DOM Types_, see their docs.
+
+6. If everything is looking good, you can now add the information necessary to create a definition for this key. Add it to one of the traits in the [shared/main/.../defs](https://github.com/raquo/scala-dom-types/tree/master/shared/src/main/scala/com/raquo/domtypes/defs) folder. Look at how other keys are done, and follow the lead.
+
+7. Run `sbt test` before committing. This will generate sample code found in [js/test/.../defs](https://github.com/raquo/scala-dom-types/tree/master/js/src/test/scala/com/thirdparty/defs). You should commit that generated code too.
+
+8. And that's it. Send this PR, and I'll check everything (_make sure to provide links to MDN docs!_). You are not blocked by SDT releases – just keep using the temporary syntax from step 5 until the thing you've added to SDT lands in Laminar / Calico / etc.
+
+If this is too much, or if you're not sure about something, open an issue or ask on Laminar discord.
 
 
 ## Why use _Scala DOM Types_
