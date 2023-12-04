@@ -14,6 +14,10 @@ trait SourceRepr {
     if (value) "true" else "false"
   }
 
+  protected def repr(value: Int): String = {
+    value.toString
+  }
+
 }
 
 object SourceRepr extends SourceRepr {
@@ -23,4 +27,6 @@ object SourceRepr extends SourceRepr {
   def apply(str: String): String = repr(str)
 
   def apply(value: Boolean): String = repr(value)
+
+  def apply(value: Int): String = repr(value)
 }
