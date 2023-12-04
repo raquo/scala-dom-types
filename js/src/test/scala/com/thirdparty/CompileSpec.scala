@@ -79,7 +79,7 @@ class CompileSpec extends AnyFunSpec with Matchers {
     assert(html.display.domName == "display")
 
     // Make sure there's no name conflict with htmlRootTag
-    html.htmlTag: Function2[String, Boolean, HtmlTag[dom.HTMLHtmlElement]]
+    val root = (html.htmlTag: Function2[String, Boolean, HtmlTag[dom.HTMLHtmlElement]])
 
     // Event props
 

@@ -28,7 +28,8 @@ trait HtmlAttrs {
     * Declares the character encoding of the page or script. Used on meta and
     * script elements.
     * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-charset object#attr-charset @ MDN]]
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#charset meta#charset @ MDN]]
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#charset script#charset @ MDN]]
     */
   lazy val charset: HtmlAttr[String] = stringHtmlAttr("charset")
 
@@ -77,7 +78,7 @@ trait HtmlAttrs {
     * The `height` attribute specifies the pixel height of the following elements:
     * `<canvas>, <embed>, <iframe>, <img>, <input type="image">, <object>, <video>`
     * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-height object#attr-height @ MDN]]
+    * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#height object#height @ MDN]]
     */
   lazy val heightAttr: HtmlAttr[Int] = intHtmlAttr("height")
 
@@ -91,7 +92,7 @@ trait HtmlAttrs {
     * supported by the browser. For example, file, ftp, and mailto work in most
     * user agents.
     * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href a#attr-href @ MDN]]
+    * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href a#href @ MDN]]
     */
   lazy val href: HtmlAttr[String] = stringHtmlAttr("href")
 
@@ -128,9 +129,9 @@ trait HtmlAttrs {
     * Specifies the URL of an image for `<img>` tag, for `type="image"` input buttons, 
     * or the URL of some other network resources like `<iframe>`.
     * 
-    *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-src img#attr-src @ MDN]]
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#src img#src @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#src input#src @ MDN]]
-    *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-src iframe#attr-src @ MDN]]
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#src iframe#src @ MDN]]
     */
   lazy val src: HtmlAttr[String] = stringHtmlAttr("src")
 
@@ -150,16 +151,14 @@ trait HtmlAttrs {
 
 
   /**
-    * This attribute is used to define the type of the content linked to. The
-    * value of the attribute should be a MIME type such as text/html, text/css,
-    * and so on. The common use of this attribute is to define the type of style
-    * sheet linked and the most common current value is text/css, which indicates
-    * a Cascading Style Sheet format. You can use tpe as an alias for this
-    * attribute so you don't have to backtick-escape this attribute.
+    * This attribute has several meanings depending on what element it's applied to. 
+    * It could indicate the type of a button, an input, a script, a stylesheet, etc.
     * 
     * Aliases: [[typ]], [[tpe]]
     * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-type object#attr-type @ MDN]]
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types input#input_types @ MDN]]
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#type button#type @ MDN]]
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#type object#type @ MDN]]
     */
   lazy val `type`: HtmlAttr[String] = stringHtmlAttr("type")
 
@@ -178,7 +177,7 @@ trait HtmlAttrs {
     * The `width` attribute specifies the pixel width of the following elements:
     * `<canvas>, <embed>, <iframe>, <img>, <input type="image">, <object>, <video>`
     * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-width object#attr-width @ MDN]]
+    * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#width object#width @ MDN]]
     */
   lazy val widthAttr: HtmlAttr[Int] = intHtmlAttr("width")
 

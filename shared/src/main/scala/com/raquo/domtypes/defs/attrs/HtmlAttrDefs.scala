@@ -19,7 +19,8 @@ object HtmlAttrDefs {
         "script elements.",
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-charset",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#charset",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#charset",
       ),
     ),
 
@@ -92,6 +93,9 @@ object HtmlAttrDefs {
       ),
     ),
 
+    // This is NOT a true reflected attribute - the `form` property contains a reference
+    // the form element itself (an instance of dom.html.Form), whereas the form attribute
+    // contains the ID attribute of that element.
     AttrDef(
       tagType = HtmlTagType,
       scalaName = "formId",
@@ -117,7 +121,7 @@ object HtmlAttrDefs {
         "`<canvas>, <embed>, <iframe>, <img>, <input type=\"image\">, <object>, <video>`",
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-height",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#height",
       ),
     ),
 
@@ -141,7 +145,7 @@ object HtmlAttrDefs {
         "user agents.",
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href",
       ),
     ),
 
@@ -209,9 +213,9 @@ object HtmlAttrDefs {
         "or the URL of some other network resources like `<iframe>`.",
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-src",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#src",
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#src",
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-src",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#src",
       ),
     ),
 
@@ -245,15 +249,13 @@ object HtmlAttrDefs {
       scalaValueType = "String",
       codec = "StringAsIs",
       commentLines = List(
-        "This attribute is used to define the type of the content linked to. The",
-        "value of the attribute should be a MIME type such as text/html, text/css,",
-        "and so on. The common use of this attribute is to define the type of style",
-        "sheet linked and the most common current value is text/css, which indicates",
-        "a Cascading Style Sheet format. You can use tpe as an alias for this",
-        "attribute so you don't have to backtick-escape this attribute.",
+        "This attribute has several meanings depending on what element it's applied to. ",
+        "It could indicate the type of a button, an input, a script, a stylesheet, etc."
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-type",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#type",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#type",
       ),
     ),
 
@@ -282,7 +284,7 @@ object HtmlAttrDefs {
         "`<canvas>, <embed>, <iframe>, <img>, <input type=\"image\">, <object>, <video>`",
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-width",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#width",
       ),
     ),
 

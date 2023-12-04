@@ -987,6 +987,8 @@ object SvgAttrDefs {
       ),
     ),
 
+    // This is NOT a true reflected attribute - the `href` property contains the
+    // absolute URL (`href` attribute value resolved relative to current page URL)
     AttrDef(
       tagType = SvgTagType,
       scalaName = "href",
