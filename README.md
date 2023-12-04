@@ -6,7 +6,7 @@
 _Scala DOM Types_ provides listings of Javascript HTML and SVG tags as well as their attributes, DOM properties, and CSS styles, including the corresponding type information.
 
     "com.raquo" %% "domtypes" % "<version>"     // JVM & SBT
-    "com.raquo" %%% "domtypes" % "<version>"    // Scala.js 1.13.2+
+    "com.raquo" %%% "domtypes" % "<version>"    // Scala.js 1.14.0
 
 _Scala DOM Types_ is used by the following Scala.js UI libraries:
 
@@ -19,6 +19,8 @@ _Scala DOM Types_ is used by the following Scala.js UI libraries:
 As well as by:
 
 * [Scala DOM Test Utils](https://github.com/raquo/scala-dom-testutils), a library that verifies that your DOM node / tree matches the spec
+
+As the end-user of these libraries, you do not depend on _Scala DOM Types_ at runtime, those libraries use it at their compile time (for SDT v17.0.0+).
 
 
 ## Table of Contents
@@ -60,15 +62,17 @@ Please use [Github issues](https://github.com/raquo/scala-dom-types/issues) for 
 
 4. If applicable, figure out the type of values that this attribute / property / etc. accepts, or the type of events that it fires. See MDN docs for that. Note that we only care about the type that we can write into it, not the type we can read from it (the latter often includes `null` or `js.undefined`). See what codec(s) our other properties of the same type use, it's probably an "as-is" codec like StringAsIsCodec. See the docs on codecs below.
 
-5. You now have enough information to easily test your understanding. For Laminar, try using `htmlAttr` / `htmlProp` / `styleProp` / `eventProp` / etc. locally as [suggested here](https://laminar.dev/documentation#missing-keys). For example: `styleProp("gap") := "20px"`. For other UI libraries using _Scala DOM Types_, see their docs.
+5. Figure out what the new key should be called, according to the naming convention documented below.
 
-6. If everything is looking good, you can now add the information necessary to create a definition for this key. Add it to one of the traits in the [shared/main/.../defs](https://github.com/raquo/scala-dom-types/tree/master/shared/src/main/scala/com/raquo/domtypes/defs) folder. Look at how other keys are done, and follow the lead.
+6. You now have enough information to easily test your understanding. For Laminar, try using `htmlAttr` / `htmlProp` / `styleProp` / `eventProp` / etc. locally as [suggested here](https://laminar.dev/documentation#missing-keys). For example: `styleProp("gap") := "20px"`. For other UI libraries using _Scala DOM Types_, see their docs.
 
-7. Run `sbt test` before committing. This will generate sample code found in [js/test/.../defs](https://github.com/raquo/scala-dom-types/tree/master/js/src/test/scala/com/thirdparty/defs). You should commit that generated code too.
+7. If everything is looking good, you can now add the information necessary to create an SDT definition for this key. Add it to one of the traits in the [shared/main/.../defs](https://github.com/raquo/scala-dom-types/tree/master/shared/src/main/scala/com/raquo/domtypes/defs) folder. Look at how other keys are done, and follow the lead. CSS props require a bit more annotation than others. Look at our defs for other CSS props of the same type to see which `valueTraits`, `valueUnits`, and `implName` to specify.
 
-8. And that's it. Send this PR, and I'll check everything (_make sure to provide links to MDN docs!_). You are not blocked by SDT releases – just keep using the temporary syntax from step 5 until the thing you've added to SDT lands in Laminar / Calico / etc.
+8. Run `sbt test` before committing. This will make a few sanity checks, and generate sample code found in [js/test/.../defs](https://github.com/raquo/scala-dom-types/tree/master/js/src/test/scala/com/thirdparty/defs). You should commit that generated code too.
 
-If this is too much, or if you're not sure about something, open an issue or ask on Laminar discord.
+9. And that's it. Send this PR, and I'll check everything (_make sure to provide links to MDN docs!_). You are not blocked by SDT releases – just keep using the temporary syntax from step 6 until the thing you've added to SDT lands in Laminar / Calico / etc.
+
+If this is too much for you right now, or if you're not sure about something, open an issue or ask on Laminar discord.
 
 
 ## Why use _Scala DOM Types_

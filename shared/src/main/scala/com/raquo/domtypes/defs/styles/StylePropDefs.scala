@@ -1090,11 +1090,11 @@ object StylePropDefs {
       valueUnits = List(valueUnits.Length),
       implName = implNames.lengthStyle,
       commentLines = List(
-        "The column-gap CSS property sets the size of the gap between columns for",
-        "elements which are specified to display as a multi-column element.",
+        "The column-gap CSS property sets the size of the gap (gutter) between an element's columns.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap",
       ),
     ),
 
@@ -1604,6 +1604,23 @@ object StylePropDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight",
+      ),
+    ),
+
+    StylePropDef(
+      scalaName = "gap",
+      domName = "gap",
+      valueType = valueTypes.String,
+      valueTraits = Nil,
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
+      commentLines = List(
+        "The gap CSS shorthand property sets the gaps (gutters) between rows and columns.",
+        "This property lets you set both `column-gap` and `row-gap` at the same time."
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/gap",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap",
       ),
     ),
 
@@ -2458,6 +2475,22 @@ object StylePropDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-top",
+      ),
+    ),
+
+    StylePropDef(
+      scalaName = "rowGap",
+      domName = "row-gap",
+      valueType = valueTypes.String,
+      valueTraits = Nil,
+      valueUnits = List(valueUnits.Length),
+      implName = implNames.lengthStyle,
+      commentLines = List(
+        "The row-gap CSS property sets the size of the gap (gutter) between an element's rows.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap",
+        "https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap",
       ),
     ),
 

@@ -846,10 +846,10 @@ trait StyleProps {
 
 
   /**
-    * The column-gap CSS property sets the size of the gap between columns for
-    * elements which are specified to display as a multi-column element.
+    * The column-gap CSS property sets the size of the gap (gutter) between an element's columns.
     * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap column-gap @ MDN]]
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap column-gap @ MDN]]
+    *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap]]
     */
   lazy val columnGap: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("column-gap")
 
@@ -1172,6 +1172,16 @@ trait StyleProps {
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight font-weight @ MDN]]
     */
   lazy val fontWeight: StyleProp[String] with s.FontWeight = fontWeightStyle("font-weight")
+
+
+  /**
+    * The gap CSS shorthand property sets the gaps (gutters) between rows and columns.
+    * This property lets you set both `column-gap` and `row-gap` at the same time.
+    * 
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/gap gap @ MDN]]
+    *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap]]
+    */
+  lazy val gap: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("gap")
 
 
   /**
@@ -1701,6 +1711,15 @@ trait StyleProps {
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-top scroll-margin-top @ MDN]]
     */
   lazy val scrollMarginTop: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("scroll-margin-top")
+
+
+  /**
+    * The row-gap CSS property sets the size of the gap (gutter) between an element's rows.
+    * 
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap row-gap @ MDN]]
+    *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap]]
+    */
+  lazy val rowGap: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("row-gap")
 
 
   /**

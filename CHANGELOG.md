@@ -2,14 +2,15 @@
 
 **Bolded items** in the log are breaking changes.
 
-#### master
+#### v18.0.0
 
 * **New: Output alias links in generated docs**
 * New: Better doc link formatting in generator output
 * New: `scroll-margin-top` CSS property
 * New: `currentcolor` keyword for color props
 * New: `anywhere` keyword for `overflow-wrap` CSS property
-* New: `crossorigin` attribute
+* New: `crossorigin` attribute (Thanks, [@cyz1901](https://github.com/cyz1901)!)
+* New: `gap` and `column-gap`
 
 #### v17.1.0 – Jul 2023
 

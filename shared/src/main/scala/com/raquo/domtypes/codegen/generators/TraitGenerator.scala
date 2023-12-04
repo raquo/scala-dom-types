@@ -151,7 +151,7 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
       val slashIx = url.lastIndexOf("/")
       val caption = url.substring(slashIx + 1)
       s"$prefix[[$url $caption @ W3C]]"
-    } else if (url == "https://css-tricks.com/snippets/css/a-guide-to-flexbox/") {
+    } else if (url.startsWith("https://css-tricks.com/snippets/css/a-guide-to-flexbox/")) {
       s"$prefix[[$url Guide to Flexbox @ CSS-Tricks]]"
     } else {
       fallbackDocLink(url, prefix)
