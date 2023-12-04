@@ -1,8 +1,10 @@
 # Changelog
 
-**Bolded items** in the log are breaking changes.
+**Bolded items** in the log are breaking changes. Starting with v17, typical end users do not depend on SDT, their UI libraries do, at those libraries' compile time only. So, "breaking changes" are not necessarily breaking to end users anymore.
 
-#### v18.0.0
+As an end user, the only breaking chages you care about in this log are renamings or codec changes.
+
+#### v18.0.0 – Dec 2023
 
 * **New: Output alias links in generated docs**
 * New: Better doc link formatting in generator output
