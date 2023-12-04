@@ -849,7 +849,7 @@ trait StyleProps {
     * The column-gap CSS property sets the size of the gap (gutter) between an element's columns.
     * 
     *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap column-gap @ MDN]]
-    *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap]]
+    *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap Guide to Flexbox @ CSS-Tricks]]
     */
   lazy val columnGap: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("column-gap")
 
@@ -1179,7 +1179,7 @@ trait StyleProps {
     * This property lets you set both `column-gap` and `row-gap` at the same time.
     * 
     *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/gap gap @ MDN]]
-    *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap]]
+    *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap Guide to Flexbox @ CSS-Tricks]]
     */
   lazy val gap: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("gap")
 
@@ -1717,7 +1717,7 @@ trait StyleProps {
     * The row-gap CSS property sets the size of the gap (gutter) between an element's rows.
     * 
     *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap row-gap @ MDN]]
-    *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap]]
+    *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap Guide to Flexbox @ CSS-Tricks]]
     */
   lazy val rowGap: StyleProp[String] with u.Length[DSP, Int] = lengthStyle("row-gap")
 
