@@ -45,6 +45,7 @@ class CanonicalDefGroups {
   val globalEventPropDefGroups: List[(String, List[EventPropDef])] = List(
     "Mouse Events" -> MouseEventPropDefs.defs,
     "Pointer Events" -> PointerEventPropDefs.defs,
+    "Touch Events" -> TouchEventPropDefs.defs,
     "Form Events" -> FormEventPropDefs.defs,
     "Keyboard Events" -> KeyboardEventPropDefs.defs,
     "Clipboard Events" -> ClipboardEventPropDefs.defs,
