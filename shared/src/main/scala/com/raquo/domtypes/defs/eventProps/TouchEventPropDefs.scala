@@ -17,7 +17,8 @@ object TouchEventPropDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/API/Element/touchstart_event",
-        "https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent"
+        "https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Touch_events#browser_compatibility",
       ),
     ),
 
@@ -32,7 +33,8 @@ object TouchEventPropDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/API/Element/touchmove_event",
-        "https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent"
+        "https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Touch_events#browser_compatibility",
       ),
     ),
 
@@ -47,7 +49,8 @@ object TouchEventPropDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/API/Element/touchcancel_event",
-        "https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent"
+        "https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Touch_events#browser_compatibility",
       ),
     ),
 
@@ -63,7 +66,8 @@ object TouchEventPropDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/API/Element/touchend_event",
-        "https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent"
+        "https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Touch_events#browser_compatibility",
       ),
     ),
   )
