@@ -6,7 +6,7 @@
 _Scala DOM Types_ provides listings of Javascript HTML and SVG tags as well as their attributes, DOM properties, and CSS styles, including the corresponding type information.
 
     "com.raquo" %% "domtypes" % "<version>"     // JVM & SBT
-    "com.raquo" %%% "domtypes" % "<version>"    // Scala.js 1.14.0
+    "com.raquo" %%% "domtypes" % "<version>"    // Scala.js 1.16.0+
 
 _Scala DOM Types_ is used by the following Scala.js UI libraries:
 

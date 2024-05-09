@@ -4,6 +4,12 @@
 
 As an end user, the only breaking chages you care about in this log are renamings or codec changes.
 
+#### v18.1.0 – May 2024
+
+* New: Support for Touch events (Thanks, [@felher](https://github.com/felher)!)
+* Fix: fuchsia color spelling
+* Build: Bump versions incl. Scala.js to 1.16.0
+
 #### v18.0.0 – Dec 2023
 
 * **New: Output alias links in generated docs**
