@@ -337,8 +337,8 @@ object StyleTraitDefs {
         ),
 
         StyleKeywordDef(
-          scalaName = "fuschia",
-          domName = "fuschia",
+          scalaName = "fuchsia",
+          domName = "fuchsia",
           commentLines = Nil,
           docUrls = Nil,
         ),

@@ -24,7 +24,7 @@ trait Color { this: StyleProp[_] =>
 
   lazy val cyan: StyleSetter[_] = this := "cyan"
 
-  lazy val fuschia: StyleSetter[_] = this := "fuschia"
+  lazy val fuchsia: StyleSetter[_] = this := "fuchsia"
 
   lazy val gray: StyleSetter[_] = this := "gray"
 
