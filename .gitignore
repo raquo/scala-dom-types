@@ -1,7 +1,8 @@
 target
 js/yarn.lock
 .bsp
-
 .idea
-
 .DS_Store
+*.bloop
+*.metals
+*metals.sbt

@@ -1,4 +1,5 @@
-import VersionHelper.{versionFmt, fallbackVersion}
+import VersionHelper.fallbackVersion
+import VersionHelper.versionFmt
 
 // Lets me depend on Maven Central artifacts immediately without waiting
 resolvers ++= Resolver.sonatypeOssRepos("public")
@@ -25,7 +26,6 @@ ThisBuild / dynver := {
 lazy val commonSettings = Seq(
   name := "Scala DOM Types",
   organization := "com.raquo",
-  normalizedName := "domtypes",
   homepage := Some(url("https://github.com/raquo/scala-dom-types")),
   licenses += ("MIT", url("https://github.com/raquo/scala-dom-types/blob/master/LICENSE.md")),
   scmInfo := Some(
@@ -46,12 +46,18 @@ lazy val noPublish = Seq(
   publish / skip := true
 )
 
-lazy val root = project.in(file("."))
-  .aggregate(domtypesJVM, domtypesJS) // order is important: first, generate sample traits, then try to compile them on the frontend
+lazy val root = project
+  .in(file("."))
+  .aggregate(
+    domtypesJVM,
+    domtypesJS,
+    sbtDomtypes
+  ) // order is important: first, generate sample traits, then try to compile them on the frontend
   .settings(commonSettings)
   .settings(noPublish)
 
-lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
+lazy val domtypes = crossProject(JSPlatform, JVMPlatform)
+  .in(file("."))
   .settings(commonSettings)
   .settings(
     libraryDependencies ++= Seq(
@@ -59,16 +65,21 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
     )
   )
   .settings(
+    normalizedName := "domtypes",
     scalacOptions ++= Seq(
       "-feature",
       "-language:higherKinds"
     ),
-    scalacOptions ~= (_.filterNot(Set(
-      "-Wunused:params",
-      "-Ywarn-unused:params",
-      "-Wunused:explicits"
-    ))),
-    (Compile / doc / scalacOptions) ~= (_.filter(_.startsWith("-Xplugin"))), // https://github.com/DavidGregory084/sbt-tpolecat/issues/36
+    scalacOptions ~= (_.filterNot(
+      Set(
+        "-Wunused:params",
+        "-Ywarn-unused:params",
+        "-Wunused:explicits"
+      )
+    )),
+    (Compile / doc / scalacOptions) ~= (_.filter(
+      _.startsWith("-Xplugin")
+    )), // https://github.com/DavidGregory084/sbt-tpolecat/issues/36
     (Compile / doc / scalacOptions) ++= Seq(
       "-no-link-warnings" // Suppress scaladoc "Could not find any member to link for" warnings
     ),
@@ -96,3 +107,29 @@ lazy val domtypes = crossProject(JSPlatform, JVMPlatform).in(file("."))
 
 lazy val domtypesJS = domtypes.js
 lazy val domtypesJVM = domtypes.jvm
+
+lazy val sbtDomtypes = project
+  .in(file("sbt-domtypes"))
+  .enablePlugins(SbtPlugin)
+  .dependsOn(domtypesJVM)
+  .settings(commonSettings: _*)
+  .settings(
+    normalizedName := "sbt-domtypes",
+    sbtPlugin := true,
+    name := "sbt-domtypes",
+    scalaVersion := Versions.Scala_2_12,
+    scriptedLaunchOpts := {
+      scriptedLaunchOpts.value ++ Seq(
+        "-Xmx1024M",
+        "-Dplugin.version=" + version.value
+      )
+    },
+    scriptedBufferLog := false,
+    addSbtPlugin("org.scala-js" % "sbt-scalajs" % Versions.ScalaJs),
+    (Compile / resourceGenerators) += Def.task {
+      val file =
+        (Compile / resourceManaged).value / "domtypes-version.properties"
+      IO.write(file, s"domtypes.version=${version.value}")
+      Seq(file)
+    }
+  )
