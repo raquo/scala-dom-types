@@ -1,0 +1,5 @@
+# Print the version of scala-domtypes to make sure the plugin is synced correctly.
+> show domtypesVersion
+
+> show customElementsJsonFile
+> customElementsManifest

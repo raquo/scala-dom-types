@@ -114,9 +114,9 @@ lazy val sbtDomtypes = project
   .dependsOn(domtypesJVM)
   .settings(commonSettings: _*)
   .settings(
+    name := "sbt-domtypes",
     normalizedName := "sbt-domtypes",
     sbtPlugin := true,
-    name := "sbt-domtypes",
     scalaVersion := Versions.Scala_2_12,
     scriptedLaunchOpts := {
       scriptedLaunchOpts.value ++ Seq(
@@ -126,6 +126,10 @@ lazy val sbtDomtypes = project
     },
     scriptedBufferLog := false,
     addSbtPlugin("org.scala-js" % "sbt-scalajs" % Versions.ScalaJs),
+    libraryDependencies ++= Seq(
+      "com.lihaoyi" %% "upickle" % "3.1.3", // for parsing custom-elements.json
+      "com.lihaoyi" %% "pprint" % "0.7.0"
+    ),
     (Compile / resourceGenerators) += Def.task {
       val file =
         (Compile / resourceManaged).value / "domtypes-version.properties"

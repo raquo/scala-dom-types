@@ -1,0 +1,11 @@
+# Print the version of scala-domtypes to make sure the plugin is synced correctly.
+> show domtypesVersion
+
+# `compile` fails because generated code assumes hand-coded types in the same package
+# which are not provided in this test project (yet) such as `keys` and `codecs` packages.
+# Testing for failure is good in the sense that it at least shows generated code is on the classpath.
+# TODO: add stubs of the assumed hand-crafted code so the test build compiles?
+-> compile
+
+# Print all the generated source files for debugging purposes. Can remove.
+> show sourceManaged
