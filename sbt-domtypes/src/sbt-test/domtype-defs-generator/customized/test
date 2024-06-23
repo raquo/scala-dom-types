@@ -7,5 +7,8 @@
 # TODO: add stubs of the assumed hand-crafted code so the test build compiles?
 -> compile
 
+# Make sure overridden config creates files as expected
+$ exists target/scala-2.12/src_managed/main/scala/com/example/test2/defs/attrs/AriaAttrs.scala
+
 # Print all the generated source files for debugging purposes. Can remove.
-# > show sourceManaged
+> show sourceManaged
