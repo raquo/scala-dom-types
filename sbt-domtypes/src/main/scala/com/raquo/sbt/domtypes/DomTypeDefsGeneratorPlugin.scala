@@ -6,14 +6,6 @@ import sbt.Keys.*
 /** Plugin that provides code generation for DOM type definitions. */
 object DomTypeDefsGeneratorPlugin extends AutoPlugin {
 
-  /** Configuration for file generator. */
-  // This could be extended and/or moved into the core library
-  final case class Config(
-      typeDefsPackage: String,
-      settersPackagePath: Option[String] = None,
-      scalaJsElementTypeParam: Option[String] = None
-  )
-
   override def requires = ScalaDomTypesPlugin
 
   object autoImport {
