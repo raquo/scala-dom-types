@@ -17,6 +17,9 @@ package com.raquo.domtypes.common
   * @param scalaValueType - Type of values you can write to this attribute in Scala
   *                         Note: in the DOM, the attribute's value is always `String`.
   * @param codec          - Codec needed to convert between `scalaValueType` and String
+  * @param reflectedProp  - If the attribute is reflected, this is the corresponding property.
+  *                         Note that the linked prop instance will NOT have this attr
+  *                         in its `reflectedAttr` field to prevent a cyclic reference.
   * @param commentLines   - Scaladoc comment lines for this key
   * @param docUrls        - Scaladoc documentation URLs for this key
   */
@@ -28,6 +31,7 @@ case class AttrDef(
   namespace: Option[String],
   scalaValueType: String,
   codec: String,
+  reflectedProp: Option[PropDef],
   override val commentLines: List[String],
   override val docUrls: List[String]
 ) extends KeyDef {

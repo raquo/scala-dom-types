@@ -79,25 +79,27 @@ class PropsTraitGenerator(
     line()
     line()
 
-    distinctImplNames().foreach { implName =>
-      line(
-        InlineProtectedDef.codeStr,
-        " ",
-        implName,
-        s"($keyImplNameArgName: String)",
-        ": ",
-        keyKind,
-        "[",
-        scalaValueTypeByImplName(implName),
-        ", ",
-        domValueTypeByImplName(implName),
-        "]",
-        " = ",
-        baseImplName,
-        s"($keyImplNameArgName, ${transformCodecName(codecByImplName(implName))})",
-      )
-      line()
-    }
+    distinctImplNames().foreach(printImplDef)
+  }
+
+  protected def printImplDef(implName: String): Unit = {
+    line(
+      InlineProtectedDef.codeStr,
+      " ",
+      implName,
+      s"($keyImplNameArgName: String)",
+      ": ",
+      keyKind,
+      "[",
+      scalaValueTypeByImplName(implName),
+      ", ",
+      domValueTypeByImplName(implName),
+      "]",
+      " = ",
+      baseImplName,
+      s"($keyImplNameArgName, ${transformCodecName(codecByImplName(implName))})",
+    )
+    line()
   }
 
 }

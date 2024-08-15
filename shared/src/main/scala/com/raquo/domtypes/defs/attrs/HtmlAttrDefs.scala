@@ -14,6 +14,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Declares the character encoding of the page or script. Used on meta and",
         "script elements.",
@@ -31,6 +32,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates whether the element should be editable by the user.",
         "If so, the browser modifies its widget to allow editing.",
@@ -47,6 +49,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Specifies a context menu for an element by its element id.",
         "The context menu appears when a user right-clicks on the element",
@@ -63,6 +66,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Specifies whether the dragged data is copied, moved, or linked, when dropped",
         "Acceptable values: `copy` | `move` | `link`",
@@ -82,6 +86,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The `formaction` attribute provides the URL that will process the input control ",
         "when the form is submitted and overrides the default `action` attribute of the ",
@@ -103,6 +108,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The form attribute specifies an ID of the form an `<input>` element belongs to.",
       ),
@@ -116,6 +122,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "Int",
       codec = "IntAsString",
+      reflectedProp = None,
       commentLines = List(
         "The `height` attribute specifies the pixel height of the following elements:",
         "`<canvas>, <embed>, <iframe>, <img>, <input type=\"image\">, <object>, <video>`",
@@ -135,6 +142,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "This is the single required attribute for anchors defining a hypertext",
         "source link. It indicates the link target, either a URL or a URL fragment.",
@@ -156,6 +164,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Identifies a list of pre-defined options to suggest to the user. The value must be",
         "the id of a [[FormTags.dataList]] element in",
@@ -173,6 +182,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The max attribute specifies the maximum value for an `<input>` element of type",
         "number, range, date, datetime, datetime-local, month, time, or week.",
@@ -189,6 +199,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The min attribute specifies the minimum value for an `<input>` element of type",
         "number, range, date, datetime, datetime-local, month, time, or week.",
@@ -208,6 +219,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Specifies the URL of an image for `<img>` tag, for `type=\"image\"` input buttons, ",
         "or the URL of some other network resources like `<iframe>`.",
@@ -226,6 +238,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The step attribute specifies the numeric intervals for an `<input>` element",
         "that should be considered legal for the input. For example, if step is 2",
@@ -248,6 +261,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "This attribute has several meanings depending on what element it's applied to. ",
         "It could indicate the type of a button, an input, a script, a stylesheet, etc."
@@ -266,6 +280,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsOnOffString",
+      reflectedProp = None,
       commentLines = List(
         "IE-specific property to prevent user selection",
       ),
@@ -279,6 +294,7 @@ object HtmlAttrDefs {
       namespace = None,
       scalaValueType = "Int",
       codec = "IntAsString",
+      reflectedProp = None,
       commentLines = List(
         "The `width` attribute specifies the pixel width of the following elements:",
         "`<canvas>, <embed>, <iframe>, <img>, <input type=\"image\">, <object>, <video>`",

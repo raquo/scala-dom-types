@@ -13,6 +13,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = List(
         "This attribute defines the distance from the origin to the top of accent characters,",
         "measured by a distance within the font coordinate system.",
@@ -33,6 +34,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "This attribute controls whether or not the animation is cumulative.",
         "It is frequently useful for repeated animations to build upon the previous results,",
@@ -53,6 +55,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "This attribute controls whether or not the animation is additive.",
         "It is frequently useful to define animation as an offset or delta",
@@ -74,6 +77,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The alignment-baseline attribute specifies how an object is aligned",
         "with respect to its parent. This property specifies which baseline",
@@ -100,6 +104,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = List(
         "This attribute defines the maximum unaccented depth of the font",
         "within the font coordinate system. If the attribute is not specified,",
@@ -120,6 +125,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "This attribute indicates the name of the attribute in the parent element",
         "that is going to be changed during an animation.",
@@ -138,6 +144,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "This attribute specifies the namespace in which the target attribute",
         "and its associated values are defined.",
@@ -156,6 +163,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = List(
         "The azimuth attribute represent the direction angle for the light",
         "source on the XY plane (clockwise), in degrees from the x axis.",
@@ -176,6 +184,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The baseFrequency attribute represent The base frequencies parameter",
         "for the noise function of the `<feturbulence>` primitive. If two `<number>`s",
@@ -200,6 +209,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The baseline-shift attribute allows repositioning of the dominant-baseline",
         "relative to the dominant-baseline of the parent text content element.",
@@ -221,6 +231,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "This attribute defines when an animation should begin.",
         "The attribute value is a semicolon separated list of values. The interpretation",
@@ -243,6 +254,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = List(
         "The bias attribute shifts the range of the filter. After applying the kernelMatrix",
         "of the `<feConvolveMatrix>` element to the input image to yield a number and applied",
@@ -264,6 +276,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "This attribute specifies the interpolation mode for the animation. The default",
         "mode is linear, however if the attribute does not support linear interpolation",
@@ -283,6 +296,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The clip attribute has the same parameter values as defined for the css clip property.",
         "Unitless values, which indicate current user coordinates, are permitted on the coordinate",
@@ -305,6 +319,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The clip-path attribute bind the element is applied to with a given `<clipPath>` element",
         "As a presentation attribute, it also can be used as a property directly inside a CSS stylesheet",
@@ -323,6 +338,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The clipPathUnits attribute defines the coordinate system for the contents",
         "of the `<clipPath>` element. the clipPathUnits attribute is not specified,",
@@ -346,6 +362,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The clip-rule attribute only applies to graphics elements that are contained within a",
         "`<clipPath>` element. The clip-rule attribute basically works as the fill-rule attribute,",
@@ -365,6 +382,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The color attribute is used to provide a potential indirect value (currentColor)",
         "for the fill, stroke, stop-color, flood-color and lighting-color attributes.",
@@ -385,6 +403,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The color-interpolation attribute specifies the color space for gradient interpolations,",
         "color animations and alpha compositing.When a child element is blended into a background,",
@@ -412,6 +431,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The color-interpolation-filters attribute specifies the color space for imaging operations",
         "performed via filter effects. Note that color-interpolation-filters has a different",
@@ -436,6 +456,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The color-profile attribute is used to define which color profile a raster image",
         "included through the `<image>` element should use. As a presentation attribute, it",
@@ -456,6 +477,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The color-rendering attribute provides a hint to the SVG user agent about how to",
         "optimize its color interpolation and compositing operations. color-rendering",
@@ -481,6 +503,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The contentScriptType attribute on the `<svg>` element specifies the default scripting",
         "language for the given document fragment.",
@@ -503,6 +526,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "This attribute specifies the style sheet language for the given document fragment.",
         "The contentStyleType is specified on the `<svg>` element. By default, if it's not defined,",
@@ -522,6 +546,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The cursor attribute specifies the mouse cursor displayed when the mouse pointer",
         "is over an element.This attribute behave exactly like the css cursor property except",
@@ -545,6 +570,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "For the `<circle>` and the `<ellipse>` element, this attribute define the x-axis coordinate",
         "of the center of the element. If the attribute is not specified, the effect is as if a",
@@ -568,6 +594,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "For the `<circle>` and the `<ellipse>` element, this attribute define the y-axis coordinate",
         "of the center of the element. If the attribute is not specified, the effect is as if a",
@@ -591,6 +618,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d",
@@ -604,6 +632,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/diffuseConstant",
@@ -617,6 +646,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/direction",
@@ -630,6 +660,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/display",
@@ -643,6 +674,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/divisor",
@@ -656,6 +688,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dominant-baseline",
@@ -669,6 +702,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dur",
@@ -682,6 +716,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dx",
@@ -695,6 +730,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy",
@@ -708,6 +744,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/edgeMode",
@@ -721,6 +758,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/elevation",
@@ -734,6 +772,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/end",
@@ -747,6 +786,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/externalResourcesRequired",
@@ -760,6 +800,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill",
@@ -773,6 +814,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-opacity",
@@ -786,6 +828,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule",
@@ -799,6 +842,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/filter",
@@ -812,6 +856,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/filterRes",
@@ -825,6 +870,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/filterUnits",
@@ -838,6 +884,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/flood-color",
@@ -851,6 +898,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/flood-opacity",
@@ -864,6 +912,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-family",
@@ -877,6 +926,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-size",
@@ -890,6 +940,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-size-adjust",
@@ -903,6 +954,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-stretch",
@@ -916,6 +968,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-variant",
@@ -929,6 +982,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-weight",
@@ -942,6 +996,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/from",
@@ -955,6 +1010,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/gradientTransform",
@@ -968,6 +1024,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/gradientUnits",
@@ -981,6 +1038,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/height",
@@ -996,6 +1054,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/href",
@@ -1009,6 +1068,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/imageRendering",
@@ -1022,6 +1082,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/id",
@@ -1035,6 +1096,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/in",
@@ -1048,6 +1110,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/in2",
@@ -1061,6 +1124,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/k1",
@@ -1074,6 +1138,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/k2",
@@ -1087,6 +1152,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/k3",
@@ -1100,6 +1166,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/k4",
@@ -1113,6 +1180,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/kernelMatrix",
@@ -1126,6 +1194,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/kernelUnitLength",
@@ -1139,6 +1208,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/kerning",
@@ -1152,6 +1222,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/keySplines",
@@ -1165,6 +1236,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/keyTimes",
@@ -1178,6 +1250,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/letter-spacing",
@@ -1191,6 +1264,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lighting-color",
@@ -1204,6 +1278,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/limitingConeAngle",
@@ -1217,6 +1292,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/local",
@@ -1230,6 +1306,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-end",
@@ -1243,6 +1320,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-mid",
@@ -1256,6 +1334,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-start",
@@ -1269,6 +1348,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/markerHeight",
@@ -1282,6 +1362,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/markerUnits",
@@ -1295,6 +1376,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/markerWidth",
@@ -1308,6 +1390,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/maskContentUnits",
@@ -1321,6 +1404,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/maskUnits",
@@ -1334,6 +1418,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/mask",
@@ -1347,6 +1432,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/max",
@@ -1360,6 +1446,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/min",
@@ -1373,6 +1460,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/mode",
@@ -1386,6 +1474,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Int",
       codec = "IntAsString",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/numOctaves",
@@ -1399,6 +1488,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/offset",
@@ -1412,6 +1502,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "This attribute defines the orientation of the marker relative to the shape it is attached to.",
         "",
@@ -1429,6 +1520,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/opacity",
@@ -1442,6 +1534,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/operator",
@@ -1455,6 +1548,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/order",
@@ -1468,6 +1562,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/overflow",
@@ -1481,6 +1576,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/paint-order",
@@ -1494,6 +1590,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pathLength",
@@ -1507,6 +1604,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/patternContentUnits",
@@ -1520,6 +1618,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/patternTransform",
@@ -1533,6 +1632,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/patternUnits",
@@ -1546,6 +1646,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pointer-events",
@@ -1559,6 +1660,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/points",
@@ -1572,6 +1674,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pointsAtX",
@@ -1585,6 +1688,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pointsAtY",
@@ -1598,6 +1702,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pointsAtZ",
@@ -1611,6 +1716,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/preserveAlpha",
@@ -1624,6 +1730,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/preserveAspectRatio",
@@ -1637,6 +1744,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/primitiveUnits",
@@ -1650,6 +1758,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/r",
@@ -1663,6 +1772,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/radius",
@@ -1676,6 +1786,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The refX attribute is used alongside the refY attribute to provide coordinates for the location on the",
         "marker where it will be joined to its markable element. Coordinates are relative to the marker's",
@@ -1694,6 +1805,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "The refY attribute is used alongside the refY attribute to provide coordinates for the location on the",
         "marker where it will be joined to its markable element. Coordinates are relative to the marker's",
@@ -1712,6 +1824,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/repeatCount",
@@ -1725,6 +1838,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/repeatDur",
@@ -1738,6 +1852,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/requiredFeatures",
@@ -1751,6 +1866,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/restart",
@@ -1764,6 +1880,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/result",
@@ -1777,6 +1894,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/rx",
@@ -1790,6 +1908,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/ry",
@@ -1803,6 +1922,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/scale",
@@ -1816,6 +1936,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/seed",
@@ -1829,6 +1950,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/shape-rendering",
@@ -1842,6 +1964,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/specularConstant",
@@ -1855,6 +1978,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/specularExponent",
@@ -1868,6 +1992,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/spreadMethod",
@@ -1881,6 +2006,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stdDeviation",
@@ -1894,6 +2020,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stitchTiles",
@@ -1907,6 +2034,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stop-color",
@@ -1920,6 +2048,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stop-opacity",
@@ -1933,6 +2062,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke",
@@ -1946,6 +2076,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray",
@@ -1959,6 +2090,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dashoffset",
@@ -1972,6 +2104,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap",
@@ -1985,6 +2118,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linejoin",
@@ -1998,6 +2132,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-miterlimit",
@@ -2011,6 +2146,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-opacity",
@@ -2024,6 +2160,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width",
@@ -2037,6 +2174,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/style",
@@ -2050,6 +2188,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/surfaceScale",
@@ -2063,6 +2202,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/tabindex",
@@ -2076,6 +2216,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/target",
@@ -2089,6 +2230,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/targetX",
@@ -2102,6 +2244,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/targetY",
@@ -2115,6 +2258,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor",
@@ -2128,6 +2272,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-decoration",
@@ -2141,6 +2286,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-rendering",
@@ -2154,6 +2300,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/to",
@@ -2167,6 +2314,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform",
@@ -2181,6 +2329,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/type",
@@ -2194,6 +2343,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/values",
@@ -2207,6 +2357,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox",
@@ -2220,6 +2371,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/visibility",
@@ -2233,6 +2385,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/width",
@@ -2246,6 +2399,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/word-spacing",
@@ -2259,6 +2413,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/writing-mode",
@@ -2272,6 +2427,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/x",
@@ -2285,6 +2441,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/x1",
@@ -2298,6 +2455,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/x2",
@@ -2311,6 +2469,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xChannelSelector",
@@ -2324,6 +2483,7 @@ object SvgAttrDefs {
       namespace = Some("xlink"),
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:href",
@@ -2337,6 +2497,7 @@ object SvgAttrDefs {
       namespace = Some("xlink"),
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:role",
@@ -2350,6 +2511,7 @@ object SvgAttrDefs {
       namespace = Some("xlink"),
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:title",
@@ -2363,6 +2525,7 @@ object SvgAttrDefs {
       namespace = Some("xml"),
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:space",
@@ -2376,6 +2539,7 @@ object SvgAttrDefs {
       namespace = None, // https://github.com/raquo/Laminar/issues/143
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg",
@@ -2389,6 +2553,7 @@ object SvgAttrDefs {
       namespace = Some("xmlns"),
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xmlns:xlink",
@@ -2402,6 +2567,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/y",
@@ -2415,6 +2581,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/y1",
@@ -2428,6 +2595,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/y2",
@@ -2441,6 +2609,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/yChannelSelector",
@@ -2454,6 +2623,7 @@ object SvgAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = Nil,
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/z",

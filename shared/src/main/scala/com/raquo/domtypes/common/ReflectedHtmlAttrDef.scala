@@ -40,24 +40,38 @@ case class ReflectedHtmlAttrDef(
   override val docUrls: List[String]
 ) extends KeyDef {
 
-  def toPropDef: PropDef = PropDef(
+  private lazy val _rawPropDef = PropDef(
     scalaName = scalaName,
     domName = domPropName,
     scalaValueType = scalaValueType,
     domValueType = domPropValueType,
     codec = propCodec,
+    reflectedAttr = None,
     commentLines = commentLines,
     docUrls = docUrls
   )
 
-  def toAttrDef: AttrDef = AttrDef(
+  private lazy val _rawAttrDef = AttrDef(
     tagType = HtmlTagType,
     scalaName = scalaName,
     domName = domAttrName,
     namespace = None,
     scalaValueType = scalaValueType,
     codec = attrCodec,
+    reflectedProp = None,
     commentLines = commentLines,
     docUrls = docUrls
   )
+
+  lazy val toPropDef: PropDef = {
+    _rawPropDef.copy(
+      reflectedAttr = Some(_rawAttrDef)
+    )
+  }
+
+  lazy val toAttrDef: AttrDef = {
+    _rawAttrDef.copy(
+      reflectedProp = Some(_rawPropDef)
+    )
+  }
 }

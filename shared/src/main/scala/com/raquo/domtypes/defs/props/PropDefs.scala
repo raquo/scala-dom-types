@@ -13,6 +13,7 @@ object PropDefs {
       scalaValueType = "Boolean",
       domValueType = "Boolean",
       codec = "BooleanAsIs",
+      reflectedAttr = None,
       commentLines = List(
         "In addition to the checked and unchecked states, there is a third state",
         "a checkbox can be in: indeterminate. This is a state in which it's",
@@ -29,6 +30,7 @@ object PropDefs {
       scalaValueType = "Boolean",
       domValueType = "Boolean",
       codec = "BooleanAsIs",
+      reflectedAttr = None,
       commentLines = List(
         "When the value of the type attribute is \"radio\" or \"checkbox\", this property",
         "determines whether it is checked or not.",
@@ -48,6 +50,7 @@ object PropDefs {
       scalaValueType = "Boolean",
       domValueType = "Boolean",
       codec = "BooleanAsIs",
+      reflectedAttr = None,
       commentLines = List(
         "Indicates whether an `<option>` element is _currently_ selected.",
         "This is different from `selected` _attribute_,",
@@ -66,6 +69,7 @@ object PropDefs {
       scalaValueType = "String",
       domValueType = "String",
       codec = "StringAsIs",
+      reflectedAttr = None,
       commentLines = List(
         "Current value of the element. This is different from `value` _attribute_,",
         "which contains the _initial_ value of the element.",

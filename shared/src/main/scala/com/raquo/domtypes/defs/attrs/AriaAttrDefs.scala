@@ -20,6 +20,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Identifies the currently active descendant of a composite widget.",
       ),
@@ -35,6 +36,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates whether assistive technologies will present all, or only parts of, the",
         "changed region based on the change notifications defined by the aria-relevant",
@@ -52,6 +54,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Indicates whether user input completion suggestions are provided.",
         "",
@@ -69,6 +72,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates whether an element, and its subtree, are currently being updated.",
       ),
@@ -84,6 +88,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Indicates the current \"checked\" state of checkboxes, radio buttons, and other",
         "widgets. See related [[pressed]] and [[selected]].",
@@ -103,6 +108,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Identifies the element (or elements) whose contents or presence are controlled",
         "by the current element. See related [[owns]].",
@@ -119,6 +125,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Indicates the element that represents the current item within a container",
         "or set of related elements.",
@@ -138,6 +145,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Identifies the element (or elements) that describes the object.",
         "See related [[labelledBy]].",
@@ -154,6 +162,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates that the element is perceivable but disabled, so it is not editable",
         "or otherwise operable. See related [[hidden]] and [[readOnly]].",
@@ -170,6 +179,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Indicates what functions can be performed when the dragged object is released",
         "on the drop target. This allows assistive technologies to convey the possible",
@@ -192,6 +202,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates whether the element, or another grouping element it controls, is",
         "currently expanded or collapsed.",
@@ -208,6 +219,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Identifies the next element (or elements) in an alternate reading order of",
         "content which, at the user's discretion, allows assistive technology to",
@@ -225,6 +237,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates an element's \"grabbed\" state in a drag-and-drop operation.",
       ),
@@ -240,6 +253,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates that the element has a popup context menu or sub-level menu.",
       ),
@@ -255,6 +269,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates that the element and all of its descendants are not visible or",
         "perceivable to any user as implemented by the author.",
@@ -272,6 +287,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Indicates the entered value does not conform to the format expected by the",
         "application.",
@@ -290,6 +306,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Defines a string value that labels the current element.",
         "See related [[labelledBy]].",
@@ -306,6 +323,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Identifies the element (or elements) that labels the current element.",
         "See related [[label]] and [[describedBy]].",
@@ -322,6 +340,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Int",
       codec = "IntAsString",
+      reflectedProp = None,
       commentLines = List(
         "Defines the hierarchical level of an element within a structure.",
       ),
@@ -337,6 +356,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Indicates that an element will be updated, and describes the types of updates the",
         "user agents, assistive technologies, and user can expect from the live region.",
@@ -355,6 +375,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates whether a text box accepts multiple lines of input or only a single line.",
       ),
@@ -370,6 +391,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates that the user may select more than one item from the current selectable descendants.",
       ),
@@ -385,6 +407,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Indicates whether the element and orientation is horizontal or vertical.",
         "",
@@ -402,6 +425,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Identifies an element (or elements) in order to define a visual, functional, or",
         "contextual parent/child relationship between DOM elements where the DOM hierarchy",
@@ -419,6 +443,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Int",
       codec = "IntAsString",
+      reflectedProp = None,
       commentLines = List(
         "Defines an element's number or position in the current set of listitems or treeitems.",
         "Not required if all elements in the set are present in the DOM. See related [[setSize]].",
@@ -435,6 +460,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Indicates the current \"pressed\" state of toggle buttons. See related [[checked]] and [[selected]].",
         "",
@@ -453,6 +479,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates that the element is not editable, but is otherwise operable. See related [[disabled]].",
       ),
@@ -468,6 +495,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Indicates what user agent change notifications (additions, removals, etc.)",
         "assistive technologies will receive within a live region. See related [[atomic]].",
@@ -486,6 +514,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates that user input is required on the element before a form may be submitted.",
       ),
@@ -501,6 +530,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Boolean",
       codec = "BooleanAsTrueFalseString",
+      reflectedProp = None,
       commentLines = List(
         "Indicates the current \"selected\" state of various widgets.",
         "See related [[checked]] and [[pressed]].",
@@ -517,6 +547,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Int",
       codec = "IntAsString",
+      reflectedProp = None,
       commentLines = List(
         "Defines the number of items in the current set of listitems or treeitems.",
         "Not required if all elements in the set are present in the DOM.",
@@ -534,6 +565,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Indicates if items in a table or grid are sorted in ascending or descending order.",
         "",
@@ -551,6 +583,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = List(
         "Defines the maximum allowed value for a range widget.",
       ),
@@ -566,6 +599,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = List(
         "Defines the minimum allowed value for a range widget.",
       ),
@@ -581,6 +615,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "Double",
       codec = "DoubleAsString",
+      reflectedProp = None,
       commentLines = List(
         "Defines the current value for a range widget. See related [[valueText]].",
       ),
@@ -596,6 +631,7 @@ object AriaAttrDefs {
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
+      reflectedProp = None,
       commentLines = List(
         "Defines the human readable text alternative of aria-valuenow for a range widget.",
       ),
