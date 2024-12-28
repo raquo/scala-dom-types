@@ -25,6 +25,10 @@ class CanonicalDefGroups {
     "SVG Tags" -> SvgTagDefs.defs,
   )
 
+  val mathMlTagsDefGroups: List[(String, List[TagDef])] = List(
+    "MathMl Tags" -> MathMlTagDefs.defs,
+  )
+
   val htmlAttrDefGroups: List[(String, List[AttrDef])] = List(
     "HTML Attrs" -> HtmlAttrDefs.defs
   )

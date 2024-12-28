@@ -13,6 +13,7 @@ import com.thirdparty.tags.HtmlTag
 import org.scalajs.dom
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
+import com.thirdparty.defs.tags.MathMlTags
 
 class CompileSpec extends AnyFunSpec with Matchers {
 
@@ -48,6 +49,10 @@ class CompileSpec extends AnyFunSpec with Matchers {
     extends SvgTags
     with SvgAttrs
     with ComplexSvgKeys
+
+  object mathMl
+    extends MathMlTags
+
 
   object aria
     extends AriaAttrs
@@ -98,6 +103,11 @@ class CompileSpec extends AnyFunSpec with Matchers {
     assert(svg.xlinkHref.namespace.contains("xlink"))
     assert(svg.xlinkHref.qualifiedName == "xlink:href")
     assert(SvgAttr.namespaceUrl(svg.xlinkHref.namespace.get) == "http://www.w3.org/1999/xlink")
+
+    // MathML
+
+    assert(mathMl.mathTag.domName == "math")
+    assert(mathMl.mi.domName == "mi")
 
     // Aliases
 

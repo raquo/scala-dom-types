@@ -2,7 +2,7 @@ package com.raquo.domtypes
 
 import com.raquo.domtypes.codegen.DefType.LazyVal
 import com.raquo.domtypes.codegen._
-import com.raquo.domtypes.common.{HtmlTagType, SvgTagType}
+import com.raquo.domtypes.common.{HtmlTagType, SvgTagType, MathMlTagType}
 import com.raquo.domtypes.defs.styles.StyleTraitDefs
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
@@ -80,6 +80,31 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       keyKind = "SvgTag",
       baseImplDefComments = Nil,
       keyImplName = "svgTag",
+      defType = LazyVal
+    )
+
+    generator.writeToFile(
+      packagePath = generator.tagDefsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
+    )
+  }
+
+  it("Generate MathMl tags") {
+    println("=== MATHML TAGS ===")
+
+    val traitName = "MathMlTags"
+
+    val fileContent = generator.generateTagsTrait(
+      tagType = MathMlTagType,
+      defGroups = defGroups.mathMlTagsDefGroups,
+      printDefGroupComments = false,
+      traitCommentLines = Nil,
+      traitModifiers = Nil,
+      traitName = traitName,
+      keyKind = "MathMlTag",
+      baseImplDefComments = Nil,
+      keyImplName = "mathMlTag",
       defType = LazyVal
     )
 

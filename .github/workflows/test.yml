@@ -17,9 +17,9 @@ jobs:
         with:
           node-version: "18"
       - name: Setup JVM
-        uses: actions/setup-java@v3
+        uses: coursier/setup-action@v1
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          jvm: 'adopt:11'
+          apps: sbt
       - name: Run tests
         run: sbt "project domtypesJVM" test "project domtypesJS" +test

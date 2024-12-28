@@ -89,6 +89,8 @@ class CanonicalGenerator(
 
   def baseScalaJsHtmlElementType: String = "dom.html.Element"
 
+  def baseScalaJsMathMlElementType: String = "dom.MathMLElement"
+
   def baseScalaJsSvgElementType: String = "dom.svg.Element"
 
   def scalaJsElementTypeParam: String = "El"
@@ -168,10 +170,16 @@ class CanonicalGenerator(
       List(
         s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsHtmlElementType]($keyImplNameArgName: String, void: Boolean = false): ${keyKind}[$scalaJsElementTypeParam] = ${keyKindConstructor(keyKind)}($keyImplNameArgName, void)"
       )
-    } else {
+    } else  if (tagType == SvgTagType) {
       List(
         s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsSvgElementType]($keyImplNameArgName: String): ${keyKind}[$scalaJsElementTypeParam] = ${keyKindConstructor(keyKind)}($keyImplNameArgName)",
       )
+    } else if (tagType == MathMlTagType) {
+      List(
+        s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsMathMlElementType]($keyImplNameArgName: String): ${keyKind}[$scalaJsElementTypeParam] = ${keyKindConstructor(keyKind)}($keyImplNameArgName)",
+      )
+    } else {
+      ???
     }
 
     val headerLines = List(

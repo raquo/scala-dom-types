@@ -5,3 +5,8 @@ js/yarn.lock
 .idea
 
 .DS_Store
+
+.vscode/settings.json
+.bloop
+.metals
+metals.sbt

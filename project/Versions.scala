@@ -7,8 +7,7 @@ object Versions {
   val Scala_3 = "3.3.3"
 
   // -- Dependencies --
-
-  val ScalaJsDom = "2.8.0"
+    val ScalaJsDom = "2.8.0+69-8c4ee126-SNAPSHOT"
 
   // -- Test --
 
