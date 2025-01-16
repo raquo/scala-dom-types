@@ -10,9 +10,9 @@ import com.raquo.domtypes.common.{AttrDef, HtmlTagType}
   * such as a description for a form or the current value of a progressbar.
   */
 object AriaAttrDefs {
-  
+
   val defs: List[AttrDef] = List(
-    
+
     AttrDef(
       tagType = HtmlTagType,
       scalaName = "activeDescendant",
@@ -94,7 +94,7 @@ object AriaAttrDefs {
         "widgets. See related [[pressed]] and [[selected]].",
         "",
         "Enumerated: Tristate – \"true\" | \"false\" | \"mixed\" | undefined (default)",
-        "- undefined means the element does not support being checked",
+        " - undefined means the element does not support being checked",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-checked",
@@ -465,7 +465,7 @@ object AriaAttrDefs {
         "Indicates the current \"pressed\" state of toggle buttons. See related [[checked]] and [[selected]].",
         "",
         "Enumerated: Tristate – \"true\" | \"false\" | \"mixed\" | undefined (default)",
-        "- undefined means the element does not support being pressed",
+        " - undefined means the element does not support being pressed",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-pressed",
@@ -641,5 +641,5 @@ object AriaAttrDefs {
     ),
 
   )
-  
+
 }

@@ -7,9 +7,9 @@ import com.raquo.domtypes.common.ReflectedHtmlAttrDef
   * or an HTML attribute. In practical terms, you don't need to load both props
   * and attrs for these properties, using just one would be enough as they are
   * interchangeable.
-  * 
+  *
   * Note that in JS browser engines, using props has better performance than using attributes.
-  * 
+  *
   * For more background on reflected attributes, see:
   * - Our own README file.
   * - https://stackoverflow.com/a/6004028/2601788
@@ -20,9 +20,9 @@ import com.raquo.domtypes.common.ReflectedHtmlAttrDef
   * @see https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes
   */
 object ReflectedHtmlAttrDefs {
-  
+
   val defs: List[ReflectedHtmlAttrDef] = List(
-    
+
     ReflectedHtmlAttrDef(
       scalaName = "accept",
       domAttrName = "accept",
@@ -279,11 +279,11 @@ object ReflectedHtmlAttrDefs {
       commentLines = List(
         "Specifies the text direction for the content in an element. The valid values are:",
         "",
-        "- `ltr` Default. Left-to-right text direction",
+        " - `ltr` Default. Left-to-right text direction",
         "",
-        "- `rtl` Right-to-left text direction",
+        " - `rtl` Right-to-left text direction",
         "",
-        "- `auto` Let the browser figure out the text direction, based on the content,",
+        " - `auto` Let the browser figure out the text direction, based on the content,",
         "         (only recommended if the text direction is unknown)",
       ),
       docUrls = List(
@@ -323,11 +323,11 @@ object ReflectedHtmlAttrDefs {
       commentLines = List(
         "Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value:",
         "",
-        "- Without a value, the browser will suggest a filename/extension, generated from various sources:",
-        "  - The Content-Disposition HTTP header",
-        "  - The final segment in the URL path",
-        "  - The media type (from the Content-Type header, the start of a data: URL, or Blob.type for a blob: URL)",
-        "- Defining a value suggests it as the filename. / and \\ characters are converted to underscores (_). Filesystems may forbid other characters in filenames, so browsers will adjust the suggested name if necessary.",
+        " - Without a value, the browser will suggest a filename/extension, generated from various sources:",
+        "   - The Content-Disposition HTTP header",
+        "   - The final segment in the URL path",
+        "   - The media type (from the Content-Type header, the start of a data: URL, or Blob.type for a blob: URL)",
+        " - Defining a value suggests it as the filename. / and \\ characters are converted to underscores (_). Filesystems may forbid other characters in filenames, so browsers will adjust the suggested name if necessary.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download",
@@ -711,13 +711,13 @@ object ReflectedHtmlAttrDefs {
       commentLines = List(
         "The HTTP method that the browser uses to submit the form. Possible values are:",
         "",
-        "- post: Corresponds to the HTTP POST method ; form data are included in the",
-        "  body of the form and sent to the server.",
+        " - post: Corresponds to the HTTP POST method ; form data are included in the",
+        "   body of the form and sent to the server.",
         "",
-        "- get: Corresponds to the HTTP GET method; form data are appended to the",
-        "  action attribute URI with a '?' as a separator, and the resulting URI is",
-        "  sent to the server. Use this method when the form has no side-effects and",
-        "  contains only ASCII characters.",
+        " - get: Corresponds to the HTTP GET method; form data are appended to the",
+        "   action attribute URI with a '?' as a separator, and the resulting URI is",
+        "   sent to the server. Use this method when the form has no side-effects and",
+        "   contains only ASCII characters.",
         "",
         "This value can be overridden by a formmethod attribute on a button or",
         "input element.",
@@ -1004,16 +1004,16 @@ object ReflectedHtmlAttrDefs {
         "focusable), if it should participate to sequential keyboard navigation, and",
         "if so, at what position. It can takes several values:",
         "",
-        "- a negative value means that the element should be focusable, but should",
-        "  not be reachable via sequential keyboard navigation;",
-        "- 0 means that the element should be focusable and reachable via sequential",
-        "  keyboard navigation, but its relative order is defined by the platform",
-        "  convention;",
-        "- a positive value which means should be focusable and reachable via",
-        "  sequential keyboard navigation; its relative order is defined by the value",
-        "  of the attribute: the sequential follow the increasing number of the",
-        "  tabindex. If several elements share the same tabindex, their relative order",
-        "  follows their relative position in the document).",
+        " - a negative value means that the element should be focusable, but should",
+        "   not be reachable via sequential keyboard navigation;",
+        " - 0 means that the element should be focusable and reachable via sequential",
+        "   keyboard navigation, but its relative order is defined by the platform",
+        "   convention;",
+        " - a positive value which means should be focusable and reachable via",
+        "   sequential keyboard navigation; its relative order is defined by the value",
+        "   of the attribute: the sequential follow the increasing number of the",
+        "   tabindex. If several elements share the same tabindex, their relative order",
+        "   follows their relative position in the document).",
         "",
         "An element with a 0 value, an invalid value, or no tabindex value should be placed after elements with a positive tabindex in the sequential keyboard navigation order.",
       ),
@@ -1037,20 +1037,20 @@ object ReflectedHtmlAttrDefs {
         "(for example, tab, window, or inline frame). The following keywords have",
         "special meanings:",
         "",
-        "- _self: Load the response into the same HTML 4 frame (or HTML5 browsing",
-        "  context) as the current one. This value is the default if the attribute",
-        "  is not specified.",
-        "- _blank: Load the response into a new unnamed HTML 4 window or HTML5",
-        "  browsing context.",
-        "- _parent: Load the response into the HTML 4 frameset parent of the current",
-        "  frame or HTML5 parent browsing context of the current one. If there is no",
-        "  parent, this option behaves the same way as _self.",
-        "- _top: HTML 4: Load the response into the full, original window, canceling",
-        "  all other frames. HTML5: Load the response into the top-level browsing",
-        "  context (that is, the browsing context that is an ancestor of the current",
-        "  one, and has no parent). If there is no parent, this option behaves the",
-        "  same way as _self.",
-        "- iframename: The response is displayed in a named iframe.",
+        " - _self: Load the response into the same HTML 4 frame (or HTML5 browsing",
+        "   context) as the current one. This value is the default if the attribute",
+        "   is not specified.",
+        " - _blank: Load the response into a new unnamed HTML 4 window or HTML5",
+        "   browsing context.",
+        " - _parent: Load the response into the HTML 4 frameset parent of the current",
+        "   frame or HTML5 parent browsing context of the current one. If there is no",
+        "   parent, this option behaves the same way as _self.",
+        " - _top: HTML 4: Load the response into the full, original window, canceling",
+        "   all other frames. HTML5: Load the response into the top-level browsing",
+        "   context (that is, the browsing context that is an ancestor of the current",
+        "   one, and has no parent). If there is no parent, this option behaves the",
+        "   same way as _self.",
+        " - iframename: The response is displayed in a named iframe.",
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target",
@@ -1129,5 +1129,5 @@ object ReflectedHtmlAttrDefs {
     ),
 
   )
-  
+
 }
