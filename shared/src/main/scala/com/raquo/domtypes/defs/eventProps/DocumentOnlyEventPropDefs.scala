@@ -4,9 +4,9 @@ import com.raquo.domtypes.common.EventPropDef
 
 /** Events that work only on dom.document */
 object DocumentOnlyEventPropDefs {
-  
+
   val defs: List[EventPropDef] = List(
-    
+
     EventPropDef(
       scalaName = "onDomContentLoaded",
       domName = "DOMContentLoaded",
@@ -52,6 +52,20 @@ object DocumentOnlyEventPropDefs {
     ),
 
     EventPropDef(
+      scalaName = "onReadyStateChange",
+      domName = "readystatechange",
+      scalaJsEventType = "dom.Event",
+      javascriptEventType = "Event",
+      commentLines = List(
+        "The readystatechange event is fired when the readyState attribute of a Document is changed.",
+        "This event is not cancelable and does not bubble."
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/API/Document/readystatechange_event",
+      ),
+    ),
+
+    EventPropDef(
       scalaName = "onSelectionChange",
       domName = "selectionchange",
       scalaJsEventType = "dom.Event",
@@ -79,5 +93,5 @@ object DocumentOnlyEventPropDefs {
     ),
 
   )
-  
+
 }
