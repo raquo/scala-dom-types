@@ -71,12 +71,12 @@ class CanonicalGenerator(
   def transformUnitTraitName(
     setterTypeAlias: String,
     derivedKeyKindAlias: String,
-    lengthUnitsNumType: String
+    lengthUnitsNumType: Option[String]
   )(
     unitTraitName: String
   ): String = {
     val typeParams = unitTraitName match {
-      case "Length" => s"$derivedKeyKindAlias, $lengthUnitsNumType"
+      case "Length" => s"$derivedKeyKindAlias${lengthUnitsNumType.map(", " + _).getOrElse("")}"
       case "Color" => s"$setterTypeAlias, $derivedKeyKindAlias[_]"
       case _ => derivedKeyKindAlias
     }
@@ -378,7 +378,7 @@ class CanonicalGenerator(
     baseImplDefComments: List[String],
     baseImplName: String,
     defType: DefType,
-    lengthUnitsNumType: String,
+    lengthUnitsNumType: Option[String],
     outputUnitTraits: Boolean
   ): String = {
     val (defs, defGroupComments) = defsAndGroupComments(defSources, printDefGroupComments)
@@ -424,7 +424,7 @@ class CanonicalGenerator(
         Nil
       }
     ) ++ (
-      if (lengthUnitsNumType.contains("|")) {
+      if (lengthUnitsNumType.exists(_.contains("|"))) {
         List("", "import scala.scalajs.js.|")
       } else {
         Nil
@@ -476,7 +476,7 @@ class CanonicalGenerator(
     propKind: String,
     keywordType: String,
     derivedKeyKind: String,
-    lengthUnitsNumType: String,
+    lengthUnitsNumType: Option[String],
     defType: DefType,
     outputUnitTypes: Boolean,
     allowSuperCallInOverride: Boolean
@@ -508,7 +508,7 @@ class CanonicalGenerator(
       } else Nil
     ) ++ (
       (
-        if (lengthUnitsNumType.contains("|") && extendsUnitTraits.exists(_.contains("Length"))) {
+        if (lengthUnitsNumType.exists(_.contains("|")) && extendsUnitTraits.exists(_.contains("Length"))) {
           List("", "import scala.scalajs.js.|")
         } else {
           Nil
