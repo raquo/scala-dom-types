@@ -16,7 +16,7 @@ trait StyleProps {
 
   protected type DSP[V] = DerivedStyleProp[V]
 
-  protected type SS = StyleSetter[_]
+  protected type SS = StyleSetter[String]
 
 
   def styleProp[V](name: String): StyleProp[V] = new StyleProp(name)

@@ -4,26 +4,29 @@ import com.thirdparty.defs.styles.traits.GlobalKeywords
 import com.thirdparty.setters.StyleSetter
 
 import scala.language.implicitConversions
-import scala.scalajs.js.|
 
 case class StyleProp[V](
   val domName: String
-) extends DerivedStyleBuilder[StyleSetter[_], DerivedStyleProp] with GlobalKeywords[V] {
+) extends DerivedStyleBuilder[StyleSetter[String], DerivedStyleProp] with GlobalKeywords[V] {
 
-  def := (value: V | String): StyleSetter[V] = StyleSetter(this, value.toString)
+  def := (value: V): StyleSetter[V] = StyleSetter(this, value.toString)
 
-  def := (value: String): StyleSetter[V] = StyleSetter(this, value)
+  // def := (value: V | String): StyleSetter[V] = StyleSetter(this, value.toString)
 
-  override protected def styleSetter(value: String): StyleSetter[_] = this := value
+  // def := (value: String): StyleSetter[V] = StyleSetter(this, value)
+
+  override protected def styleSetter(value: String): StyleSetter[String] = this := value
 
   override protected def derivedStyle[A](encode: A => String): DerivedStyleProp[A] = {
     new DerivedStyleProp[A](this, encode)
   }
 }
 
-// object StyleProp {
-//
-//   implicit def stylePropToStringStyleProp[V](p: StyleProp[V]): StyleProp[String] = {
-//     p.asInstanceOf[StyleProp[String]]
-//   }
-// }
+object StyleProp {
+
+  // In CSS, every style prop can be set to a string value, and this allows it.
+  // You need to make sure that your StyleProp implementation is safe with such a casting implicit conversion. See Laminar v18+ for example.
+  implicit def stylePropToStringStyleProp[V](p: StyleProp[V]): StyleProp[String] = {
+    p.asInstanceOf[StyleProp[String]]
+  }
+}
