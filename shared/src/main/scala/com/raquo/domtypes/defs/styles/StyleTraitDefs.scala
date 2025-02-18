@@ -6,7 +6,7 @@ import StyleDefs.{valueTraits, valueUnits}
 
 /** Feature traits defining keywords and units corresponding to CSS style properties */
 object StyleTraitDefs {
-  
+
   def OneList(list: StyleKeywordDef*): List[(String, List[StyleKeywordDef])] = {
     List(
       "All" -> list.toList
@@ -16,7 +16,7 @@ object StyleTraitDefs {
   val defs: List[StyleTraitDef] = List(
 
     StyleTraitDef(
-      scalaName = valueTraits.GlobalKeywords,
+      scalaName = valueTraits.GlobalKeywords_,
       extendsTraits = Nil,
       extendsUnits = Nil,
       keywordDefGroups = OneList(

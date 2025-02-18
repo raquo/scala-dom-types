@@ -139,7 +139,7 @@ object StyleDefs {
       * All value traits are assumed to extend this trait.
       * - Do NOT add it to the list of valueTraits / extendsValueTraits in the defs here.
       */
-    val GlobalKeywords = "GlobalKeywords"
+    val GlobalKeywords_ = "GlobalKeywords[_]"
 
     // -- Shared traits --
 

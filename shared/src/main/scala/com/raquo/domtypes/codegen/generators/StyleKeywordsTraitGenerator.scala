@@ -10,7 +10,10 @@ class StyleKeywordsTraitGenerator(
   override protected val traitCommentLines: List[String],
   override protected val traitModifiers: List[String],
   override protected val traitName: String,
+  override protected val traitTypeParam: Option[String],
+  override protected val traitThisType: Option[String],
   extendsFeatureTraits: List[String],
+  override protected val traitExtendsFallbackTypeParam: Option[String],
   extendsUnitTraits: List[String],
   override protected val keyImplName: StyleKeywordDef => String,
   override protected val keyImplNameArgName: String,
@@ -29,8 +32,6 @@ class StyleKeywordsTraitGenerator(
   override protected val traitExtends: List[String] = {
     extendsFeatureTraits ++ extendsUnitTraits //.map(_.replace("[_", "[" + derivedKeyKind).replace("_]", derivedKeyKind + "]"))
   }
-
-  override protected val traitThisType: Option[String] = Some(s"${propKind}[_]")
 
   override protected def printDef(keyDef: StyleKeywordDef, alias: Option[String]): Unit = {
     if (alias.isEmpty) {

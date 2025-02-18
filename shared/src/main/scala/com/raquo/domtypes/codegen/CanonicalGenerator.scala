@@ -383,9 +383,21 @@ class CanonicalGenerator(
   ): String = {
     val (defs, defGroupComments) = defsAndGroupComments(defSources, printDefGroupComments)
 
+    val setterKind = setterType.replaceAll("\\[.*?\\]", "")
+
     val baseImplDef = List(
       s"def ${baseImplName}[V]($keyImplNameArgName: String): ${keyKind}[V] = ${keyKindConstructor(keyKind)}($keyImplNameArgName)"
     )
+
+    def transformTraitName(fileTraitName: String, keyValueType: String, subjectTraitName: String) = {
+      styleTraitsPackageAlias + "." + subjectTraitName // #nc
+      // val subjectTraitNameWithTypeParam = if (fileTraitName.contains("[_]")) {
+      //   subjectTraitName.replace("[_]", "[V]")
+      // } else {
+      //   subjectTraitName.replace("[_]", s"[$keyValueType]")
+      // }
+      // styleTraitsPackageAlias + "." + subjectTraitNameWithTypeParam
+    }
 
     val headerLines = List(
       s"package $stylePropDefsPackagePath",
@@ -407,8 +419,14 @@ class CanonicalGenerator(
       if (outputUnitTraits) {
         List(
           "import " + styleUnitTraitsPackagePath(Some(styleUnitTraitsPackageAlias)),
-          setterTypeImport(setterType.replace("[_]", "")),
+          setterTypeImport(setterKind),
         )
+      } else {
+        Nil
+      }
+    ) ++ (
+      if (lengthUnitsNumType.contains("|")) {
+        List("", "import scala.scalajs.js.|")
       } else {
         Nil
       }
@@ -435,7 +453,7 @@ class CanonicalGenerator(
       baseImplName = baseImplName,
       baseImplDefComments = baseImplDefComments,
       baseImplDef = baseImplDef,
-      transformTraitName = styleTraitsPackageAlias + "." + _,
+      transformTraitName = transformTraitName,
       transformUnitTraitName = transformUnitTraitName(setterTypeAlias, derivedKeyKindAlias, lengthUnitsNumType),
       outputUnitTraits = outputUnitTraits,
       outputImplDefs = true,
@@ -451,7 +469,10 @@ class CanonicalGenerator(
     traitCommentLines: List[String],
     traitModifiers: List[String],
     traitName: String,
+    traitTypeParam: Option[String],
+    traitThisType: Option[String],
     extendsTraits: List[String],
+    traitExtendsFallbackTypeParam: Option[String],
     extendsUnitTraits: List[String],
     propKind: String,
     keywordType: String,
@@ -472,7 +493,7 @@ class CanonicalGenerator(
       }
     }
 
-    val keywordKind = keywordType.replace("[_]", "")
+    val keywordKind = keywordType.replaceAll("\\[.*?\\]", "")
 
     val headerLines = List(
       s"package ${styleTraitsPackagePath()}",
@@ -486,6 +507,14 @@ class CanonicalGenerator(
           "import " + derivedStylePropKeyPackagePath + "." + derivedKeyKind
         )
       } else Nil
+    ) ++ (
+      (
+        if (lengthUnitsNumType.contains("|") && extendsUnitTraits.exists(_.contains("Length"))) {
+          List("", "import scala.scalajs.js.|")
+        } else {
+          Nil
+        }
+        )
     ) ++ List("") ++ standardTraitCommentLines.map("// " + _)
 
     val generator = new StyleKeywordsTraitGenerator(
@@ -494,8 +523,11 @@ class CanonicalGenerator(
       headerLines = headerLines,
       traitCommentLines = traitCommentLines,
       traitModifiers = traitModifiers,
-      traitName = traitName.replace("[_]", ""),
+      traitName = traitName,
+      traitTypeParam = traitTypeParam,
+      traitThisType = traitThisType,
       extendsFeatureTraits = extendsTraits,
+      traitExtendsFallbackTypeParam = traitExtendsFallbackTypeParam,
       extendsUnitTraits = if (outputUnitTypes) extendsUnitTraits.map(
         transformUnitTraitName(keywordType, derivedKeyKind, lengthUnitsNumType)
       ) else Nil,

@@ -18,7 +18,11 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
 
   protected val traitName: String
 
+  protected val traitTypeParam: Option[String] = None
+
   protected val traitExtends: List[String]
+
+  protected val traitExtendsFallbackTypeParam: Option[String] = None
 
   protected val traitThisType: Option[String]
 
@@ -59,8 +63,18 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
   protected def printTraitDef(inside: => Unit): Unit = {
     val modifiers = traitModifiers.map(_ + " ").mkString
 
-    val withTraits = if (traitExtends.nonEmpty) {
-      s"extends ${traitExtends.head}" + traitExtends.tail.map(" with " + _).mkString + " "
+    val traitWithTypeParam = traitName.replace("[_]", traitTypeParam.map("[" + _ + "]").getOrElse(""))
+
+    val traitHasTypeParam = traitTypeParam.isDefined && traitName != traitWithTypeParam
+
+    val traitExtendsWithTypeParams = if (traitHasTypeParam) {
+      traitExtends.map(traitExtend => traitExtend.replace("[_]", "[" + traitTypeParam.get + "]"))
+    } else {
+      traitExtends.map(traitExtend => traitExtend.replace("[_]", traitExtendsFallbackTypeParam.map("[" + _ + "]").getOrElse("")))
+    }
+
+    val withTraits = if (traitExtendsWithTypeParams.nonEmpty) {
+      s"extends ${traitExtendsWithTypeParams.head}" + traitExtendsWithTypeParams.tail.map(" with " + _).mkString + " "
     } else ""
 
     val traitThisTypeStr = traitThisType match {
@@ -68,7 +82,7 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
       case None => ""
     }
 
-    enter(s"${modifiers}trait $traitName $withTraits{$traitThisTypeStr", "}")(inside)
+    enter(s"${modifiers}trait $traitWithTypeParam $withTraits{$traitThisTypeStr", "}")(inside)
   }
 
   protected def printBeforeAllDefs(): Unit = {

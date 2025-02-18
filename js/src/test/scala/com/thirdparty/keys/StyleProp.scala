@@ -3,6 +3,7 @@ package com.thirdparty.keys
 import com.thirdparty.defs.styles.traits.GlobalKeywords
 import com.thirdparty.setters.StyleSetter
 
+import scala.language.implicitConversions
 import scala.scalajs.js.|
 
 case class StyleProp[V](
@@ -19,3 +20,10 @@ case class StyleProp[V](
     new DerivedStyleProp[A](this, encode)
   }
 }
+
+// object StyleProp {
+//
+//   implicit def stylePropToStringStyleProp[V](p: StyleProp[V]): StyleProp[String] = {
+//     p.asInstanceOf[StyleProp[String]]
+//   }
+// }

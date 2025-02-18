@@ -25,12 +25,14 @@ class StylePropsTraitGenerator(
   baseImplName: String,
   baseImplDefComments: List[String],
   baseImplDef: List[String],
-  transformTraitName: String => String,
+  transformTraitName: (String, String, String) => String, // (fileTraitName, keyValueType, subjectTraitName) => transformedSubjectTraitName
   transformUnitTraitName: String => String,
   override protected val outputImplDefs: Boolean,
   outputUnitTraits: Boolean,
   format: CodeFormatting
 ) extends TraitGenerator[StylePropDef](format) {
+
+  val setterKind: String = setterType.replaceAll("\\[.*?\\]", "")
 
   lazy val valueTraitsByImplName: Map[String, List[String]] = {
     distinctImplNames()
@@ -96,7 +98,6 @@ class StylePropsTraitGenerator(
   override protected def printBeforeAllDefs(): Unit = {
     val shouldAliasKeyKind = keyKindAlias != keyKind
     val shouldAliasDerivedKeyKind = (derivedKeyKindAlias != derivedKeyKind) && outputUnitTraits
-    val setterKind = setterType.replace("[_]", "")
     val shouldAliasSetterType = (setterTypeAlias != setterKind) && !setterTypeAlias.startsWith(setterKind + "[") && outputUnitTraits
 
     // Option.when is not supported by Scala 2.12
@@ -128,7 +129,7 @@ class StylePropsTraitGenerator(
       alias.getOrElse(keyDef.scalaName),
       ": ",
       mainKeyType(keyDef.valueType),
-      traitTypeMixins(keyDef.valueTraits, typeParam = None),
+      traitTypeMixins(keyDef.valueTraits, keyDef.valueType, typeParam = None),
       unitTraitTypeMixins(keyDef.valueUnits, typeParam = None),
       // keyTypeForImplName(keyDef.valueTraits).replace("[_]", s"[${keyDef.valueType}]"),
       " = ",
@@ -168,9 +169,9 @@ class StylePropsTraitGenerator(
     keyKindAlias + s"[$typeParam]"
   }
 
-  def traitTypeMixins(valueTraits: List[String], typeParam: Option[String]): String = {
+  def traitTypeMixins(valueTraits: List[String], keyValueType: String, typeParam: Option[String]): String = {
     val typeParamReplacement = typeParam.map("[" + _ + "]").getOrElse("")
-    valueTraits.map(" with " + transformTraitName(_)).map(_.replace("[_]", typeParamReplacement)).mkString
+    valueTraits.map(" with " + transformTraitName(traitName, keyValueType, _)).map(_.replace("[_]", typeParamReplacement)).mkString
   }
 
   def unitTraitTypeMixins(valueUnitTraits: List[String], typeParam: Option[String]): String = {
@@ -243,7 +244,7 @@ class StylePropsTraitGenerator(
       ": ",
       // keyTypeForImplName(valueTraits).replace("[_]", s"[$typeParam]"),
       mainKeyType(typeParam),
-      traitTypeMixins(valueTraits, typeParam = None),
+      traitTypeMixins(valueTraits, typeParam, typeParam = None),
       unitTraitTypeMixins(valueUnitTraits, typeParam = None),
       " = "
     ).mkString) {
@@ -265,7 +266,7 @@ class StylePropsTraitGenerator(
     List(
       s"${implDefImplName(implName, keyKindTypeParam)}",
       "(key)",
-      traitTypeMixins(valueTraits, traitsTypeParam),
+      traitTypeMixins(valueTraits, keyKindTypeParam.getOrElse("_"), traitsTypeParam),
       unitTraitTypeMixins(valueUnitTraits, traitsTypeParam),
     ).mkString
   }
