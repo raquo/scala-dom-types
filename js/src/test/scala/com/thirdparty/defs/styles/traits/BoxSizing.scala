@@ -8,10 +8,10 @@ import com.thirdparty.setters.StyleSetter
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait BoxSizing { this: StyleProp[_] =>
+trait BoxSizing { this: StyleProp[String] =>
 
-  lazy val borderBox: StyleSetter[_] = this := "border-box"
+  lazy val borderBox: StyleSetter[String] = this := "border-box"
 
-  lazy val contentBox: StyleSetter[_] = this := "content-box"
+  lazy val contentBox: StyleSetter[String] = this := "content-box"
 
 }

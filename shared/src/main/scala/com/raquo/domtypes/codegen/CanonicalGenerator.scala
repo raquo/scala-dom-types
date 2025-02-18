@@ -390,13 +390,12 @@ class CanonicalGenerator(
     )
 
     def transformTraitName(fileTraitName: String, keyValueType: String, subjectTraitName: String) = {
-      styleTraitsPackageAlias + "." + subjectTraitName // #nc
-      // val subjectTraitNameWithTypeParam = if (fileTraitName.contains("[_]")) {
-      //   subjectTraitName.replace("[_]", "[V]")
-      // } else {
-      //   subjectTraitName.replace("[_]", s"[$keyValueType]")
-      // }
-      // styleTraitsPackageAlias + "." + subjectTraitNameWithTypeParam
+      val subjectTraitNameWithTypeParam = if (fileTraitName.contains("[_]")) {
+        subjectTraitName.replace("[_]", "[V]")
+      } else {
+        subjectTraitName.replace("[_]", s"[$keyValueType]")
+      }
+      styleTraitsPackageAlias + "." + subjectTraitNameWithTypeParam
     }
 
     val headerLines = List(

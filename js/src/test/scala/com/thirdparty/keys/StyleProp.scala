@@ -8,7 +8,7 @@ import scala.scalajs.js.|
 
 case class StyleProp[V](
   val domName: String
-) extends DerivedStyleBuilder[StyleSetter[_], DerivedStyleProp] with GlobalKeywords {
+) extends DerivedStyleBuilder[StyleSetter[_], DerivedStyleProp] with GlobalKeywords[V] {
 
   def := (value: V | String): StyleSetter[V] = StyleSetter(this, value.toString)
 

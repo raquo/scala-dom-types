@@ -14,6 +14,8 @@ import org.scalajs.dom
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
+import scala.scalajs.js.|
+
 class CompileSpec extends AnyFunSpec with Matchers {
 
   // This test suite checks the typical usage of SDT.
@@ -126,7 +128,7 @@ class CompileSpec extends AnyFunSpec with Matchers {
     // Derived CSS props (units)
 
     val p1: StyleProp[String] = html.padding
-    val p2: DerivedStyleProp[Int] = html.padding.px
+    val p2: DerivedStyleProp[Int | Double] = html.padding.px
     assert((html.padding.px := 12).value == "12px")
 
     html.maxHeight.calc := "12px + 20em" // Length inherits Calc

@@ -300,7 +300,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       baseImplDefComments = Nil,
       baseImplName = "styleProp",
       defType = LazyVal,
-      lengthUnitsNumType = "Int", // #nc Int | Double
+      lengthUnitsNumType = "Int | Double",
       outputUnitTraits = true
     )
 
@@ -316,19 +316,17 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
 
     StyleTraitDefs.defs.foreach { styleTrait =>
 
-      val traitThisType = Some("StyleProp[_]") // #nc
-      // if (styleTrait.scalaName.contains("[_]")) {
-      //   Some("StyleProp[V]")
-      // } else {
-      //   Some("StyleProp[String]")
-      // }
+      val traitThisType = if (styleTrait.scalaName.contains("[_]")) {
+        Some("StyleProp[V]")
+      } else {
+        Some("StyleProp[String]")
+      }
 
-      val keywordType = "StyleSetter[_]" // #nc
-      // if (styleTrait.scalaName.contains("[_]")) {
-      //   "StyleSetter[V]"
-      // } else {
-      //   "StyleSetter[String]"
-      // }
+      val keywordType = if (styleTrait.scalaName.contains("[_]")) {
+        "StyleSetter[V]"
+      } else {
+        "StyleSetter[String]"
+      }
 
       val fileContent = generator.generateStyleKeywordsTrait(
         defSources = styleTrait.keywordDefGroups,
@@ -336,15 +334,15 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
         traitCommentLines = Nil,
         traitModifiers = Nil,
         traitName = styleTrait.scalaName,
-        traitTypeParam = None, // #nc Some("V")
+        traitTypeParam = Some("V"),
         traitThisType = traitThisType,
         extendsTraits = styleTrait.extendsTraits, //.map(_.replace("[_]", "")),
-        traitExtendsFallbackTypeParam = None, // #nc Some("String"),
+        traitExtendsFallbackTypeParam = Some("String"),
         extendsUnitTraits = styleTrait.extendsUnits,
         propKind = "StyleProp",
         keywordType = keywordType,
         derivedKeyKind = "DerivedStyleProp",
-        lengthUnitsNumType = "Int", // #nc Int | Double
+        lengthUnitsNumType = "Int | Double",
         defType = LazyVal,
         outputUnitTypes = true,
         allowSuperCallInOverride = false // can't access lazy val from `super`
