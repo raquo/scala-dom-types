@@ -300,7 +300,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       baseImplDefComments = Nil,
       baseImplName = "styleProp",
       defType = LazyVal,
-      lengthUnitsNumType = Some("Int | Double"),
+      lengthUnitsNumType = None, // Some("Int | Double")
       outputUnitTraits = true
     )
 
@@ -342,7 +342,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
         propKind = "StyleProp",
         keywordType = keywordType,
         derivedKeyKind = "DerivedStyleProp",
-        lengthUnitsNumType = Some("Int | Double"),
+        lengthUnitsNumType = None, //Some("Int | Double"),
         defType = LazyVal,
         outputUnitTypes = true,
         allowSuperCallInOverride = false // can't access lazy val from `super`

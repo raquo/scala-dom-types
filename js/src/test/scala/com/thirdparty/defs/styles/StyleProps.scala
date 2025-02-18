@@ -6,8 +6,6 @@ import com.thirdparty.defs.styles.{traits => s}
 import com.thirdparty.defs.styles.{units => u}
 import com.thirdparty.setters.StyleSetter
 
-import scala.scalajs.js.|
-
 // #NOTE: GENERATED CODE
 //  - This file is generated at compile time from the data in Scala DOM Types
 //  - See `GeneratorSpec.scala` for code generation params
@@ -47,11 +45,11 @@ trait StyleProps {
   protected def flexPositionStyle(key: String): StyleProp[String] with s.FlexPosition = 
     new StyleProp[String](key) with s.FlexPosition
 
-  protected def lengthAutoStyle(key: String): StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = 
-    new StyleProp[String](key) with s.Auto[String] with u.Length[DSP, Int | Double]
+  protected def lengthAutoStyle(key: String): StyleProp[String] with s.Auto[String] with u.Length[DSP] = 
+    new StyleProp[String](key) with s.Auto[String] with u.Length[DSP]
 
-  protected def lengthStyle(key: String): StyleProp[String] with u.Length[DSP, Int | Double] = 
-    new StyleProp[String](key) with u.Length[DSP, Int | Double]
+  protected def lengthStyle(key: String): StyleProp[String] with u.Length[DSP] = 
+    new StyleProp[String](key) with u.Length[DSP]
 
   protected def lineStyle(key: String): StyleProp[String] with s.Line = 
     new StyleProp[String](key) with s.Line
@@ -149,8 +147,8 @@ trait StyleProps {
   protected def justifyContentStyle(key: String): StyleProp[String] with s.JustifyContent = 
     new StyleProp[String](key) with s.JustifyContent
 
-  protected def lengthNormalStyle(key: String): StyleProp[String] with s.Normal[String] with u.Length[DSP, Int | Double] = 
-    new StyleProp[String](key) with s.Normal[String] with u.Length[DSP, Int | Double]
+  protected def lengthNormalStyle(key: String): StyleProp[String] with s.Normal[String] with u.Length[DSP] = 
+    new StyleProp[String](key) with s.Normal[String] with u.Length[DSP]
 
   protected def listStylePositionStyle(key: String): StyleProp[String] with s.ListStylePosition = 
     new StyleProp[String](key) with s.ListStylePosition
@@ -627,7 +625,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/border-width border-width @ MDN]]
     */
-  lazy val borderWidth: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("border-width")
+  lazy val borderWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("border-width")
 
 
   /**
@@ -635,7 +633,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width border-top-width @ MDN]]
     */
-  lazy val borderTopWidth: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("border-top-width")
+  lazy val borderTopWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("border-top-width")
 
 
   /**
@@ -643,7 +641,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width border-right-width @ MDN]]
     */
-  lazy val borderRightWidth: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("border-right-width")
+  lazy val borderRightWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("border-right-width")
 
 
   /**
@@ -651,7 +649,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width border-bottom-width @ MDN]]
     */
-  lazy val borderBottomWidth: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("border-bottom-width")
+  lazy val borderBottomWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("border-bottom-width")
 
 
   /**
@@ -659,7 +657,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width border-left-width @ MDN]]
     */
-  lazy val borderLeftWidth: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("border-left-width")
+  lazy val borderLeftWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("border-left-width")
 
 
   /**
@@ -669,7 +667,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius border-radius @ MDN]]
     */
-  lazy val borderRadius: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("border-radius")
+  lazy val borderRadius: StyleProp[String] with u.Length[DSP] = lengthStyle("border-radius")
 
 
   /**
@@ -680,7 +678,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-left-radius border-top-left-radius @ MDN]]
     */
-  lazy val borderTopLeftRadius: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("border-top-left-radius")
+  lazy val borderTopLeftRadius: StyleProp[String] with u.Length[DSP] = lengthStyle("border-top-left-radius")
 
 
   /**
@@ -690,7 +688,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-right-radius border-top-right-radius @ MDN]]
     */
-  lazy val borderTopRightRadius: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("border-top-right-radius")
+  lazy val borderTopRightRadius: StyleProp[String] with u.Length[DSP] = lengthStyle("border-top-right-radius")
 
 
   /**
@@ -701,7 +699,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-right-radius border-bottom-right-radius @ MDN]]
     */
-  lazy val borderBottomRightRadius: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("border-bottom-right-radius")
+  lazy val borderBottomRightRadius: StyleProp[String] with u.Length[DSP] = lengthStyle("border-bottom-right-radius")
 
 
   /**
@@ -712,7 +710,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-left-radius border-bottom-left-radius @ MDN]]
     */
-  lazy val borderBottomLeftRadius: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("border-bottom-left-radius")
+  lazy val borderBottomLeftRadius: StyleProp[String] with u.Length[DSP] = lengthStyle("border-bottom-left-radius")
 
 
   /**
@@ -732,7 +730,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing border-spacing @ MDN]]
     */
-  lazy val borderSpacing: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("border-spacing")
+  lazy val borderSpacing: StyleProp[String] with u.Length[DSP] = lengthStyle("border-spacing")
 
 
   /**
@@ -752,7 +750,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/bottom bottom @ MDN]]
     */
-  lazy val bottom: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("bottom")
+  lazy val bottom: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("bottom")
 
 
   /**
@@ -853,7 +851,7 @@ trait StyleProps {
     *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap column-gap @ MDN]]
     *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap Guide to Flexbox @ CSS-Tricks]]
     */
-  lazy val columnGap: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("column-gap")
+  lazy val columnGap: StyleProp[String] with u.Length[DSP] = lengthStyle("column-gap")
 
 
   /**
@@ -877,7 +875,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/column-width column-width @ MDN]]
     */
-  lazy val columnWidth: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("column-width")
+  lazy val columnWidth: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("column-width")
 
 
   /**
@@ -906,7 +904,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-width column-rule-width @ MDN]]
     */
-  lazy val columnRuleWidth: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("column-rule-width")
+  lazy val columnRuleWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("column-rule-width")
 
 
   /**
@@ -1025,7 +1023,7 @@ trait StyleProps {
     *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis flex-basis @ MDN]]
     *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/ Guide to Flexbox @ CSS-Tricks]]
     */
-  lazy val flexBasis: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("flex-basis")
+  lazy val flexBasis: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("flex-basis")
 
 
   /**
@@ -1183,7 +1181,7 @@ trait StyleProps {
     *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/gap gap @ MDN]]
     *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap Guide to Flexbox @ CSS-Tricks]]
     */
-  lazy val gap: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("gap")
+  lazy val gap: StyleProp[String] with u.Length[DSP] = lengthStyle("gap")
 
 
   /**
@@ -1195,7 +1193,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/height height @ MDN]]
     */
-  lazy val height: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("height")
+  lazy val height: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("height")
 
 
   /**
@@ -1232,7 +1230,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/left left @ MDN]]
     */
-  lazy val left: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("left")
+  lazy val left: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("left")
 
 
   /**
@@ -1256,7 +1254,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/line-height line-height @ MDN]]
     */
-  lazy val lineHeight: StyleProp[String] with s.Normal[String] with u.Length[DSP, Int | Double] = lengthNormalStyle("line-height")
+  lazy val lineHeight: StyleProp[String] with s.Normal[String] with u.Length[DSP] = lengthNormalStyle("line-height")
 
 
   /**
@@ -1304,7 +1302,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/margin margin @ MDN]]
     */
-  lazy val margin: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("margin")
+  lazy val margin: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("margin")
 
 
   /**
@@ -1313,7 +1311,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top margin-top @ MDN]]
     */
-  lazy val marginTop: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("margin-top")
+  lazy val marginTop: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("margin-top")
 
 
   /**
@@ -1322,7 +1320,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right margin-right @ MDN]]
     */
-  lazy val marginRight: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("margin-right")
+  lazy val marginRight: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("margin-right")
 
 
   /**
@@ -1331,7 +1329,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom margin-bottom @ MDN]]
     */
-  lazy val marginBottom: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("margin-bottom")
+  lazy val marginBottom: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("margin-bottom")
 
 
   /**
@@ -1340,7 +1338,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left margin-left @ MDN]]
     */
-  lazy val marginLeft: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("margin-left")
+  lazy val marginLeft: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("margin-left")
 
 
   /**
@@ -1473,7 +1471,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width outline-width @ MDN]]
     */
-  lazy val outlineWidth: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("outline-width")
+  lazy val outlineWidth: StyleProp[String] with u.Length[DSP] = lengthStyle("outline-width")
 
 
   /**
@@ -1542,7 +1540,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/padding padding @ MDN]]
     */
-  lazy val padding: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("padding")
+  lazy val padding: StyleProp[String] with u.Length[DSP] = lengthStyle("padding")
 
 
   /**
@@ -1553,7 +1551,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top padding-top @ MDN]]
     */
-  lazy val paddingTop: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("padding-top")
+  lazy val paddingTop: StyleProp[String] with u.Length[DSP] = lengthStyle("padding-top")
 
 
   /**
@@ -1564,7 +1562,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right padding-right @ MDN]]
     */
-  lazy val paddingRight: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("padding-right")
+  lazy val paddingRight: StyleProp[String] with u.Length[DSP] = lengthStyle("padding-right")
 
 
   /**
@@ -1575,7 +1573,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom padding-bottom @ MDN]]
     */
-  lazy val paddingBottom: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("padding-bottom")
+  lazy val paddingBottom: StyleProp[String] with u.Length[DSP] = lengthStyle("padding-bottom")
 
 
   /**
@@ -1585,7 +1583,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left padding-left @ MDN]]
     */
-  lazy val paddingLeft: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("padding-left")
+  lazy val paddingLeft: StyleProp[String] with u.Length[DSP] = lengthStyle("padding-left")
 
 
   /**
@@ -1700,7 +1698,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/right right @ MDN]]
     */
-  lazy val right: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("right")
+  lazy val right: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("right")
 
 
   /**
@@ -1712,7 +1710,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-top scroll-margin-top @ MDN]]
     */
-  lazy val scrollMarginTop: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("scroll-margin-top")
+  lazy val scrollMarginTop: StyleProp[String] with u.Length[DSP] = lengthStyle("scroll-margin-top")
 
 
   /**
@@ -1721,7 +1719,7 @@ trait StyleProps {
     *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap row-gap @ MDN]]
     *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap Guide to Flexbox @ CSS-Tricks]]
     */
-  lazy val rowGap: StyleProp[String] with u.Length[DSP, Int | Double] = lengthStyle("row-gap")
+  lazy val rowGap: StyleProp[String] with u.Length[DSP] = lengthStyle("row-gap")
 
 
   /**
@@ -1836,7 +1834,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/top top @ MDN]]
     */
-  lazy val top: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("top")
+  lazy val top: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("top")
 
 
   /**
@@ -1987,7 +1985,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/width width @ MDN]]
     */
-  lazy val width: StyleProp[String] with s.Auto[String] with u.Length[DSP, Int | Double] = lengthAutoStyle("width")
+  lazy val width: StyleProp[String] with s.Auto[String] with u.Length[DSP] = lengthAutoStyle("width")
 
 
   /**

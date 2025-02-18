@@ -60,7 +60,7 @@ class CompileSpec extends AnyFunSpec with Matchers {
     extends DerivedStyleBuilder[String, StyleEncoder]
     with Color[String, StyleEncoder]
     with Url[StyleEncoder]
-    with Length[StyleEncoder, Int]
+    with Length[StyleEncoder]
     with Time[StyleEncoder]
     with Calc[StyleEncoder] {
 

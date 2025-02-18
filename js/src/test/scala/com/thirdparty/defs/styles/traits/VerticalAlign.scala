@@ -5,14 +5,12 @@ import com.thirdparty.setters.StyleSetter
 import com.thirdparty.defs.styles.{units => u}
 import com.thirdparty.keys.DerivedStyleProp
 
-import scala.scalajs.js.|
-
 // #NOTE: GENERATED CODE
 //  - This file is generated at compile time from the data in Scala DOM Types
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait VerticalAlign extends u.Length[DerivedStyleProp, Int | Double] { this: StyleProp[String] =>
+trait VerticalAlign extends u.Length[DerivedStyleProp] { this: StyleProp[String] =>
 
   /**
     * Aligns the baseline of the element with the baseline of its parent. The

@@ -5,14 +5,12 @@ import com.thirdparty.setters.StyleSetter
 import com.thirdparty.defs.styles.{units => u}
 import com.thirdparty.keys.DerivedStyleProp
 
-import scala.scalajs.js.|
-
 // #NOTE: GENERATED CODE
 //  - This file is generated at compile time from the data in Scala DOM Types
 //  - See `GeneratorSpec.scala` for code generation params
 //  - Contribute to https://github.com/raquo/scala-dom-types to add missing tags / attrs / props / etc.
 
-trait BackgroundSize extends Auto[String] with u.Length[DerivedStyleProp, Int | Double] { this: StyleProp[String] =>
+trait BackgroundSize extends Auto[String] with u.Length[DerivedStyleProp] { this: StyleProp[String] =>
 
   /**
     * This keyword specifies that the background image should be scaled to be
