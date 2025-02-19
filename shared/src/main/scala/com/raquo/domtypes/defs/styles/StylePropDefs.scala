@@ -7,9 +7,9 @@ import com.raquo.domtypes.defs.styles.StyleDefs.{implNames, valueTraits, valueTy
 
 /** CSS style properties */
 object StylePropDefs {
-  
+
   val defs: List[StylePropDef] = List(
-    
+
     StylePropDef(
       scalaName = "all",
       domName = "all",
@@ -133,7 +133,7 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "animationIterationCount",
       domName = "animation-iteration-count",
-      valueType = "Double",
+      valueType = valueTypes.Double,
       valueTraits = Nil,
       valueUnits = Nil,
       implName = implNames.doubleStyle,
@@ -1402,7 +1402,7 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "flexGrow",
       domName = "flex-grow",
-      valueType = "Double",
+      valueType = valueTypes.Double,
       valueTraits = Nil,
       valueUnits = Nil,
       implName = implNames.doubleStyle,
@@ -1420,7 +1420,7 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "flexShrink",
       domName = "flex-shrink",
-      valueType = "Double",
+      valueType = valueTypes.Double,
       valueTraits = Nil,
       valueUnits = Nil,
       implName = implNames.doubleStyle,
@@ -1544,7 +1544,7 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "fontSizeAdjust",
       domName = "font-size-adjust",
-      valueType = "Double",
+      valueType = valueTypes.Double,
       valueTraits = List(valueTraits.None_),
       valueUnits = Nil,
       implName = implNames.noneStyle_,
@@ -1999,7 +1999,7 @@ object StylePropDefs {
     StylePropDef(
       scalaName = "opacity",
       domName = "opacity",
-      valueType = "Double",
+      valueType = valueTypes.Double,
       valueTraits = Nil,
       valueUnits = Nil,
       implName = implNames.doubleStyle,
@@ -3004,5 +3004,5 @@ object StylePropDefs {
     ),
 
   )
-  
+
 }

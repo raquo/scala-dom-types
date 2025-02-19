@@ -26,6 +26,7 @@ object StyleProp {
 
   // In CSS, every style prop can be set to a string value, and this allows it.
   // You need to make sure that your StyleProp implementation is safe with such a casting implicit conversion. See Laminar v18+ for example.
+  // #Note - I think this is only needed for Scala 2. Scala 3 seems to be able to resolve our `StyleProp[V] := String` use case when the abstract V is actually `Int | String` just fine.
   implicit def stylePropToStringStyleProp[V](p: StyleProp[V]): StyleProp[String] = {
     p.asInstanceOf[StyleProp[String]]
   }

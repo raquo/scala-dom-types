@@ -6,6 +6,8 @@ import com.thirdparty.defs.styles.{traits => s}
 import com.thirdparty.defs.styles.{units => u}
 import com.thirdparty.setters.StyleSetter
 
+import scala.scalajs.js.|
+
 // #NOTE: GENERATED CODE
 //  - This file is generated at compile time from the data in Scala DOM Types
 //  - See `GeneratorSpec.scala` for code generation params
@@ -24,11 +26,11 @@ trait StyleProps {
 
   // -- Basic types --
 
-  protected def doubleStyle(key: String): StyleProp[Double] = 
-    new StyleProp[Double](key)
+  protected def doubleStyle(key: String): StyleProp[Double | String] = 
+    new StyleProp[Double | String](key)
 
-  protected def intStyle(key: String): StyleProp[Int] = 
-    new StyleProp[Int](key)
+  protected def intStyle(key: String): StyleProp[Int | String] = 
+    new StyleProp[Int | String](key)
 
   protected def stringStyle(key: String): StyleProp[String] = 
     new StyleProp[String](key)
@@ -284,7 +286,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count animation-iteration-count @ MDN]]
     */
-  lazy val animationIterationCount: StyleProp[Double] = doubleStyle("animation-iteration-count")
+  lazy val animationIterationCount: StyleProp[Double | String] = doubleStyle("animation-iteration-count")
 
 
   /**
@@ -831,7 +833,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/column-count column-count @ MDN]]
     */
-  lazy val columnCount: StyleProp[Int] with s.Auto[Int] = autoStyle("column-count")
+  lazy val columnCount: StyleProp[Int | String] with s.Auto[Int | String] = autoStyle("column-count")
 
 
   /**
@@ -861,7 +863,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/column-span column-span @ MDN]]
     */
-  lazy val columnSpan: StyleProp[Int] = intStyle("column-span")
+  lazy val columnSpan: StyleProp[Int | String] = intStyle("column-span")
 
 
   /**
@@ -1051,7 +1053,7 @@ trait StyleProps {
     *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow flex-grow @ MDN]]
     *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/ Guide to Flexbox @ CSS-Tricks]]
     */
-  lazy val flexGrow: StyleProp[Double] = doubleStyle("flex-grow")
+  lazy val flexGrow: StyleProp[Double | String] = doubleStyle("flex-grow")
 
 
   /**
@@ -1062,7 +1064,7 @@ trait StyleProps {
     *  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink flex-shrink @ MDN]]
     *  - [[https://css-tricks.com/snippets/css/a-guide-to-flexbox/ Guide to Flexbox @ CSS-Tricks]]
     */
-  lazy val flexShrink: StyleProp[Double] = doubleStyle("flex-shrink")
+  lazy val flexShrink: StyleProp[Double | String] = doubleStyle("flex-shrink")
 
 
   /**
@@ -1144,7 +1146,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/font-size-adjust font-size-adjust @ MDN]]
     */
-  lazy val fontSizeAdjust: StyleProp[Double] with s.None[Double] = noneStyle("font-size-adjust")
+  lazy val fontSizeAdjust: StyleProp[Double | String] with s.None[Double | String] = noneStyle("font-size-adjust")
 
 
   /**
@@ -1426,7 +1428,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/opacity opacity @ MDN]]
     */
-  lazy val opacity: StyleProp[Double] = doubleStyle("opacity")
+  lazy val opacity: StyleProp[Double | String] = doubleStyle("opacity")
 
 
   /**
@@ -1438,7 +1440,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/orphans orphans @ MDN]]
     */
-  lazy val orphans: StyleProp[Int] = intStyle("orphans")
+  lazy val orphans: StyleProp[Int | String] = intStyle("orphans")
 
 
   /**
@@ -2009,7 +2011,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/widows widows @ MDN]]
     */
-  lazy val widows: StyleProp[Int] = intStyle("widows")
+  lazy val widows: StyleProp[Int | String] = intStyle("widows")
 
 
   /**
@@ -2039,7 +2041,7 @@ trait StyleProps {
     * 
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/z-index z-index @ MDN]]
     */
-  lazy val zIndex: StyleProp[Int] with s.Auto[Int] = autoStyle("z-index")
+  lazy val zIndex: StyleProp[Int | String] with s.Auto[Int | String] = autoStyle("z-index")
 
 
 }

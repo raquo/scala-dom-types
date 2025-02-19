@@ -114,6 +114,16 @@ class CompileSpec extends AnyFunSpec with Matchers {
     assert(html.cls.domName == "className")
     assert((html.cls := List("class1", "class2")).domValue == "class1 class2")
 
+    // CSS values
+
+    html.color := "red"
+
+    html.zIndex := 1
+    html.zIndex := "1"
+    html.zIndex := (1: Int | String)
+    html.zIndex := (1: String | Int)
+
+
     // CSS keywords
 
     val s1: StyleSetter[_] = html.display.none

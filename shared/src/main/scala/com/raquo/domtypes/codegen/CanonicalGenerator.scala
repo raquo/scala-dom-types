@@ -424,7 +424,7 @@ class CanonicalGenerator(
         Nil
       }
     ) ++ (
-      if (lengthUnitsNumType.exists(_.contains("|"))) {
+      if (defs.exists(_.valueType.contains("|")) || lengthUnitsNumType.exists(_.contains("|"))) {
         List("", "import scala.scalajs.js.|")
       } else {
         Nil

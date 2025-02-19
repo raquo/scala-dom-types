@@ -7,7 +7,9 @@ object StyleDefs {
 
     val String = "String"
 
-    val Int = "Int"
+    val Int = "Int | String"
+
+    val Double = "Double | String"
   }
 
   object implNames {
