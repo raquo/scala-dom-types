@@ -1,0 +1,3 @@
+This is a cross platform scala project using the sbt build tool. It is a code generator which, given an appropriate definition of htmls attributes (in the `shared\src\main\scala\com\raquo\domtypes`sub directory) generates code which, once published, may be consumed by a downstream party library (for example laminar) to manipulate / use DOM attributes in scala JS. 
+
+You may run code generation with the `sbt test` task. Note the generated code becomes available here - `js\src\test\scala\com\thirdparty\defs`.
