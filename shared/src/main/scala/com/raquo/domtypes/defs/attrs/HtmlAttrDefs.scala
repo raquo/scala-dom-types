@@ -287,6 +287,22 @@ object HtmlAttrDefs {
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#width",
       ),
     ),
+    AttrDef(
+      tagType = HtmlTagType,
+      scalaName = "xmlns",
+      domName = "xmlns",
+      namespace = None,
+      scalaValueType = "String",
+      codec = "StringAsIs",
+      commentLines = List(
+        "The xmlns attribute specifies the XML namespace for the element.",
+        "This is especially important when mixing HTML with other XML vocabularies",
+        "like SVG or MathML.",
+      ),
+      docUrls = List(
+        "https://www.w3schools.com/tags/att_html_xmlns.asp",
+      ),
+    ),
 
   )
   

@@ -109,6 +109,13 @@ class CompileSpec extends AnyFunSpec with Matchers {
     assert(mathMl.mathTag.domName == "math")
     assert(mathMl.mi.domName == "mi")
 
+    
+    // xmlns attribute available on all element types
+
+    assert(html.xmlns.domName == "xmlns") // HTML xmlns
+    assert(svg.xmlns.domName == "xmlns")  // SVG xmlns
+    assert(mathml.xmlns.domName == "xmlns") // MathML xmlns
+
     // Aliases
 
     assert(html.typ == html.`type`)
