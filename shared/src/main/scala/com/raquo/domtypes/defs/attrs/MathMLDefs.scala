@@ -22,7 +22,7 @@ object MathMLDefs {
         "If not present, its default value is inline.",
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/MathML/Global_attributes/display",
+        "https://developer.mozilla.org/en-US/docs/Web/MathML/Reference/Attribute",
       ),
     ),
 
@@ -41,7 +41,7 @@ object MathMLDefs {
         "the same typography.",
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/MathML/Global_attributes/mathvariant",
+        "https://developer.mozilla.org/en-US/docs/Web/MathML/Reference/Attribute",
       ),
     ),
 
@@ -365,7 +365,7 @@ object MathMLDefs {
         "For MathML, this should typically be 'http://www.w3.org/1998/Math/MathML'.",
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math#xmlns",
+        "https://www.w3schools.com/tags/att_html_xmlns.asp",
       ),
     ),
 
