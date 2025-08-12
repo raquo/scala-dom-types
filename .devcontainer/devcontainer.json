@@ -1,57 +1,29 @@
 {
-  "name": "Scala DOM Types Development",
-  "image": "mcr.microsoft.com/devcontainers/scala:1-3.3-bookworm",
+  "name": "Scala DOM Types",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine",
   
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
       "version": "17",
-      "installGradle": "false",
-      "installMaven": "false"
+      "installMaven": "false",
+      "installGradle": "false"
+    },
+    "ghcr.io/devcontainers/features/sbt:1": {
+      "version": "latest"
     },
     "ghcr.io/devcontainers/features/node:1": {
       "version": "18"
-    },
-    "ghcr.io/devcontainers/features/git:1": {
-      "version": "latest"
     }
   },
 
   "customizations": {
     "vscode": {
       "extensions": [
-        "scalameta.metals",
         "scala-lang.scala",
-        "ms-vscode.vscode-typescript-next",
-        "ms-vscode.vscode-json",
-        "redhat.vscode-yaml",
-        "ms-vscode.test-adapter-converter"
-      ],
-      "settings": {
-        "metals.serverVersion": "latest.snapshot",
-        "metals.javaHome": "/usr/local/sdkman/candidates/java/current",
-        "files.watcherExclude": {
-          "**/target/**": true,
-          "**/.bloop/**": true,
-          "**/.metals/**": true
-        }
-      }
+        "scalameta.metals"
+      ]
     }
   },
 
-  "forwardPorts": [9999],
-
-  "onCreateCommand": "sbt update",
-  
-  "postCreateCommand": [
-    "bash",
-    "-c",
-    "echo 'Setting up Scala DOM Types development environment...' && sbt compile && echo 'Environment ready!'"
-  ],
-
-  "remoteUser": "vscode",
-  
-  "mounts": [
-    "source=${localWorkspaceFolder}/.bloop,target=${containerWorkspaceFolder}/.bloop,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/.metals,target=${containerWorkspaceFolder}/.metals,type=bind,consistency=cached"
-  ]
+  "postCreateCommand": "sbt compile"
 }
