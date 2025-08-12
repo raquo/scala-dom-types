@@ -47,57 +47,6 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "mathsize",
-      domName = "mathsize",
-      namespace = None,
-      scalaValueType = "String",
-      codec = "StringAsIs",
-      commentLines = List(
-        "This attribute specifies the size of the content. Possible values are:",
-        "- small: The content is rendered smaller than the surrounding text.",
-        "- normal: The content is rendered at the same size as the surrounding text.",
-        "- big: The content is rendered larger than the surrounding text.",
-        "- A length value like '12pt', '2em', etc.",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/MathML/Global_attributes/mathsize",
-      ),
-    ),
-
-    AttrDef(
-      tagType = MathMlTagType,
-      scalaName = "mathcolor",
-      domName = "mathcolor",
-      namespace = None,
-      scalaValueType = "String",
-      codec = "StringAsIs",
-      commentLines = List(
-        "This attribute sets the text color and also the fraction line color.",
-        "You can use named colors or RGB format like #rgb, #rrggbb and CSS color names.",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/MathML/Global_attributes/mathcolor",
-      ),
-    ),
-
-    AttrDef(
-      tagType = MathMlTagType,
-      scalaName = "mathbackground",
-      domName = "mathbackground",
-      namespace = None,
-      scalaValueType = "String",
-      codec = "StringAsIs",
-      commentLines = List(
-        "This attribute sets the background color. You can use named colors",
-        "or RGB format like #rgb, #rrggbb and CSS color names.",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/MathML/Global_attributes/mathbackground",
-      ),
-    ),
-
-    AttrDef(
-      tagType = MathMlTagType,
       scalaName = "displaystyle",
       domName = "displaystyle",
       namespace = None,
