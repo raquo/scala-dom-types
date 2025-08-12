@@ -118,9 +118,6 @@ class CompileSpec extends AnyFunSpec with Matchers {
 
     assert(mathMl.display.domName == "display")
     assert(mathMl.mathvariant.domName == "mathvariant")
-    assert(mathMl.mathsize.domName == "mathsize")
-    assert(mathMl.mathcolor.domName == "mathcolor")
-    assert(mathMl.mathbackground.domName == "mathbackground")
     assert(mathMl.displaystyle.domName == "displaystyle")
     assert(mathMl.scriptlevel.domName == "scriptlevel")
     assert(mathMl.xmlns.domName == "xmlns")

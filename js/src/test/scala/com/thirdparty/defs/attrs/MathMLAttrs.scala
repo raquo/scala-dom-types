@@ -30,7 +30,7 @@ trait MathMLAttrs {
     * 
     * If not present, its default value is inline.
     * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Global_attributes/display display @ MDN]]
+    * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Reference/Attribute Attribute @ MDN]]
     */
   lazy val display: MathMLAttr[String] = stringMathMLAttr("display")
 
@@ -42,39 +42,9 @@ trait MathMLAttrs {
     * within an expression, which might or might not involve displaying them with
     * the same typography.
     * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Global_attributes/mathvariant mathvariant @ MDN]]
+    * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Reference/Attribute Attribute @ MDN]]
     */
   lazy val mathvariant: MathMLAttr[String] = stringMathMLAttr("mathvariant")
-
-
-  /**
-    * This attribute specifies the size of the content. Possible values are:
-    * - small: The content is rendered smaller than the surrounding text.
-    * - normal: The content is rendered at the same size as the surrounding text.
-    * - big: The content is rendered larger than the surrounding text.
-    * - A length value like '12pt', '2em', etc.
-    * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Global_attributes/mathsize mathsize @ MDN]]
-    */
-  lazy val mathsize: MathMLAttr[String] = stringMathMLAttr("mathsize")
-
-
-  /**
-    * This attribute sets the text color and also the fraction line color.
-    * You can use named colors or RGB format like #rgb, #rrggbb and CSS color names.
-    * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Global_attributes/mathcolor mathcolor @ MDN]]
-    */
-  lazy val mathcolor: MathMLAttr[String] = stringMathMLAttr("mathcolor")
-
-
-  /**
-    * This attribute sets the background color. You can use named colors
-    * or RGB format like #rgb, #rrggbb and CSS color names.
-    * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Global_attributes/mathbackground mathbackground @ MDN]]
-    */
-  lazy val mathbackground: MathMLAttr[String] = stringMathMLAttr("mathbackground")
 
 
   /**
@@ -226,7 +196,7 @@ trait MathMLAttrs {
     * The xmlns attribute specifies the XML namespace for the MathML element.
     * For MathML, this should typically be 'http://www.w3.org/1998/Math/MathML'.
     * 
-    * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math#xmlns math#xmlns @ MDN]]
+    * [[https://www.w3schools.com/tags/att_html_xmlns.asp]]
     */
   lazy val xmlns: MathMLAttr[String] = stringMathMLAttr("xmlns")
 
