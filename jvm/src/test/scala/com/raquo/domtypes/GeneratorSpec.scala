@@ -199,6 +199,34 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     )
   }
 
+  it("Generate MathML attributes ") {
+    println("=== MATHML ATTRS ===")
+
+    val traitName = "MathMLAttrs"
+
+    val fileContent = generator.generateAttrsTrait(
+      defGroups = defGroups.mathMLAttrDefGroups,
+      printDefGroupComments = false,
+      traitModifiers = Nil,
+      traitName = traitName,
+      traitCommentLines = Nil,
+      keyKind = "MathMLAttr",
+      implNameSuffix = "MathMLAttr",
+      baseImplDefComments = Nil,
+      baseImplName = "mathMLAttr",
+      namespaceImports = Nil,
+      namespaceImpl = _ => ???,
+      transformAttrDomName = identity,
+      defType = LazyVal
+    )
+
+    generator.writeToFile(
+      packagePath = generator.attrDefsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
+    )
+  }
+
   it("Generate HTML Props") {
     println("=== HTML Props ===")
 

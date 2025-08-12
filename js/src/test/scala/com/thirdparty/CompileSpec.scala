@@ -1,6 +1,6 @@
 package com.thirdparty
 
-import com.thirdparty.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
+import com.thirdparty.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs, MathMLAttrs}
 import com.thirdparty.defs.complex.{ComplexHtmlKeys, ComplexSvgKeys}
 import com.thirdparty.defs.eventProps.{DocumentEventProps, GlobalEventProps, WindowEventProps}
 import com.thirdparty.defs.props.Props
@@ -52,6 +52,7 @@ class CompileSpec extends AnyFunSpec with Matchers {
 
   object mathMl
     extends MathMlTags
+    with MathMLAttrs
 
 
   object aria
@@ -104,17 +105,32 @@ class CompileSpec extends AnyFunSpec with Matchers {
     assert(svg.xlinkHref.qualifiedName == "xlink:href")
     assert(SvgAttr.namespaceUrl(svg.xlinkHref.namespace.get) == "http://www.w3.org/1999/xlink")
 
-    // MathML
-
     assert(mathMl.mathTag.domName == "math")
     assert(mathMl.mi.domName == "mi")
+    assert(mathMl.mn.domName == "mn")
+    assert(mathMl.mo.domName == "mo")
+    assert(mathMl.mrow.domName == "mrow")
+    assert(mathMl.mfrac.domName == "mfrac")
+    assert(mathMl.msup.domName == "msup")
+    assert(mathMl.msub.domName == "msub")
+
+    // mathMl attributes
+
+    assert(mathMl.display.domName == "display")
+    assert(mathMl.mathvariant.domName == "mathvariant")
+    assert(mathMl.mathsize.domName == "mathsize")
+    assert(mathMl.mathcolor.domName == "mathcolor")
+    assert(mathMl.mathbackground.domName == "mathbackground")
+    assert(mathMl.displaystyle.domName == "displaystyle")
+    assert(mathMl.scriptlevel.domName == "scriptlevel")
+    assert(mathMl.xmlns.domName == "xmlns")
 
     
     // xmlns attribute available on all element types
 
     assert(html.xmlns.domName == "xmlns") // HTML xmlns
     assert(svg.xmlns.domName == "xmlns")  // SVG xmlns
-    assert(mathml.xmlns.domName == "xmlns") // MathML xmlns
+    assert(mathMl.xmlns.domName == "xmlns") // MathML xmlns
 
     // Aliases
 

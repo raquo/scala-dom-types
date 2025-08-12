@@ -41,3 +41,10 @@ class AriaAttr[V](
   override val domName: String,
   override val codec: Codec[V, String]
 ) extends Attr[V]
+
+
+class MathMLAttr[V](
+  override val domName: String,
+  override val codec: com.thirdparty.codecs.Codec[V, String],
+  val namespace: Option[String] = None
+) extends Attr[V]
