@@ -77,7 +77,7 @@ class AttrsTraitGenerator(
       val namespaceIsDefinedOptions: List[Boolean] = distinctByImpl(implName, _.namespace.isDefined)
       namespaceIsDefinedOptions.foreach { isNamespaceDefined =>
         val maybeNamespaceParam = if (anyKeyHasDefinedNamespace) {
-          s", ${if (isNamespaceDefined) "Some(namespace)" else "namespace = None"}"
+          s", ${if (isNamespaceDefined) "Option(namespace)" else "namespace = None"}"
         } else {
           ""
         }

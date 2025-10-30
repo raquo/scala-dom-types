@@ -11,7 +11,7 @@ package com.thirdparty.codecs
   * Scala DOM Types hides all this mess from you using codecs. All those pseudo-boolean
   * attributes would be simply `Attr[Boolean](name, codec)` in your code.
   * */
-trait Codec[ScalaType, DomType] {
+trait Codec[ScalaType, DomType] { self =>
 
   /** Convert the result of a `dom.Node.getAttribute` call to appropriate Scala type.
     *
@@ -30,4 +30,100 @@ trait Codec[ScalaType, DomType] {
     * call this method under the hood.
     */
   def encode(scalaValue: ScalaType): DomType
+
+  lazy val optAsNull: Codec[Option[ScalaType], DomType] = {
+    new Codec[Option[ScalaType], DomType] {
+
+      override def decode(domValue: DomType): Option[ScalaType] = {
+        Option(domValue).map(self.decode)
+      }
+
+      override def encode(scalaValue: Option[ScalaType]): DomType = {
+        // #Safe – `encode` is SUPPOSED to return `null` (remove-key command) when input scalaValue is None.
+        scalaValue.map(self.encode).getOrElse(null).asInstanceOf[DomType]
+      }
+    }
+  }
+}
+
+object Codec {
+
+  /** "as-is" codecs are identity functions – they read / write the value directly. */
+  def asIsCodec[V](): Codec[V, V] = new Codec[V, V] {
+    override def encode(scalaValue: V): V = scalaValue
+
+    override def decode(domValue: V): V = domValue
+  }
+
+  val stringAsIs: Codec[String, String] = asIsCodec()
+
+  // --
+
+  val intAsIs: Codec[Int, Int] = asIsCodec()
+
+  lazy val intAsString: Codec[Int, String] = new Codec[Int, String] {
+
+    override def decode(domValue: String): Int = domValue.toInt // @TODO this can throw exception. How do we handle this?
+
+    override def encode(scalaValue: Int): String = scalaValue.toString
+  }
+
+  // --
+
+  lazy val doubleAsIs: Codec[Double, Double] = asIsCodec()
+
+  lazy val doubleAsString: Codec[Double, String] = new Codec[Double, String] {
+
+    override def decode(domValue: String): Double = domValue.toDouble // @TODO this can throw exception. How do we handle this?
+
+    override def encode(scalaValue: Double): String = scalaValue.toString
+  }
+
+  // --
+
+  val booleanAsIs: Codec[Boolean, Boolean] = asIsCodec()
+
+  /** Codec for certain HTML attributes.
+    *  - If you set `true` in Scala, attribute will be added with empty value.
+    *  - If you set `false` in Scala, attribute will be removed from the DOM
+    */
+  val booleanAsAttrPresenceCodec: Codec[Boolean, String] = new Codec[Boolean, String] {
+
+    override def decode(domValue: String): Boolean = domValue != null
+
+    override def encode(scalaValue: Boolean): String = if (scalaValue) "" else null
+  }
+
+  lazy val booleanAsTrueFalseString: Codec[Boolean, String] = new Codec[Boolean, String] {
+
+    override def decode(domValue: String): Boolean = domValue == "true"
+
+    override def encode(scalaValue: Boolean): String = if (scalaValue) "true" else "false"
+  }
+
+  lazy val booleanAsYesNoString: Codec[Boolean, String] = new Codec[Boolean, String] {
+
+    override def decode(domValue: String): Boolean = domValue == "yes"
+
+    override def encode(scalaValue: Boolean): String = if (scalaValue) "yes" else "no"
+  }
+
+  lazy val booleanAsOnOffString: Codec[Boolean, String] = new Codec[Boolean, String] {
+
+    override def decode(domValue: String): Boolean = domValue == "on"
+
+    override def encode(scalaValue: Boolean): String = if (scalaValue) "on" else "off"
+  }
+
+  // Iterable Codecs
+
+  object iterableAsSpaceSeparatedString extends Codec[Iterable[String], String] { // use for e.g. className
+    override def decode(domValue: String): Iterable[String] = if (domValue == "") Nil else domValue.split(' ')
+    override def encode(scalaValue: Iterable[String]): String = scalaValue.mkString(" ")
+  }
+
+  object iterableAsCommaSeparatedString extends Codec[Iterable[String], String] { // use for lists of IDs
+    override def decode(domValue: String): Iterable[String] = if (domValue == "") Nil else domValue.split(',')
+    override def encode(scalaValue: Iterable[String]): String = scalaValue.mkString(",")
+  }
 }

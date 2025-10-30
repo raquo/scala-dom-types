@@ -20,7 +20,7 @@ trait HtmlTags {
   /**
     * Represents the root of an HTML or XHTML document. All other elements must
     * be descendants of this element.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html html @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLHtmlElement HTMLHtmlElement @ MDN]]
     */
@@ -30,7 +30,7 @@ trait HtmlTags {
   /**
     * Represents a collection of metadata about the document, including links to,
     * or definitions of, scripts and style sheets.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head head @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadElement HTMLHeadElement @ MDN]]
     */
@@ -39,7 +39,7 @@ trait HtmlTags {
 
   /**
     * Defines the base URL for relative URLs in the page.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base base @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLBaseElement HTMLBaseElement @ MDN]]
     */
@@ -48,7 +48,7 @@ trait HtmlTags {
 
   /**
     * Used to link JavaScript and external CSS with the current HTML document.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link link @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement HTMLLinkElement @ MDN]]
     */
@@ -57,7 +57,7 @@ trait HtmlTags {
 
   /**
     * Defines metadata that can't be defined using another HTML element.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta meta @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLMetaElement HTMLMetaElement @ MDN]]
     */
@@ -67,7 +67,7 @@ trait HtmlTags {
   /**
     * Defines either an internal script or a link to an external script. The
     * script language is JavaScript.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script script @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement HTMLScriptElement @ MDN]]
     */
@@ -77,7 +77,7 @@ trait HtmlTags {
   /**
     * Defines alternative content to display when the browser doesn't support
     * scripting.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript noscript @ MDN]]
     */
   lazy val noScriptTag: HtmlTag[dom.HTMLElement] = htmlTag("noscript")
@@ -88,7 +88,7 @@ trait HtmlTags {
 
   /**
     * Represents an image.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img img @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement HTMLImageElement @ MDN]]
     */
@@ -97,7 +97,7 @@ trait HtmlTags {
 
   /**
     * Represents a nested browsing context, that is an embedded HTML document.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe iframe @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement HTMLIFrameElement @ MDN]]
     */
@@ -107,7 +107,7 @@ trait HtmlTags {
   /**
     * Represents a integration point for an external, often non-HTML, application
     * or interactive content.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed embed @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLEmbedElement HTMLEmbedElement @ MDN]]
     */
@@ -117,7 +117,7 @@ trait HtmlTags {
   /**
     * Represents an external resource, which is treated as an image, an HTML
     * sub-document, or an external resource to be processed by a plug-in.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object object @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement HTMLObjectElement @ MDN]]
     */
@@ -126,7 +126,7 @@ trait HtmlTags {
 
   /**
     * Defines parameters for use by plug-ins invoked by object elements.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/param param @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLParamElement HTMLParamElement @ MDN]]
     */
@@ -136,7 +136,7 @@ trait HtmlTags {
   /**
     * Represents a video, and its associated audio files and captions, with the
     * necessary interface to play it.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video video @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement HTMLVideoElement @ MDN]]
     */
@@ -145,7 +145,7 @@ trait HtmlTags {
 
   /**
     * Represents a sound or an audio stream.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio audio @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement HTMLAudioElement @ MDN]]
     */
@@ -155,7 +155,7 @@ trait HtmlTags {
   /**
     * Allows the authors to specify alternate media resources for media elements
     * like video or audio
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source source @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLSourceElement HTMLSourceElement @ MDN]]
     */
@@ -165,7 +165,7 @@ trait HtmlTags {
   /**
     * Allows authors to specify timed text track for media elements like video or
     * audio
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track track @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTrackElement HTMLTrackElement @ MDN]]
     */
@@ -175,7 +175,7 @@ trait HtmlTags {
   /**
     * Represents a bitmap area that scripts can use to render graphics like graphs,
     * games or any visual images on the fly.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas canvas @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement HTMLCanvasElement @ MDN]]
     */
@@ -184,7 +184,7 @@ trait HtmlTags {
 
   /**
     * In conjunction with area, defines an image map.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map map @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLMapElement HTMLMapElement @ MDN]]
     */
@@ -193,7 +193,7 @@ trait HtmlTags {
 
   /**
     * In conjunction with map, defines an image map
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area area @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLAreaElement HTMLAreaElement @ MDN]]
     */
@@ -206,7 +206,7 @@ trait HtmlTags {
   /**
     * Represents the content of an HTML document. There is only one body
     *   element in a document.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body body @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLBodyElement HTMLBodyElement @ MDN]]
     */
@@ -216,7 +216,7 @@ trait HtmlTags {
   /**
     * Defines the header of a page or section. It often contains a logo, the
     * title of the Web site, and a navigational table of content.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header header @ MDN]]
     */
   lazy val headerTag: HtmlTag[dom.HTMLElement] = htmlTag("header")
@@ -225,7 +225,7 @@ trait HtmlTags {
   /**
     * Defines the footer for a page or section. It often contains a copyright
     * notice, some links to legal information, or addresses to give feedback.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer footer @ MDN]]
     */
   lazy val footerTag: HtmlTag[dom.HTMLElement] = htmlTag("footer")
@@ -233,7 +233,7 @@ trait HtmlTags {
 
   /**
     * Heading level 1
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1 h1 @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement HTMLHeadingElement @ MDN]]
     */
@@ -242,7 +242,7 @@ trait HtmlTags {
 
   /**
     * Heading level 2
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2 h2 @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement HTMLHeadingElement @ MDN]]
     */
@@ -251,7 +251,7 @@ trait HtmlTags {
 
   /**
     * Heading level 3
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h3 h3 @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement HTMLHeadingElement @ MDN]]
     */
@@ -260,7 +260,7 @@ trait HtmlTags {
 
   /**
     * Heading level 4
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h4 h4 @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement HTMLHeadingElement @ MDN]]
     */
@@ -269,7 +269,7 @@ trait HtmlTags {
 
   /**
     * Heading level 5
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h5 h5 @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement HTMLHeadingElement @ MDN]]
     */
@@ -278,7 +278,7 @@ trait HtmlTags {
 
   /**
     * Heading level 6
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h6 h6 @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement HTMLHeadingElement @ MDN]]
     */
@@ -290,7 +290,7 @@ trait HtmlTags {
 
   /**
     * Represents a hyperlink, linking to another resource.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a a @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLAnchorElement HTMLAnchorElement @ MDN]]
     */
@@ -299,7 +299,7 @@ trait HtmlTags {
 
   /**
     * Represents emphasized text.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em em @ MDN]]
     */
   lazy val em: HtmlTag[dom.HTMLElement] = htmlTag("em")
@@ -307,7 +307,7 @@ trait HtmlTags {
 
   /**
     * Represents especially important text.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong strong @ MDN]]
     */
   lazy val strong: HtmlTag[dom.HTMLElement] = htmlTag("strong")
@@ -316,7 +316,7 @@ trait HtmlTags {
   /**
     * Represents a side comment; text like a disclaimer or copyright, which is not
     * essential to the comprehension of the document.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small small @ MDN]]
     */
   lazy val small: HtmlTag[dom.HTMLElement] = htmlTag("small")
@@ -324,7 +324,7 @@ trait HtmlTags {
 
   /**
     * Strikethrough element, used for that is no longer accurate or relevant.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s s @ MDN]]
     */
   lazy val s: HtmlTag[dom.HTMLElement] = htmlTag("s")
@@ -332,7 +332,7 @@ trait HtmlTags {
 
   /**
     * Represents the title of a work being cited.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite cite @ MDN]]
     */
   lazy val cite: HtmlTag[dom.HTMLElement] = htmlTag("cite")
@@ -340,7 +340,7 @@ trait HtmlTags {
 
   /**
     * Represents computer code.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code code @ MDN]]
     */
   lazy val code: HtmlTag[dom.HTMLElement] = htmlTag("code")
@@ -348,7 +348,7 @@ trait HtmlTags {
 
   /**
     * Subscript tag
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub sub @ MDN]]
     */
   lazy val sub: HtmlTag[dom.HTMLElement] = htmlTag("sub")
@@ -356,7 +356,7 @@ trait HtmlTags {
 
   /**
     * Superscript tag.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup sup @ MDN]]
     */
   lazy val sup: HtmlTag[dom.HTMLElement] = htmlTag("sup")
@@ -364,7 +364,7 @@ trait HtmlTags {
 
   /**
     * Italicized text.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i i @ MDN]]
     */
   lazy val i: HtmlTag[dom.HTMLElement] = htmlTag("i")
@@ -372,7 +372,7 @@ trait HtmlTags {
 
   /**
     * Bold text.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b b @ MDN]]
     */
   lazy val b: HtmlTag[dom.HTMLElement] = htmlTag("b")
@@ -380,7 +380,7 @@ trait HtmlTags {
 
   /**
     * Underlined text.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u u @ MDN]]
     */
   lazy val u: HtmlTag[dom.HTMLElement] = htmlTag("u")
@@ -390,7 +390,7 @@ trait HtmlTags {
     * Represents text with no specific meaning. This has to be used when no other
     * text-semantic element conveys an adequate meaning, which, in this case, is
     * often brought by global attributes like class, lang, or dir.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span span @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLSpanElement HTMLSpanElement @ MDN]]
     */
@@ -399,7 +399,7 @@ trait HtmlTags {
 
   /**
     * Represents a line break.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br br @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLBRElement HTMLBRElement @ MDN]]
     */
@@ -409,7 +409,7 @@ trait HtmlTags {
   /**
     * Represents a line break opportunity, that is a suggested point for wrapping
     * text in order to improve readability of text split on several lines.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr wbr @ MDN]]
     */
   lazy val wbr: HtmlTag[dom.HTMLElement] = htmlTag("wbr", void = true)
@@ -417,7 +417,7 @@ trait HtmlTags {
 
   /**
     * Defines an addition to the document.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins ins @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLModElement HTMLModElement @ MDN]]
     */
@@ -426,7 +426,7 @@ trait HtmlTags {
 
   /**
     * Defines a remolazy val from the document.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del del @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLModElement HTMLModElement @ MDN]]
     */
@@ -439,7 +439,7 @@ trait HtmlTags {
   /**
     * Represents a form, consisting of controls, that can be submitted to a
     * server for processing.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form form @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement HTMLFormElement @ MDN]]
     */
@@ -448,7 +448,7 @@ trait HtmlTags {
 
   /**
     * A set of fields.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset fieldset @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLFieldSetElement HTMLFieldSetElement @ MDN]]
     */
@@ -457,7 +457,7 @@ trait HtmlTags {
 
   /**
     * The caption for a fieldset.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend legend @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLLegendElement HTMLLegendElement @ MDN]]
     */
@@ -466,7 +466,7 @@ trait HtmlTags {
 
   /**
     * The caption of a single field
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label label @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement HTMLLabelElement @ MDN]]
     */
@@ -475,7 +475,7 @@ trait HtmlTags {
 
   /**
     * A typed data field allowing the user to input data.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input input @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement HTMLInputElement @ MDN]]
     */
@@ -484,7 +484,7 @@ trait HtmlTags {
 
   /**
     * A button
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button button @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement HTMLButtonElement @ MDN]]
     */
@@ -493,7 +493,7 @@ trait HtmlTags {
 
   /**
     * A control that allows the user to select one of a set of options.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select select @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement HTMLSelectElement @ MDN]]
     */
@@ -502,7 +502,7 @@ trait HtmlTags {
 
   /**
     * A set of predefined options for other controls.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist datalist @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLDataListElement HTMLDataListElement @ MDN]]
     */
@@ -511,7 +511,7 @@ trait HtmlTags {
 
   /**
     * A set of options, logically grouped.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup optgroup @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptGroupElement HTMLOptGroupElement @ MDN]]
     */
@@ -520,7 +520,7 @@ trait HtmlTags {
 
   /**
     * An option in a select element.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option option @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement HTMLOptionElement @ MDN]]
     */
@@ -529,7 +529,7 @@ trait HtmlTags {
 
   /**
     * A multiline text edit control.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea textarea @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement HTMLTextAreaElement @ MDN]]
     */
@@ -541,7 +541,7 @@ trait HtmlTags {
 
   /**
     * Defines a portion that should be displayed as a paragraph.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p p @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLParagraphElement HTMLParagraphElement @ MDN]]
     */
@@ -551,7 +551,7 @@ trait HtmlTags {
   /**
     * Represents a thematic break between paragraphs of a section or article or
     * any longer content.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr hr @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLHRElement HTMLHRElement @ MDN]]
     */
@@ -561,7 +561,7 @@ trait HtmlTags {
   /**
     * Indicates that its content is preformatted and that this format must be
     * preserved.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre pre @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLPreElement HTMLPreElement @ MDN]]
     */
@@ -570,7 +570,7 @@ trait HtmlTags {
 
   /**
     * Represents a content that is quoted from another source.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote blockquote @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLQuoteElement HTMLQuoteElement @ MDN]]
     */
@@ -579,7 +579,7 @@ trait HtmlTags {
 
   /**
     * Defines an ordered list of items.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol ol @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLOListElement HTMLOListElement @ MDN]]
     */
@@ -588,7 +588,7 @@ trait HtmlTags {
 
   /**
     * Defines an unordered list of items.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul ul @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLUListElement HTMLUListElement @ MDN]]
     */
@@ -597,7 +597,7 @@ trait HtmlTags {
 
   /**
     * Defines an item of an list.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li li @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLLIElement HTMLLIElement @ MDN]]
     */
@@ -606,7 +606,7 @@ trait HtmlTags {
 
   /**
     * Defines a definition list; a list of terms and their associated definitions.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl dl @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLDListElement HTMLDListElement @ MDN]]
     */
@@ -615,7 +615,7 @@ trait HtmlTags {
 
   /**
     * Represents a term defined by the next dd
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt dt @ MDN]]
     */
   lazy val dt: HtmlTag[dom.HTMLElement] = htmlTag("dt")
@@ -623,7 +623,7 @@ trait HtmlTags {
 
   /**
     * Represents the definition of the terms immediately listed before it.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd dd @ MDN]]
     */
   lazy val dd: HtmlTag[dom.HTMLElement] = htmlTag("dd")
@@ -631,7 +631,7 @@ trait HtmlTags {
 
   /**
     * Represents a figure illustrated as part of the document.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure figure @ MDN]]
     */
   lazy val figure: HtmlTag[dom.HTMLElement] = htmlTag("figure")
@@ -639,7 +639,7 @@ trait HtmlTags {
 
   /**
     * Represents the legend of a figure.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption figcaption @ MDN]]
     */
   lazy val figCaption: HtmlTag[dom.HTMLElement] = htmlTag("figcaption")
@@ -647,7 +647,7 @@ trait HtmlTags {
 
   /**
     * Represents a generic container with no special meaning.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div div @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement HTMLDivElement @ MDN]]
     */
@@ -659,7 +659,7 @@ trait HtmlTags {
 
   /**
     * Represents data with more than one dimension.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table table @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement HTMLTableElement @ MDN]]
     */
@@ -668,7 +668,7 @@ trait HtmlTags {
 
   /**
     * The title of a table.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption caption @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableCaptionElement HTMLTableCaptionElement @ MDN]]
     */
@@ -677,7 +677,7 @@ trait HtmlTags {
 
   /**
     * A set of columns.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup colgroup @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableColElement HTMLTableColElement @ MDN]]
     */
@@ -686,7 +686,7 @@ trait HtmlTags {
 
   /**
     * A single column.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col col @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableColElement HTMLTableColElement @ MDN]]
     */
@@ -695,7 +695,7 @@ trait HtmlTags {
 
   /**
     * The table body.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody tbody @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableSectionElement HTMLTableSectionElement @ MDN]]
     */
@@ -704,7 +704,7 @@ trait HtmlTags {
 
   /**
     * The table headers.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead thead @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableSectionElement HTMLTableSectionElement @ MDN]]
     */
@@ -713,7 +713,7 @@ trait HtmlTags {
 
   /**
     * The table footer.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot tfoot @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableSectionElement HTMLTableSectionElement @ MDN]]
     */
@@ -722,7 +722,7 @@ trait HtmlTags {
 
   /**
     * A single row in a table.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr tr @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableRowElement HTMLTableRowElement @ MDN]]
     */
@@ -731,7 +731,7 @@ trait HtmlTags {
 
   /**
     * A single cell in a table.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td td @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableCellElement HTMLTableCellElement @ MDN]]
     */
@@ -740,7 +740,7 @@ trait HtmlTags {
 
   /**
     * A header cell in a table.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th th @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableCellElement HTMLTableCellElement @ MDN]]
     */
@@ -754,7 +754,7 @@ trait HtmlTags {
     * Defines the title of the document, shown in a browser's title bar or on the
     * page's tab. It can only contain text and any contained tags are not
     * interpreted.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title title @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLTitleElement HTMLTitleElement @ MDN]]
     */
@@ -763,7 +763,7 @@ trait HtmlTags {
 
   /**
     * Used to write inline CSS.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style style @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLStyleElement HTMLStyleElement @ MDN]]
     */
@@ -773,7 +773,7 @@ trait HtmlTags {
   /**
     * Represents a generic section of a document, i.e., a thematic grouping of
     * content, typically with a heading.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section section @ MDN]]
     */
   lazy val sectionTag: HtmlTag[dom.HTMLElement] = htmlTag("section")
@@ -782,7 +782,7 @@ trait HtmlTags {
   /**
     * Represents a section of a page that links to other pages or to parts within
     * the page: a section with navigation links.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav nav @ MDN]]
     */
   lazy val navTag: HtmlTag[dom.HTMLElement] = htmlTag("nav")
@@ -791,7 +791,7 @@ trait HtmlTags {
   /**
     * Defines self-contained content that could exist independently of the rest
     * of the content.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article article @ MDN]]
     */
   lazy val articleTag: HtmlTag[dom.HTMLElement] = htmlTag("article")
@@ -800,7 +800,7 @@ trait HtmlTags {
   /**
     * Defines some content loosely related to the page content. If it is removed,
     * the remaining content still makes sense.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside aside @ MDN]]
     */
   lazy val asideTag: HtmlTag[dom.HTMLElement] = htmlTag("aside")
@@ -808,7 +808,7 @@ trait HtmlTags {
 
   /**
     * Defines a section containing contact information.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address address @ MDN]]
     */
   lazy val addressTag: HtmlTag[dom.HTMLElement] = htmlTag("address")
@@ -817,7 +817,7 @@ trait HtmlTags {
   /**
     * Defines the main or important content in the document. There is only one
     * main element in the document.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main main @ MDN]]
     */
   lazy val mainTag: HtmlTag[dom.HTMLElement] = htmlTag("main")
@@ -825,7 +825,7 @@ trait HtmlTags {
 
   /**
     * An inline quotation.
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q q @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLQuoteElement HTMLQuoteElement @ MDN]]
     */
@@ -835,7 +835,7 @@ trait HtmlTags {
   /**
     * Represents a term whose definition is contained in its nearest ancestor
     * content.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn dfn @ MDN]]
     */
   lazy val dfn: HtmlTag[dom.HTMLElement] = htmlTag("dfn")
@@ -844,7 +844,7 @@ trait HtmlTags {
   /**
     * An abbreviation or acronym; the expansion of the abbreviation can be
     * represented in the title attribute.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr abbr @ MDN]]
     */
   lazy val abbr: HtmlTag[dom.HTMLElement] = htmlTag("abbr")
@@ -852,7 +852,7 @@ trait HtmlTags {
 
   /**
     * Associates to its content a machine-readable equivalent.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data data @ MDN]]
     */
   lazy val dataTag: HtmlTag[dom.HTMLElement] = htmlTag("data")
@@ -861,7 +861,7 @@ trait HtmlTags {
   /**
     * Represents a date and time value; the machine-readable equivalent can be
     * represented in the datetime attribute
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time time @ MDN]]
     */
   lazy val timeTag: HtmlTag[dom.HTMLElement] = htmlTag("time")
@@ -869,7 +869,7 @@ trait HtmlTags {
 
   /**
     * Represents a variable.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var var @ MDN]]
     */
   lazy val varTag: HtmlTag[dom.HTMLElement] = htmlTag("var")
@@ -877,7 +877,7 @@ trait HtmlTags {
 
   /**
     * Represents the output of a program or a computer.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp samp @ MDN]]
     */
   lazy val samp: HtmlTag[dom.HTMLElement] = htmlTag("samp")
@@ -885,7 +885,7 @@ trait HtmlTags {
 
   /**
     * Represents user input, often from a keyboard, but not necessarily.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd kbd @ MDN]]
     */
   lazy val kbd: HtmlTag[dom.HTMLElement] = htmlTag("kbd")
@@ -893,7 +893,7 @@ trait HtmlTags {
 
   /**
     * Defines a mathematical formula.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/math math @ MDN]]
     */
   lazy val mathTag: HtmlTag[dom.HTMLElement] = htmlTag("math")
@@ -902,7 +902,7 @@ trait HtmlTags {
   /**
     * Represents text highlighted for reference purposes, that is for its
     * relevance in another context.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark mark @ MDN]]
     */
   lazy val mark: HtmlTag[dom.HTMLElement] = htmlTag("mark")
@@ -913,7 +913,7 @@ trait HtmlTags {
     * presented alongside the text. This is often used in conjunction with East
     * Asian language where the annotations act as a guide for pronunciation, like
     * the Japanese furigana .
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby ruby @ MDN]]
     */
   lazy val ruby: HtmlTag[dom.HTMLElement] = htmlTag("ruby")
@@ -921,7 +921,7 @@ trait HtmlTags {
 
   /**
     * Represents the text of a ruby annotation.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt rt @ MDN]]
     */
   lazy val rt: HtmlTag[dom.HTMLElement] = htmlTag("rt")
@@ -931,7 +931,7 @@ trait HtmlTags {
     * Represents parenthesis around a ruby annotation, used to display the
     * annotation in an alternate way by browsers not supporting the standard
     * display for annotations.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp rp @ MDN]]
     */
   lazy val rp: HtmlTag[dom.HTMLElement] = htmlTag("rp")
@@ -941,7 +941,7 @@ trait HtmlTags {
     * Represents text that must be isolated from its surrounding for bidirectional
     * text formatting. It allows embedding a span of text with a different, or
     * unknown, directionality.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi bdi @ MDN]]
     */
   lazy val bdi: HtmlTag[dom.HTMLElement] = htmlTag("bdi")
@@ -950,7 +950,7 @@ trait HtmlTags {
   /**
     * Represents the directionality of its children, in order to explicitly
     * override the Unicode bidirectional algorithm.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo bdo @ MDN]]
     */
   lazy val bdo: HtmlTag[dom.HTMLElement] = htmlTag("bdo")
@@ -958,7 +958,7 @@ trait HtmlTags {
 
   /**
     * A key-pair generator control.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen keygen @ MDN]]
     */
   lazy val keyGenTag: HtmlTag[dom.HTMLElement] = htmlTag("keygen")
@@ -966,7 +966,7 @@ trait HtmlTags {
 
   /**
     * The result of a calculation
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output output @ MDN]]
     */
   lazy val outputTag: HtmlTag[dom.HTMLElement] = htmlTag("output")
@@ -974,7 +974,7 @@ trait HtmlTags {
 
   /**
     * A progress completion bar
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress progress @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLProgressElement HTMLProgressElement @ MDN]]
     */
@@ -983,7 +983,7 @@ trait HtmlTags {
 
   /**
     * A scalar measurement within a known range.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter meter @ MDN]]
     */
   lazy val meterTag: HtmlTag[dom.HTMLElement] = htmlTag("meter")
@@ -992,7 +992,7 @@ trait HtmlTags {
   /**
     * A widget from which the user can obtain additional information
     * or controls.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details details @ MDN]]
     */
   lazy val detailsTag: HtmlTag[dom.HTMLElement] = htmlTag("details")
@@ -1000,7 +1000,7 @@ trait HtmlTags {
 
   /**
     * A summary, caption, or legend for a given details.
-    * 
+    *
     * [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary summary @ MDN]]
     */
   lazy val summaryTag: HtmlTag[dom.HTMLElement] = htmlTag("summary")
@@ -1008,7 +1008,7 @@ trait HtmlTags {
 
   /**
     * A command that the user can invoke.
-    * 
+    *
     * [[https://www.w3.org/TR/2011/WD-html5-author-20110809/the-command-element.html the-command-element.html @ W3C]]
     */
   lazy val commandTag: HtmlTag[dom.HTMLElement] = htmlTag("command")
@@ -1016,7 +1016,7 @@ trait HtmlTags {
 
   /**
     * A list of commands
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu menu @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLMenuElement HTMLMenuElement @ MDN]]
     */
@@ -1026,9 +1026,9 @@ trait HtmlTags {
   /**
     * Dialog box or other interactive component, such as a dismissible alert,
     * inspector, or subwindow.
-    * 
+    *
     * Note: The tabindex attribute must not be used on the `<dialog>` element
-    * 
+    *
     *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog dialog @ MDN]]
     *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement HTMLDialogElement @ MDN]]
     */

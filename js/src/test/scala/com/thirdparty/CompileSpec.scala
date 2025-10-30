@@ -7,7 +7,7 @@ import com.thirdparty.defs.props.Props
 import com.thirdparty.defs.styles.StyleProps
 import com.thirdparty.defs.styles.units.{Calc, Color, Length, Time, Url}
 import com.thirdparty.defs.tags.{HtmlTags, SvgTags}
-import com.thirdparty.keys.{DerivedStyleBuilder, DerivedStyleProp, StyleProp, SvgAttr}
+import com.thirdparty.keys.{DerivedStyleBuilder, DerivedStyleProp, StyleBuilder, StyleProp, SvgAttr}
 import com.thirdparty.setters.StyleSetter
 import com.thirdparty.tags.HtmlTag
 import org.scalajs.dom
@@ -57,8 +57,9 @@ class CompileSpec extends AnyFunSpec with Matchers {
   type StyleEncoder[A] = A => String
 
   object style
-    extends DerivedStyleBuilder[String, StyleEncoder]
-    with Color[String, StyleEncoder]
+    extends DerivedStyleBuilder[StyleEncoder]
+    with StyleBuilder[String]
+    with Color[String]
     with Url[StyleEncoder]
     with Length[StyleEncoder]
     with Time[StyleEncoder]
@@ -75,8 +76,8 @@ class CompileSpec extends AnyFunSpec with Matchers {
 
     assert(html.div.domName == "div")
     assert(html.onClick.domName == "click")
-    assert(html.value.domName == "value")
-    assert(html.idAttr.domName == "id")
+    assert(html.value.name == "value")
+    assert(html.idAttr.name == "id")
     assert(html.charset.domName == "charset")
     assert(html.display.domName == "display")
 
@@ -111,7 +112,7 @@ class CompileSpec extends AnyFunSpec with Matchers {
 
     // Complex keys
 
-    assert(html.cls.domName == "className")
+    assert(html.cls.name == "className")
     assert((html.cls := List("class1", "class2")).domValue == "class1 class2")
 
     // CSS values
@@ -126,12 +127,12 @@ class CompileSpec extends AnyFunSpec with Matchers {
 
     // CSS keywords
 
-    val s1: StyleSetter[_] = html.display.none
+    val s1: StyleSetter[_, _] = html.display.none
     val v1: String = html.display.none.value
     assert(html.display.none.value == "none")
 
     // Base CSS keywords
-    val s2: StyleSetter[_] = html.padding.inherit
+    val s2: StyleSetter[_, _] = html.padding.inherit
     val v2: String = html.padding.inherit.value
     assert(html.display.inherit.value == "inherit")
 
@@ -152,7 +153,7 @@ class CompileSpec extends AnyFunSpec with Matchers {
     // Multi-parameter derived CSS props (units)
 
     val p3: StyleProp[String] = html.color
-    val s3: StyleSetter[_] = html.color.rgb(200, 100, 0)
+    val s3: StyleSetter[_, _] = html.color.rgb(200, 100, 0)
 
     assert(html.color.rgb(200, 100, 0).value == "rgb(200 100 0)")
     assert(html.color.rgb(200, 100, 0, 0.5).value == "rgb(200 100 0 / 0.5)")

@@ -3,7 +3,8 @@ package com.raquo.domtypes.codegen
 case class CodeFormatting(
   indentStepChars: String = "  ",
   indentStartLevel: Int = 0,
-  indentEmptyLines: Boolean = false,
+  // indentEmptyLines: Boolean = false,
+  trimAllLines: Boolean = true
 ) {
 
   def printIndentChars(extraLevel: Int): String = {

@@ -12,7 +12,7 @@ class DerivedStyleProp[InputV](
   val encode: InputV => String
 ) {
 
-  def :=(value: InputV): StyleSetter[_] = {
+  def :=(value: InputV): StyleSetter[_, String] = {
     new StyleSetter(key, encode(value))
   }
 }

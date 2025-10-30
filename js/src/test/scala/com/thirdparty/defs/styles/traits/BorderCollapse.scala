@@ -11,9 +11,9 @@ import com.thirdparty.setters.StyleSetter
 trait BorderCollapse { this: StyleProp[String] =>
 
   /** Use separated-border table rendering model. This is the default. */
-  lazy val separate: StyleSetter[String] = this := "separate"
+  lazy val separate: StyleSetter[String, String] = this := "separate"
 
   /** Use collapsed-border table rendering model. */
-  lazy val collapse: StyleSetter[String] = this := "collapse"
+  lazy val collapse: StyleSetter[String, String] = this := "collapse"
 
 }

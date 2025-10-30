@@ -4,7 +4,7 @@ import com.thirdparty.keys.DerivedStyleBuilder
 
 import scala.scalajs.js.|
 
-trait Length[DSP[_]] extends Calc[DSP] { this: DerivedStyleBuilder[_, DSP] =>
+trait Length[DSP[_]] extends Calc[DSP] { this: DerivedStyleBuilder[DSP] =>
 
   // -- Most common units --
 

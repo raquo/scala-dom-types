@@ -2,7 +2,7 @@ package com.thirdparty.defs.styles.units
 
 import com.thirdparty.keys.DerivedStyleBuilder
 
-trait Calc[DSP[_]] { this: DerivedStyleBuilder[_, DSP] =>
+trait Calc[DSP[_]] { this: DerivedStyleBuilder[DSP] =>
 
   /** Wrap the provided expression in CSS calc() function.
     *

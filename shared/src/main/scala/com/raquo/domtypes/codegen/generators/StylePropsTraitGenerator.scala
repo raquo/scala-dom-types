@@ -246,7 +246,7 @@ class StylePropsTraitGenerator(
       mainKeyType(typeParam),
       traitTypeMixins(valueTraits, typeParam, typeParam = None),
       unitTraitTypeMixins(valueUnitTraits, typeParam = None),
-      " = "
+      " ="
     ).mkString) {
       line(implDefImpl(implName, valueTraits, valueUnitTraits, keyKindTypeParam = Some(typeParam), traitsTypeParam = None))
     }

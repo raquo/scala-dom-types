@@ -4,9 +4,7 @@ import com.raquo.ew._
 
 import scala.scalajs.js
 
-trait DerivedStyleBuilder[SS, DSP[_]] {
-
-  protected def styleSetter(value: String): SS
+trait DerivedStyleBuilder[DSP[_]] {
 
   // #Note: You can make this public if you wish
   protected def derivedStyle[A](encode: (A => String)): DSP[A]

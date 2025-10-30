@@ -34,8 +34,7 @@ abstract class SourceGenerator(format: CodeFormatting) extends SourceRepr {
   }
 
   protected def line(str: String): Unit = {
-    output.append(currentIndent)
-    output.append(str)
+    output.append(trimRightIfConfigured(currentIndent + str))
     output.append("\n")
     ()
   }
@@ -88,7 +87,7 @@ abstract class SourceGenerator(format: CodeFormatting) extends SourceRepr {
       } else {
         line("/**")
         commentLines.foreach { l =>
-          line("  * " + l)
+          line(("  * " + l).stripSuffix(" "))
         }
         line("  */")
       }
@@ -96,4 +95,19 @@ abstract class SourceGenerator(format: CodeFormatting) extends SourceRepr {
     }
   }
 
+  protected def trimRightIfConfigured(line: String): String = {
+    if (format.trimAllLines) {
+      if (line == null || line.isEmpty) {
+        line
+      } else {
+        var end = line.length - 1
+        while (end >= 0 && line.charAt(end).isWhitespace) {
+          end -= 1
+        }
+        line.substring(0, end + 1)
+      }
+    } else {
+      line
+    }
+  }
 }

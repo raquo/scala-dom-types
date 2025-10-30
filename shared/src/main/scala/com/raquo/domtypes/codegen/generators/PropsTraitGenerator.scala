@@ -15,8 +15,10 @@ class PropsTraitGenerator(
   override protected val traitThisType: Option[String],
   override protected val keyImplName: PropDef => String,
   override protected val keyImplNameArgName: String,
+  keyImplReflectedAttrNameArgName: Option[String],
   defType: PropDef => DefType,
   keyKind: String,
+  useDomVTypeParam: Boolean,
   baseImplDefComments: List[String],
   baseImplName: String,
   baseImplDef: List[String],
@@ -57,8 +59,10 @@ class PropsTraitGenerator(
       keyKind,
       "[",
       keyDef.scalaValueType,
-      ", ",
-      keyDef.domValueType,
+      if (useDomVTypeParam)
+        ", " + keyDef.domValueType
+      else
+        "",
       "] = ",
       if (alias.isEmpty) impl(keyDef) else keyDef.scalaName
     )
@@ -69,6 +73,12 @@ class PropsTraitGenerator(
       keyImplName(keyDef),
       "(",
       repr(keyDef.domName),
+      keyImplReflectedAttrNameArgName
+        .flatMap { argName =>
+          keyDef.reflectedAttr.map { attr =>
+            s", ${argName} = " + repr(attr.domName)
+          }
+        }.getOrElse(""),
       ")"
     ).mkString
   }
@@ -87,17 +97,27 @@ class PropsTraitGenerator(
       InlineProtectedDef.codeStr,
       " ",
       implName,
-      s"($keyImplNameArgName: String)",
-      ": ",
+      "(",
+      s"$keyImplNameArgName: String",
+      keyImplReflectedAttrNameArgName
+        .map { argName =>
+          s", $argName: String = null"
+        }.getOrElse(""),
+      "): ",
       keyKind,
       "[",
       scalaValueTypeByImplName(implName),
-      ", ",
-      domValueTypeByImplName(implName),
+      if (useDomVTypeParam)
+        ", " + domValueTypeByImplName(implName)
+      else
+        "",
       "]",
       " = ",
       baseImplName,
-      s"($keyImplNameArgName, ${transformCodecName(codecByImplName(implName))})",
+      s"(",
+      s"$keyImplNameArgName, ",
+      keyImplReflectedAttrNameArgName.map { argName => s"Option($argName), "}.getOrElse(""),
+      s"${transformCodecName(codecByImplName(implName))})",
     )
     line()
   }

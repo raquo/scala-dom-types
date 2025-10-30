@@ -10,6 +10,6 @@ import com.thirdparty.setters.StyleSetter
 
 trait None[V] { this: StyleProp[V] =>
 
-  lazy val none: StyleSetter[String] = this := "none"
+  lazy val none: StyleSetter[V, String] = styleSetter("none")
 
 }

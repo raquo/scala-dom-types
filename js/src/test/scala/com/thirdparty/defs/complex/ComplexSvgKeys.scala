@@ -1,6 +1,6 @@
 package com.thirdparty.defs.complex
 
-import com.thirdparty.codecs.IterableAsSpaceSeparatedStringCodec
+import com.thirdparty.codecs.Codec
 import com.thirdparty.keys.SvgAttr
 
 trait ComplexSvgKeys {
@@ -16,7 +16,7 @@ trait ComplexSvgKeys {
     * - For general usage by the browser.
     * The class can be used to style SVG content using CSS.
     */
-  val className: SvgAttr[Iterable[String]] = new SvgAttr("class", IterableAsSpaceSeparatedStringCodec, namespace = None)
+  val className: SvgAttr[Iterable[String]] = new SvgAttr("class", Codec.iterableAsSpaceSeparatedString, namespace = None)
 
   lazy val cls: SvgAttr[Iterable[String]] = className
 }

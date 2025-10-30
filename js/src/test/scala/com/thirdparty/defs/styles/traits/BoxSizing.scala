@@ -10,8 +10,8 @@ import com.thirdparty.setters.StyleSetter
 
 trait BoxSizing { this: StyleProp[String] =>
 
-  lazy val borderBox: StyleSetter[String] = this := "border-box"
+  lazy val borderBox: StyleSetter[String, String] = this := "border-box"
 
-  lazy val contentBox: StyleSetter[String] = this := "content-box"
+  lazy val contentBox: StyleSetter[String, String] = this := "content-box"
 
 }

@@ -7,15 +7,21 @@ import scala.language.implicitConversions
 
 case class StyleProp[V](
   val domName: String
-) extends DerivedStyleBuilder[StyleSetter[String], DerivedStyleProp] with GlobalKeywords[V] {
+) extends
+  StyleBuilder[StyleSetter[V, String]]
+  with DerivedStyleBuilder[DerivedStyleProp]
+  with GlobalKeywords[V] {
 
-  def := (value: V): StyleSetter[V] = StyleSetter(this, value.toString)
+  def := [ThisV <: V](value: ThisV): StyleSetter[V, ThisV] = StyleSetter(this, value)
 
-  // def := (value: V | String): StyleSetter[V] = StyleSetter(this, value.toString)
+  // #Note This overload is needed for Scala 2 (but it's also active in Scala 3)
+  def :=[ThisV](value: ThisV)(implicit ev: ThisV => V): StyleSetter[V, V] =
+    this := ev(value)
 
-  // def := (value: String): StyleSetter[V] = StyleSetter(this, value)
-
-  override protected def styleSetter(value: String): StyleSetter[String] = this := value
+  // #nc work around this https://github.com/scala/scala3/issues/24305
+  override def styleSetter(value: String): StyleSetter[V, String] = {
+    new StyleSetter(this, value)
+  }
 
   override protected def derivedStyle[A](encode: A => String): DerivedStyleProp[A] = {
     new DerivedStyleProp[A](this, encode)

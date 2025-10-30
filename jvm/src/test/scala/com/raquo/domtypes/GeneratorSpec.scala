@@ -2,7 +2,7 @@ package com.raquo.domtypes
 
 import com.raquo.domtypes.codegen.DefType.LazyVal
 import com.raquo.domtypes.codegen._
-import com.raquo.domtypes.common.{HtmlTagType, SvgTagType}
+import com.raquo.domtypes.common.{HtmlTagType, StyleKeywordDef, SvgTagType}
 import com.raquo.domtypes.defs.styles.StyleTraitDefs
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
@@ -186,9 +186,11 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       traitModifiers = Nil,
       traitName = traitName,
       keyKind = "Prop",
+      useDomVTypeParam = false,
       implNameSuffix = "Prop",
       baseImplDefComments = Nil,
       baseImplName = "prop",
+      keyImplReflectedAttrNameArgName = Some("reflectedAttrName"),
       defType = LazyVal
     )
 
@@ -293,8 +295,8 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       traitName = traitName,
       keyKind = "StyleProp",
       keyKindAlias = "StyleProp",
-      setterType = "StyleSetter[String]",
-      setterTypeAlias = "SS",
+      setterType = "StyleSetter[String, String]",
+      setterTypeAlias = "SSS",
       derivedKeyKind = "DerivedStyleProp",
       derivedKeyKindAlias = "DSP",
       baseImplDefComments = Nil,
@@ -316,16 +318,18 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
 
     StyleTraitDefs.defs.foreach { styleTrait =>
 
-      val traitThisType = if (styleTrait.scalaName.contains("[_]")) {
+      val isTraitOfV = styleTrait.scalaName.contains("[_]")
+
+      val traitThisType = if (isTraitOfV) {
         Some("StyleProp[V]")
       } else {
         Some("StyleProp[String]")
       }
 
-      val keywordType = if (styleTrait.scalaName.contains("[_]")) {
-        "StyleSetter[V]"
+      val keywordType = if (isTraitOfV) {
+        "StyleSetter[V, String]"
       } else {
-        "StyleSetter[String]"
+        "StyleSetter[String, String]"
       }
 
       val fileContent = generator.generateStyleKeywordsTrait(
@@ -340,12 +344,23 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
         traitExtendsFallbackTypeParam = Some("String"),
         extendsUnitTraits = styleTrait.extendsUnits,
         propKind = "StyleProp",
-        keywordType = "StyleSetter[String]",
+        keywordType = keywordType,
+        keywordImpl = (k: StyleKeywordDef) => {
+          // no special impl for overrides because can't access lazy val from `super`
+          // if (k.isOverride) {
+          //   s"super.${k.scalaName}"
+          // } else {
+          val keywordStr = SourceRepr(k.domName)
+          if (isTraitOfV)
+            s"""styleSetter($keywordStr)"""
+          else
+            s"""this := $keywordStr"""
+          // }
+        },
         derivedKeyKind = "DerivedStyleProp",
         lengthUnitsNumType = None, //Some("Int | Double"),
         defType = LazyVal,
-        outputUnitTypes = true,
-        allowSuperCallInOverride = false // can't access lazy val from `super`
+        outputUnitTypes = true
       )
 
       generator.writeToFile(

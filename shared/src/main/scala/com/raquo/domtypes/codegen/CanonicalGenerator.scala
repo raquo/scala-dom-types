@@ -77,7 +77,7 @@ class CanonicalGenerator(
   ): String = {
     val typeParams = unitTraitName match {
       case "Length" => s"$derivedKeyKindAlias${lengthUnitsNumType.map(", " + _).getOrElse("")}"
-      case "Color" => s"$setterTypeAlias, $derivedKeyKindAlias[_]"
+      case "Color" => s"$setterTypeAlias"
       case _ => derivedKeyKindAlias
     }
     styleUnitTraitsPackageAlias + "." + unitTraitName + "[" + typeParams + "]"
@@ -85,7 +85,9 @@ class CanonicalGenerator(
 
   def scalaJsDomImport: String = "import org.scalajs.dom"
 
-  def codecsImport: String = s"import ${basePackagePath}.codecs._"
+  def codecsImport: String = s"import ${basePackagePath}.codecs.Codec"
+
+  def transformCodecName(codecName: String): String = "Codec." + codecName.head.toLower + codecName.tail
 
   def baseScalaJsHtmlElementType: String = "dom.html.Element"
 
@@ -258,7 +260,7 @@ class CanonicalGenerator(
       baseImplDefComments = baseImplDefComments,
       baseImplName = baseImplName,
       baseImplDef = baseImplDef,
-      transformCodecName = _ + "Codec",
+      transformCodecName = transformCodecName,
       namespaceImpl = namespaceImpl,
       outputImplDefs = true,
       format = format
@@ -272,15 +274,28 @@ class CanonicalGenerator(
     traitModifiers: List[String],
     traitName: String,
     keyKind: String,
+    useDomVTypeParam: Boolean,
     implNameSuffix: String,
     baseImplDefComments: List[String],
     baseImplName: String,
+    keyImplReflectedAttrNameArgName: Option[String],
     defType: DefType
   ): String = {
     val (defs, defGroupComments) = defsAndGroupComments(defGroups, printDefGroupComments)
 
     val baseImplDef = List(
-      s"def ${baseImplName}[V, DomV]($keyImplNameArgName: String, codec: Codec[V, DomV]): ${keyKind}[V, DomV] = ${keyKindConstructor(keyKind)}($keyImplNameArgName, codec)"
+      List(
+        s"def ${baseImplName}[V, _DomV](",
+        s"$keyImplNameArgName: String, ",
+        keyImplReflectedAttrNameArgName.map(argName => argName + ": Option[String], ").getOrElse(""),
+        "codec: Codec[V, _DomV]",
+        s"): ${keyKind}[V] = ",
+        s"${keyKind}(",
+        keyImplNameArgName + ", ",
+        keyImplReflectedAttrNameArgName.map(argName => argName + ", ").getOrElse(""),
+        "codec",
+        ")"
+      ).mkString
     )
 
     val headerLines = List(
@@ -302,12 +317,14 @@ class CanonicalGenerator(
       traitThisType = None,
       defType = _ => defType,
       keyKind = keyKind,
+      useDomVTypeParam = useDomVTypeParam,
       keyImplName = prop => propImplName(prop.codec, implNameSuffix),
       keyImplNameArgName = keyImplNameArgName,
+      keyImplReflectedAttrNameArgName = keyImplReflectedAttrNameArgName,
       baseImplDefComments = baseImplDefComments,
       baseImplName = baseImplName,
       baseImplDef = baseImplDef,
-      transformCodecName = _ + "Codec",
+      transformCodecName = transformCodecName,
       outputImplDefs = true,
       format = format
     ).printTrait().getOutput()
@@ -475,22 +492,13 @@ class CanonicalGenerator(
     extendsUnitTraits: List[String],
     propKind: String,
     keywordType: String,
+    keywordImpl: StyleKeywordDef => String,
     derivedKeyKind: String,
     lengthUnitsNumType: Option[String],
     defType: DefType,
-    outputUnitTypes: Boolean,
-    allowSuperCallInOverride: Boolean
+    outputUnitTypes: Boolean
   ): String = {
     val (defs, defGroupComments) = defsAndGroupComments(defSources, printDefGroupComments)
-
-    def keyImpl(k: StyleKeywordDef): String = {
-      if (k.isOverride && allowSuperCallInOverride) {
-        s"super.${k.scalaName}"
-      } else {
-        val keywordStr = SourceRepr(k.domName)
-        s"""this := $keywordStr"""
-      }
-    }
 
     val keywordKind = keywordType.replaceAll("\\[.*?\\]", "")
 
@@ -532,7 +540,7 @@ class CanonicalGenerator(
       ) else Nil,
       keyImplName = _ => ???, // unused, the implementation is not function-based for keywords
       keyImplNameArgName = keyImplNameArgName, // unused, the implementation is not function-based for keywords
-      keywordImpl = keyImpl,
+      keywordImpl = keywordImpl,
       keywordType = keywordType,
       derivedKeyKind = derivedKeyKind,
       propKind = propKind,
