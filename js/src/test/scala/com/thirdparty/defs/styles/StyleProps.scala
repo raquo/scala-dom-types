@@ -137,6 +137,9 @@ trait StyleProps {
   protected def floatStyle(key: String): StyleProp[String] with s.Float =
     new StyleProp[String](key) with s.Float
 
+  protected def fontFeatureSettings(key: String): StyleProp[String] with s.FontFeatureSettings =
+    new StyleProp[String](key) with s.FontFeatureSettings
+
   protected def fontSizeStyle(key: String): StyleProp[String] with s.FontSize =
     new StyleProp[String](key) with s.FontSize
 
@@ -1117,7 +1120,7 @@ trait StyleProps {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings font-feature-settings @ MDN]]
     */
-  lazy val fontFeatureSettings: StyleProp[String] = stringStyle("font-feature-settings")
+  lazy val fontFeatureSettings: StyleProp[String] with s.FontFeatureSettings = fontFeatureSettings("font-feature-settings")
 
 
   /**

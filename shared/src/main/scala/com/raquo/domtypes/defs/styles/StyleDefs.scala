@@ -92,6 +92,8 @@ object StyleDefs {
 
     val floatStyle = "floatStyle"
 
+    val fontFeatureSettingsStyle = "fontFeatureSettings"
+
     val fontSizeStyle = "fontSizeStyle"
 
     val fontStyleStyle = "fontStyleStyle"
@@ -150,6 +152,8 @@ object StyleDefs {
     val Color = "Color"
 
     val FlexPosition = "FlexPosition"
+
+    val FontFeatureSettings = "FontFeatureSettings"
 
     val Line = "Line"
 

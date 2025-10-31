@@ -1511,9 +1511,9 @@ object StylePropDefs {
       scalaName = "fontFeatureSettings",
       domName = "font-feature-settings",
       valueType = valueTypes.String,
-      valueTraits = Nil,
+      valueTraits = List(valueTraits.FontFeatureSettings),
       valueUnits = Nil,
-      implName = implNames.stringStyle,
+      implName = implNames.fontFeatureSettingsStyle,
       commentLines = List(
         "The font-feature-settings CSS property allows control over advanced",
         "typographic features in OpenType fonts.",

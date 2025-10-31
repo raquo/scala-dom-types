@@ -1261,6 +1261,38 @@ object StyleTraitDefs {
     ),
 
     StyleTraitDef(
+      scalaName = valueTraits.FontFeatureSettings,
+      extendsTraits = List(valueTraits.Normal_),
+      extendsUnits = Nil,
+      keywordDefGroups = OneList(
+        StyleKeywordDef(
+          scalaName = "frac",
+          domName = "\"frac\"",
+          commentLines = List(
+            "Render fractions as literals (e.g. ½, ¾)"
+          ),
+          docUrls = Nil,
+        ),
+        StyleKeywordDef(
+          scalaName = "tnum",
+          domName = "\"tnum\"",
+          commentLines = List(
+            "Render tabular numerals: all digit characters will have the same width"
+          ),
+          docUrls = Nil,
+        ),
+        StyleKeywordDef(
+          scalaName = "zero",
+          domName = "\"zero\"",
+          commentLines = List(
+            "Render zero characters as slashed (Ø)"
+          ),
+          docUrls = Nil,
+        ),
+      ),
+    ),
+
+    StyleTraitDef(
       scalaName = valueTraits.FontSize,
       extendsTraits = Nil,
       extendsUnits = List(valueUnits.Length),

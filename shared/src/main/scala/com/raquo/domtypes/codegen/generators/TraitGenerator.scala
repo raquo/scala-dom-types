@@ -193,7 +193,7 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
     if (values.isEmpty) {
       throw new Exception(s"No ${clue} found for implName `${implName}`")
     } else if (values.size > 1) {
-      throw new Exception(s"Multiple different ${clue}-s found for the same implName: `${implName}` -> (${values.map(_.toString).mkString(", ")})")
+      throw new Exception(s"Multiple different ${clue}-s found for the same implName: `${implName}` -> (${values.map(_.toString).mkString(", ")}). All of your StylePropDef-s with the same implName (${implName}) must have the exact same list of ${clue}.")
     } else {
       values.head
     }
