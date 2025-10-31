@@ -130,9 +130,9 @@ class CompileSpec extends AnyFunSpec with Matchers {
     // mathMl attributes
 
     assert(mathMl.display.domName == "display")
-    assert(mathMl.mathvariant.domName == "mathvariant")
-    assert(mathMl.displaystyle.domName == "displaystyle")
-    assert(mathMl.scriptlevel.domName == "scriptlevel")
+    assert(mathMl.mathVariant.domName == "mathvariant")
+    assert(mathMl.displayStyle.domName == "displaystyle")
+    assert(mathMl.scriptLevel.domName == "scriptlevel")
     assert(mathMl.xmlns.domName == "xmlns")
 
 

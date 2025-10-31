@@ -28,7 +28,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "accentunder",
+      scalaName = "accentUnder",
       domName = "accentunder",
       namespace = None,
       scalaValueType = "Boolean",
@@ -61,7 +61,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "columnalign",
+      scalaName = "columnAlign",
       domName = "columnalign",
       namespace = None,
       scalaValueType = "String",
@@ -79,7 +79,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "columnlines",
+      scalaName = "columnLines",
       domName = "columnlines",
       namespace = None,
       scalaValueType = "String",
@@ -95,7 +95,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "columnspacing",
+      scalaName = "columnSpacing",
       domName = "columnspacing",
       namespace = None,
       scalaValueType = "String",
@@ -111,7 +111,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "columnspan",
+      scalaName = "columnSpan",
       domName = "columnspan",
       namespace = None,
       scalaValueType = "Int",
@@ -175,7 +175,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "displaystyle",
+      scalaName = "displayStyle",
       domName = "displaystyle",
       namespace = None,
       scalaValueType = "Boolean",
@@ -224,7 +224,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "framespacing",
+      scalaName = "frameSpacing",
       domName = "framespacing",
       namespace = None,
       scalaValueType = "String",
@@ -273,7 +273,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "id",
+      scalaName = "idAttr",
       domName = "id",
       namespace = None,
       scalaValueType = "String",
@@ -289,7 +289,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "linethickness",
+      scalaName = "lineThickness",
       domName = "linethickness",
       namespace = None,
       scalaValueType = "String",
@@ -305,7 +305,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "lspace",
+      scalaName = "lSpace",
       domName = "lspace",
       namespace = None,
       scalaValueType = "String",
@@ -321,7 +321,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "mathbackground",
+      scalaName = "mathBackground",
       domName = "mathbackground",
       namespace = None,
       scalaValueType = "String",
@@ -337,7 +337,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "mathcolor",
+      scalaName = "mathColor",
       domName = "mathcolor",
       namespace = None,
       scalaValueType = "String",
@@ -353,7 +353,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "mathsize",
+      scalaName = "mathSize",
       domName = "mathsize",
       namespace = None,
       scalaValueType = "String",
@@ -369,7 +369,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "mathvariant",
+      scalaName = "mathVariant",
       domName = "mathvariant",
       namespace = None,
       scalaValueType = "String",
@@ -385,7 +385,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "maxsize",
+      scalaName = "maxSize",
       domName = "maxsize",
       namespace = None,
       scalaValueType = "String",
@@ -402,7 +402,7 @@ object MathMLDefs {
     AttrDef(
       tagType = MathMlTagType,
       scalaName = "minsize",
-      domName = "minsize",
+      domName = "minSize",
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
@@ -417,7 +417,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "movablelimits",
+      scalaName = "movableLimits",
       domName = "movablelimits",
       namespace = None,
       scalaValueType = "Boolean",
@@ -450,7 +450,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "rowalign",
+      scalaName = "rowAlign",
       domName = "rowalign",
       namespace = None,
       scalaValueType = "String",
@@ -468,7 +468,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "rowlines",
+      scalaName = "rowLines",
       domName = "rowlines",
       namespace = None,
       scalaValueType = "String",
@@ -484,7 +484,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "rowspacing",
+      scalaName = "rowSpacing",
       domName = "rowspacing",
       namespace = None,
       scalaValueType = "String",
@@ -500,7 +500,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "rowspan",
+      scalaName = "rowSpan",
       domName = "rowspan",
       namespace = None,
       scalaValueType = "Int",
@@ -516,7 +516,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "rspace",
+      scalaName = "rSpace",
       domName = "rspace",
       namespace = None,
       scalaValueType = "String",
@@ -532,7 +532,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "scriptlevel",
+      scalaName = "scriptLevel",
       domName = "scriptlevel",
       namespace = None,
       scalaValueType = "Int",
@@ -598,7 +598,7 @@ object MathMLDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "voffset",
+      scalaName = "vOffset",
       domName = "voffset",
       namespace = None,
       scalaValueType = "String",
