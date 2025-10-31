@@ -1,7 +1,6 @@
 package com.thirdparty.defs.tags
 
 import com.thirdparty.tags.MathMlTag
-import org.scalajs.dom
 
 // #NOTE: GENERATED CODE
 //  - This file is generated at compile time from the data in Scala DOM Types
@@ -11,7 +10,7 @@ import org.scalajs.dom
 trait MathMlTags {
 
 
-  def mathMlTag[El <: dom.MathMLElement](name: String): MathMlTag[El] = new MathMlTag(name)
+  def mathMlTag(name: String): MathMlTag = new MathMlTag(name)
 
 
   /**
@@ -19,7 +18,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/annotation annotation @ MDN]]
     */
-  lazy val annotation: MathMlTag[dom.MathMLElement] = mathMlTag("annotation")
+  lazy val annotation: MathMlTag = mathMlTag("annotation")
 
 
   /**
@@ -27,7 +26,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math math @ MDN]]
     */
-  lazy val mathTag: MathMlTag[dom.MathMLElement] = mathMlTag("math")
+  lazy val mathTag: MathMlTag = mathMlTag("math")
 
 
   /**
@@ -35,7 +34,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/merror merror @ MDN]]
     */
-  lazy val merror: MathMlTag[dom.MathMLElement] = mathMlTag("merror")
+  lazy val merror: MathMlTag = mathMlTag("merror")
 
 
   /**
@@ -43,7 +42,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mfrac mfrac @ MDN]]
     */
-  lazy val mfrac: MathMlTag[dom.MathMLElement] = mathMlTag("mfrac")
+  lazy val mfrac: MathMlTag = mathMlTag("mfrac")
 
 
   /**
@@ -51,7 +50,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mi mi @ MDN]]
     */
-  lazy val mi: MathMlTag[dom.MathMLElement] = mathMlTag("mi")
+  lazy val mi: MathMlTag = mathMlTag("mi")
 
 
   /**
@@ -59,7 +58,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mmultiscripts mmultiscripts @ MDN]]
     */
-  lazy val mmultiscripts: MathMlTag[dom.MathMLElement] = mathMlTag("mmultiscripts")
+  lazy val mmultiscripts: MathMlTag = mathMlTag("mmultiscripts")
 
 
   /**
@@ -67,7 +66,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mn mn @ MDN]]
     */
-  lazy val mn: MathMlTag[dom.MathMLElement] = mathMlTag("mn")
+  lazy val mn: MathMlTag = mathMlTag("mn")
 
 
   /**
@@ -75,7 +74,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mo mo @ MDN]]
     */
-  lazy val mo: MathMlTag[dom.MathMLElement] = mathMlTag("mo")
+  lazy val mo: MathMlTag = mathMlTag("mo")
 
 
   /**
@@ -83,7 +82,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mover mover @ MDN]]
     */
-  lazy val mover: MathMlTag[dom.MathMLElement] = mathMlTag("mover")
+  lazy val mover: MathMlTag = mathMlTag("mover")
 
 
   /**
@@ -91,7 +90,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mphantom mphantom @ MDN]]
     */
-  lazy val mphantom: MathMlTag[dom.MathMLElement] = mathMlTag("mphantom")
+  lazy val mphantom: MathMlTag = mathMlTag("mphantom")
 
 
   /**
@@ -99,7 +98,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mprescripts mprescripts @ MDN]]
     */
-  lazy val mprescripts: MathMlTag[dom.MathMLElement] = mathMlTag("mprescripts")
+  lazy val mprescripts: MathMlTag = mathMlTag("mprescripts")
 
 
   /**
@@ -107,7 +106,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mroot mroot @ MDN]]
     */
-  lazy val mroot: MathMlTag[dom.MathMLElement] = mathMlTag("mroot")
+  lazy val mroot: MathMlTag = mathMlTag("mroot")
 
 
   /**
@@ -115,7 +114,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mrow mrow @ MDN]]
     */
-  lazy val mrow: MathMlTag[dom.MathMLElement] = mathMlTag("mrow")
+  lazy val mrow: MathMlTag = mathMlTag("mrow")
 
 
   /**
@@ -123,7 +122,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/ms ms @ MDN]]
     */
-  lazy val ms: MathMlTag[dom.MathMLElement] = mathMlTag("ms")
+  lazy val ms: MathMlTag = mathMlTag("ms")
 
 
   /**
@@ -131,7 +130,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mspace mspace @ MDN]]
     */
-  lazy val mspace: MathMlTag[dom.MathMLElement] = mathMlTag("mspace")
+  lazy val mspace: MathMlTag = mathMlTag("mspace")
 
 
   /**
@@ -139,7 +138,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/msqrt msqrt @ MDN]]
     */
-  lazy val msqrt: MathMlTag[dom.MathMLElement] = mathMlTag("msqrt")
+  lazy val msqrt: MathMlTag = mathMlTag("msqrt")
 
 
   /**
@@ -147,7 +146,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mstyle mstyle @ MDN]]
     */
-  lazy val mstyle: MathMlTag[dom.MathMLElement] = mathMlTag("mstyle")
+  lazy val mstyle: MathMlTag = mathMlTag("mstyle")
 
 
   /**
@@ -155,7 +154,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/msub msub @ MDN]]
     */
-  lazy val msub: MathMlTag[dom.MathMLElement] = mathMlTag("msub")
+  lazy val msub: MathMlTag = mathMlTag("msub")
 
 
   /**
@@ -163,7 +162,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/msubsup msubsup @ MDN]]
     */
-  lazy val msubsup: MathMlTag[dom.MathMLElement] = mathMlTag("msubsup")
+  lazy val msubsup: MathMlTag = mathMlTag("msubsup")
 
 
   /**
@@ -171,7 +170,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/msup msup @ MDN]]
     */
-  lazy val msup: MathMlTag[dom.MathMLElement] = mathMlTag("msup")
+  lazy val msup: MathMlTag = mathMlTag("msup")
 
 
   /**
@@ -179,7 +178,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mtable mtable @ MDN]]
     */
-  lazy val mtable: MathMlTag[dom.MathMLElement] = mathMlTag("mtable")
+  lazy val mtable: MathMlTag = mathMlTag("mtable")
 
 
   /**
@@ -187,7 +186,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mtd mtd @ MDN]]
     */
-  lazy val mtd: MathMlTag[dom.MathMLElement] = mathMlTag("mtd")
+  lazy val mtd: MathMlTag = mathMlTag("mtd")
 
 
   /**
@@ -195,7 +194,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mtext mtext @ MDN]]
     */
-  lazy val mtext: MathMlTag[dom.MathMLElement] = mathMlTag("mtext")
+  lazy val mtext: MathMlTag = mathMlTag("mtext")
 
 
   /**
@@ -203,7 +202,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mtr mtr @ MDN]]
     */
-  lazy val mtr: MathMlTag[dom.MathMLElement] = mathMlTag("mtr")
+  lazy val mtr: MathMlTag = mathMlTag("mtr")
 
 
   /**
@@ -211,7 +210,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/munder munder @ MDN]]
     */
-  lazy val munder: MathMlTag[dom.MathMLElement] = mathMlTag("munder")
+  lazy val munder: MathMlTag = mathMlTag("munder")
 
 
   /**
@@ -219,7 +218,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/munderover munderover @ MDN]]
     */
-  lazy val munderover: MathMlTag[dom.MathMLElement] = mathMlTag("munderover")
+  lazy val munderover: MathMlTag = mathMlTag("munderover")
 
 
   /**
@@ -227,7 +226,7 @@ trait MathMlTags {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/MathML/Element/semantics semantics @ MDN]]
     */
-  lazy val semantics: MathMlTag[dom.MathMLElement] = mathMlTag("semantics")
+  lazy val semantics: MathMlTag = mathMlTag("semantics")
 
 
 }

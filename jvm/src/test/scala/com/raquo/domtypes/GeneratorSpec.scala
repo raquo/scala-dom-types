@@ -52,7 +52,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       traitCommentLines = Nil,
       traitModifiers = Nil,
       traitName = traitName,
-      keyKind = "HtmlTag",
+      keyKind = "HtmlTag[_]",
       baseImplDefComments = Nil,
       keyImplName = "htmlTag",
       defType = LazyVal
@@ -77,7 +77,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       traitCommentLines = Nil,
       traitModifiers = Nil,
       traitName = traitName,
-      keyKind = "SvgTag",
+      keyKind = "SvgTag[_]",
       baseImplDefComments = Nil,
       keyImplName = "svgTag",
       defType = LazyVal

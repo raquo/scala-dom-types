@@ -61,7 +61,7 @@ class CanonicalGenerator(
   }
 
   def keyKindConstructor(keyKind: String): String = {
-    "new " + keyKind
+    "new " + keyKind.replace("[_]", "")
   }
 
   def styleTraitsPackageAlias = "s"
@@ -101,8 +101,9 @@ class CanonicalGenerator(
 
   def keyImplNameArgName: String = "name"
 
-  def tagKeyTypeImport(keyTypes: String*): String = {
-    val keyTypesStr = if (keyTypes.size == 1) {
+  def tagKeyTypeImport(keyKinds: String*): String = {
+    val keyTypes = keyKinds.map(_.replace("[_]", ""))
+    val keyTypesStr = if (keyKinds.size == 1) {
       keyTypes.head
     } else {
       s"{${keyTypes.sorted.mkString(", ")}}"
@@ -168,17 +169,19 @@ class CanonicalGenerator(
   ): String = {
     val (defs, defGroupComments) = defsAndGroupComments(defGroups, printDefGroupComments)
 
-    val baseImplDef = if(tagType == HtmlTagType) {
+    def keyType(typeArg: String) = keyKind.replace("[_]", s"[${typeArg}]")
+
+    val baseImplDef = if (tagType == HtmlTagType) {
       List(
-        s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsHtmlElementType]($keyImplNameArgName: String, void: Boolean = false): ${keyKind}[$scalaJsElementTypeParam] = ${keyKindConstructor(keyKind)}($keyImplNameArgName, void)"
+        s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsHtmlElementType]($keyImplNameArgName: String, void: Boolean = false): ${keyType(scalaJsElementTypeParam)} = ${keyKindConstructor(keyKind)}($keyImplNameArgName, void)"
       )
     } else if (tagType == SvgTagType) {
       List(
-        s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsSvgElementType]($keyImplNameArgName: String): ${keyKind}[$scalaJsElementTypeParam] = ${keyKindConstructor(keyKind)}($keyImplNameArgName)",
+        s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsSvgElementType]($keyImplNameArgName: String): ${keyType(scalaJsElementTypeParam)} = ${keyKindConstructor(keyKind)}($keyImplNameArgName)",
       )
     } else if (tagType == MathMlTagType) {
       List(
-        s"def ${keyImplName}[$scalaJsElementTypeParam <: $baseScalaJsMathMlElementType]($keyImplNameArgName: String): ${keyKind}[$scalaJsElementTypeParam] = ${keyKindConstructor(keyKind)}($keyImplNameArgName)",
+        s"def ${keyImplName}($keyImplNameArgName: String): ${keyKind} = ${keyKindConstructor(keyKind)}($keyImplNameArgName)",
       )
     } else {
       throw new Exception(s"Unknown tagType ${tagType}")
@@ -187,10 +190,10 @@ class CanonicalGenerator(
     val headerLines = List(
       s"package $tagDefsPackagePath",
       "",
-      tagKeyTypeImport(keyKind),
-      scalaJsDomImport,
-      "",
-    ) ++ standardTraitCommentLines.map("// " + _)
+      tagKeyTypeImport(keyKind)
+    ) ++
+      (if (keyKind.contains("[_]")) List(scalaJsDomImport, "") else List("")) ++
+      standardTraitCommentLines.map("// " + _)
 
     new TagsTraitGenerator(
       defs = defs,
@@ -202,7 +205,7 @@ class CanonicalGenerator(
       traitExtends = Nil,
       traitThisType = None,
       defType = _ => defType,
-      keyType = tag => keyKind + "[" + tag.scalaJsElementType + "]",
+      keyType = tag => keyType(tag.scalaJsElementType),
       keyImplName = _ => keyImplName,
       keyImplNameArgName = keyImplNameArgName,
       baseImplDefComments = baseImplDefComments,

@@ -6,14 +6,13 @@ import com.thirdparty.defs.eventProps.{DocumentEventProps, GlobalEventProps, Win
 import com.thirdparty.defs.props.Props
 import com.thirdparty.defs.styles.StyleProps
 import com.thirdparty.defs.styles.units.{Calc, Color, Length, Time, Url}
-import com.thirdparty.defs.tags.{HtmlTags, SvgTags}
-import com.thirdparty.keys.{Attr, DerivedStyleBuilder, DerivedStyleProp, StyleBuilder, StyleProp, SvgAttr}
+import com.thirdparty.defs.tags.{HtmlTags, MathMlTags, SvgTags}
+import com.thirdparty.keys.{DerivedStyleBuilder, DerivedStyleProp, StyleBuilder, StyleProp}
 import com.thirdparty.setters.StyleSetter
 import com.thirdparty.tags.HtmlTag
 import org.scalajs.dom
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
-import com.thirdparty.defs.tags.MathMlTags
 
 import scala.scalajs.js.|
 
