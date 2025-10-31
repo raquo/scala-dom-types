@@ -16,3 +16,7 @@ object HtmlTagType extends TagType {
 object SvgTagType extends TagType {
   override val sourceStr: String = "SvgTagType"
 }
+
+object MathMlTagType extends TagType {
+  override val sourceStr: String = "MathMlTagType"
+}

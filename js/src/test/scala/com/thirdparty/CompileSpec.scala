@@ -1,18 +1,19 @@
 package com.thirdparty
 
-import com.thirdparty.defs.attrs.{AriaAttrs, HtmlAttrs, SvgAttrs}
+import com.thirdparty.defs.attrs.{AriaAttrs, HtmlAttrs, MathMlAttrs, SvgAttrs}
 import com.thirdparty.defs.complex.{ComplexHtmlKeys, ComplexSvgKeys}
 import com.thirdparty.defs.eventProps.{DocumentEventProps, GlobalEventProps, WindowEventProps}
 import com.thirdparty.defs.props.Props
 import com.thirdparty.defs.styles.StyleProps
 import com.thirdparty.defs.styles.units.{Calc, Color, Length, Time, Url}
 import com.thirdparty.defs.tags.{HtmlTags, SvgTags}
-import com.thirdparty.keys.{DerivedStyleBuilder, DerivedStyleProp, StyleBuilder, StyleProp, SvgAttr}
+import com.thirdparty.keys.{Attr, DerivedStyleBuilder, DerivedStyleProp, StyleBuilder, StyleProp, SvgAttr}
 import com.thirdparty.setters.StyleSetter
 import com.thirdparty.tags.HtmlTag
 import org.scalajs.dom
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
+import com.thirdparty.defs.tags.MathMlTags
 
 import scala.scalajs.js.|
 
@@ -29,6 +30,17 @@ class CompileSpec extends AnyFunSpec with Matchers {
   // - Aside from the asserts below, this also implicitly tests that
   //   GeneratorSpec produced valid source code, and that the key
   //   names don't have conflicts in them.
+
+  def namespaceUrl(namespace: String): String = {
+    namespace match {
+      case "svg" => "http://www.w3.org/2000/svg"
+      case "xlink" => "http://www.w3.org/1999/xlink"
+      case "xml" => "http://www.w3.org/XML/1998/namespace"
+      case "xmlns" => "http://www.w3.org/2000/xmlns/"
+      case "mathml" => "http://www.w3.org/1998/Math/MathML"
+      case _ => throw new Exception(s"Unknown namespace: ${namespace}")
+    }
+  }
 
   object html
     extends HtmlTags
@@ -50,6 +62,11 @@ class CompileSpec extends AnyFunSpec with Matchers {
     extends SvgTags
     with SvgAttrs
     with ComplexSvgKeys
+
+  object mathMl
+    extends MathMlTags
+    with MathMlAttrs
+
 
   object aria
     extends AriaAttrs
@@ -100,7 +117,30 @@ class CompileSpec extends AnyFunSpec with Matchers {
 
     assert(svg.xlinkHref.namespace.contains("xlink"))
     assert(svg.xlinkHref.qualifiedName == "xlink:href")
-    assert(SvgAttr.namespaceUrl(svg.xlinkHref.namespace.get) == "http://www.w3.org/1999/xlink")
+    assert(namespaceUrl(svg.xlinkHref.namespace.get) == "http://www.w3.org/1999/xlink")
+
+    assert(mathMl.mathTag.domName == "math")
+    assert(mathMl.mi.domName == "mi")
+    assert(mathMl.mn.domName == "mn")
+    assert(mathMl.mo.domName == "mo")
+    assert(mathMl.mrow.domName == "mrow")
+    assert(mathMl.mfrac.domName == "mfrac")
+    assert(mathMl.msup.domName == "msup")
+    assert(mathMl.msub.domName == "msub")
+
+    // mathMl attributes
+
+    assert(mathMl.display.domName == "display")
+    assert(mathMl.mathvariant.domName == "mathvariant")
+    assert(mathMl.displaystyle.domName == "displaystyle")
+    assert(mathMl.scriptlevel.domName == "scriptlevel")
+    assert(mathMl.xmlns.domName == "xmlns")
+
+
+    // xmlns attribute available on SVG & MathML
+
+    assert(svg.xmlns.domName == "xmlns")
+    assert(mathMl.xmlns.domName == "xmlns")
 
     // Aliases
 

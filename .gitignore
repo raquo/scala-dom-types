@@ -1,8 +1,13 @@
 target
 js/yarn.lock
 .bsp
+.bloop
+.metals
+metals.sbt
 
 .idea
+.vscode/settings.json
+.devcontainer
 
 .DS_Store
 .aider*

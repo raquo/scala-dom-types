@@ -2,7 +2,7 @@ package com.raquo.domtypes
 
 import com.raquo.domtypes.codegen.DefType.LazyVal
 import com.raquo.domtypes.codegen._
-import com.raquo.domtypes.common.{HtmlTagType, StyleKeywordDef, SvgTagType}
+import com.raquo.domtypes.common.{HtmlTagType, MathMlTagType, StyleKeywordDef, SvgTagType}
 import com.raquo.domtypes.defs.styles.StyleTraitDefs
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
@@ -90,6 +90,31 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     )
   }
 
+  it("Generate MathMl tags") {
+    println("=== MATHML TAGS ===")
+
+    val traitName = "MathMlTags"
+
+    val fileContent = generator.generateTagsTrait(
+      tagType = MathMlTagType,
+      defGroups = defGroups.mathMlTagsDefGroups,
+      printDefGroupComments = false,
+      traitCommentLines = Nil,
+      traitModifiers = Nil,
+      traitName = traitName,
+      keyKind = "MathMlTag",
+      baseImplDefComments = Nil,
+      keyImplName = "mathMlTag",
+      defType = LazyVal
+    )
+
+    generator.writeToFile(
+      packagePath = generator.tagDefsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
+    )
+  }
+
   it("Generate HTML attributes ") {
     println("=== HTML ATTRS ===")
 
@@ -161,6 +186,34 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
       implNameSuffix = "AriaAttr",
       baseImplDefComments = Nil,
       baseImplName = "ariaAttr",
+      namespaceImports = Nil,
+      namespaceImpl = SourceRepr(_),
+      transformAttrDomName = identity,
+      defType = LazyVal
+    )
+
+    generator.writeToFile(
+      packagePath = generator.attrDefsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
+    )
+  }
+
+  it("Generate MathML attributes ") {
+    println("=== MATHML ATTRS ===")
+
+    val traitName = "MathMlAttrs"
+
+    val fileContent = generator.generateAttrsTrait(
+      defGroups = defGroups.mathMLAttrDefGroups,
+      printDefGroupComments = false,
+      traitModifiers = Nil,
+      traitName = traitName,
+      traitCommentLines = Nil,
+      keyKind = "MathMlAttr",
+      implNameSuffix = "MathMlAttr",
+      baseImplDefComments = Nil,
+      baseImplName = "mathMlAttr",
       namespaceImports = Nil,
       namespaceImpl = _ => ???,
       transformAttrDomName = identity,
