@@ -5,12 +5,12 @@ import com.raquo.domtypes.common.{HtmlTagType, TagDef}
 /**
   * Contains HTML tags which are used less frequently. These are generally
   * imported individually as needed.
-  * 
+  *
   */
 object MiscTagDefs {
-  
+
   val defs: List[TagDef] = List(
-    
+
     TagDef(
       tagType = HtmlTagType,
       scalaName = "titleTag",
@@ -266,21 +266,6 @@ object MiscTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "mathTag",
-      domName = "math",
-      isVoid = false,
-      scalaJsElementTypeAlias = "dom.html.Element",
-      javascriptElementType = "HTMLElement",
-      commentLines = List(
-        "Defines a mathematical formula.",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/math",
-      ),
-    ),
-
-    TagDef(
-      tagType = HtmlTagType,
       scalaName = "mark",
       domName = "mark",
       isVoid = false,
@@ -522,5 +507,5 @@ object MiscTagDefs {
     ),
 
   )
-  
+
 }
