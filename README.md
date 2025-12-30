@@ -327,7 +327,7 @@ Below are the `scalaName`-s of the DOM attributes / props / etc. For the record,
 
 #### Special keys
 
-Certain special keys are not defined in _Scala DOM Types_, and are left for the consuming library to define. Of those, typically:
+Certain special keys are **not** defined in _Scala DOM Types_, and are left for the consuming library to define. Of those, typically:
 
 * `class` attribute is named `className` and aliased as `cls`
 * the `style` attribute is named `styleAttr`

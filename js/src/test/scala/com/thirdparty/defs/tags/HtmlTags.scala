@@ -171,6 +171,15 @@ trait HtmlTags {
 
 
   /**
+    * Placeholder element inside a web component that you can fill with your own markup.
+    *
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot slot @ MDN]]
+    *  - [[https://developer.mozilla.org/en-US/docs/Web/API/HTMLSlotElement HTMLSlotElement @ MDN]]
+    */
+  lazy val slotTag: HtmlTag[dom.HTMLElement] = htmlTag("slot", void = true)
+
+
+  /**
     * Allows the authors to specify alternate media resources for media elements
     * like video or audio
     *

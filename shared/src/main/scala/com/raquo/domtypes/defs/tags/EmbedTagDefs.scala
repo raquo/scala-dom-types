@@ -155,6 +155,22 @@ object EmbedTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
+      scalaName = "slotTag",
+      domName = "slot",
+      isVoid = true,
+      scalaJsElementTypeAlias = "dom.html.Element", // #TODO[scalajsdom] Implement dom.html.Slot https://developer.mozilla.org/en-US/docs/Web/API/HTMLSlotElement
+      javascriptElementType = "HTMLElement", // #TODO[scalajsdom] Implement HTMLSlotElement https://developer.mozilla.org/en-US/docs/Web/API/HTMLSlotElement
+      commentLines = List(
+        "Placeholder element inside a web component that you can fill with your own markup.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot",
+        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLSlotElement",
+      ),
+    ),
+
+    TagDef(
+      tagType = HtmlTagType,
       scalaName = "sourceTag",
       domName = "source",
       isVoid = true,
