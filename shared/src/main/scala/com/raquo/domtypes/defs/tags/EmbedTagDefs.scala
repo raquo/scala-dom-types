@@ -3,22 +3,72 @@ package com.raquo.domtypes.defs.tags
 import com.raquo.domtypes.common.{HtmlTagType, TagDef}
 
 object EmbedTagDefs {
-  
+
   val defs: List[TagDef] = List(
-    
+
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "img",
-      domName = "img",
+      scalaName = "areaTag",
+      domName = "area",
       isVoid = true,
-      scalaJsElementTypeAlias = "dom.html.Image",
-      javascriptElementType = "HTMLImageElement",
+      scalaJsElementTypeAlias = "dom.html.Area",
+      javascriptElementType = "HTMLAreaElement",
       commentLines = List(
-        "Represents an image.",
+        "In conjunction with map, defines an image map",
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img",
-        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area",
+        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLAreaElement",
+      ),
+    ),
+
+    TagDef(
+      tagType = HtmlTagType,
+      scalaName = "audioTag",
+      domName = "audio",
+      isVoid = false,
+      scalaJsElementTypeAlias = "dom.html.Audio",
+      javascriptElementType = "HTMLAudioElement",
+      commentLines = List(
+        "Represents a sound or an audio stream.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio",
+        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement",
+      ),
+    ),
+
+    TagDef(
+      tagType = HtmlTagType,
+      scalaName = "canvasTag",
+      domName = "canvas",
+      isVoid = false,
+      scalaJsElementTypeAlias = "dom.html.Canvas",
+      javascriptElementType = "HTMLCanvasElement",
+      commentLines = List(
+        "Represents a bitmap area that scripts can use to render graphics like graphs,",
+        "games or any visual images on the fly.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas",
+        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement",
+      ),
+    ),
+
+    TagDef(
+      tagType = HtmlTagType,
+      scalaName = "embedTag",
+      domName = "embed",
+      isVoid = true,
+      scalaJsElementTypeAlias = "dom.html.Embed",
+      javascriptElementType = "HTMLEmbedElement",
+      commentLines = List(
+        "Represents a integration point for an external, often non-HTML, application",
+        "or interactive content.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed",
+        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLEmbedElement",
       ),
     ),
 
@@ -40,18 +90,33 @@ object EmbedTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "embedTag",
-      domName = "embed",
+      scalaName = "img",
+      domName = "img",
       isVoid = true,
-      scalaJsElementTypeAlias = "dom.html.Embed",
-      javascriptElementType = "HTMLEmbedElement",
+      scalaJsElementTypeAlias = "dom.html.Image",
+      javascriptElementType = "HTMLImageElement",
       commentLines = List(
-        "Represents a integration point for an external, often non-HTML, application",
-        "or interactive content.",
+        "Represents an image.",
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed",
-        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLEmbedElement",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img",
+        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement",
+      ),
+    ),
+
+    TagDef(
+      tagType = HtmlTagType,
+      scalaName = "mapTag",
+      domName = "map",
+      isVoid = false,
+      scalaJsElementTypeAlias = "dom.html.Map",
+      javascriptElementType = "HTMLMapElement",
+      commentLines = List(
+        "In conjunction with area, defines an image map.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map",
+        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLMapElement",
       ),
     ),
 
@@ -85,39 +150,6 @@ object EmbedTagDefs {
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/param",
         "https://developer.mozilla.org/en-US/docs/Web/API/HTMLParamElement",
-      ),
-    ),
-
-    TagDef(
-      tagType = HtmlTagType,
-      scalaName = "videoTag",
-      domName = "video",
-      isVoid = false,
-      scalaJsElementTypeAlias = "dom.html.Video",
-      javascriptElementType = "HTMLVideoElement",
-      commentLines = List(
-        "Represents a video, and its associated audio files and captions, with the",
-        "necessary interface to play it.",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video",
-        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement",
-      ),
-    ),
-
-    TagDef(
-      tagType = HtmlTagType,
-      scalaName = "audioTag",
-      domName = "audio",
-      isVoid = false,
-      scalaJsElementTypeAlias = "dom.html.Audio",
-      javascriptElementType = "HTMLAudioElement",
-      commentLines = List(
-        "Represents a sound or an audio stream.",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio",
-        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement",
       ),
     ),
 
@@ -157,53 +189,21 @@ object EmbedTagDefs {
 
     TagDef(
       tagType = HtmlTagType,
-      scalaName = "canvasTag",
-      domName = "canvas",
+      scalaName = "videoTag",
+      domName = "video",
       isVoid = false,
-      scalaJsElementTypeAlias = "dom.html.Canvas",
-      javascriptElementType = "HTMLCanvasElement",
+      scalaJsElementTypeAlias = "dom.html.Video",
+      javascriptElementType = "HTMLVideoElement",
       commentLines = List(
-        "Represents a bitmap area that scripts can use to render graphics like graphs,",
-        "games or any visual images on the fly.",
+        "Represents a video, and its associated audio files and captions, with the",
+        "necessary interface to play it.",
       ),
       docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas",
-        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement",
-      ),
-    ),
-
-    TagDef(
-      tagType = HtmlTagType,
-      scalaName = "mapTag",
-      domName = "map",
-      isVoid = false,
-      scalaJsElementTypeAlias = "dom.html.Map",
-      javascriptElementType = "HTMLMapElement",
-      commentLines = List(
-        "In conjunction with area, defines an image map.",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map",
-        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLMapElement",
-      ),
-    ),
-
-    TagDef(
-      tagType = HtmlTagType,
-      scalaName = "areaTag",
-      domName = "area",
-      isVoid = true,
-      scalaJsElementTypeAlias = "dom.html.Area",
-      javascriptElementType = "HTMLAreaElement",
-      commentLines = List(
-        "In conjunction with map, defines an image map",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area",
-        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLAreaElement",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video",
+        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement",
       ),
     ),
 
   )
-  
+
 }
