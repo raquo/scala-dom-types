@@ -9,14 +9,20 @@ trait TagType {
   override def toString: String = sourceStr
 }
 
-object HtmlTagType extends TagType {
+trait SomeTagType extends TagType
+
+object AnyTagType extends TagType {
+  override val sourceStr: String = "AnyTagType"
+}
+
+object HtmlTagType extends SomeTagType {
   override val sourceStr: String = "HtmlTagType"
 }
 
-object SvgTagType extends TagType {
+object SvgTagType extends SomeTagType {
   override val sourceStr: String = "SvgTagType"
 }
 
-object MathMlTagType extends TagType {
+object MathMlTagType extends SomeTagType {
   override val sourceStr: String = "MathMlTagType"
 }

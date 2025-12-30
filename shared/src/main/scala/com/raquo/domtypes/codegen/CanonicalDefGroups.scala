@@ -29,6 +29,10 @@ class CanonicalDefGroups {
     "MathML Tags" -> MathMlTagDefs.defs,
   )
 
+  val globalAttrDefGroups: List[(String, List[AttrDef])] = List(
+    "Global Attrs" -> GlobalAttrDefs.defs
+  )
+
   val htmlAttrDefGroups: List[(String, List[AttrDef])] = List(
     "HTML Attrs" -> HtmlAttrDefs.defs
   )
@@ -42,7 +46,7 @@ class CanonicalDefGroups {
   )
 
   val mathMLAttrDefGroups: List[(String, List[AttrDef])] = List(
-    "MathML Attrs" -> MathMLDefs.defs
+    "MathML Attrs" -> MathMlDefs.defs
   )
 
   val propDefGroups: List[(String, List[PropDef])] = List(

@@ -1,11 +1,19 @@
 package com.thirdparty.keys
 
 import com.thirdparty.codecs.Codec
-import com.thirdparty.setters.HtmlAttrSetter
+import com.thirdparty.setters.{GlobalAttrSetter, HtmlAttrSetter}
 
 trait Attr[V] {
   val domName: String
   val codec: Codec[V, String]
+}
+
+class GlobalAttr[V](
+  override val domName: String,
+  override val codec: Codec[V, String]
+) extends Attr[V] {
+
+  def := (value: V): GlobalAttrSetter[V] = GlobalAttrSetter(this, value)
 }
 
 class HtmlAttr[V](

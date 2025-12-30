@@ -115,6 +115,34 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
     )
   }
 
+  it("Generate global attributes ") {
+    println("=== GLOBAL ATTRS ===")
+
+    val traitName = "GlobalAttrs"
+
+    val fileContent = generator.generateAttrsTrait(
+      defGroups = defGroups.globalAttrDefGroups,
+      printDefGroupComments = false,
+      traitCommentLines = Nil,
+      traitModifiers = Nil,
+      traitName = traitName,
+      keyKind = "GlobalAttr",
+      implNameSuffix = "GlobalAttr",
+      baseImplDefComments = Nil,
+      baseImplName = "globalAttr",
+      namespaceImports = Nil,
+      namespaceImpl = _ => ???,
+      transformAttrDomName = identity,
+      defType = LazyVal
+    )
+
+    generator.writeToFile(
+      packagePath = generator.attrDefsPackagePath,
+      fileName = traitName,
+      fileContent = fileContent
+    )
+  }
+
   it("Generate HTML attributes ") {
     println("=== HTML ATTRS ===")
 

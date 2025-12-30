@@ -1,6 +1,6 @@
 package com.raquo.domtypes.defs.attrs
 
-import com.raquo.domtypes.common.{AttrDef, HtmlTagType}
+import com.raquo.domtypes.common.{AnyTagType, AttrDef}
 
 /**
   * ARIA is a set of special accessibility attributes which can be added
@@ -14,7 +14,7 @@ object AriaAttrDefs {
   val defs: List[AttrDef] = List(
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "activeDescendant",
       domName = "aria-activedescendant",
       namespace = None,
@@ -30,7 +30,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "atomic",
       domName = "aria-atomic",
       namespace = None,
@@ -48,7 +48,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "autoComplete",
       domName = "aria-autocomplete",
       namespace = None,
@@ -66,7 +66,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "busy",
       domName = "aria-busy",
       namespace = None,
@@ -82,7 +82,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "checked",
       domName = "aria-checked",
       namespace = None,
@@ -102,7 +102,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "controls",
       domName = "aria-controls",
       namespace = None,
@@ -119,7 +119,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "current",
       domName = "aria-current",
       namespace = None,
@@ -139,7 +139,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "describedBy",
       domName = "aria-describedby",
       namespace = None,
@@ -156,7 +156,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "disabled",
       domName = "aria-disabled",
       namespace = None,
@@ -173,7 +173,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "dropEffect",
       domName = "aria-dropeffect",
       namespace = None,
@@ -196,7 +196,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "expanded",
       domName = "aria-expanded",
       namespace = None,
@@ -213,7 +213,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "flowTo",
       domName = "aria-flowto",
       namespace = None,
@@ -231,7 +231,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "grabbed",
       domName = "aria-grabbed",
       namespace = None,
@@ -247,7 +247,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "hasPopup",
       domName = "aria-haspopup",
       namespace = None,
@@ -263,7 +263,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "hidden",
       domName = "aria-hidden",
       namespace = None,
@@ -281,7 +281,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "invalid",
       domName = "aria-invalid",
       namespace = None,
@@ -300,7 +300,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "label",
       domName = "aria-label",
       namespace = None,
@@ -317,7 +317,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "labelledBy",
       domName = "aria-labelledby",
       namespace = None,
@@ -334,7 +334,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "level",
       domName = "aria-level",
       namespace = None,
@@ -350,7 +350,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "live",
       domName = "aria-live",
       namespace = None,
@@ -369,7 +369,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "multiLine",
       domName = "aria-multiline",
       namespace = None,
@@ -385,7 +385,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "multiSelectable",
       domName = "aria-multiselectable",
       namespace = None,
@@ -401,7 +401,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "orientation",
       domName = "aria-orientation",
       namespace = None,
@@ -419,7 +419,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "owns",
       domName = "aria-owns",
       namespace = None,
@@ -437,7 +437,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "posInSet",
       domName = "aria-posinset",
       namespace = None,
@@ -454,7 +454,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "pressed",
       domName = "aria-pressed",
       namespace = None,
@@ -473,7 +473,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "readOnly",
       domName = "aria-readonly",
       namespace = None,
@@ -489,7 +489,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "relevant",
       domName = "aria-relevant",
       namespace = None,
@@ -508,7 +508,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "required",
       domName = "aria-required",
       namespace = None,
@@ -524,7 +524,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "selected",
       domName = "aria-selected",
       namespace = None,
@@ -541,7 +541,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "setSize",
       domName = "aria-setsize",
       namespace = None,
@@ -559,7 +559,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "sort",
       domName = "aria-sort",
       namespace = None,
@@ -577,7 +577,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "valueMax",
       domName = "aria-valuemax",
       namespace = None,
@@ -593,7 +593,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "valueMin",
       domName = "aria-valuemin",
       namespace = None,
@@ -609,7 +609,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "valueNow",
       domName = "aria-valuenow",
       namespace = None,
@@ -625,7 +625,7 @@ object AriaAttrDefs {
     ),
 
     AttrDef(
-      tagType = HtmlTagType,
+      tagType = AnyTagType,
       scalaName = "valueText",
       domName = "aria-valuetext",
       namespace = None,

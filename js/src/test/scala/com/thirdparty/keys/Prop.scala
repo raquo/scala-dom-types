@@ -4,8 +4,8 @@ import com.thirdparty.codecs.Codec
 import com.thirdparty.setters.PropSetter
 
 abstract class Prop[V](
-  val name: String,
-  val reflectedAttrName: Option[String]
+  val domPropName: String,
+  val domReflectedAttrName: Option[String]
 ) {
   type DomV
 

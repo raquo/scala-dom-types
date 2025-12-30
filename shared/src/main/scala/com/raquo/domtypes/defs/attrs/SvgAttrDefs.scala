@@ -1275,25 +1275,6 @@ object SvgAttrDefs {
 
     AttrDef(
       tagType = SvgTagType,
-      scalaName = "idAttr",
-      domName = "id",
-      namespace = None,
-      scalaValueType = "String",
-      codec = "StringAsIs",
-      reflectedProp = None,
-      commentLines = List(
-        "The id attribute assigns a unique name to an element. This can be used for referencing the element",
-        "in JavaScript, CSS, and SVG animations. It's also used with fragment identifiers in URLs.",
-        "",
-        "Value: <id>",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/id",
-      ),
-    ),
-
-    AttrDef(
-      tagType = SvgTagType,
       scalaName = "in",
       domName = "in",
       namespace = None,
@@ -2837,25 +2818,6 @@ object SvgAttrDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/surfaceScale",
-      ),
-    ),
-
-    AttrDef(
-      tagType = SvgTagType,
-      scalaName = "tabIndex",
-      domName = "tabindex",
-      namespace = None,
-      scalaValueType = "String",
-      codec = "StringAsIs",
-      reflectedProp = None,
-      commentLines = List(
-        "The tabindex attribute allows you to control whether an element is focusable and to define",
-        "the relative order of the element for the purposes of sequential focus navigation.",
-        "",
-        "Value: <integer>",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/tabindex",
       ),
     ),
 

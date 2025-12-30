@@ -2,7 +2,7 @@ package com.raquo.domtypes.defs.attrs
 
 import com.raquo.domtypes.common.{AttrDef, MathMlTagType}
 
-object MathMLDefs {
+object MathMlDefs {
 
   val defs: List[AttrDef] = List(
 
@@ -268,22 +268,6 @@ object MathMLDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/MathML/Global_attributes/href",
-      ),
-    ),
-
-    AttrDef(
-      tagType = MathMlTagType,
-      scalaName = "idAttr",
-      domName = "id",
-      namespace = None,
-      scalaValueType = "String",
-      codec = "StringAsIs",
-      reflectedProp = None,
-      commentLines = List(
-        "Sets up a unique identifier associated with the element.",
-      ),
-      docUrls = List(
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id",
       ),
     ),
 

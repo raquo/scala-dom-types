@@ -234,7 +234,7 @@ class CanonicalGenerator(
 
     val tagTypes = defs.foldLeft(List[TagType]())((acc, k) => (acc :+ k.tagType).distinct)
     if (tagTypes.size > 1) {
-      throw new Exception("Sorry, generateAttrsTrait does not support mixing attrs of different types in one call. You can contribute a PR (please contact us first), or bypass this limitation by calling AttrsTraitGenerator manually.")
+      throw new Exception(s"Sorry, generateAttrsTrait does not support mixing attrs of different types in one call (${tagTypes.mkString(", ")}). You can contribute a PR (please contact us first), or bypass this limitation by calling AttrsTraitGenerator manually.")
     }
     val tagType = tagTypes.head
 
