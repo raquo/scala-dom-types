@@ -76,7 +76,7 @@ object StyleDefs {
 
     val clearStyle = "clearStyle"
 
-    val colorUrlStyle = "colorUrlStyle"
+    val colorUrlNoneStyle = "colorUrlNoneStyle"
 
     val cursorStyle = "cursorStyle"
 

@@ -268,9 +268,9 @@ object StylePropDefs {
       scalaName = "background",
       domName = "background",
       valueType = valueTypes.String,
-      valueTraits = List(valueTraits.Color),
+      valueTraits = List(valueTraits.Color, valueTraits.None_),
       valueUnits = List(valueUnits.Color, valueUnits.Url),
-      implName = implNames.colorUrlStyle,
+      implName = implNames.colorUrlNoneStyle,
       commentLines = List(
         "The background CSS property is a shorthand for setting the individual",
         "background values in a single place in the style sheet. background can be",
@@ -1335,6 +1335,63 @@ object StylePropDefs {
       ),
       docUrls = List(
         "https://developer.mozilla.org/en-US/docs/Web/CSS/empty-cells",
+      ),
+    ),
+
+    StylePropDef(
+      scalaName = "fill",
+      domName = "fill",
+      valueType = valueTypes.String,
+      valueTraits = List(valueTraits.Color, valueTraits.None_),
+      valueUnits = List(valueUnits.Color, valueUnits.Url),
+      implName = implNames.colorUrlNoneStyle,
+      commentLines = List(
+        "The fill CSS property defines how SVG text content and the interior canvas of",
+        "SVG shapes are filled or painted. If present, it overrides the element's fill",
+        "attribute. Typically, you specify a color value for the fill.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/fill"
+      ),
+    ),
+
+    StylePropDef(
+      scalaName = "fillOpacity",
+      domName = "fill-opacity",
+      valueType = valueTypes.Double,
+      valueTraits = Nil,
+      valueUnits = Nil,
+      implName = implNames.doubleStyle,
+      commentLines = List(
+        "The fill-opacity CSS property defines the opacity of the painting operation",
+        "(color, gradient, pattern, etc.) applied to SVG shapes or text content elements",
+        "to fill the element. The property defines the opacity of the element's fill only;",
+        "it does not affect the stroke. If present, it overrides the element's fill-opacity",
+        "attribute.",
+        "",
+        "Accepted values: numbers from 0 (transparent) to 1 (opaque)",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/fill-opacity",
+      ),
+    ),
+
+    StylePropDef(
+      scalaName = "fillRule",
+      domName = "fill-rule",
+      valueType = valueTypes.String,
+      valueTraits = Nil,
+      valueUnits = Nil,
+      implName = implNames.stringStyle,
+      commentLines = List(
+        "The fill-rule CSS property defines the rule used to determine which parts of the",
+        "SVG shape's canvas are included inside a shape to be filled. If present, it",
+        "overrides the element's fill-rule attribute.",
+        "",
+        "Accepted values: nonzero, evenodd – see visuals in MDN docs."
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/fill-rule",
       ),
     ),
 
