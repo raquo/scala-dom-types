@@ -4,6 +4,34 @@
 
 As an end user, the only breaking chages you care about in this log are renamings or codec changes.
 
+#### v19.0.0 – Jan 2025
+
+* **API: Upgrades for Laminar v18:**
+  * _If you are using SDT in your UI library, you'll need to make some adjustments to your usage of SDT traits, whether you want to generate the same code as before, or stay in line with Laminar's evolving usage patterns. Feel free to check Laminar v18 code for how we use the updated traits there. You can also read the (upcoming) Laminar v18 release blog post to see what UI library features these changes enable._ 
+  * Refactor style types to avoid existentials and overall provide more robust style types
+  * Support Length style trait not having `Num` type param
+  * Support unions `(Int | String)` as CSS key value types
+  * Rename Codecs
+  * Adjust some builder traits etc. (e.g. `keyType` -> `keyKind[_]`) to support v18 code generation
+
+* **New: MathML support (thanks, [@Quafadas](https://github.com/Quafadas)!)**
+
+* **API: Move global attrs like `id` and `tabindex` into a new GlobalAttrs defs trait.**
+
+* New: When obtained via ReflectedHtmlAttr, the props and attrs are now linked. This way you can tell which attr is reflected onto which prop, and vice versa.
+
+* New: `fontFeatureSettings.tnum` keyword
+
+* New: Add `onReadyStateChange` event
+
+* New: Add `slotTag` for Web Components authoring
+
+* New: Add `fill`, `fillOpacity`, `fillRule` style props for SVG
+
+* Docs: Add scaladoc comments for SVG attributes
+
+* Build: Bump versions
+
 #### v18.1.0 – May 2024
 
 * New: Support for Touch events (Thanks, [@felher](https://github.com/felher)!)
