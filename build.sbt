@@ -1,7 +1,7 @@
 import VersionHelper.{versionFmt, fallbackVersion}
 
 // Lets me depend on Maven Central artifacts immediately without waiting
-resolvers ++= Resolver.sonatypeOssRepos("public")
+resolvers += Resolver.sonatypeCentralSnapshots
 
 // Makes sure to increment the version for local development
 ThisBuild / version := dynverGitDescribeOutput.value
@@ -37,8 +37,6 @@ lazy val commonSettings = Seq(
   (Test / parallelExecution) := false,
   (Test / publishArtifact) := false,
   pomIncludeRepository := { _ => false },
-  sonatypeCredentialHost := "s01.oss.sonatype.org",
-  sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 )
 
 lazy val noPublish = Seq(
