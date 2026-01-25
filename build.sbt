@@ -1,8 +1,5 @@
 import VersionHelper.{versionFmt, fallbackVersion}
 
-// Lets me depend on Maven Central artifacts immediately without waiting
-resolvers += Resolver.sonatypeCentralSnapshots
-
 // Makes sure to increment the version for local development
 ThisBuild / version := dynverGitDescribeOutput.value
   .mkVersion(out => versionFmt(out, dynverSonatypeSnapshots.value), fallbackVersion(dynverCurrentDate.value))
