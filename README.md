@@ -32,7 +32,7 @@ As the end-user of these libraries, you do not depend on _Scala DOM Types_ at ru
 * [What about scala-js-dom](#what-about-scala-js-dom)
 * [Design Goals](#design-goals)
 * [Documentation](#documentation)
-  * [How to Use _Scala DOM Types_ in Your Library](#how-to-use-scala-dom-types-in-your-library) 
+  * [How to Use _Scala DOM Types_ in Your Library](#how-to-use-scala-dom-types-in-your-library)
   * [Migrating from an older version of _Scala DOM Types_](#migrating-to-code-generation-from-an-older-version-of-scala-dom-types)
   * [Codecs](#codecs)
   * [Reflected Attributes](#reflected-attributes)
@@ -130,7 +130,7 @@ The purpose of _Scala DOM Types_ is to become a standard DOM types library used 
 
 #### Precise Types
 
-The most important type information must be encoded as Scala types. For example, DOM properties that only accept integers should be typed as such.  
+The most important type information must be encoded as Scala types. For example, DOM properties that only accept integers should be typed as such.
 
 
 #### Reasonably Precise Types
@@ -175,11 +175,11 @@ All naming differences with the DOM API should be documented in the README file 
 
 
 
-### How to Use _Scala DOM Types_ in Your Library 
+### How to Use _Scala DOM Types_ in Your Library
 
 You generally don't want to use _Scala DOM Types_ directly as the end-user. If you just want to generate some HTML on the backend or something similarly simple, you might want to use [ScalaTags](https://github.com/com-lihaoyi/scalatags) instead, or create a new library for that based on _Scala DOM Types_ using the guide below.
 
-So, you're building a DOM manipulation library such as [Laminar](https://github.com/raquo/Laminar), [Outwatch](https://github.com/OutWatch/outwatch) or [ScalaJS-React](https://github.com/japgolly/scalajs-react) (the former two use _Scala DOM Types_, the latter doesn't). This guide focuses on the Scala.js use case. _Scala DOM Types_ is perfectly usable from the backend as well, but it will need more customization. 
+So, you're building a DOM manipulation library such as [Laminar](https://github.com/raquo/Laminar), [Outwatch](https://github.com/OutWatch/outwatch) or [ScalaJS-React](https://github.com/japgolly/scalajs-react) (the former two use _Scala DOM Types_, the latter doesn't). This guide focuses on the Scala.js use case. _Scala DOM Types_ is perfectly usable from the backend as well, but it will need more customization.
 
 First off, if you're building such a library, you need to know quite a few things about how JS DOM works. _Scala DOM Types_ is just a collection of type information, it's not an abstraction layer for the DOM. _You're_ building the abstraction layer. We can't cover everything about JS DOM here, but we will touch on some of the nastier parts in the following sections.
 
@@ -189,8 +189,8 @@ First off, if you're building such a library, you need to know quite a few thing
 
 3. The new version of _Scala DOM Types_ relies on **code generation** to produce simple abstraction-free traits like [GlobalEventProps](https://github.com/raquo/scala-dom-types/blob/master/js/src/test/scala/com/thirdparty/defs/eventProps/GlobalEventProps.scala), tailored for a specific UI library like Laminar. That `GlobalEventProps` file was in fact produced by this code generator as part of _Scala DOM Types_ [GeneratorSpec](https://github.com/raquo/scala-dom-types/blob/master/jvm/src/test/scala/com/raquo/domtypes/GeneratorSpec.scala) test, and its output is verified in [CompileSpec](https://github.com/raquo/scala-dom-types/blob/master/js/src/test/scala/com/thirdparty/CompileSpec.scala).
 
-    Previously, _Scala DOM Types_ offered highly abstracted traits as a runtime dependency of libraries like Laminar. Now, Laminar uses _Scala DOM Types_ at compile time only, generating similar traits at compile time. 
- 
+    Previously, _Scala DOM Types_ offered highly abstracted traits as a runtime dependency of libraries like Laminar. Now, Laminar uses _Scala DOM Types_ at compile time only, generating similar traits at compile time.
+
     In Laminar, the code generation is done in [DomDefsGenerator](https://github.com/raquo/Laminar/blob/master/project/DomDefsGenerator.scala). As you see, the generator is customized with the names of Laminar's own types, package names, and desired folder structure. See Laminar's [build.sbt](https://github.com/raquo/Laminar/blob/master/build.sbt) and [project/build.sbt](https://github.com/raquo/Laminar/blob/master/project/build.sbt) for the compile-time generator build setup.
 
     You will need to create a similar generator setup for your library.
@@ -198,19 +198,19 @@ First off, if you're building such a library, you need to know quite a few thing
 4. There are several ways to customize _Scala DOM Types_ code generation. Simpler ones first:
 
    1. Provide different params to `CanonicalGenerator`'s constructor
-   
+
    2. Provide different params to `CanonicalGenerator`'s `generate*Trait` methods
 
       (Including by transforming the list of defs that you pass to them)
-   
+
    3. Instantiate `TraitGenerator` subclasses manually instead of calling `generate*Trait` methods
-   
+
    4. Override `CanonicalGenerator`'s methods
-   
+
    5. Extend individual `*TraitGenerator` classes, and override their methods
-   
+
    6. Create your own generator, perhaps by extending `TraitGenerator` or `SourceGenerator`
-   
+
    Typical usage of _Scala DOM Types_ should not require overly-involved customization effort. If your Scala.js use case seems unnecessarily hard to achieve, please let me know.
 
 5. Provide the keys that are deliberately missing from _Scala DOM Types_
@@ -234,12 +234,12 @@ First off, if you're building such a library, you need to know quite a few thing
 
     You can implement / customize that in your project if you wish, but this isn't useful enough IMO.
 
-3. CSS styles now have support for unit helpers – e.g. extensions like `paddingTop.px` or `width.calc("20px + 10%")`, however you need to implement all that behaviour, and copy-paste the unit traits into your code – see the [units](https://github.com/raquo/Laminar/tree/master/src/main/scala/com/raquo/laminar/defs/styles/units) in Laminar for example.  
+3. CSS styles now have support for unit helpers – e.g. extensions like `paddingTop.px` or `width.calc("20px + 10%")`, however you need to implement all that behaviour, and copy-paste the unit traits into your code – see the [units](https://github.com/raquo/Laminar/tree/master/src/main/scala/com/raquo/laminar/defs/styles/units) in Laminar for example.
 
 
 ### Reflected Attributes
 
-HTML attributes and DOM properties are different things. As a prerequisite for this section, please read [this StackOverflow answer](https://stackoverflow.com/a/6004028/2601788) first. 
+HTML attributes and DOM properties are different things. As a prerequisite for this section, please read [this StackOverflow answer](https://stackoverflow.com/a/6004028/2601788) first.
 
 For more on this, read [Section 2.6.1 of this DOM spec](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes). Note that it uses the term "IDL attributes" to refer to what we call "DOM properties", and "Content attributes" to refer to what we here call "HTML attributes".
 
@@ -313,6 +313,7 @@ Below are the `scalaName`-s of the DOM attributes / props / etc. For the record,
 * `width` attribute is named `widthAttr` to avoid conflict with `width` CSS property
 * `list` attribute is named `listId` for clarity and consistency
 * `contextmenu` attribute is named `contextMenuId` for clarity and consistency
+* `open` attribute is named `openAttr` to prevent accidental shadowing
 
 #### CSS Style Props
 
