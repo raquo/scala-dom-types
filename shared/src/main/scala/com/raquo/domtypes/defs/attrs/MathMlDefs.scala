@@ -385,8 +385,8 @@ object MathMlDefs {
 
     AttrDef(
       tagType = MathMlTagType,
-      scalaName = "minsize",
-      domName = "minSize",
+      scalaName = "minSize",
+      domName = "minsize",
       namespace = None,
       scalaValueType = "String",
       codec = "StringAsIs",
