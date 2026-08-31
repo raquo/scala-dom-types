@@ -4,7 +4,7 @@
 
 As an end user, the only breaking chages you care about in this log are renamings or codec changes.
 
-#### v19.0.0 – Jan 2025
+#### v19.0.0 – Jan 2026
 
 * **API: Upgrades for Laminar v18:**
   * _If you are using SDT in your UI library, you'll need to make some adjustments to your usage of SDT traits, whether you want to generate the same code as before, or stay in line with Laminar's evolving usage patterns. Feel free to check Laminar v18 code for how we use the updated traits there. You can also read the (upcoming) Laminar v18 release blog post to see what UI library features these changes enable._ 
@@ -21,6 +21,8 @@ As an end user, the only breaking chages you care about in this log are renaming
 * New: When obtained via ReflectedHtmlAttr, the props and attrs are now linked. This way you can tell which attr is reflected onto which prop, and vice versa.
 
 * New: `fontFeatureSettings.tnum` keyword
+
+* New: Add `openAttr` for dialog elements (Thanks, [@mahe-ymc](https://github.com/mahe-ymc)!)
 
 * New: Add `onReadyStateChange` event
 

@@ -3,7 +3,7 @@
 [![Chat on https://discord.gg/JTrUxhq7sj](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/JTrUxhq7sj)
 [![Maven Central](https://img.shields.io/maven-central/v/com.raquo/domtypes_sjs1_3.svg)](https://search.maven.org/artifact/com.raquo/domtypes_sjs1_3)
 
-_Scala DOM Types_ provides listings of Javascript HTML and SVG tags as well as their attributes, DOM properties, and CSS styles, including the corresponding type information.
+_Scala DOM Types_ provides listings of JavaScript HTML, SVG, and MathML tags as well as their attributes, DOM properties, and CSS styles, including the corresponding type information.
 
     "com.raquo" %% "domtypes" % "<version>"     // JVM & SBT
     "com.raquo" %%% "domtypes" % "<version>"    // Scala.js
@@ -115,7 +115,7 @@ There are some other differences, for example _Scala DOM Types_ uses camelCase f
 
 ## What about scala-js-dom
 
-The [scala-js-dom](http://scala-js.github.io/scala-js-dom/) project serves a very different purpose – it provides typed Scala.js interfaces to native Javascript DOM classes such as `HTMLInputElement`. You can use those types when you already have instances of DOM elements, but you can not instantiate those types without using untyped methods like `document.createElement` because that is the only kind of API that Javascript provides for this.
+The [scala-js-dom](http://scala-js.github.io/scala-js-dom/) project serves a very different purpose – it provides typed Scala.js interfaces to native JavaScript DOM classes such as `HTMLInputElement`. You can use those types when you already have instances of DOM elements, but you can not instantiate those types without using untyped methods like `document.createElement` because that is the only kind of API that JavaScript provides for this.
 
 On the other hand, _Scala DOM Types_ lets the consuming library create a type-safe _representation_ of real JS DOM nodes or trees, and it is up to your library's code to instantiate real JS nodes from the provided description.
 
@@ -249,7 +249,7 @@ To keep you sane, _Scala DOM Types_ reflected attributes also normalize the DOM 
 
 Reflected attributes may behave slightly differently depending on whether you implement them as props or attributes. For example, in HTML5 the `cols` reflected attribute has a default value of `20`. If you read the `col` property from an empty `<textarea>` element, you will get `20`. However, if you try to read the attribute `col`, you will get nothing because the attribute was never explicitly set.
 
-Note that Javascript DOM performs better for reading/writing DOM props than reading/writing HTML attributes.
+Note that JavaScript DOM performs better for reading/writing DOM props than reading/writing HTML attributes.
 
 
 ### Codecs
@@ -266,7 +266,7 @@ Which one of those you need to use depends on the attribute. For example, attrib
 
 Similarly, numbers are encoded as strings in attributes, with no such conversion when working with properties.
 
-_Scala DOM Types_ coalesces all these differences using codecs. When implementing a function that builds an attribute, you get provided with the attribute's name (key), datatype, and a codec that knows how to encode / decode that datatype into a value that should be passed to Javascript's native DOM API.
+_Scala DOM Types_ coalesces all these differences using codecs. When implementing a function that builds an attribute, you get provided with the attribute's name (key), datatype, and a codec that knows how to encode / decode that datatype into a value that should be passed to JavaScript's native DOM API.
 
 For example, the codecs for the three boolean options above are `BooleanAsPresence`, `BooleanAsTrueFalseString`, and `BooleanAsYesNoString`.
 
@@ -292,7 +292,7 @@ Below are the `scalaName`-s of the DOM attributes / props / etc. For the record,
 
 #### General
 
-* All `scalaName` identifiers are camelCased for consistency with conventional Scala style, e.g. `datalist` domName translates to `dataList` scalaName.
+* All `scalaName` identifiers are camelCased for consistency with conventional Scala style, e.g. HTML `datalist` domName translates to `dataList` scalaName, and MathML `columnalign` translates to `columnAlign`. This applies to HTML, SVG and MathML alike.
 
 #### Attributes & Props
 * `value` **attribute** is named `defaultValue` because native HTML naming is misleading and confusing ([example](https://stackoverflow.com/a/6004028/2601788))
@@ -302,15 +302,17 @@ Below are the `scalaName`-s of the DOM attributes / props / etc. For the record,
 * `selected` **attribute** is named `defaultSelected` for the same reason
   * Note that the `selected` **property** retains its name
 * `for` attribute and `htmlFor` property are available as reflected attribute `forId` for consistency and to avoid Scala reserved word
-* `id` reflected attribute is named `idAttr`, `max` attribute is `maxAttr`, `min` is `minAttr`, and `step` is `stepAttr` to free up good names for end user code
+* `id` reflected attribute is named `idAttr`, `max` attribute is `maxAttr`, and `min` is `minAttr` to free up good names for end user code (`id` is a global attribute, and `max` / `min` exist on both HTML and SVG – all three are renamed in every namespace)
+* `step` attribute is named `stepAttr` to free up a good name for end user code
 * `name` attribute is named `nameAttr` to free up a good name
 * `offset` and `result` SVG attributes are named `offsetAttr` and `resultAttr` respectively to free up good names for end user code
-* `loading` reflected HTML attribute is named `loadingAttr` to avoid using a good name
+* `loading` reflected attribute is named `loadingAttr` to avoid using a good name
 * `content` attribute is named `contentAttr` to avoid using a common name
 * `form` attribute is named `formId` to avoid conflict with `form` tag
 * `label` attribute is named `labelAttr` to avoid conflict with `label` tag
-* `height` attribute is named `heightAttr` to avoid conflict with `height` CSS property
-* `width` attribute is named `widthAttr` to avoid conflict with `width` CSS property
+* HTML `height` attribute is named `heightAttr` to avoid conflict with `height` CSS property
+* HTML `width` attribute is named `widthAttr` to avoid conflict with `width` CSS property
+* **Note:** SVG and MathML `height` and `width` attributes keep their name (are **not** renamed to `*Attr`), because SVG and MathML typically live under a separate import prefix from HTML & CSS.
 * `list` attribute is named `listId` for clarity and consistency
 * `contextmenu` attribute is named `contextMenuId` for clarity and consistency
 * `open` attribute is named `openAttr` to prevent accidental shadowing
@@ -321,7 +323,7 @@ Below are the `scalaName`-s of the DOM attributes / props / etc. For the record,
 
 #### Tags
 * Many tag names have a "Tag" suffix, usually to free up good names for end user code, or avoid some conflict, e.g.:
-  * `html` -> `htmlRootTag`, `style` -> `styleTag`, `link` -> `linkTag`, `param` -> `paramTag`, `map` -> `mapTag`, `title` -> `titleTag`, etc.
+  * `html` -> `htmlRootTag`, `style` -> `styleTag`, `link` -> `linkTag`, `param` -> `paramTag`, `map` -> `mapTag`, `title` -> `titleTag`, `math` -> `mathTag`, etc.
 
 #### Aliases
 * Attribute `type` == `typ` == `tpe` to avoid Scala reserved word
@@ -339,7 +341,7 @@ Certain special keys are **not** defined in _Scala DOM Types_, and are left for 
 ## My Related Projects
 
 - [Laminar](https://github.com/raquo/Laminar) – Reactive UI library based on _Scala DOM Types_
-- [Scala DOM TestUtils](https://github.com/raquo/scala-dom-testutils) – Test that your Javascript DOM nodes match your expectations
+- [Scala DOM TestUtils](https://github.com/raquo/scala-dom-testutils) – Test that your JavaScript DOM nodes match your expectations
 
 
 
