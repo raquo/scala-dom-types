@@ -771,6 +771,24 @@ object ReflectedHtmlAttrDefs {
     ),
 
     ReflectedHtmlAttrDef(
+      scalaName = "openAttr",
+      domAttrName = "open",
+      domPropName = "open",
+      scalaValueType = "Boolean",
+      domPropValueType = "Boolean",
+      attrCodec = "BooleanAsAttrPresence",
+      propCodec = "BooleanAsIs",
+      commentLines = List(
+        "Indicates whether the details or dialog box is open.",
+      ),
+      docUrls = List(
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details#open",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#open",
+        "https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/open"
+      ),
+    ),
+
+    ReflectedHtmlAttrDef(
       scalaName = "optimum",
       domAttrName = "optimum",
       domPropName = "optimum",
