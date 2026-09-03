@@ -1,15 +1,7 @@
-import VersionHelper.{versionFmt, fallbackVersion}
+// Auto-increment version for local development
+ThisBuild / version := buildKitDynVer.version.value
 
-// Makes sure to increment the version for local development
-ThisBuild / version := dynverGitDescribeOutput.value
-  .mkVersion(out => versionFmt(out, dynverSonatypeSnapshots.value), fallbackVersion(dynverCurrentDate.value))
-
-ThisBuild / dynver := {
-  val d = new java.util.Date
-  sbtdynver.DynVer
-    .getGitDescribeOutput(d)
-    .mkVersion(out => versionFmt(out, dynverSonatypeSnapshots.value), fallbackVersion(d))
-}
+ThisBuild / dynver := buildKitDynVer.dynver.value
 
 (ThisBuild / scalaVersion) := Versions.Scala_2_12
 
