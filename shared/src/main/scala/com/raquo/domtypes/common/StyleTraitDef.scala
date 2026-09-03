@@ -15,7 +15,7 @@ package com.raquo.domtypes.common
   *                             of the first keyword in the group, e.g. see the "display"
   *                             keywords.
   */
-case class StyleTraitDef (
+case class StyleTraitDef(
   scalaName: String,
   extendsTraits: List[String],
   extendsUnits: List[String],

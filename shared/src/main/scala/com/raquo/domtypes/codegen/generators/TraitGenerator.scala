@@ -32,7 +32,6 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
 
   protected val outputImplDefs: Boolean
 
-
   def printTrait(): this.type = {
     headerLines.foreach(line)
     line()
@@ -144,7 +143,7 @@ abstract class TraitGenerator[Def](format: CodeFormatting) extends SourceGenerat
     } else {
       List(s"Aliases: ${scalaAliases.map(alias => s"[[$alias]]").mkString(", ")}")
     }
-    val docLines = if(docUrls.isEmpty) {
+    val docLines = if (docUrls.isEmpty) {
       Nil
     } else {
       docUrls.map(urlDocLink(_, prefix = if (docUrls.size > 1) " - " else ""))

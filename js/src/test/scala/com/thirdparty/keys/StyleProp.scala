@@ -5,14 +5,14 @@ import com.thirdparty.setters.StyleSetter
 
 import scala.language.implicitConversions
 
-case class StyleProp[V](
+class StyleProp[V](
   val domName: String
-) extends
-  StyleBuilder[StyleSetter[V, String]]
-  with DerivedStyleBuilder[DerivedStyleProp]
-  with GlobalKeywords[V] {
+)
+extends StyleBuilder[StyleSetter[V, String]]
+with DerivedStyleBuilder[DerivedStyleProp]
+with GlobalKeywords[V] {
 
-  def := [ThisV <: V](value: ThisV): StyleSetter[V, ThisV] = StyleSetter(this, value)
+  def :=[ThisV <: V](value: ThisV): StyleSetter[V, ThisV] = StyleSetter(this, value)
 
   // #Note This overload is needed for Scala 2 (but it's also active in Scala 3)
   def :=[ThisV](value: ThisV)(implicit ev: ThisV => V): StyleSetter[V, V] =

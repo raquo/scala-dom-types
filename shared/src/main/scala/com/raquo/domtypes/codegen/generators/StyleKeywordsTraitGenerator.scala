@@ -30,7 +30,7 @@ class StyleKeywordsTraitGenerator(
   override protected val outputImplDefs: Boolean = false
 
   override protected val traitExtends: List[String] = {
-    extendsFeatureTraits ++ extendsUnitTraits //.map(_.replace("[_", "[" + derivedKeyKind).replace("_]", derivedKeyKind + "]"))
+    extendsFeatureTraits ++ extendsUnitTraits // .map(_.replace("[_", "[" + derivedKeyKind).replace("_]", derivedKeyKind + "]"))
   }
 
   override protected def printDef(keyDef: StyleKeywordDef, alias: Option[String]): Unit = {

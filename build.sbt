@@ -1,3 +1,11 @@
+ThisBuild / buildKitDownloads := Seq(
+  _.fromGithubTag(
+    repo = "raquo/scalafmt-config",
+    filePath = ".scalafmt.shared.conf",
+    tag = "v0.1.0"
+  ).withDoNotEditComment(_.`#`)
+)
+
 // Auto-increment version for local development
 ThisBuild / version := buildKitDynVer.version.value
 

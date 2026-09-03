@@ -11,7 +11,7 @@ abstract class Prop[V](
 
   val codec: Codec[V, DomV]
 
-  def := (value: V): PropSetter[V] = new PropSetter(this, value)
+  def :=(value: V): PropSetter[V] = new PropSetter(this, value)
 }
 
 object Prop {

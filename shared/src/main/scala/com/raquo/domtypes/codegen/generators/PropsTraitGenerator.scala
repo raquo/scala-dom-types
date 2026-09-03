@@ -1,7 +1,7 @@
 package com.raquo.domtypes.codegen.generators
 
+import com.raquo.domtypes.codegen.{CodeFormatting, DefType}
 import com.raquo.domtypes.codegen.DefType.InlineProtectedDef
-import com.raquo.domtypes.codegen.{DefType, CodeFormatting}
 import com.raquo.domtypes.common.PropDef
 
 class PropsTraitGenerator(
@@ -116,7 +116,7 @@ class PropsTraitGenerator(
       baseImplName,
       s"(",
       s"$keyImplNameArgName, ",
-      keyImplReflectedAttrNameArgName.map { argName => s"Option($argName), "}.getOrElse(""),
+      keyImplReflectedAttrNameArgName.map { argName => s"Option($argName), " }.getOrElse(""),
       s"${transformCodecName(codecByImplName(implName))})",
     )
     line()

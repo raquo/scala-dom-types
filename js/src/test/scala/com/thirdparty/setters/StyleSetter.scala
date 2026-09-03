@@ -6,4 +6,7 @@ import com.thirdparty.keys.StyleProp
 // ThisV is supposed to be more specific in th latter case –
 // typically ThisV is either A or String to give you a more
 // precise type.
-case class StyleSetter[V, ThisV](prop: StyleProp[V], value: ThisV)
+case class StyleSetter[V, ThisV](
+  prop: StyleProp[V],
+  value: ThisV
+)

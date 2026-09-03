@@ -42,53 +42,52 @@ class CompileSpec extends AnyFunSpec with Matchers { self =>
   }
 
   object html
-    extends HtmlTags
-    with HtmlAttrs
-    with GlobalAttrs
-    with Props
-    with ComplexHtmlKeys
-    with GlobalEventProps
-    with StyleProps
+  extends HtmlTags
+  with HtmlAttrs
+  with GlobalAttrs
+  with Props
+  with ComplexHtmlKeys
+  with GlobalEventProps
+  with StyleProps
 
   object documentEvents
-    extends GlobalEventProps
-    with DocumentEventProps
+  extends GlobalEventProps
+  with DocumentEventProps
 
   object windowEvents
-    extends GlobalEventProps
-    with WindowEventProps
+  extends GlobalEventProps
+  with WindowEventProps
 
   object svg
-    extends SvgTags
-    with SvgAttrs
-    with GlobalAttrs
-    with ComplexSvgKeys {
+  extends SvgTags
+  with SvgAttrs
+  with GlobalAttrs
+  with ComplexSvgKeys {
 
     lazy val aria: AriaAttrs = self.aria
   }
 
   object mathMl
-    extends MathMlTags
-    with MathMlAttrs
-    with GlobalAttrs {
+  extends MathMlTags
+  with MathMlAttrs
+  with GlobalAttrs {
 
     lazy val aria: AriaAttrs = self.aria
   }
 
-
   object aria
-    extends AriaAttrs
+  extends AriaAttrs
 
   type StyleEncoder[A] = A => String
 
   object style
-    extends DerivedStyleBuilder[StyleEncoder]
-    with StyleBuilder[String]
-    with Color[String]
-    with Url[StyleEncoder]
-    with Length[StyleEncoder]
-    with Time[StyleEncoder]
-    with Calc[StyleEncoder] {
+  extends DerivedStyleBuilder[StyleEncoder]
+  with StyleBuilder[String]
+  with Color[String]
+  with Url[StyleEncoder]
+  with Length[StyleEncoder]
+  with Time[StyleEncoder]
+  with Calc[StyleEncoder] {
 
     override protected def styleSetter(value: String): String = value
 
@@ -144,7 +143,6 @@ class CompileSpec extends AnyFunSpec with Matchers { self =>
     assert(mathMl.scriptLevel.domName == "scriptlevel")
     assert(mathMl.xmlns.domName == "xmlns")
 
-
     // xmlns attribute available on SVG & MathML
 
     assert(svg.xmlns.domName == "xmlns")
@@ -171,7 +169,6 @@ class CompileSpec extends AnyFunSpec with Matchers { self =>
     html.zIndex := "1"
     html.zIndex := (1: Int | String)
     html.zIndex := (1: String | Int)
-
 
     // CSS keywords
 

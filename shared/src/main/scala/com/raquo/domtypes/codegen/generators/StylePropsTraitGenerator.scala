@@ -1,7 +1,7 @@
 package com.raquo.domtypes.codegen.generators
 
-import com.raquo.domtypes.codegen.DefType.ProtectedDef
 import com.raquo.domtypes.codegen.{CodeFormatting, DefType}
+import com.raquo.domtypes.codegen.DefType.ProtectedDef
 import com.raquo.domtypes.common.StylePropDef
 
 class StylePropsTraitGenerator(
@@ -234,7 +234,6 @@ class StylePropsTraitGenerator(
     val valueTraits = valueTraitsByImplName(implName)
     val valueUnitTraits = valueUnitTraitsByImplName(implName)
     val typeParam = if (implName.contains("[_]")) "V" else distinctValueTypesByImplName(implName).head
-
 
     enter(List[String](
       ProtectedDef.codeStr,

@@ -1,6 +1,6 @@
 package com.raquo.domtypes.codegen.generators
 
-import com.raquo.domtypes.codegen.{DefType, CodeFormatting}
+import com.raquo.domtypes.codegen.{CodeFormatting, DefType}
 import com.raquo.domtypes.common.EventPropDef
 
 class EventPropsTraitGenerator(

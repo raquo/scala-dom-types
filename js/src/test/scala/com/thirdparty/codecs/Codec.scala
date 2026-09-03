@@ -10,7 +10,7 @@ package com.thirdparty.codecs
   *
   * Scala DOM Types hides all this mess from you using codecs. All those pseudo-boolean
   * attributes would be simply `Attr[Boolean](name, codec)` in your code.
-  * */
+  */
 trait Codec[ScalaType, DomType] { self =>
 
   /** Convert the result of a `dom.Node.getAttribute` call to appropriate Scala type.

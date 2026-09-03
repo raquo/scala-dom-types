@@ -13,7 +13,7 @@ class GlobalAttr[V](
   override val codec: Codec[V, String]
 ) extends Attr[V] {
 
-  def := (value: V): GlobalAttrSetter[V] = GlobalAttrSetter(this, value)
+  def :=(value: V): GlobalAttrSetter[V] = GlobalAttrSetter(this, value)
 }
 
 class HtmlAttr[V](
@@ -21,7 +21,7 @@ class HtmlAttr[V](
   override val codec: Codec[V, String]
 ) extends Attr[V] {
 
-  def := (value: V): HtmlAttrSetter[V] = HtmlAttrSetter(this, value)
+  def :=(value: V): HtmlAttrSetter[V] = HtmlAttrSetter(this, value)
 }
 
 class SvgAttr[V](

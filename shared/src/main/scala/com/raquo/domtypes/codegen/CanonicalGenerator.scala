@@ -130,7 +130,6 @@ class CanonicalGenerator(
     names.filter(_.nonEmpty).mkString(".")
   }
 
-
   // --
 
   def writeToFile(packagePath: String, fileName: String, fileContent: String): File = {
@@ -357,9 +356,11 @@ class CanonicalGenerator(
   ): String = {
     val (defs, defGroupComments) = defsAndGroupComments(defSources, printDefGroupComments)
 
-    val baseImplDef = if (outputBaseImpl) List(
-      s"def ${keyImplName}[Ev <: ${baseScalaJsEventType}]($keyImplNameArgName: String): ${keyKind}[Ev] = ${keyKindConstructor(keyKind)}($keyImplNameArgName)"
-    ) else {
+    val baseImplDef = if (outputBaseImpl) {
+      List(
+        s"def ${keyImplName}[Ev <: ${baseScalaJsEventType}]($keyImplNameArgName: String): ${keyKind}[Ev] = ${keyKindConstructor(keyKind)}($keyImplNameArgName)"
+      )
+    } else {
       Nil
     }
 
@@ -532,7 +533,7 @@ class CanonicalGenerator(
         } else {
           Nil
         }
-        )
+      )
     ) ++ List("") ++ standardTraitCommentLines.map("// " + _)
 
     val generator = new StyleKeywordsTraitGenerator(
@@ -546,9 +547,13 @@ class CanonicalGenerator(
       traitThisType = traitThisType,
       extendsFeatureTraits = extendsTraits,
       traitExtendsFallbackTypeParam = traitExtendsFallbackTypeParam,
-      extendsUnitTraits = if (outputUnitTypes) extendsUnitTraits.map(
-        transformUnitTraitName(keywordType, derivedKeyKind, lengthUnitsNumType)
-      ) else Nil,
+      extendsUnitTraits = if (outputUnitTypes) {
+        extendsUnitTraits.map(
+          transformUnitTraitName(keywordType, derivedKeyKind, lengthUnitsNumType)
+        )
+      } else {
+        Nil
+      },
       keyImplName = _ => ???, // unused, the implementation is not function-based for keywords
       keyImplNameArgName = keyImplNameArgName, // unused, the implementation is not function-based for keywords
       keywordImpl = keywordImpl,

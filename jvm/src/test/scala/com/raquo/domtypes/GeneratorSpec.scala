@@ -1,7 +1,7 @@
 package com.raquo.domtypes
 
-import com.raquo.domtypes.codegen.DefType.LazyVal
 import com.raquo.domtypes.codegen._
+import com.raquo.domtypes.codegen.DefType.LazyVal
 import com.raquo.domtypes.common.{HtmlTagType, MathMlTagType, StyleKeywordDef, SvgTagType}
 import com.raquo.domtypes.defs.styles.StyleTraitDefs
 import org.scalatest.funspec.AnyFunSpec
@@ -421,7 +421,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
         traitName = styleTrait.scalaName,
         traitTypeParam = Some("V"),
         traitThisType = traitThisType,
-        extendsTraits = styleTrait.extendsTraits, //.map(_.replace("[_]", "")),
+        extendsTraits = styleTrait.extendsTraits, // .map(_.replace("[_]", "")),
         traitExtendsFallbackTypeParam = Some("String"),
         extendsUnitTraits = styleTrait.extendsUnits,
         propKind = "StyleProp",
@@ -439,7 +439,7 @@ class GeneratorSpec extends AnyFunSpec with Matchers {
           // }
         },
         derivedKeyKind = "DerivedStyleProp",
-        lengthUnitsNumType = None, //Some("Int | Double"),
+        lengthUnitsNumType = None, // Some("Int | Double"),
         defType = LazyVal,
         outputUnitTypes = true
       )

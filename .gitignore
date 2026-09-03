@@ -5,6 +5,8 @@ js/yarn.lock
 .metals
 metals.sbt
 
+.buildkit
+
 .idea
 .vscode/settings.json
 .devcontainer
