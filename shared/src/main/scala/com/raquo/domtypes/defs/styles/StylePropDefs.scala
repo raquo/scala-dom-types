@@ -2456,7 +2456,7 @@ object StylePropDefs {
     ),
 
     StylePropDef(
-      scalaName = "quotes",
+      scalaName = "quotesCss",
       domName = "quotes",
       valueType = valueTypes.String,
       valueTraits = Nil,

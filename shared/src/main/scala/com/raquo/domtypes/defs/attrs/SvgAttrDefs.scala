@@ -2785,7 +2785,7 @@ object SvgAttrDefs {
 
     AttrDef(
       tagType = SvgTagType,
-      scalaName = "style",
+      scalaName = "styleAttr",
       domName = "style",
       namespace = None,
       scalaValueType = "String",

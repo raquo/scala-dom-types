@@ -1709,7 +1709,7 @@ trait StyleProps {
     *
     * [[https://developer.mozilla.org/en-US/docs/Web/CSS/quotes quotes @ MDN]]
     */
-  lazy val quotes: StyleProp[String] = stringStyle("quotes")
+  lazy val quotesCss: StyleProp[String] = stringStyle("quotes")
 
 
   /**

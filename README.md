@@ -320,6 +320,7 @@ Below are the `scalaName`-s of the DOM attributes / props / etc. For the record,
 #### CSS Style Props
 
 * `content` prop is named `contentCss` to avoid using a common name
+* `quotes` prop is named `quotesCss` to avoid interfering with Scala 3 macro authoring
 
 #### Tags
 * Many tag names have a "Tag" suffix, usually to free up good names for end user code, or avoid some conflict, e.g.:
